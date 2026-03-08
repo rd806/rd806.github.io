@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on RunicDolphin806</title>
-        <link>https://5882886.github.io/page/</link>
+        <link>https://rd806.github.io/page/</link>
         <description>Recent content in Pages on RunicDolphin806</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 31 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>归档</title>
-        <link>https://5882886.github.io/archives/</link>
+        <link>https://rd806.github.io/archives/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/archives/</guid>
+        <guid>https://rd806.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>壹题</title>
-        <link>https://5882886.github.io/exercises/</link>
+        <link>https://rd806.github.io/exercises/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/exercises/</guid>
+        <guid>https://rd806.github.io/exercises/</guid>
         <description>&lt;p&gt;&lt;strong&gt; 学习新思想，争做新青年！&lt;/strong&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>关于</title>
-        <link>https://5882886.github.io/about/</link>
+        <link>https://rd806.github.io/about/</link>
         <pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/about/</guid>
+        <guid>https://rd806.github.io/about/</guid>
         <description>&lt;h2 id=&#34;博客的由来&#34;&gt;博客的由来
 &lt;/h2&gt;&lt;p&gt;时间回到2025年7月，因为不想频繁用搜索引擎或者AI工具查资料，就想着自己搭一个博客网站。&lt;/p&gt;
 &lt;p&gt;Hugo 的 stack 主题设计了许多有意思的功能，而且结构十分严密，非常适合我这样的新手入门！&lt;/p&gt;
@@ -1553,18 +1553,18 @@
         </item>
         <item>
         <title>链接</title>
-        <link>https://5882886.github.io/links/</link>
+        <link>https://rd806.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/links/</guid>
+        <guid>https://rd806.github.io/links/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://5882886.github.io/search/</link>
+        <link>https://rd806.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/search/</guid>
+        <guid>https://rd806.github.io/search/</guid>
         <description></description>
         </item>
         

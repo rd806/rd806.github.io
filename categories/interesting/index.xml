@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>小乐趣 on RunicDolphin806</title>
-        <link>https://5882886.github.io/categories/interesting/</link>
+        <link>https://rd806.github.io/categories/interesting/</link>
         <description>Recent content in 小乐趣 on RunicDolphin806</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/interesting/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/interesting/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Proxy实验</title>
-        <link>https://5882886.github.io/p/proxy/</link>
+        <link>https://rd806.github.io/p/proxy/</link>
         <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/proxy/</guid>
+        <guid>https://rd806.github.io/p/proxy/</guid>
         <description>&lt;p&gt;本实验的所有内容均在&lt;code&gt;proxy.c&lt;/code&gt;文件中完成。&lt;/p&gt;
 &lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/hankeke303/p/18155107/csapp-proxylab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hankeke303
@@ -31,7 +31,7 @@
 &lt;/h2&gt;&lt;p&gt;实现顺序的代理服务器实际上就是一个&lt;code&gt;tiny&lt;/code&gt;服务器的复刻。&lt;/p&gt;
 &lt;h3 id=&#34;main函数&#34;&gt;&lt;code&gt;main&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;main&lt;/code&gt;函数参考书上 P672 的实例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/proxy/images/main.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/proxy/images/main.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;main函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -204,7 +204,7 @@
 &lt;/h2&gt;&lt;p&gt;这一部分的任务是实现处理并发请求。&lt;/p&gt;
 &lt;h3 id=&#34;main函数-1&#34;&gt;&lt;code&gt;main&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;参考书上 P709 的实现。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/proxy/images/main_pthread.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/proxy/images/main_pthread.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;引入线程的main函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -484,10 +484,10 @@
         </item>
         <item>
         <title>运行《深入理解计算机系统》的代码</title>
-        <link>https://5882886.github.io/p/csapp/</link>
+        <link>https://rd806.github.io/p/csapp/</link>
         <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/csapp/</guid>
+        <guid>https://rd806.github.io/p/csapp/</guid>
         <description>&lt;p&gt;《深入理解计算机系统》（第三版）一书中提供了很多代码实例，但我一直没有运行过。现在就以第11章 P662 “echo客户端和服务端的示例”为例运行一下。&lt;/p&gt;
 &lt;p&gt;本次实验均在 WSL2 的 Ubuntu-22.04 系统上进行。&lt;/p&gt;
 &lt;h2 id=&#34;准备头文件&#34;&gt;准备头文件
@@ -506,7 +506,7 @@
     
 
 &lt;/a&gt;进入本书配套的网站，找到&lt;code&gt;You can download a tarfile&lt;/code&gt;字段，点击链接下载压缩文件。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/csapp/website.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/csapp/website.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;配套网站&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -617,10 +617,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 之后可以输入内容&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 观察服务端终端的内容&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;运行结果&#34;&gt;运行结果
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/csapp/ServerOutput.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/csapp/ServerOutput.png&#34;
 	width=&#34;895&#34;
 	height=&#34;209&#34;
-	srcset=&#34;https://5882886.github.io/p/csapp/ServerOutput_hu_38006c2c4a494382.png 480w, https://5882886.github.io/p/csapp/ServerOutput_hu_a29c06a219ffb265.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/csapp/ServerOutput_hu_38006c2c4a494382.png 480w, https://rd806.github.io/p/csapp/ServerOutput_hu_a29c06a219ffb265.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;服务端输出结果&#34;
@@ -631,10 +631,10 @@
 		data-flex-basis=&#34;1027px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/csapp/ClientOutput.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/csapp/ClientOutput.png&#34;
 	width=&#34;874&#34;
 	height=&#34;249&#34;
-	srcset=&#34;https://5882886.github.io/p/csapp/ClientOutput_hu_bac62e0e07427c99.png 480w, https://5882886.github.io/p/csapp/ClientOutput_hu_2bca34f989e0f72b.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/csapp/ClientOutput_hu_bac62e0e07427c99.png 480w, https://rd806.github.io/p/csapp/ClientOutput_hu_2bca34f989e0f72b.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;客户端输出结果&#34;
@@ -649,10 +649,10 @@
         </item>
         <item>
         <title>Malloc实验</title>
-        <link>https://5882886.github.io/p/malloc/</link>
+        <link>https://rd806.github.io/p/malloc/</link>
         <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/malloc/</guid>
+        <guid>https://rd806.github.io/p/malloc/</guid>
         <description>&lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/hankeke303/p/18155103/csapp-malloclab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hankeke303大佬
     
@@ -704,7 +704,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;宏定义&#34;&gt;宏定义
 &lt;/h2&gt;&lt;p&gt;大致和书上使用的宏定义相同，不过最后有几个和分离适配的链表相关，&lt;code&gt;LIST_PRE&lt;/code&gt;和 &lt;code&gt;LIST_NEXT&lt;/code&gt;表示这个块上存储上一块和下一块的位置的指针，&lt;code&gt;LIST_HEAD&lt;/code&gt;表示第 $i$ 个大小类的头指针，&lt;code&gt;GET_XXX&lt;/code&gt;是这三个宏定义的解引用版本。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/malloc/images/%E5%9F%BA%E6%9C%AC%E5%B8%B8%E6%95%B0%E5%92%8C%E5%AE%8F.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/malloc/images/%E5%9F%BA%E6%9C%AC%E5%B8%B8%E6%95%B0%E5%92%8C%E5%AE%8F.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;操作空闲链表的基本常数和宏&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -763,7 +763,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;函数实现&#34;&gt;函数实现
 &lt;/h2&gt;&lt;h3 id=&#34;初始化&#34;&gt;初始化
 &lt;/h3&gt;&lt;p&gt;在书上 P600 提供了一个简易版本：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/malloc/images/%E5%88%9D%E5%A7%8B%E5%8C%96%E7%A9%BA%E9%97%B2%E5%9D%97.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/malloc/images/%E5%88%9D%E5%A7%8B%E5%8C%96%E7%A9%BA%E9%97%B2%E5%9D%97.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;初始化空闲块&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -791,7 +791,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，&lt;code&gt;extend_heap&lt;/code&gt;函数用来将堆扩展&lt;code&gt;CHUNKSIZE&lt;/code&gt;字节，并且创建初始的空闲块。此刻，分配器已初始化了，并且准备好接受来自应用的分配和释放请求。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/malloc/images/extend_heap.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/malloc/images/extend_heap.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;extend_heap函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -958,7 +958,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;核心&#34;&gt;核心
 &lt;/h3&gt;&lt;p&gt;动态内存分配的核心函数包括&lt;code&gt;mm_malloc&lt;/code&gt;，&lt;code&gt;mm_free&lt;/code&gt;和&lt;code&gt;mm_realloc&lt;/code&gt;。&lt;/p&gt;
 &lt;h4 id=&#34;分配&#34;&gt;分配
-&lt;/h4&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/malloc/images/mm_malloc.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h4&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/malloc/images/mm_malloc.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mm_malloc函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -997,7 +997,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;释放&#34;&gt;释放
 &lt;/h4&gt;&lt;p&gt;&lt;code&gt;mm_free&lt;/code&gt;函数比较简单，将这个块的头部、脚部标记为空闲块，调用&lt;code&gt;coalesce&lt;/code&gt;合并空闲块并插入链表即可。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/malloc/images/mm_free.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/malloc/images/mm_free.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mm_free函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1041,10 +1041,10 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         </item>
         <item>
         <title>NEMU-PART III</title>
-        <link>https://5882886.github.io/p/nemu-part-3/</link>
+        <link>https://rd806.github.io/p/nemu-part-3/</link>
         <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/nemu-part-3/</guid>
+        <guid>https://rd806.github.io/p/nemu-part-3/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA3：存储管理&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;实现高速缓存&#34;&gt;实现高速缓存
 &lt;/h2&gt;&lt;p&gt;经过实践，高速缓存的一级和二级结构最好同时实现，否则会在分页控制中出现难以预料的bug！&lt;/p&gt;
@@ -1436,11 +1436,11 @@ init_mm()函数执行退出时。该函数将nemu映射到了高位地址并且�
         </item>
         <item>
         <title>概率论与数理统计</title>
-        <link>https://5882886.github.io/p/probability/</link>
+        <link>https://rd806.github.io/p/probability/</link>
         <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/probability/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg" alt="Featured image of post 概率论与数理统计" /&gt;&lt;blockquote&gt;
+        <guid>https://rd806.github.io/p/probability/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg" alt="Featured image of post 概率论与数理统计" /&gt;&lt;blockquote&gt;
 &lt;p&gt;依旧期末速通……&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;随机事件与概率&#34;&gt;随机事件与概率
@@ -2810,11 +2810,11 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
         </item>
         <item>
         <title>Tex排版</title>
-        <link>https://5882886.github.io/p/texstudio/</link>
+        <link>https://rd806.github.io/p/texstudio/</link>
         <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/texstudio/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg" alt="Featured image of post Tex排版" /&gt;&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
+        <guid>https://rd806.github.io/p/texstudio/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg" alt="Featured image of post Tex排版" /&gt;&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
 &lt;/h2&gt;&lt;p&gt;排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -2892,10 +2892,10 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
         </item>
         <item>
         <title>Shell实验</title>
-        <link>https://5882886.github.io/p/shell/</link>
+        <link>https://rd806.github.io/p/shell/</link>
         <pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/shell/</guid>
+        <guid>https://rd806.github.io/p/shell/</guid>
         <description>&lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/zhiyiYo/p/16297819.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;之一Yo大佬
     
@@ -3001,7 +3001,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 &lt;h2 id=&#34;函数实现&#34;&gt;函数实现
 &lt;/h2&gt;&lt;h3 id=&#34;eval函数&#34;&gt;&lt;code&gt;eval&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;在《深入理解计算机系统》第525页给出了&lt;code&gt;eval&lt;/code&gt;函数的核心代码：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/shell/images/eval%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/shell/images/eval%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;eval函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3072,14 +3072,14 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中&lt;code&gt;Fork()&lt;/code&gt;函数定义可以在《深入理解计算机系统》第512页找到：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/shell/images/Fork%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/shell/images/Fork%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Fork函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;builtin_cmd函数&#34;&gt;&lt;code&gt;builtin_cmd&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;在《深入理解计算机系统》第525页同样给出了&lt;code&gt;builtin_cmd&lt;/code&gt;函数的核心代码：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/shell/images/builtin_cmd%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/shell/images/builtin_cmd%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;builtin_cmd函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3135,7 +3135,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 &lt;p&gt;为了做到将&lt;code&gt;SIGCONT&lt;/code&gt;信号发送给进程组中的每一个进程，需要将&lt;code&gt;kill&lt;/code&gt;函数的&lt;code&gt;pid&lt;/code&gt;参数取负值，不然就只发给指定的进程了。具体可参见&lt;code&gt;kill&lt;/code&gt;函数在《深入理解计算机系统》第530页的定义：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;kill&lt;/code&gt;函数的定义位于《深入理解计算机系统》第530页：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/shell/images/kill%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/shell/images/kill%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;kill函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3264,23 +3264,23 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
         </item>
         <item>
         <title>图像处理的数学原理</title>
-        <link>https://5882886.github.io/p/math_in_images/</link>
+        <link>https://rd806.github.io/p/math_in_images/</link>
         <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_in_images/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/math_in_images/jye-RuTMP0iI_ek-unsplash.jpg" alt="Featured image of post 图像处理的数学原理" /&gt;&lt;h2 id=&#34;图像的表示&#34;&gt;图像的表示
+        <guid>https://rd806.github.io/p/math_in_images/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/math_in_images/jye-RuTMP0iI_ek-unsplash.jpg" alt="Featured image of post 图像处理的数学原理" /&gt;&lt;h2 id=&#34;图像的表示&#34;&gt;图像的表示
 &lt;/h2&gt;&lt;p&gt;在计算机（实际上是任何电子产品）中，图像的本质是一个分块矩阵。&lt;/p&gt;
 $$ \bm{Image} = \left[\begin{matrix}  \bm{P}_{11} &amp; \bm{P}_{12} &amp; \cdots &amp; \bm{P}_{1n} \\ \bm{P}_{21} &amp; \bm{P}_{22} &amp; \cdots &amp; \bm{P}_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ \bm{P}_{m1} &amp; \bm{P}_{m2} &amp; \cdots &amp; \bm{P}_{mn}  \end{matrix}\right] $$&lt;p&gt;其中每个小矩阵 $\bm{P}_{ij}$ 以 $RGB$ 的格式存储了该处的颜色信息。&lt;/p&gt;
 &lt;h3 id=&#34;像素&#34;&gt;像素
 &lt;/h3&gt;&lt;p&gt;像素是构成数字图像的最小、最基本的单位。可以把它想象成一块块微小的、带有颜色的“马赛克”或“积木”。&lt;/p&gt;
 &lt;p&gt;例如，对于这一张图片：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_in_images/icon.jpg&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/math_in_images/icon.jpg&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;示例图片&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;当将其放大到一定倍数后，将出现这个情况：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_in_images/%E6%94%BE%E5%A4%A7%E7%BB%93%E6%9E%9C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/math_in_images/%E6%94%BE%E5%A4%A7%E7%BB%93%E6%9E%9C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;示例图片放大&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3345,10 +3345,10 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
         </item>
         <item>
         <title>NEMU-PART II</title>
-        <link>https://5882886.github.io/p/nemu-part-2/</link>
+        <link>https://rd806.github.io/p/nemu-part-2/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/nemu-part-2/</guid>
+        <guid>https://rd806.github.io/p/nemu-part-2/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA2：指令系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;实验目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -3368,7 +3368,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加call指令&#34;&gt;添加call指令
 &lt;/h3&gt;&lt;p&gt;查找&lt;code&gt;call&lt;/code&gt;指令对应的&lt;code&gt;Opcode&lt;/code&gt;等信息，可知操作码为&lt;code&gt;e8&lt;/code&gt;。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3407,7 +3407,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;cpu/exec/template-end.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令示意&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3445,7 +3445,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;li&gt;在&lt;code&gt;nemu/src/cpu/exec/all-instr.h&lt;/code&gt;中包含&lt;code&gt;call.h&lt;/code&gt;，并在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加test指令&#34;&gt;添加test指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;test指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3562,7 +3562,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#endif
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加je指令&#34;&gt;添加je指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;je指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3593,7 +3593,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;push指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;push指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3604,7 +3604,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;cmp指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;cmp指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3615,7 +3615,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;pop指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;pop指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3626,7 +3626,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;ret指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ret指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3642,7 +3642,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;leave指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;leave指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3658,7 +3658,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/h2&gt;&lt;h3 id=&#34;什么是定点化&#34;&gt;什么是定点化
 &lt;/h3&gt;&lt;p&gt;我们约定最高位为符号位，接下来的15位表示整数部分，低16位表示小数部分，即约定小数点在第15和第16位之间（从第0位开始）。从这个约定可以看到，&lt;code&gt;FLOAT&lt;/code&gt;类型其实是实数的一种定点表示。&lt;/p&gt;
 &lt;p&gt;更通俗的解释是：定点化数的小数点位置是固定的；或者说，定点化数的小数位数是确定的。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3733,7 +3733,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;__sign&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;浮点数转定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3798,10 +3798,10 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
         </item>
         <item>
         <title>NEMU-PART II Pre</title>
-        <link>https://5882886.github.io/p/nemu-part-2-pre/</link>
+        <link>https://rd806.github.io/p/nemu-part-2-pre/</link>
         <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/nemu-part-2-pre/</guid>
+        <guid>https://rd806.github.io/p/nemu-part-2-pre/</guid>
         <description>
 
 &lt;blockquote class=&#34;alert alert-warn&#34;&gt;
@@ -3825,7 +3825,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
     &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;指令格式&#34;&gt;指令格式
 &lt;/h3&gt;&lt;p&gt;x86指令的一般格式如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;x86指令的一般格式&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3836,13 +3836,13 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;li&gt;给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如对于以下指令：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;指令示例&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;它的划分如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;示例指令划分&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3854,7 +3854,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;阅读opcode-table&#34;&gt;阅读Opcode Table
 &lt;/h3&gt;&lt;p&gt;以&lt;code&gt;mov&lt;/code&gt;指令的第一种形式为例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3881,7 +3881,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;通用寄存器编码&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3965,7 +3965,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;li&gt;对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如&lt;code&gt;mov_i2rm_b&lt;/code&gt;，&lt;code&gt;mov_i2rm_w&lt;/code&gt;和&lt;code&gt;mov_i2rm_l&lt;/code&gt;。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;访存&#34;&gt;访存
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;访存指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4000,12 +4000,12 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;p&gt;在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;编写指令的流程&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2/&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/nemu-part-2/&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
     
     
 
@@ -4014,10 +4014,10 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
         </item>
         <item>
         <title>NEMU-PART I</title>
-        <link>https://5882886.github.io/p/nemu-part-1/</link>
+        <link>https://rd806.github.io/p/nemu-part-1/</link>
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/nemu-part-1/</guid>
+        <guid>https://rd806.github.io/p/nemu-part-1/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FAIL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4052,7 +4052,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/table&gt;
 &lt;h2 id=&#34;认识nemu&#34;&gt;认识NEMU
 &lt;/h2&gt;&lt;h3 id=&#34;nemu的结构&#34;&gt;NEMU的结构
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;NEMU的结构&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4119,7 +4119,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
 &lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4369,7 +4369,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;正则表达式的作用是识别当前表达式的具体内容。例如，对于表达式&lt;code&gt;4 + 3 * ( 2 - 1 )&lt;/code&gt;，正则表达式的识别结果应为：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;识别token&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4480,7 +4480,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;li&gt;当有多个运算符的优先级都是最低时，根据结合性，最后被结合的运算符才是&lt;code&gt;dominant operator&lt;/code&gt;。一个例子是&lt;code&gt;1 + 2 + 3&lt;/code&gt;，它的&lt;code&gt;dominant operator&lt;/code&gt;应该是右边的&lt;code&gt;+&lt;/code&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;找到主操作符后，表达式的运算可归结为主操作符两侧数的运算。这也就意味着该问题满足了&lt;strong&gt;分治&lt;/strong&gt;的基本条件：一个问题可分解为若干个与原问题结构相同的子问题。&lt;/p&gt;
-&lt;p&gt;参阅此处：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#%e5%88%86%e6%b2%bb%e6%b3%95&#34; &gt;分治法
+&lt;p&gt;参阅此处：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/algorithm/#%e5%88%86%e6%b2%bb%e6%b3%95&#34; &gt;分治法
     
     
 
@@ -4642,7 +4642,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;举例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;分治法求表达式的值&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4750,7 +4750,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;监视点链表&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4939,7 +4939,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;i386手册里P34页中和参阅附录c提到，CF是进位标志。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;EFLAGS寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4952,7 +4952,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P241-243页。ModR/M 由 Mod，Reg/Opcode，R/M 三个部分组成。 Mod 是前两位，提供寄存器寻址和内存寻址， Reg/Opcode为3-5位，如果是Reg表示使用哪个寄存器，Opcode表示对group属性的Opcode进行补充； R/M为6-8位，与mod结合起来会得到8个寄存器和24个内存寻址。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ModR/M&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4965,7 +4965,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P345页，格式是DEST ← SRC。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/nemu-part-1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -4994,7 +4994,7 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/details&gt;
 &lt;br&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/nemu-part-2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/nemu-part-2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
     
     
 
@@ -5003,11 +5003,11 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
         </item>
         <item>
         <title>微积分</title>
-        <link>https://5882886.github.io/p/math_tips/</link>
+        <link>https://rd806.github.io/p/math_tips/</link>
         <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_tips/</guid>
-        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;一些简单的练习 →&lt;/div&gt;
+        <guid>https://rd806.github.io/p/math_tips/</guid>
+        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_quiz&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;一些简单的练习 →&lt;/div&gt;
     
     
 
@@ -5094,7 +5094,7 @@ $$ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\x
 &lt;p&gt;$\displaystyle (1+x)^{\alpha} = \sum_{n=0}^{\infty} \mathrm{C}_\alpha^n x^{n} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^{2} + \cdots + \mathrm{C}_{\alpha}^{n} x^n + o(x^n)，(|x|&amp;lt;1)$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0&#34; &gt;函数展开成幂级数
+&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_tips/#%e5%87%bd%e6%95%b0%e5%b1%95%e5%bc%80%e6%88%90%e5%b9%82%e7%ba%a7%e6%95%b0&#34; &gt;函数展开成幂级数
     
     
 
@@ -5388,7 +5388,7 @@ $$I(m,n) = \int_{0}^{\frac{\pi}{2}} \sin^{m}x \cos^{n}x \mathrm{d}x = \left\{ \b
 &lt;/h4&gt;&lt;p&gt;设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &amp;gt; 0$，则有 &lt;/p&gt;
 $$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a &lt; b &lt; c) $$&lt;h4 id=&#34;柯西积分不等式&#34;&gt;柯西积分不等式
 &lt;/h4&gt;$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$&lt;p&gt;  其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_quiz/#%e8%af%81%e6%98%8e%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e4%b8%8d%e7%ad%89%e5%bc%8f&#34; &gt;证明过程
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_quiz/#%e8%af%81%e6%98%8e%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e4%b8%8d%e7%ad%89%e5%bc%8f&#34; &gt;证明过程
     
     
 
@@ -5552,7 +5552,7 @@ $$ \lambda(A_1x+B_1y+C_1z+D_1) + \mu (A_2x+B_2y+C_2z+D_2) = 0 $$&lt;p&gt; 称为
 &lt;h3 id=&#34;常见的空间几何问题&#34;&gt;常见的空间几何问题
 &lt;/h3&gt;&lt;h4 id=&#34;投影直线的方程&#34;&gt;投影直线的方程
 &lt;/h4&gt;&lt;p&gt;已知直线 $l: \left\{ \begin{array}{c} A_1x+B_1y+C_1z+D_1=0 \\  A_2x+B_2y+C_2z+D_2=0 \end{array} \right.$，求其在平面 $\varPi: Ax+By+Cz+D=0$ 上的投影直线的方程：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_tips/images/%E6%8A%95%E5%BD%B1%E7%9B%B4%E7%BA%BF.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/math_tips/images/%E6%8A%95%E5%BD%B1%E7%9B%B4%E7%BA%BF.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;投影直线&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -5742,7 +5742,7 @@ $$\begin{align*} \int_{L} \bm{A} \cdot \mathrm{d} \bm{r} &amp;= \int_{L} P(x,y,z
 &lt;/li&gt;
 &lt;/ol&gt;
 $$\int_{L} P \mathrm{d}x + Q \mathrm{d}y + R \mathrm{d}z = \int_{L} [P\cos \alpha + Q\cos \beta + R\cos \gamma] \mathrm{d}s $$&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e4%b8%89%e5%a4%a7%e5%85%ac%e5%bc%8f&#34; &gt;格林公式
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_tips/#%e4%b8%89%e5%a4%a7%e5%85%ac%e5%bc%8f&#34; &gt;格林公式
     
     
 
@@ -5761,7 +5761,7 @@ $$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\m
 其中正负号由积分曲面的方向决定.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e4%b8%89%e5%a4%a7%e5%85%ac%e5%bc%8f&#34; &gt;高斯公式
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_tips/#%e4%b8%89%e5%a4%a7%e5%85%ac%e5%bc%8f&#34; &gt;高斯公式
     
     
 
@@ -5903,7 +5903,7 @@ $R = \left| x_0 \right|$ 称为幂级数 $\displaystyle \sum_{n=0}^{\infty} a_n 
 &lt;/ol&gt;
 $$R = \frac{1}{\displaystyle \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|}} = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$$&lt;h4 id=&#34;函数展开成幂级数&#34;&gt;函数展开成幂级数
 &lt;/h4&gt;&lt;p&gt;泰勒系数 $\displaystyle a_n = \frac{f^{(n)}(x_0)}{n!}$&lt;/p&gt;
-&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f&#34; &gt;麦克劳林公式
+&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_tips/#%e9%ba%a6%e5%85%8b%e5%8a%b3%e6%9e%97%e5%85%ac%e5%bc%8f&#34; &gt;麦克劳林公式
     
     
 
@@ -6053,7 +6053,7 @@ $$\begin{align*} \bm{A}^{n} &amp;= \bm{T} \left[\begin{matrix} \lambda_{1}^{n} &
 $$ F_{n} = \frac{1}{\sqrt{5}} \left[\left(\frac{1+\sqrt{5}}{2}\right)^{n+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{n+1} \right] $$&lt;h3 id=&#34;坐标旋转变换&#34;&gt;坐标旋转变换
 &lt;/h3&gt;&lt;p&gt;空间直角坐标系如果其原点不动，绕着某一个轴旋转而构成新的坐标系，这个过程就叫做坐标旋转。新旧坐标之间存在一定的转换关系，可以用旋转矩阵表示。&lt;/p&gt;
 &lt;p&gt;设坐标系 $Oxyz$ 绕 $z$ 轴逆时针（向着 $z$ 轴正方向看）旋转 $\theta$ 角，新坐标为 $(x&#39;, y&#39;, z&#39;)$。易知 $z$ 分量不变，简化为在 $xOy$ 平面讨论：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_tips/images/%E5%9D%90%E6%A0%87%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/math_tips/images/%E5%9D%90%E6%A0%87%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;坐标旋转变换&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6069,11 +6069,11 @@ $$\bm{R}_X(\bm{\theta}) = \left[ \begin{matrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \co
         </item>
         <item>
         <title>微积分：题目</title>
-        <link>https://5882886.github.io/p/math_quiz/</link>
+        <link>https://rd806.github.io/p/math_quiz/</link>
         <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/math_quiz/</guid>
-        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/math_tips&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;回顾知识点 →&lt;/div&gt;
+        <guid>https://rd806.github.io/p/math_quiz/</guid>
+        <description>&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/math_tips&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;回顾知识点 →&lt;/div&gt;
     
     
 
@@ -6270,7 +6270,7 @@ $$I_3 = \int_{\pi}^{2\pi} \mathrm{d}\varphi \int_{0}^{1} \left(r^3 - r^2 \sin \v
 &lt;hr&gt;
 &lt;p&gt;方法2：由题意，$\displaystyle f(x,y) = \frac{x+y}{2}-x^2-y^2 = \frac{1}{4}-\left( x-\frac{1}{2\sqrt{2}} \right)^2-\left( y-\frac{1}{2\sqrt{2}} \right)^2$.&lt;/p&gt;
 &lt;p&gt;故单位圆 $D: x^2+y^2 \leqslant 1$ 被分成两部分：$D_1=\{(x,y)| f(x,y) \geqslant 0 \}, D_2=D-D_1$，因此&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/math_quiz/%E4%BE%8B7.30.png&#34; width=&#34;400&#34;&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/math_quiz/%E4%BE%8B7.30.png&#34; width=&#34;400&#34;&gt;
 &lt;/figure&gt;
 
 $$\begin{align*} I &amp;=\iint\limits_{D} \left| f(x,y) \right| \mathrm{d}x\mathrm{d}y = \iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y - \iint\limits_{D_2} f(x,y) \mathrm{d}x\mathrm{d}y \\ &amp;= 2\iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y -\iint\limits_{D_1+D_2} f(x,y) \mathrm{d}x\mathrm{d}y = 2 \iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y - \iint\limits_{D} f(x,y) \mathrm{d}x\mathrm{d}y \\ &amp;= 2 \iint\limits_{D_1} \left[ \frac{1}{4}-\left( x-\frac{1}{2\sqrt{2}} \right)^2-\left( y-\frac{1}{2\sqrt{2}} \right)^2 \right] \mathrm{d}x\mathrm{d}y - \iint\limits_{D} \left( \frac{x+y}{2}-x^2-y^2 \right) \mathrm{d}x\mathrm{d}y \\ &amp;= 2 \int_{0}^{2\pi} \mathrm{d}\theta \int_{0}^{\frac{1}{2}} \left( \frac{1}{4} - \rho^2 \right) \rho \mathrm{d}\rho + \int_{0}^{2\pi} \mathrm{d} \theta \int_{0}^{1} \rho^3 \mathrm{d}\rho = 4\pi \left( \frac{1}{32}-\frac{1}{64} \right) + \frac{\pi}{2} = \frac{9\pi}{16} \end{align*}$$&lt;/details&gt;
@@ -6326,10 +6326,10 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
         </item>
         <item>
         <title>查找</title>
-        <link>https://5882886.github.io/p/data-structure-search/</link>
+        <link>https://rd806.github.io/p/data-structure-search/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure-search/</guid>
+        <guid>https://rd806.github.io/p/data-structure-search/</guid>
         <description>&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
 &lt;/h2&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -6611,10 +6611,10 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95.png&#34;
 	width=&#34;2074&#34;
 	height=&#34;2126&#34;
-	srcset=&#34;https://5882886.github.io/p/data-structure-search/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95_hu_2838a9b6bb2e6854.png 480w, https://5882886.github.io/p/data-structure-search/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95_hu_5c4f10b9515035ef.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/data-structure-search/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95_hu_2838a9b6bb2e6854.png 480w, https://rd806.github.io/p/data-structure-search/images/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%88%A0%E9%99%A4%E7%AE%97%E6%B3%95_hu_5c4f10b9515035ef.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;二叉排序树-删除算法&#34;
@@ -6726,10 +6726,10 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4.png&#34;
 	width=&#34;3635&#34;
 	height=&#34;3532&#34;
-	srcset=&#34;https://5882886.github.io/p/data-structure-search/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4_hu_4d97359880d6455d.png 480w, https://5882886.github.io/p/data-structure-search/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4_hu_9daae21eb1b3ecc2.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/data-structure-search/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4_hu_4d97359880d6455d.png 480w, https://rd806.github.io/p/data-structure-search/images/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91-%E8%B0%83%E6%95%B4_hu_9daae21eb1b3ecc2.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;平衡二叉树-调整&#34;
@@ -6834,7 +6834,7 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
 &lt;p&gt;$A_i$ $(i = 0, 1, …, n)$ 为指向子树根结点的指针，且指针 $A_{i-1}$ 所指子树中所有结点的关键字均小于 $K_i$ $(i = 1, 2, \cdots, n)$，$A_n$ 所指子树中所有结点的关键字均大于 $K_n$，$n$ $(\lceil m/2 \rceil - 1 \leqslant n \leqslant m-1)$ 为关键字的个数（或 $n+1$ 为子树个数）。&lt;/p&gt;
 &lt;p&gt;一棵 $m$ 阶B-树每个结点最多有 $m$ 棵子树，$m–1$ 个关键字，最少有 $\lceil m/2 \rceil$ 棵子树， $\lceil m/2 \rceil –1$ 个关键字。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/B-%E6%A0%91.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/B-%E6%A0%91.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;B-树&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6847,7 +6847,7 @@ $$ASL=\sum_{i=𝟏}^{n} p_i c_i$$&lt;p&gt; 其中：$p_i$ 为查找表中第 $i$
 &lt;li&gt;在某个结点中添加一个关键字，若结点的关键字个数不超过 $m–1$，则插入完成；&lt;/li&gt;
 &lt;li&gt;否则产生结点的“分裂”。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%92%E5%85%A5.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E6%99%AE%E9%80%9A%E6%8F%92%E5%85%A5.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;B-树的普通插入&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6877,7 +6877,7 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;/table&gt;
 &lt;p&gt;而关键字 $K_{\lceil m/2 \rceil}$ 和指针&lt;code&gt;*p&#39;&lt;/code&gt;一起插入到&lt;code&gt;p&lt;/code&gt;的双亲结点中。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%89%B9%E6%AE%8A%E6%8F%92%E5%85%A5.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%89%B9%E6%AE%8A%E6%8F%92%E5%85%A5.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;B-树的特殊插入&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6905,7 +6905,7 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;ol&gt;
 &lt;li&gt;若被删关键字所在结点中的关键字数目不小于 $\lceil m/2 \rceil$，则只需从该结点中删去该结点中删去该关键字 $K_i$ 和相应指针 $A_i$，树的其他部分不变。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC1%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC1%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;B-树的第1种删除&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6913,7 +6913,7 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;若被删关键字所在结点的关键字数目等于 $\lceil m/2 \rceil -1$，而与该结点相邻的右兄弟（左兄弟）结点中的关键字数目大于 $\lceil m/2 \rceil-1$，则需将其兄弟结点中的最小（最大）的关键字上移到双亲结点中，而将双亲结点中小于（大于）且紧靠该上移关键字的关键字下移到被删关键字所在的结点中。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC2%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC2%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;B-树的第2种删除&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6921,7 +6921,7 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;若被删关键字所在结点和其相邻的兄弟结点中的关键字数目均等于 $\lceil m/2 \rceil -1$，则在删去关键字后，它所在结点中剩余的关键字和指针加上双亲中的关键字 $K_i$ 一起，合并到 $A_i$ 所指的兄弟结点中。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC3%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/B-%E6%A0%91%E7%9A%84%E7%AC%AC3%E7%A7%8D%E5%88%A0%E9%99%A4.png&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;B-树的第3种删除&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -7041,7 +7041,7 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;li&gt;若&lt;code&gt;r[i].key == K&lt;/code&gt;，则查找成功；&lt;/li&gt;
 &lt;li&gt;否则求下一地址&lt;code&gt;Hi&lt;/code&gt;直至下面两种情况之一为止：&lt;code&gt;r[Hi] == NULL&lt;/code&gt;（查找失败）；&lt;code&gt;r[Hi].key == K&lt;/code&gt;（查找成功）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-search/images/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-search/images/%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;哈希表的查找流程&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -7050,10 +7050,10 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
         </item>
         <item>
         <title>排序</title>
-        <link>https://5882886.github.io/p/sort/</link>
+        <link>https://rd806.github.io/p/sort/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/sort/</guid>
+        <guid>https://rd806.github.io/p/sort/</guid>
         <description>&lt;p&gt;排序是将一个数据元素的任意序列，重新排列成一个按关键字有序的序列的过程。&lt;/p&gt;
 &lt;p&gt;所有排序算法均使用以下结构：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define MAXSIZE 100
@@ -7080,10 +7080,10 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;插入排序&#34;&gt;插入排序
 &lt;/h2&gt;&lt;h3 id=&#34;直接插入排序&#34;&gt;直接插入排序
 &lt;/h3&gt;&lt;p&gt;核心是将一个待排序的数据插入到已排好序的有序表中，从而完成排序。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.png&#34;
 	width=&#34;913&#34;
 	height=&#34;1087&#34;
-	srcset=&#34;https://5882886.github.io/p/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_cf1bc6cce016cdc7.png 480w, https://5882886.github.io/p/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_f59027b65ac68587.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_cf1bc6cce016cdc7.png 480w, https://rd806.github.io/p/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_f59027b65ac68587.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;直接插入排序&#34;
@@ -7114,10 +7114,10 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;li&gt;然后缩小间隔&lt;code&gt;gap&lt;/code&gt;，重复上述的子序列划分和排序工作；&lt;/li&gt;
 &lt;li&gt;直到最后取&lt;code&gt;gap = 1&lt;/code&gt;，将所有对象放在同一个序列中排序为止。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/sort/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/sort/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.png&#34;
 	width=&#34;1047&#34;
 	height=&#34;1305&#34;
-	srcset=&#34;https://5882886.github.io/p/sort/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_d44676ed03fb5254.png 480w, https://5882886.github.io/p/sort/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_9a0df36d36462c9d.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/sort/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_d44676ed03fb5254.png 480w, https://rd806.github.io/p/sort/images/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F_hu_9a0df36d36462c9d.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;希尔排序&#34;
@@ -7195,10 +7195,10 @@ $$m，A_0，(K_1, A_1)，(K_2, A_2)，\cdots，(K_m, A_m)$$&lt;p&gt;
 &lt;li&gt;然后从&lt;code&gt;low&lt;/code&gt;所指位置起向后搜索，找到第一个关键字大于&lt;code&gt;pivotkey&lt;/code&gt;的记录，和枢轴记录互相交换&lt;/li&gt;
 &lt;li&gt;重复2, 3两步直至&lt;code&gt;low == high&lt;/code&gt;为止。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/sort/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/sort/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.png&#34;
 	width=&#34;868&#34;
 	height=&#34;2339&#34;
-	srcset=&#34;https://5882886.github.io/p/sort/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_hu_c7192fbf69c1de69.png 480w, https://5882886.github.io/p/sort/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_hu_5710b337ef9da2a3.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/sort/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_hu_c7192fbf69c1de69.png 480w, https://rd806.github.io/p/sort/images/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_hu_5710b337ef9da2a3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;快速排序&#34;
@@ -7283,10 +7283,10 @@ $$K_i \leqslant K_{2i} \ \&amp;\&amp;\  K_i \leqslant K_{2i+1}$$&lt;p&gt; 或 &l
 $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称该关键字集合构成一个堆。前者称为小顶堆（最小堆），后者称为大顶堆（最大堆）。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;堆调整：将一无序序列看成完全二叉树，则最后一个非终端结点是第 $\displaystyle \left\lfloor \frac{n}{2} \right\rfloor$ 个元素，则从该元素开始自下向上逐步调整为大顶堆（小顶堆）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/sort/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/sort/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95.png&#34;
 	width=&#34;1676&#34;
 	height=&#34;2016&#34;
-	srcset=&#34;https://5882886.github.io/p/sort/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95_hu_761c52f64d4aaf14.png 480w, https://5882886.github.io/p/sort/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95_hu_7663b85c43222cc2.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/sort/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95_hu_761c52f64d4aaf14.png 480w, https://rd806.github.io/p/sort/images/%E5%A0%86%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95_hu_7663b85c43222cc2.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;堆调整算法&#34;
@@ -7334,10 +7334,10 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;HeapAdjust&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;–&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/sort/images/%E5%A0%86%E6%8E%92%E5%BA%8F.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/sort/images/%E5%A0%86%E6%8E%92%E5%BA%8F.png&#34;
 	width=&#34;2656&#34;
 	height=&#34;1869&#34;
-	srcset=&#34;https://5882886.github.io/p/sort/images/%E5%A0%86%E6%8E%92%E5%BA%8F_hu_ad0d20cf199e8fad.png 480w, https://5882886.github.io/p/sort/images/%E5%A0%86%E6%8E%92%E5%BA%8F_hu_3424568299b489b5.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/sort/images/%E5%A0%86%E6%8E%92%E5%BA%8F_hu_ad0d20cf199e8fad.png 480w, https://rd806.github.io/p/sort/images/%E5%A0%86%E6%8E%92%E5%BA%8F_hu_3424568299b489b5.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;堆排序&#34;
@@ -7357,10 +7357,10 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;li&gt;然后两两归并，得到 $\displaystyle \left\lceil \frac{n}{2} \right\rceil$ 个长度为 $2$ 的有序子序列（如果 $n$ 为奇数，则最后一个有序子序列的长度为 $1$）；&lt;/li&gt;
 &lt;li&gt;再做两两归并，如此重复，最后得到一个长度为 $n$ 的有序序列。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/sort/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/sort/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.png&#34;
 	width=&#34;722&#34;
 	height=&#34;977&#34;
-	srcset=&#34;https://5882886.github.io/p/sort/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F_hu_3fd7caa42f37ab9a.png 480w, https://5882886.github.io/p/sort/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F_hu_32f8c9e513428fd9.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/sort/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F_hu_3fd7caa42f37ab9a.png 480w, https://rd806.github.io/p/sort/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F_hu_32f8c9e513428fd9.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;归并排序&#34;
@@ -7517,11 +7517,11 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
         </item>
         <item>
         <title>熟练掌握数据结构</title>
-        <link>https://5882886.github.io/p/data-structure/</link>
+        <link>https://rd806.github.io/p/data-structure/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg" alt="Featured image of post 熟练掌握数据结构" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://5882886.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+        <guid>https://rd806.github.io/p/data-structure/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg" alt="Featured image of post 熟练掌握数据结构" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://rd806.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文主要用来应付我的数据结构课程期末考试，所以写得比较粗糙，很多细节都忽略掉了，还请各位 dalao 谅解 🥰。&lt;/p&gt;
 &lt;p&gt;以后如果有时间我可能会新建页面具体分析相关内容，所以可以把本文看作一篇索引（一个页表？）。&lt;/p&gt;
@@ -7533,7 +7533,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
     &lt;p&gt;当前已更新索引，原内容拆分为五个部分&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-linearlist target=&#34;_blank&#34;&gt;数据结构：线性表&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-linearlist target=&#34;_blank&#34;&gt;数据结构：线性表&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7568,7 +7568,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-tree target=&#34;_blank&#34;&gt;数据结构：树与二叉树&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-tree target=&#34;_blank&#34;&gt;数据结构：树与二叉树&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7603,7 +7603,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-graph target=&#34;_blank&#34;&gt;数据结构：图&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-graph target=&#34;_blank&#34;&gt;数据结构：图&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7638,7 +7638,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-search target=&#34;_blank&#34;&gt;查找&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-search target=&#34;_blank&#34;&gt;查找&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7673,7 +7673,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/sort target=&#34;_blank&#34;&gt;排序&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/sort target=&#34;_blank&#34;&gt;排序&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7855,10 +7855,10 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
         </item>
         <item>
         <title>数据结构：树与二叉树</title>
-        <link>https://5882886.github.io/p/data-structure-tree/</link>
+        <link>https://rd806.github.io/p/data-structure-tree/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure-tree/</guid>
+        <guid>https://rd806.github.io/p/data-structure-tree/</guid>
         <description>&lt;p&gt;树是由 $n$ $(n&amp;gt;0)$ 个结点的有限集合。如果 $n=0$，称为空树；如果 $n&amp;gt;0$，则&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;有且仅有一个根结点，它没有直接前驱。&lt;/li&gt;
@@ -8113,7 +8113,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;线索二叉树&#34;&gt;线索二叉树
 &lt;/h3&gt;&lt;p&gt;线索二叉树中，除根节点外，每个结点都有自己的前驱和后继。&lt;/p&gt;
 &lt;p&gt;用二叉链表表示的二叉树中，$n$ 个结点的二叉树有 $n+1$个空链域，可利用这些空链域存储结点的前驱或后继。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-tree/images/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%93%E7%82%B9%E7%BB%93%E6%9E%84.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-tree/images/%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%BB%93%E7%82%B9%E7%BB%93%E6%9E%84.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;线索二叉树的结点结构&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8127,7 +8127,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;BiThrNode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lchild&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rchild&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;PointerTag&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LTag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RTag&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-tree/images/%E4%B8%AD%E5%BA%8F%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-tree/images/%E4%B8%AD%E5%BA%8F%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;中序线索二叉树&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8182,7 +8182,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/h2&gt;&lt;h3 id=&#34;树的存储结构&#34;&gt;树的存储结构
 &lt;/h3&gt;&lt;h4 id=&#34;双亲表示&#34;&gt;双亲表示
 &lt;/h4&gt;&lt;p&gt;以一组连续空间存储树的结点，同时在结点中附设一个指针，存放双亲结点在链表中的位置。该方法利用每个结点只有一个双亲的特点，可以很方便地求出结点的双亲，但不方便得到结点的孩子。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-tree/images/%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E8%A1%A8%E7%A4%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-tree/images/%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E8%A1%A8%E7%A4%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;树的双亲表示&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8199,7 +8199,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TreeNode&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MAXSIZE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;孩子表示多重链表&#34;&gt;孩子表示（多重链表）
 &lt;/h5&gt;&lt;p&gt;将每个结点的孩子作为链表的结点链接在该结点之后，再将所有头结点组成一个线性表。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-tree/images/%E6%A0%91%E7%9A%84%E5%AD%A9%E5%AD%90%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-tree/images/%E6%A0%91%E7%9A%84%E5%AD%A9%E5%AD%90%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;树的孩子链表表示&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8234,7 +8234,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TreeNode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;typedef&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TreeNode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tree&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-tree/images/%E6%A0%91%E7%9A%84%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-tree/images/%E6%A0%91%E7%9A%84%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;树的二叉链表表示&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8359,7 +8359,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 $$CAST CAST SAT AT A TASA$$&lt;p&gt;
 字符集合是&lt;code&gt;{C, A, S, T}&lt;/code&gt;，各个字符出现的频度（次数）为 &lt;code&gt;W = {2, 7, 4, 5}&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;按照各字符出现概率&lt;code&gt;P = {2, 7, 4, 5}&lt;/code&gt;为各叶结点上的权值建立霍夫曼树。
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-tree/images/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-tree/images/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;霍夫曼编码&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8370,20 +8370,20 @@ $$CAST CAST SAT AT A TASA$$&lt;p&gt;
         </item>
         <item>
         <title>数据结构：图</title>
-        <link>https://5882886.github.io/p/data-structure-graph/</link>
+        <link>https://rd806.github.io/p/data-structure-graph/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure-graph/</guid>
+        <guid>https://rd806.github.io/p/data-structure-graph/</guid>
         <description>&lt;p&gt;图是一种复杂的数据结构，结点之间的关系可以是任意的，任意两个数据元素之间都有可能相关。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;例如，RunicDolphin806在游玩《群星》游戏时
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/%E5%9B%BE%E8%AE%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/%E5%9B%BE%E8%AE%BA.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;地图&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 这部分地图可以简化为一个图：
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/%E5%9B%BE.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/%E5%9B%BE.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;图&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8467,7 +8467,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;                    &lt;span class=&#34;c1&#34;&gt;// 图中当前的顶点个数与边数
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;邻接表的示意图如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/%E9%82%BB%E6%8E%A5%E8%A1%A8.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/%E9%82%BB%E6%8E%A5%E8%A1%A8.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;邻接表&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8657,7 +8657,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;/h4&gt;&lt;p&gt;用有向图表示一个工程。在这种有向图中，用顶点表示活动，用有向边 $\left&amp;lt; v_i, v_j \right&amp;gt;$ 表示活动 $v_i$ 必须先于活动 $v_j$ 进行。这种有向图叫做顶点表示活动的 AOV 网络。&lt;/p&gt;
 &lt;p&gt;将各个顶点（代表各个活动）排列成一个线性有序的序列，使得 AOV 网络中所有应存在的前驱和后继关系都能得到满足。这种构造 AOV 网络全部顶点的拓扑有序序列的运算就叫做&lt;strong&gt;拓扑排序&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;例如，下图的一个拓扑有序序列为：$C_1, C_2, C_3, C_4, C_5, C_6, C_8, C_9, C_7$&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/AOV%E7%BD%91%E7%BB%9C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/AOV%E7%BD%91%E7%BB%9C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;AOV网络&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8675,10 +8675,10 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;li&gt;从图中删去该顶点，同时删去所有它发出的有向边；&lt;/li&gt;
 &lt;li&gt;重复以上 1,2步，直到全部顶点均已输出，拓扑排序完成，说明无有向环；或还有未输出的顶点，但已跳出处理循环，说明图中剩下的顶点都有直接前驱。这时网络中必存在有向环。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B.png&#34;
 	width=&#34;2198&#34;
 	height=&#34;2560&#34;
-	srcset=&#34;https://5882886.github.io/p/data-structure-graph/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_6b53557cc8d1fbdc.png 480w, https://5882886.github.io/p/data-structure-graph/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_8e70f3f0fa1d17d2.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/data-structure-graph/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_6b53557cc8d1fbdc.png 480w, https://rd806.github.io/p/data-structure-graph/images/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%9A%84%E8%BF%87%E7%A8%8B_hu_8e70f3f0fa1d17d2.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;拓扑排序的过程&#34;
@@ -8791,7 +8791,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;/table&gt;
 &lt;h3 id=&#34;单源最短路径问题&#34;&gt;单源最短路径问题
 &lt;/h3&gt;&lt;p&gt;给定一个带权有向图 $G$ 与源点 $v$，求从 $v$ 到 $G$ 中其它顶点的最短路径（限定各边上的权值大于或等于 0）。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;最短路径问题&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -8834,10 +8834,10 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
 &lt;blockquote&gt;
 &lt;p&gt;假设 $S$ 是已求得的最短路径的终点的集合，则可证明：下一条最短路径必然是从&lt;code&gt;v0&lt;/code&gt;出发，中间只经过 $S$ 中的顶点便可到达的那些顶点&lt;code&gt;vx&lt;/code&gt; $(v_x \in  V-S)$ 的路径。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/data-structure-graph/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/data-structure-graph/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B.png&#34;
 	width=&#34;1755&#34;
 	height=&#34;3323&#34;
-	srcset=&#34;https://5882886.github.io/p/data-structure-graph/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B_hu_e3584c9327508fe1.png 480w, https://5882886.github.io/p/data-structure-graph/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B_hu_b8318daf34f241e2.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/data-structure-graph/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B_hu_e3584c9327508fe1.png 480w, https://rd806.github.io/p/data-structure-graph/images/Dijkstra%E7%AE%97%E6%B3%95%E6%B1%82%E8%A7%A3%E8%BF%87%E7%A8%8B_hu_b8318daf34f241e2.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Dijkstra算法的求解过程&#34;
@@ -8906,10 +8906,10 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， &amp; \left&lt; i,j \right&gt; \in 
         </item>
         <item>
         <title>数据结构：线性表</title>
-        <link>https://5882886.github.io/p/data-structure-linearlist/</link>
+        <link>https://rd806.github.io/p/data-structure-linearlist/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure-linearlist/</guid>
+        <guid>https://rd806.github.io/p/data-structure-linearlist/</guid>
         <description>&lt;h2 id=&#34;顺序表&#34;&gt;顺序表
 &lt;/h2&gt;&lt;p&gt;顺序表是用一段物理地址连续的存储单元依次存储数据元素的线性结构。&lt;/p&gt;
 &lt;p&gt;它具有随机存储的特点：每个元素都与一个序号存在唯一对应关系。&lt;/p&gt;
@@ -9298,7 +9298,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;栈的应用&#34;&gt;栈的应用
 &lt;/h3&gt;&lt;h4 id=&#34;括号匹配&#34;&gt;括号匹配
 &lt;/h4&gt;&lt;p&gt;思路：从左到右扫描，遇到左括号则入栈；遇到右括号，若栈顶不是对应的左括号，则返回错误，反之则栈顶元素出栈。最后当且仅当扫描完毕且栈空时证明括号匹配。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://5882886.github.io/images/%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/images/%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;括号匹配&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -9397,7 +9397,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&#34;递归&#34;&gt;递归
-&lt;/h4&gt;&lt;p&gt;参见&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#%e9%80%92%e5%bd%92&#34; &gt;此处
+&lt;/h4&gt;&lt;p&gt;参见&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/algorithm/#%e9%80%92%e5%bd%92&#34; &gt;此处
     
     
 
@@ -9505,7 +9505,7 @@ $$ACN = \frac{1}{n} \sum_{i=0}^{n-1} (i+1) = \frac{1}{n} (1+2+\cdots+n) = \frac{
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;KMP算法&lt;/td&gt;
-          &lt;td&gt;参见&lt;a class=&#34;link&#34; href=&#34;https://5882886.github.io/p/algorithm/#kmp%e7%ae%97%e6%b3%95&#34; &gt;【此处】
+          &lt;td&gt;参见&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/algorithm/#kmp%e7%ae%97%e6%b3%95&#34; &gt;【此处】
     
     
 
@@ -9554,11 +9554,11 @@ $$\mathrm{LOC}(j_1,j_2,\cdots,j_n) = \mathrm{LOC}(0,0,\cdots,0) + \sum_{i=1}^{n}
         </item>
         <item>
         <title>常用算法</title>
-        <link>https://5882886.github.io/p/algorithm/</link>
+        <link>https://rd806.github.io/p/algorithm/</link>
         <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/algorithm/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/algorithm/daniil-komov-7lzjMwexxnU-unsplash.jpg" alt="Featured image of post 常用算法" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = &lt;a href=&#34;https://5882886.github.io/p/data-structure/&#34;&gt;数据结构&lt;/a&gt; + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+        <guid>https://rd806.github.io/p/algorithm/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/algorithm/daniil-komov-7lzjMwexxnU-unsplash.jpg" alt="Featured image of post 常用算法" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = &lt;a href=&#34;https://rd806.github.io/p/data-structure/&#34;&gt;数据结构&lt;/a&gt; + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1QV4y1m7oo?spm_id_from=333.788.videopod.sections&amp;amp;vd_source=3f0e843792d165dc47136a5548be81da&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击此处
     
@@ -9642,10 +9642,10 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 &lt;li&gt;圆盘可以放在x，y，z的任意塔座上。&lt;/li&gt;
 &lt;li&gt;任何时刻都不能将一个较大的圆盘放在较小的圆盘之上。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png&#34;
 	width=&#34;994&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://5882886.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, https://5882886.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, https://rd806.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;汉诺塔&#34;
@@ -10000,10 +10000,10 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 $$next[j] = \left\{\begin{matrix} 0 &amp; j=1 \\\\ \mathrm{max}\{k | 1 &lt; k &lt; j 且 p_1 \cdots p_{k-1} == p_{j-k+1} \cdots p_{j-1}\} &amp; 此集合非空 \\\\ 1 &amp; 其他 \end{matrix}\right.$$&lt;blockquote&gt;
 &lt;p&gt;KMP算法的&lt;code&gt;next[]&lt;/code&gt;数组有多种定义方式，这里采用的是严蔚敏《数据结构（C语言版）》的方法。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95.png&#34;
 	width=&#34;1513&#34;
 	height=&#34;952&#34;
-	srcset=&#34;https://5882886.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_b3cbbbe8af552fd0.png 480w, https://5882886.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_486525f24ddcc8ff.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_b3cbbbe8af552fd0.png 480w, https://rd806.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_486525f24ddcc8ff.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;KMP算法&#34;
@@ -10071,10 +10071,10 @@ $$next[j] = \left\{\begin{matrix} 0 &amp; j=1 \\\\ \mathrm{max}\{k | 1 &lt; k &l
         </item>
         <item>
         <title>有意思的玩意</title>
-        <link>https://5882886.github.io/p/tju/</link>
+        <link>https://rd806.github.io/p/tju/</link>
         <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/tju/</guid>
+        <guid>https://rd806.github.io/p/tju/</guid>
         <description>&lt;h2 id=&#34;阅读&#34;&gt;阅读
 &lt;/h2&gt;&lt;h3 id=&#34;阅读-1&#34;&gt;阅读Ⅰ
 &lt;/h3&gt;&lt;p&gt;阅读下面的文字，完成1~5题。（本题共5小题，19分）&lt;/p&gt;
@@ -10292,7 +10292,7 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
     &lt;iframe
         width=&#34;100%&#34;
         height=&#34;100%&#34;
-        src=&#34;https://5882886.github.io/pdf/%e6%96%b0%e5%b9%b4%e5%bf%ab%e4%b9%90.pdf&#34;
+        src=&#34;https://rd806.github.io/pdf/%e6%96%b0%e5%b9%b4%e5%bf%ab%e4%b9%90.pdf&#34;
         frameborder=&#34;0&#34;
         allowfullscreen=&#34;&#34;
         style=&#34;
@@ -10306,10 +10306,10 @@ D.	全诗语言简明直白，生动地表达作者对天津的喜爱和赞美�
         </item>
         <item>
         <title>十四班学生列传</title>
-        <link>https://5882886.github.io/p/senior_high/</link>
+        <link>https://rd806.github.io/p/senior_high/</link>
         <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/senior_high/</guid>
+        <guid>https://rd806.github.io/p/senior_high/</guid>
         <description>&lt;h2 id=&#34;总序&#34;&gt;总序
 &lt;/h2&gt;&lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;金鸡峰下，银蝶湖畔，钟灵毓秀，人才辈出。有黄山松石铸精魂，蕴陶公知行明己身。时维九月，序属三秋，吾班初建，朝气蓬勃。所属虽异，团结如一；群贤毕至，共话宏图。&lt;/p&gt;
 &lt;p style=&#34;text-indent: 2em;margin-top: 0;margin-bottom: 0;&#34;&gt;忆开学之初，历历在目。虽相识不甚明，终同舟以共济。既立班委，又树新规。外出鸣、陆二帅 擎班旗，内命熙、蕾双将 督学风。已有各科班委司其职，更兼班之众生共进步。越明年，政通人和，百业俱兴。立学习小组 ，开制度先河。&lt;/p&gt;

@@ -2,18 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>期末救急 on RunicDolphin806</title>
-        <link>https://5882886.github.io/categories/final_test/</link>
+        <link>https://rd806.github.io/categories/final_test/</link>
         <description>Recent content in 期末救急 on RunicDolphin806</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Fri, 07 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://5882886.github.io/categories/final_test/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/final_test/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>计算机网络</title>
+        <link>https://rd806.github.io/p/network/</link>
+        <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://rd806.github.io/p/network/</guid>
+        <description>&lt;h2 id=&#34;概述&#34;&gt;概述
+&lt;/h2&gt;&lt;h3 id=&#34;什么是互联网&#34;&gt;什么是互联网
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;概念&lt;/th&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;网络&lt;/td&gt;
+          &lt;td&gt;节点和边之间的无向关系&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;计算机网络&lt;/td&gt;
+          &lt;td&gt;联网的计算机构成的系统 &lt;br&gt; 主机节点（Web应用）和数据交换节点 （路由器）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;互联网&lt;/td&gt;
+          &lt;td&gt;许多网络通过互联方式联系在一起。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;协议&#34;&gt;协议
+&lt;/h3&gt;&lt;p&gt;实体在通信过程中遵守的规则的集合&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>概率论与数理统计</title>
-        <link>https://5882886.github.io/p/probability/</link>
+        <link>https://rd806.github.io/p/probability/</link>
         <pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/probability/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg" alt="Featured image of post 概率论与数理统计" /&gt;&lt;blockquote&gt;
+        <guid>https://rd806.github.io/p/probability/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.jpg" alt="Featured image of post 概率论与数理统计" /&gt;&lt;blockquote&gt;
 &lt;p&gt;依旧期末速通……&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;随机事件与概率&#34;&gt;随机事件与概率
@@ -1383,11 +1417,11 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
         </item>
         <item>
         <title>熟练掌握数据结构</title>
-        <link>https://5882886.github.io/p/data-structure/</link>
+        <link>https://rd806.github.io/p/data-structure/</link>
         <pubDate>Sun, 06 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/data-structure/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg" alt="Featured image of post 熟练掌握数据结构" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://5882886.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+        <guid>https://rd806.github.io/p/data-structure/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg" alt="Featured image of post 熟练掌握数据结构" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = 数据结构 + &lt;a href=&#34;https://rd806.github.io/p/algorithm/&#34;&gt;算法&lt;/a&gt;&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文主要用来应付我的数据结构课程期末考试，所以写得比较粗糙，很多细节都忽略掉了，还请各位 dalao 谅解 🥰。&lt;/p&gt;
 &lt;p&gt;以后如果有时间我可能会新建页面具体分析相关内容，所以可以把本文看作一篇索引（一个页表？）。&lt;/p&gt;
@@ -1399,7 +1433,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
     &lt;p&gt;当前已更新索引，原内容拆分为五个部分&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-linearlist target=&#34;_blank&#34;&gt;数据结构：线性表&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-linearlist target=&#34;_blank&#34;&gt;数据结构：线性表&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1434,7 +1468,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-tree target=&#34;_blank&#34;&gt;数据结构：树与二叉树&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-tree target=&#34;_blank&#34;&gt;数据结构：树与二叉树&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1469,7 +1503,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-graph target=&#34;_blank&#34;&gt;数据结构：图&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-graph target=&#34;_blank&#34;&gt;数据结构：图&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1504,7 +1538,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/data-structure-search target=&#34;_blank&#34;&gt;查找&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/data-structure-search target=&#34;_blank&#34;&gt;查找&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1539,7 +1573,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://5882886.github.io/p/sort target=&#34;_blank&#34;&gt;排序&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/p/sort target=&#34;_blank&#34;&gt;排序&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1721,11 +1755,11 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
         </item>
         <item>
         <title>常用算法</title>
-        <link>https://5882886.github.io/p/algorithm/</link>
+        <link>https://rd806.github.io/p/algorithm/</link>
         <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://5882886.github.io/p/algorithm/</guid>
-        <description>&lt;img src="https://5882886.github.io/p/algorithm/daniil-komov-7lzjMwexxnU-unsplash.jpg" alt="Featured image of post 常用算法" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = &lt;a href=&#34;https://5882886.github.io/p/data-structure/&#34;&gt;数据结构&lt;/a&gt; + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
+        <guid>https://rd806.github.io/p/algorithm/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/algorithm/daniil-komov-7lzjMwexxnU-unsplash.jpg" alt="Featured image of post 常用算法" /&gt;&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;程序 = &lt;a href=&#34;https://rd806.github.io/p/data-structure/&#34;&gt;数据结构&lt;/a&gt; + 算法&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;参考资料：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1QV4y1m7oo?spm_id_from=333.788.videopod.sections&amp;amp;vd_source=3f0e843792d165dc47136a5548be81da&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;点击此处
     
@@ -1809,10 +1843,10 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 &lt;li&gt;圆盘可以放在x，y，z的任意塔座上。&lt;/li&gt;
 &lt;li&gt;任何时刻都不能将一个较大的圆盘放在较小的圆盘之上。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png&#34;
 	width=&#34;994&#34;
 	height=&#34;297&#34;
-	srcset=&#34;https://5882886.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, https://5882886.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, https://rd806.github.io/p/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;汉诺塔&#34;
@@ -2167,10 +2201,10 @@ $$ n! = \left\{ \begin{array}{c} 1, &amp; n = 0 \\ n \cdot (n-1)!, &amp; n \geqs
 $$next[j] = \left\{\begin{matrix} 0 &amp; j=1 \\\\ \mathrm{max}\{k | 1 &lt; k &lt; j 且 p_1 \cdots p_{k-1} == p_{j-k+1} \cdots p_{j-1}\} &amp; 此集合非空 \\\\ 1 &amp; 其他 \end{matrix}\right.$$&lt;blockquote&gt;
 &lt;p&gt;KMP算法的&lt;code&gt;next[]&lt;/code&gt;数组有多种定义方式，这里采用的是严蔚敏《数据结构（C语言版）》的方法。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://5882886.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95.png&#34;
 	width=&#34;1513&#34;
 	height=&#34;952&#34;
-	srcset=&#34;https://5882886.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_b3cbbbe8af552fd0.png 480w, https://5882886.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_486525f24ddcc8ff.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_b3cbbbe8af552fd0.png 480w, https://rd806.github.io/p/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_486525f24ddcc8ff.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;KMP算法&#34;

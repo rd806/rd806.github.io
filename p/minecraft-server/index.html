@@ -4,16 +4,16 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="开服经历回顾">
 <title>Minecraft服务器</title>
 
-<link rel='canonical' href='https://5882886.github.io/p/minecraft-server/'>
+<link rel='canonical' href='https://rd806.github.io/p/minecraft-server/'>
 
 <link rel="stylesheet" href="/scss/style.min.97f7d52448e186397165c80dae4df6820feae8767031898069bd46931d5f0f83.css"><meta property='og:title' content="Minecraft服务器">
 <meta property='og:description' content="开服经历回顾">
-<meta property='og:url' content='https://5882886.github.io/p/minecraft-server/'>
+<meta property='og:url' content='https://rd806.github.io/p/minecraft-server/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://5882886.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://rd806.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
 <meta name="twitter:title" content="Minecraft服务器">
 <meta name="twitter:description" content="开服经历回顾"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://5882886.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+    <meta name="twitter:image" content='https://rd806.github.io/p/minecraft-server/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -261,9 +261,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://5882886.github.io/en/" >English</option>
+                                    <option value="https://rd806.github.io/en/" >English</option>
                                 
-                                    <option value="https://5882886.github.io/" selected>简体中文</option>
+                                    <option value="https://rd806.github.io/" selected>简体中文</option>
                                 
                             </select>
                         </li>
@@ -338,7 +338,7 @@
       <ol>
         <li><a href="#修改服务器配置">修改服务器配置</a>
           <ol>
-            <li><a href="#启动文件bat"><code>启动文件.bat</code></a></li>
+            <li><a href="#启动文件">启动文件</a></li>
             <li><a href="#serverproperties"><code>server.properties</code></a></li>
             <li><a href="#bukkityml"><code>bukkit.yml</code></a></li>
             <li><a href="#spiogtyml"><code>spiogt.yml</code></a></li>
@@ -645,8 +645,10 @@
       </tr>
   </tbody>
 </table></div>
-<p>似乎混合端功能更强大，但实际上它的兼容性更差，所以如果想开整合包服务器的话最好还是用模组端。
-由于我目前没找到合适的模组代替插件，因此只能用混合端了。</p>
+<blockquote>
+<p>似乎混合端功能更强大，但实际上它的兼容性更差，所以如果想开整合包服务器的话最好还是用模组端。</p>
+<p>由于我目前没找到合适的模组代替插件，因此只能用混合端了。</p>
+</blockquote>
 <p>以下是常见的服务端：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -673,12 +675,12 @@
           <td>全版本</td>
       </tr>
       <tr>
-          <td>Catserver （猫端）</td>
+          <td>Catserver（猫端）</td>
           <td>混合端</td>
           <td>1.12.2/1.16.5/1.18.2</td>
       </tr>
       <tr>
-          <td>Mohist （墨端）</td>
+          <td>Mohist（墨端）</td>
           <td>混合端</td>
           <td>全版本</td>
       </tr>
@@ -743,44 +745,69 @@
 </h3><p>局域网联机最简单，只需知道服务器运行的主机的IP地址即可。</p>
 <p>Windows平台：<code>win+r</code>打开cmd，输入<code>ipconfig</code>，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。</p>
 <p>Linux平台：命令行输入 <code>ip a</code> 。</p>
-<details>
-    <summary>什么是局域网？</summary>
 <blockquote>
 <p>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。</p>
 </blockquote>
-</details>
 <h3 id="内网穿透">内网穿透
 </h3><p>请在网络上自行查找相关内容。</p>
-<details>
-    <summary>什么是内网穿透？</summary>
 <blockquote>
 <p>内网穿透是通过特定技术，将你的内网（如局域网）地址经服务器映射到公网上的过程。此时一个公网IP地址，如：<code>frp-xxx.com:xxxxx</code>就等同于你的局域网地址<code>192.168.x.x</code>。</p>
 </blockquote>
-</details>
 <h3 id="ipv6连接">IPv6连接
 </h3><p>这是目前成本最低，效果最好的连接方式。</p>
 <p>首先必须确保你和你的伙伴都有IPv6访问，然后<code>win+r</code>打开cmd，输入<code>ipconfig</code>，这时应该可以看到一串<code>240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx</code>（必须为<code>240e</code>开头，这样才是公网IPv6），这时<code>[IPV6地址]:端口号</code>的形式就是服务器的IP地址。</p>
-<details>
-    <summary>什么是IPv6？</summary>
 <blockquote>
 <p>目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用“ : ”隔开；IPv6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。</p>
 </blockquote>
-</details>
 <h2 id="服务器进阶">服务器进阶
 </h2><h3 id="修改服务器配置">修改服务器配置
 </h3><p>依据服务端核心的不同，修改方法也有所区别。</p>
-<h4 id="启动文件bat"><code>启动文件.bat</code>
-</h4><p>在<code>java -jar 你的服务端核心名.jar</code>中，可在<code>-jar</code>之后加上<code>-XmsAG -XmxBG</code>表示给服务器至少分配A个G的内存，至多分配B个G的内存。</p>
-<p>特别的，<code>java</code>可以替换为具体的Java/bin路径。若未指明，默认为最新版的Java。</p>
+<h4 id="启动文件">启动文件
+</h4><p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nb">set</span> -e
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"># 1. 如果 MySQL 没装，就装（可选）</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"># sudo apt update &amp;&amp; sudo apt install -y mysql-server</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># 2. 确保 MySQL 服务已启动</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">sudo service mysql start
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"># sudo systemctl is-active --quiet mysql || { echo &#34;MySQL 启动失败&#34;; exit 1; }</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"># 3. 等待 3306 真正响应</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">until</span> nc -z 127.0.0.1 3306<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;等待 MySQL 端口 3306 …&#34;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">  sleep <span class="m">1</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1"># 4. 启动 MC（stop正常退出，崩溃自动重启）</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="nb">cd</span> <span class="o">{</span><span class="s2">&#34;服务器所在目录&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    java -Xms4G -Xmx8G -jar mohist-1.20.1.jar
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="nv">EXIT_CODE</span><span class="o">=</span><span class="nv">$?</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="c1"># 退出码 0 = 正常停止 (stop命令)</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">if</span> <span class="o">[</span> <span class="nv">$EXIT_CODE</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;服务器正常关闭，退出脚本&#34;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="nb">break</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="k">fi</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;服务器异常终止 (退出码: </span><span class="nv">$EXIT_CODE</span><span class="s2">)，5秒后自动重启...&#34;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    sleep <span class="m">5</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><blockquote>
+<p>在<code>java -jar 你的服务端核心名.jar</code>中，可在<code>-jar</code>之后加上<code>-XmsAG -XmxBG</code>表示给服务器至少分配A个G的内存，至多分配B个G的内存。</p>
+<p>特别的，<code>java</code>可以替换为具体的<code>Java/bin</code>路径。若未指明，默认为最新版的Java。</p>
+</blockquote>
 <h4 id="serverproperties"><code>server.properties</code>
 </h4><p>这是所有服务器都具备的配置文件。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="na">allow-flight</span><span class="o">=</span><span class="s">true   #是否启用飞行</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="na">allow-nether</span><span class="o">=</span><span class="s">true   #是否生成下界</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="na">broadcast-console-to-ops</span><span class="o">=</span><span class="s">true   #是否向管理员发送控制台消息</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="na">allow-flight</span><span class="o">=</span><span class="s">true                       #是否启用飞行</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="na">allow-nether</span><span class="o">=</span><span class="s">true                       #是否生成下界</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="na">broadcast-console-to-ops</span><span class="o">=</span><span class="s">true           #是否向管理员发送控制台消息</span>
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="na">broadcast-rcon-to-ops</span><span class="o">=</span><span class="s">true</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="na">debug</span><span class="o">=</span><span class="s">false     #是否开启调试模式</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="na">difficulty</span><span class="o">=</span><span class="s">normal       #难度设置</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="na">enable-command-block</span><span class="o">=</span><span class="s">true       #是否启用命令方块</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="na">debug</span><span class="o">=</span><span class="s">false                             #是否开启调试模式</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="na">difficulty</span><span class="o">=</span><span class="s">normal                       #难度设置</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="na">enable-command-block</span><span class="o">=</span><span class="s">true               #是否启用命令方块</span>
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="na">enable-jmx-monitoring</span><span class="o">=</span><span class="s">false</span>
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="na">enable-query</span><span class="o">=</span><span class="s">false</span>
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="na">enable-rcon</span><span class="o">=</span><span class="s">false</span>
@@ -788,49 +815,49 @@
 </span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="na">enforce-secure-profile</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="na">enforce-whitelist</span><span class="o">=</span><span class="s">false</span>
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="na">entity-broadcast-range-percentage</span><span class="o">=</span><span class="s">100</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="na">force-gamemode</span><span class="o">=</span><span class="s">false        #是否强制设置玩家的游戏模式</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="na">function-permission-level</span><span class="o">=</span><span class="s">4     #命令等级设置，最高为4，最低为0 </span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="na">gamemode</span><span class="o">=</span><span class="s">survival       #游戏模式设置</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="na">force-gamemode</span><span class="o">=</span><span class="s">false                    #是否强制设置玩家的游戏模式</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="na">function-permission-level</span><span class="o">=</span><span class="s">4             #命令等级设置，最高为4，最低为0 </span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="na">gamemode</span><span class="o">=</span><span class="s">survival                       #游戏模式设置</span>
 </span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="na">generate-structures</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="na">generator-settings</span><span class="o">=</span><span class="s">{}</span>
 </span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="na">hardcore</span><span class="o">=</span><span class="s">false</span>
 </span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="na">hide-online-players</span><span class="o">=</span><span class="s">false</span>
 </span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="na">initial-disabled-packs</span><span class="o">=</span>
 </span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="na">initial-enabled-packs</span><span class="o">=</span><span class="s">vanilla</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="na">level-name</span><span class="o">=</span><span class="s">play     #游戏主世界存档名称</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="na">level-seed</span><span class="o">=</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="na">level-type</span><span class="o">=</span><span class="s">minecraft\:normal</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="na">level-name</span><span class="o">=</span><span class="s">play                         #游戏主世界存档名称</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="na">level-seed</span><span class="o">=</span>                             <span class="s">#游戏主世界地图种子</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="na">level-type</span><span class="o">=</span><span class="s">minecraft\:normal            #主世界地图类型</span>
 </span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="na">max-chained-neighbor-updates</span><span class="o">=</span><span class="s">1000000</span>
-</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="na">max-players</span><span class="o">=</span><span class="s">40      #服务器允许的最多人数</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="na">max-players</span><span class="o">=</span><span class="s">40                          #服务器允许的最多人数</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="na">max-tick-time</span><span class="o">=</span><span class="s">60000</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="na">max-world-size</span><span class="o">=</span><span class="s">29999984</span>
 </span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="na">motd</span><span class="o">=</span><span class="s">智算11班公益养老服(1.4)</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="na">network-compression-threshold</span><span class="o">=</span><span class="s">256</span>
-</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="na">online-mode</span><span class="o">=</span><span class="s">false       #是否启用在线模式</span>
-</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="na">op-permission-level</span><span class="o">=</span><span class="s">4</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="na">online-mode</span><span class="o">=</span><span class="s">false                       #是否启用在线模式</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="na">op-permission-level</span><span class="o">=</span><span class="s">4                   #管理员命令等级</span>
 </span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="na">player-idle-timeout</span><span class="o">=</span><span class="s">0</span>
-</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="na">prevent-proxy-connections</span><span class="o">=</span><span class="s">false</span>
-</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="na">pvp</span><span class="o">=</span><span class="s">true        #是否允许玩家互相攻击</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="na">prevent-proxy-connections</span><span class="o">=</span><span class="s">false         #是否阻止代理连接</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="na">pvp</span><span class="o">=</span><span class="s">true                                #是否允许玩家互相攻击</span>
 </span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="na">query.port</span><span class="o">=</span><span class="s">25565    </span>
 </span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="na">rate-limit</span><span class="o">=</span><span class="s">0</span>
 </span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="na">rcon.password</span><span class="o">=</span>
 </span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="na">rcon.port</span><span class="o">=</span><span class="s">25575</span>
-</span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="na">require-resource-pack</span><span class="o">=</span><span class="s">false</span>
-</span></span><span class="line"><span class="ln">43</span><span class="cl"><span class="na">resource-pack</span><span class="o">=</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="na">require-resource-pack</span><span class="o">=</span><span class="s">false             #是否强制使用资源包</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl"><span class="na">resource-pack</span><span class="o">=</span>                          <span class="s">#资源包链接</span>
 </span></span><span class="line"><span class="ln">44</span><span class="cl"><span class="na">resource-pack-prompt</span><span class="o">=</span>
 </span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="na">resource-pack-sha1</span><span class="o">=</span>
-</span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="na">server-ip</span><span class="o">=</span>     <span class="s">#服务器运行的IP地址，默认留空</span>
-</span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="na">server-port</span><span class="o">=</span><span class="s">30067       #服务器运行的端口</span>
-</span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="na">simulation-distance</span><span class="o">=</span><span class="s">10      #服务器模拟距离，建议设置为4~6</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="na">server-ip</span><span class="o">=</span>                              <span class="s">#服务器运行的IP地址，默认留空为127.0.0.1</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="na">server-port</span><span class="o">=</span><span class="s">30067                       #服务器运行的端口</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="na">simulation-distance</span><span class="o">=</span><span class="s">10                  #服务器模拟距离，建议设置为4~6</span>
 </span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="na">spawn-animals</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="na">spawn-monsters</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="na">spawn-npcs</span><span class="o">=</span><span class="s">true</span>
-</span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="na">spawn-protection</span><span class="o">=</span><span class="s">0      #出生点保护范围</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="na">spawn-protection</span><span class="o">=</span><span class="s">0                      #出生点保护范围</span>
 </span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="na">sync-chunk-writes</span><span class="o">=</span><span class="s">true</span>
 </span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="na">text-filtering-config</span><span class="o">=</span>
 </span></span><span class="line"><span class="ln">55</span><span class="cl"><span class="na">use-native-transport</span><span class="o">=</span><span class="s">true</span>
-</span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="na">view-distance</span><span class="o">=</span><span class="s">10        #服务器视野距离，建议设置为4~6</span>
-</span></span><span class="line"><span class="ln">57</span><span class="cl"><span class="na">white-list</span><span class="o">=</span><span class="s">false</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="na">view-distance</span><span class="o">=</span><span class="s">10                        #服务器视野距离，建议设置为4~6</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl"><span class="na">white-list</span><span class="o">=</span><span class="s">false                        #是否启用白名单</span>
 </span></span></code></pre></div><h4 id="bukkityml"><code>bukkit.yml</code>
 </h4><h4 id="spiogtyml"><code>spiogt.yml</code>
 </h4><h3 id="安装插件和模组">安装插件和模组
@@ -844,7 +871,7 @@
 </h3><p>对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。</p>
 <p>下面以服务端插件PowerRanks为例进行说明。</p>
 <ol>
-<li>打开PowerRanks的配置文件，找到关于数据来源的配置。</li>
+<li>打开PowerRanks的配置文件，找到关于数据来源的配置。 将<code>type</code>改为<code>mysql</code>，并配置好端口、用户名和密码。这样在启动时，插件会自动从<code>127.0.0.1:3306</code>端口的<code>root</code>用户读入数据。</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nn">...</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nt">storage</span><span class="p">:</span><span class="w">
@@ -858,8 +885,7 @@
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">    </span><span class="nt">ssl</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="nn">...</span><span class="w">
-</span></span></span></code></pre></div><p>将<code>type</code>改为<code>mysql</code>，并配置好端口、用户名和密码。这样在启动时，插件会自动从<code>127.0.0.1:3306</code>端口的root用户读入数据。</p>
-<ol start="2">
+</span></span></span></code></pre></div><ol start="2">
 <li>
 <p>在MySQL的表中创建新表，命名为<code>powerranks</code>，此处名称应与配置文件中的<code>database</code>后的名称相同。</p>
 </li>
@@ -869,6 +895,7 @@
 </ol>
 <blockquote>
 <p>注意：使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端，否则插件会报错。</p>
+<p>可以使用命令：<code>sudo service mysql start</code></p>
 </blockquote>
 <h2 id="开发者选项">开发者选项
 </h2><h3 id="制作自己的服务端插件">制作自己的服务端插件
@@ -937,6 +964,25 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/minecraft-plugin/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/helena-hertz-wWZzXlDpMog-unsplash.jpg" loading="lazy" data-key="minecraft-plugin" data-hash="/helena-hertz-wWZzXlDpMog-unsplash.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Minecraft服务器插件</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -1172,7 +1218,7 @@
 
 
     
-    <script src=https://5882886.github.io/js/topbar.min.js></script>
+    <script src=https://rd806.github.io/js/topbar.min.js></script>
 
 <script>
     
@@ -1196,9 +1242,9 @@
 
 <div id="particles-js"></div>
 
-<script src="https://5882886.github.io/background/particles.min.js" ></script>
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
 <script>
-    particlesJS.load('particles-js', 'https:\/\/5882886.github.io\/background\/particlesjs-config.json', function() {
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
         console.log('particles.js loaded - callback');
     });
 </script>
