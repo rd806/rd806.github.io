@@ -114,7 +114,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/5882886'
+                        href='https://github.com/rd806'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -696,36 +696,65 @@
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c"># 其中&#39;OpenSSH Server&#39;是协议的名称，可自行修改</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c"># 这样默认同时开启IPV4和IPV6的端口，即“127.0.0.1:22”和“[0:0:0:0]:22”</span>
 </span></span></code></pre></div><p>还可以通过以下方法实现：</p>
-<p>① 打开防火墙高级设置：控制面板 &gt; Windows Defender 防火墙 &gt; 高级设置（或<code>win+R</code>输入<code>wf.msc</code>）。<br>
-② 新建入站规则：右键“入站规则” &gt; 新建规则。<br>
-③ 选择规则类型：选择“端口” &gt; 下一步。<br>
-④ 指定端口和协议：协议类型：选择 TCP（或 UDP，视应用而定）；特定本地端口：输入 22 &gt; 下一步。<br>
-⑤ 选择操作：选择“允许连接” &gt; 下一步。<br>
-⑥ 选择配置文件：默认全选（域、专用、公用）&gt; 下一步。<br>
-⑦ 指定规则名称：如“允许 IPv6 22222 端口” &gt; 完成。<br></p>
-<ol start="3">
-<li>注意事项</li>
-</ol>
-<p>如果有时开放了防火墙但仍无法连接，可尝试重启电脑（我就是这样解决的……）</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>①</td>
+          <td>打开防火墙高级设置：控制面板 &gt; Windows Defender 防火墙 &gt; 高级设置（或<code>win+R</code>输入<code>wf.msc</code>）</td>
+      </tr>
+      <tr>
+          <td>②</td>
+          <td>新建入站规则：右键“入站规则” &gt; 新建规则。</td>
+      </tr>
+      <tr>
+          <td>③</td>
+          <td>选择规则类型：选择“端口” &gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>④</td>
+          <td>指定端口和协议：协议类型：选择 TCP（或 UDP，视应用而定）；特定本地端口：输入 22 &gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>⑤</td>
+          <td>选择操作：选择“允许连接” &gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>⑥</td>
+          <td>选择配置文件：默认全选（域、专用、公用）&gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>⑦</td>
+          <td>指定规则名称：如“允许 IPv6 22222 端口” &gt; 完成。</td>
+      </tr>
+  </tbody>
+</table></div>
+
+
+<blockquote class="alert alert-note">
+    <p>如果有时开放了防火墙但仍无法连接，可尝试重启电脑（我就是这样解决的……）</p></blockquote>
 <h3 id="linux系统">Linux系统
 </h3><ol>
 <li>安装 OpenSSH Server</li>
 </ol>
-<p>如果尚未安装，运行：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
 </span></span></code></pre></div><ol start="2">
 <li>启动 SSH 服务</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl start ssh
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo systemctl <span class="nb">enable</span> ssh  <span class="c1"># 开机自启</span>
-</span></span></code></pre></div><p>确认服务正在运行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl status ssh
-</span></span></code></pre></div><p>输出中应显示 active (running)。</p>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo systemctl <span class="nb">enable</span> ssh   <span class="c1"># 设置开机自启</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo systemctl status ssh   <span class="c1"># 检查ssh运行状态</span>
+</span></span></code></pre></div><p>输出中应显示<code>active (running)</code>。</p>
 <ol start="3">
-<li>配置防火墙
-允许 SSH 默认端口（22）：</li>
+<li>配置防火墙</li>
 </ol>
+<p>允许 SSH 默认端口（22）：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ufw <span class="nb">enable</span>  <span class="c1"># 如果防火墙未启用</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo ufw allow ssh
 </span></span></code></pre></div><ol start="4">
@@ -735,24 +764,24 @@
 </span></span></code></pre></div><p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。</p>
 <h3 id="wsl系统">WSL系统
 </h3><ol>
-<li>安装 OpenSSH Server
-打开 WSL 中的 Ubuntu 终端，执行：</li>
+<li>安装 OpenSSH Server</li>
 </ol>
+<p>打开 WSL 中的 Ubuntu 终端，执行：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
 </span></span></code></pre></div><ol start="2">
-<li>配置 SSH
-编辑配置文件：</li>
+<li>配置 SSH</li>
 </ol>
+<p>编辑配置文件：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo nano /etc/ssh/sshd_config
 </span></span></code></pre></div><p>确保以下配置项存在且未被注释：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">...
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Port <span class="m">22</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">...
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Port 22
 </span></span><span class="line"><span class="ln">3</span><span class="cl">...
 </span></span><span class="line"><span class="ln">4</span><span class="cl">PasswordAuthentication yes
 </span></span><span class="line"><span class="ln">5</span><span class="cl">PermitRootLogin yes
 </span></span></code></pre></div><p>如果要启用IPV6的SSH连接，还应该保持以下内容未被注释：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">Port <span class="m">22</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Port 22
 </span></span><span class="line"><span class="ln">2</span><span class="cl">AddressFamily any
 </span></span><span class="line"><span class="ln">3</span><span class="cl">ListenAddress 0.0.0.0
 </span></span><span class="line"><span class="ln">4</span><span class="cl">ListenAddress ::
@@ -765,11 +794,11 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh status
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 或使用</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl">ps aux <span class="p">|</span> grep sshd
-</span></span></code></pre></div><ol start="4">
-<li>使用WSL的注意事项 <br>
-① 必须保证Windows防火墙的22端口已被放行；<br>
-② WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</li>
-</ol>
+</span></span></code></pre></div><blockquote>
+<p>注意事项:</p>
+<p>必须保证Windows防火墙的22端口已被放行；</p>
+<p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
+</blockquote>
 <details>
     <summary>下面给出使用任务计划程序（无需第三方程序）的方法：点击展开</summary>
 <p>打开任务计划程序
@@ -826,8 +855,8 @@
 </span></span><span class="line"><span class="ln">3</span><span class="cl">    User xxxxx                  # 登录的用户名
 </span></span><span class="line"><span class="ln">4</span><span class="cl">    Port xxxxx                  # SSH服务端的IP端口
 </span></span></code></pre></div><blockquote>
-<p>注意：VScode的Host名会绑定远程主机的操作系统（Windows、Linux、MacOS）。如果使用同一个Host名连接不同操作系统的主机，需要在设置中修改，否则会报错。（就因为这个，让我花了近1小时）</p>
-<p>修改方法：打开<code>设置</code> → 搜索<code>Remote Platform</code> → 修改相应项的值 <br></p>
+<p>注意：VScode的<code>Host</code>名会绑定远程主机的操作系统（Windows、Linux、MacOS）。如果使用同一个Host名连接不同操作系统的主机，需要在设置中修改，否则会报错。（就因为这个，让我花了近1小时）</p>
+<p>修改方法：打开<code>设置</code> → 搜索<code>Remote Platform</code> → 修改相应项的值</p>
 </blockquote>
 
 </section>

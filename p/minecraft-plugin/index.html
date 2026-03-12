@@ -10,10 +10,9 @@
 <meta property='og:description' content="智斗Java">
 <meta property='og:url' content='https://rd806.github.io/p/minecraft-plugin/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://rd806.github.io/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-02-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-22T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="Minecraft服务器插件">
-<meta name="twitter:description" content="智斗Java"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://rd806.github.io/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+<meta name="twitter:description" content="智斗Java">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -114,7 +113,7 @@
             
                 <li>
                     <a 
-                        href='https://github.com/5882886'
+                        href='https://github.com/rd806'
                         target="_blank"
                         title="GitHub"
                         rel="me"
@@ -514,16 +513,8 @@
             <main class="main full-width">
      
     
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/minecraft-plugin/">
-                
-                    <img src="/helena-hertz-wWZzXlDpMog-unsplash.jpg" loading="lazy" alt="Featured image of post Minecraft服务器插件" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
@@ -652,7 +643,7 @@
 </span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">lore</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&#34;§5紫色文本§r§7灰色文本&#34;</span><span class="p">);</span><span class="w">     </span><span class="c1">// 紫色后重置为灰色</span><span class="w">
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">lore</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&#34;§r§c红色文本§r§a绿色文本&#34;</span><span class="p">);</span><span class="w">   </span><span class="c1">// 分别设置颜色</span><span class="w">
 </span></span></span></code></pre></div><p>若使用<code>&amp;</code>，则还需要一层转译：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">lore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChatColor</span><span class="p">.</span><span class="na">translateAlternateColorCodes</span><span class="p">(</span><span class="sc">&#39;&amp;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;§5紫色文本§r§7灰色文本&#34;</span><span class="p">);</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">lore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChatColor</span><span class="p">.</span><span class="na">translateAlternateColorCodes</span><span class="p">(</span><span class="sc">&#39;&amp;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;&amp;5紫色文本&amp;r&amp;7灰色文本&#34;</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div>
 </section>
 
