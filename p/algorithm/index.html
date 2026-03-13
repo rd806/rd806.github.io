@@ -794,11 +794,11 @@
   <tbody>
       <tr>
           <td>传递性</td>
-          <td>$f(n) = \varOmega(g(n))$ 且 $g(n) = \varOmega(h(n))$，则有 $f(n) = \varOmega(h(n))$</td>
+          <td>$f(n) = \varTheta(g(n))$ 且 $g(n) = \varTheta(h(n))$，则有 $f(n) = \varTheta(h(n))$</td>
       </tr>
       <tr>
           <td>自反性</td>
-          <td>$f(n) = \varOmega(f(n))$，$f(n) = \Omega(f(n))$，$f(n) = O(f(n))$</td>
+          <td>$f(n) = \varTheta(f(n))$，$f(n) = \Omega(f(n))$，$f(n) = O(f(n))$</td>
       </tr>
       <tr>
           <td>对称性</td>
@@ -823,7 +823,7 @@
 </blockquote>
 <p>对于所有 $k&gt;0$，都有 $\frac{a_{k+1}}{a_k} \leqslant r &lt; 1$，则 $\displaystyle \sum_{k=1}^{n} a_k \leqslant \sum_{k=1}^{n} a_0 r^k \leqslant \frac{a_0}{1-r}$</p>
 <h4 id="求和转换为积分">求和转换为积分
-</h4><p>当 $f(x)$ 单调递增时，有 $\displaystyle \int_{m-1}^{n} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m}^{n} f(x) \mathrm{d}x $</p>
+</h4><p>当 $f(x)$ 单调递增时，有 $\displaystyle \int_{m-1}^{n} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m}^{n+1} f(x) \mathrm{d}x $</p>
 <p>当 $f(x)$ 单调递减时，有 $\displaystyle \int_{m}^{n+1} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m-1}^{n} f(x) \mathrm{d}x $</p>
 <blockquote>
 <p>例如，在算法分析中经常出现的 $\log n!$ 可作如下分析：</p>

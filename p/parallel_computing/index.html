@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
 <title>并行计算</title>
 
 <link rel='canonical' href='https://rd806.github.io/p/parallel_computing/'>
 
 <link rel="stylesheet" href="/scss/style.min.97f7d52448e186397165c80dae4df6820feae8767031898069bd46931d5f0f83.css"><meta property='og:title' content="并行计算">
-<meta property='og:description' content="并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta property='og:description' content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
 <meta property='og:url' content='https://rd806.github.io/p/parallel_computing/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-11T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="并行计算">
-<meta name="twitter:description" content="并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta name="twitter:description" content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -319,12 +319,31 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#并行计算基本概念">并行计算基本概念</a></li>
-    <li><a href="#并行化方法">并行化方法</a>
+    <li><a href="#概述">概述</a>
       <ol>
-        <li><a href="#域分解">域分解</a></li>
-        <li><a href="#任务分解">任务分解</a></li>
-        <li><a href="#流水线">流水线</a></li>
+        <li><a href="#并行计算基本概念">并行计算基本概念</a></li>
+        <li><a href="#并行化方法">并行化方法</a>
+          <ol>
+            <li><a href="#域分解">域分解</a></li>
+            <li><a href="#任务分解">任务分解</a></li>
+            <li><a href="#流水线">流水线</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#并行计算硬件环境">并行计算硬件环境</a>
+      <ol>
+        <li><a href="#pram模型">PRAM模型</a></li>
+        <li><a href="#处理器">处理器</a>
+          <ol>
+            <li><a href="#simd体系">SIMD体系</a></li>
+            <li><a href="#多核处理器">多核处理器</a></li>
+            <li><a href="#gpu">GPU</a></li>
+          </ol>
+        </li>
+        <li><a href="#互联网络">互联网络</a></li>
+        <li><a href="#内存访问模式">内存访问模式</a></li>
+        <li><a href="#并行计算系统的体系结构">并行计算系统的体系结构</a></li>
       </ol>
     </li>
   </ol>
@@ -572,8 +591,9 @@
     <section class="article-content">
     
     
-    <h2 id="并行计算基本概念">并行计算基本概念
-</h2><div class="table-wrapper"><table>
+    <h2 id="概述">概述
+</h2><h3 id="并行计算基本概念">并行计算基本概念
+</h3><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>基本概念</th>
@@ -599,28 +619,202 @@
       </tr>
   </tbody>
 </table></div>
-<h2 id="并行化方法">并行化方法
-</h2><h3 id="域分解">域分解
-</h3><p>首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。</p>
-<p>示例：求数组中的最大值</p>
+<h3 id="并行化方法">并行化方法
+</h3><h4 id="域分解">域分解
+</h4><p>首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。</p>
 <p><img src="/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3.png"
-	width="734"
-	height="941"
-	srcset="/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_30df927e87c99025.png 480w, /p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_4f4e19d12adf8fa1.png 1024w"
+	width="828"
+	height="1094"
+	srcset="/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_d16635a4070605c8.png 480w, /p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_9fb63832946c4816.png 1024w"
 	loading="lazy"
 	
 		alt="域分解"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="78"
-		data-flex-basis="187px"
+		data-flex-grow="75"
+		data-flex-basis="181px"
 	
 ></p>
-<h3 id="任务分解">任务分解
-</h3><p>首先将任务划分到各个处理器，然后确定各个处理器需要处理的数据。</p>
-<h3 id="流水线">流水线
-</h3>
+<h4 id="任务分解">任务分解
+</h4><p>首先将任务划分到各个处理器，然后确定各个处理器需要处理的数据。</p>
+<p><img src="/p/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3.png"
+	width="762"
+	height="612"
+	srcset="/p/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3_hu_2b41803064b52d03.png 480w, /p/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3_hu_302bc892a09faf98.png 1024w"
+	loading="lazy"
+	
+		alt="任务分解"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="298px"
+	
+></p>
+<h4 id="流水线">流水线
+</h4><p>将一个任务拆分成多个步骤，通过不同步骤在时间上的重叠达到“并行”的效果。</p>
+<h2 id="并行计算硬件环境">并行计算硬件环境
+</h2><h3 id="pram模型">PRAM模型
+</h3><p><strong>PRAM</strong>全称为Parallel Random Access Machine，它具备以下特点：</p>
+<ol>
+<li>每个处理器可同时从共享的内存中读取数据到自己的寄存器</li>
+<li>每个处理器执行计算过程，数据存储在本地寄存器</li>
+<li>每个处理器可同时将数据写入到共享的内存（存在潜在冲突）</li>
+</ol>
+<figure><img src="/p/parallel_computing/images/PRAM%E6%A8%A1%E5%9E%8B.png" width="900"><figcaption>
+      <h4>PRAM模型</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p>PRAM模型可以衍生出以下模型：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>模型</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EREW</td>
+          <td>任意两个处理器不能并发读，也不能并发写</td>
+      </tr>
+      <tr>
+          <td>CREW</td>
+          <td>可以并发读，但不能并发写</td>
+      </tr>
+      <tr>
+          <td>CRCW</td>
+          <td>可以并发读，也可以并发写</td>
+      </tr>
+  </tbody>
+</table></div>
+</blockquote>
+<p>根据PRAM模型，可以对<a class="link" href="/p/algorithm/#%e5%89%8d%e7%bc%80%e5%92%8c" >前缀求和
+    
+    
+
+</a>作出并行算法设计：</p>
+<p><img src="/p/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C.png"
+	width="760"
+	height="409"
+	srcset="/p/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C_hu_66bb72342530a23c.png 480w, /p/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C_hu_d0fd774f5a0022a5.png 1024w"
+	loading="lazy"
+	
+		alt="前缀求和"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="185"
+		data-flex-basis="445px"
+	
+></p>
+<h3 id="处理器">处理器
+</h3><h4 id="simd体系">SIMD体系
+</h4><p>SIMD是一条指令同时操作多个数据，适合数据级并行的计算机体系结构。</p>
+<blockquote>
+<p>Flynn分类法（Flynn&rsquo;s Taxonomy）是计算机体系结构领域最经典的分类方法之一。它根据指令流（Instruction Stream）——机器执行的指令序列，和数据流（Data Stream）——由指令流调用的数据序列两个维度的&quot;单&quot;（Single）或&quot;多&quot;（Multiple）组合，将计算机体系结构分为四类：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">类型</th>
+          <th style="text-align: left">全称</th>
+          <th style="text-align: center">指令流</th>
+          <th style="text-align: center">数据流</th>
+          <th style="text-align: left">典型代表</th>
+          <th style="text-align: left">特征</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>SISD</strong></td>
+          <td style="text-align: left">Single Instruction Single Data</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: left">早期单核CPU（如Intel 8086）、传统冯·诺依曼架构</td>
+          <td style="text-align: left">顺序执行，一次处理一个任务的一&gt; 份数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>SIMD</strong></td>
+          <td style="text-align: left">Single Instruction Multiple Data</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: left">GPU、向量处理器、Intel SSE/AVX指令集</td>
+          <td style="text-align: left">一条指令同时操作多个数据，适合数据级并行</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>MISD</strong></td>
+          <td style="text-align: left">Multiple Instruction Single Data</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: left">极少见，主要用于容错系统（如航天器冗余控制）</td>
+          <td style="text-align: left">多个指令同时处理同一数据，理论意义大于实际</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>MIMD</strong></td>
+          <td style="text-align: left">Multiple Instruction Multiple Data</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: left">多核CPU、分布式计算集群、高性能服务器</td>
+          <td style="text-align: left">多个独立指令流处理多个数据流，实现任务级并行</td>
+      </tr>
+  </tbody>
+</table></div>
+</blockquote>
+<h4 id="多核处理器">多核处理器
+</h4><p>进入21世纪，曾预言“CPU主频18个月翻一番”的摩尔定律不再适用于当下处理器的发展方向。</p>
+<blockquote>
+<p>限制单核性能主要有以下几个方面：</p>
+<ol>
+<li>功耗墙：CPU越小，单位面积产生的热量越多，散热越困难。</li>
+<li>存储墙：CPU缓存占据了70%以上的芯片面积，限制了性能的进一步提升。</li>
+</ol>
+</blockquote>
+<p>多核处理器的特点：</p>
+<ol>
+<li>多个复杂度适中，相对低功耗的处理核心并行工作。</li>
+<li>CPU时钟频率基本不变、</li>
+</ol>
+<h4 id="gpu">GPU
+</h4><p>GPU将更多元件用于数据处理，而非控制和存储。</p>
+<p>可以将GPU视作超大规模并行协处理器和SPMD（单程序多数据）模式，实现了数据并行。</p>
+<h3 id="互联网络">互联网络
+</h3><p>静态互连网络：处理单元之间有固定连接的一类网络，在程序执行期间这种点到点的链接保持不变：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>一维线性阵列</td>
+          <td>每个节点只与其左右近邻相连（$N$个节点用$N-1$条边串接）</td>
+      </tr>
+      <tr>
+          <td>二维网孔</td>
+          <td>每个节点只与其上、下、左、右的近邻相连（边界结点除外）</td>
+      </tr>
+      <tr>
+          <td>二叉树</td>
+          <td>与完全二叉树的结构类似</td>
+      </tr>
+      <tr>
+          <td>超立方</td>
+          <td>更为复杂的空间结构</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>动态网络：用交换开关构成的，可按应用程序的要求动态地改变连接组态。包括总线、交叉开关等</p>
+<h3 id="内存访问模式">内存访问模式
+</h3><h3 id="并行计算系统的体系结构">并行计算系统的体系结构
+</h3><p>PVP（Parallel Vector Processor）：含有为数不多、功能强大的定制向量处理器。</p>
+<p>SMP（Symmetric Multiprocessor）：多个处理器通过总线或交叉开关连接到共享存储器。</p>
+<p>MMP（Massively Parallel Processor）：处理节点采用微处理器，系统中有物理上的分布式存储器。</p>
+
 </section>
 
 

@@ -153,11 +153,11 @@
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;传递性&lt;/td&gt;
-          &lt;td&gt;$f(n) = \varOmega(g(n))$ 且 $g(n) = \varOmega(h(n))$，则有 $f(n) = \varOmega(h(n))$&lt;/td&gt;
+          &lt;td&gt;$f(n) = \varTheta(g(n))$ 且 $g(n) = \varTheta(h(n))$，则有 $f(n) = \varTheta(h(n))$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;自反性&lt;/td&gt;
-          &lt;td&gt;$f(n) = \varOmega(f(n))$，$f(n) = \Omega(f(n))$，$f(n) = O(f(n))$&lt;/td&gt;
+          &lt;td&gt;$f(n) = \varTheta(f(n))$，$f(n) = \Omega(f(n))$，$f(n) = O(f(n))$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;对称性&lt;/td&gt;
@@ -182,7 +182,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;对于所有 $k&amp;gt;0$，都有 $\frac{a_{k+1}}{a_k} \leqslant r &amp;lt; 1$，则 $\displaystyle \sum_{k=1}^{n} a_k \leqslant \sum_{k=1}^{n} a_0 r^k \leqslant \frac{a_0}{1-r}$&lt;/p&gt;
 &lt;h4 id=&#34;求和转换为积分&#34;&gt;求和转换为积分
-&lt;/h4&gt;&lt;p&gt;当 $f(x)$ 单调递增时，有 $\displaystyle \int_{m-1}^{n} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m}^{n} f(x) \mathrm{d}x $&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;当 $f(x)$ 单调递增时，有 $\displaystyle \int_{m-1}^{n} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m}^{n+1} f(x) \mathrm{d}x $&lt;/p&gt;
 &lt;p&gt;当 $f(x)$ 单调递减时，有 $\displaystyle \int_{m}^{n+1} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m-1}^{n} f(x) \mathrm{d}x $&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;例如，在算法分析中经常出现的 $\log n!$ 可作如下分析：&lt;/p&gt;

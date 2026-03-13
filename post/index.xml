@@ -13,8 +13,9 @@
         <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
         
         <guid>https://rd806.github.io/p/parallel_computing/</guid>
-        <description>&lt;h2 id=&#34;并行计算基本概念&#34;&gt;并行计算基本概念
-&lt;/h2&gt;&lt;table&gt;
+        <description>&lt;h2 id=&#34;概述&#34;&gt;概述
+&lt;/h2&gt;&lt;h3 id=&#34;并行计算基本概念&#34;&gt;并行计算基本概念
+&lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;基本概念&lt;/th&gt;
@@ -40,28 +41,202 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;并行化方法&#34;&gt;并行化方法
-&lt;/h2&gt;&lt;h3 id=&#34;域分解&#34;&gt;域分解
-&lt;/h3&gt;&lt;p&gt;首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。&lt;/p&gt;
-&lt;p&gt;示例：求数组中的最大值&lt;/p&gt;
+&lt;h3 id=&#34;并行化方法&#34;&gt;并行化方法
+&lt;/h3&gt;&lt;h4 id=&#34;域分解&#34;&gt;域分解
+&lt;/h4&gt;&lt;p&gt;首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3.png&#34;
-	width=&#34;734&#34;
-	height=&#34;941&#34;
-	srcset=&#34;https://rd806.github.io/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_30df927e87c99025.png 480w, https://rd806.github.io/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_4f4e19d12adf8fa1.png 1024w&#34;
+	width=&#34;828&#34;
+	height=&#34;1094&#34;
+	srcset=&#34;https://rd806.github.io/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_d16635a4070605c8.png 480w, https://rd806.github.io/p/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_9fb63832946c4816.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;域分解&#34;
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;78&#34;
-		data-flex-basis=&#34;187px&#34;
+		data-flex-grow=&#34;75&#34;
+		data-flex-basis=&#34;181px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;h3 id=&#34;任务分解&#34;&gt;任务分解
-&lt;/h3&gt;&lt;p&gt;首先将任务划分到各个处理器，然后确定各个处理器需要处理的数据。&lt;/p&gt;
-&lt;h3 id=&#34;流水线&#34;&gt;流水线
-&lt;/h3&gt;</description>
+&lt;h4 id=&#34;任务分解&#34;&gt;任务分解
+&lt;/h4&gt;&lt;p&gt;首先将任务划分到各个处理器，然后确定各个处理器需要处理的数据。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3.png&#34;
+	width=&#34;762&#34;
+	height=&#34;612&#34;
+	srcset=&#34;https://rd806.github.io/p/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3_hu_2b41803064b52d03.png 480w, https://rd806.github.io/p/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3_hu_302bc892a09faf98.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;任务分解&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;124&#34;
+		data-flex-basis=&#34;298px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;流水线&#34;&gt;流水线
+&lt;/h4&gt;&lt;p&gt;将一个任务拆分成多个步骤，通过不同步骤在时间上的重叠达到“并行”的效果。&lt;/p&gt;
+&lt;h2 id=&#34;并行计算硬件环境&#34;&gt;并行计算硬件环境
+&lt;/h2&gt;&lt;h3 id=&#34;pram模型&#34;&gt;PRAM模型
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;PRAM&lt;/strong&gt;全称为Parallel Random Access Machine，它具备以下特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;每个处理器可同时从共享的内存中读取数据到自己的寄存器&lt;/li&gt;
+&lt;li&gt;每个处理器执行计算过程，数据存储在本地寄存器&lt;/li&gt;
+&lt;li&gt;每个处理器可同时将数据写入到共享的内存（存在潜在冲突）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/parallel_computing/images/PRAM%E6%A8%A1%E5%9E%8B.png&#34; width=&#34;900&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;PRAM模型&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;PRAM模型可以衍生出以下模型：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;模型&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;EREW&lt;/td&gt;
+          &lt;td&gt;任意两个处理器不能并发读，也不能并发写&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CREW&lt;/td&gt;
+          &lt;td&gt;可以并发读，但不能并发写&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CRCW&lt;/td&gt;
+          &lt;td&gt;可以并发读，也可以并发写&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;根据PRAM模型，可以对&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/algorithm/#%e5%89%8d%e7%bc%80%e5%92%8c&#34; &gt;前缀求和
+    
+    
+
+&lt;/a&gt;作出并行算法设计：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C.png&#34;
+	width=&#34;760&#34;
+	height=&#34;409&#34;
+	srcset=&#34;https://rd806.github.io/p/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C_hu_66bb72342530a23c.png 480w, https://rd806.github.io/p/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C_hu_d0fd774f5a0022a5.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;前缀求和&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;185&#34;
+		data-flex-basis=&#34;445px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;处理器&#34;&gt;处理器
+&lt;/h3&gt;&lt;h4 id=&#34;simd体系&#34;&gt;SIMD体系
+&lt;/h4&gt;&lt;p&gt;SIMD是一条指令同时操作多个数据，适合数据级并行的计算机体系结构。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Flynn分类法（Flynn&amp;rsquo;s Taxonomy）是计算机体系结构领域最经典的分类方法之一。它根据指令流（Instruction Stream）——机器执行的指令序列，和数据流（Data Stream）——由指令流调用的数据序列两个维度的&amp;quot;单&amp;quot;（Single）或&amp;quot;多&amp;quot;（Multiple）组合，将计算机体系结构分为四类：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;类型&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;全称&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;指令流&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;数据流&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;典型代表&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;特征&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;SISD&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Single Instruction Single Data&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;单&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;单&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;早期单核CPU（如Intel 8086）、传统冯·诺依曼架构&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;顺序执行，一次处理一个任务的一&amp;gt; 份数据&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;SIMD&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Single Instruction Multiple Data&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;单&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;多&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;GPU、向量处理器、Intel SSE/AVX指令集&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;一条指令同时操作多个数据，适合数据级并行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;MISD&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Multiple Instruction Single Data&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;多&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;单&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;极少见，主要用于容错系统（如航天器冗余控制）&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;多个指令同时处理同一数据，理论意义大于实际&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;MIMD&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Multiple Instruction Multiple Data&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;多&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;多&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;多核CPU、分布式计算集群、高性能服务器&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;多个独立指令流处理多个数据流，实现任务级并行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;多核处理器&#34;&gt;多核处理器
+&lt;/h4&gt;&lt;p&gt;进入21世纪，曾预言“CPU主频18个月翻一番”的摩尔定律不再适用于当下处理器的发展方向。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;限制单核性能主要有以下几个方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;功耗墙：CPU越小，单位面积产生的热量越多，散热越困难。&lt;/li&gt;
+&lt;li&gt;存储墙：CPU缓存占据了70%以上的芯片面积，限制了性能的进一步提升。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;多核处理器的特点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;多个复杂度适中，相对低功耗的处理核心并行工作。&lt;/li&gt;
+&lt;li&gt;CPU时钟频率基本不变、&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;gpu&#34;&gt;GPU
+&lt;/h4&gt;&lt;p&gt;GPU将更多元件用于数据处理，而非控制和存储。&lt;/p&gt;
+&lt;p&gt;可以将GPU视作超大规模并行协处理器和SPMD（单程序多数据）模式，实现了数据并行。&lt;/p&gt;
+&lt;h3 id=&#34;互联网络&#34;&gt;互联网络
+&lt;/h3&gt;&lt;p&gt;静态互连网络：处理单元之间有固定连接的一类网络，在程序执行期间这种点到点的链接保持不变：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;分类&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;一维线性阵列&lt;/td&gt;
+          &lt;td&gt;每个节点只与其左右近邻相连（$N$个节点用$N-1$条边串接）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;二维网孔&lt;/td&gt;
+          &lt;td&gt;每个节点只与其上、下、左、右的近邻相连（边界结点除外）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;二叉树&lt;/td&gt;
+          &lt;td&gt;与完全二叉树的结构类似&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;超立方&lt;/td&gt;
+          &lt;td&gt;更为复杂的空间结构&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;动态网络：用交换开关构成的，可按应用程序的要求动态地改变连接组态。包括总线、交叉开关等&lt;/p&gt;
+&lt;h3 id=&#34;内存访问模式&#34;&gt;内存访问模式
+&lt;/h3&gt;&lt;h3 id=&#34;并行计算系统的体系结构&#34;&gt;并行计算系统的体系结构
+&lt;/h3&gt;&lt;p&gt;PVP（Parallel Vector Processor）：含有为数不多、功能强大的定制向量处理器。&lt;/p&gt;
+&lt;p&gt;SMP（Symmetric Multiprocessor）：多个处理器通过总线或交叉开关连接到共享存储器。&lt;/p&gt;
+&lt;p&gt;MMP（Massively Parallel Processor）：处理节点采用微处理器，系统中有物理上的分布式存储器。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>算法设计与分析</title>
@@ -209,11 +384,11 @@
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;传递性&lt;/td&gt;
-          &lt;td&gt;$f(n) = \varOmega(g(n))$ 且 $g(n) = \varOmega(h(n))$，则有 $f(n) = \varOmega(h(n))$&lt;/td&gt;
+          &lt;td&gt;$f(n) = \varTheta(g(n))$ 且 $g(n) = \varTheta(h(n))$，则有 $f(n) = \varTheta(h(n))$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;自反性&lt;/td&gt;
-          &lt;td&gt;$f(n) = \varOmega(f(n))$，$f(n) = \Omega(f(n))$，$f(n) = O(f(n))$&lt;/td&gt;
+          &lt;td&gt;$f(n) = \varTheta(f(n))$，$f(n) = \Omega(f(n))$，$f(n) = O(f(n))$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;对称性&lt;/td&gt;
@@ -238,7 +413,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;对于所有 $k&amp;gt;0$，都有 $\frac{a_{k+1}}{a_k} \leqslant r &amp;lt; 1$，则 $\displaystyle \sum_{k=1}^{n} a_k \leqslant \sum_{k=1}^{n} a_0 r^k \leqslant \frac{a_0}{1-r}$&lt;/p&gt;
 &lt;h4 id=&#34;求和转换为积分&#34;&gt;求和转换为积分
-&lt;/h4&gt;&lt;p&gt;当 $f(x)$ 单调递增时，有 $\displaystyle \int_{m-1}^{n} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m}^{n} f(x) \mathrm{d}x $&lt;/p&gt;
+&lt;/h4&gt;&lt;p&gt;当 $f(x)$ 单调递增时，有 $\displaystyle \int_{m-1}^{n} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m}^{n+1} f(x) \mathrm{d}x $&lt;/p&gt;
 &lt;p&gt;当 $f(x)$ 单调递减时，有 $\displaystyle \int_{m}^{n+1} f(x) \mathrm{d}x \leqslant \sum_{k=m}^{n} f(x) \leqslant \int_{m-1}^{n} f(x) \mathrm{d}x $&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;例如，在算法分析中经常出现的 $\log n!$ 可作如下分析：&lt;/p&gt;
