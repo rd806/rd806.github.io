@@ -381,7 +381,7 @@
 
     <script>
         
-        fetch('/json/music.json')
+        fetch('/resources/json/music.json')
             .then(r => r.json())    
             .then(list => {
                 const ap = new APlayer({ 
@@ -540,7 +540,7 @@
 
         
         async function loadQuotes() {
-            const res = await fetch('/json/quotes.json');    
+            const res = await fetch('/resources/json/quotes.json');    
             quotes = await res.json();
             showQuotes();                               
         }

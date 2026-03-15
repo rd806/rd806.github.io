@@ -455,7 +455,7 @@
 
     <script>
         
-        fetch('/json/music.json')
+        fetch('/resources/json/music.json')
             .then(r => r.json())    
             .then(list => {
                 const ap = new APlayer({ 
@@ -733,7 +733,7 @@
 
         
         async function loadQuestion() {
-            const res = await fetch('/json/exercises.json');    
+            const res = await fetch('/resources/json/exercises.json');    
             exercises = await res.json();
             RandomQuestion();
         }

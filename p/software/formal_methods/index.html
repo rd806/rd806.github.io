@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
 <title>形式化方法</title>
 
 <link rel='canonical' href='https://rd806.github.io/p/software/formal_methods/'>
 
 <link rel="stylesheet" href="/scss/style.min.97f7d52448e186397165c80dae4df6820feae8767031898069bd46931d5f0f83.css"><meta property='og:title' content="形式化方法">
-<meta property='og:description' content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n">
+<meta property='og:description' content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
 <meta property='og:url' content='https://rd806.github.io/p/software/formal_methods/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-15T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="形式化方法">
-<meta name="twitter:description" content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n">
+<meta name="twitter:description" content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -299,6 +299,47 @@
         
             
                 
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#集合论">集合论</a>
+      <ol>
+        <li><a href="#集合间的运算">集合间的运算</a></li>
+        <li><a href="#幂集">幂集</a></li>
+        <li><a href="#笛卡尔积">笛卡尔积</a></li>
+        <li><a href="#集合间的关系">集合间的关系</a></li>
+        <li><a href="#函数">函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#z语言">Z语言</a>
+      <ol>
+        <li><a href="#数据类型">数据类型</a></li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#集合">集合</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
 
 <style>
     .container {
@@ -455,7 +496,7 @@
 
     <script>
         
-        fetch('/json/music.json')
+        fetch('/resources/json/music.json')
             .then(r => r.json())    
             .then(list => {
                 const ap = new APlayer({ 
@@ -541,6 +582,255 @@
     
     <h2 id="集合论">集合论
 </h2><p>集合是一个无顺序的结构，包含 $0$ 个或多个对象。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>常用的集合</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\textbf{N}$</td>
+          <td>自然数集：$\textbf{N} = \{ 0, 1, 2, \cdots \}$</td>
+      </tr>
+      <tr>
+          <td>$\textbf{Z}$</td>
+          <td>整数集：$\textbf{Z} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$</td>
+      </tr>
+      <tr>
+          <td>$\textbf{R}$</td>
+          <td>实数集</td>
+      </tr>
+      <tr>
+          <td>$\oslash$</td>
+          <td>空集：$\oslash = \{\} = \{x \mid \textbf{False}\}$ <br> 也可表示为： $\lnot\ \exist\ x : x \in \oslash$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="集合间的运算">集合间的运算
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算</th>
+          <th>含义</th>
+          <th>表达式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$$S \subset T$$</td>
+          <td>集合 $S$ 是 $T$ 的真子集</td>
+          <td>$S \subseteq T$ 但是 $T \nsubseteq S$</td>
+      </tr>
+      <tr>
+          <td>$|S|$</td>
+          <td>集合 $S$ 中元素的个数</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$A \cup B$$</td>
+          <td>集合 $A$ 与 $B$ 的并集</td>
+          <td>$A \cup B = \{x \mid x \in A \lor x \in B\}$</td>
+      </tr>
+      <tr>
+          <td>$$A \cap B$$</td>
+          <td>集合 $A$ 与 $B$ 的交集</td>
+          <td>$A \cap B = \{x \mid x \in A \land x \in B\}$</td>
+      </tr>
+      <tr>
+          <td>$$A - B$$</td>
+          <td>集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素</td>
+          <td>$$A - B = \{x \mid x \in A \land x \notin B\} = \{x \mid \lnot(x \in A \to x \in B)\}$$</td>
+      </tr>
+      <tr>
+          <td>$$\overline{A}$$</td>
+          <td>集合 $A$ 相对于全集 $U$ 的补集</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$A \oplus B$$</td>
+          <td>集合 $A$ 与 $B$ 的对称差</td>
+          <td>在集合 $A$ 和 $B$ 但不在其交集的元素</td>
+      </tr>
+  </tbody>
+</table></div>
+
+
+<blockquote class="alert alert-note">
+    <p>集合内的元素也可以是集合，例如 $S = \{ x | x \subseteq \{1, 2, 3\} \} = \{\oslash, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$</p>
+<p>注意：$1 \ne \{1\} \ne \{\{1\}\}$</p></blockquote>
+<blockquote>
+<p>特别地，若 $A \cap B = \oslash$，则称集合 $A$ 和 $B$ 不连接（disjoint）。</p>
+</blockquote>
+<h3 id="幂集">幂集
+</h3><p>集合 $S$ 的所有子集称作集合 $S$ 的幂集，记作 $P(S) = \{x \mid  x \subseteq S\}$。</p>
+<blockquote>
+<p>例如，$P(\{a,b\}) = \{\oslash, \{a\}, \{b\}, \{a,b\}\}$</p>
+</blockquote>
+<p>我们有以下结论：$\mid P(S) \mid = 2^{\mid S \mid}$</p>
+<h3 id="笛卡尔积">笛卡尔积
+</h3><p>定义 $A \times B :\equiv \{(a,b) \mid a \in A \land b \in B\}$ 为集合 $A$ 与 $B$ 的笛卡尔积。</p>
+<blockquote>
+<p>例如，$\{a,b\} \times \{1,2\} = \{(a,1), (a,2), (b,1), (b,2)\}$</p>
+</blockquote>
+<p>具有以下结论：</p>
+<ol>
+<li>$|A \times B| = |A| \cdot |B|$。</li>
+<li>$\lnot \forall AB: A \times B = B \times A$，即笛卡尔积不具备交换律。</li>
+</ol>
+<h3 id="集合间的关系">集合间的关系
+</h3><p>集合 $A$ 与 $B$ 之间的关系 $R$ 是 $A \times B$ 的一个子集，记作：$R: A \leftrightarrow B$</p>
+<p>通常，我们用 $aRb$ 表示 $(a,b) \in R$，即元素 $a$ 与 $b$ 具备关系 $R$。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>常见的关系</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>空关系</td>
+          <td>$\oslash$</td>
+      </tr>
+      <tr>
+          <td>恒等关系</td>
+          <td>$\mathrm{i}d_A : \{(a,a) \mid (a \in A)\}$</td>
+      </tr>
+      <tr>
+          <td>逆关系</td>
+          <td>$R^{-1} :\equiv \{(b,a) \mid (a,b) \in R\}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>关系的性质</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>自反性</td>
+          <td>对于 $A$ 上的关系 $R$，$\forall a \in A$，都有 $aRa$</td>
+      </tr>
+      <tr>
+          <td>对称性</td>
+          <td>当且仅当关系 $R$ 满足 $R = R^{-1}$，即 $(a,b) \in R \leftrightarrow (b,a) \in R$</td>
+      </tr>
+      <tr>
+          <td>反对称性</td>
+          <td>当且仅当关系 $R$ 满足 $(\forall a)(\forall b) ((a \in A \land b \in A) \Rightarrow ((a,b) \in R \land (b,a) \in R) \Rightarrow a = b)$</td>
+      </tr>
+      <tr>
+          <td>传递性</td>
+          <td>当且仅当关系 $R$ 满足 $\forall a,b,c$，都有 $(a,b) \in R \land (b,c) \in R \rightarrow (a,c) \in R$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>当集合上的关系同时满足一些性质时，则称该关系为一种特殊的关系。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>特殊关系</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>等价关系</td>
+          <td>同时满足自反性、对称性和传递性</td>
+      </tr>
+      <tr>
+          <td>偏序关系</td>
+          <td>同时满足自反性、反对称性和传递性</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>通过集合论，我们可以形式化地给出自然数的定义：</p>
+$$
+\begin{array}{c}\begin{align*}
+0 &= \oslash \\
+1 &= \{0\} = \{\oslash\} = \oslash \cup \{\oslash\} = 0 \cup \{0\} \\
+2 &= \{0, 1\} = \{\oslash, \{\oslash\}\} = 1 \cup \{1\} = 0 \cup \{0\} \cup \{1\} \\
+3 &= \{0, 1, 2\} = \{\oslash, \{\oslash\}, \{\oslash \cup \{\oslash\}\}\} = 2 \cup \{2\} = 0 \cup \{0\} \cup \{1\} \cup \{2\} \\
+& \cdots \\
+n+1 &= n \cup \{n\}
+\end{align*}
+\end{array}
+$$</blockquote>
+<h3 id="函数">函数
+</h3><p>函数定义为从集合 $A$ 到集合 $B$ 的一种对应关系，记作 $f: A \rightarrow B$。</p>
+<h2 id="z语言">Z语言
+</h2><h3 id="数据类型">数据类型
+</h3><blockquote>
+<p>某个类型的所有可能成员都具备一些共同特征，这时我们称它们属于同一个类型。</p>
+<p>Z语言就是在类型的集合论上建立起来的。</p>
+</blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型集合</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Integer</td>
+          <td>Z语言的内置类型，记作 $Z$，可使用 &ldquo;+, -, *, div, mod&rdquo; 运算</td>
+      </tr>
+      <tr>
+          <td>Natural</td>
+          <td>Integer类型的子集，记作 $N$，必须为非负数。$N1$ 则表示正整数</td>
+      </tr>
+      <tr>
+          <td>Basic types</td>
+          <td>在名称周围添加方括号来声明，附带注释。例如：<br> $[\mathrm{PERSON}] \qquad \text{the set of all persons}$</td>
+      </tr>
+      <tr>
+          <td>Free types</td>
+          <td>通过列举其元素来定义的数据类型，例如：<br> $\text{freeType} ::= \text{element}_1 \mid \text{element}_2 \mid \cdots \text{element}_n$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="变量">变量
+</h3><p>Z语言的每个变量名在赋值前必须先声明，格式为 $v: \text{TYPE}$</p>
+<p>示例：$\text{chauffeur}: \text{PERSON}$</p>
+<h3 id="集合">集合
+</h3><p>Z语言中的集合可以通过在括号内列举它的所有值来声明。</p>
+<blockquote>
+<p>集合中的元素值的类型必须是先前声明过的类型，否则视为非法值。</p>
+</blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>幂集</td>
+          <td>$\# P\text{S} = 2^{\# S}$</td>
+      </tr>
+      <tr>
+          <td>差</td>
+          <td>$S \ T$</td>
+      </tr>
+      <tr>
+          <td>并集</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>划分</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
 
 </section>
 
