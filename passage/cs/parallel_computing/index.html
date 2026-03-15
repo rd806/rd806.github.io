@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="并行计算概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
 <title>并行计算</title>
 
 <link rel='canonical' href='https://rd806.github.io/passage/cs/parallel_computing/'>
 
 <link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="并行计算">
-<meta property='og:description' content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta property='og:description' content="并行计算概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/parallel_computing/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-11T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="并行计算">
-<meta name="twitter:description" content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta name="twitter:description" content="并行计算概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -319,7 +319,7 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#概述">概述</a>
+    <li><a href="#并行计算概述">并行计算概述</a>
       <ol>
         <li><a href="#并行计算基本概念">并行计算基本概念</a></li>
         <li><a href="#并行化方法">并行化方法</a>
@@ -341,9 +341,23 @@
             <li><a href="#gpu">GPU</a></li>
           </ol>
         </li>
-        <li><a href="#互联网络">互联网络</a></li>
+        <li><a href="#互连网络">互连网络</a></li>
         <li><a href="#内存访问模式">内存访问模式</a></li>
         <li><a href="#并行计算系统的体系结构">并行计算系统的体系结构</a></li>
+      </ol>
+    </li>
+    <li><a href="#多线程并行程序设计">多线程并行程序设计</a>
+      <ol>
+        <li><a href="#多线程基本概念">多线程基本概念</a></li>
+        <li><a href="#共享存储访问">共享存储访问</a>
+          <ol>
+            <li><a href="#竞态条件与临界区">竞态条件与临界区</a></li>
+            <li><a href="#互斥锁">互斥锁</a></li>
+          </ol>
+        </li>
+        <li><a href="#实例分析">实例分析</a></li>
+        <li><a href="#pthread多线段">PThread多线段</a></li>
+        <li><a href="#java多线程">Java多线程</a></li>
       </ol>
     </li>
   </ol>
@@ -591,7 +605,7 @@
     <section class="article-content">
     
     
-    <h2 id="概述">概述
+    <h2 id="并行计算概述">并行计算概述
 </h2><h3 id="并行计算基本概念">并行计算基本概念
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -780,7 +794,7 @@
 <h4 id="gpu">GPU
 </h4><p>GPU将更多元件用于数据处理，而非控制和存储。</p>
 <p>可以将GPU视作超大规模并行协处理器和SPMD（单程序多数据）模式，实现了数据并行。</p>
-<h3 id="互联网络">互联网络
+<h3 id="互连网络">互连网络
 </h3><p>静态互连网络：处理单元之间有固定连接的一类网络，在程序执行期间这种点到点的链接保持不变：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -811,9 +825,224 @@
 <p>动态网络：用交换开关构成的，可按应用程序的要求动态地改变连接组态。包括总线、交叉开关等</p>
 <h3 id="内存访问模式">内存访问模式
 </h3><h3 id="并行计算系统的体系结构">并行计算系统的体系结构
-</h3><p>PVP（Parallel Vector Processor）：含有为数不多、功能强大的定制向量处理器。</p>
-<p>SMP（Symmetric Multiprocessor）：多个处理器通过总线或交叉开关连接到共享存储器。</p>
-<p>MMP（Massively Parallel Processor）：处理节点采用微处理器，系统中有物理上的分布式存储器。</p>
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>体系结构</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>PVP（Parallel Vector Processor）</td>
+          <td>含有为数不多、功能强大的定制向量处理器</td>
+      </tr>
+      <tr>
+          <td>SMP（Symmetric Multiprocessor）</td>
+          <td>多个处理器通过总线或交叉开关连接到共享存储器</td>
+      </tr>
+      <tr>
+          <td>MMP（Massively Parallel Processor）</td>
+          <td>处理节点采用微处理器，系统中有物理上的分布式存储器</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="多线程并行程序设计">多线程并行程序设计
+</h2><h3 id="多线程基本概念">多线程基本概念
+</h3><p>线程（Thread）是进程上下文（contex）中执行的代码序列，也称作轻量级进程。</p>
+<p>在支持多线程的系统中，进程是资源分配的实体，线程是被调度执行的基本单元。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>线程与进程的比较</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>调度</td>
+          <td>线程是CPU调度的基本单位，进程是资源拥有的基本单位。同一进程中线程的切换不会引起进程切换，从而避免频繁的系统调用。</td>
+      </tr>
+      <tr>
+          <td>并发性</td>
+          <td>不仅进程之间可以并发执行，一个进程的多个线程之间也可以并发执行，一个进程下可设置多个线程</td>
+      </tr>
+      <tr>
+          <td>拥有资源</td>
+          <td>进程是拥有资源的独立单位；线程不拥有系统资源，但可以访问其所属进程的资源，即一个进程的资源可供其所有线程共享。</td>
+      </tr>
+      <tr>
+          <td>系统开销</td>
+          <td>进程在创建或销毁时系统均需要为之分配或回收资源，进程切换时系统需保存当前进程的所有设置；线程切换时只需保存和设置少量寄存器的内容，同一进程的线程之间的通信比较容易。</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>在计算机中，系统通过线程池管理线程。一个线程池可维护多个线程，等待调度器分配可并发执行的任务。避免了在短处理时间任务时创建与销毁线程的代价。</p>
+<h3 id="共享存储访问">共享存储访问
+</h3><p>计算机采用层次结构存储系统。</p>
+<p><img src="/passage/cs/parallel_computing/images/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png"
+	width="1149"
+	height="423"
+	srcset="/passage/cs/parallel_computing/images/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84_hu_51f720a9b3b92b4e.png 480w, /passage/cs/parallel_computing/images/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84_hu_7d251da3d3a79e7f.png 1024w"
+	loading="lazy"
+	
+		alt="存储器层次结构"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="271"
+		data-flex-basis="651px"
+	
+></p>
+<h4 id="竞态条件与临界区">竞态条件与临界区
+</h4><p>但是这样会出现<strong>竞态条件</strong>（Race Conditions）：当两个或多个线程试图在同一时刻访问共享内存或读写某些共享数据时，寄存器的值可能无法及时更新，导致最后的结果取决于线程的执行顺序。</p>
+<p>为了解决这一困境，提出了<strong>临界区</strong>的概念：包含访问共享数据的代码。因此，在临界区内，任意时刻至多只能有一个线程在执行相关代码。</p>
+<h4 id="互斥锁">互斥锁
+</h4><p>互斥锁（mutex）是实现线程同步的一种方法。线程对共享资源访问之前必须先获得锁，否则线程将保持等待状态，直到该锁可用。</p>
+<h3 id="实例分析">实例分析
+</h3><p>假设现有一段长文本，要求统计其中3的个数</p>
+<p>普通的串行代码应为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">int</span> <span class="nf">countThree</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>运用域分解并行化方法，将其划分为若干个子数据段：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">countThree</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">// 创建线程
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">thread_create</span><span class="p">(</span><span class="n">countThree_thread</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="kt">void</span> <span class="nf">countThree_thread</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="kt">int</span> <span class="n">length_per_thread</span> <span class="o">=</span> <span class="n">length</span> <span class="o">/</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">id</span><span class="o">*</span><span class="n">length_per_thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">start</span><span class="o">+</span><span class="n">length_per_thread</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">            <span class="c1">// 加互斥锁
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="nf">mutex_lock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="n">count</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="c1">// 解锁
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="nf">mutex_unlock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>但是，此并行算法的性能远不及串行算法：</p>
+<p><img src="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%901.png"
+	width="948"
+	height="568"
+	srcset="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%901_hu_9e4606d0ceb22404.png 480w, /passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%901_hu_5559e9f8e1e720ae.png 1024w"
+	loading="lazy"
+	
+		alt="算法性能分析1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="166"
+		data-flex-basis="400px"
+	
+></p>
+<p>这是因为加锁会消耗时间，同时所有线程两两互斥可看作串行逻辑，并没有变化。</p>
+<p>改进方法：加锁过程应当放在循环计数外。当每个线程分别计数完成后，再将各个数目相加得到总数目。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">private_count</span><span class="p">[</span><span class="n">MaxThreads</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="n">mutex</span> <span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">void</span> <span class="nf">countThree_thread</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">length_per_thread</span> <span class="o">=</span> <span class="n">length</span> <span class="o">/</span> <span class="n">t</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">id</span><span class="o">*</span><span class="n">length_per_thread</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">start</span><span class="o">+</span><span class="n">length_per_thread</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">private_count</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 汇总时必须加锁，防止出现竞争
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">mutex_lock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">count</span> <span class="o">+=</span> <span class="n">private_count</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="nf">mutex_unlock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>修改后并行效率大幅提升，但仍与串行有差距。这是因为计算机系统的cache一致性与伪共享，虽然不同线程的<code>private_count</code>形式上互不干扰，但在缓存中可能处于一个缓存块中，在更新数据时会发生阻塞。</p>
+<p><img src="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%902.png"
+	width="886"
+	height="626"
+	srcset="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%902_hu_d4a7b5aace31fb51.png 480w, /passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%902_hu_89b311bd4404ead.png 1024w"
+	loading="lazy"
+	
+		alt="算法性能分析2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="141"
+		data-flex-basis="339px"
+	
+></p>
+<p>一种解决办法是强行将计数器的占用加大，使它们分别位于不同的缓存块中。</p>
+<h3 id="pthread多线段">PThread多线段
+</h3><p>主要操作函数：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>pthread_create</code></td>
+          <td>创建一个线程</td>
+      </tr>
+      <tr>
+          <td><code>pthread_cancel</code></td>
+          <td>终止另一个线程</td>
+      </tr>
+      <tr>
+          <td><code>pthread_detach</code></td>
+          <td>分离线程</td>
+      </tr>
+      <tr>
+          <td><code>pthread_equal</code></td>
+          <td>检查两个线程的id是否相等</td>
+      </tr>
+      <tr>
+          <td><code>pthread_exit</code></td>
+          <td>退出线程但不退出进程</td>
+      </tr>
+      <tr>
+          <td><code>pthread_join</code></td>
+          <td>等待一个线程</td>
+      </tr>
+      <tr>
+          <td><code>pthread_self</code></td>
+          <td>获得自己的线程id</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="java多线程">Java多线程
+</h3><p>创建方法：</p>
+<ol>
+<li>通过<code>Thread</code>类的子类实现多线程。</li>
+<li>定义一个实现<code>Runnable</code>接口的类实现多线程。</li>
+</ol>
 
 </section>
 
