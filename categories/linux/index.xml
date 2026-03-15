@@ -9,11 +9,11 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Termux使用小技巧</title>
-        <link>https://rd806.github.io/p/system/termux/</link>
+        <link>https://rd806.github.io/passage/system/termux/</link>
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/system/termux/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/system/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
+        <guid>https://rd806.github.io/passage/system/termux/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/system/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
 &lt;/h2&gt;&lt;p&gt;Termux是Android系统上的Linux终端模拟器，能够让用户在未获取root权限的情况下运行Linux虚拟机，并可以安装多个Linux发行版。&lt;/p&gt;
 &lt;h2 id=&#34;termux下载linux发行版&#34;&gt;Termux下载Linux发行版
 &lt;/h2&gt;&lt;h3 id=&#34;方法1使用tmoe工具&#34;&gt;方法1：使用TMOE工具
@@ -26,7 +26,7 @@
 &lt;p&gt;在语言选择界面使用小键盘的“↑”、“↓”键选择所需语言。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;语言选择界面&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -34,7 +34,7 @@
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;选择第一个proot容器，模拟root环境，按回车继续。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;环境选择&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -50,7 +50,7 @@
 &lt;p&gt;选择DNS解析地址，建议选择阿里（Ali）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;DNS设置&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -69,7 +69,7 @@
 &lt;p&gt;选择共享sd目录，这个需要慎重考虑，它关系到你的Linux发行版的用户文件目录。尽量不要共享整个sd目录，建议选择自定义路径。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;共享sd目录&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -110,11 +110,11 @@
         </item>
         <item>
         <title>Linux系统小技巧</title>
-        <link>https://rd806.github.io/p/system/linux/</link>
+        <link>https://rd806.github.io/passage/system/linux/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/system/linux/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/system/linux/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
+        <guid>https://rd806.github.io/passage/system/linux/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/system/linux/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
 &lt;/h2&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;

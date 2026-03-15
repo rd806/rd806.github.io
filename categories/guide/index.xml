@@ -9,11 +9,11 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/guide/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>数据库系统</title>
-        <link>https://rd806.github.io/p/cs/database/</link>
+        <link>https://rd806.github.io/passage/cs/database/</link>
         <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/database/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/cs/database/mysql.jpg" alt="Featured image of post 数据库系统" /&gt;&lt;p&gt;数据库系统研究的是：&lt;strong&gt;如何用计算机有效地组织和管理数据&lt;/strong&gt;&lt;/p&gt;
+        <guid>https://rd806.github.io/passage/cs/database/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/cs/database/mysql.jpg" alt="Featured image of post 数据库系统" /&gt;&lt;p&gt;数据库系统研究的是：&lt;strong&gt;如何用计算机有效地组织和管理数据&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&#34;关系数据模型&#34;&gt;关系数据模型
 &lt;/h2&gt;&lt;h3 id=&#34;数据库与dbms&#34;&gt;数据库与DBMS
 &lt;/h3&gt;&lt;table&gt;
@@ -81,10 +81,10 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png&#34;
 	width=&#34;1128&#34;
 	height=&#34;479&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_1514a4afd7f466db.png 480w, https://rd806.github.io/p/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_3850caad09c48f5.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_1514a4afd7f466db.png 480w, https://rd806.github.io/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_3850caad09c48f5.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;关系数据模型&#34;
@@ -119,10 +119,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
     
 
 &lt;/a&gt;的形式。上式即可表达为：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.png&#34;
 	width=&#34;391&#34;
 	height=&#34;397&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F_hu_f63a982b25c80920.png 480w, https://rd806.github.io/p/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F_hu_9bd145048072a858.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F_hu_f63a982b25c80920.png 480w, https://rd806.github.io/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F_hu_9bd145048072a858.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;关系代数表达式&#34;
@@ -164,10 +164,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;UNION&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;--- 并
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;INTERSECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;--- 交
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;EXCEPT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;         &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;--- 差
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png&#34;
 	width=&#34;888&#34;
 	height=&#34;530&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_e5d47e6fab3e483c.png 480w, https://rd806.github.io/p/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_52f11bcdb1a34a37.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_e5d47e6fab3e483c.png 480w, https://rd806.github.io/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_52f11bcdb1a34a37.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;集合运算&#34;
@@ -185,10 +185,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;/h4&gt;&lt;p&gt;从关系 $R$ 生成一个仅包含 $R$ 部分属性的新关系（Project），可表示为 $\pi_{A_1, A_2, \cdots, A_n}(R)$&lt;/p&gt;
 &lt;p&gt;对应的SQL语言：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;An&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png&#34;
 	width=&#34;977&#34;
 	height=&#34;580&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_eff64346f6be825f.png 480w, https://rd806.github.io/p/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_1e0011c9803b5c06.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_eff64346f6be825f.png 480w, https://rd806.github.io/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_1e0011c9803b5c06.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;投影运算&#34;
@@ -206,10 +206,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;/blockquote&gt;
 &lt;p&gt;对应的SQL语言：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WHERE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png&#34;
 	width=&#34;977&#34;
 	height=&#34;623&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_c49455beddff3f1f.png 480w, https://rd806.github.io/p/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_836f5bb61cff01da.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_c49455beddff3f1f.png 480w, https://rd806.github.io/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_836f5bb61cff01da.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;选择运算&#34;
@@ -224,10 +224,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;/h4&gt;&lt;p&gt;选择关系 $R$ 的一个元素为有序对的第一个元素，关系 $S$ 的一个元素为第二个元素，以此类推形成的新关系（Cartesian Product）。可表示为：$R \times S$&lt;/p&gt;
 &lt;p&gt;对应的SQL语言：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;CROSS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;JOIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png&#34;
 	width=&#34;1022&#34;
 	height=&#34;648&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_6c6b60bee755741f.png 480w, https://rd806.github.io/p/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_8d0f83bb61a32cfa.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_6c6b60bee755741f.png 480w, https://rd806.github.io/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_8d0f83bb61a32cfa.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;笛卡尔积&#34;
@@ -242,10 +242,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;/h4&gt;&lt;p&gt;设 $A_1, A_2, \cdots, A_n$ 为关系 $R$ 和 $S$ 中所有共同属性，当两者的共同属性的内容完全一致时则合并为一个关系，合并的结果应包含关系 $R$ 和 $S$ 中的所有属性（Natural Joins）。可表示为：$R \bowtie S$&lt;/p&gt;
 &lt;p&gt;对应的SQL语言：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;NATURAL&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;JOIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png&#34;
 	width=&#34;1010&#34;
 	height=&#34;455&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_8cbbbce04077da66.png 480w, https://rd806.github.io/p/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_23018dc791c2ed7a.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_8cbbbce04077da66.png 480w, https://rd806.github.io/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_23018dc791c2ed7a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;自然连接&#34;
@@ -260,10 +260,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;/h4&gt;&lt;p&gt;关系 $R$ 与 $S$ 先做笛卡尔积，在从中选择满足条件 $C$ 的部分（Theta-Joins）。可表示为 $ R \bowtie_{C} S $&lt;/p&gt;
 &lt;p&gt;对应的SQL语言：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;INNER&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;JOIN&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/Theta%E8%BF%9E%E6%8E%A5.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5.png&#34;
 	width=&#34;1027&#34;
 	height=&#34;633&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_a881c67a3b0e5f41.png 480w, https://rd806.github.io/p/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_f000d61c30a4ce46.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_a881c67a3b0e5f41.png 480w, https://rd806.github.io/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_f000d61c30a4ce46.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Theta连接&#34;
@@ -278,10 +278,10 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$&lt;p&gt;事实上，所有表�
 &lt;/h4&gt;&lt;p&gt;将关系 $R$ 重命名为关系 $S$，$R$ 中对应的属性重命名为 $A_1, A_2, \cdots, A_n$。可表示为 $\rho_{S(A_1, A_2, \cdots, A_n)}(R)$&lt;/p&gt;
 &lt;p&gt;对应的SQL语言：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;SELECT&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a_1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a_2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A_2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a_n&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A_n&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;R&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;AS&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;S&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D.png&#34;
 	width=&#34;1012&#34;
 	height=&#34;601&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_49266adc3287b2bf.png 480w, https://rd806.github.io/p/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_e478b9852f74d46e.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_49266adc3287b2bf.png 480w, https://rd806.github.io/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_e478b9852f74d46e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;重命名&#34;
@@ -900,10 +900,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>推送制作技巧</title>
-        <link>https://rd806.github.io/p/passage/</link>
+        <link>https://rd806.github.io/passage/media/passage/</link>
         <pubDate>Fri, 14 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/passage/</guid>
+        <guid>https://rd806.github.io/passage/media/passage/</guid>
         <description>&lt;p&gt;以下推送制作方法和原则适用于宣怀X-Club&lt;/p&gt;
 &lt;h2 id=&#34;基本原则&#34;&gt;基本原则
 &lt;/h2&gt;&lt;ol&gt;
@@ -986,10 +986,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>NEMU-PART III</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part3/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part3/</link>
         <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part3/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part3/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA3：存储管理&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;实现高速缓存&#34;&gt;实现高速缓存
 &lt;/h2&gt;&lt;p&gt;经过实践，高速缓存的一级和二级结构最好同时实现，否则会在分页控制中出现难以预料的bug！&lt;/p&gt;
@@ -1415,11 +1415,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Tex排版</title>
-        <link>https://rd806.github.io/p/guide/texstudio/</link>
+        <link>https://rd806.github.io/passage/guide/texstudio/</link>
         <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/guide/texstudio/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg" alt="Featured image of post Tex排版" /&gt;&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
+        <guid>https://rd806.github.io/passage/guide/texstudio/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg" alt="Featured image of post Tex排版" /&gt;&lt;h2 id=&#34;排版与排版工具&#34;&gt;排版与排版工具
 &lt;/h2&gt;&lt;p&gt;排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -1497,10 +1497,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>NEMU-PART II</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part2/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part2/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part2/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part2/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA2：指令系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;实验目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -1520,7 +1520,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加call指令&#34;&gt;添加call指令
 &lt;/h3&gt;&lt;p&gt;查找&lt;code&gt;call&lt;/code&gt;指令对应的&lt;code&gt;Opcode&lt;/code&gt;等信息，可知操作码为&lt;code&gt;e8&lt;/code&gt;。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1559,7 +1559,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;cpu/exec/template-end.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令示意&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1597,7 +1597,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;li&gt;在&lt;code&gt;nemu/src/cpu/exec/all-instr.h&lt;/code&gt;中包含&lt;code&gt;call.h&lt;/code&gt;，并在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加test指令&#34;&gt;添加test指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;test指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1714,7 +1714,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#endif
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加je指令&#34;&gt;添加je指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;je指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1745,7 +1745,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;push指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;push指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1756,7 +1756,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;cmp指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;cmp指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1767,7 +1767,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;pop指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;pop指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1778,7 +1778,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;ret指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ret指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1794,7 +1794,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;leave指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;leave指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1810,7 +1810,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/h2&gt;&lt;h3 id=&#34;什么是定点化&#34;&gt;什么是定点化
 &lt;/h3&gt;&lt;p&gt;我们约定最高位为符号位，接下来的15位表示整数部分，低16位表示小数部分，即约定小数点在第15和第16位之间（从第0位开始）。从这个约定可以看到，&lt;code&gt;FLOAT&lt;/code&gt;类型其实是实数的一种定点表示。&lt;/p&gt;
 &lt;p&gt;更通俗的解释是：定点化数的小数点位置是固定的；或者说，定点化数的小数位数是确定的。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1885,7 +1885,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;__sign&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;浮点数转定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1946,7 +1946,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;c1&#34;&gt;//通过函数将未初始化的数据置0
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;nf&#34;&gt;memset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_memsz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part3&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA3 →&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part3&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA3 →&lt;/div&gt;
     
     
 
@@ -1955,10 +1955,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>NEMU-PART II Pre</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part2-pre/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/</link>
         <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part2-pre/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/</guid>
         <description>
 
 &lt;blockquote class=&#34;alert alert-warn&#34;&gt;
@@ -1982,7 +1982,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
     &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;指令格式&#34;&gt;指令格式
 &lt;/h3&gt;&lt;p&gt;x86指令的一般格式如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;x86指令的一般格式&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1993,13 +1993,13 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;li&gt;给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如对于以下指令：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;指令示例&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;它的划分如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;示例指令划分&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2011,7 +2011,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;阅读opcode-table&#34;&gt;阅读Opcode Table
 &lt;/h3&gt;&lt;p&gt;以&lt;code&gt;mov&lt;/code&gt;指令的第一种形式为例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2038,7 +2038,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;通用寄存器编码&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2122,7 +2122,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;li&gt;对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如&lt;code&gt;mov_i2rm_b&lt;/code&gt;，&lt;code&gt;mov_i2rm_w&lt;/code&gt;和&lt;code&gt;mov_i2rm_l&lt;/code&gt;。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;访存&#34;&gt;访存
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;访存指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2157,12 +2157,12 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;编写指令的流程&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
     
     
 
@@ -2171,10 +2171,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>NEMU-PART I</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part1/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part1/</link>
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part1/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part1/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FAIL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2209,7 +2209,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/table&gt;
 &lt;h2 id=&#34;认识nemu&#34;&gt;认识NEMU
 &lt;/h2&gt;&lt;h3 id=&#34;nemu的结构&#34;&gt;NEMU的结构
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;NEMU的结构&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2276,7 +2276,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
 &lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2526,7 +2526,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;正则表达式的作用是识别当前表达式的具体内容。例如，对于表达式&lt;code&gt;4 + 3 * ( 2 - 1 )&lt;/code&gt;，正则表达式的识别结果应为：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;识别token&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2799,7 +2799,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;举例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;分治法求表达式的值&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2907,7 +2907,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;监视点链表&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3096,7 +3096,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;i386手册里P34页中和参阅附录c提到，CF是进位标志。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;EFLAGS寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3109,7 +3109,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P241-243页。ModR/M 由 Mod，Reg/Opcode，R/M 三个部分组成。 Mod 是前两位，提供寄存器寻址和内存寻址， Reg/Opcode为3-5位，如果是Reg表示使用哪个寄存器，Opcode表示对group属性的Opcode进行补充； R/M为6-8位，与mod结合起来会得到8个寄存器和24个内存寻址。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ModR/M&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3122,7 +3122,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P345页，格式是DEST ← SRC。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3151,7 +3151,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/details&gt;
 &lt;br&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
     
     
 
@@ -3160,10 +3160,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>APlayer</title>
-        <link>https://rd806.github.io/p/website/aplayer/</link>
+        <link>https://rd806.github.io/passage/website/aplayer/</link>
         <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/website/aplayer/</guid>
+        <guid>https://rd806.github.io/passage/website/aplayer/</guid>
         <description>&lt;p&gt;以下由Hugo的stack主题演示，其他的可作为参考。&lt;/p&gt;
 &lt;p&gt;修改方法来源：&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/pjax/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere
@@ -3426,10 +3426,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Windows系统安装与修复</title>
-        <link>https://rd806.github.io/p/system/windows/</link>
+        <link>https://rd806.github.io/passage/system/windows/</link>
         <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/system/windows/</guid>
+        <guid>https://rd806.github.io/passage/system/windows/</guid>
         <description>&lt;h2 id=&#34;系统直接安装到u盘&#34;&gt;系统直接安装到U盘
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -3548,11 +3548,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Termux使用小技巧</title>
-        <link>https://rd806.github.io/p/system/termux/</link>
+        <link>https://rd806.github.io/passage/system/termux/</link>
         <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/system/termux/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/system/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
+        <guid>https://rd806.github.io/passage/system/termux/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/system/termux/termux.png" alt="Featured image of post Termux使用小技巧" /&gt;&lt;h2 id=&#34;termux简介&#34;&gt;Termux简介
 &lt;/h2&gt;&lt;p&gt;Termux是Android系统上的Linux终端模拟器，能够让用户在未获取root权限的情况下运行Linux虚拟机，并可以安装多个Linux发行版。&lt;/p&gt;
 &lt;h2 id=&#34;termux下载linux发行版&#34;&gt;Termux下载Linux发行版
 &lt;/h2&gt;&lt;h3 id=&#34;方法1使用tmoe工具&#34;&gt;方法1：使用TMOE工具
@@ -3565,7 +3565,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;在语言选择界面使用小键盘的“↑”、“↓”键选择所需语言。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-language.jpg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;语言选择界面&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3573,7 +3573,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;选择第一个proot容器，模拟root环境，按回车继续。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-proot.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;环境选择&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3589,7 +3589,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;选择DNS解析地址，建议选择阿里（Ali）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-dns.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;DNS设置&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3608,7 +3608,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;选择共享sd目录，这个需要慎重考虑，它关系到你的Linux发行版的用户文件目录。尽量不要共享整个sd目录，建议选择自定义路径。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/system/termux/tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/system/termux/tmoe-sd.jpeg&#34; width=&#34;400&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;共享sd目录&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3649,11 +3649,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Linux系统小技巧</title>
-        <link>https://rd806.github.io/p/system/linux/</link>
+        <link>https://rd806.github.io/passage/system/linux/</link>
         <pubDate>Mon, 04 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/system/linux/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/system/linux/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
+        <guid>https://rd806.github.io/passage/system/linux/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/system/linux/Linux-tips.png" alt="Featured image of post Linux系统小技巧" /&gt;&lt;h2 id=&#34;linux发行版&#34;&gt;Linux发行版
 &lt;/h2&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -4331,11 +4331,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Hugo-stack主题装饰</title>
-        <link>https://rd806.github.io/p/website/decorate/</link>
+        <link>https://rd806.github.io/passage/website/decorate/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/website/decorate/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/website/decorate/patrick-perkins-3wylDrjxH-E-unsplash.jpg" alt="Featured image of post Hugo-stack主题装饰" /&gt;&lt;h2 id=&#34;基本原理&#34;&gt;基本原理
+        <guid>https://rd806.github.io/passage/website/decorate/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/website/decorate/patrick-perkins-3wylDrjxH-E-unsplash.jpg" alt="Featured image of post Hugo-stack主题装饰" /&gt;&lt;h2 id=&#34;基本原理&#34;&gt;基本原理
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Hugo的stack主题提供了自定义样式的接口，主要在&lt;code&gt;layouts/partials/footer/custom.html&lt;/code&gt;和&lt;code&gt;assets/scss/custom.scss&lt;/code&gt;中&lt;/li&gt;
 &lt;li&gt;Hugo的文件可以实现文件覆盖。只要文件位置与&lt;code&gt;themes&lt;/code&gt;文件夹中的相同，就会先加载自定义文件。&lt;/li&gt;
@@ -4674,11 +4674,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>使用Hugo搭建网站</title>
-        <link>https://rd806.github.io/p/website/hugo/</link>
+        <link>https://rd806.github.io/passage/website/hugo/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/website/hugo/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/website/hugo/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+        <guid>https://rd806.github.io/passage/website/hugo/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/website/hugo/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
 &lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo下载地址
     
@@ -4846,11 +4846,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>SSH配置简介</title>
-        <link>https://rd806.github.io/p/guide/ssh/</link>
+        <link>https://rd806.github.io/passage/guide/ssh/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/guide/ssh/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/guide/ssh/SSH.png" alt="Featured image of post SSH配置简介" /&gt;&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
+        <guid>https://rd806.github.io/passage/guide/ssh/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/guide/ssh/SSH.png" alt="Featured image of post SSH配置简介" /&gt;&lt;h2 id=&#34;选择ssh应用程序&#34;&gt;选择SSH应用程序
 &lt;/h2&gt;&lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code
 &lt;/h3&gt;&lt;p&gt;这是目前为止最强大的SSH应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。&lt;/p&gt;
 &lt;p&gt;全程免费，而且附带端口转发、文件编辑、下载等功能，绝对好用！&lt;/p&gt;
@@ -4873,10 +4873,10 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;serverbox&#34;&gt;ServerBox
 &lt;/h3&gt;&lt;p&gt;ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/guide/ssh/serverbox.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/guide/ssh/serverbox.png&#34;
 	width=&#34;643&#34;
 	height=&#34;459&#34;
-	srcset=&#34;https://rd806.github.io/p/guide/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://rd806.github.io/p/guide/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/guide/ssh/serverbox_hu_659d8f6a579ef453.png 480w, https://rd806.github.io/passage/guide/ssh/serverbox_hu_a21fa07204a654fc.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Serverbox的监测界面&#34;
@@ -5086,7 +5086,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;保存时输入管理员密码。重启测试即可。&lt;/p&gt;
 &lt;/details&gt;
 &lt;h3 id=&#34;termux&#34;&gt;Termux
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd&#34; &gt;Termux启动SSH功能
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/system/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd&#34; &gt;Termux启动SSH功能
     
     
 
@@ -5115,11 +5115,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>HarmonyOS入门</title>
-        <link>https://rd806.github.io/p/software/harmonyos/</link>
+        <link>https://rd806.github.io/passage/software/harmonyos/</link>
         <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/software/harmonyos/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/software/harmonyos/HarmonyOS.png" alt="Featured image of post HarmonyOS入门" /&gt;&lt;h2 id=&#34;鸿蒙项目结构&#34;&gt;鸿蒙项目结构
+        <guid>https://rd806.github.io/passage/software/harmonyos/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/software/harmonyos/HarmonyOS.png" alt="Featured image of post HarmonyOS入门" /&gt;&lt;h2 id=&#34;鸿蒙项目结构&#34;&gt;鸿蒙项目结构
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;entry&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;├── preview&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;l&#34;&gt;├── src&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -5553,11 +5553,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>玩转Github</title>
-        <link>https://rd806.github.io/p/guide/git/</link>
+        <link>https://rd806.github.io/passage/guide/git/</link>
         <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/guide/git/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/guide/git/git.jpg" alt="Featured image of post 玩转Github" /&gt;&lt;h2 id=&#34;git简介&#34;&gt;git简介
+        <guid>https://rd806.github.io/passage/guide/git/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/guide/git/git.jpg" alt="Featured image of post 玩转Github" /&gt;&lt;h2 id=&#34;git简介&#34;&gt;git简介
 &lt;/h2&gt;&lt;p&gt;git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。&lt;/p&gt;
 &lt;h3 id=&#34;git基本概念&#34;&gt;git基本概念
 &lt;/h3&gt;&lt;table&gt;
@@ -5682,19 +5682,19 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>正则表达式</title>
-        <link>https://rd806.github.io/p/cs/regular_expression/</link>
+        <link>https://rd806.github.io/passage/cs/regular_expression/</link>
         <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/regular_expression/</guid>
+        <guid>https://rd806.github.io/passage/cs/regular_expression/</guid>
         <description>&lt;h2 id=&#34;&#34;&gt;
 &lt;/h2&gt;</description>
         </item>
         <item>
         <title>VScode配置C/C&#43;&#43;运行环境</title>
-        <link>https://rd806.github.io/p/guide/c_for_vscode/</link>
+        <link>https://rd806.github.io/passage/guide/c_for_vscode/</link>
         <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/guide/c_for_vscode/</guid>
+        <guid>https://rd806.github.io/passage/guide/c_for_vscode/</guid>
         <description>&lt;h2 id=&#34;下载cc编译器&#34;&gt;下载C/C++编译器
 &lt;/h2&gt;&lt;p&gt;当前主流的C/C++编译器是gcc/g++，可以通过MinGW下载。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -5727,7 +5727,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 
 &lt;/a&gt;下载&lt;code&gt;x86_64-15.2.0-release-win32-seh-ucrt-rt_v13-rev0.7z&lt;/code&gt;版本。下载完成后解压。&lt;/p&gt;
 &lt;p&gt;另一种获取编译器的方法是先下载一个IDE，如Dev-C++，小熊猫C++等。在其程序目录下通常会有编译器文件，可之后直接使用。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/guide/c_for_vscode/images/IDE.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/guide/c_for_vscode/images/IDE.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;IDE附赠的编译器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -5737,7 +5737,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;ol&gt;
 &lt;li&gt;找到并记住&lt;code&gt;g++.exe&lt;/code&gt;文件所在目录，通常为&lt;code&gt;.\mingw64\bin&lt;/code&gt;。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/guide/c_for_vscode/images/g&amp;#43;&amp;#43;.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/guide/c_for_vscode/images/g&amp;#43;&amp;#43;.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;g&amp;#43;&amp;#43;.exe文件地址&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -5753,7 +5753,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;在&lt;code&gt;cmd&lt;/code&gt;窗口中输入&lt;code&gt;g++ --version&lt;/code&gt;，若显示版本等信息则表示环境变量配置成功。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/guide/c_for_vscode/images/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/guide/c_for_vscode/images/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;环境变量&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -5880,7 +5880,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;p&gt;配置完成后，点击 &lt;code&gt;终端&lt;/code&gt;→&lt;code&gt;运行任务&lt;/code&gt;→&lt;code&gt;选择所需的任务&lt;/code&gt; 即可构建或运行程序。或直接按&lt;code&gt;Ctrl+Shift+B&lt;/code&gt;运行默认任务，上例中为&amp;quot;构建并运行C/C++文件&amp;quot;，相当于在终端中执行命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;g++ file.cpp -o file.exe -g -Wall -static-libgcc -fexec-charset&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;UTF-8 -std&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;c++14
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;file.exe
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/guide/c_for_vscode/images/%E6%9E%84%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/guide/c_for_vscode/images/%E6%9E%84%E5%BB%BA%E5%B9%B6%E8%BF%90%E8%A1%8C.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;构建并运行C&amp;#43;&amp;#43;程序&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -5932,11 +5932,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Minecraft教程</title>
-        <link>https://rd806.github.io/p/minecraft/help/</link>
+        <link>https://rd806.github.io/passage/minecraft/help/</link>
         <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/minecraft/help/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/minecraft/help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+        <guid>https://rd806.github.io/passage/minecraft/help/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/minecraft/help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
 &lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
 &lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
 &lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft
@@ -6085,7 +6085,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;li&gt;点击Installer，此时将跳转到广告界面。若你的网络状况较好，应当会在界面右上角出现“SKIP”按钮，点击“SKIP”即可下载Forge文件。&lt;/li&gt;
 &lt;li&gt;定位到文件所在位置，双击打开&lt;code&gt;.jar&lt;/code&gt;文件，稍等一会儿就会打开安装界面，选择“Install client”，再选择安装位置，点击确定即可安装成功。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/minecraft/help/forge.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/minecraft/help/forge.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Forge&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -6130,7 +6130,7 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;/details&gt;
 &lt;p&gt;之所以称之为局域网联机，是因为在这种联机操作下，服务端就是房主的客户端（也就是房主的电脑就是服务器，所以房主必须上线）。与之相对应的就是服务器联机。&lt;/p&gt;
 &lt;h3 id=&#34;服务器联机&#34;&gt;服务器联机
-&lt;/h3&gt;&lt;p&gt;详见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/minecraft/server&#34; &gt;“Minecraft服务器——开服经历回顾”
+&lt;/h3&gt;&lt;p&gt;详见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/minecraft/server&#34; &gt;“Minecraft服务器——开服经历回顾”
     
     
 
@@ -6255,11 +6255,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
         </item>
         <item>
         <title>Markdown语法</title>
-        <link>https://rd806.github.io/p/guide/markdown/</link>
+        <link>https://rd806.github.io/passage/guide/markdown/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/guide/markdown/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/guide/markdown/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
+        <guid>https://rd806.github.io/passage/guide/markdown/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/guide/markdown/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown语法" /&gt;&lt;p&gt;本文提供了可用于 Hugo 内容文件的基本 Markdown 语法示例，还显示了 Hugo 主题中的基本 HTML 元素是否使用 CSS 进行修饰。&lt;/p&gt;
 &lt;h2 id=&#34;标题&#34;&gt;标题
 &lt;/h2&gt;&lt;p&gt;如下的 &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 显示了标题的6个级别， &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; 级别最高， &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; 级别最低.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# H1
@@ -6872,10 +6872,10 @@ $$ \begin{align*} x_1+x_2 &amp;= \frac{-b+\sqrt{b^{2}-4ac}}{2a} + \frac{-b-\sqrt
         </item>
         <item>
         <title>数学公式输入</title>
-        <link>https://rd806.github.io/p/math/typesetting/</link>
+        <link>https://rd806.github.io/passage/math/typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/math/typesetting/</guid>
+        <guid>https://rd806.github.io/passage/math/typesetting/</guid>
         <description>&lt;p&gt;Hugo项目中的数学符号可以通过使用第三方JavaScript库来启用。&lt;/p&gt;
 &lt;p&gt;这个例子中将会使用 &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX
@@ -6946,11 +6946,11 @@ $$</description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>https://rd806.github.io/p/website/emoji/</link>
+        <link>https://rd806.github.io/passage/website/emoji/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/website/emoji/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Hugo 构建的网页中，有多种方式使用表情。&lt;/p&gt;
+        <guid>https://rd806.github.io/passage/website/emoji/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Hugo 构建的网页中，有多种方式使用表情。&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;
     

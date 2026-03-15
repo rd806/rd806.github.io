@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="PA3">
+<title>NEMU-PART III</title>
+
+<link rel='canonical' href='https://rd806.github.io/passage/cs/cslab/nemu/part3/'>
+
+<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="NEMU-PART III">
+<meta property='og:description' content="PA3">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/cslab/nemu/part3/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-11-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-11-11T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="NEMU-PART III">
+<meta name="twitter:description" content="PA3">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/RunicDolphin806_hu_1cf19e68755c676d.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810?spm_id_from=333.337.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://rd806.github.io/en/" >English</option>
+                                
+                                    <option value="https://rd806.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#实现高速缓存">实现高速缓存</a>
+      <ol>
+        <li><a href="#定义高速缓存结构">定义高速缓存结构</a></li>
+        <li><a href="#高速缓存的读写函数">高速缓存的读写函数</a></li>
+        <li><a href="#修改内存读写逻辑">修改内存读写逻辑</a></li>
+      </ol>
+    </li>
+    <li><a href="#实现分段机制">实现分段机制</a>
+      <ol>
+        <li><a href="#修改kernel">修改kernel</a></li>
+        <li><a href="#定义段寄存器">定义段寄存器</a></li>
+        <li><a href="#完善指令集">完善指令集</a></li>
+        <li><a href="#实现段寄存器的捆绑规则">实现段寄存器的捆绑规则</a></li>
+        <li><a href="#修改内存读写函数">修改内存读写函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#实现分页机制">实现分页机制</a></li>
+    <li><a href="#思考题">思考题</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+            
+                <!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <style>
+            .aplayer-music {
+                overflow-x: scroll
+            }
+
+            
+        </style>
+    </head>
+
+    <section class="widget music"> 
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
+        </div>
+        <h2 class="widget-title section-title">音乐</h2>
+        <div id="aplayer"></div>
+    </section>
+
+    <script>
+        
+        fetch('/resources/json/music.json')
+            .then(r => r.json())    
+            .then(list => {
+                const ap = new APlayer({ 
+                    container: document.getElementById('aplayer'), 
+                    mini: false,
+                    fixed: false,
+                    listFolded: true,
+                    listMaxHeight: '200px',
+                    lrcType: 3,
+                    audio: list 
+                });
+        });
+    </script>
+</html>
+
+
+    
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
+            </a>
+        
+            
+            
+            
+            <a href="/categories/nemu/" style="background-color: #2f0bbeff; color: #fff;">
+                NEMU
+            </a>
+        
+            
+            
+            
+            <a href="/categories/csapp/" style="background-color: #080a4aff; color: #fff;">
+                CSAPP
+            </a>
+        
+            
+            
+            
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/cs/cslab/nemu/part3/">NEMU-PART III</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            PA3
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2025-11-11T00:00:00Z'>Nov 11, 2025</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <center><strong><p style="font-size:32px;">PA3：存储管理</p></strong></center>
+<h2 id="实现高速缓存">实现高速缓存
+</h2><p>经过实践，高速缓存的一级和二级结构最好同时实现，否则会在分页控制中出现难以预料的bug！</p>
+<h3 id="定义高速缓存结构">定义高速缓存结构
+</h3><p>新建文件<code>/nemu/include/memory/cache.h</code>，填写以下内容：</p>
+<ol>
+<li>宏定义缓存块：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#ifndef __CACHE_H__
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define __CACHE_H__
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;common.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1">// 定义高速缓存参数
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cp">#define CACHE_E_L1 8
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cp">#define CACHE_E_L2 16
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cp">#define CACHE_BLOCK 64
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="cp">#define CACHE_SIZE_L1 64*1024
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cp">#define CACHE_SIZE_L2 4*1024*1024
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="cp">#endif
+</span></span></span></code></pre></div><ol start="2">
+<li>缓存块的结构体定义：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 定义一级缓存
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">struct</span> <span class="n">cache_l1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">bool</span> <span class="n">valid</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">tag</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">uint8_t</span> <span class="n">byte</span><span class="p">[</span><span class="n">CACHE_BLOCK</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="p">}</span> <span class="n">cache_L1</span><span class="p">[</span><span class="n">CACHE_SIZE_L1</span> <span class="o">/</span> <span class="n">CACHE_BLOCK</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// 定义二级缓存
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">struct</span> <span class="n">cache_l2</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="kt">bool</span> <span class="n">valid</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="kt">bool</span> <span class="n">dirty</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="kt">int</span> <span class="n">tag</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="kt">uint8_t</span> <span class="n">byte</span><span class="p">[</span><span class="n">CACHE_BLOCK</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">CACHE_SIZE_L2</span> <span class="o">/</span> <span class="n">CACHE_BLOCK</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1">// 定义高速缓存函数
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="kt">void</span> <span class="nf">init_cache</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L2</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="kt">void</span> <span class="nf">cache_write_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="kt">void</span> <span class="nf">cache_write_L2</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data</span><span class="p">);</span>
+</span></span></code></pre></div><h3 id="高速缓存的读写函数">高速缓存的读写函数
+</h3><p>新建文件<code>/nemu/src/memory/cache.c</code></p>
+<ol>
+<li>缓存的初始化</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">init_cache</span><span class="p">(){</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">CACHE_SIZE_L1</span> <span class="o">/</span> <span class="n">CACHE_BLOCK</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="nf">memset</span><span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CACHE_BLOCK</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">CACHE_SIZE_L2</span> <span class="o">/</span> <span class="n">CACHE_BLOCK</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">dirty</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="nf">memset</span><span class="p">(</span><span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CACHE_BLOCK</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="2">
+<li>读取缓存块中的内容</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="c1">// 取出地址中set的部分（右移block位并 &amp; 1111111）
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="c1">// set = 7 byte (set = 2^s = 128)
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="c1">// offset = 6 byte (block = 2^e = 64)
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">set</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x7f</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">bool</span> <span class="n">hit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="c1">// 一级缓存中找到相应set
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">==</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 如果tag和地址相符合并且valid == true
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">hit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">12</span><span class="cl">            <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">     
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="c1">// 一级缓存中找空内存块
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="c1">// 找到空的地方退出
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">            <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="p">}</span>  
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="c1">// 到最后仍然没有找到空的地方，执行随机替换算法
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="nf">srand</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span> <span class="o">+</span> <span class="nf">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">CACHE_E_L1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">=</span> <span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="nf">cache_read_L2</span><span class="p">(</span><span class="n">addr</span><span class="p">);;</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="nf">memcpy</span><span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span><span class="p">,</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">byte</span><span class="p">,</span> <span class="n">CACHE_BLOCK</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">cache_read_L2</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl">    <span class="kt">bool</span> <span class="n">hit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">==</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">18</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">            <span class="n">hit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">44</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">45</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">46</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">47</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">hit</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">48</span><span class="cl">        <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">49</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">50</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">51</span><span class="cl">                <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">52</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">53</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">54</span><span class="cl">            <span class="nf">srand</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">55</span><span class="cl">            <span class="n">i</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span> <span class="o">+</span> <span class="nf">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">CACHE_E_L2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">56</span><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">dirty</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">57</span><span class="cl">                <span class="kt">uint8_t</span> <span class="n">mask</span><span class="p">[</span><span class="n">BURST_LEN</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">58</span><span class="cl">                <span class="nf">memset</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">BURST_LEN</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">59</span><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">CACHE_BLOCK</span> <span class="o">/</span> <span class="n">BURST_LEN</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">60</span><span class="cl">                    <span class="nf">call_ddr3_write</span><span class="p">(</span><span class="n">block</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">BURST_LEN</span><span class="p">,</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">BURST_LEN</span><span class="p">,</span> <span class="n">mask</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">61</span><span class="cl">                <span class="p">}</span>	
+</span></span><span class="line"><span class="ln">62</span><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="ln">63</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">64</span><span class="cl">        <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">65</span><span class="cl">        <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">=</span> <span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">66</span><span class="cl">        <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">dirty</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">67</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">BURST_LEN</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">68</span><span class="cl">            <span class="nf">call_ddr3_read</span><span class="p">(</span><span class="n">block</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">BURST_LEN</span><span class="p">,</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">BURST_LEN</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">69</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">70</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">71</span><span class="cl">    <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">72</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ol start="3">
+<li>数据写入缓存块</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">cache_write_L1</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">set</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x7f</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">addr</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">CACHE_BLOCK</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">bool</span> <span class="n">hit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">==</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">hit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">// 写直通
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">hit</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">memcpy</span><span class="p">(</span><span class="n">cache_L1</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nf">cache_write_L2</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="kt">void</span> <span class="nf">cache_write_L2</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">set</span> <span class="o">=</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">((</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">addr</span> <span class="o">&amp;</span> <span class="mh">0x3f</span><span class="p">;</span>	
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="kt">bool</span> <span class="n">hit</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">set</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">set</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">CACHE_E_L2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tag</span> <span class="o">==</span> <span class="p">(</span><span class="n">addr</span> <span class="o">&gt;&gt;</span> <span class="mi">13</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">valid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="n">hit</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">hit</span><span class="p">){</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="nf">cache_read_L2</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">dirty</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="nf">memcpy</span><span class="p">(</span><span class="n">cache_L2</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="修改内存读写逻辑">修改内存读写逻辑
+</h3><p>在<code>/nemu/src/memory/memory.c</code>中，修改<code>hwaddr_read</code>和<code>hwaddr_write</code>两个函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">hwaddr_read</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">addr</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">CACHE_BLOCK</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">block</span> <span class="o">=</span> <span class="nf">cache_read_L1</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">uint8_t</span> <span class="n">temp</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="nf">memset</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">temp</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">len</span> <span class="o">&gt;=</span> <span class="n">CACHE_BLOCK</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="kt">uint32_t</span> <span class="n">second_block</span> <span class="o">=</span> <span class="nf">cache_read_L1</span><span class="p">(</span><span class="n">addr</span> <span class="o">+</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="nf">memcpy</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">cache</span><span class="p">[</span><span class="n">block</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">CACHE_BLOCK</span> <span class="o">-</span> <span class="n">offset</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="nf">memcpy</span><span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="n">CACHE_BLOCK</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">cache</span><span class="p">[</span><span class="n">second_block</span><span class="p">].</span><span class="n">byte</span><span class="p">,</span> <span class="n">len</span> <span class="o">-</span> <span class="p">(</span><span class="n">CACHE_BLOCK</span> <span class="o">-</span> <span class="n">offset</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">memcpy</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">cache</span><span class="p">[</span><span class="n">block</span><span class="p">].</span><span class="n">byte</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="kt">int</span> <span class="n">zero</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">unalign_rw</span><span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="n">zero</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="mi">0u</span> <span class="o">&gt;&gt;</span> <span class="p">((</span><span class="mi">4</span> <span class="o">-</span> <span class="n">len</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="kt">void</span> <span class="nf">hwaddr_write</span><span class="p">(</span><span class="kt">hwaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="nf">cache_write_L1</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="实现分段机制">实现分段机制
+</h2><h3 id="修改kernel">修改kernel
+</h3><p>首先需要在<code>kernel</code>中加入切换到保护模式的代码：在<code>kernel/include/common.h</code>中定义宏<code>IA32_SEG</code>，然后重新编译<code>kernel</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln">1</span><span class="cl"><span class="gd">- //#define IA32_SEG
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gi">+ #define IA32_SEG
+</span></span></span></code></pre></div><blockquote>
+<p>这一步必须完成！如果你是CV大佬，很容易漏掉这个步骤！</p>
+</blockquote>
+<h3 id="定义段寄存器">定义段寄存器
+</h3><p>在<code>CPU_state</code>结构中添加<code>GDTR</code>，<code>CR0</code>和各种段寄存器，包括<code>CS</code>, <code>DS</code>, <code>ES</code>, <code>SS</code>, 其具体结构参考<code>i386</code>手册。</p>
+<blockquote>
+<p>在<code>libcommon/x86-inc</code>目录下的头文件中定义了一些和<code>x86</code>相关的宏和结构体，你可以在<code>NEMU</code>中包含这些头文件来使用它们。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 段寄存器
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">enum</span> <span class="p">{</span><span class="n">R_ES</span><span class="p">,</span> <span class="n">R_CS</span><span class="p">,</span> <span class="n">R_SS</span><span class="p">,</span> <span class="n">R_DS</span><span class="p">};</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// 定义段寄存器结构体
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">uint16_t</span> <span class="n">selector</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">uint16_t</span> <span class="n">attribute</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">limit</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="kt">uint32_t</span> <span class="n">base</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span> <span class="n">Segment_Reg</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="c1">// GDTR寄存器
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">struct</span> <span class="n">GDTR</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="kt">uint32_t</span> <span class="n">base</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="kt">uint16_t</span> <span class="n">limit</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">}</span> <span class="n">gdtr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="c1">// CR0和CR3寄存器由 /lib-common/x86-inc/cpu.h 定义
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="n">CR0</span> <span class="n">cr0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">CR3</span> <span class="n">cr3</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="c1">// 设置段寄存器
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">union</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="n">Segment_Reg</span> <span class="n">sreg</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>	
+</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">        <span class="k">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">            <span class="n">Segment_Reg</span> <span class="n">es</span><span class="p">,</span> <span class="n">cs</span><span class="p">,</span> <span class="n">ss</span><span class="p">,</span> <span class="n">ds</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="ln">36</span><span class="cl">
+</span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="p">}</span> <span class="n">CPU_state</span><span class="p">;</span>
+</span></span></code></pre></div><h3 id="完善指令集">完善指令集
+</h3><ol>
+<li>
+<p>添加<code>lgdt</code>指令。</p>
+</li>
+<li>
+<p>添加<code>opcode</code>为<code>0F 20</code>和<code>0F 22</code>的<code>mov</code>指令，使得我们可以设置/读出<code>CR0</code>。</p>
+</li>
+<li>
+<p>添加<code>opcode</code>为<code>8E</code>的<code>mov</code>指令，使得我们可以设置段寄存器。</p>
+</li>
+<li>
+<p>为了设置<code>CS</code>寄存器, 你需要实现<code>ljmp</code>指令</p>
+</li>
+</ol>
+<h3 id="实现段寄存器的捆绑规则">实现段寄存器的捆绑规则
+</h3><ol>
+<li>在<code>Operand</code>结构体中添加成员<code>sreg</code>，位置：<code>/nemu/include/cpu/decode/operand.h</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln"> 1</span><span class="cl">typedef struct {
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    uint32_t type;
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    size_t size;
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    union {
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        uint32_t reg;
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="gd">-       swaddr_t addr;
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="gi">+		struct {
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="gi">+			swaddr_t addr;
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="gi">+			uint8_t sreg;
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="gi">+		};
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">        uint32_t imm;
+</span></span><span class="line"><span class="ln">12</span><span class="cl">        int32_t simm;
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    };
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    uint32_t val;
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    char str[OP_STR_SIZE];
+</span></span><span class="line"><span class="ln">16</span><span class="cl">} Operand;
+</span></span></code></pre></div><ol start="2">
+<li>修改所有调用<code>swaddr_read()</code>和<code>swaddr_write()</code>的代码，为它们添加段寄存器的参数。具体要求如下：</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>指令</th>
+          <th>实现要求</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>opcode</code>为<code>A0</code>, <code>A1</code>, <code>A2</code>, <code>A3</code> 的<code>mov</code>指令</td>
+          <td>使用<code>DS</code>寄存器</td>
+      </tr>
+      <tr>
+          <td>一些堆栈操作指令</td>
+          <td>隐式使用<code>SS</code>寄存器</td>
+      </tr>
+      <tr>
+          <td><code>instr_fetch()</code></td>
+          <td>总是使用<code>CS</code>寄存器</td>
+      </tr>
+      <tr>
+          <td><code>monitor</code>中，<code>x</code>和<code>p</code>命令读出内存时</td>
+          <td>使用<code>DS</code>寄存器</td>
+      </tr>
+      <tr>
+          <td><code>bt</code>命令打印栈帧链</td>
+          <td>使用<code>SS</code>寄存器</td>
+      </tr>
+      <tr>
+          <td>字符串操作指令使用的段寄存器</td>
+          <td>请查阅 i386 手册</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="修改内存读写函数">修改内存读写函数
+</h3><blockquote>
+<p>设置<code>CR0</code>后，如果发现<code>CR0</code>的<code>PE</code>位为 <code>1</code>，则进入<code>IA-32</code>保护模式，从此所有虚拟地址的访问（包括<code>swaddr_read()</code>和 <code>swaddr_write()</code>）都需要经过段级地址转换。</p>
+</blockquote>
+<p>为了实现段级地址转换，需要对<code>/nemu/src/memory/memory.c</code>中的<code>swaddr_read()</code>和<code>swaddr_write()</code>函数作少量修改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">uint32_t</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#ifdef DEBUG
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nf">assert</span><span class="p">(</span><span class="n">len</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">||</span> <span class="n">len</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="kt">lnaddr_t</span> <span class="n">lnaddr</span> <span class="o">=</span> <span class="nf">seg_translate</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">current_sreg</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="k">return</span> <span class="nf">lnaddr_read</span><span class="p">(</span><span class="n">lnaddr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="c1">// swaddr_write()函数采取类似操作
+</span></span></span></code></pre></div><blockquote>
+<p>其中<code>sreg</code>记录了当前段级地址转换所用到的段寄存器的编码。关于段寄存器的编码，请查阅<code>i386</code>手册。</p>
+</blockquote>
+<p>然后实现<code>seg_translate()</code>函数。再次提醒，在 NEMU 中，只有进入保护模式之后才会进行段级地址转换。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">lnaddr_t</span> <span class="nf">seg_translate</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">sreg_id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cpu</span><span class="p">.</span><span class="n">cr0</span><span class="p">.</span><span class="n">protect_enable</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">        <span class="k">return</span> <span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="k">return</span> <span class="n">cpu</span><span class="p">.</span><span class="n">sreg</span><span class="p">[</span><span class="n">sreg_id</span><span class="p">].</span><span class="n">base</span> <span class="o">+</span> <span class="n">addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="实现分页机制">实现分页机制
+</h2><h2 id="思考题">思考题
+</h2><ol>
+<li>GDT能有多大</li>
+</ol>
+<blockquote>
+<p>段选择符的结构中，INDEX有13位，故GDT最大能容纳2^13个段描述符</p>
+</blockquote>
+<ol start="2">
+<li>为什么是线性地址？</li>
+</ol>
+<blockquote>
+<p>不可以。虚拟地址需要经GDT中的段表翻译才能得出地址，而如果GDTR中存放虚拟地址则找不到GDT在哪里了。</p>
+</blockquote>
+<ol start="3">
+<li>如何提高寻找段描述符的效率</li>
+</ol>
+<blockquote>
+<p>可以按照高速缓存的思想，建立类似cache 和 TLB 的结构来提高寻找效率。</p>
+</blockquote>
+<ol start="4">
+<li>段式存储管理的缺点</li>
+</ol>
+<blockquote>
+<p>分段管理要求分配一大段连续的存储空间，难以实现并且容易造成大量的外部碎片出现。</p>
+</blockquote>
+<ol start="5">
+<li>页式存储管理的优点</li>
+</ol>
+<blockquote>
+<p>没有外部碎片，并且不再需要大段连续的存储空间，提高了内存的利用率。</p>
+</blockquote>
+<ol start="6">
+<li>一些问题</li>
+</ol>
+<blockquote>
+<p>Q：为什么页表表项中的基地址信息只有20位而不是32位</p>
+<p>A：分页基地址有20位是8086的传统，在8086的分段机制中，每个段的基地址由seg_reg（即段寄存器的值）&laquo;4得到，而段寄存器是16位的，左移4位得到20位的基地址。</p>
+<p>Q：表项和CR3中的基地址都是物理地址，这是必须的吗？能否采用虚拟地址或者线性地址？</p>
+<p>A：是必须的，如果cr3中的基地址是虚拟地址，则无从寻找页表翻译成物理地址，进入鸡生蛋蛋生鸡的死循环。至于其他表项的虚拟地址与线性地址问题同理。</p>
+<p>Q：为什么不采用一级页表？采用一级页表会有什么缺点？</p>
+<p>A：多级页表可以有效地节约内存空间，如果仅采用一级页表，将可能导致较大的页表长期驻留在内存中。</p>
+</blockquote>
+<ol start="7">
+<li>空指针是“空”的吗？</li>
+</ol>
+<blockquote>
+<p>空指针只是未分配或者未指向内存任何位置的指针，并不是“NULL”的。</p>
+</blockquote>
+<ol start="8">
+<li>在扁平模式下如何进行保护</li>
+</ol>
+<blockquote>
+<p>对于数据有不同的访问权限，未达到需要的权限时不能进行写操作</p>
+</blockquote>
+<ol start="9">
+<li>
+<p>地址映射</p>
+</li>
+<li>
+<p>分页机制</p>
+</li>
+</ol>
+<blockquote>
+<p>因为这里定义的ｘ生成的地址是虚拟地址，超过了物理地址的界限，报错<code>0xc014a000 outside of the physical memory</code>。而<code>kvm.c</code>中的虚拟地址都经过了<code>va_to_pa</code>的转换，在物理地址范围之内。</p>
+<p>进行反汇编后，其地址如下：</p>
+<p><code>c01003d6: e8 65 09 00 00 call c0100d40</code></p>
+<p>该<code>call</code>指令的<code>opcode</code>为<code>e8</code>，实现的是跳转到：该条指令的下一条指令的首地址+偏移量的位置。由于未进行寻址，故不需要进行虚实地址转化。</p>
+<p>分页的环境下，在没有初始化页表时，<code>0～128M</code>的虚拟地址到物理地址的映射相当于一个简易的页表，使得高位的地址可以通过该虚拟地址（即经过<code>va_to_pa</code>）访问到物理地址，从而进行初始化页表的操作。</p>
+<p><code>init_mm()</code>函数执行退出时。该函数将<code>nemu</code>映射到了高位地址并且将之前的<code>PDE</code>全部置为无效，此时返回<code>main.c</code>时，栈中保存的返回地址需要经过虚实转换，可由于页面被置为了无效，所以报错。
+查看汇编代码，直接调用此函数时，<code>nemu</code>运行在物理地址上，由于在<code>init_mm</code>中将之前的<code>PDE</code>都置为无效，所以在<code>loader()</code>函数寻址时页面无效，导致报错。</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/nemu/part2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/nemu/part2-pre/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II Pre</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/nemu/part1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/proxy/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Proxy实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/csapp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+    
+    <script src=https://rd806.github.io/js/topbar.min.js></script>
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+    </body>
+</html>

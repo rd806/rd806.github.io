@@ -9,10 +9,10 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/minecraft/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Minecraft服务器插件</title>
-        <link>https://rd806.github.io/p/minecraft/plugin/</link>
+        <link>https://rd806.github.io/passage/minecraft/plugin/</link>
         <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/minecraft/plugin/</guid>
+        <guid>https://rd806.github.io/passage/minecraft/plugin/</guid>
         <description>&lt;p&gt;理论和实践均表明，进行与Minecraft相关的开发活动是提升面向对象编程水平的有效途径！&lt;/p&gt;
 &lt;p&gt;以下是我2026年寒假智斗&lt;code&gt;&amp;quot;org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT&amp;quot;&lt;/code&gt;的成果。&lt;/p&gt;
 &lt;h2 id=&#34;mc常量&#34;&gt;MC常量
@@ -87,11 +87,11 @@
         </item>
         <item>
         <title>Minecraft服务器</title>
-        <link>https://rd806.github.io/p/minecraft/server/</link>
+        <link>https://rd806.github.io/passage/minecraft/server/</link>
         <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/minecraft/server/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/minecraft/server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
+        <guid>https://rd806.github.io/passage/minecraft/server/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/minecraft/server/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Minecraft服务器" /&gt;&lt;p&gt;我从2025年2月初开始学习搭建MC服务器，到现在也学到了不少知识。以下是我的开服历程，若能对各位有所帮助，实在是我的荣幸。&lt;/p&gt;
 &lt;h2 id=&#34;服务端搭建&#34;&gt;服务端搭建
 &lt;/h2&gt;&lt;h3 id=&#34;常见的服务端&#34;&gt;常见的服务端
 &lt;/h3&gt;&lt;p&gt;目前MC服务端主要包括：原版、插件端、模组端和混合端四类。&lt;/p&gt;
@@ -338,7 +338,7 @@
 &lt;/h4&gt;&lt;h4 id=&#34;spiogtyml&#34;&gt;&lt;code&gt;spiogt.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
 &lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用SSH远程连接服务器主机
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/guide/ssh/&#34; &gt;SSH配置简介
+&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/guide/ssh/&#34; &gt;SSH配置简介
     
     
 
@@ -379,11 +379,11 @@
         </item>
         <item>
         <title>Minecraft教程</title>
-        <link>https://rd806.github.io/p/minecraft/help/</link>
+        <link>https://rd806.github.io/passage/minecraft/help/</link>
         <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/minecraft/help/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/minecraft/help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
+        <guid>https://rd806.github.io/passage/minecraft/help/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/minecraft/help/minecraft.jpeg" alt="Featured image of post Minecraft教程" /&gt;&lt;h2 id=&#34;认识minecraft&#34;&gt;认识Minecraft
 &lt;/h2&gt;&lt;p&gt;Minecraft（简称MC），作为全球销量第一的游戏，深受众多玩家喜爱。&lt;/p&gt;
 &lt;p&gt;MC分为Java版、基岩版、主机板（Xbox版）和网易版。&lt;/p&gt;
 &lt;h2 id=&#34;下载minecraft&#34;&gt;下载Minecraft
@@ -532,7 +532,7 @@
 &lt;li&gt;点击Installer，此时将跳转到广告界面。若你的网络状况较好，应当会在界面右上角出现“SKIP”按钮，点击“SKIP”即可下载Forge文件。&lt;/li&gt;
 &lt;li&gt;定位到文件所在位置，双击打开&lt;code&gt;.jar&lt;/code&gt;文件，稍等一会儿就会打开安装界面，选择“Install client”，再选择安装位置，点击确定即可安装成功。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/minecraft/help/forge.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/minecraft/help/forge.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Forge&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -577,7 +577,7 @@
 &lt;/details&gt;
 &lt;p&gt;之所以称之为局域网联机，是因为在这种联机操作下，服务端就是房主的客户端（也就是房主的电脑就是服务器，所以房主必须上线）。与之相对应的就是服务器联机。&lt;/p&gt;
 &lt;h3 id=&#34;服务器联机&#34;&gt;服务器联机
-&lt;/h3&gt;&lt;p&gt;详见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/minecraft/server&#34; &gt;“Minecraft服务器——开服经历回顾”
+&lt;/h3&gt;&lt;p&gt;详见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/minecraft/server&#34; &gt;“Minecraft服务器——开服经历回顾”
     
     
 

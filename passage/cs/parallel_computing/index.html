@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<title>并行计算</title>
+
+<link rel='canonical' href='https://rd806.github.io/passage/cs/parallel_computing/'>
+
+<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="并行计算">
+<meta property='og:description' content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/parallel_computing/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-11T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="并行计算">
+<meta name="twitter:description" content="概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/RunicDolphin806_hu_1cf19e68755c676d.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810?spm_id_from=333.337.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://rd806.github.io/en/" >English</option>
+                                
+                                    <option value="https://rd806.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概述">概述</a>
+      <ol>
+        <li><a href="#并行计算基本概念">并行计算基本概念</a></li>
+        <li><a href="#并行化方法">并行化方法</a>
+          <ol>
+            <li><a href="#域分解">域分解</a></li>
+            <li><a href="#任务分解">任务分解</a></li>
+            <li><a href="#流水线">流水线</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#并行计算硬件环境">并行计算硬件环境</a>
+      <ol>
+        <li><a href="#pram模型">PRAM模型</a></li>
+        <li><a href="#处理器">处理器</a>
+          <ol>
+            <li><a href="#simd体系">SIMD体系</a></li>
+            <li><a href="#多核处理器">多核处理器</a></li>
+            <li><a href="#gpu">GPU</a></li>
+          </ol>
+        </li>
+        <li><a href="#互联网络">互联网络</a></li>
+        <li><a href="#内存访问模式">内存访问模式</a></li>
+        <li><a href="#并行计算系统的体系结构">并行计算系统的体系结构</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+            
+                <!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <style>
+            .aplayer-music {
+                overflow-x: scroll
+            }
+
+            
+        </style>
+    </head>
+
+    <section class="widget music"> 
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
+        </div>
+        <h2 class="widget-title section-title">音乐</h2>
+        <div id="aplayer"></div>
+    </section>
+
+    <script>
+        
+        fetch('/resources/json/music.json')
+            .then(r => r.json())    
+            .then(list => {
+                const ap = new APlayer({ 
+                    container: document.getElementById('aplayer'), 
+                    mini: false,
+                    fixed: false,
+                    listFolded: true,
+                    listMaxHeight: '200px',
+                    lrcType: 3,
+                    audio: list 
+                });
+        });
+    </script>
+</html>
+
+
+    
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/cs/parallel_computing/">并行计算</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-03-11T00:00:00Z'>Mar 11, 2026</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="概述">概述
+</h2><h3 id="并行计算基本概念">并行计算基本概念
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>计算</td>
+          <td>数学计算、数据处理、IT服务</td>
+      </tr>
+      <tr>
+          <td>性能</td>
+          <td>FLOPS（浮点计算数/秒）</td>
+      </tr>
+      <tr>
+          <td>浮点计算能力</td>
+          <td>计算机主频每时钟周期的浮点指令数</td>
+      </tr>
+      <tr>
+          <td>产生原因</td>
+          <td>满足不断增长的计算力需求：用多个处理器同时解决一个问题 <br> 计算机硬件与网络技术的发展 <br> 单处理器性能提升受限 <br> 存储、I/O速率远低于处理器</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="并行化方法">并行化方法
+</h3><h4 id="域分解">域分解
+</h4><p>首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。</p>
+<p><img src="/passage/cs/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3.png"
+	width="828"
+	height="1094"
+	srcset="/passage/cs/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_d16635a4070605c8.png 480w, /passage/cs/parallel_computing/images/%E5%9F%9F%E5%88%86%E8%A7%A3_hu_9fb63832946c4816.png 1024w"
+	loading="lazy"
+	
+		alt="域分解"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="75"
+		data-flex-basis="181px"
+	
+></p>
+<h4 id="任务分解">任务分解
+</h4><p>首先将任务划分到各个处理器，然后确定各个处理器需要处理的数据。</p>
+<p><img src="/passage/cs/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3.png"
+	width="762"
+	height="612"
+	srcset="/passage/cs/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3_hu_2b41803064b52d03.png 480w, /passage/cs/parallel_computing/images/%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3_hu_302bc892a09faf98.png 1024w"
+	loading="lazy"
+	
+		alt="任务分解"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="124"
+		data-flex-basis="298px"
+	
+></p>
+<h4 id="流水线">流水线
+</h4><p>将一个任务拆分成多个步骤，通过不同步骤在时间上的重叠达到“并行”的效果。</p>
+<h2 id="并行计算硬件环境">并行计算硬件环境
+</h2><h3 id="pram模型">PRAM模型
+</h3><p><strong>PRAM</strong>全称为Parallel Random Access Machine，它具备以下特点：</p>
+<ol>
+<li>每个处理器可同时从共享的内存中读取数据到自己的寄存器</li>
+<li>每个处理器执行计算过程，数据存储在本地寄存器</li>
+<li>每个处理器可同时将数据写入到共享的内存（存在潜在冲突）</li>
+</ol>
+<figure><img src="/passage/cs/parallel_computing/images/PRAM%E6%A8%A1%E5%9E%8B.png" width="900"><figcaption>
+      <h4>PRAM模型</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p>PRAM模型可以衍生出以下模型：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>模型</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EREW</td>
+          <td>任意两个处理器不能并发读，也不能并发写</td>
+      </tr>
+      <tr>
+          <td>CREW</td>
+          <td>可以并发读，但不能并发写</td>
+      </tr>
+      <tr>
+          <td>CRCW</td>
+          <td>可以并发读，也可以并发写</td>
+      </tr>
+  </tbody>
+</table></div>
+</blockquote>
+<p>根据PRAM模型，可以对<a class="link" href="/p/algorithm/#%e5%89%8d%e7%bc%80%e5%92%8c" >前缀求和
+    
+    
+
+</a>作出并行算法设计：</p>
+<p><img src="/passage/cs/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C.png"
+	width="760"
+	height="409"
+	srcset="/passage/cs/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C_hu_66bb72342530a23c.png 480w, /passage/cs/parallel_computing/images/%E5%89%8D%E7%BC%80%E6%B1%82%E5%92%8C_hu_d0fd774f5a0022a5.png 1024w"
+	loading="lazy"
+	
+		alt="前缀求和"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="185"
+		data-flex-basis="445px"
+	
+></p>
+<h3 id="处理器">处理器
+</h3><h4 id="simd体系">SIMD体系
+</h4><p>SIMD是一条指令同时操作多个数据，适合数据级并行的计算机体系结构。</p>
+<blockquote>
+<p>Flynn分类法（Flynn&rsquo;s Taxonomy）是计算机体系结构领域最经典的分类方法之一。它根据指令流（Instruction Stream）——机器执行的指令序列，和数据流（Data Stream）——由指令流调用的数据序列两个维度的&quot;单&quot;（Single）或&quot;多&quot;（Multiple）组合，将计算机体系结构分为四类：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">类型</th>
+          <th style="text-align: left">全称</th>
+          <th style="text-align: center">指令流</th>
+          <th style="text-align: center">数据流</th>
+          <th style="text-align: left">典型代表</th>
+          <th style="text-align: left">特征</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>SISD</strong></td>
+          <td style="text-align: left">Single Instruction Single Data</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: left">早期单核CPU（如Intel 8086）、传统冯·诺依曼架构</td>
+          <td style="text-align: left">顺序执行，一次处理一个任务的一&gt; 份数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>SIMD</strong></td>
+          <td style="text-align: left">Single Instruction Multiple Data</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: left">GPU、向量处理器、Intel SSE/AVX指令集</td>
+          <td style="text-align: left">一条指令同时操作多个数据，适合数据级并行</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>MISD</strong></td>
+          <td style="text-align: left">Multiple Instruction Single Data</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: center">单</td>
+          <td style="text-align: left">极少见，主要用于容错系统（如航天器冗余控制）</td>
+          <td style="text-align: left">多个指令同时处理同一数据，理论意义大于实际</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>MIMD</strong></td>
+          <td style="text-align: left">Multiple Instruction Multiple Data</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: center">多</td>
+          <td style="text-align: left">多核CPU、分布式计算集群、高性能服务器</td>
+          <td style="text-align: left">多个独立指令流处理多个数据流，实现任务级并行</td>
+      </tr>
+  </tbody>
+</table></div>
+</blockquote>
+<h4 id="多核处理器">多核处理器
+</h4><p>进入21世纪，曾预言“CPU主频18个月翻一番”的摩尔定律不再适用于当下处理器的发展方向。</p>
+<blockquote>
+<p>限制单核性能主要有以下几个方面：</p>
+<ol>
+<li>功耗墙：CPU越小，单位面积产生的热量越多，散热越困难。</li>
+<li>存储墙：CPU缓存占据了70%以上的芯片面积，限制了性能的进一步提升。</li>
+</ol>
+</blockquote>
+<p>多核处理器的特点：</p>
+<ol>
+<li>多个复杂度适中，相对低功耗的处理核心并行工作。</li>
+<li>CPU时钟频率基本不变、</li>
+</ol>
+<h4 id="gpu">GPU
+</h4><p>GPU将更多元件用于数据处理，而非控制和存储。</p>
+<p>可以将GPU视作超大规模并行协处理器和SPMD（单程序多数据）模式，实现了数据并行。</p>
+<h3 id="互联网络">互联网络
+</h3><p>静态互连网络：处理单元之间有固定连接的一类网络，在程序执行期间这种点到点的链接保持不变：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>一维线性阵列</td>
+          <td>每个节点只与其左右近邻相连（$N$个节点用$N-1$条边串接）</td>
+      </tr>
+      <tr>
+          <td>二维网孔</td>
+          <td>每个节点只与其上、下、左、右的近邻相连（边界结点除外）</td>
+      </tr>
+      <tr>
+          <td>二叉树</td>
+          <td>与完全二叉树的结构类似</td>
+      </tr>
+      <tr>
+          <td>超立方</td>
+          <td>更为复杂的空间结构</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>动态网络：用交换开关构成的，可按应用程序的要求动态地改变连接组态。包括总线、交叉开关等</p>
+<h3 id="内存访问模式">内存访问模式
+</h3><h3 id="并行计算系统的体系结构">并行计算系统的体系结构
+</h3><p>PVP（Parallel Vector Processor）：含有为数不多、功能强大的定制向量处理器。</p>
+<p>SMP（Symmetric Multiprocessor）：多个处理器通过总线或交叉开关连接到共享存储器。</p>
+<p>MMP（Massively Parallel Processor）：处理节点采用微处理器，系统中有物理上的分布式存储器。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/passage/software/formal_methods/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/database/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/cs/database/mysql.28e0aa1bd5afe6f46c20cb348dd6ab9f_hu_52bab57961b25c01.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 数据库系统"
+                        data-key="cs/database" 
+                        data-hash="md5-KOCqG9Wv5vRsIMs0jdarnw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 算法设计与分析"
+                        data-key="cs/algorithm" 
+                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/network/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/math/probability/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.9c3ed84851cd15d9e7e041ad209166c4_hu_5b70f49aac9fccef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 概率论与数理统计"
+                        data-key="math/probability" 
+                        data-hash="md5-nD7YSFHNFdnn4EGtIJFmxA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">概率论与数理统计</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+    
+    <script src=https://rd806.github.io/js/topbar.min.js></script>
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+    </body>
+</html>

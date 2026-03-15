@@ -9,10 +9,10 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/csapp/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Proxy实验</title>
-        <link>https://rd806.github.io/p/cs/cslab/proxy/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/proxy/</link>
         <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/proxy/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/proxy/</guid>
         <description>&lt;p&gt;本实验的所有内容均在&lt;code&gt;proxy.c&lt;/code&gt;文件中完成。&lt;/p&gt;
 &lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/hankeke303/p/18155107/csapp-proxylab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hankeke303
@@ -31,7 +31,7 @@
 &lt;/h2&gt;&lt;p&gt;实现顺序的代理服务器实际上就是一个&lt;code&gt;tiny&lt;/code&gt;服务器的复刻。&lt;/p&gt;
 &lt;h3 id=&#34;main函数&#34;&gt;&lt;code&gt;main&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;&lt;code&gt;main&lt;/code&gt;函数参考书上 P672 的实例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/proxy/images/main.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/proxy/images/main.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;main函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -204,7 +204,7 @@
 &lt;/h2&gt;&lt;p&gt;这一部分的任务是实现处理并发请求。&lt;/p&gt;
 &lt;h3 id=&#34;main函数-1&#34;&gt;&lt;code&gt;main&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;参考书上 P709 的实现。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/proxy/images/main_pthread.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/proxy/images/main_pthread.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;引入线程的main函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -484,10 +484,10 @@
         </item>
         <item>
         <title>运行《深入理解计算机系统》的代码</title>
-        <link>https://rd806.github.io/p/cs/csapp/</link>
+        <link>https://rd806.github.io/passage/cs/csapp/</link>
         <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/csapp/</guid>
+        <guid>https://rd806.github.io/passage/cs/csapp/</guid>
         <description>&lt;p&gt;《深入理解计算机系统》（第三版）一书中提供了很多代码实例，但我一直没有运行过。现在就以第11章 P662 “echo客户端和服务端的示例”为例运行一下。&lt;/p&gt;
 &lt;p&gt;本次实验均在 WSL2 的 Ubuntu-22.04 系统上进行。&lt;/p&gt;
 &lt;h2 id=&#34;准备头文件&#34;&gt;准备头文件
@@ -506,7 +506,7 @@
     
 
 &lt;/a&gt;进入本书配套的网站，找到&lt;code&gt;You can download a tarfile&lt;/code&gt;字段，点击链接下载压缩文件。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/csapp/website.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/csapp/website.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;配套网站&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -617,10 +617,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 之后可以输入内容&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 观察服务端终端的内容&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;运行结果&#34;&gt;运行结果
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/csapp/ServerOutput.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/csapp/ServerOutput.png&#34;
 	width=&#34;895&#34;
 	height=&#34;209&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/csapp/ServerOutput_hu_38006c2c4a494382.png 480w, https://rd806.github.io/p/cs/csapp/ServerOutput_hu_a29c06a219ffb265.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/csapp/ServerOutput_hu_38006c2c4a494382.png 480w, https://rd806.github.io/passage/cs/csapp/ServerOutput_hu_a29c06a219ffb265.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;服务端输出结果&#34;
@@ -631,10 +631,10 @@
 		data-flex-basis=&#34;1027px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/csapp/ClientOutput.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/csapp/ClientOutput.png&#34;
 	width=&#34;874&#34;
 	height=&#34;249&#34;
-	srcset=&#34;https://rd806.github.io/p/cs/csapp/ClientOutput_hu_bac62e0e07427c99.png 480w, https://rd806.github.io/p/cs/csapp/ClientOutput_hu_2bca34f989e0f72b.png 1024w&#34;
+	srcset=&#34;https://rd806.github.io/passage/cs/csapp/ClientOutput_hu_bac62e0e07427c99.png 480w, https://rd806.github.io/passage/cs/csapp/ClientOutput_hu_2bca34f989e0f72b.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;客户端输出结果&#34;
@@ -649,10 +649,10 @@
         </item>
         <item>
         <title>Malloc实验</title>
-        <link>https://rd806.github.io/p/cs/cslab/malloc/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/malloc/</link>
         <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/malloc/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/malloc/</guid>
         <description>&lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/hankeke303/p/18155103/csapp-malloclab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hankeke303大佬
     
@@ -704,7 +704,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;宏定义&#34;&gt;宏定义
 &lt;/h2&gt;&lt;p&gt;大致和书上使用的宏定义相同，不过最后有几个和分离适配的链表相关，&lt;code&gt;LIST_PRE&lt;/code&gt;和 &lt;code&gt;LIST_NEXT&lt;/code&gt;表示这个块上存储上一块和下一块的位置的指针，&lt;code&gt;LIST_HEAD&lt;/code&gt;表示第 $i$ 个大小类的头指针，&lt;code&gt;GET_XXX&lt;/code&gt;是这三个宏定义的解引用版本。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/malloc/images/%E5%9F%BA%E6%9C%AC%E5%B8%B8%E6%95%B0%E5%92%8C%E5%AE%8F.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/malloc/images/%E5%9F%BA%E6%9C%AC%E5%B8%B8%E6%95%B0%E5%92%8C%E5%AE%8F.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;操作空闲链表的基本常数和宏&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -763,7 +763,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;函数实现&#34;&gt;函数实现
 &lt;/h2&gt;&lt;h3 id=&#34;初始化&#34;&gt;初始化
 &lt;/h3&gt;&lt;p&gt;在书上 P600 提供了一个简易版本：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/malloc/images/%E5%88%9D%E5%A7%8B%E5%8C%96%E7%A9%BA%E9%97%B2%E5%9D%97.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/malloc/images/%E5%88%9D%E5%A7%8B%E5%8C%96%E7%A9%BA%E9%97%B2%E5%9D%97.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;初始化空闲块&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -791,7 +791,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，&lt;code&gt;extend_heap&lt;/code&gt;函数用来将堆扩展&lt;code&gt;CHUNKSIZE&lt;/code&gt;字节，并且创建初始的空闲块。此刻，分配器已初始化了，并且准备好接受来自应用的分配和释放请求。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/malloc/images/extend_heap.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/malloc/images/extend_heap.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;extend_heap函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -958,7 +958,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;核心&#34;&gt;核心
 &lt;/h3&gt;&lt;p&gt;动态内存分配的核心函数包括&lt;code&gt;mm_malloc&lt;/code&gt;，&lt;code&gt;mm_free&lt;/code&gt;和&lt;code&gt;mm_realloc&lt;/code&gt;。&lt;/p&gt;
 &lt;h4 id=&#34;分配&#34;&gt;分配
-&lt;/h4&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/malloc/images/mm_malloc.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h4&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/malloc/images/mm_malloc.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mm_malloc函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -997,7 +997,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;释放&#34;&gt;释放
 &lt;/h4&gt;&lt;p&gt;&lt;code&gt;mm_free&lt;/code&gt;函数比较简单，将这个块的头部、脚部标记为空闲块，调用&lt;code&gt;coalesce&lt;/code&gt;合并空闲块并插入链表即可。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/malloc/images/mm_free.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/malloc/images/mm_free.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mm_free函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1041,10 +1041,10 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         </item>
         <item>
         <title>NEMU-PART III</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part3/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part3/</link>
         <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part3/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part3/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA3：存储管理&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;实现高速缓存&#34;&gt;实现高速缓存
 &lt;/h2&gt;&lt;p&gt;经过实践，高速缓存的一级和二级结构最好同时实现，否则会在分页控制中出现难以预料的bug！&lt;/p&gt;
@@ -1470,10 +1470,10 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         </item>
         <item>
         <title>Shell实验</title>
-        <link>https://rd806.github.io/p/cs/cslab/shell/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/shell/</link>
         <pubDate>Sun, 19 Oct 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/shell/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/shell/</guid>
         <description>&lt;p&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/zhiyiYo/p/16297819.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;之一Yo大佬
     
@@ -1579,7 +1579,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;h2 id=&#34;函数实现&#34;&gt;函数实现
 &lt;/h2&gt;&lt;h3 id=&#34;eval函数&#34;&gt;&lt;code&gt;eval&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;在《深入理解计算机系统》第525页给出了&lt;code&gt;eval&lt;/code&gt;函数的核心代码：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/shell/images/eval%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/shell/images/eval%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;eval函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1650,14 +1650,14 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;53&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;54&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中&lt;code&gt;Fork()&lt;/code&gt;函数定义可以在《深入理解计算机系统》第512页找到：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/shell/images/Fork%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/shell/images/Fork%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;Fork函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;builtin_cmd函数&#34;&gt;&lt;code&gt;builtin_cmd&lt;/code&gt;函数
 &lt;/h3&gt;&lt;p&gt;在《深入理解计算机系统》第525页同样给出了&lt;code&gt;builtin_cmd&lt;/code&gt;函数的核心代码：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/shell/images/builtin_cmd%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/shell/images/builtin_cmd%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;builtin_cmd函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1713,7 +1713,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;p&gt;为了做到将&lt;code&gt;SIGCONT&lt;/code&gt;信号发送给进程组中的每一个进程，需要将&lt;code&gt;kill&lt;/code&gt;函数的&lt;code&gt;pid&lt;/code&gt;参数取负值，不然就只发给指定的进程了。具体可参见&lt;code&gt;kill&lt;/code&gt;函数在《深入理解计算机系统》第530页的定义：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;kill&lt;/code&gt;函数的定义位于《深入理解计算机系统》第530页：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/shell/images/kill%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/shell/images/kill%E5%87%BD%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;kill函数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1842,10 +1842,10 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         </item>
         <item>
         <title>NEMU-PART II</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part2/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part2/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part2/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part2/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA2：指令系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;实验目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -1865,7 +1865,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加call指令&#34;&gt;添加call指令
 &lt;/h3&gt;&lt;p&gt;查找&lt;code&gt;call&lt;/code&gt;指令对应的&lt;code&gt;Opcode&lt;/code&gt;等信息，可知操作码为&lt;code&gt;e8&lt;/code&gt;。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1904,7 +1904,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;cpu/exec/template-end.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令示意&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1942,7 +1942,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;li&gt;在&lt;code&gt;nemu/src/cpu/exec/all-instr.h&lt;/code&gt;中包含&lt;code&gt;call.h&lt;/code&gt;，并在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加test指令&#34;&gt;添加test指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;test指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2059,7 +2059,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#endif
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加je指令&#34;&gt;添加je指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;je指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2090,7 +2090,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;push指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;push指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2101,7 +2101,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;cmp指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;cmp指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2112,7 +2112,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;pop指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;pop指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2123,7 +2123,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;ret指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ret指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2139,7 +2139,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;leave指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;leave指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2155,7 +2155,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/h2&gt;&lt;h3 id=&#34;什么是定点化&#34;&gt;什么是定点化
 &lt;/h3&gt;&lt;p&gt;我们约定最高位为符号位，接下来的15位表示整数部分，低16位表示小数部分，即约定小数点在第15和第16位之间（从第0位开始）。从这个约定可以看到，&lt;code&gt;FLOAT&lt;/code&gt;类型其实是实数的一种定点表示。&lt;/p&gt;
 &lt;p&gt;更通俗的解释是：定点化数的小数点位置是固定的；或者说，定点化数的小数位数是确定的。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2230,7 +2230,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;__sign&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;浮点数转定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2291,7 +2291,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;c1&#34;&gt;//通过函数将未初始化的数据置0
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;nf&#34;&gt;memset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_memsz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part3&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA3 →&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part3&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA3 →&lt;/div&gt;
     
     
 
@@ -2300,10 +2300,10 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         </item>
         <item>
         <title>NEMU-PART II Pre</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part2-pre/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/</link>
         <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part2-pre/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/</guid>
         <description>
 
 &lt;blockquote class=&#34;alert alert-warn&#34;&gt;
@@ -2327,7 +2327,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
     &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;指令格式&#34;&gt;指令格式
 &lt;/h3&gt;&lt;p&gt;x86指令的一般格式如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;x86指令的一般格式&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2338,13 +2338,13 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;li&gt;给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如对于以下指令：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;指令示例&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;它的划分如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;示例指令划分&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2356,7 +2356,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;阅读opcode-table&#34;&gt;阅读Opcode Table
 &lt;/h3&gt;&lt;p&gt;以&lt;code&gt;mov&lt;/code&gt;指令的第一种形式为例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2383,7 +2383,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;通用寄存器编码&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2467,7 +2467,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;li&gt;对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如&lt;code&gt;mov_i2rm_b&lt;/code&gt;，&lt;code&gt;mov_i2rm_w&lt;/code&gt;和&lt;code&gt;mov_i2rm_l&lt;/code&gt;。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;访存&#34;&gt;访存
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;访存指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2502,12 +2502,12 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;p&gt;在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;编写指令的流程&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
     
     
 
@@ -2516,10 +2516,10 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
         </item>
         <item>
         <title>NEMU-PART I</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part1/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part1/</link>
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part1/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part1/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FAIL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2554,7 +2554,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/table&gt;
 &lt;h2 id=&#34;认识nemu&#34;&gt;认识NEMU
 &lt;/h2&gt;&lt;h3 id=&#34;nemu的结构&#34;&gt;NEMU的结构
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;NEMU的结构&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2621,7 +2621,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
 &lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2871,7 +2871,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;正则表达式的作用是识别当前表达式的具体内容。例如，对于表达式&lt;code&gt;4 + 3 * ( 2 - 1 )&lt;/code&gt;，正则表达式的识别结果应为：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;识别token&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3144,7 +3144,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;举例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;分治法求表达式的值&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3252,7 +3252,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;监视点链表&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3441,7 +3441,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;i386手册里P34页中和参阅附录c提到，CF是进位标志。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;EFLAGS寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3454,7 +3454,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P241-243页。ModR/M 由 Mod，Reg/Opcode，R/M 三个部分组成。 Mod 是前两位，提供寄存器寻址和内存寻址， Reg/Opcode为3-5位，如果是Reg表示使用哪个寄存器，Opcode表示对group属性的Opcode进行补充； R/M为6-8位，与mod结合起来会得到8个寄存器和24个内存寻址。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ModR/M&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3467,7 +3467,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P345页，格式是DEST ← SRC。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -3496,7 +3496,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;/details&gt;
 &lt;br&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
     
     
 

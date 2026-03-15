@@ -9,11 +9,11 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/en/tags/emoji/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Emoji Support</title>
-        <link>https://rd806.github.io/en/p/website/emoji/</link>
+        <link>https://rd806.github.io/en/passage/website/emoji/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/en/p/website/emoji/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>https://rd806.github.io/en/passage/website/emoji/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;
     

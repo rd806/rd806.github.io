@@ -9,10 +9,10 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Tue, 11 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/nemu/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>NEMU-PART III</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part3/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part3/</link>
         <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part3/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part3/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA3：存储管理&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;h2 id=&#34;实现高速缓存&#34;&gt;实现高速缓存
 &lt;/h2&gt;&lt;p&gt;经过实践，高速缓存的一级和二级结构最好同时实现，否则会在分页控制中出现难以预料的bug！&lt;/p&gt;
@@ -438,10 +438,10 @@
         </item>
         <item>
         <title>NEMU-PART II</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part2/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part2/</link>
         <pubDate>Wed, 17 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part2/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part2/</guid>
         <description>&lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;PA2：指令系统&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
 &lt;p&gt;实验目的：&lt;/p&gt;
 &lt;ol&gt;
@@ -461,7 +461,7 @@
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加call指令&#34;&gt;添加call指令
 &lt;/h3&gt;&lt;p&gt;查找&lt;code&gt;call&lt;/code&gt;指令对应的&lt;code&gt;Opcode&lt;/code&gt;等信息，可知操作码为&lt;code&gt;e8&lt;/code&gt;。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -500,7 +500,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;#34;cpu/exec/template-end.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/call%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;call指令示意&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -538,7 +538,7 @@
 &lt;li&gt;在&lt;code&gt;nemu/src/cpu/exec/all-instr.h&lt;/code&gt;中包含&lt;code&gt;call.h&lt;/code&gt;，并在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;添加test指令&#34;&gt;添加test指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/test%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;test指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -655,7 +655,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#endif
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;添加je指令&#34;&gt;添加je指令
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/je%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;je指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -686,7 +686,7 @@
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;push指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/push%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;push指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -697,7 +697,7 @@
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;cmp指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/cmp%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;cmp指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -708,7 +708,7 @@
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;pop指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/pop%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;pop指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -719,7 +719,7 @@
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;ret指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/ret%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ret指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -735,7 +735,7 @@
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;leave指令&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/Opcode/leave%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;leave指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -751,7 +751,7 @@
 &lt;/h2&gt;&lt;h3 id=&#34;什么是定点化&#34;&gt;什么是定点化
 &lt;/h3&gt;&lt;p&gt;我们约定最高位为符号位，接下来的15位表示整数部分，低16位表示小数部分，即约定小数点在第15和第16位之间（从第0位开始）。从这个约定可以看到，&lt;code&gt;FLOAT&lt;/code&gt;类型其实是实数的一种定点表示。&lt;/p&gt;
 &lt;p&gt;更通俗的解释是：定点化数的小数点位置是固定的；或者说，定点化数的小数位数是确定的。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -826,7 +826,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;__sign&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;val&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nl&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2/details/%E6%B5%AE%E7%82%B9%E6%95%B0%E8%BD%AC%E5%AE%9A%E7%82%B9%E6%95%B0.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;浮点数转定点数&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -887,7 +887,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;c1&#34;&gt;//通过函数将未初始化的数据置0
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;nf&#34;&gt;memset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_memsz&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ph&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p_filesz&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part3&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA3 →&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part3&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA3 →&lt;/div&gt;
     
     
 
@@ -896,10 +896,10 @@
         </item>
         <item>
         <title>NEMU-PART II Pre</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part2-pre/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/</link>
         <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part2-pre/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/</guid>
         <description>
 
 &lt;blockquote class=&#34;alert alert-warn&#34;&gt;
@@ -923,7 +923,7 @@
     &lt;p&gt;i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;指令格式&#34;&gt;指令格式
 &lt;/h3&gt;&lt;p&gt;x86指令的一般格式如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;x86指令的一般格式&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -934,13 +934,13 @@
 &lt;li&gt;给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如对于以下指令：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;指令示例&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;它的划分如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;示例指令划分&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -952,7 +952,7 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;阅读opcode-table&#34;&gt;阅读Opcode Table
 &lt;/h3&gt;&lt;p&gt;以&lt;code&gt;mov&lt;/code&gt;指令的第一种形式为例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -979,7 +979,7 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;通用寄存器编码&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1063,7 +1063,7 @@
 &lt;li&gt;对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如&lt;code&gt;mov_i2rm_b&lt;/code&gt;，&lt;code&gt;mov_i2rm_w&lt;/code&gt;和&lt;code&gt;mov_i2rm_l&lt;/code&gt;。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;访存&#34;&gt;访存
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;访存指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1098,12 +1098,12 @@
 &lt;p&gt;在&lt;code&gt;nemu/src/cpu/exec/exec.c&lt;/code&gt;中的&lt;code&gt;opcode_table&lt;/code&gt;中填写相应的&lt;code&gt;helper&lt;/code&gt;函数&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png&#34; width=&#34;700&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;编写指令的流程&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;进入PA2 →&lt;/div&gt;
     
     
 
@@ -1112,10 +1112,10 @@
         </item>
         <item>
         <title>NEMU-PART I</title>
-        <link>https://rd806.github.io/p/cs/cslab/nemu/part1/</link>
+        <link>https://rd806.github.io/passage/cs/cslab/nemu/part1/</link>
         <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/cslab/nemu/part1/</guid>
+        <guid>https://rd806.github.io/passage/cs/cslab/nemu/part1/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;你说得对，但是&lt;code&gt;NEMU&lt;/code&gt;是一个基于X86-64处理器模拟的IA-32操作系统。NEMU运行在一个被称作&lt;code&gt;Docker&lt;/code&gt;的容器，在这里，被容器选中的人将被授予&lt;code&gt;gcc&lt;/code&gt;，导引C语言之力。你将扮演一位名为&lt;code&gt;Debug&lt;/code&gt;的神秘用户，编写众多C语言程序，在调试中找出&lt;code&gt;FAIL&lt;/code&gt;的原因，同时逐步发掘&lt;code&gt;Hit Bad Trap&lt;/code&gt;的真相。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1150,7 +1150,7 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;认识nemu&#34;&gt;认识NEMU
 &lt;/h2&gt;&lt;h3 id=&#34;nemu的结构&#34;&gt;NEMU的结构
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/NEMU.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;NEMU的结构&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1217,7 +1217,7 @@
 &lt;li&gt;RTFM！（阅读手册！）&lt;/li&gt;
 &lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;实现正确的寄存器结构体&#34;&gt;实现正确的寄存器结构体
-&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
+&lt;/h3&gt;&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E5%AF%84%E5%AD%98%E5%99%A8.png&#34; width=&#34;650&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1467,7 +1467,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\\&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;正则表达式的作用是识别当前表达式的具体内容。例如，对于表达式&lt;code&gt;4 + 3 * ( 2 - 1 )&lt;/code&gt;，正则表达式的识别结果应为：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/token.png&#34; width=&#34;500&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;识别token&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1740,7 +1740,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 99&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;举例：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E5%88%86%E6%B2%BB%E6%B3%95%E6%B1%82%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E5%80%BC.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;分治法求表达式的值&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -1848,7 +1848,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;temp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E7%9B%91%E8%A7%86%E7%82%B9%E9%93%BE%E8%A1%A8.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;监视点链表&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2037,7 +2037,7 @@
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;i386手册里P34页中和参阅附录c提到，CF是进位标志。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-1.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;EFLAGS寄存器&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2050,7 +2050,7 @@
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P241-243页。ModR/M 由 Mod，Reg/Opcode，R/M 三个部分组成。 Mod 是前两位，提供寄存器寻址和内存寻址， Reg/Opcode为3-5位，如果是Reg表示使用哪个寄存器，Opcode表示对group属性的Opcode进行补充； R/M为6-8位，与mod结合起来会得到8个寄存器和24个内存寻址。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-2.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;ModR/M&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2063,7 +2063,7 @@
     &lt;summary&gt;解答&lt;/summary&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P345页，格式是DEST ← SRC。
-&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/p/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
+&lt;figure&gt;&lt;img src=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part1/%E6%80%9D%E8%80%83%E9%A2%983-3.png&#34; width=&#34;600&#34;&gt;&lt;figcaption&gt;
       &lt;h4&gt;mov指令&lt;/h4&gt;
     &lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -2092,7 +2092,7 @@
 &lt;/details&gt;
 &lt;br&gt;
 &lt;center&gt;&lt;strong&gt;&lt;p style=&#34;font-size:32px;&#34;&gt;至此，PA1全部完成&lt;/p&gt;&lt;/strong&gt;&lt;/center&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/cs/cslab/nemu/part2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/cs/cslab/nemu/part2-pre&#34; &gt;&lt;div style=&#34;text-align: right;&#34;&gt;PA2预备知识&lt;/div&gt;
     
     
 
@@ -2101,10 +2101,10 @@
         </item>
         <item>
         <title>正则表达式</title>
-        <link>https://rd806.github.io/p/cs/regular_expression/</link>
+        <link>https://rd806.github.io/passage/cs/regular_expression/</link>
         <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/cs/regular_expression/</guid>
+        <guid>https://rd806.github.io/passage/cs/regular_expression/</guid>
         <description>&lt;h2 id=&#34;&#34;&gt;
 &lt;/h2&gt;</description>
         </item>
