@@ -9,10 +9,10 @@
         <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Sun, 17 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/website/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>APlayer</title>
-        <link>https://rd806.github.io/p/aplayer/</link>
+        <link>https://rd806.github.io/p/website/aplayer/</link>
         <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/aplayer/</guid>
+        <guid>https://rd806.github.io/p/website/aplayer/</guid>
         <description>&lt;p&gt;以下由Hugo的stack主题演示，其他的可作为参考。&lt;/p&gt;
 &lt;p&gt;修改方法来源：&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/pjax/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere
@@ -275,11 +275,11 @@
         </item>
         <item>
         <title>Hugo-stack主题装饰</title>
-        <link>https://rd806.github.io/p/stack-decorate/</link>
+        <link>https://rd806.github.io/p/website/decorate/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/stack-decorate/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/stack-decorate/patrick-perkins-3wylDrjxH-E-unsplash.jpg" alt="Featured image of post Hugo-stack主题装饰" /&gt;&lt;h2 id=&#34;基本原理&#34;&gt;基本原理
+        <guid>https://rd806.github.io/p/website/decorate/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/website/decorate/patrick-perkins-3wylDrjxH-E-unsplash.jpg" alt="Featured image of post Hugo-stack主题装饰" /&gt;&lt;h2 id=&#34;基本原理&#34;&gt;基本原理
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Hugo的stack主题提供了自定义样式的接口，主要在&lt;code&gt;layouts/partials/footer/custom.html&lt;/code&gt;和&lt;code&gt;assets/scss/custom.scss&lt;/code&gt;中&lt;/li&gt;
 &lt;li&gt;Hugo的文件可以实现文件覆盖。只要文件位置与&lt;code&gt;themes&lt;/code&gt;文件夹中的相同，就会先加载自定义文件。&lt;/li&gt;
@@ -618,11 +618,11 @@
         </item>
         <item>
         <title>使用Hugo搭建网站</title>
-        <link>https://rd806.github.io/p/website/</link>
+        <link>https://rd806.github.io/p/website/hugo/</link>
         <pubDate>Sat, 02 Aug 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://rd806.github.io/p/website/</guid>
-        <description>&lt;img src="https://rd806.github.io/p/website/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
+        <guid>https://rd806.github.io/p/website/hugo/</guid>
+        <description>&lt;img src="https://rd806.github.io/p/website/hugo/Hugo.png" alt="Featured image of post 使用Hugo搭建网站" /&gt;&lt;h2 id=&#34;hugo环境配置&#34;&gt;Hugo环境配置
 &lt;/h2&gt;&lt;p&gt;点击进入&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo下载地址
     

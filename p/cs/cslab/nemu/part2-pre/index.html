@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="PA2预备知识">
+<title>NEMU-PART II Pre</title>
+
+<link rel='canonical' href='https://rd806.github.io/p/cs/cslab/nemu/part2-pre/'>
+
+<link rel="stylesheet" href="/scss/style.min.97f7d52448e186397165c80dae4df6820feae8767031898069bd46931d5f0f83.css"><meta property='og:title' content="NEMU-PART II Pre">
+<meta property='og:description' content="PA2预备知识">
+<meta property='og:url' content='https://rd806.github.io/p/cs/cslab/nemu/part2-pre/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-09-16T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-09-16T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="NEMU-PART II Pre">
+<meta name="twitter:description" content="PA2预备知识">
+    <link rel="shortcut icon" href="/favicon.ico" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/RunicDolphin806_hu_1cf19e68755c676d.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810?spm_id_from=333.337.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://rd806.github.io/en/" >English</option>
+                                
+                                    <option value="https://rd806.github.io/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#切换用户程序">切换用户程序</a></li>
+    <li><a href="#了解nemu的指令集">了解NEMU的指令集</a>
+      <ol>
+        <li><a href="#指令格式">指令格式</a></li>
+        <li><a href="#阅读opcode-table">阅读Opcode Table</a></li>
+      </ol>
+    </li>
+    <li><a href="#c语言宏定义">C语言宏定义</a></li>
+    <li><a href="#nemu的指令周期">NEMU的指令周期</a>
+      <ol>
+        <li><a href="#取指">取指</a></li>
+        <li><a href="#译码">译码</a></li>
+        <li><a href="#执行">执行</a></li>
+        <li><a href="#访存">访存</a></li>
+        <li><a href="#写回">写回</a></li>
+      </ol>
+    </li>
+    <li><a href="#编写指令的流程">编写指令的流程</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+            
+                <!DOCTYPE html>
+<html lang="zh_cn">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <style>
+            .aplayer-music {
+                overflow-x: scroll
+            }
+
+            
+        </style>
+    </head>
+
+    <section class="widget music"> 
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
+        </div>
+        <h2 class="widget-title section-title">音乐</h2>
+        <div id="aplayer"></div>
+    </section>
+
+    <script>
+        
+        fetch('/json/music.json')
+            .then(r => r.json())    
+            .then(list => {
+                const ap = new APlayer({ 
+                    container: document.getElementById('aplayer'), 
+                    mini: false,
+                    fixed: false,
+                    listFolded: true,
+                    listMaxHeight: '200px',
+                    lrcType: 3,
+                    audio: list 
+                });
+        });
+    </script>
+</html>
+
+
+    
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
+            </a>
+        
+            
+            
+            
+            <a href="/categories/nemu/" style="background-color: #2f0bbeff; color: #fff;">
+                NEMU
+            </a>
+        
+            
+            
+            
+            <a href="/categories/csapp/" style="background-color: #080a4aff; color: #fff;">
+                CSAPP
+            </a>
+        
+            
+            
+            
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/cs/cslab/nemu/part2-pre/">NEMU-PART II Pre</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            PA2预备知识
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2025-09-16T00:00:00Z'>Sep 16, 2025</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    
+
+<blockquote class="alert alert-warn">
+    <p>磨刀不误砍柴工！！！</p></blockquote>
+<p>实验目的：</p>
+<ol>
+<li>掌握i386（IA-32）指令格式。</li>
+<li>掌握NEMU平台的指令周期。</li>
+</ol>
+<h2 id="切换用户程序">切换用户程序
+</h2><p>修改工程目录下的<code>Makefile</code>文件，更换<code>NEMU</code>的用户程序：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-diff" data-lang="diff"><span class="line"><span class="ln">1</span><span class="cl"><span class="gd">- USERPROG := obj/testcase/mov
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="gi">+ USERPROG := obj/testcase/mov-c
+</span></span></span></code></pre></div><p>同理，将<code>mov-c</code>更换为<code>testcase/src</code>目录下的其他文件，例如<code>add</code>、<code>bubble-sort</code>等，即可执行对应的用户程序。</p>
+<h2 id="了解nemu的指令集">了解NEMU的指令集
+</h2><p>X86系列处理器采用变长指令字结构，各种指令长度随指令功能而异。</p>
+<p>要实现一条指令，首先你需要知道这条指令的格式和功能。格式决定如何解释，功能决定如何执行。这些信息都在 instruction set page（i386 手册第17 章）。</p>
+
+
+<blockquote class="alert alert-note">
+    <p>i386 手册中的汇编语言格式都是 Intel 格式，而 objdump（反汇编）的默认格式是 AT&amp;T 格式，两者的源操作数和目的操作数位置不一样，千万不要把它们混淆了！</p></blockquote>
+<h3 id="指令格式">指令格式
+</h3><p>x86指令的一般格式如下：</p>
+<figure><img src="/p/cs/cslab/nemu/part2-pre/x86%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F.png" width="600"><figcaption>
+      <h4>x86指令的一般格式</h4>
+    </figcaption>
+</figure>
+
+<ol>
+<li><code>Opcode</code>（操作码）必定出现，其余组成部分可能不出现。<code>Opcode</code>决定是否出现<code>ModR/M</code>；<code>SIB</code>、<code>Displacement</code>、<code>Immediate</code>由<code>ModR/M</code>决定。</li>
+<li>对于某些组成部分，其长度并不是固定的。</li>
+<li>给定一条具体指令的二进制形式，其组成部分的划分是有办法确定的，不会产生歧义</li>
+</ol>
+<p>例如对于以下指令：</p>
+<figure><img src="/p/cs/cslab/nemu/part2-pre/%E6%8C%87%E4%BB%A4%E7%A4%BA%E4%BE%8B.png" width="700"><figcaption>
+      <h4>指令示例</h4>
+    </figcaption>
+</figure>
+
+<p>它的划分如下：</p>
+<figure><img src="/p/cs/cslab/nemu/part2-pre/%E7%A4%BA%E4%BE%8B%E6%8C%87%E4%BB%A4%E5%88%92%E5%88%86.png" width="700"><figcaption>
+      <h4>示例指令划分</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p><strong><code>ModR/M</code>部分为什么解析出了<code>disp32[--][--]</code>？</strong></p>
+<p><code>ModR/M</code>内部这一个字节的组成，分为了三个部分，具体每个部分的编码都对应着右边表内的含义，以<code>ModR/M</code>内的编码为基准进行查表就能够解析出对应的含义。</p>
+<p>例如例子中的<code>ModR/M</code>部分编码是<code>84</code>（十六进制），对应二进制就是<code>10000100</code>，对应回格式中的部分就是<code>Mod</code>部分为<code>10</code>，<code>R/M</code>部分为<code>100</code>，二者在右边表中可以对应出一行，这一行的对应指令就是<code>disp32[--][--]</code>。<code>disp32</code>代表偏移量（displacement）为32位的，两个<code>[--][--]</code>就代表我们需要解析<code>SIB</code>中的编码部分才能得到偏移量的具体数值。</p>
+</blockquote>
+<h3 id="阅读opcode-table">阅读Opcode Table
+</h3><p>以<code>mov</code>指令的第一种形式为例：</p>
+<figure><img src="/p/cs/cslab/nemu/part2-pre/mov%E6%8C%87%E4%BB%A4.png" width="700"><figcaption>
+      <h4>mov指令</h4>
+    </figcaption>
+</figure>
+
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>列数</th>
+          <th>具体含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Description</td>
+          <td>将一个8位寄存器中的数据传送到8位的寄存器或者内存中，其中<code>r/m</code>表示“寄存器或内存”。</td>
+      </tr>
+      <tr>
+          <td>Opcode</td>
+          <td>88表示这条指令的<code>opcode</code>的首字节是<code>0x88</code>，<code>/r</code>表示后面跟一个<code>ModR/M</code>字节，并且 <code>ModR/M</code>字节中的<code>reg/opcode</code>域解释成通用寄存器的编码。</td>
+      </tr>
+      <tr>
+          <td>Instruction</td>
+          <td><code>r8</code>表示8位寄存器；<code>r/m8</code>表示8位寄存器或内存，具体由<code>mod</code>字段决定。</td>
+      </tr>
+  </tbody>
+</table></div>
+<figure><img src="/p/cs/cslab/nemu/part2-pre/%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.png" width="700"><figcaption>
+      <h4>通用寄存器编码</h4>
+    </figcaption>
+</figure>
+
+<blockquote>
+<p>接下来的两种形式也就不难看懂了：但这两种形式的<code>Opcode</code>都是一样的，难道不会出现歧义吗？</p>
+<p>x86是通过指令一般格式中的 <code>operand-size prefix</code>来区分上面这两种形式的。</p>
+<p><code>Operand-size prefix</code>的编码是<code>0x66</code>，作用是指示当前指令需要改变操作数的长度。在 IA-32 中，通常如果这个前缀没有出现，操作数长度默认是 32 位；当这个前缀出现的时候，操作数长度就改变成16位。</p>
+<p>换句话说，如果把一个开头为<code>89 ...</code>的比特串解释成指令，它就应该被解释成<code>MOV r/m32, r32</code>的形式；如果比特串的开头是<code>66 89...</code>，它就应该被解释成<code>MOV r/m16, r16</code>。</p>
+</blockquote>
+<h2 id="c语言宏定义">C语言宏定义
+</h2><p>在C语言中，可以使用命令#define来定义宏。宏不负责检查语法的正确性。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 常规的宏
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cp">#define PI 3.1415926
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">// 带参数的宏
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="cp">#define putchar(x) putc(x, stdout)
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">// 使用宏进行连接
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="cp">#define concat(x, y)   x ## y
+</span></span></span></code></pre></div><p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#define make_helper(name) int name(swaddr_t eip)
+</span></span></span></code></pre></div><p>这个宏定义就代表了以下的两行代码是同一个代码，我们使用的时候看到的是上面部分函数，但是程序执行的时候实际上是在执行下面的函数（实际上就是同一个函数）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">exec</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">int</span> <span class="nf">exec</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">eip</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+<p>在C语言中，宏必须定义在一行中。</p>
+<p>若需通过换行提高代码可读性，可使用<code>\</code>附在每行末尾。</p>
+</blockquote>
+<h2 id="nemu的指令周期">NEMU的指令周期
+</h2><h3 id="取指">取指
+</h3><p>核心流程</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">cpu_exec</span><span class="p">(</span><span class="k">volatile</span> <span class="kt">uint32_t</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">for</span><span class="p">(;</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span> <span class="n">n</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="kt">int</span> <span class="n">instr_len</span> <span class="o">=</span> <span class="nf">exec</span><span class="p">(</span><span class="n">cpu</span><span class="p">.</span><span class="n">eip</span><span class="p">);</span>  <span class="c1">// 执行当前%eip所指向的指令
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">cpu</span><span class="p">.</span><span class="n">eip</span> <span class="o">+=</span> <span class="n">instr_len</span><span class="p">;</span>           <span class="c1">// %eip指向下一条指令
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>函数<code>exec</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">make_helper</span><span class="p">(</span><span class="n">exec</span><span class="p">)</span> <span class="p">{</span>     <span class="c1">//等价于 int exec(swaddr_t eip)
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span> <span class="o">=</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="n">eip</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>       <span class="c1">// 表示读取一个字节的操作码
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="k">return</span> <span class="n">opcode_table</span><span class="p">[</span><span class="n">ops_decoded</span><span class="p">.</span><span class="n">opcode</span><span class="p">](</span><span class="n">eip</span><span class="p">);</span>   <span class="c1">// 返回一个函数 
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>其中，函数<code>instr_fetch()</code>负责取指：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">uint32_t</span> <span class="nf">instr_fetch</span><span class="p">(</span><span class="kt">swaddr_t</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">return</span> <span class="nf">swaddr_read</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><code>instr_fetch()</code>从<code>eip</code>处提取<code>Opcode</code>，存储到<code>ops_decoded.opcode</code>中。</p>
+<h3 id="译码">译码
+</h3><p>所有指令的规则如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>内容</th>
+          <th>规则</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>指令</td>
+          <td>指令名称，具体由i386手册确定</td>
+      </tr>
+      <tr>
+          <td>形式</td>
+          <td><code>i2r</code>，将立即数移动到寄存器 <br> <code>i2rm</code>，将立即数移动到寄存器或内存 <br> <code>r2rm</code>，将寄存器移动到寄存器或内存</td>
+      </tr>
+      <tr>
+          <td>操作数后缀</td>
+          <td><code>b</code>表示操作数长度为8，<code>v</code>表示无法确定操作数长度，可能是16或32</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>通过<code>opcode_table</code>，根据提取到的<code>Opcode</code>找到对应的指令处理函数（如<code>mov_i2r_v</code>）。</p>
+<h3 id="执行">执行
+</h3><ol>
+<li>对于同一指令的不同形式，它们的执行阶段是相同的。如<code>mov_i2rm</code>和<code>mov_rm2r</code>，它们的执行阶段都是将源操作数存储到目标操作数中。</li>
+<li>对于不同指令的同一种形式，它们的译码阶段是相同的。如<code>mov_i2rm</code>和<code>sub_rm2r</code>，它们的译码阶段都是识别出一个立即数和一个rm操作数。</li>
+<li>对于同一条指令同一种形式的不同长度，它们的译码阶段和执行阶段都非常类似。如<code>mov_i2rm_b</code>，<code>mov_i2rm_w</code>和<code>mov_i2rm_l</code>。它们都是识别出一个立即数和一个rm操作数，然后把立即数存入rm操作数。</li>
+</ol>
+<h3 id="访存">访存
+</h3><figure><img src="/p/cs/cslab/nemu/part2-pre/%E8%AE%BF%E5%AD%98.png" width="700"><figcaption>
+      <h4>访存指令</h4>
+    </figcaption>
+</figure>
+
+<h3 id="写回">写回
+</h3><p>指令执行完后，<code>eip</code>指向下一条指令。</p>
+<h2 id="编写指令的流程">编写指令的流程
+</h2><ol>
+<li>
+<p>编写指令模板文件<code>xxx-template.h</code> <br>
+① 在文件头尾分别包含<code>cpu/exec/template-start.h</code>和<code>cpu/exec/template-end.h</code>。<br>
+② 定义宏<code>instr</code>为指令名称。<br>
+③ 定义函数<code>static void do_execute()</code>，实现该指令的通用执行过程。<br>
+④ 定义<code>helper</code>函数<br>
+（1）若指令的译码方式在<code>nemu/include/cpu/decode/decode.h</code>中已经存在，那么可以考虑使用宏 <code>make_instr_helper()</code>来构造<code>helper</code>函数（大部分 helper 函数都可以通过这种方式构造）。<br>
+（2）否则可以考虑添加相应的译码函数或者不使用<code>make_instr_helper()</code>, 而是直接使用<code>make_helper()</code>来定义<code>helper</code>函数，在函数体中直接进行译码，并调用<code>do_execute()</code>（可以参考<code>nemu/src/cpu/exec/data-mov/xchg-template.h</code>中的<code>xchg_a2r</code>指令类型。<br></p>
+</li>
+<li>
+<p>编写指令实例化文件<code>xxx.c</code><br>
+① 包含<code>cpu/exec-helper.h</code>。<br>
+② 通过分别将宏<code>DATA_BYTE</code>定义成 1, 2, 4, 分别对指令模板文件<code>xxx-template.h</code>进行实例化。<br>
+③ 若一个<code>helper</code>函数只会在某些操作数长度中用到，可以在<code>xxx-template.h</code>中通过条件编译的功能来指定（可以参考<code>nemu/src/cpu/exec/data-mov/xchg-template.h</code>中的<code>xchg_a2r</code>指令类型）。<br>
+④ 必要时通过宏<code>make_helper_v()</code>定义相应的重载函数，根据指令的操作数长度前缀确定调用哪一个<code>helper</code>函数。<br></p>
+</li>
+<li>
+<p>编写指令头文件<code>xxx.h</code>，声明<code>helper</code>函数的原型。</p>
+</li>
+<li>
+<p>在<code>nemu/src/cpu/exec/all-instr.h</code>中包含<code>xxx.h</code>。</p>
+</li>
+<li>
+<p>在<code>nemu/src/cpu/exec/exec.c</code>中的<code>opcode_table</code>中填写相应的<code>helper</code>函数</p>
+</li>
+</ol>
+<figure><img src="/p/cs/cslab/nemu/part2-pre/%E7%BC%96%E5%86%99%E6%8C%87%E4%BB%A4%E7%9A%84%E6%B5%81%E7%A8%8B.png" width="700"><figcaption>
+      <h4>编写指令的流程</h4>
+    </figcaption>
+</figure>
+
+<p><a class="link" href="/p/cs/cslab/nemu/part2" ><div style="text-align: right;">进入PA2 →</div>
+    
+    
+
+</a></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/cs/cslab/nemu/part3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART III</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cs/cslab/nemu/part2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART II</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cs/cslab/nemu/part1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">NEMU-PART I</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cs/cslab/proxy/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Proxy实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/cs/csapp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+    
+    <script src=https://rd806.github.io/js/topbar.min.js></script>
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+    </body>
+</html>
