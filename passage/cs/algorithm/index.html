@@ -335,7 +335,13 @@
             <li><a href="#求和转换为积分">求和转换为积分</a></li>
           </ol>
         </li>
-        <li><a href="#递归方程">递归方程</a></li>
+        <li><a href="#递归方程">递归方程</a>
+          <ol>
+            <li><a href="#逐层展开法">逐层展开法</a></li>
+            <li><a href="#变量替换法">变量替换法</a></li>
+            <li><a href="#master定理">Master定理</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#递归">递归</a>
@@ -747,7 +753,7 @@
   </thead>
   <tbody>
       <tr>
-          <td>$$T(n) = \Omega(f(n))$$</td>
+          <td>$$T(n) = \varOmega(f(n))$$</td>
           <td>如果存在 $c&gt;0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \geqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的高阶，它给出了算法复杂度的下界</td>
       </tr>
       <tr>
@@ -777,8 +783,8 @@
   </tbody>
 </table></div>
 <blockquote>
-<p>例如，对于 $f(n) = 3n^3+2n^2$，取 $n_0 = 1$，当 $n \geqslant 1$ 时：</p>
-<p>取 $c_1 = 5$，有 $T(n) \leqslant 5n^3$ 成立，即有 $T(n) = \Omega(n^3)$</p>
+<p>例如，对于 $f(n) = 3n^3+2n^2$，取 $n_0 = 1$，当 $n \geqslant n_0 = 1$ 时：</p>
+<p>取 $c_1 = 5$，有 $T(n) \leqslant 5n^3$ 成立，即有 $T(n) = \varOmega(n^3)$</p>
 <p>取 $c_2 = 3$，有 $T(n) \geqslant 3n^3$ 成立，即有 $T(n) = O(n^3)$</p>
 </blockquote>
 <p>若 $f(n) = o(g(n))$，则有 $\displaystyle \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0$</p>
@@ -811,7 +817,7 @@
   </tbody>
 </table></div>
 <blockquote>
-<p>并非所有函数都是可比的</p>
+<p>并非所有函数都是可比的，例如 $f(n) = n$ 和 $g(n) = n^{1+\sin n}$</p>
 </blockquote>
 <p>多项式时间的算法之间有差距，但一般可接受。</p>
 <p>指数量级的算法对于较大的 $n$ 无使用价值。</p>
@@ -843,7 +849,62 @@ $$ \sum_{k=1}^{n} \log k \geqslant \int_{0}^{n} \log x \mathrm{d}x $$<figure><im
 <p>综合两式可得：$\log n! = \varTheta(n\log n)$，该求和公式在快速排序等算法中有重要作用。</p>
 </blockquote>
 <h3 id="递归方程">递归方程
-</h3>$$T(n) = \left\{ \begin{matrix} \varTheta(1), & n=1 \\\\ 2T\displaystyle \left(\frac{n}{2}\right) + \varTheta(n), & n \geqslant 1 \end{matrix} \right.$$<h2 id="递归">递归
+</h3><h4 id="逐层展开法">逐层展开法
+</h4><p>案例：归并排序的递归方程</p>
+$$T(n) = \left\{ \begin{matrix} \begin{align*} &\varTheta(1), & n=1 \\\\ &2T\displaystyle \left(\frac{n}{2}\right) + \varTheta(n), & n \geqslant 1 \end{align*} \end{matrix} \right.$$<p>将其展开可得：</p>
+$$\begin{align*} T(n) &= n + 3T\left(\left\lfloor \frac{n}{4} \right\rfloor\right) \\\\ &= n + 3\left(\left\lfloor \frac{n}{4} \right\rfloor + 3T\left( \left\lfloor \frac{n}{16} \right\rfloor \right)\right) \\\\ &= n + 3\left\lfloor \frac{n}{4} \right\rfloor + 3^2 \left\lfloor \frac{n}{4^2} \right\rfloor + 3^3 \left\lfloor \frac{n}{4^3} \right\rfloor + \cdots + 3^k T \left(\left\lfloor \frac{n}{4^k} \right\rfloor \right) \end{align*}$$<p>深度 $k = \log_{4}n$，最底层有 $3^k = 3^{\log_{4}n} = n^{\log_{4}3}$ 个，则有</p>
+$$T(n) = \sum_{i=0}^{(\log_{4}n) - 1} 3^i \cdot \frac{n}{4^i} + \varTheta(n^{\log_{4}3}) \leqslant 4n + \varTheta(n^{\log_{4}3}) = O(n)$$<h4 id="变量替换法">变量替换法
+</h4><p>设递归方程为：</p>
+$$T(n) = 2T(\sqrt{n}) + \log n$$<p>令 $m = \log n$，则 $n = 2^m$，$\displaystyle T(2^m) = 2T\left(2^{\frac{m}{2}}\right) + m$</p>
+<p>令 $S(m) = T(2^m)$，则 $\displaystyle S\left(\frac{m}{2}\right) = T\left(2^{\frac{m}{2}}\right)$</p>
+<p>于是 $\displaystyle S(m) = 2S\left(\frac{m}{2}\right) + m = \varTheta(m \log m)$</p>
+<p>回代可得 $T(n) = \varTheta(\log n (\log (\log n)))$</p>
+<h4 id="master定理">Master定理
+</h4><p>求解形如 $\displaystyle T(n) = a \cdot T(\frac{n}{b}) + f(n)$ 的递归方程（其中 $a \geqslant 1$，$b \geqslant 1$ 是常数。$f(n)$ 是正函数）。</p>
+<ol>
+<li>若 $f(n) = O(n^{(\log_{b} a)-\varepsilon})$，常数 $\varepsilon &gt; 0$，则有 $T(n) = \varTheta(n^{\log_{b}a})$</li>
+<li>若 $f(n) = \varTheta(n^{\log_{b} a})$，常数 $\varepsilon &gt; 0$，则有 $T(n) = \varTheta(n^{\log_b a} \log n)$</li>
+<li>若 $f(n) = \varOmega(n^{(\log_{b} a) + \varepsilon})$，常数 $\varepsilon &gt; 0$，且对所有 $n$，都有 $af(\frac{n}{b}) \leqslant c \cdot f(n)$ （$c&lt;1$ 且为常数），则有 $T(n) = \varTheta(f(n))$</li>
+</ol>
+<blockquote>
+<p>直观理解：用 $f(n)$ 与 $n^{\log_b a}$ 的阶比较</p>
+<ol>
+<li>若 $n^{\log_b a}$ 的阶更大，即 $f(n)$ 的阶不仅小于 $n^{\log_b a}$，而且还小于 $n^{\log_b a}/n^{\varepsilon}$，则 $T(n) = \varTheta(n^{\log_b a})$</li>
+<li>若 $f(n) = \varTheta(n^{\log_b a})$，即 $f(n)$ 与 $n^{\log_b a}$ 同阶，则有 $T(n) = \varTheta(n^{\log_b a} \log n) = \varTheta(f(n)\log n)$</li>
+<li>若 $f(n)$ 的阶更大，即 $f(n)$ 的阶不仅大于 $n^{\log_b a}$，而且还大于 $n^{\log_b a} \cdot n^{\varepsilon}$，则 $T(n) = \varTheta(f(n))$</li>
+</ol>
+</blockquote>
+<details>
+    <summary>Master定理证明（点击展开）</summary>
+<p>对 $\displaystyle f(n) = a T(\frac{n}{b}) + f(n)$ 展开可得 </p>
+$$ T(n) = \varTheta(n^{\log_b a}) + \sum_{i=0}^{k-1} a^i \cdot f(\frac{n}{b^i}) $$<p> 其中 $n = b^k$，$k = \log_b n$，$a^k = a^{\log_b n} = n^{\log_b a}$</p>
+<p>令 $\displaystyle g(n) = \sum_{i=0}^{k-1} a^i f\left( \frac{n}{b^i} \right)$， 则有 $T(n) = \varTheta(n^{\log_b a}) + g(n)$</p>
+<ol>
+<li>
+<p>若 $f(n) = O(n^{(\log_b a) - \varepsilon})$，则有
+</p>
+$$\begin{align*} g(n) &= O \left(\sum_{i=0}^{k-1} a^i \left(\frac{n}{b^i}\right)^{(\log_b a)-\varepsilon} \right) = O \left( n^{(\log_b a)-\varepsilon} \sum_{i=0}^{k-1} \left(\frac{ab^{\varepsilon}}{b^{\log_b a}}\right)^i \right) \\ &= O \left( n^{(\log_b a)-\varepsilon} \frac{n^{\varepsilon} - 1}{b^{\varepsilon} - 1} \right) = O(n^{\log_b a}) \end{align*}$$<p>
+故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta{n^{\log_b a}}$</p>
+</li>
+<li>
+<p>若 $f(n) = \varTheta(n^{\log_b a})$，则有
+</p>
+$$\begin{align*} g(n) &= \varTheta \left( \sum_{i=0}^{k-1} a^i \frac{n}{b^i}^{\log_b a} \right) = \varTheta \left( n^{\log_b a} \sum_{i=0}^{k-1} 1 \right) \\ &= \varTheta(n^{\log_b a} k) = \varTheta(n^{\log_b a} \log_b n) = \varTheta(n^{\log_b a} \log n) \end{align*}$$<p>
+故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta{n^{\log_b a} \log n}$</p>
+</li>
+<li>
+<p>若 $f(n) = \varOmega(n^{(\log_b a) + \varepsilon})$，且对所有充分大的 $n$ 有
+</p>
+$$\begin{align*} a f(\frac{n}{b}) &\leqslant c f(n) \\ a f(\frac{n}{b^2}) &\leqslant c f(\frac{n}{b}) \\ &\cdots \\ a f(\frac{n}{b^i}) &\leqslant c f(\frac{n}{b^{i-1}}) \end{align*}$$<p> 两边分别相乘得 $\displaystyle a^i f(\frac{n}{b^i}) \leqslant c^i f(n)$，
+则有 </p>
+$$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(n) = f(n) \sum_{i=0}^{k-1} c^i \leqslant f(n) \cdot \frac{1}{1-c} = \varTheta(f(n))$$<p> 故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta(f(n))$</p>
+</li>
+</ol>
+</details>
+<blockquote>
+<p>推广形式：若 $f(n) = \varTheta(n^{\log_b a} \log^{k} n)$，其中 $k \geqslant 0$，则有 $T(n) = \varTheta(n^{\log_b a} \log^{k+1} n)$</p>
+</blockquote>
+<h2 id="递归">递归
 </h2><h3 id="定义">定义
 </h3><p>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的；若一个过程直接或间接地调用自己，则称这个过程是递归的过程。</p>
 <p>递归的三种情况：定义是递归的、数据结构是递归的、问题的解法是递归的。</p>
