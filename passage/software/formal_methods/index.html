@@ -333,6 +333,7 @@
         <li><a href="#数据类型">数据类型</a></li>
         <li><a href="#变量">变量</a></li>
         <li><a href="#集合">集合</a></li>
+        <li></li>
       </ol>
     </li>
   </ol>
@@ -761,8 +762,7 @@ $$
 & \cdots \\
 n+1 &= n \cup \{n\}
 \end{align*}
-\end{array}
-$$</blockquote>
+\end{array}$$</blockquote>
 <h3 id="函数">函数
 </h3><p>函数定义为从集合 $A$ 到集合 $B$ 的一种对应关系，记作 $f: A \rightarrow B$。</p>
 <h2 id="z语言">Z语言
@@ -780,16 +780,12 @@ $$</blockquote>
   </thead>
   <tbody>
       <tr>
-          <td>Integer</td>
-          <td>Z语言的内置类型，记作 $Z$，可使用 &ldquo;+, -, *, div, mod&rdquo; 运算</td>
-      </tr>
-      <tr>
-          <td>Natural</td>
-          <td>Integer类型的子集，记作 $N$，必须为非负数。$N1$ 则表示正整数</td>
+          <td>BuildIn types</td>
+          <td>Z语言的内置类型，无需定义即可使用。<br> Integer：记作 $Z$，可使用 &ldquo;+, -, *, div, mod&rdquo; 运算 <br> Natural：Integer类型的子集，记作 $N$，必须为非负数。$N1$ 则表示正整数</td>
       </tr>
       <tr>
           <td>Basic types</td>
-          <td>在名称周围添加方括号来声明，附带注释。例如：<br> $[\mathrm{PERSON}] \qquad \text{the set of all persons}$</td>
+          <td>在名称周围添加方括号来声明，可附带注释。例如：<br> $[\mathrm{PERSON}] \qquad \text{the set of all persons}$</td>
       </tr>
       <tr>
           <td>Free types</td>
@@ -815,23 +811,28 @@ $$</blockquote>
   <tbody>
       <tr>
           <td>幂集</td>
-          <td>$\# P\text{S} = 2^{\# S}$</td>
+          <td>$\mathbb{P} S$</td>
       </tr>
       <tr>
           <td>差</td>
-          <td>$S \ T$</td>
+          <td>$ S \backslash T $</td>
       </tr>
       <tr>
           <td>并集</td>
-          <td></td>
+          <td>$ S \cup T $</td>
+      </tr>
+      <tr>
+          <td>交集</td>
+          <td>$ S \cap T $</td>
       </tr>
       <tr>
           <td>划分</td>
-          <td></td>
+          <td>$ S \cup T = U \land S \cap T = \oslash $</td>
       </tr>
   </tbody>
 </table></div>
-
+<h3 id="">
+</h3>
 </section>
 
 

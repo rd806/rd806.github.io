@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.153.1"><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="技术备忘录">
-<title>Page 8 - RunicDolphin806</title>
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="实验一 实验名称与内容 内容 名称 多线程计算正弦值 要求 本实验的输入包含正弦值，展开式的项数和线程数。要求使用 Pthread 并行化实现。 计算原理 $$\\sin x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!} = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots $$ 实验环境的配置参数 配置 参数 CPU 2*Intel(R) Xeon(R) Gold 5218 内存 256G 硬盘 3*600G，实际可用容量 1.2T 操作系统 CentOS 7 编译环境 GCC 4.8.5 &amp; OpenMPI 1.10.7 实验二 实验三 实验四 ">
+<title>并行计算实验</title>
 
-<link rel='canonical' href='https://rd806.github.io/'>
+<link rel='canonical' href='https://rd806.github.io/passage/cs/parallel_computing/lab/'>
 
-<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="RunicDolphin806">
-<meta property='og:description' content="技术备忘录">
-<meta property='og:url' content='https://rd806.github.io/'>
+<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="并行计算实验">
+<meta property='og:description' content="实验一 实验名称与内容 内容 名称 多线程计算正弦值 要求 本实验的输入包含正弦值，展开式的项数和线程数。要求使用 Pthread 并行化实现。 计算原理 $$\\sin x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!} = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots $$ 实验环境的配置参数 配置 参数 CPU 2*Intel(R) Xeon(R) Gold 5218 内存 256G 硬盘 3*600G，实际可用容量 1.2T 操作系统 CentOS 7 编译环境 GCC 4.8.5 &amp; OpenMPI 1.10.7 实验二 实验三 实验四 ">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/parallel_computing/lab/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-03-15T00:00:00&#43;00:00 '/>
-<meta name="twitter:title" content="RunicDolphin806">
-<meta name="twitter:description" content="技术备忘录"><link rel="alternate" type="application/rss&#43;xml" href="https://rd806.github.io/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-16T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-16T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="并行计算实验">
+<meta name="twitter:description" content="实验一 实验名称与内容 内容 名称 多线程计算正弦值 要求 本实验的输入包含正弦值，展开式的项数和线程数。要求使用 Pthread 并行化实现。 计算原理 $$\\sin x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!} = x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\cdots $$ 实验环境的配置参数 配置 参数 CPU 2*Intel(R) Xeon(R) Gold 5218 内存 256G 硬盘 3*600G，实际可用容量 1.2T 操作系统 CentOS 7 编译环境 GCC 4.8.5 &amp; OpenMPI 1.10.7 实验二 实验三 实验四 ">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -38,7 +37,9 @@
     }
 </style>
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -134,7 +135,7 @@
         
         
         
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -297,64 +298,12 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <section class="widget archives">
+                
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2026">
-                        
-                            <span class="year">2026</span>
-                            <span class="count">6</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2025">
-                        
-                            <span class="year">2025</span>
-                            <span class="count">30</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2024">
-                        
-                            <span class="year">2024</span>
-                            <span class="count">5</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2019">
-                        
-                            <span class="year">2019</span>
-                            <span class="count">3</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -364,46 +313,153 @@
 
 
 
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
 
-    <div class="tagCloud-tags">
-        
-            <a href="/categories/guide/" class="font_size_22">
-                教程
-            </a>
-        
-            <a href="/categories/interesting/" class="font_size_22">
-                小乐趣
-            </a>
-        
-            <a href="/categories/csapp/" class="font_size_8">
-                CSAPP
-            </a>
-        
-            <a href="/categories/final_test/" class="font_size_7">
-                期末救急
-            </a>
-        
-            <a href="/categories/nemu/" class="font_size_5">
-                NEMU
-            </a>
-        
-            <a href="/categories/minecraft/" class="font_size_3">
-                Minecraft
-            </a>
-        
-            <a href="/categories/website/" class="font_size_3">
-                网站
-            </a>
-        
-            <a href="/categories/linux/" class="font_size_2">
-                Linux
-            </a>
-        
-    </div>
-</section>
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#实验一">实验一</a>
+      <ol>
+        <li><a href="#实验名称与内容">实验名称与内容</a></li>
+        <li><a href="#实验环境的配置参数">实验环境的配置参数</a></li>
+      </ol>
+    </li>
+    <li><a href="#实验二">实验二</a></li>
+    <li><a href="#实验三">实验三</a></li>
+    <li><a href="#实验四">实验四</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
 
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 0px solid #96979a50;
+        border-radius: 7px;
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
             
         
             
@@ -459,28 +515,7 @@
 
             <main class="main full-width">
     
-    
-    
-    
-
-    
-    
-
-<div class="welcome">
-    <p style="font-size: 2rem; text-align: center; font-weight: bold">
-        <span class="shake">👋</span>
-        <span class="jump-text1" > Welcome</span>
-        <span class="jump-text2"> To </span>
-        <span class="jump-text3" style="color:#e99312">Runic</span><span class="jump-text4" style="color:#e99312">Dolphin</span><span class="jump-text6" style="color:#e99312">8</span><span class="jump-text7" style="color:#e99312">0</span><span class="jump-text8" style="color:#e99312">6's</span>
-        <span class="jump-text9" style="color:#e99312">Blog</span>
-    </p>
-</div>
-
-    
-    <section class="article-list">
         
-        
-
 
 <!DOCTYPE html>
 <html lang="zh_cn">
@@ -489,84 +524,56 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>文字生成器</title>
+        <title>密码</title>
         <style>
              
-            .quote-box {
+            .password-box {
                 background-color: var(--card-background);
                 width: 100%;
                 margin: var(--card-margin) 0;
                 padding: var(--card-padding);
                 border-radius: 10px;
-                box-shadow: var(--shadow-l1);
-                box-shadow: inset 0 20px 20px var(--body-background);
                  
                 max-height: 35vh;
                 overflow-x: hidden;
                 overflow-y: auto;
             }
-
-             
-            .quote-text {
+            .password-guide {
                 color: var(--card-text-color-main);
-                font-size: 16px;
-                font-style: normal;
-                margin-top: 20px;
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
             }
-            .quote-author {
+            .cloze {
                 color: var(--card-text-color-main);
-                font-size: 16px;
-                text-align: right;
             }
-
-             
-            .row {
-                display: flex;           
-            }
-
-            #new-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: auto;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #next-quote, #pre-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-left: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
+            
              
             .widget-icon {
                 color: var(--body-text-color);
+            }
+
+             
+            .main-article {
+                display: none;
+            }
+            .widget--toc {
+               display: none;
+               max-height: 40vh;
+               overflow-y: auto;
             }
         </style>
     </head>
 
     
-    <section class="widget quote">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
-        </div>
-        <h2 class="widget-title section-title">随机文字</h2>
-        <div class="quote-box">
-            <div class="quote-text">Text</div>
-            <div class="quote-author">——Author</div>
-            <div class="row">
-                <button id="new-quote">Random</button>
-                <button id="pre-quote">Pre</button>
-                <button id="next-quote">Next</button>
+    <section class="widget password"> 
+        <div class="password-box">
+            <div class="widget-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /></svg>
+            </div>
+            <div class="password-guide"><p>请输入密码以查看内容：</p></div>
+            <input id="password-input" type="password"  />
+            <button id="check">提交</button>
+            <div class="cloze" style="display: block;">
+                <p>密码为以下题目答案（保留6位小数）：</p>
+                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2)^2 = 2xy$ 围成的区域在第一卦限的部分. </p>
             </div>
         </div>
     </section>
@@ -586,295 +593,304 @@
     </script>
 
     <script>
-        
-        let quotes = [];
-        let index = 0;
-
-        
-        async function loadQuotes() {
-            const res = await fetch('/resources/json/quotes.json');    
-            quotes = await res.json();
-            showQuotes();                               
+        function checkPassword() {
+            const input = document.getElementById("password-input").value;
+            const correctPassword = "0.013888";
+            if (input == correctPassword) {
+                document.querySelector(".main-article").style.display = "block";
+                document.querySelector(".widget--toc").style.display = "block";
+                document.querySelector(".password-box").style.display = "none";
+            }
+            else {
+                alert("密码错误！");
+            }
+            window.Stack.init();
         }
 
+        document.querySelector("#check").addEventListener("click", checkPassword);
         
-        
-        function showQuotes() {
-            
-            index = Math.floor(Math.random() * quotes.length);
-            const quote = quotes[index];
-             
-            
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        function showNextQuote() {
-            index ++;
-            if(index >= quotes.length) {
-                index = 0;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });  
-        };
-
-        function showPreQuote() {
-            index --;
-            if(index < 0 ) {
-                index = quotes.length-1;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
-
-        loadQuotes();
-        showQuotes();
-
     </script>
 </html>
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
         
             
+            
+            
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/cs/parallel_computing/lab/">并行计算实验</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-03-16T00:00:00Z'>Mar 16, 2026</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="实验一">实验一
+</h2><h3 id="实验名称与内容">实验名称与内容
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>内容</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>名称</td>
+          <td>多线程计算正弦值</td>
+      </tr>
+      <tr>
+          <td>要求</td>
+          <td>本实验的输入包含正弦值，展开式的项数和线程数。要求使用 Pthread 并行化实现。</td>
+      </tr>
+      <tr>
+          <td>计算原理</td>
+          <td>$$\sin x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots $$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="实验环境的配置参数">实验环境的配置参数
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>配置</th>
+          <th>参数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CPU</td>
+          <td>2*Intel(R) Xeon(R) Gold 5218</td>
+      </tr>
+      <tr>
+          <td>内存</td>
+          <td>256G</td>
+      </tr>
+      <tr>
+          <td>硬盘</td>
+          <td>3*600G，实际可用容量 1.2T</td>
+      </tr>
+      <tr>
+          <td>操作系统</td>
+          <td>CentOS 7</td>
+      </tr>
+      <tr>
+          <td>编译环境</td>
+          <td>GCC 4.8.5 &amp; OpenMPI 1.10.7</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="实验二">实验二
+</h2><h2 id="实验三">实验三
+</h2><h2 id="实验四">实验四
+</h2>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
 <article class="">
-    <header class="article-header">
-
-    <div class="article-details">
-    
-    <header class="article-category">
+    <a href="/passage/software/formal_methods/">
         
-            
-            
-            
-            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
-                教程
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/passage/math/typesetting/">数学公式输入</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            使用KaTeX的简要教程
-        </h3>
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published" datetime='2019-03-08T00:00:00Z'>Mar 08, 2019</time>
-            </div>
         
 
-        
-    </footer>
-    
-
-    
-        <footer class="article-translations">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-            <div>
-                
-                    <a href="https://rd806.github.io/en/passage/math/typesetting/" class="link">English</a>
-                
-            </div>
-        </footer>
-    
-</div>
-
-</header>
-</article>
-        
-            
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/passage/website/emoji/">
-                <img src="/passage/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash_hu_4478d0ca4dd8c594.jpg"
-                        srcset="/passage/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash_hu_4478d0ca4dd8c594.jpg 800w, /passage/website/emoji/the-creative-exchange-d2zvqp3fpro-unsplash_hu_8df8f39ac35f88d8.jpg 1600w"
-                        width="800" 
-                        height="566" 
-                        loading="lazy"
-                        alt="Featured image of post Emoji Support" />
-                
-            </a>
+        <div class="article-details">
+            <h2 class="article-title">形式化方法</h2>
         </div>
-    
-
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            
-            
-            
-            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
-                教程
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/passage/website/emoji/">Emoji Support</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            Guide to emoji usage in Hugo
-        </h3>
-        
-    </div>
-
-    
-    
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published" datetime='2019-03-05T00:00:00Z'>Mar 05, 2019</time>
-            </div>
-        
-
-        
-    </footer>
-    
-
-    
-        <footer class="article-translations">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 5h7" />
-  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
-  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
-  <path d="M12 20l4 -9l4 9" />
-  <path d="M19.1 18h-6.2" />
-</svg>
-
-
-
-            <div>
-                
-                    <a href="https://rd806.github.io/en/passage/website/emoji/" class="link">English</a>
-                
-            </div>
-        </footer>
-    
-</div>
-
-</header>
-</article>
-        
-    </section><nav class="pagination" role="navigation" aria-label="pagination"><a class="page-link "href="/page/7/"aria-label="Previous page">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
-    </a><a class="page-link " aria-label="Page 1"href="/">
-        1
-    </a><span class="page-link pagination-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
-    </span><a class="page-link "href="/page/4/"
-                aria-label="Page 4">
-                4
-            </a><a class="page-link "href="/page/5/"
-                aria-label="Page 5">
-                5
-            </a><a class="page-link "href="/page/6/"
-                aria-label="Page 6">
-                6
-            </a><a class="page-link "href="/page/7/"
-                aria-label="Page 7">
-                7
-            </a><a class="page-link current"aria-label="Page 8"aria-current="page">
-        8
-    </a><a class="page-link disabled"aria-label="Next page"aria-disabled="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
     </a>
-</nav><footer class="site-footer">
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/database/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/cs/database/mysql.28e0aa1bd5afe6f46c20cb348dd6ab9f_hu_52bab57961b25c01.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 数据库系统"
+                        data-key="cs/database" 
+                        data-hash="md5-KOCqG9Wv5vRsIMs0jdarnw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/parallel_computing/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">并行计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 算法设计与分析"
+                        data-key="cs/algorithm" 
+                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/network/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -891,6 +907,85 @@
 
     </section>
 </footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>

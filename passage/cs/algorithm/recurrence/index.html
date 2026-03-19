@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="并非熟练">
-<title>熟练掌握数据结构</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="递归法">
+<title>算法</title>
 
-<link rel='canonical' href='https://rd806.github.io/passage/cs/data-structure/'>
+<link rel='canonical' href='https://rd806.github.io/passage/cs/algorithm/recurrence/'>
 
-<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="熟练掌握数据结构">
-<meta property='og:description' content="并非熟练">
-<meta property='og:url' content='https://rd806.github.io/passage/cs/data-structure/'>
+<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="算法">
+<meta property='og:description' content="递归法">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/algorithm/recurrence/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-06T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-06T00:00:00&#43;00:00'/><meta property='og:image' content='https://rd806.github.io/passage/cs/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg' />
-<meta name="twitter:title" content="熟练掌握数据结构">
-<meta name="twitter:description" content="并非熟练"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://rd806.github.io/passage/cs/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-19T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="算法">
+<meta name="twitter:description" content="递归法">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -320,12 +319,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#索引">索引</a></li>
-    <li><a href="#c语言补充知识">C语言补充知识</a>
+    <li><a href="#定义">定义</a></li>
+    <li><a href="#问题举例">问题举例</a>
       <ol>
-        <li><a href="#typedef">typedef</a></li>
-        <li><a href="#输入输出函数">输入输出函数</a></li>
-        <li><a href="#动态内存分配">动态内存分配</a></li>
+        <li><a href="#阶乘">阶乘</a></li>
+        <li><a href="#查找链表的元素">查找链表的元素</a></li>
+        <li><a href="#汉诺塔问题">汉诺塔问题</a></li>
       </ol>
     </li>
   </ol>
@@ -516,31 +515,12 @@
             <main class="main full-width">
      
     
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/passage/cs/data-structure/">
-                <img src="/passage/cs/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash_hu_99b4cfd2bf3a4eaa.jpg"
-                        srcset="/passage/cs/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash_hu_99b4cfd2bf3a4eaa.jpg 800w, /passage/cs/data-structure/guerrillabuzz-7hA2wqBcSF8-unsplash_hu_cd751acb6ba5e355.jpg 1600w"
-                        width="800" 
-                        height="450" 
-                        loading="lazy"
-                        alt="Featured image of post 熟练掌握数据结构" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
     <header class="article-category">
-        
-            
-            
-            
-            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
-                小乐趣
-            </a>
         
             
             
@@ -554,12 +534,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/cs/data-structure/">熟练掌握数据结构</a>
+            <a href="/passage/cs/algorithm/recurrence/">算法</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            并非熟练
+            递归法
         </h3>
         
     </div>
@@ -580,7 +560,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published" datetime='2025-07-06T00:00:00Z'>Jul 06, 2025</time>
+                <time class="article-time--published" datetime='2026-03-19T00:00:00Z'>Mar 19, 2026</time>
             </div>
         
 
@@ -596,387 +576,73 @@
     <section class="article-content">
     
     
-    <center><strong><p style="font-size:32px;">程序 = 数据结构 + <a href="/passage/cs/algorithm/">算法</a></p></strong></center>
-<blockquote>
-<p>本文主要用来应付我的数据结构课程期末考试，所以写得比较粗糙，很多细节都忽略掉了，还请各位 dalao 谅解 🥰。</p>
-<p>以后如果有时间我可能会新建页面具体分析相关内容，所以可以把本文看作一篇索引（一个页表？）。</p>
-</blockquote>
-<h2 id="索引">索引
-</h2>
-
-<blockquote class="alert alert-note">
-    <p>当前已更新索引，原内容拆分为五个部分</p></blockquote>
-<p><div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/linearlist target="_blank">数据结构：线性表</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-<div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/tree target="_blank">数据结构：树与二叉树</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-<div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/graph target="_blank">数据结构：图</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-<div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/search target="_blank">查找</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-<div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/sort target="_blank">排序</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-</p>
-<h2 id="c语言补充知识">C语言补充知识
-</h2><h3 id="typedef">typedef
-</h3><p><code>typedef</code>可以给变量起一个别名，例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">typedef</span> <span class="kt">int</span> <span class="n">ElemType</span>
-</span></span></code></pre></div><p>此后可以用<code>ElemType</code>代替<code>int</code>。</p>
-<h3 id="输入输出函数">输入输出函数
-</h3><p>一般而言，C语言的输入输出函数比<code>cin</code>，<code>cout</code>更高效。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">float</span> <span class="n">fnum</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">double</span> <span class="n">dnum</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="c1">// 输入
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>      <span class="c1">// 整数
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fnum</span><span class="p">);</span>     <span class="c1">// float类型浮点数
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%lf&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dnum</span><span class="p">);</span>    <span class="c1">// double类型浮点数
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>       <span class="c1">// 字符串
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl">
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">//输出
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="n">fnum</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>C语言的格式符：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>格式符</th>
-          <th>含义</th>
-          <th>示例代码</th>
-          <th>输出示例</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>%d</code></td>
-          <td>十进制整数</td>
-          <td><code>printf(&quot;%d&quot;, 123);</code></td>
-          <td><code>123</code></td>
-      </tr>
-      <tr>
-          <td><code>%f</code></td>
-          <td>浮点数</td>
-          <td><code>printf(&quot;%f&quot;, 3.14);</code></td>
-          <td><code>3.140000</code></td>
-      </tr>
-      <tr>
-          <td><code>%c</code></td>
-          <td>字符</td>
-          <td><code>printf(&quot;%c&quot;, 'A');</code></td>
-          <td><code>A</code></td>
-      </tr>
-      <tr>
-          <td><code>%s</code></td>
-          <td>字符串</td>
-          <td><code>printf(&quot;%s&quot;, &quot;hello&quot;);</code></td>
-          <td><code>hello</code></td>
-      </tr>
-      <tr>
-          <td><code>%x</code></td>
-          <td>十六进制整数（小写）</td>
-          <td><code>printf(&quot;%x&quot;, 255);</code></td>
-          <td><code>ff</code></td>
-      </tr>
-      <tr>
-          <td><code>%X</code></td>
-          <td>十六进制整数（大写）</td>
-          <td><code>printf(&quot;%X&quot;, 255);</code></td>
-          <td><code>FF</code></td>
-      </tr>
-      <tr>
-          <td><code>%o</code></td>
-          <td>八进制整数</td>
-          <td><code>printf(&quot;%o&quot;, 8);</code></td>
-          <td><code>10</code></td>
-      </tr>
-      <tr>
-          <td><code>%p</code></td>
-          <td>指针地址</td>
-          <td><code>printf(&quot;%p&quot;, ptr);</code></td>
-          <td><code>0x7ffeefbff5a0</code></td>
-      </tr>
-      <tr>
-          <td><code>%e</code></td>
-          <td>科学计数法（小写e）</td>
-          <td><code>printf(&quot;%e&quot;, 1234.5);</code></td>
-          <td><code>1.234500e+03</code></td>
-      </tr>
-      <tr>
-          <td><code>%E</code></td>
-          <td>科学计数法（大写E）</td>
-          <td><code>printf(&quot;%E&quot;, 1234.5);</code></td>
-          <td><code>1.234500E+03</code></td>
-      </tr>
-      <tr>
-          <td><code>%g</code></td>
-          <td>自动选 <code>%f</code> 或 <code>%e</code>（更短）</td>
-          <td><code>printf(&quot;%g&quot;, 0.00001);</code></td>
-          <td><code>1e-05</code></td>
-      </tr>
-      <tr>
-          <td><code>%u</code></td>
-          <td>无符号十进制整数</td>
-          <td><code>printf(&quot;%u&quot;, -1);</code></td>
-          <td><code>4294967295</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="动态内存分配">动态内存分配
-</h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>函数</th>
-          <th>作用</th>
-          <th>返回</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>malloc</code></td>
-          <td>申请<strong>未初始化</strong>的连续字节</td>
-          <td><code>void *</code>（成功）或 <code>NULL</code>（失败）</td>
-      </tr>
-      <tr>
-          <td><code>calloc</code></td>
-          <td>申请<strong>已清零</strong>的连续元素</td>
-          <td>同上</td>
-      </tr>
-      <tr>
-          <td><code>realloc</code></td>
-          <td><strong>扩容/缩容</strong>已申请的块</td>
-          <td>同上</td>
-      </tr>
-      <tr>
-          <td><code>free</code></td>
-          <td><strong>归还</strong>内存</td>
-          <td><code>void</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<blockquote>
-<p>申请要判空，用完必释放，扩容用临时，释放后置 NULL。</p>
-</blockquote>
-
+    <h2 id="定义">定义
+</h2><p>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的；若一个过程直接或间接地调用自己，则称这个过程是递归的过程。</p>
+<p>递归的三种情况：定义是递归的、数据结构是递归的、问题的解法是递归的。</p>
+<p>递归的特点：递归至少存在一个出口、函数内部自己调用自己。</p>
+<h2 id="问题举例">问题举例
+</h2><h3 id="阶乘">阶乘
+</h3><p>阶乘的定义：</p>
+$$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \end{array} \right.$$<p> 可知阶乘的定义是递归的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">long</span> <span class="kt">long</span> <span class="nf">Factorial</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">Factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="查找链表的元素">查找链表的元素
+</h3><p>定义链表：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>可知链表的数据结构是递归的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">Search</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">f</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">Search</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="汉诺塔问题">汉诺塔问题
+</h3><p>问题概述：假设有3个分别命名为 $x$，$y$，$z$ 的塔座，在塔座 $x$ 上插有 $n$ 个直径大小各不相同、依次编号为 $1,2,3,&hellip;,n$ 的圆盘。现要求将 $x$ 塔座的 $n$ 个圆盘移动到 $z$ 塔座上且按同样的顺序堆叠。圆盘移动时遵循以下规则：</p>
+<ol>
+<li>每次只能移动一个圆盘。</li>
+<li>圆盘可以放在 $x$，$y$，$z$ 的任意塔座上。</li>
+<li>任何时刻都不能将一个较大的圆盘放在较小的圆盘之上。</li>
+</ol>
+<p><img src="/passage/cs/algorithm/recurrence/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png"
+	width="994"
+	height="297"
+	srcset="/passage/cs/algorithm/recurrence/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, /passage/cs/algorithm/recurrence/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w"
+	loading="lazy"
+	
+		alt="汉诺塔"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="334"
+		data-flex-basis="803px"
+	
+></p>
+<p>因此，汉诺塔问题的解法是递归的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">hanoi</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>          <span class="c1">// 将编号为1的圆盘从x移到z
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>    <span class="c1">// 将x上编号为1到n-1的圆盘移到y，z作为辅助塔
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>          <span class="c1">// 将编号为n的圆盘从x移到z
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>    <span class="c1">// 将y上编号为1到n-1的圆盘移到z，x作为辅助塔
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -1043,54 +709,6 @@
         <div class="flex article-list--tile">
             
                 
-<article class="has-image">
-    <a href="/passage/cs/algorithm/">
-        
-        
-            <div class="article-image">
-                <img src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 算法设计与分析"
-                        data-key="cs/algorithm" 
-                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">算法设计与分析</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/passage/math/probability/">
-        
-        
-            <div class="article-image">
-                <img src="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash.9c3ed84851cd15d9e7e041ad209166c4_hu_5b70f49aac9fccef.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 概率论与数理统计"
-                        data-key="math/probability" 
-                        data-hash="md5-nD7YSFHNFdnn4EGtIJFmxA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">概率论与数理统计</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
 <article class="">
     <a href="/passage/software/formal_methods/">
         
@@ -1135,6 +753,43 @@
 
         <div class="article-details">
             <h2 class="article-title">并行计算</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 算法设计与分析"
+                        data-key="cs/algorithm" 
+                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/network/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
         </div>
     </a>
 </article>

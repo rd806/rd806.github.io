@@ -344,54 +344,7 @@
         </li>
       </ol>
     </li>
-    <li><a href="#递归">递归</a>
-      <ol>
-        <li><a href="#定义">定义</a></li>
-        <li><a href="#问题举例">问题举例</a>
-          <ol>
-            <li><a href="#阶乘">阶乘</a></li>
-            <li><a href="#查找链表的元素">查找链表的元素</a></li>
-            <li><a href="#汉诺塔问题">汉诺塔问题</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#快速幂">快速幂</a>
-      <ol>
-        <li><a href="#原理">原理</a></li>
-        <li><a href="#代码">代码</a></li>
-      </ol>
-    </li>
-    <li><a href="#分治法">分治法</a>
-      <ol>
-        <li><a href="#二分法">二分法</a>
-          <ol>
-            <li><a href="#二分查找">二分查找</a></li>
-            <li><a href="#二分答案">二分答案</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#前缀和与差分">前缀和与差分</a>
-      <ol>
-        <li><a href="#前缀和">前缀和</a></li>
-        <li><a href="#差分">差分</a></li>
-      </ol>
-    </li>
-    <li><a href="#kmp算法">KMP算法</a>
-      <ol>
-        <li><a href="#基本思路">基本思路</a></li>
-        <li><a href="#步骤">步骤</a></li>
-        <li><a href="#代码-1">代码</a></li>
-      </ol>
-    </li>
-    <li><a href="#搜索">搜索</a>
-      <ol>
-        <li><a href="#图的存储">图的存储</a></li>
-        <li><a href="#广度优先搜索">广度优先搜索</a></li>
-      </ol>
-    </li>
-    <li><a href="#动态规划">动态规划</a></li>
+    <li><a href="#算法实例">算法实例</a></li>
   </ol>
 </nav>
         </div>
@@ -860,10 +813,10 @@ $$T(n) = 2T(\sqrt{n}) + \log n$$<p>令 $m = \log n$，则 $n = 2^m$，$\displays
 <p>于是 $\displaystyle S(m) = 2S\left(\frac{m}{2}\right) + m = \varTheta(m \log m)$</p>
 <p>回代可得 $T(n) = \varTheta(\log n (\log (\log n)))$</p>
 <h4 id="master定理">Master定理
-</h4><p>求解形如 $\displaystyle T(n) = a \cdot T(\frac{n}{b}) + f(n)$ 的递归方程（其中 $a \geqslant 1$，$b \geqslant 1$ 是常数。$f(n)$ 是正函数）。</p>
+</h4><p>求解形如 $\displaystyle T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n)$ 的递归方程（其中 $a \geqslant 1$，$b \geqslant 1$ 是常数，$f(n)$ 是正函数）。</p>
 <ol>
 <li>若 $f(n) = O(n^{(\log_{b} a)-\varepsilon})$，常数 $\varepsilon &gt; 0$，则有 $T(n) = \varTheta(n^{\log_{b}a})$</li>
-<li>若 $f(n) = \varTheta(n^{\log_{b} a})$，常数 $\varepsilon &gt; 0$，则有 $T(n) = \varTheta(n^{\log_b a} \log n)$</li>
+<li>若 $f(n) = \varTheta(n^{\log_{b} a})$，则有 $T(n) = \varTheta(n^{\log_b a} \log n)$</li>
 <li>若 $f(n) = \varOmega(n^{(\log_{b} a) + \varepsilon})$，常数 $\varepsilon &gt; 0$，且对所有 $n$，都有 $af(\frac{n}{b}) \leqslant c \cdot f(n)$ （$c&lt;1$ 且为常数），则有 $T(n) = \varTheta(f(n))$</li>
 </ol>
 <blockquote>
@@ -884,19 +837,18 @@ $$ T(n) = \varTheta(n^{\log_b a}) + \sum_{i=0}^{k-1} a^i \cdot f(\frac{n}{b^i}) 
 <p>若 $f(n) = O(n^{(\log_b a) - \varepsilon})$，则有
 </p>
 $$\begin{align*} g(n) &= O \left(\sum_{i=0}^{k-1} a^i \left(\frac{n}{b^i}\right)^{(\log_b a)-\varepsilon} \right) = O \left( n^{(\log_b a)-\varepsilon} \sum_{i=0}^{k-1} \left(\frac{ab^{\varepsilon}}{b^{\log_b a}}\right)^i \right) \\ &= O \left( n^{(\log_b a)-\varepsilon} \frac{n^{\varepsilon} - 1}{b^{\varepsilon} - 1} \right) = O(n^{\log_b a}) \end{align*}$$<p>
-故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta{n^{\log_b a}}$</p>
+故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta(n^{\log_b a})$</p>
 </li>
 <li>
 <p>若 $f(n) = \varTheta(n^{\log_b a})$，则有
 </p>
-$$\begin{align*} g(n) &= \varTheta \left( \sum_{i=0}^{k-1} a^i \frac{n}{b^i}^{\log_b a} \right) = \varTheta \left( n^{\log_b a} \sum_{i=0}^{k-1} 1 \right) \\ &= \varTheta(n^{\log_b a} k) = \varTheta(n^{\log_b a} \log_b n) = \varTheta(n^{\log_b a} \log n) \end{align*}$$<p>
-故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta{n^{\log_b a} \log n}$</p>
+$$\begin{align*} g(n) &= \varTheta \left( \sum_{i=0}^{k-1} a^i \frac{n}{b^i}^{\log_b a} \right) = \varTheta \left( n^{\log_b a} \sum_{i=0}^{k-1} 1 \right) \\ &= \varTheta(n^{\log_b a} k) = \varTheta(n^{\log_b a} \log_b n) = \varTheta(n^{\log_b a} \log n) \end{align*}$$<p> 故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta(n^{\log_b a} \log n)$</p>
 </li>
 <li>
 <p>若 $f(n) = \varOmega(n^{(\log_b a) + \varepsilon})$，且对所有充分大的 $n$ 有
 </p>
-$$\begin{align*} a f(\frac{n}{b}) &\leqslant c f(n) \\ a f(\frac{n}{b^2}) &\leqslant c f(\frac{n}{b}) \\ &\cdots \\ a f(\frac{n}{b^i}) &\leqslant c f(\frac{n}{b^{i-1}}) \end{align*}$$<p> 两边分别相乘得 $\displaystyle a^i f(\frac{n}{b^i}) \leqslant c^i f(n)$，
-则有 </p>
+$$\begin{align*} a f(\frac{n}{b}) &\leqslant c f(n) \\ a f(\frac{n}{b^2}) &\leqslant c f(\frac{n}{b}) \\ &\cdots \\ a f(\frac{n}{b^i}) &\leqslant c f(\frac{n}{b^{i-1}}) \end{align*}$$<p>
+两边分别相乘得 $\displaystyle a^i f(\frac{n}{b^i}) \leqslant c^i f(n)$，则有 </p>
 $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(n) = f(n) \sum_{i=0}^{k-1} c^i \leqslant f(n) \cdot \frac{1}{1-c} = \varTheta(f(n))$$<p> 故 $T(n) = \varTheta(n^{\log_b a}) + g(n) = \varTheta(f(n))$</p>
 </li>
 </ol>
@@ -904,477 +856,143 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 <blockquote>
 <p>推广形式：若 $f(n) = \varTheta(n^{\log_b a} \log^{k} n)$，其中 $k \geqslant 0$，则有 $T(n) = \varTheta(n^{\log_b a} \log^{k+1} n)$</p>
 </blockquote>
-<h2 id="递归">递归
-</h2><h3 id="定义">定义
-</h3><p>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的；若一个过程直接或间接地调用自己，则称这个过程是递归的过程。</p>
-<p>递归的三种情况：定义是递归的、数据结构是递归的、问题的解法是递归的。</p>
-<p>递归的特点：递归至少存在一个出口、函数内部自己调用自己。</p>
-<h3 id="问题举例">问题举例
-</h3><h4 id="阶乘">阶乘
-</h4><p>阶乘的定义：</p>
-$$ n! = \left\{ \begin{array}{c} 1, & n = 0 \\ n \cdot (n-1)!, & n \geqslant 1 \end{array} \right.$$<p> 可知阶乘的定义是递归的。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">long</span> <span class="kt">long</span> <span class="nf">Factorial</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl">        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">Factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="查找链表的元素">查找链表的元素
-</h4><p>定义链表：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="n">ElemType</span> <span class="n">data</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><p>可知链表的数据结构是递归的。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">Search</span><span class="p">(</span><span class="n">Node</span> <span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">ElemType</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">f</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">            <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">Search</span><span class="p">(</span><span class="n">f</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">,</span> <span class="n">e</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">return</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="汉诺塔问题">汉诺塔问题
-</h4><p>问题概述：假设有3个分别命名为 $x$，$y$，$z$ 的塔座，在塔座 $x$ 上插有 $n$ 个直径大小各不相同、依次编号为 $1,2,3,&hellip;,n$ 的圆盘。现要求将 $x$ 塔座的 $n$ 个圆盘移动到 $z$ 塔座上且按同样的顺序堆叠。圆盘移动时遵循以下规则：</p>
-<ol>
-<li>每次只能移动一个圆盘。</li>
-<li>圆盘可以放在 $x$，$y$，$z$ 的任意塔座上。</li>
-<li>任何时刻都不能将一个较大的圆盘放在较小的圆盘之上。</li>
-</ol>
-<p><img src="/passage/cs/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94.png"
-	width="994"
-	height="297"
-	srcset="/passage/cs/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_a2ada0664d269998.png 480w, /passage/cs/algorithm/images/%E6%B1%89%E8%AF%BA%E5%A1%94_hu_89073f7a6c3df404.png 1024w"
-	loading="lazy"
-	
-		alt="汉诺塔"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="334"
-		data-flex-basis="803px"
-	
-></p>
-<p>因此，汉诺塔问题的解法是递归的。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">hanoi</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">char</span> <span class="n">x</span><span class="p">,</span> <span class="kt">char</span> <span class="n">y</span><span class="p">,</span> <span class="kt">char</span> <span class="n">z</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>          <span class="c1">// 将编号为1的圆盘从x移到z
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>    <span class="c1">// 将x上编号为1到n-1的圆盘移到y，z作为辅助塔
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>          <span class="c1">// 将编号为n的圆盘从x移到z
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>    <span class="c1">// 将y上编号为1到n-1的圆盘移到z，x作为辅助塔
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="快速幂">快速幂
-</h2><p>参考：<a class="link" href="https://www.luogu.com.cn/problem/solution/P1226"  target="_blank" rel="noopener"
-    >洛谷P1226题解
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
+<h2 id="算法实例">算法实例
+</h2><div class="catalogue">
+    <div class="logo">
+        <a class="name" href=/passage/cs/algorithm/recurrence target="_blank">算法：递归法</a>
+    </div>
+    <div class="description"></div>
+</div>
 
-</a></p>
-<p>让计算机求出 $a^b$，暴力相乘的话，电脑要计算 $b$ 次。用快速幂，计算次数在 $\mathrm{log}_{2} b$ 级别，很实用。</p>
-<h3 id="原理">原理
-</h3><ol>
-<li>如果将 $a$ 自乘一次，就会变成 $a^2$。再把 $a^2$ 自乘一次就会变成 $a^4$，然后是 $a^8$……自乘 $n$ 次的结果是 $a^{2^n}$。<br></li>
-<li>$a^x \cdot a^y = a^{x+y}$。<br></li>
-<li>将 $b$ 转化为二进制看一下：比如 $b=(11)_{10}=(1011)_2$，从左到右，这些 1 分别代表十进制的 8,2,1。可以说 $a^{11}=a^8 \cdot a^2 \cdot a^1$。</li>
-</ol>
-<blockquote>
-<p>为什么要这样表示？</p>
-<p>因为在快速幂的过程中，我们会把 $a$ 自乘为 $a^2$，然后 $a^2$ 自乘为 $a^4$，以此类推，像上面第一条说的。</p>
-</blockquote>
-<details>
-    <summary>示例：已知 $a$，并且 $b=11$。求 $a^b$。</summary>
-<ol>
-<li>以电脑视角稍稍观察一下 $b=11$，二进制下是 $b=1011$。</li>
-<li>制作一个<code>base</code>。现在 <code>base = a</code>，表示的是 $a^1=a$，<code>base</code> 会变。制作一个<code>ans = 1</code>，准备用来做答案。</li>
-<li>开始循环</li>
-</ol>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>操作</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>循环一</td>
-          <td>看 $b$（二进制）的最后一位是1吗？是的。这代表 $a^{11}=a^8 \cdot a^2 \cdot a^1$ 中的 $\cdot a^1$ 存在。所以<code>ans ∗= base</code>。 因为1（二进制）的前面几位全部都是0，所以只有 $b$ 二进制最后一位是1时，<code>b &amp; 1</code>才会返回 1。挺巧妙的，并且很快。 然后<code>base</code>努力上升，它通过自乘一次，使自己变成 $a^2$ 。同时 $b$ 把（二进制的）自己每一位都往右移动了。原来的最后第二位，变成了最后第一位！$b=(101)_2$。</td>
-      </tr>
-      <tr>
-          <td>循环二</td>
-          <td>再看看b，最后一位还是1。这说明有 $ \cdot a^2$，<code>ans ∗= base</code>。<code>base</code>继续努力，通过 <code>base ∗= base</code>让自己变成了 $a^4$。然后 $b$ 也右移一位。$b=10$</td>
-      </tr>
-      <tr>
-          <td>循环三</td>
-          <td>可是 $b$ 的最后一位不再是1了，说明不存在 $\cdot a^4$。<code>base</code>自我升华，达到了 $a^8$。且 <code>b&gt;&gt;=1</code>。这一步中，答案没有增加，可是毕竟 $b&gt;0$，还有希望。</td>
-      </tr>
-      <tr>
-          <td>循环四</td>
-          <td>$b$ 的最后一位是1，这说明 $\cdot a^8$ 存在。<code>ans ∗= base</code>。由于b再右移一位就是0了，循环结束。</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>总的来说，如果 $b$ 在二进制上的某一位是 $1$，我们就把答案乘上对应的 $a^{2^n}$。</p>
-<hr>
-</details>
-<h3 id="代码">代码
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">//求a的b次方
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="nf">quickPower</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>  <span class="c1">// ans为答案，base为a^(2^n)
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">b</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>         
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="c1">// b&amp;1表示b在二进制下最后一位是不是1，
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="c1">// 如果是把ans乘上对应的a^(2^n)
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">ans</span> <span class="o">*=</span> <span class="n">base</span><span class="p">;</span>    
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="c1">// base自乘，由a^(2^n)变成a^(2^(n+1))
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">base</span> <span class="o">*=</span> <span class="n">base</span><span class="p">;</span>  
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="c1">// 位运算，b右移一位，10010变成1001。
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="c1">// 现在b在二进制下最后一位是刚刚的倒数第二位。  
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">b</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="p">;</span>            
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="分治法">分治法
-</h2><p>分治法可以将较大规模的问题分解成<strong>若干个与原问题相似</strong>的问题，求解后合并到原问题，从而优化复杂度。</p>
-<ol>
-<li>确定问题模型</li>
-<li>确定拆分（合并）性质</li>
-<li>确定分治终点的解法</li>
-</ol>
-<h3 id="二分法">二分法
-</h3><p>二分法就是分治法的一种常见实现。</p>
-<h4 id="二分查找">二分查找
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 非递归写法
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="nf">BinarySearch</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">while</span><span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>            
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="p">}</span>  
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1">// 递归写法
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="kt">int</span> <span class="nf">BinarySearchRec</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="k">return</span> <span class="n">mid</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl">        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">            <span class="k">return</span> <span class="n">BinarySearchRec</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">30</span><span class="cl">            <span class="k">return</span> <span class="n">BinarySearchRec</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">target</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">31</span><span class="cl">        <span class="p">}</span> 
-</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="二分答案">二分答案
-</h4><p>参考：<a class="link" href="https://www.cnblogs.com/xiins/p/18698101"  target="_blank" rel="noopener"
-    >博客园-量子流浪猫
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
+<style>
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
 
-</a></p>
-<p>二分答案是一种高效（偷懒）的算法技巧，通常用于解决最优化问题，尤其是当问题具有单调性时。它的核心思想是通过二分查找来快速缩小答案的范围，从而找到最优解。</p>
-<blockquote>
-<p>实际上就是不断尝试，只不过使用二分法，时间复杂度低一点。</p>
-</blockquote>
-<ol>
-<li>
-<p>适用场景：<br>
-① 最大值最小化或最小值最大化问题。<br>
-② <strong>问题具有单调性，即当答案增大或减小时，问题的可行性会呈现单调变化。</strong> <br>
-③ 直接求解问题较为复杂，但可以通过给定答案快速验证其可行性。<br></p>
-</li>
-<li>
-<p>步骤</p>
-</li>
-</ol>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>步骤</th>
-          <th>操作</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>确定搜索范围</td>
-          <td>根据问题的性质，确定答案的可能范围<code>[left, right]</code>。</td>
-      </tr>
-      <tr>
-          <td>计算中间值</td>
-          <td><code>mid = left + (right - left) / 2</code>。</td>
-      </tr>
-      <tr>
-          <td>验证可行性</td>
-          <td>检查<code>mid</code>是否满足条件。<br> 如果满足条件，缩小右边界<code>right = mid</code>，尝试寻找更优的解。<br> 如果不满足条件，调整左边界<code>left = mid + 1</code>。<br> 若<code>left</code>和<code>right</code>的差大于允许的误差值，返回到第二步。</td>
-      </tr>
-      <tr>
-          <td>终止条件</td>
-          <td>当<code>left</code>和<code>right</code>相遇（或两者之差小于允许的误差值）时，输出最优解。</td>
-      </tr>
-  </tbody>
-</table></div>
-<ol start="3">
-<li>代码</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">binarySearchAnswer</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// 检查 mid 是否满足条件
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>  <span class="c1">// 满足条件，尝试更小的值
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 不满足条件，尝试更大的值
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">return</span> <span class="n">left</span><span class="p">;</span> <span class="c1">// 返回最优解
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl"> 
-</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="kt">bool</span> <span class="nf">check</span><span class="p">(</span><span class="kt">int</span> <span class="n">mid</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 根据问题实现具体的检查逻辑
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="c1">// 返回 true 或 false
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="前缀和与差分">前缀和与差分
-</h2><p>前缀和与差分是算法中常用的技巧，主要用于快速处理与区间操作相关的问题。</p>
-<p>参考：<a class="link" href="https://www.cnblogs.com/xbhog/p/14348830.html"  target="_blank" rel="noopener"
-    >博客园-Xbhog
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
 
-</a></p>
-<h3 id="前缀和">前缀和
-</h3><ol>
-<li>概念：数组该位置之前的元素之和。</li>
-</ol>
-<blockquote>
-<p>前缀和类似于求一个数列 $a_n$ 的前 $n$ 项和 $S_n$。</p>
-</blockquote>
-<ol start="2">
-<li>运算：进行前缀和运算时，下标从1开始。</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 设数组a[0] = 0
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">// 预处理：时间复杂度O(n)
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">prefix</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">prefix</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="n">prefix</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">prefix</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="p">...</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></span></code></pre></div><blockquote>
-<p>为什么下标要从1开始：方便后面的计算，避免下标转换，<code>a[0]</code> 设为零，不影响结果。</p>
-</blockquote>
-<ol start="3">
-<li>作用：快速求出元素组中某段区间的和</li>
-</ol>
-<details>
-    <summary>案例：求数组中 $[l,r]$ 区间的和</summary>
-<p>如果使用普通循环，需要执行 $l-r$ 次。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>使用前缀和的时间复杂度则降为 $O(n)$。定义两个数组，一个为原始数组<code>a[]</code>，一个为前缀和数组<code>prefix[]</code>。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// 初始化原数组
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">prefix</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 前缀和计算：prefix[i] = prefix[i-1]+a[i]
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    
-</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="c1">// 输入区间范围[l,r]，prefix[r]-prefix[l-1]的结果就是所求区间的和
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">prefix</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    
-</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">}</span> 
-</span></span></code></pre></div></details>
-<h3 id="差分">差分
-</h3><ol>
-<li>概念：差分是前缀和的逆运算。</li>
-<li>作用：<br> （1）快速对一个数组的某个区间内所有元素进行相同的增量或减量操作。<br> （2）在需要对数组的多个区间进行批量操作时，差分方法可以显著降低复杂度。</li>
-</ol>
-<p><strong>重点：构造差分数组<code>diff[]</code>：</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">diff</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">diff</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">diff</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="n">diff</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></span></code></pre></div><p><code>diff[]</code>称为<code>a[]</code>的差分。相应地，<code>a[]</code>称为<code>diff[]</code>的前缀和。对差分数组做加减操作，再通过计算差分数组的前缀和，会影响原数组相应范围内的所有元素。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">diff</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="c1">// 构造差分数组
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">diff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">l</span> <span class="o">&gt;&gt;</span> <span class="n">r</span><span class="p">;</span>      <span class="c1">// 定义要更改的区间
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">diff</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span><span class="p">;</span>      <span class="c1">// 实现区间[l,n]的所有元素+c
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="n">diff</span><span class="p">[</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">c</span><span class="p">;</span>     <span class="c1">// 实现区间[r+1,n]的所有元素-c
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl">    
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="c1">// 将差分数组转换成原数组，也就是求差分数组的前缀和。
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">        <span class="c1">// 类比prefix[i]=prefix[i-1]+a[i]
-</span></span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">diff</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">    
-</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>因为<code>a[]</code>数组是<code>diff[]</code>数组的前缀和，<code>diff[]</code>是<code>a[]</code>的差分，所以在<code>diff[]</code>的某个区间上<code>+c</code>会影响的a区间上的结果</p>
-<h2 id="kmp算法">KMP算法
-</h2><p>参考：<a class="link" href="https://www.cnblogs.com/Higurashi-kagome/p/18013626"  target="_blank" rel="noopener"
-    >博客园 Higurashi-kagome
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
 
-</a></p>
-<p>KMP算法是一个经典的字符串匹配算法，解决了朴素字符串匹配算法中因回溯次数过多而造成的时间复杂度过高的问题。</p>
-<h3 id="基本思路">基本思路
-</h3><p><strong>在匹配字符串时，当发现某一个字符不匹配的时候，由于已经知道之前遍历过的字符，尽可能多地利用这些信息来避免指针回退的步骤。</strong></p>
-<p>这样主串的指针就会永远向前方移动，算法就可以改进为线性时间复杂度了。</p>
-<h3 id="步骤">步骤
-</h3><p>当匹配失败时，模式串指针<code>j</code>要移动的下一个位置<code>k</code>应满足以下性质：<strong>模式串最前面的<code>k-1</code>个字符和<code>j</code>之前的最后<code>k-1</code>个字符一样</strong>。</p>
-<p>我们把匹配失败时模式串指针<code>j</code>要移动的下一个位置<code>k</code>存储到<code>next[]</code>数组中。</p>
-<p>这样，当匹配失败时，程序直接读取<code>next[]</code>数组中的值并赋值给指针<code>j</code>，重复匹配操作。</p>
-<p>这样可以得出<code>next[]</code>数组的定义：</p>
-$$next[j] = \left\{\begin{matrix} 0 & j=1 \\\\ \mathrm{max}\{k | 1 < k < j 且 p_1 \cdots p_{k-1} == p_{j-k+1} \cdots p_{j-1}\} & 此集合非空 \\\\ 1 & 其他 \end{matrix}\right.$$<blockquote>
-<p>KMP算法的<code>next[]</code>数组有多种定义方式，这里采用的是严蔚敏《数据结构（C语言版）》的方法。</p>
-</blockquote>
-<p><img src="/passage/cs/algorithm/images/KMP%E7%AE%97%E6%B3%95.png"
-	width="1513"
-	height="952"
-	srcset="/passage/cs/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_b3cbbbe8af552fd0.png 480w, /passage/cs/algorithm/images/KMP%E7%AE%97%E6%B3%95_hu_486525f24ddcc8ff.png 1024w"
-	loading="lazy"
-	
-		alt="KMP算法"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="158"
-		data-flex-basis="381px"
-	
-></p>
-<h3 id="代码-1">代码
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// KMP算法主体
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="nf">KMP</span><span class="p">(</span><span class="n">string</span> <span class="n">S</span><span class="p">,</span> <span class="n">string</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="c1">// 匹配成功时，继续比较后续字符
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="c1">// 匹配失败时，模式串向右移动
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="c1">// 匹配成功
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="k">return</span> <span class="n">i</span><span class="o">-</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">
-</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1">// 求next数组
-</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="kt">void</span> <span class="nf">get_next</span><span class="p">(</span><span class="n">String</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">next</span><span class="p">[])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">next</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="n">i</span><span class="o">++</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">;</span> <span class="n">next</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">next</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">30</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="搜索">搜索
-</h2><h3 id="图的存储">图的存储
-</h3><p>邻接表：vector建表。将每个点X的邻接点存入数组<code>g[X]</code>中。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">[</span><span class="n">N</span><span class="p">]</span>
-</span></span></code></pre></div><h3 id="广度优先搜索">广度优先搜索
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">void</span> <span class="nf">Graph_Traverse</span> <span class="p">(</span><span class="n">AdjGraph</span> <span class="n">G</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="o">*</span><span class="n">visited</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span> <span class="p">[</span><span class="n">MaxVexNum</span><span class="p">];</span> 
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="c1">// 访问数组 visited 初始化
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="n">visited</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>	
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">G</span><span class="p">.</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="c1">// 从顶点 i 出发开始搜索
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">BFS</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">visited</span><span class="p">);</span>	
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">delete</span><span class="p">[]</span> <span class="n">visited</span><span class="p">;</span>	<span class="c1">// 释放 visited 
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="动态规划">动态规划
-</h2>
+    
+    :root[data-scheme="light"] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme="dark"] {
+        .name {
+            color: #cebef4;
+        }
+    }
+</style>
+
+<div class="catalogue">
+    <div class="logo">
+        <a class="name" href=/passage/cs/algorithm/divide_and_conquer target="_blank">算法：分治法</a>
+    </div>
+    <div class="description"></div>
+</div>
+
+<style>
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme="light"] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme="dark"] {
+        .name {
+            color: #cebef4;
+        }
+    }
+</style>
+
+<div class="catalogue">
+    <div class="logo">
+        <a class="name" href=/passage/cs/algorithm/other target="_blank">其他算法</a>
+    </div>
+    <div class="description"></div>
+</div>
+
+<style>
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme="light"] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme="dark"] {
+        .name {
+            color: #cebef4;
+        }
+    }
+</style>
+
+
 </section>
 
 
