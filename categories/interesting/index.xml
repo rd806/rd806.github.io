@@ -259,7 +259,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 &lt;h2 id=&#34;算法实例&#34;&gt;算法实例
 &lt;/h2&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/recurrence target=&#34;_blank&#34;&gt;算法：递归法&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/recurrence &gt;算法：递归法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -304,7 +304,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/divide_and_conquer target=&#34;_blank&#34;&gt;算法：分治法&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/divide_and_conquer &gt;算法：分治法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -349,7 +349,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/other target=&#34;_blank&#34;&gt;其他算法&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/other &gt;其他算法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7235,7 +7235,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
     &lt;p&gt;当前已更新索引，原内容拆分为五个部分&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/linearlist target=&#34;_blank&#34;&gt;数据结构：线性表&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/linearlist &gt;数据结构：线性表&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7280,7 +7280,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/tree target=&#34;_blank&#34;&gt;数据结构：树与二叉树&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/tree &gt;数据结构：树与二叉树&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7325,7 +7325,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/graph target=&#34;_blank&#34;&gt;数据结构：图&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/graph &gt;数据结构：图&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7370,7 +7370,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/search target=&#34;_blank&#34;&gt;查找&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/search &gt;查找&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -7415,7 +7415,7 @@ $$K_i \geqslant K_{2i} \ \&amp;\&amp;\  K_i \geqslant K_{2i+1}$$&lt;p&gt; 则称
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/sort target=&#34;_blank&#34;&gt;排序&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/sort &gt;排序&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;

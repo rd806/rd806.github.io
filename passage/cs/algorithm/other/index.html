@@ -325,6 +325,13 @@
         <li><a href="#代码">代码</a></li>
       </ol>
     </li>
+    <li><a href="#二分答案">二分答案</a>
+      <ol>
+        <li><a href="#适用场景">适用场景</a></li>
+        <li><a href="#步骤">步骤</a></li>
+        <li><a href="#代码-1">代码</a></li>
+      </ol>
+    </li>
     <li><a href="#前缀和与差分">前缀和与差分</a>
       <ol>
         <li><a href="#前缀和">前缀和</a></li>
@@ -334,8 +341,8 @@
     <li><a href="#kmp算法">KMP算法</a>
       <ol>
         <li><a href="#基本思路">基本思路</a></li>
-        <li><a href="#步骤">步骤</a></li>
-        <li><a href="#代码-1">代码</a></li>
+        <li><a href="#步骤-1">步骤</a></li>
+        <li><a href="#代码-2">代码</a></li>
       </ol>
     </li>
   </ol>
@@ -659,6 +666,74 @@
 </span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="二分答案">二分答案
+</h2><p>参考：<a class="link" href="https://www.cnblogs.com/xiins/p/18698101"  target="_blank" rel="noopener"
+    >博客园-量子流浪猫
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a></p>
+<p>二分答案是一种高效（偷懒）的算法技巧，通常用于解决最优化问题，尤其是当问题具有单调性时。它的核心思想是通过二分查找来快速缩小答案的范围，从而找到最优解。</p>
+<blockquote>
+<p>实际上就是不断尝试，只不过使用二分法，时间复杂度低一点。</p>
+</blockquote>
+<h3 id="适用场景">适用场景
+</h3><ol>
+<li>最大值最小化或最小值最大化问题。</li>
+<li><strong>问题具有单调性，即当答案增大或减小时，问题的可行性会呈现单调变化。</strong></li>
+<li>直接求解问题较为复杂，但可以通过给定答案快速验证其可行性。</li>
+</ol>
+<h3 id="步骤">步骤
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>确定搜索范围</td>
+          <td>根据问题的性质，确定答案的可能范围<code>[left, right]</code>。</td>
+      </tr>
+      <tr>
+          <td>计算中间值</td>
+          <td><code>mid = left + (right - left) / 2</code>。</td>
+      </tr>
+      <tr>
+          <td>验证可行性</td>
+          <td>检查<code>mid</code>是否满足条件。<br> 如果满足条件，缩小右边界<code>right = mid</code>，尝试寻找更优的解。<br> 如果不满足条件，调整左边界<code>left = mid + 1</code>。<br> 若<code>left</code>和<code>right</code>的差大于允许的误差值，返回到第二步。</td>
+      </tr>
+      <tr>
+          <td>终止条件</td>
+          <td>当<code>left</code>和<code>right</code>相遇（或两者之差小于允许的误差值）时，输出最优解。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="代码-1">代码
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">binarySearchAnswer</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// 检查 mid 是否满足条件
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>  <span class="c1">// 满足条件，尝试更小的值
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 不满足条件，尝试更大的值
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">return</span> <span class="n">left</span><span class="p">;</span> <span class="c1">// 返回最优解
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"> 
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="kt">bool</span> <span class="nf">check</span><span class="p">(</span><span class="kt">int</span> <span class="n">mid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 根据问题实现具体的检查逻辑
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="c1">// 返回 true 或 false
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="前缀和与差分">前缀和与差分
 </h2><p>前缀和与差分是算法中常用的技巧，主要用于快速处理与区间操作相关的问题。</p>
 <p>参考：<a class="link" href="https://www.cnblogs.com/xbhog/p/14348830.html"  target="_blank" rel="noopener"
@@ -790,7 +865,7 @@
 <h3 id="基本思路">基本思路
 </h3><p><strong>在匹配字符串时，当发现某一个字符不匹配的时候，由于已经知道之前遍历过的字符，尽可能多地利用这些信息来避免指针回退的步骤。</strong></p>
 <p>这样主串的指针就会永远向前方移动，算法就可以改进为线性时间复杂度了。</p>
-<h3 id="步骤">步骤
+<h3 id="步骤-1">步骤
 </h3><p>当匹配失败时，模式串指针<code>j</code>要移动的下一个位置<code>k</code>应满足以下性质：<strong>模式串最前面的<code>k-1</code>个字符和<code>j</code>之前的最后<code>k-1</code>个字符一样</strong>。</p>
 <p>我们把匹配失败时模式串指针<code>j</code>要移动的下一个位置<code>k</code>存储到<code>next[]</code>数组中。</p>
 <p>这样，当匹配失败时，程序直接读取<code>next[]</code>数组中的值并赋值给指针<code>j</code>，重复匹配操作。</p>
@@ -798,17 +873,21 @@
 $$next[j] = \left\{\begin{matrix} 0 & j=1 \\\\ \mathrm{max}\{k | 1 < k < j 且 p_1 \cdots p_{k-1} == p_{j-k+1} \cdots p_{j-1}\} & 此集合非空 \\\\ 1 & 其他 \end{matrix}\right.$$<blockquote>
 <p>KMP算法的<code>next[]</code>数组有多种定义方式，这里采用的是严蔚敏《数据结构（C语言版）》的方法。</p>
 </blockquote>
-<p><img src="/images/KMP%e7%ae%97%e6%b3%95.png"
-	
-	
-	
+<p><img src="/passage/cs/algorithm/other/images/KMP%E7%AE%97%E6%B3%95.png"
+	width="1513"
+	height="952"
+	srcset="/passage/cs/algorithm/other/images/KMP%E7%AE%97%E6%B3%95_hu_b3cbbbe8af552fd0.png 480w, /passage/cs/algorithm/other/images/KMP%E7%AE%97%E6%B3%95_hu_486525f24ddcc8ff.png 1024w"
 	loading="lazy"
 	
 		alt="KMP算法"
 	
 	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="381px"
+	
 ></p>
-<h3 id="代码-1">代码
+<h3 id="代码-2">代码
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// KMP算法主体
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="nf">KMP</span><span class="p">(</span><span class="n">string</span> <span class="n">S</span><span class="p">,</span> <span class="n">string</span> <span class="n">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">i</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>

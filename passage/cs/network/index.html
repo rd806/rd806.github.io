@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 什么是互联网 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统 主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 协议 实体在通信过程中遵守的规则的集合\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
 <title>计算机网络</title>
 
 <link rel='canonical' href='https://rd806.github.io/passage/cs/network/'>
 
 <link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="计算机网络">
-<meta property='og:description' content="概述 什么是互联网 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统 主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 协议 实体在通信过程中遵守的规则的集合\n">
+<meta property='og:description' content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/network/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-31T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="计算机网络">
-<meta name="twitter:description" content="概述 什么是互联网 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统 主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 协议 实体在通信过程中遵守的规则的集合\n">
+<meta name="twitter:description" content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -321,7 +321,13 @@
   <ol>
     <li><a href="#概述">概述</a>
       <ol>
-        <li><a href="#什么是互联网">什么是互联网</a></li>
+        <li><a href="#网络边缘">网络边缘</a>
+          <ol>
+            <li><a href="#主机">主机</a></li>
+            <li><a href="#接入网">接入网</a></li>
+            <li><a href="#物理介质">物理介质</a></li>
+          </ol>
+        </li>
         <li><a href="#协议">协议</a></li>
       </ol>
     </li>
@@ -571,8 +577,7 @@
     
     
     <h2 id="概述">概述
-</h2><h3 id="什么是互联网">什么是互联网
-</h3><div class="table-wrapper"><table>
+</h2><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>概念</th>
@@ -586,7 +591,7 @@
       </tr>
       <tr>
           <td>计算机网络</td>
-          <td>联网的计算机构成的系统 <br> 主机节点（Web应用）和数据交换节点 （路由器）</td>
+          <td>联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器）</td>
       </tr>
       <tr>
           <td>互联网</td>
@@ -594,7 +599,55 @@
       </tr>
   </tbody>
 </table></div>
-<h3 id="协议">协议
+<p>互联网是设备和协议的集合体。</p>
+<p>从“组成结构”看互联网：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>组成结构</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>网络边缘（Internet edge）</td>
+          <td>包括客户端和服务器，接入网和物理介质</td>
+      </tr>
+      <tr>
+          <td>网络核心（Internet core）</td>
+          <td>互相连接的路由器，也称作“网络之网络”</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>从“提供服务”看互联网：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>组成结构</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>协议（protocol）</td>
+          <td>定义了网络实体之间发送和接收消息的格式、顺序以及在消息传输、接收时采取的动作</td>
+      </tr>
+      <tr>
+          <td>标准（RFC）</td>
+          <td>由IETF制定，定义消息的格式、信息发送的顺序等内容</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="网络边缘">网络边缘
+</h3><h4 id="主机">主机
+</h4><p>包括客户端和服务器，任务是发送数据包</p>
+<blockquote>
+<p>数据包：将应用程序产生的消息分解成的较小的块称为数据包，长度通常记作 $L$，单位为比特。</p>
+</blockquote>
+<p>记互联网的传输速率为 $R$（也称为链路容量或带宽，单位 $\text{bits/s}$），则可定义数据包传输延迟为将 $L$ 比特数据包传送到链路所需的时间 </p>
+$$D = \frac{L}{R}$$<h4 id="接入网">接入网
+</h4><h4 id="物理介质">物理介质
+</h4><h3 id="协议">协议
 </h3><p>实体在通信过程中遵守的规则的集合</p>
 
 </section>

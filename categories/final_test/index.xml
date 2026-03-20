@@ -1855,7 +1855,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 &lt;h2 id=&#34;算法实例&#34;&gt;算法实例
 &lt;/h2&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/recurrence target=&#34;_blank&#34;&gt;算法：递归法&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/recurrence &gt;算法：递归法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1900,7 +1900,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/divide_and_conquer target=&#34;_blank&#34;&gt;算法：分治法&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/divide_and_conquer &gt;算法：分治法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1945,7 +1945,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/other target=&#34;_blank&#34;&gt;其他算法&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/other &gt;其他算法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1997,8 +1997,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
         
         <guid>https://rd806.github.io/passage/cs/network/</guid>
         <description>&lt;h2 id=&#34;概述&#34;&gt;概述
-&lt;/h2&gt;&lt;h3 id=&#34;什么是互联网&#34;&gt;什么是互联网
-&lt;/h3&gt;&lt;table&gt;
+&lt;/h2&gt;&lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;概念&lt;/th&gt;
@@ -2012,7 +2011,7 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;计算机网络&lt;/td&gt;
-          &lt;td&gt;联网的计算机构成的系统 &lt;br&gt; 主机节点（Web应用）和数据交换节点 （路由器）&lt;/td&gt;
+          &lt;td&gt;联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器）&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;互联网&lt;/td&gt;
@@ -2020,7 +2019,55 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;协议&#34;&gt;协议
+&lt;p&gt;互联网是设备和协议的集合体。&lt;/p&gt;
+&lt;p&gt;从“组成结构”看互联网：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;组成结构&lt;/th&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;网络边缘（Internet edge）&lt;/td&gt;
+          &lt;td&gt;包括客户端和服务器，接入网和物理介质&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;网络核心（Internet core）&lt;/td&gt;
+          &lt;td&gt;互相连接的路由器，也称作“网络之网络”&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;从“提供服务”看互联网：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;组成结构&lt;/th&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;协议（protocol）&lt;/td&gt;
+          &lt;td&gt;定义了网络实体之间发送和接收消息的格式、顺序以及在消息传输、接收时采取的动作&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;标准（RFC）&lt;/td&gt;
+          &lt;td&gt;由IETF制定，定义消息的格式、信息发送的顺序等内容&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;网络边缘&#34;&gt;网络边缘
+&lt;/h3&gt;&lt;h4 id=&#34;主机&#34;&gt;主机
+&lt;/h4&gt;&lt;p&gt;包括客户端和服务器，任务是发送数据包&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数据包：将应用程序产生的消息分解成的较小的块称为数据包，长度通常记作 $L$，单位为比特。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;记互联网的传输速率为 $R$（也称为链路容量或带宽，单位 $\text{bits/s}$），则可定义数据包传输延迟为将 $L$ 比特数据包传送到链路所需的时间 &lt;/p&gt;
+$$D = \frac{L}{R}$$&lt;h4 id=&#34;接入网&#34;&gt;接入网
+&lt;/h4&gt;&lt;h4 id=&#34;物理介质&#34;&gt;物理介质
+&lt;/h4&gt;&lt;h3 id=&#34;协议&#34;&gt;协议
 &lt;/h3&gt;&lt;p&gt;实体在通信过程中遵守的规则的集合&lt;/p&gt;
 </description>
         </item>
@@ -3416,7 +3463,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
     &lt;p&gt;当前已更新索引，原内容拆分为五个部分&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/linearlist target=&#34;_blank&#34;&gt;数据结构：线性表&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/linearlist &gt;数据结构：线性表&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -3461,7 +3508,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/tree target=&#34;_blank&#34;&gt;数据结构：树与二叉树&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/tree &gt;数据结构：树与二叉树&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -3506,7 +3553,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/graph target=&#34;_blank&#34;&gt;数据结构：图&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/graph &gt;数据结构：图&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -3551,7 +3598,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/search target=&#34;_blank&#34;&gt;查找&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/data-structure/search &gt;查找&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -3596,7 +3643,7 @@ $$P\{不拒绝 H_0 \ |\ H_0 不真\} = \beta$$&lt;blockquote&gt;
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/sort target=&#34;_blank&#34;&gt;排序&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/sort &gt;排序&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
