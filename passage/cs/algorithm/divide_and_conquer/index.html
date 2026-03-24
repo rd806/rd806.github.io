@@ -328,6 +328,8 @@
         <li><a href="#折半查找">折半查找</a></li>
         <li><a href="#大整数乘法">大整数乘法</a></li>
         <li><a href="#矩阵乘法">矩阵乘法</a></li>
+        <li><a href="#第k小元素">第k小元素</a></li>
+        <li><a href="#最近点对">最近点对</a></li>
       </ol>
     </li>
   </ol>
@@ -640,7 +642,26 @@ $$\begin{align*} XY &= (A \cdot 2^{\frac{n}{2}} + B) \cdot (C \cdot 2^{\frac{n}{
 </h3><p>两个 $n \times n$ 的矩阵 $\bm{A}$ 和 $\bm{B}$ 相乘，普通计算方法的时间复杂度为 $\varTheta(n^3)$</p>
 <p>将 $\bm{A}$ 和 $\bm{B}$ 分成 $4$ 个大小为 $\frac{n}{2} \times \frac{n}{2}$ 的子矩阵，则有</p>
 $$\left[ \begin{matrix} \bm{C}_{11} & \bm{C}_{12} \\ \bm{C}_{21} & \bm{C}_{22} \end{matrix} \right] = \left[ \begin{matrix} \bm{A}_{11} & \bm{A}_{12} \\ \bm{A}_{21} & \bm{A}_{22} \end{matrix} \right] \times \left[ \begin{matrix} \bm{B}_{11} & \bm{B}_{12} \\ \bm{B}_{21} & \bm{B}_{22} \end{matrix} \right] $$<p>令 </p>
-$$\left\{ \begin{array}{c} \begin{align*} \bm{M}_1 &= \bm{A}_{11} (\bm{B}_{12}-\bm{B}_{12}) \\ \bm{M}_2 &= (\bm{A}_{21} + \bm{A}_{12}) \bm{B}_{11} \\ \bm{M}_3 &= (\bm{A}_{21} + \bm{A}_{22}) \bm{B}_{11} \\ \bm{M}_4 &= \bm{A}_{22} (\bm{B}_{21} - \bm{B}_{11}) \\ \bm{M}_5 &= (\bm{A}_{11} + \bm{A}_{22}) (\bm{B}_{11} + \bm{B}_{22}) \\ \bm{M}_6 &= (\bm{A}_{12} - \bm{A}_{22}) (\bm{B}_{21} + \bm{B}_{22}) \\ \bm{M}_7 &= (\bm{A}_{11} - \bm{A}_{21}) (\bm{B}_{11} + \bm{B}_{12}) \end{align*} \end{array} \right.$$
+$$\left\{ \begin{array}{c} \begin{align*} \bm{M}_1 &= \bm{A}_{11} (\bm{B}_{12}-\bm{B}_{12}) \\ \bm{M}_2 &= (\bm{A}_{21} + \bm{A}_{12}) \bm{B}_{11} \\ \bm{M}_3 &= (\bm{A}_{21} + \bm{A}_{22}) \bm{B}_{11} \\ \bm{M}_4 &= \bm{A}_{22} (\bm{B}_{21} - \bm{B}_{11}) \\ \bm{M}_5 &= (\bm{A}_{11} + \bm{A}_{22}) (\bm{B}_{11} + \bm{B}_{22}) \\ \bm{M}_6 &= (\bm{A}_{12} - \bm{A}_{22}) (\bm{B}_{21} + \bm{B}_{22}) \\ \bm{M}_7 &= (\bm{A}_{11} - \bm{A}_{21}) (\bm{B}_{11} + \bm{B}_{12}) \end{align*} \end{array} \right.$$<p>则有 </p>
+$$\left\{ \begin{array}{c} \begin{align*} \bm{C}_{11} &= \bm{M}_5 + \bm{M}_4 - \bm{M}_2 + \bm{M}_6 \\ \bm{C}_{12} &= \bm{M}_1 + \bm{M}_2 \\ \bm{C}_{21} &= \bm{M}_3 + \bm{M}_4 \\ \bm{C}_{22} &= \bm{M}_5 + \bm{M}_1 - \bm{M}_3 - \bm{M}_7  \end{align*} \end{array} \right.$$<h3 id="第k小元素">第k小元素
+</h3><p>若 $|S| \leqslant 50$，则采用<a class="link" href="/passage/cs/sort" >堆排序
+    
+    
+
+</a></p>
+<p>否则，将 $n$ 个元素分为 $\lceil \frac{n}{5} \rceil$，每组5个元素，每组排序。将每组第三个元素取出，得到大小为 $\lceil \frac{n}{5} \rceil$ 的数组 $M$，</p>
+<p>依次扫描整个数组 $S$，当 $s_i &lt; m$ 时放入 $S_1$，$s_i = m$ 时放入 $S_2$；$s_i &gt; m$ 时放入 $S_3$。</p>
+<p>当 $k \leqslant |S_1|$ 时，调用<code>select(S1, k)</code>；当 $|S_1| &lt; k \leqslant |S_1| + |S_2|$ 时，返回<code>m</code>；当 $k &gt; |S_1| + |S_2|$ 时，调用<code>select(S3, k-|S1|-|S_2|)</code></p>
+<details>
+    <summary>证明</summary>
+</details>
+<h3 id="最近点对">最近点对
+</h3><p>在二维平面上 $n$ 个点中找距离最近的两个点，</p>
+<p>如果 $Q$ 中仅包含一个点，则算法结束；把 $Q$ 中的点按 $x$ 和 $y$ 坐标值排序。</p>
+<p>计算 $Q$ 中各点 $x$ 坐标的中位数 $m$，用垂线 $x=m$ 把 $P$ 划分为两个大小相等的子集和 $L$ 和 $R$，递归地在 $L$，$R$ 中找出最近点对 $(p_1, p_2) \in L$，$(q_1, q_2) \in R$</p>
+<p>$d = \min \{\text{dis}(p_1, p_2), \text{Dis}(q_1, q_2)\}$</p>
+<p>在临界区查找距离小于 $d$ 的点对 $(p_l, q_r)$，其中 $p_l \in L$，$q_r \in R$</p>
+
 </section>
 
 

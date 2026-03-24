@@ -197,7 +197,7 @@ n+1 &amp;= n \cup \{n\}
 \end{array}$$&lt;/blockquote&gt;
 &lt;h3 id=&#34;函数&#34;&gt;函数
 &lt;/h3&gt;&lt;p&gt;函数定义为从集合 $A$ 到集合 $B$ 的一种对应关系，记作 $f: A \rightarrow B$。&lt;/p&gt;
-&lt;h2 id=&#34;z语言&#34;&gt;Z语言
+&lt;h2 id=&#34;集合的描述&#34;&gt;集合的描述
 &lt;/h2&gt;&lt;h3 id=&#34;数据类型&#34;&gt;数据类型
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;某个类型的所有可能成员都具备一些共同特征，这时我们称它们属于同一个类型。&lt;/p&gt;
@@ -247,24 +247,159 @@ n+1 &amp;= n \cup \{n\}
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;差&lt;/td&gt;
-          &lt;td&gt;$ S \backslash T $&lt;/td&gt;
+          &lt;td&gt;$S \backslash T$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;并集&lt;/td&gt;
-          &lt;td&gt;$ S \cup T $&lt;/td&gt;
+          &lt;td&gt;$S \cup T$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;交集&lt;/td&gt;
-          &lt;td&gt;$ S \cap T $&lt;/td&gt;
+          &lt;td&gt;$S \cap T$&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;划分&lt;/td&gt;
-          &lt;td&gt;$ S \cup T = U \land S \cap T = \oslash $&lt;/td&gt;
+          &lt;td&gt;$S \cup T = U \land S \cap T = \oslash$&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&#34;&#34;&gt;
-&lt;/h3&gt;</description>
+&lt;h3 id=&#34;用集合描述系统&#34;&gt;用集合描述系统
+&lt;/h3&gt;&lt;p&gt;特点：以状态的转换为核心描述系统行为；系统的操作（函数）通过描述其执行如何改变系统状态来定义。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;步骤&lt;/th&gt;
+          &lt;th&gt;操作&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;①&lt;/td&gt;
+          &lt;td&gt;定义描述目标系统状态的变量以及与这些变量相关的任何不变的性质&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;②&lt;/td&gt;
+          &lt;td&gt;定义初始操作，将变量的值设置为满足不变性质的某个初始状态&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;③&lt;/td&gt;
+          &lt;td&gt;定义对状态的操作，满足在改变状态的同时保持不变的性质&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;④&lt;/td&gt;
+          &lt;td&gt;定义查询操作，使其在不改变系统状态的前提下获取系统信息&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;案例：乘客登机系统&lt;/p&gt;
+&lt;h2 id=&#34;模式&#34;&gt;模式
+&lt;/h2&gt;&lt;p&gt;模式是一种结构化的规格说明。&lt;/p&gt;
+&lt;h3 id=&#34;模式表达&#34;&gt;模式表达
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;格式&lt;/th&gt;
+          &lt;th&gt;表示&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;图表格式&lt;/td&gt;
+          &lt;td&gt;$\begin{array}{l} \text{SchemaName} \\ \left| \begin{array}{l} \text{Declarations} \\ \hline \text{Predicate} \\ \hline \end{array} \right.\end{array}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;文字格式&lt;/td&gt;
+          &lt;td&gt;$\text{SchemaName} == [\ \text{Declarations} \mid \text{Predicate} \ ]$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;内容&lt;/th&gt;
+          &lt;th&gt;规范&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;声明&lt;/td&gt;
+          &lt;td&gt;每行声明均被视为以分号结尾，若干行构成一个序列&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;谓词&lt;/td&gt;
+          &lt;td&gt;若干行谓词被视为以运算符连接&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;不含谓词部分的模式&lt;/td&gt;
+          &lt;td&gt;只声明新变量，不施加约束谓词&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;局部变量&lt;/td&gt;
+          &lt;td&gt;模式里声明的变量，在其他模式里引用时需要明确包含该定义的模式&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;全局变量&lt;/td&gt;
+          &lt;td&gt;在规格说明始终可以引用，以公理定义声明；值不能被规格说明运算改变&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;模式推演&#34;&gt;模式推演
+&lt;/h3&gt;&lt;p&gt;模式可作为单元，进行类似逻辑运算的操作&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;模式运算符&lt;/th&gt;
+          &lt;th&gt;作用&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;修饰（Decoration）&lt;/td&gt;
+          &lt;td&gt;表示一个模式在执行了某些操作后的值，可表示为 $$\begin{array}{l} \text{S} \\ \left\| \begin{array}{l} a,b:N \\ \hline a &lt; b \\ \hline \end{array} \right. \end{array} \begin{array}{l} \text{S&#39;} \\ \left\| \begin{array}{l} a&#39;,b&#39;:N \\ \hline a&#39; &lt; b&#39; \\ \hline \end{array} \right. \end{array}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;包含（Inclusion）&lt;/td&gt;
+          &lt;td&gt;一个模式的声明可以包含另一个模式，会将被包含模式的声明和谓词合并，可表示为 $$\begin{array}{l} \text{IncludeS} \\ \left\| \begin{array}{l} c:N \\ S \\ \hline c&lt;10 \\ \hline \end{array} \right.\end{array}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;合取（Conjunction）&lt;/td&gt;
+          &lt;td&gt;将两个模式取交，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的与&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;析取（Disjunction）&lt;/td&gt;
+          &lt;td&gt;将两个模式取并，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的或&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Delta convention&lt;/td&gt;
+          &lt;td&gt;表示模式的改变，可以类比为复制一份，可表示为 $$\begin{array}{l} \Delta\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a&#39;,b&#39;:N \\ \hline a &lt; b \\ a&#39; &lt; b&#39; \\ \hline \end{array} \right.\end{array}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Xi convention&lt;/td&gt;
+          &lt;td&gt;表示模式的改变，可以类比为复制一份，它的声明比Delta convention更强，可表示为 $$\begin{array}{l} \Xi\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a&#39;,b&#39;:N \\ \hline a &lt; b \\ a&#39; &lt; b&#39; \\ a=a&#39; \\ b=b&#39; \\ \hline \end{array} \right.\end{array}$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;重命名（Renaming）&lt;/td&gt;
+          &lt;td&gt;语法：$$\text{newSchemaName} ==\\ \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;隐藏（Hide）&lt;/td&gt;
+          &lt;td&gt;隐藏声明中的变量，让它只存在于谓词的运算符中，语法：$$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;投影（Project）&lt;/td&gt;
+          &lt;td&gt;隐藏除指定变量之外的变量，语法：$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;合成（Composition）&lt;/td&gt;
+          &lt;td&gt;表示执行 $S$ 后执行 $T$，隐藏了中间变量&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;输入和输出变量&#34;&gt;输入和输出变量
+&lt;/h3&gt;&lt;p&gt;输入变量：变量名 + ?&lt;/p&gt;
+&lt;p&gt;输出变量：变量名 + !&lt;/p&gt;
+&lt;p&gt;举例：&lt;/p&gt;
+$$\begin{array}{l} \text{Add} \\ \left\| \begin{array}{l} a?,b?:N \\ sum!:N \\ \hline sum! = a? + b? \\ \hline \end{array} \right.\end{array}$$</description>
         </item>
         <item>
         <title>数据库系统</title>
@@ -13363,7 +13498,8 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// vector容器
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vector&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;选择排序&#34;&gt;选择排序
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;基于比较的排序，其复杂度不会低于 $O(n\log n)$&lt;/p&gt;
+&lt;h2 id=&#34;选择排序&#34;&gt;选择排序
 &lt;/h2&gt;&lt;p&gt;基本思想：进行&lt;code&gt;n–1&lt;/code&gt;趟排序，每一趟在&lt;code&gt;n–i+1&lt;/code&gt; $(i=1,2,\cdots,n-1)$ 个记录中选取关键字最小的记录作为有序序列中第&lt;code&gt;i&lt;/code&gt;个记录。&lt;/p&gt;
 &lt;h3 id=&#34;直接选择排序&#34;&gt;直接选择排序
 &lt;/h3&gt;&lt;p&gt;基本步骤：&lt;/p&gt;

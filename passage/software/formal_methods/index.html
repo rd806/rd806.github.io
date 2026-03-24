@@ -328,12 +328,19 @@
         <li><a href="#函数">函数</a></li>
       </ol>
     </li>
-    <li><a href="#z语言">Z语言</a>
+    <li><a href="#集合的描述">集合的描述</a>
       <ol>
         <li><a href="#数据类型">数据类型</a></li>
         <li><a href="#变量">变量</a></li>
         <li><a href="#集合">集合</a></li>
-        <li></li>
+        <li><a href="#用集合描述系统">用集合描述系统</a></li>
+      </ol>
+    </li>
+    <li><a href="#模式">模式</a>
+      <ol>
+        <li><a href="#模式表达">模式表达</a></li>
+        <li><a href="#模式推演">模式推演</a></li>
+        <li><a href="#输入和输出变量">输入和输出变量</a></li>
       </ol>
     </li>
   </ol>
@@ -765,7 +772,7 @@ n+1 &= n \cup \{n\}
 \end{array}$$</blockquote>
 <h3 id="函数">函数
 </h3><p>函数定义为从集合 $A$ 到集合 $B$ 的一种对应关系，记作 $f: A \rightarrow B$。</p>
-<h2 id="z语言">Z语言
+<h2 id="集合的描述">集合的描述
 </h2><h3 id="数据类型">数据类型
 </h3><blockquote>
 <p>某个类型的所有可能成员都具备一些共同特征，这时我们称它们属于同一个类型。</p>
@@ -815,24 +822,159 @@ n+1 &= n \cup \{n\}
       </tr>
       <tr>
           <td>差</td>
-          <td>$ S \backslash T $</td>
+          <td>$S \backslash T$</td>
       </tr>
       <tr>
           <td>并集</td>
-          <td>$ S \cup T $</td>
+          <td>$S \cup T$</td>
       </tr>
       <tr>
           <td>交集</td>
-          <td>$ S \cap T $</td>
+          <td>$S \cap T$</td>
       </tr>
       <tr>
           <td>划分</td>
-          <td>$ S \cup T = U \land S \cap T = \oslash $</td>
+          <td>$S \cup T = U \land S \cap T = \oslash$</td>
       </tr>
   </tbody>
 </table></div>
-<h3 id="">
-</h3>
+<h3 id="用集合描述系统">用集合描述系统
+</h3><p>特点：以状态的转换为核心描述系统行为；系统的操作（函数）通过描述其执行如何改变系统状态来定义。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>①</td>
+          <td>定义描述目标系统状态的变量以及与这些变量相关的任何不变的性质</td>
+      </tr>
+      <tr>
+          <td>②</td>
+          <td>定义初始操作，将变量的值设置为满足不变性质的某个初始状态</td>
+      </tr>
+      <tr>
+          <td>③</td>
+          <td>定义对状态的操作，满足在改变状态的同时保持不变的性质</td>
+      </tr>
+      <tr>
+          <td>④</td>
+          <td>定义查询操作，使其在不改变系统状态的前提下获取系统信息</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>案例：乘客登机系统</p>
+<h2 id="模式">模式
+</h2><p>模式是一种结构化的规格说明。</p>
+<h3 id="模式表达">模式表达
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>格式</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>图表格式</td>
+          <td>$\begin{array}{l} \text{SchemaName} \\ \left| \begin{array}{l} \text{Declarations} \\ \hline \text{Predicate} \\ \hline \end{array} \right.\end{array}$</td>
+      </tr>
+      <tr>
+          <td>文字格式</td>
+          <td>$\text{SchemaName} == [\ \text{Declarations} \mid \text{Predicate} \ ]$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>内容</th>
+          <th>规范</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>声明</td>
+          <td>每行声明均被视为以分号结尾，若干行构成一个序列</td>
+      </tr>
+      <tr>
+          <td>谓词</td>
+          <td>若干行谓词被视为以运算符连接</td>
+      </tr>
+      <tr>
+          <td>不含谓词部分的模式</td>
+          <td>只声明新变量，不施加约束谓词</td>
+      </tr>
+      <tr>
+          <td>局部变量</td>
+          <td>模式里声明的变量，在其他模式里引用时需要明确包含该定义的模式</td>
+      </tr>
+      <tr>
+          <td>全局变量</td>
+          <td>在规格说明始终可以引用，以公理定义声明；值不能被规格说明运算改变</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="模式推演">模式推演
+</h3><p>模式可作为单元，进行类似逻辑运算的操作</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>模式运算符</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>修饰（Decoration）</td>
+          <td>表示一个模式在执行了某些操作后的值，可表示为 $$\begin{array}{l} \text{S} \\ \left\| \begin{array}{l} a,b:N \\ \hline a < b \\ \hline \end{array} \right. \end{array} \begin{array}{l} \text{S'} \\ \left\| \begin{array}{l} a',b':N \\ \hline a' < b' \\ \hline \end{array} \right. \end{array}$$</td>
+      </tr>
+      <tr>
+          <td>包含（Inclusion）</td>
+          <td>一个模式的声明可以包含另一个模式，会将被包含模式的声明和谓词合并，可表示为 $$\begin{array}{l} \text{IncludeS} \\ \left\| \begin{array}{l} c:N \\ S \\ \hline c<10 \\ \hline \end{array} \right.\end{array}$$</td>
+      </tr>
+      <tr>
+          <td>合取（Conjunction）</td>
+          <td>将两个模式取交，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的与</td>
+      </tr>
+      <tr>
+          <td>析取（Disjunction）</td>
+          <td>将两个模式取并，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的或</td>
+      </tr>
+      <tr>
+          <td>Delta convention</td>
+          <td>表示模式的改变，可以类比为复制一份，可表示为 $$\begin{array}{l} \Delta\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ \hline \end{array} \right.\end{array}$$</td>
+      </tr>
+      <tr>
+          <td>Xi convention</td>
+          <td>表示模式的改变，可以类比为复制一份，它的声明比Delta convention更强，可表示为 $$\begin{array}{l} \Xi\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ a=a' \\ b=b' \\ \hline \end{array} \right.\end{array}$$</td>
+      </tr>
+      <tr>
+          <td>重命名（Renaming）</td>
+          <td>语法：$$\text{newSchemaName} ==\\ \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$</td>
+      </tr>
+      <tr>
+          <td>隐藏（Hide）</td>
+          <td>隐藏声明中的变量，让它只存在于谓词的运算符中，语法：$$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$</td>
+      </tr>
+      <tr>
+          <td>投影（Project）</td>
+          <td>隐藏除指定变量之外的变量，语法：$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$</td>
+      </tr>
+      <tr>
+          <td>合成（Composition）</td>
+          <td>表示执行 $S$ 后执行 $T$，隐藏了中间变量</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="输入和输出变量">输入和输出变量
+</h3><p>输入变量：变量名 + ?</p>
+<p>输出变量：变量名 + !</p>
+<p>举例：</p>
+$$\begin{array}{l} \text{Add} \\ \left\| \begin{array}{l} a?,b?:N \\ sum!:N \\ \hline sum! = a? + b? \\ \hline \end{array} \right.\end{array}$$
 </section>
 
 
