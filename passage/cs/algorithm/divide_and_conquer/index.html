@@ -332,6 +332,7 @@
         <li><a href="#最近点对">最近点对</a></li>
       </ol>
     </li>
+    <li><a href="#平衡">平衡</a></li>
   </ol>
 </nav>
         </div>
@@ -649,18 +650,31 @@ $$\left\{ \begin{array}{c} \begin{align*} \bm{C}_{11} &= \bm{M}_5 + \bm{M}_4 - \
     
 
 </a></p>
-<p>否则，将 $n$ 个元素分为 $\lceil \frac{n}{5} \rceil$，每组5个元素，每组排序。将每组第三个元素取出，得到大小为 $\lceil \frac{n}{5} \rceil$ 的数组 $M$，</p>
-<p>依次扫描整个数组 $S$，当 $s_i &lt; m$ 时放入 $S_1$，$s_i = m$ 时放入 $S_2$；$s_i &gt; m$ 时放入 $S_3$。</p>
-<p>当 $k \leqslant |S_1|$ 时，调用<code>select(S1, k)</code>；当 $|S_1| &lt; k \leqslant |S_1| + |S_2|$ 时，返回<code>m</code>；当 $k &gt; |S_1| + |S_2|$ 时，调用<code>select(S3, k-|S1|-|S_2|)</code></p>
+<p>否则：</p>
+<ol>
+<li>将 $n$ 个元素分为 $\lceil \frac{n}{5} \rceil$，每组5个元素，每组排序。</li>
+<li>将每组第三个元素取出，得到大小为 $\lceil \frac{n}{5} \rceil$ 的数组 $M$。若最后一组中的元素可能不足5个，则1个取出、2个取较小、3个取中间、4个取第二小。</li>
+<li>$m = \text{select}(M, \lceil |M|/2 \rceil)$，时间复杂度 $T(\lceil n/5 \rceil)$，此时 $S$ 中至少有 $3\left( \lceil \frac{1}{2} \lceil \frac{n}{5} \rceil \rceil -2 \right) \geqslant \frac{3n}{10} - 6$ 个元素大于等于 $m$；至少有 $\frac{3n}{10}-6$ 个元素小于等于 $m$</li>
+<li>依次扫描整个数组 $S$，当 $s_i &lt; m$ 时放入 $S_1$，$s_i = m$ 时放入 $S_2$；$s_i &gt; m$ 时放入 $S_3$。</li>
+<li>当 $k \leqslant |S_1|$ 时，调用<code>select(S1, k)</code>；当 $|S_1| &lt; k \leqslant |S_1| + |S_2|$ 时，返回<code>m</code>；当 $k &gt; |S_1| + |S_2|$ 时，调用<code>select(S3, k-|S1|-|S_2|)</code></li>
+</ol>
+<p>此时时间复杂度 $T(n) = T(\lceil \frac{n}{5} \rceil) + T(\frac{7n}{10} + 6) + O(n) \leqslant O(n)$</p>
 <details>
     <summary>证明</summary>
 </details>
 <h3 id="最近点对">最近点对
 </h3><p>在二维平面上 $n$ 个点中找距离最近的两个点，</p>
-<p>如果 $Q$ 中仅包含一个点，则算法结束；把 $Q$ 中的点按 $x$ 和 $y$ 坐标值排序。</p>
-<p>计算 $Q$ 中各点 $x$ 坐标的中位数 $m$，用垂线 $x=m$ 把 $P$ 划分为两个大小相等的子集和 $L$ 和 $R$，递归地在 $L$，$R$ 中找出最近点对 $(p_1, p_2) \in L$，$(q_1, q_2) \in R$</p>
-<p>$d = \min \{\text{dis}(p_1, p_2), \text{Dis}(q_1, q_2)\}$</p>
-<p>在临界区查找距离小于 $d$ 的点对 $(p_l, q_r)$，其中 $p_l \in L$，$q_r \in R$</p>
+<p>如果 $Q$ 中仅包含一个点，则算法结束；否则，把 $Q$ 中的点按 $x$ 和 $y$ 坐标值排序。</p>
+<p>计算 $Q$ 中各点 $x$ 坐标的中位数 $m$，用垂线 $x=m$ 把 $P$ 划分为两个大小相等的子集和 $L$ 和 $R$。</p>
+<p>递归地在 $L$，$R$ 中找出最近点对 $(p_1, p_2) \in L$，$(q_1, q_2) \in R$ 则 $d = \min \{\text{dis}(p_1, p_2), \text{Dis}(q_1, q_2)\}$</p>
+<p>在临界区查找距离小于 $d$ 的点对 $(p_l, q_r)$，其中 $p_l \in L$，$q_r \in R$；如果找到，则 $(p_l, q_r)$ 是 $Q$ 中的最近点对，否则 $(p_1, p_2)$ 和 $(q_1, q_2)$ 中距离最小者为 $Q$ 中的最接近点对。</p>
+<p>如何查找 $(p_l, q_r)$：</p>
+<p>对于左临界区中任意一点 $P$，在右临界区中找一点 $Q$，若 $|PQ| &lt; d$，则必有 $Q$ 位于右临界区。</p>
+<p>极端情况下，若 $P$ 在中位线上，$Q$ 在绿色半圆中，不妨把 $D$ 扩大为 $d \cdot 2d$ 的矩形区域，这样区域内最多可能存在6个点，使得每两个点之间的距离大于 $d$，即对于任意一点 $P$，最多只需计算6次距离就可以了。</p>
+<p>时间复杂度 </p>
+$$T(n) = \left\{ \begin{matrix} \begin{align*} & O(1) \\ &2T\left(\frac{n}{2}\right) + O(n) \end{align*} \end{matrix} \right.$$<p>则 $T(n) = O(n \log n)$</p>
+<h2 id="平衡">平衡
+</h2><p>平衡与分治法密不可分，使用分治法和递归时要尽量把问题分成规模相等或至少是规模相近的子问题。</p>
 
 </section>
 

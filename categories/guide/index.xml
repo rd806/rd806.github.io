@@ -900,8 +900,52 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$&lt;blockquote&gt;
 &lt;li&gt;以这些子集为模式的关系都属于BCNF。&lt;/li&gt;
 &lt;li&gt;原始关系中的数据都被正确地反映在分解后的关系上，简单而言就是原始关系应能从分解后的几个关系实例中重构。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;对于任意关系 $R$ 和函数依赖集合 $S$，有BCNF分解算法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;检验 $R$ 是否为BCNF，若是，直接返回 $R$。&lt;/li&gt;
+&lt;li&gt;如果存在违反BCNF的函数依赖，假设为 $X \rightarrow Y$。计算 $X$ 的闭包 $X^+$。选择 $R_1 = X^+$ 作为一个关系模式，并使另一个关系模式 $R_2$ 包含属性 $X$ 以及不在 $X^+$ 的属性。&lt;/li&gt;
+&lt;li&gt;计算 $R_1$ 和 $R_2$ 的函数依赖集合，记为 $S_1$ 和 $S_2$，并递归地分解 $R_1$ 和 $R_2$，返回最终分解的集合。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;分解的优劣&#34;&gt;分解的优劣
+&lt;/h3&gt;&lt;p&gt;一个分解应当具有3个性质：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;性质&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;消除异常&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;信息可恢复&lt;/td&gt;
+          &lt;td&gt;能够从分解后的各个元组中恢复原始关系。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;依赖的保持&lt;/td&gt;
+          &lt;td&gt;如果函数依赖的投影在分解后的关系上成立，能确保对分解后的关系用连接重构获取原始关系仍然满足原来的函数依赖&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;事实上，没有一种分解能同时具备以上3个性质。&lt;/p&gt;
+&lt;h4 id=&#34;从分解中恢复信息&#34;&gt;从分解中恢复信息
+&lt;/h4&gt;&lt;p&gt;若可以通过分解后的各个关系重构原关系 $R$，则称该分解含有&lt;strong&gt;无损连接&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;设关系 $R(X,Y,Z)$，且具备函数依赖 $X \rightarrow Y$，则可以依据BCNF分解算法将关系分解为 $R_1(X,Y)$ 和 $R_2(Y,Z)$，且 &lt;/p&gt;
+$$R = \pi_{X \cup Y}(R) \bowtie \pi_{Y \cup Z}(R)$$&lt;p&gt; 即该分解包含无损连接。&lt;/p&gt;
+&lt;h4 id=&#34;无损连接的检验&#34;&gt;无损连接的检验
+&lt;/h4&gt;&lt;p&gt;设关系 $R$ 被分解为若干关系，它们的属性集分别为 $S_1, S_2, \cdots, S_k$，在 $R$ 上成立的函数依赖集合为 $F$。则 $\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R) = R$ 成立当且仅当连接结果中的每个元组都属于 $R$。这称为无损连接的chase检验。&lt;/p&gt;
+&lt;h4 id=&#34;依赖的保持&#34;&gt;依赖的保持
+&lt;/h4&gt;&lt;p&gt;在某些情况下，把一个关系分解为一系列BCNF关系时，无法同时拥有无损连接和依赖保持两种性质。&lt;/p&gt;
+&lt;h3 id=&#34;第三范式&#34;&gt;第三范式
+&lt;/h3&gt;&lt;p&gt;定义：如果一个关系 $R$ 满足只要 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 是非平凡函数依赖，那么或者 $\{A_1, A_2 ,\cdots, A_n\}$ 是超键，或者每个属于 $B_1, B_2, \cdots, B_n$ 但不属于 $A$ 的属性都是某个键的成员。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果一个属性是某个键的成员，则常被成为“主属性”。因此，3NF的条件等价于：对于每个非平凡FD，或者其左边是超键，或者其右边仅由主属性构成。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;多值依赖&#34;&gt;多值依赖
-&lt;/h3&gt;&lt;h2 id=&#34;mysql基本操作&#34;&gt;MySQL基本操作
+&lt;/h3&gt;&lt;h2 id=&#34;mysql&#34;&gt;MySQL
 &lt;/h2&gt;&lt;p&gt;MySQL是目前流行的数据库管理系统，使用SQL语法操作和管理。&lt;/p&gt;
 &lt;h3 id=&#34;准备工作&#34;&gt;准备工作
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安装MYSQL&lt;/span&gt;
@@ -942,8 +986,9 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$&lt;blockquote&gt;
 
 &lt;/a&gt;。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;mysql管理可视化&#34;&gt;MySQL管理可视化
-&lt;/h2&gt;&lt;p&gt;面对单调的MySQL代码是非常无聊的，因此通过软件可视化管理MySQL数据库是不错的选择。&lt;/p&gt;
+&lt;h2 id=&#34;opengauss&#34;&gt;openGauss
+&lt;/h2&gt;&lt;h2 id=&#34;数据库管理可视化&#34;&gt;数据库管理可视化
+&lt;/h2&gt;&lt;p&gt;面对单调的SQL代码是非常无聊的，因此通过软件可视化管理数据库是不错的选择。&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;

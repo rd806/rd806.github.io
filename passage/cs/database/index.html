@@ -373,10 +373,18 @@
             <li><a href="#分解为bc范式">分解为BC范式</a></li>
           </ol>
         </li>
+        <li><a href="#分解的优劣">分解的优劣</a>
+          <ol>
+            <li><a href="#从分解中恢复信息">从分解中恢复信息</a></li>
+            <li><a href="#无损连接的检验">无损连接的检验</a></li>
+            <li><a href="#依赖的保持">依赖的保持</a></li>
+          </ol>
+        </li>
+        <li><a href="#第三范式">第三范式</a></li>
         <li><a href="#多值依赖">多值依赖</a></li>
       </ol>
     </li>
-    <li><a href="#mysql基本操作">MySQL基本操作</a>
+    <li><a href="#mysql">MySQL</a>
       <ol>
         <li><a href="#准备工作">准备工作</a></li>
         <li><a href="#配置mysql">配置MySQL</a>
@@ -389,7 +397,8 @@
         <li><a href="#通用语法">通用语法</a></li>
       </ol>
     </li>
-    <li><a href="#mysql管理可视化">MySQL管理可视化</a></li>
+    <li><a href="#opengauss">openGauss</a></li>
+    <li><a href="#数据库管理可视化">数据库管理可视化</a></li>
   </ol>
 </nav>
         </div>
@@ -1541,8 +1550,52 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<blockquote>
 <li>以这些子集为模式的关系都属于BCNF。</li>
 <li>原始关系中的数据都被正确地反映在分解后的关系上，简单而言就是原始关系应能从分解后的几个关系实例中重构。</li>
 </ol>
+<p>对于任意关系 $R$ 和函数依赖集合 $S$，有BCNF分解算法：</p>
+<ol>
+<li>检验 $R$ 是否为BCNF，若是，直接返回 $R$。</li>
+<li>如果存在违反BCNF的函数依赖，假设为 $X \rightarrow Y$。计算 $X$ 的闭包 $X^+$。选择 $R_1 = X^+$ 作为一个关系模式，并使另一个关系模式 $R_2$ 包含属性 $X$ 以及不在 $X^+$ 的属性。</li>
+<li>计算 $R_1$ 和 $R_2$ 的函数依赖集合，记为 $S_1$ 和 $S_2$，并递归地分解 $R_1$ 和 $R_2$，返回最终分解的集合。</li>
+</ol>
+<h3 id="分解的优劣">分解的优劣
+</h3><p>一个分解应当具有3个性质：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>消除异常</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>信息可恢复</td>
+          <td>能够从分解后的各个元组中恢复原始关系。</td>
+      </tr>
+      <tr>
+          <td>依赖的保持</td>
+          <td>如果函数依赖的投影在分解后的关系上成立，能确保对分解后的关系用连接重构获取原始关系仍然满足原来的函数依赖</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>事实上，没有一种分解能同时具备以上3个性质。</p>
+<h4 id="从分解中恢复信息">从分解中恢复信息
+</h4><p>若可以通过分解后的各个关系重构原关系 $R$，则称该分解含有<strong>无损连接</strong>。</p>
+<p>设关系 $R(X,Y,Z)$，且具备函数依赖 $X \rightarrow Y$，则可以依据BCNF分解算法将关系分解为 $R_1(X,Y)$ 和 $R_2(Y,Z)$，且 </p>
+$$R = \pi_{X \cup Y}(R) \bowtie \pi_{Y \cup Z}(R)$$<p> 即该分解包含无损连接。</p>
+<h4 id="无损连接的检验">无损连接的检验
+</h4><p>设关系 $R$ 被分解为若干关系，它们的属性集分别为 $S_1, S_2, \cdots, S_k$，在 $R$ 上成立的函数依赖集合为 $F$。则 $\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R) = R$ 成立当且仅当连接结果中的每个元组都属于 $R$。这称为无损连接的chase检验。</p>
+<h4 id="依赖的保持">依赖的保持
+</h4><p>在某些情况下，把一个关系分解为一系列BCNF关系时，无法同时拥有无损连接和依赖保持两种性质。</p>
+<h3 id="第三范式">第三范式
+</h3><p>定义：如果一个关系 $R$ 满足只要 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 是非平凡函数依赖，那么或者 $\{A_1, A_2 ,\cdots, A_n\}$ 是超键，或者每个属于 $B_1, B_2, \cdots, B_n$ 但不属于 $A$ 的属性都是某个键的成员。</p>
+<blockquote>
+<p>如果一个属性是某个键的成员，则常被成为“主属性”。因此，3NF的条件等价于：对于每个非平凡FD，或者其左边是超键，或者其右边仅由主属性构成。</p>
+</blockquote>
 <h3 id="多值依赖">多值依赖
-</h3><h2 id="mysql基本操作">MySQL基本操作
+</h3><h2 id="mysql">MySQL
 </h2><p>MySQL是目前流行的数据库管理系统，使用SQL语法操作和管理。</p>
 <h3 id="准备工作">准备工作
 </h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 安装MYSQL</span>
@@ -1583,8 +1636,9 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<blockquote>
 
 </a>。</li>
 </ol>
-<h2 id="mysql管理可视化">MySQL管理可视化
-</h2><p>面对单调的MySQL代码是非常无聊的，因此通过软件可视化管理MySQL数据库是不错的选择。</p>
+<h2 id="opengauss">openGauss
+</h2><h2 id="数据库管理可视化">数据库管理可视化
+</h2><p>面对单调的SQL代码是非常无聊的，因此通过软件可视化管理数据库是不错的选择。</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
