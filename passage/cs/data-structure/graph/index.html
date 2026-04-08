@@ -335,11 +335,7 @@
     <li><a href="#最小生成树">最小生成树</a></li>
     <li><a href="#活动网络">活动网络</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#aov网络">AOV网络</a></li>
-          </ol>
-        </li>
+        <li><a href="#aov网络">AOV网络</a></li>
         <li><a href="#aoe网络">AOE网络</a></li>
       </ol>
     </li>
@@ -656,6 +652,7 @@
 </h3><p>设图 $G = (V,E)$ 是一个有 $n$ 个顶点的图，则其邻接矩阵是一个二维数组 <code>G.edge[n][n]</code>，定义 </p>
 $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  (i,j) \in E \\\\ 0， & 其他 \end{matrix} \right.$$<blockquote>
 <p>由定义可知，无向图的邻接矩阵是对称的。</p>
+<p>邻接矩阵方便看出任意两个顶点之间的关系，但是空间复杂度较高 $O(n^2)$，且当图的连接较为稀疏时空间浪费较多。</p>
 </blockquote>
 <h3 id="邻接表">邻接表
 </h3><p>邻接表是图的一种链式存储结构</p>
@@ -872,8 +869,8 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span></span><span class="line"><span class="ln">35</span><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="活动网络">活动网络
-</h2><h4 id="aov网络">AOV网络
-</h4><p>用有向图表示一个工程。在这种有向图中，用顶点表示活动，用有向边 $\left&lt; v_i, v_j \right&gt;$ 表示活动 $v_i$ 必须先于活动 $v_j$ 进行。这种有向图叫做顶点表示活动的 AOV 网络。</p>
+</h2><h3 id="aov网络">AOV网络
+</h3><p>用有向图表示一个工程。在这种有向图中，用顶点表示活动，用有向边 $\left&lt; v_i, v_j \right&gt;$ 表示活动 $v_i$ 必须先于活动 $v_j$ 进行。这种有向图叫做顶点表示活动的 AOV 网络。</p>
 <p>将各个顶点（代表各个活动）排列成一个线性有序的序列，使得 AOV 网络中所有应存在的前驱和后继关系都能得到满足。这种构造 AOV 网络全部顶点的拓扑有序序列的运算就叫做<strong>拓扑排序</strong>。</p>
 <p>例如，下图的一个拓扑有序序列为：$C_1, C_2, C_3, C_4, C_5, C_6, C_8, C_9, C_7$</p>
 <figure><img src="/passage/cs/data-structure/graph/images/AOV%E7%BD%91%E7%BB%9C.png" width="700"><figcaption>

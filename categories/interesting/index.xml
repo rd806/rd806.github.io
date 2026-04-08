@@ -349,6 +349,51 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/greedy &gt;算法：贪心法&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme=&#34;light&#34;] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme=&#34;dark&#34;] {
+        .name {
+            color: #cebef4;
+        }
+    }
+&lt;/style&gt;
+
+&lt;div class=&#34;catalogue&#34;&gt;
+    &lt;div class=&#34;logo&#34;&gt;
         &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/algorithm/other &gt;其他算法&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;

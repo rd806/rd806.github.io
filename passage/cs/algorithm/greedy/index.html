@@ -325,7 +325,15 @@
       <ol>
         <li><a href="#货箱装船">货箱装船</a></li>
         <li><a href="#背包问题">背包问题</a></li>
-        <li></li>
+        <li><a href="#哈夫曼编码">哈夫曼编码</a></li>
+        <li><a href="#拓扑排序">拓扑排序</a></li>
+        <li><a href="#最短路径">最短路径</a></li>
+        <li><a href="#最小生成树">最小生成树</a>
+          <ol>
+            <li><a href="#kruskal算法">Kruskal算法</a></li>
+            <li><a href="#prim算法">Prim算法</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -582,7 +590,8 @@
 </h2><p>一个优化问题可以描述如下：</p>
 <ol>
 <li>问题的解为一个复杂的结构，例如元组形式 $(x_1, x_2, \cdots, x_n)$</li>
-<li></li>
+<li>约束条件：$B(x_1 K x_n)$</li>
+<li>目标函数；$f(x_1 K x_n)$</li>
 </ol>
 <p>贪心问题的数学形式化描述：$\max / \min f(x)$ 其中，$x$ 通过贪心策略逐步构建</p>
 <h2 id="基本概念">基本概念
@@ -595,12 +604,16 @@
   </thead>
   <tbody>
       <tr>
-          <td>贪心选择性质</td>
+          <td>贪心选择性</td>
           <td>贪心算法的每一步总是做出当前最好的选择</td>
       </tr>
       <tr>
           <td>最优子结构</td>
           <td>如果一个问题的最优解包含其子问题的最优解，那么这个问题就具有最优子结构的性质</td>
+      </tr>
+      <tr>
+          <td>局部最优</td>
+          <td></td>
       </tr>
   </tbody>
 </table></div>
@@ -619,13 +632,30 @@
   <tbody>
       <tr>
           <td>最优子结构</td>
-          <td></td>
-          <td></td>
+          <td>必须满足</td>
+          <td>必须满足</td>
+      </tr>
+      <tr>
+          <td>贪心选择性质</td>
+          <td>必须满足</td>
+          <td>不需要</td>
+      </tr>
+      <tr>
+          <td>重叠子问题</td>
+          <td>不需要</td>
+          <td>必须满足</td>
       </tr>
   </tbody>
 </table></div>
 </blockquote>
 <p>先验证最优子结构，再验证贪心选择性</p>
+<p>最优子结构的验证</p>
+<ol>
+<li>假设原问题的最优解为 $S = \{A_1, A_2, \cdots, A_n\}$，其中 $A_1$ 是结束时间最早的活动。</li>
+<li>分解子问题：在 $A_1$ 结束之后，剩余时间内选择最大相容活动子集 $S'$</li>
+<li>反证：若子问题的最优解不是 $S'$，则存在更大的相容活动集合 $S''$，使得 $|S''| &gt; |S'|$；此时，原问题的解可重构为 $\{A_1\} \cup S''$，其总活动数为 $1+|S''|&gt;|S|$，与原解 $S$ 的最优性矛盾。</li>
+<li>此时子问题的解 $S'$ 必须是最优的，否则原解 $S$ 不可能是最优的。</li>
+</ol>
 <p>贪心算法的性能</p>
 <p>贪心算法并不总能求出问题的整体最优解</p>
 <h2 id="案例">案例
@@ -633,10 +663,45 @@
 </h3><p>设有 $n$ 个集装箱，集装箱大小一样，第 $i$ 个集装箱的重量为 $w_i$，船的载重量为 $c$，设计一个装船的方法使得装入的集装箱数量最多。</p>
 <p>最优子结构：装载 $k$ 个集装箱后，移除一个集装箱后剩余集装箱的装载问题仍需是最优解。</p>
 <p>令 $(x_1, x_2, \cdots, x_k)$ 是一种装载方法</p>
-<p>约束条件：$\displaystyle \sum_{i=1}^{k} w_i \leqslant c$</p>
+<p>约束条件：$\displaystyle \sum_{i=1}^{n} w_i \leqslant c$</p>
+<p>目标函数：$\displaystyle \sum_{i=1}^{n} w_i$</p>
 <h3 id="背包问题">背包问题
-</h3><h3 id="">
-</h3>
+</h3><ol>
+<li>从未装入的物品中，选取效益值最大的物品装入背包。</li>
+<li>从未装入的物品中，选择重量最小的物品装入背包。</li>
+<li>按价值率，选择价值率最高的的物品装入背包。</li>
+</ol>
+<h3 id="哈夫曼编码">哈夫曼编码
+</h3><p>前缀码：</p>
+<p>使用哈夫曼编码进行压缩和解压时，必须提前有一个字典</p>
+<p><a class="link" href="/passage/cs/data-structure/tree#%e9%9c%8d%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81" >构造哈夫曼编码
+    
+    
+
+</a></p>
+<p>局部最优达到全局最优</p>
+<h3 id="拓扑排序">拓扑排序
+</h3><p><a class="link" href="/passage/cs/data-structure/graph#AOV%e7%bd%91%e7%bb%9c" >拓扑排序
+    
+    
+
+</a></p>
+<h3 id="最短路径">最短路径
+</h3><p><a class="link" href="/passage/cs/data-structure/graph#%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" >Dijkstra算法
+    
+    
+
+</a></p>
+<h3 id="最小生成树">最小生成树
+</h3><h4 id="kruskal算法">Kruskal算法
+</h4><p>贪心策略：每次选择权值 $c(e)$ 最小且与之前选择的边不成环的边 $e$</p>
+<h4 id="prim算法">Prim算法
+</h4><p><a class="link" href="/passage/cs/data-structure/graph#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91" >最小生成树
+    
+    
+
+</a></p>
+
 </section>
 
 

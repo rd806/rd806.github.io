@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="感谢 superpung 的notion 集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
 <title>形式化方法</title>
 
 <link rel='canonical' href='https://rd806.github.io/passage/software/formal_methods/'>
 
 <link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="形式化方法">
-<meta property='og:description' content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
+<meta property='og:description' content="感谢 superpung 的notion 集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
 <meta property='og:url' content='https://rd806.github.io/passage/software/formal_methods/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-15T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="形式化方法">
-<meta name="twitter:description" content="集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
+<meta name="twitter:description" content="感谢 superpung 的notion 集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 运算 含义 表达式 $$S \\subset T$$ 集合 $S$ 是 $T$ 的真子集 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$ 集合 $S$ 中元素的个数 $$A \\cup B$$ 集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $$A \\cap B$$ 集合 $A$ 与 $B$ 的交集 $A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $$A - B$$ 集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素 $$A - B = \\{x \\mid x \\in A \\land x \\notin B\\} = \\{x \\mid \\lnot(x \\in A \\to x \\in B)\\}$$ $$\\overline{A}$$ 集合 $A$ 相对于全集 $U$ 的补集 $$A \\oplus B$$ 集合 $A$ 与 $B$ 的对称差 在集合 $A$ 和 $B$ 但不在其交集的元素 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -368,6 +368,12 @@
         <li><a href="#函数重写">函数重写</a></li>
       </ol>
     </li>
+    <li><a href="#序列">序列</a>
+      <ol>
+        <li><a href="#序列的声明">序列的声明</a></li>
+        <li><a href="#序列的操作">序列的操作</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -613,7 +619,20 @@
     <section class="article-content">
     
     
-    <h2 id="集合论">集合论
+    <p>感谢 superpung 的<a class="link" href="https://superpung.notion.site/a234e03327a5483d9bb38b16d84bbc80"  target="_blank" rel="noopener"
+    >notion
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    
+
+</a></p>
+<h2 id="集合论">集合论
 </h2><p>集合是一个无顺序的结构，包含 $0$ 个或多个对象。</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -1182,6 +1201,75 @@ $$\begin{align*} & \text{[PERSON]} \\ & \text{father, mother}: \text{PERSON} \le
 <li>当 $x$ 在 $f$ 的定义域而不在 $g$ 的定义域中时，$f \oplus g\ x = f \ x$</li>
 <li>当 $x$ 在 $g$ 的定义域中时，$f \oplus g\ x = g \ x$</li>
 </ol>
+<h2 id="序列">序列
+</h2><p>序列可视为元素到自然数的一个函数，该函数的定义域为从1到序列大小的连续自然数。</p>
+<p>不含任何元素的序列称为空序列。</p>
+<h3 id="序列的声明">序列的声明
+</h3><p>$s: \text{seq} X$ 等价于声明函数 $\{f: N + \rightarrow X \mid \text{dom} f = 1,2\cdots\}$</p>
+<blockquote>
+<p>若序列必须非空，则可声明为 $s: \text{seq}_1 X$</p>
+<p>若序列为单射（即 $X$ 中的元素在序列中只出现一次），则可声明为 $s: \text{iseq} X$</p>
+</blockquote>
+<p>常量序列：$s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</p>
+<p>例如：</p>
+$$\begin{array}{c} \begin{align*} &[\text{CITY}] \quad \text{the set of cities of the world} \\ &\text{flight}: \text{seq} \quad \text{CITY} \\ & \text{flight} = \left<\text{Geneva}, \text{Paris}, \text{London}, \text{NewYork}\right> \end{align*} \end{array}$$<h3 id="序列的操作">序列的操作
+</h3><p>设序列 $s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>选择（Selection）</td>
+          <td>获取序列中特定的元素</td>
+          <td>$s \ 2 = s_2$</td>
+      </tr>
+      <tr>
+          <td>首元素（Head）</td>
+          <td>获取序列中第一个元素</td>
+          <td>$\text{head } s = s_1$</td>
+      </tr>
+      <tr>
+          <td>首元素序列（Front）</td>
+          <td>获取序列中除去最后一个元素的序列</td>
+          <td>$\text{front } s = \left&lt;s_1, s_2, \cdots, s_{n-1}\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>尾元素（Last）</td>
+          <td>获取序列中最后一个元素</td>
+          <td>$\text{last } s = s_n$</td>
+      </tr>
+      <tr>
+          <td>尾元素序列（Tail）</td>
+          <td>获取序列中除去第一个元素的序列</td>
+          <td>$\text{tail } s = \left&lt;s_2, s_3 \cdots, s_n\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>取值范围（Range）</td>
+          <td>获取序列中所有元素</td>
+          <td>$\text{ran } s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>反转（Reversion）</td>
+          <td>将序列中的元素逆序排列</td>
+          <td>$\text{rev } s = \left&lt;s_n, s_{n-1}, \cdots, s_1\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>连接（Concatenation）</td>
+          <td>对于两个类型相同的序列 $s = \left&lt;s_1, s_2, \cdots, s_m\right&gt;$ 和 $t = \left&lt;t_1, t_2, \cdots, t_n\right&gt;$，可连接称为一个新序列，它包含两个序列的所有元素。</td>
+          <td>$s \wedge t = \left&lt;s_1, s_2, \cdots, s_m, t_1, t_2, \cdots, t_n\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>过滤（Filtering）</td>
+          <td>从一个序列中尝试获取指定的元素，并按照原序列的次序排列</td>
+          <td>$s \uparrow t$</td>
+      </tr>
+  </tbody>
+</table></div>
 
 </section>
 
