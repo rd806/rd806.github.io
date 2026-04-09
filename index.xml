@@ -7,7 +7,126 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>RunicDolphin806</copyright>
-        <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cloudflare的使用</title>
+        <link>https://rd806.github.io/passage/website/cloudflare/</link>
+        <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://rd806.github.io/passage/website/cloudflare/</guid>
+        <description>&lt;img src="https://rd806.github.io/passage/website/cloudflare/cloudflare.png" alt="Featured image of post Cloudflare的使用" /&gt;&lt;h2 id=&#34;托管域名&#34;&gt;托管域名
+&lt;/h2&gt;&lt;h3 id=&#34;在-cloudflare-添加站点&#34;&gt;在 Cloudflare 添加站点
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;登录并添加站点：登录 Cloudflare 控制台，点击“添加站点”，输入完整域名（如&lt;code&gt;example.com&lt;/code&gt;，然后点击 “继续”&lt;/li&gt;
+&lt;li&gt;选择套餐：在套餐选择页面，选择最下方的 “免费计划”（Free），然后点击 “继续”。&lt;/li&gt;
+&lt;li&gt;扫描DNS记录：Cloudflare 会自动扫描你域名当前的 DNS 记录。请仔细核对，确保重要的记录（如你之前设置的&lt;code&gt;A&lt;/code&gt;、&lt;code&gt;CNAME&lt;/code&gt;等）都已正确列出。确认无误后，点击 “继续”。&lt;/li&gt;
+&lt;li&gt;获取 Cloudflare 的域名服务器（NS）：这是最关键的一步。Cloudflare 会为你分配两个专属的域名服务器地址。请务必复制并保存好这两个地址，它们通常长这样：&lt;code&gt;kate.ns.cloudflare.com&lt;/code&gt;，&lt;code&gt;matias.ns.cloudflare.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;修改-ns-记录&#34;&gt;修改 NS 记录
+&lt;/h3&gt;&lt;p&gt;这一步需要回到你购买域名的网站（如阿里云、Namecheap、GoDaddy 等）的后台进行操作。&lt;/p&gt;
+&lt;p&gt;在阿里云操作（示例）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登录阿里云控制台，进入“域名”列表。&lt;/li&gt;
+&lt;li&gt;找到你的域名，点击“管理”。&lt;/li&gt;
+&lt;li&gt;在页面中找到“DNS 修改”或“修改域名服务器”选项。&lt;/li&gt;
+&lt;li&gt;选择“自定义 DNS”，将第一步中从 Cloudflare 复制的两个 NS 地址粘贴进去，然后点击“提交”。&lt;/li&gt;
+&lt;li&gt;通用原则：无论你在哪个平台购买域名，核心操作都是找到域名的 DNS 管理 或 Nameserver 设置，然后替换成 Cloudflare 提供的那两个地址。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;等待生效并验证&#34;&gt;等待生效并验证
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;修改完 NS 记录后，回到 Cloudflare 的域名设置页面，点击 “立即检查名称服务器” 或 “完成，检查名称服务器” 按钮。&lt;/li&gt;
+&lt;li&gt;域名服务器更改通常需要几分钟到几小时才能全球生效。快的几分钟就会生效，最慢可能需要 24-48 小时。生效后，Cloudflare 面板中域名的状态会变为“有效”（Active），此时托管就成功了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cloudflare-tunnel&#34;&gt;Cloudflare Tunnel
+&lt;/h2&gt;&lt;p&gt;Cloudflare Tunnel 是目前最&lt;em&gt;良心&lt;/em&gt;的免费内网穿透方案之一：不需要公网 IP，不限制流量，还能自动配好 HTTPS 证书。&lt;/p&gt;
+&lt;p&gt;它的核心原理是在你的电脑和 Cloudflare 边缘节点之间建立一个安全的加密隧道，别人通过你的域名访问时，流量就会通过这个隧道安全地传到本地。&lt;/p&gt;
+&lt;h3 id=&#34;准备工作&#34;&gt;准备工作
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;一个托管到 Cloudflare 的域名&lt;/li&gt;
+&lt;li&gt;一个完整Linux系统（WSL应该不行）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;配置步骤&#34;&gt;配置步骤
+&lt;/h3&gt;&lt;h4 id=&#34;安装-cloudflared&#34;&gt;安装 cloudflared
+&lt;/h4&gt;&lt;p&gt;根据 Linux 发行版选择安装方式，以 Ubuntu 为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 1. 添加 Cloudflare 的 GPG 密钥和软件源&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir -p --mode&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0755&lt;/span&gt; /usr/share/keyrings
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /usr/share/keyrings/cloudflare-main.gpg &amp;gt;/dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/cloudflared.list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 2. 更新源并安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install cloudflared
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;认证并连接到域名&#34;&gt;认证并连接到域名
+&lt;/h4&gt;&lt;p&gt;执行以下命令，终端会输出一个链接。在电脑上打开链接，选择你的 Cloudflare 账号和要使用的域名，完成授权：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;cloudflared tunnel login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这一步会在你的 ~/.cloudflared/ 目录下生成一个 cert.pem 证书文件。&lt;/p&gt;
+&lt;h4 id=&#34;创建隧道&#34;&gt;创建隧道
+&lt;/h4&gt;&lt;p&gt;给你的隧道起一个有意义的名字，比如&lt;code&gt;my-tunnel&lt;/code&gt;，然后在终端执行命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;cloudflared tunnel create my-tunnel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;命令执行成功后会生成一个&lt;code&gt;.json&lt;/code&gt;凭证文件（如&lt;code&gt;xxxx-xxxx-xxxx.json&lt;/code&gt;），请务必保管好它。&lt;/p&gt;
+&lt;h4 id=&#34;配置隧道&#34;&gt;配置隧道
+&lt;/h4&gt;&lt;p&gt;创建配置文件&lt;code&gt;~/.cloudflared/config.yml&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;nano ~/.cloudflared/config.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;nano&lt;/code&gt;也可以替换为&lt;code&gt;vim&lt;/code&gt;等常用文本编辑器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;填入以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 你的隧道名称（与之前创建的一致）&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;tunnel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;my-tunnel&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;# 你的隧道凭证文件路径&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;credentials-file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;/home/你的用户名/.cloudflared/xxxx-xxxx-xxxx.json&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;ingress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 你想要使用的域名，必须是在 Cloudflare 上托管的&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;hostname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;your-domain.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 你本地服务的地址，比如 8080 端口&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;service&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;http://localhost:8080&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;# 这是一个兜底规则，如果请求不匹配上面的域名，返回 404&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;service&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;http_status:404&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;绑定域名&#34;&gt;绑定域名
+&lt;/h4&gt;&lt;p&gt;执行下面的命令，将你的域名指向刚才创建的隧道：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;cloudflared tunnel route dns my-tunnel your-domain.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会自动在你的 Cloudflare DNS 面板中创建一条 CNAME 记录，无需手动操作。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://rd806.github.io/passage/website/cloudflare/images/cloudflare%E7%9A%84Tunnel%E7%95%8C%E9%9D%A2.png&#34;
+	width=&#34;1006&#34;
+	height=&#34;740&#34;
+	srcset=&#34;https://rd806.github.io/passage/website/cloudflare/images/cloudflare%E7%9A%84Tunnel%E7%95%8C%E9%9D%A2_hu_11a8c0aa2d404a6c.png 480w, https://rd806.github.io/passage/website/cloudflare/images/cloudflare%E7%9A%84Tunnel%E7%95%8C%E9%9D%A2_hu_42533b42ce40ebc.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cloudflare DNS&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;135&#34;
+		data-flex-basis=&#34;326px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;运行隧道&#34;&gt;运行隧道
+&lt;/h4&gt;&lt;p&gt;前台运行（用于测试）：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cloudflared tunnel run my-tunnel&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;将tunnel注册为系统服务&#34;&gt;将Tunnel注册为系统服务
+&lt;/h3&gt;&lt;p&gt;cloudflared 服务在 Linux 下强制使用固定的配置文件路径：&lt;code&gt;/etc/cloudflared/config.yml&lt;/code&gt;，之前配置文件均在用户目录下（&lt;code&gt;/home/yourname/.cloudflare&lt;/code&gt;），因此需要进一步配置。&lt;/p&gt;
+&lt;h4 id=&#34;复制配置文件&#34;&gt;复制配置文件
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 创建系统配置目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo mkdir -p /etc/cloudflared
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 复制你的配置文件和凭证文件到系统目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo cp /home/rd806/.cloudflared/config.yml /etc/cloudflared/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo cp /home/rd806/.cloudflared/*.json /etc/cloudflared/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;确认配置文件内容：检查一下&lt;code&gt;/etc/cloudflared/config.yml&lt;/code&gt;里的路径是否正确&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo cat /etc/cloudflared/config.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果&lt;code&gt;credentials-file&lt;/code&gt;指向的还是&lt;code&gt;/home/yourname/.cloudflared/xxx.json&lt;/code&gt;，可以保留不变，因为服务能读取到那个路径。但为了稳妥，也可以改成&lt;code&gt;/etc/cloudflared/xxx.json&lt;/code&gt;（前提是凭证文件已经复制过去）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;安装并启动服务&#34;&gt;安装并启动服务
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 安装cloudflared 系统服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo cloudflared service install
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 启动系统服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start cloudflared
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; cloudflared
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl status cloudflared
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>形式化方法</title>
         <link>https://rd806.github.io/passage/software/formal_methods/</link>
         <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
@@ -2178,7 +2297,132 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 &lt; A_5}(\rho_{M(A_1, A_
 &lt;li&gt;通过&lt;code&gt;Thread&lt;/code&gt;类的子类实现多线程。&lt;/li&gt;
 &lt;li&gt;定义一个实现&lt;code&gt;Runnable&lt;/code&gt;接口的类实现多线程。&lt;/li&gt;
 &lt;/ol&gt;
-</description>
+&lt;h2 id=&#34;并行计算的性能评测&#34;&gt;并行计算的性能评测
+&lt;/h2&gt;&lt;h3 id=&#34;并行计算的性能&#34;&gt;并行计算的性能
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;指标&lt;/th&gt;
+          &lt;th&gt;内容&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Performance&lt;/td&gt;
+          &lt;td&gt;通常是指机器的速度，定义为程序执行时间的倒数&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;程序执行时间&lt;/td&gt;
+          &lt;td&gt;用户的相应时间（访问存储器的时间、CPU时间、I/O时间以及操作系统的开销）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;CPU时间&lt;/td&gt;
+          &lt;td&gt;表示CPU的工作时间，不包括I/O等待时间和运行其他任务的时间&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;计算量的度量&#34;&gt;计算量的度量
+&lt;/h4&gt;&lt;p&gt;工作负载：计算量/任务量&lt;/p&gt;
+&lt;p&gt;并行计算执行时间：$t_p = t_{comp} + t_{paro} + t_{comm}$&lt;/p&gt;
+&lt;p&gt;其中 $t_{comp}$ 为计算时间，$t_{paro}$ 为并行开销时间，$t_{comm}$ 为相互通信时间&lt;/p&gt;
+&lt;h4 id=&#34;性能指标&#34;&gt;性能指标
+&lt;/h4&gt;&lt;p&gt;加速比：串行执行时间与并行执行时间的比值 &lt;/p&gt;
+$$S(n) = \frac{t_s}{t_p}$$&lt;p&gt;计算/通信比：&lt;/p&gt;
+$$\frac{t_{comp}}{t_{comm}}$$&lt;p&gt;效率：&lt;/p&gt;
+$$E = \frac{t_s}{t_p \times n} = \frac{S(n)}{n}$$&lt;p&gt;代价：&lt;/p&gt;
+$$\frac{t_s}{E}$$&lt;h3 id=&#34;内存系统对性能的影响&#34;&gt;内存系统对性能的影响
+&lt;/h3&gt;&lt;p&gt;对很多应用而言，瓶颈在于内存系统，而不是CPU。它包括两个方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;延迟：处理器向内存发起访问直至获取数据所需要的时间。&lt;/li&gt;
+&lt;li&gt;带宽：内存系统向处理器传输数据的速率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将内存想象为水龙头，则延迟可视为打开水龙头到水流出之间的时间；带宽可视为水开始流出后每秒流出的水量。&lt;/p&gt;
+&lt;p&gt;如果想尽可能快地出水，应当减少延迟；如果想尽快地获得更多的水，应当提升带宽。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;考虑利用时间局部性和空间局部性原理减少延迟&lt;/p&gt;
+&lt;h3 id=&#34;加速比定律&#34;&gt;加速比定律
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;定义&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$P$&lt;/td&gt;
+          &lt;td&gt;处理器数目&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$W$&lt;/td&gt;
+          &lt;td&gt;问题规模，$W_s$ 表示串行部分，$W_p$ 表示可以并行的部分，则有 $W_s + W_p = W$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$T_s$&lt;/td&gt;
+          &lt;td&gt;串行执行时间&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$T_p$&lt;/td&gt;
+          &lt;td&gt;并行执行时间&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$S$&lt;/td&gt;
+          &lt;td&gt;加速比&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$E$&lt;/td&gt;
+          &lt;td&gt;效率&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;amdahl-定律&#34;&gt;Amdahl 定律
+&lt;/h4&gt;&lt;p&gt;在&lt;strong&gt;计算负载不变&lt;/strong&gt;、通过增加处理器的执行速度达到加速目的的条件下，不断增加并行计算机和处理器的数目，&lt;strong&gt;不可以&lt;/strong&gt;无限制地提升加速比。&lt;/p&gt;
+&lt;p&gt;固定负载的加速公式：&lt;/p&gt;
+$$S = \frac{W_s + W_p}{W_s + \displaystyle \frac{W_p}{P}} = \frac{f+(1-f)}{f+\displaystyle \frac{1-f}{P}} = \frac{P}{1+f(P-1)}$$&lt;p&gt;当 $P \rightarrow \infty$ 时，$\displaystyle S = \frac{1}{f}$&lt;/p&gt;
+&lt;p&gt;若有额外开销 $W_o$&lt;/p&gt;
+$$S = \frac{W_s + W_p}{W_s + \displaystyle \frac{W_p}{P} + W_o} = \frac{P}{1+f(P-1)+W_o \cdot \displaystyle \frac{P}{W}}$$&lt;h4 id=&#34;gustafson-定律&#34;&gt;Gustafson 定律
+&lt;/h4&gt;&lt;p&gt;在提升并行计算机数目的同时增加计算量，&lt;strong&gt;可以&lt;/strong&gt;无限制地提升加速比。&lt;/p&gt;
+$$S = \frac{W_s + P \cdot W_p}{W_s + P \cdot \displaystyle \frac{W_p}{P}} = \frac{W_s + P \cdot W_p}{W_s + W_p} = f+P(1-f) = P - f(P-1)$$&lt;p&gt;加入额外开销：&lt;/p&gt;
+$$S = \frac{W_s + P \cdot W_p}{W_s + W_p + W_o} = \frac{f + P(1-f)}{1+\displaystyle \frac{W_o}{W}}$$&lt;h4 id=&#34;sun-and-ni-定律&#34;&gt;Sun and Ni 定律
+&lt;/h4&gt;&lt;p&gt;令因子 $G(p)$ 表示存储容量增加到 $P$ 倍时工作负载的增加量，所以扩大后的工作负载 $W = fW + (1-f) \cdot G(p) \cdot W$&lt;/p&gt;
+$$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \displaystyle \frac{W}{p}} = \frac{f+(1-f) \cdot G(p)}{f+(1-f) \cdot \displaystyle \frac{G(p)}{p}}$$&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;$G(p) = 1$，就是Amadahl定律&lt;/li&gt;
+&lt;li&gt;$G(p) = p$，就是Gustafson定律&lt;/li&gt;
+&lt;li&gt;$G(p) &amp;gt; p$，相当于计算机负载比存储要求增加得快，此时Sun and Ni加速比更快&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;可扩放性评测&#34;&gt;可扩放性评测
+&lt;/h3&gt;&lt;p&gt;可扩放性反映了计算机系统性能随处理器数的增加而按比例提高的能力。&lt;/p&gt;
+&lt;p&gt;增加规模有利于提高加速比的因素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;较大的问题可以提高较高的并发度&lt;/li&gt;
+&lt;li&gt;额外开销的增加可能慢于有效计算的增加&lt;/li&gt;
+&lt;li&gt;算法中的串行分量比例不是固定不变的，随问题规模的增加而减小&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;openmp&#34;&gt;OpenMP
+&lt;/h2&gt;&lt;p&gt;OpenMP是一种面向共享内存以及分布式共享内存的多处理器多线程的并行编程语言。&lt;/p&gt;
+&lt;p&gt;编程模型：Fork-Join&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;开始执行时，只有主线程存在&lt;/li&gt;
+&lt;li&gt;主线程运行过程中，当遇到需要并行计算的时候，Fork新线程来并行执行任务。&lt;/li&gt;
+&lt;li&gt;并行执行时，主线程和派生线程共同工作&lt;/li&gt;
+&lt;li&gt;并行部分执行结束后，派生线程退出并挂起，不再工作，控制流回到单独的主线程中（Join）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;编译制导语句&#34;&gt;编译制导语句
+&lt;/h3&gt;&lt;p&gt;编译制导语句是在编译器编译程序时，识别特定的、包含OpenMP程序语义的注释&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在C/C++程序中，用&lt;code&gt;#pragma omp parallel&lt;/code&gt;来标识一段并行程序块。在一个无法识别OpenMP语义的普通编译器中，这些特定的注释会被视作普通的注释而被忽略。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;并行域&#34;&gt;并行域
+&lt;/h4&gt;&lt;p&gt;并行域中的代码被所有线程执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#pragma omp parallel [clause[[,] clause] ...] newline
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;共享任务&#34;&gt;共享任务
+&lt;/h4&gt;&lt;p&gt;共享任务结构将它所包含的代码划分给线程组的各成员来执行。&lt;/p&gt;
+&lt;p&gt;for语句指定紧随它的循环语句必须由线程组并行执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#pragma omp for[clause[[,] clause]...] newline
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         <item>
         <title>算法设计与分析</title>
@@ -8383,14 +8627,6 @@ $$ \begin{align*} \mathrm{MAX}(\bm{A}, \bm{B}) &amp;= [\mathrm{max}(R_1,R_2),\ma
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>Cloudflare的使用</title>
-        <link>https://rd806.github.io/passage/website/cloudflare/</link>
-        <pubDate>Sun, 17 Aug 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/passage/website/cloudflare/</guid>
-        <description></description>
         </item>
         <item>
         <title>Windows系统安装与修复</title>

@@ -360,6 +360,35 @@
         <li><a href="#java多线程">Java多线程</a></li>
       </ol>
     </li>
+    <li><a href="#并行计算的性能评测">并行计算的性能评测</a>
+      <ol>
+        <li><a href="#并行计算的性能">并行计算的性能</a>
+          <ol>
+            <li><a href="#计算量的度量">计算量的度量</a></li>
+            <li><a href="#性能指标">性能指标</a></li>
+          </ol>
+        </li>
+        <li><a href="#内存系统对性能的影响">内存系统对性能的影响</a></li>
+        <li><a href="#加速比定律">加速比定律</a>
+          <ol>
+            <li><a href="#amdahl-定律">Amdahl 定律</a></li>
+            <li><a href="#gustafson-定律">Gustafson 定律</a></li>
+            <li><a href="#sun-and-ni-定律">Sun and Ni 定律</a></li>
+          </ol>
+        </li>
+        <li><a href="#可扩放性评测">可扩放性评测</a></li>
+      </ol>
+    </li>
+    <li><a href="#openmp">OpenMP</a>
+      <ol>
+        <li><a href="#编译制导语句">编译制导语句</a>
+          <ol>
+            <li><a href="#并行域">并行域</a></li>
+            <li><a href="#共享任务">共享任务</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -1043,7 +1072,132 @@
 <li>通过<code>Thread</code>类的子类实现多线程。</li>
 <li>定义一个实现<code>Runnable</code>接口的类实现多线程。</li>
 </ol>
-
+<h2 id="并行计算的性能评测">并行计算的性能评测
+</h2><h3 id="并行计算的性能">并行计算的性能
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>指标</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Performance</td>
+          <td>通常是指机器的速度，定义为程序执行时间的倒数</td>
+      </tr>
+      <tr>
+          <td>程序执行时间</td>
+          <td>用户的相应时间（访问存储器的时间、CPU时间、I/O时间以及操作系统的开销）</td>
+      </tr>
+      <tr>
+          <td>CPU时间</td>
+          <td>表示CPU的工作时间，不包括I/O等待时间和运行其他任务的时间</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="计算量的度量">计算量的度量
+</h4><p>工作负载：计算量/任务量</p>
+<p>并行计算执行时间：$t_p = t_{comp} + t_{paro} + t_{comm}$</p>
+<p>其中 $t_{comp}$ 为计算时间，$t_{paro}$ 为并行开销时间，$t_{comm}$ 为相互通信时间</p>
+<h4 id="性能指标">性能指标
+</h4><p>加速比：串行执行时间与并行执行时间的比值 </p>
+$$S(n) = \frac{t_s}{t_p}$$<p>计算/通信比：</p>
+$$\frac{t_{comp}}{t_{comm}}$$<p>效率：</p>
+$$E = \frac{t_s}{t_p \times n} = \frac{S(n)}{n}$$<p>代价：</p>
+$$\frac{t_s}{E}$$<h3 id="内存系统对性能的影响">内存系统对性能的影响
+</h3><p>对很多应用而言，瓶颈在于内存系统，而不是CPU。它包括两个方面：</p>
+<ol>
+<li>延迟：处理器向内存发起访问直至获取数据所需要的时间。</li>
+<li>带宽：内存系统向处理器传输数据的速率。</li>
+</ol>
+<blockquote>
+<p>将内存想象为水龙头，则延迟可视为打开水龙头到水流出之间的时间；带宽可视为水开始流出后每秒流出的水量。</p>
+<p>如果想尽可能快地出水，应当减少延迟；如果想尽快地获得更多的水，应当提升带宽。</p>
+</blockquote>
+<p>考虑利用时间局部性和空间局部性原理减少延迟</p>
+<h3 id="加速比定律">加速比定律
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>参数</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$P$</td>
+          <td>处理器数目</td>
+      </tr>
+      <tr>
+          <td>$W$</td>
+          <td>问题规模，$W_s$ 表示串行部分，$W_p$ 表示可以并行的部分，则有 $W_s + W_p = W$</td>
+      </tr>
+      <tr>
+          <td>$T_s$</td>
+          <td>串行执行时间</td>
+      </tr>
+      <tr>
+          <td>$T_p$</td>
+          <td>并行执行时间</td>
+      </tr>
+      <tr>
+          <td>$S$</td>
+          <td>加速比</td>
+      </tr>
+      <tr>
+          <td>$E$</td>
+          <td>效率</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="amdahl-定律">Amdahl 定律
+</h4><p>在<strong>计算负载不变</strong>、通过增加处理器的执行速度达到加速目的的条件下，不断增加并行计算机和处理器的数目，<strong>不可以</strong>无限制地提升加速比。</p>
+<p>固定负载的加速公式：</p>
+$$S = \frac{W_s + W_p}{W_s + \displaystyle \frac{W_p}{P}} = \frac{f+(1-f)}{f+\displaystyle \frac{1-f}{P}} = \frac{P}{1+f(P-1)}$$<p>当 $P \rightarrow \infty$ 时，$\displaystyle S = \frac{1}{f}$</p>
+<p>若有额外开销 $W_o$</p>
+$$S = \frac{W_s + W_p}{W_s + \displaystyle \frac{W_p}{P} + W_o} = \frac{P}{1+f(P-1)+W_o \cdot \displaystyle \frac{P}{W}}$$<h4 id="gustafson-定律">Gustafson 定律
+</h4><p>在提升并行计算机数目的同时增加计算量，<strong>可以</strong>无限制地提升加速比。</p>
+$$S = \frac{W_s + P \cdot W_p}{W_s + P \cdot \displaystyle \frac{W_p}{P}} = \frac{W_s + P \cdot W_p}{W_s + W_p} = f+P(1-f) = P - f(P-1)$$<p>加入额外开销：</p>
+$$S = \frac{W_s + P \cdot W_p}{W_s + W_p + W_o} = \frac{f + P(1-f)}{1+\displaystyle \frac{W_o}{W}}$$<h4 id="sun-and-ni-定律">Sun and Ni 定律
+</h4><p>令因子 $G(p)$ 表示存储容量增加到 $P$ 倍时工作负载的增加量，所以扩大后的工作负载 $W = fW + (1-f) \cdot G(p) \cdot W$</p>
+$$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \displaystyle \frac{W}{p}} = \frac{f+(1-f) \cdot G(p)}{f+(1-f) \cdot \displaystyle \frac{G(p)}{p}}$$<blockquote>
+<ol>
+<li>$G(p) = 1$，就是Amadahl定律</li>
+<li>$G(p) = p$，就是Gustafson定律</li>
+<li>$G(p) &gt; p$，相当于计算机负载比存储要求增加得快，此时Sun and Ni加速比更快</li>
+</ol>
+</blockquote>
+<h3 id="可扩放性评测">可扩放性评测
+</h3><p>可扩放性反映了计算机系统性能随处理器数的增加而按比例提高的能力。</p>
+<p>增加规模有利于提高加速比的因素</p>
+<ol>
+<li>较大的问题可以提高较高的并发度</li>
+<li>额外开销的增加可能慢于有效计算的增加</li>
+<li>算法中的串行分量比例不是固定不变的，随问题规模的增加而减小</li>
+</ol>
+<h2 id="openmp">OpenMP
+</h2><p>OpenMP是一种面向共享内存以及分布式共享内存的多处理器多线程的并行编程语言。</p>
+<p>编程模型：Fork-Join</p>
+<ol>
+<li>开始执行时，只有主线程存在</li>
+<li>主线程运行过程中，当遇到需要并行计算的时候，Fork新线程来并行执行任务。</li>
+<li>并行执行时，主线程和派生线程共同工作</li>
+<li>并行部分执行结束后，派生线程退出并挂起，不再工作，控制流回到单独的主线程中（Join）</li>
+</ol>
+<h3 id="编译制导语句">编译制导语句
+</h3><p>编译制导语句是在编译器编译程序时，识别特定的、包含OpenMP程序语义的注释</p>
+<blockquote>
+<p>在C/C++程序中，用<code>#pragma omp parallel</code>来标识一段并行程序块。在一个无法识别OpenMP语义的普通编译器中，这些特定的注释会被视作普通的注释而被忽略。</p>
+</blockquote>
+<h4 id="并行域">并行域
+</h4><p>并行域中的代码被所有线程执行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp parallel [clause[[,] clause] ...] newline
+</span></span></span></code></pre></div><h4 id="共享任务">共享任务
+</h4><p>共享任务结构将它所包含的代码划分给线程组的各成员来执行。</p>
+<p>for语句指定紧随它的循环语句必须由线程组并行执行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp for[clause[[,] clause]...] newline
+</span></span></span></code></pre></div>
 </section>
 
 

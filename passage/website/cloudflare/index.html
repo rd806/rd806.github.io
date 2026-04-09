@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="托管域名 在 Cloudflare 添加站点 登录并添加站点：登录 Cloudflare 控制台，点击“添加站点”，输入完整域名（如example.com，然后点击 “继续” 选择套餐：在套餐选择页面，选择最下方的 “免费计划”（Free），然后点击 “继续”。 扫描DNS记录：Cloudflare 会自动扫描你域名当前的 DNS 记录。请仔细核对，确保重要的记录（如你之前设置的A、CNAME等）都已正确列出。确认无误后，点击 “继续”。 获取 Cloudflare 的域名服务器（NS）：这是最关键的一步。Cloudflare 会为你分配两个专属的域名服务器地址。请务必复制并保存好这两个地址，它们通常长这样：kate.ns.cloudflare.com，matias.ns.cloudflare.com 修改 NS 记录 这一步需要回到你购买域名的网站（如阿里云、Namecheap、GoDaddy 等）的后台进行操作。\n">
 <title>Cloudflare的使用</title>
 
 <link rel='canonical' href='https://rd806.github.io/passage/website/cloudflare/'>
 
 <link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="Cloudflare的使用">
-<meta property='og:description' content="">
+<meta property='og:description' content="托管域名 在 Cloudflare 添加站点 登录并添加站点：登录 Cloudflare 控制台，点击“添加站点”，输入完整域名（如example.com，然后点击 “继续” 选择套餐：在套餐选择页面，选择最下方的 “免费计划”（Free），然后点击 “继续”。 扫描DNS记录：Cloudflare 会自动扫描你域名当前的 DNS 记录。请仔细核对，确保重要的记录（如你之前设置的A、CNAME等）都已正确列出。确认无误后，点击 “继续”。 获取 Cloudflare 的域名服务器（NS）：这是最关键的一步。Cloudflare 会为你分配两个专属的域名服务器地址。请务必复制并保存好这两个地址，它们通常长这样：kate.ns.cloudflare.com，matias.ns.cloudflare.com 修改 NS 记录 这一步需要回到你购买域名的网站（如阿里云、Namecheap、GoDaddy 等）的后台进行操作。\n">
 <meta property='og:url' content='https://rd806.github.io/passage/website/cloudflare/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-17T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-09T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-09T00:00:00&#43;00:00'/><meta property='og:image' content='https://rd806.github.io/passage/website/cloudflare/cloudflare.png' />
 <meta name="twitter:title" content="Cloudflare的使用">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="托管域名 在 Cloudflare 添加站点 登录并添加站点：登录 Cloudflare 控制台，点击“添加站点”，输入完整域名（如example.com，然后点击 “继续” 选择套餐：在套餐选择页面，选择最下方的 “免费计划”（Free），然后点击 “继续”。 扫描DNS记录：Cloudflare 会自动扫描你域名当前的 DNS 记录。请仔细核对，确保重要的记录（如你之前设置的A、CNAME等）都已正确列出。确认无误后，点击 “继续”。 获取 Cloudflare 的域名服务器（NS）：这是最关键的一步。Cloudflare 会为你分配两个专属的域名服务器地址。请务必复制并保存好这两个地址，它们通常长这样：kate.ns.cloudflare.com，matias.ns.cloudflare.com 修改 NS 记录 这一步需要回到你购买域名的网站（如阿里云、Namecheap、GoDaddy 等）的后台进行操作。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://rd806.github.io/passage/website/cloudflare/cloudflare.png' />
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -299,6 +300,59 @@
         
             
                 
+    
+    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#托管域名">托管域名</a>
+      <ol>
+        <li><a href="#在-cloudflare-添加站点">在 Cloudflare 添加站点</a></li>
+        <li><a href="#修改-ns-记录">修改 NS 记录</a></li>
+        <li><a href="#等待生效并验证">等待生效并验证</a></li>
+      </ol>
+    </li>
+    <li><a href="#cloudflare-tunnel">Cloudflare Tunnel</a>
+      <ol>
+        <li><a href="#准备工作">准备工作</a></li>
+        <li><a href="#配置步骤">配置步骤</a>
+          <ol>
+            <li><a href="#安装-cloudflared">安装 cloudflared</a></li>
+            <li><a href="#认证并连接到域名">认证并连接到域名</a></li>
+            <li><a href="#创建隧道">创建隧道</a></li>
+            <li><a href="#配置隧道">配置隧道</a></li>
+            <li><a href="#绑定域名">绑定域名</a></li>
+            <li><a href="#运行隧道">运行隧道</a></li>
+          </ol>
+        </li>
+        <li><a href="#将tunnel注册为系统服务">将Tunnel注册为系统服务</a>
+          <ol>
+            <li><a href="#复制配置文件">复制配置文件</a></li>
+            <li><a href="#安装并启动服务">安装并启动服务</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
 
 <style>
     .container {
@@ -482,8 +536,20 @@
             <main class="main full-width">
      
     
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/passage/website/cloudflare/">
+                <img src="/passage/website/cloudflare/cloudflare_hu_1697493955ecc180.png"
+                        srcset="/passage/website/cloudflare/cloudflare_hu_1697493955ecc180.png 800w, /passage/website/cloudflare/cloudflare_hu_bea8929641471c1d.png 1600w"
+                        width="800" 
+                        height="404" 
+                        loading="lazy"
+                        alt="Featured image of post Cloudflare的使用" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -530,7 +596,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published" datetime='2025-08-17T00:00:00Z'>Aug 17, 2025</time>
+                <time class="article-time--published" datetime='2026-04-09T00:00:00Z'>Apr 09, 2026</time>
             </div>
         
 
@@ -546,7 +612,118 @@
     <section class="article-content">
     
     
-    
+    <h2 id="托管域名">托管域名
+</h2><h3 id="在-cloudflare-添加站点">在 Cloudflare 添加站点
+</h3><ol>
+<li>登录并添加站点：登录 Cloudflare 控制台，点击“添加站点”，输入完整域名（如<code>example.com</code>，然后点击 “继续”</li>
+<li>选择套餐：在套餐选择页面，选择最下方的 “免费计划”（Free），然后点击 “继续”。</li>
+<li>扫描DNS记录：Cloudflare 会自动扫描你域名当前的 DNS 记录。请仔细核对，确保重要的记录（如你之前设置的<code>A</code>、<code>CNAME</code>等）都已正确列出。确认无误后，点击 “继续”。</li>
+<li>获取 Cloudflare 的域名服务器（NS）：这是最关键的一步。Cloudflare 会为你分配两个专属的域名服务器地址。请务必复制并保存好这两个地址，它们通常长这样：<code>kate.ns.cloudflare.com</code>，<code>matias.ns.cloudflare.com</code></li>
+</ol>
+<h3 id="修改-ns-记录">修改 NS 记录
+</h3><p>这一步需要回到你购买域名的网站（如阿里云、Namecheap、GoDaddy 等）的后台进行操作。</p>
+<p>在阿里云操作（示例）：</p>
+<ol>
+<li>登录阿里云控制台，进入“域名”列表。</li>
+<li>找到你的域名，点击“管理”。</li>
+<li>在页面中找到“DNS 修改”或“修改域名服务器”选项。</li>
+<li>选择“自定义 DNS”，将第一步中从 Cloudflare 复制的两个 NS 地址粘贴进去，然后点击“提交”。</li>
+<li>通用原则：无论你在哪个平台购买域名，核心操作都是找到域名的 DNS 管理 或 Nameserver 设置，然后替换成 Cloudflare 提供的那两个地址。</li>
+</ol>
+<h3 id="等待生效并验证">等待生效并验证
+</h3><ol>
+<li>修改完 NS 记录后，回到 Cloudflare 的域名设置页面，点击 “立即检查名称服务器” 或 “完成，检查名称服务器” 按钮。</li>
+<li>域名服务器更改通常需要几分钟到几小时才能全球生效。快的几分钟就会生效，最慢可能需要 24-48 小时。生效后，Cloudflare 面板中域名的状态会变为“有效”（Active），此时托管就成功了。</li>
+</ol>
+<h2 id="cloudflare-tunnel">Cloudflare Tunnel
+</h2><p>Cloudflare Tunnel 是目前最<em>良心</em>的免费内网穿透方案之一：不需要公网 IP，不限制流量，还能自动配好 HTTPS 证书。</p>
+<p>它的核心原理是在你的电脑和 Cloudflare 边缘节点之间建立一个安全的加密隧道，别人通过你的域名访问时，流量就会通过这个隧道安全地传到本地。</p>
+<h3 id="准备工作">准备工作
+</h3><ol>
+<li>一个托管到 Cloudflare 的域名</li>
+<li>一个完整Linux系统（WSL应该不行）</li>
+</ol>
+<h3 id="配置步骤">配置步骤
+</h3><h4 id="安装-cloudflared">安装 cloudflared
+</h4><p>根据 Linux 发行版选择安装方式，以 Ubuntu 为例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 1. 添加 Cloudflare 的 GPG 密钥和软件源</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo mkdir -p --mode<span class="o">=</span><span class="m">0755</span> /usr/share/keyrings
+</span></span><span class="line"><span class="ln">3</span><span class="cl">curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg <span class="p">|</span> sudo tee /usr/share/keyrings/cloudflare-main.gpg &gt;/dev/null
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main&#39;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/cloudflared.list
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"># 2. 更新源并安装</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install cloudflared
+</span></span></code></pre></div><h4 id="认证并连接到域名">认证并连接到域名
+</h4><p>执行以下命令，终端会输出一个链接。在电脑上打开链接，选择你的 Cloudflare 账号和要使用的域名，完成授权：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cloudflared tunnel login
+</span></span></code></pre></div><p>这一步会在你的 ~/.cloudflared/ 目录下生成一个 cert.pem 证书文件。</p>
+<h4 id="创建隧道">创建隧道
+</h4><p>给你的隧道起一个有意义的名字，比如<code>my-tunnel</code>，然后在终端执行命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cloudflared tunnel create my-tunnel
+</span></span></code></pre></div><p>命令执行成功后会生成一个<code>.json</code>凭证文件（如<code>xxxx-xxxx-xxxx.json</code>），请务必保管好它。</p>
+<h4 id="配置隧道">配置隧道
+</h4><p>创建配置文件<code>~/.cloudflared/config.yml</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">nano ~/.cloudflared/config.yml
+</span></span></code></pre></div><blockquote>
+<p><code>nano</code>也可以替换为<code>vim</code>等常用文本编辑器</p>
+</blockquote>
+<p>填入以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># 你的隧道名称（与之前创建的一致）</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nt">tunnel</span><span class="p">:</span><span class="w"> </span><span class="l">my-tunnel</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c"># 你的隧道凭证文件路径</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nt">credentials-file</span><span class="p">:</span><span class="w"> </span><span class="l">/home/你的用户名/.cloudflared/xxxx-xxxx-xxxx.json</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nt">ingress</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">  </span><span class="c"># 你想要使用的域名，必须是在 Cloudflare 上托管的</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span>- <span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">your-domain.com</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="c"># 你本地服务的地址，比如 8080 端口</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">    </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:8080</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">  </span><span class="c"># 这是一个兜底规则，如果请求不匹配上面的域名，返回 404</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">http_status:404</span><span class="w">
+</span></span></span></code></pre></div><h4 id="绑定域名">绑定域名
+</h4><p>执行下面的命令，将你的域名指向刚才创建的隧道：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cloudflared tunnel route dns my-tunnel your-domain.com
+</span></span></code></pre></div><p>这个命令会自动在你的 Cloudflare DNS 面板中创建一条 CNAME 记录，无需手动操作。</p>
+<p><img src="/passage/website/cloudflare/images/cloudflare%E7%9A%84Tunnel%E7%95%8C%E9%9D%A2.png"
+	width="1006"
+	height="740"
+	srcset="/passage/website/cloudflare/images/cloudflare%E7%9A%84Tunnel%E7%95%8C%E9%9D%A2_hu_11a8c0aa2d404a6c.png 480w, /passage/website/cloudflare/images/cloudflare%E7%9A%84Tunnel%E7%95%8C%E9%9D%A2_hu_42533b42ce40ebc.png 1024w"
+	loading="lazy"
+	
+		alt="Cloudflare DNS"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="135"
+		data-flex-basis="326px"
+	
+></p>
+<h4 id="运行隧道">运行隧道
+</h4><p>前台运行（用于测试）：</p>
+<p><code>cloudflared tunnel run my-tunnel</code></p>
+<h3 id="将tunnel注册为系统服务">将Tunnel注册为系统服务
+</h3><p>cloudflared 服务在 Linux 下强制使用固定的配置文件路径：<code>/etc/cloudflared/config.yml</code>，之前配置文件均在用户目录下（<code>/home/yourname/.cloudflare</code>），因此需要进一步配置。</p>
+<h4 id="复制配置文件">复制配置文件
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 创建系统配置目录</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo mkdir -p /etc/cloudflared
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 复制你的配置文件和凭证文件到系统目录</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cp /home/rd806/.cloudflared/config.yml /etc/cloudflared/
+</span></span><span class="line"><span class="ln">6</span><span class="cl">sudo cp /home/rd806/.cloudflared/*.json /etc/cloudflared/
+</span></span></code></pre></div><p>确认配置文件内容：检查一下<code>/etc/cloudflared/config.yml</code>里的路径是否正确</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo cat /etc/cloudflared/config.yml
+</span></span></code></pre></div><blockquote>
+<p>如果<code>credentials-file</code>指向的还是<code>/home/yourname/.cloudflared/xxx.json</code>，可以保留不变，因为服务能读取到那个路径。但为了稳妥，也可以改成<code>/etc/cloudflared/xxx.json</code>（前提是凭证文件已经复制过去）。</p>
+</blockquote>
+<h4 id="安装并启动服务">安装并启动服务
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 安装cloudflared 系统服务</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo cloudflared service install
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 启动系统服务</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo systemctl start cloudflared
+</span></span><span class="line"><span class="ln">6</span><span class="cl">sudo systemctl <span class="nb">enable</span> cloudflared
+</span></span><span class="line"><span class="ln">7</span><span class="cl">sudo systemctl status cloudflared
+</span></span></code></pre></div>
 </section>
 
 
