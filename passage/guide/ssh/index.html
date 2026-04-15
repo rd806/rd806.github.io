@@ -320,22 +320,47 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#选择ssh应用程序">选择SSH应用程序</a>
+    <li><a href="#配置-ssh">配置 SSH</a>
+      <ol>
+        <li><a href="#windows系统">Windows系统</a>
+          <ol>
+            <li><a href="#安装-ssh-服务">安装 SSH 服务</a></li>
+            <li><a href="#启动并配置-ssh-服务">启动并配置 SSH 服务</a></li>
+          </ol>
+        </li>
+        <li><a href="#linux系统">Linux系统</a>
+          <ol>
+            <li><a href="#安装-openssh-server">安装 OpenSSH Server</a></li>
+            <li><a href="#启动-ssh-服务">启动 SSH 服务</a></li>
+            <li><a href="#配置防火墙">配置防火墙</a></li>
+            <li><a href="#获取服务器的ip地址">获取服务器的IP地址</a></li>
+          </ol>
+        </li>
+        <li><a href="#wsl系统">WSL系统</a></li>
+        <li><a href="#termux">Termux</a></li>
+      </ol>
+    </li>
+    <li><a href="#连接-ssh">连接 SSH</a>
+      <ol>
+        <li><a href="#直接连接">直接连接</a></li>
+        <li><a href="#ssh配置文件">SSH配置文件</a></li>
+      </ol>
+    </li>
+    <li><a href="#使用ssh密钥">使用SSH密钥</a>
+      <ol>
+        <li><a href="#制作密钥对">制作密钥对</a></li>
+        <li><a href="#在服务器上安装公钥">在服务器上安装公钥</a></li>
+        <li><a href="#打开密钥登录功能">打开密钥登录功能</a></li>
+        <li><a href="#下载私钥到客户端">下载私钥到客户端</a></li>
+      </ol>
+    </li>
+    <li><a href="#ssh应用程序">SSH应用程序</a>
       <ol>
         <li><a href="#visual-studio-code">Visual Studio Code</a></li>
         <li><a href="#tabby">Tabby</a></li>
         <li><a href="#serverbox">ServerBox</a></li>
       </ol>
     </li>
-    <li><a href="#配置-ssh">配置 SSH</a>
-      <ol>
-        <li><a href="#windows系统">Windows系统</a></li>
-        <li><a href="#linux系统">Linux系统</a></li>
-        <li><a href="#wsl系统">WSL系统</a></li>
-        <li><a href="#termux">Termux</a></li>
-      </ol>
-    </li>
-    <li><a href="#连接-ssh">连接 SSH</a></li>
   </ol>
 </nav>
         </div>
@@ -597,10 +622,232 @@
     <section class="article-content">
     
     
-    <h2 id="选择ssh应用程序">选择SSH应用程序
-</h2><h3 id="visual-studio-code">Visual Studio Code
-</h3><p>这是目前为止最强大的SSH应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。</p>
-<p>全程免费，而且附带端口转发、文件编辑、下载等功能，绝对好用！</p>
+    <p>SSH是一种传输协议，通过TCP传输加密通信来保护数据在传输过程中的安全性，广泛应用于系统管理、文件传输和远程命令执行等场景。</p>
+<h2 id="配置-ssh">配置 SSH
+</h2><p>连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。</p>
+<h3 id="windows系统">Windows系统
+</h3><blockquote>
+<p>将Windows系统作为远程主机的情况确实比较少，但确实存在（而且配置过程更具挑战性！）</p>
+</blockquote>
+<h4 id="安装-ssh-服务">安装 SSH 服务
+</h4><p>首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。</p>
+<h4 id="启动并配置-ssh-服务">启动并配置 SSH 服务
+</h4><p>管理员权限打开Powershell，输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Start-Service</span> <span class="n">sshd</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Set-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-StartupType</span> <span class="s1">&#39;Automatic&#39;</span>
+</span></span></code></pre></div><p>然后开放防火墙端口（默认22）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">        <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="mf">22</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c"># 其中&#39;OpenSSH Server&#39;是协议的名称，可自行修改</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c"># 这样默认同时开启IPV4和IPV6的端口，即“127.0.0.1:22”和“[0:0:0:0]:22”</span>
+</span></span></code></pre></div><p>还可以通过以下方法实现：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>打开防火墙高级设置</td>
+          <td>控制面板 &gt; Windows Defender 防火墙 &gt; 高级设置（或<code>win+R</code>输入<code>wf.msc</code>）</td>
+      </tr>
+      <tr>
+          <td>新建入站规则</td>
+          <td>右键“入站规则” &gt; 新建规则。</td>
+      </tr>
+      <tr>
+          <td>选择规则类型</td>
+          <td>选择“端口” &gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>指定端口和协议</td>
+          <td>协议类型：选择 TCP；特定本地端口：输入 22 &gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>选择操作</td>
+          <td>选择“允许连接” &gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>选择配置文件</td>
+          <td>默认全选（域、专用、公用）&gt; 下一步。</td>
+      </tr>
+      <tr>
+          <td>指定规则名称</td>
+          <td>如“允许 IPv6 22222 端口” &gt; 完成。</td>
+      </tr>
+  </tbody>
+</table></div>
+
+
+<blockquote class="alert alert-note">
+    <p>如果有时开放了防火墙但仍无法连接，可尝试重启电脑（我就是这样解决的……）</p></blockquote>
+<h3 id="linux系统">Linux系统
+</h3><h4 id="安装-openssh-server">安装 OpenSSH Server
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
+</span></span></code></pre></div><h4 id="启动-ssh-服务">启动 SSH 服务
+</h4><p>编辑配置文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo nano /etc/ssh/sshd_config
+</span></span></code></pre></div><p>确保以下配置项存在且未被注释：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">...
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Port 22
+</span></span><span class="line"><span class="ln">3</span><span class="cl">...
+</span></span><span class="line"><span class="ln">4</span><span class="cl">PasswordAuthentication yes
+</span></span><span class="line"><span class="ln">5</span><span class="cl">PermitRootLogin yes
+</span></span></code></pre></div><p>如果要启用IPV6的SSH连接，还应该保持以下内容未被注释：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Port 22
+</span></span><span class="line"><span class="ln">2</span><span class="cl">AddressFamily any
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ListenAddress 0.0.0.0
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ListenAddress ::
+</span></span></code></pre></div><p>启动SSH服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl start ssh
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo systemctl <span class="nb">enable</span> ssh   <span class="c1"># 设置开机自启</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo systemctl status ssh   <span class="c1"># 检查ssh运行状态</span>
+</span></span></code></pre></div><p>输出中应显示<code>active (running)</code>。</p>
+<h4 id="配置防火墙">配置防火墙
+</h4><p>允许 SSH 默认端口（22）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ufw <span class="nb">enable</span>  <span class="c1"># 如果防火墙未启用</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo ufw allow ssh
+</span></span></code></pre></div><h4 id="获取服务器的ip地址">获取服务器的IP地址
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ip a  <span class="c1"># 或 hostname -I</span>
+</span></span></code></pre></div><p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。</p>
+<h3 id="wsl系统">WSL系统
+</h3><blockquote>
+<p>连接WSL系统实在是<em>迷惑行为</em>，但本人就使用了近半年……</p>
+<p>现在我已转向完整的Ubuntu系统，还是纯净的用的爽！</p>
+</blockquote>
+<p>WSL系统的SSH配置与纯Linux系统类似，但要注意的是不能使用<code>systemctl</code>启动服务，请使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh start
+</span></span></code></pre></div><p>验证服务是否运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh status
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 或使用</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ps aux <span class="p">|</span> grep sshd
+</span></span></code></pre></div><blockquote>
+<p>注意:</p>
+<p>必须保证Windows防火墙的22端口已被放行；</p>
+<p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
+</blockquote>
+<details>
+    <summary>下面给出使用任务计划程序（无需第三方程序）的方法：点击展开</summary>
+<p>打开任务计划程序：<code>Win+R</code> → <code>taskschd.msc</code></p>
+<p>创建任务：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>选项</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>名称</td>
+          <td>StartWSL</td>
+      </tr>
+      <tr>
+          <td>触发器</td>
+          <td>选择「计算机启动时」</td>
+      </tr>
+      <tr>
+          <td>操作</td>
+          <td>新建 → 程序/脚本：<code>wsl.exe</code>，参数：<code>-d Ubuntu-22.04 -u root /usr/sbin/service ssh start</code><br>（或 <code>-d Ubuntu-22.04 true</code> 单纯启动实例）</td>
+      </tr>
+      <tr>
+          <td>设置</td>
+          <td>勾选「允许任务按需运行」</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>保存时输入管理员密码。重启测试即可。</p>
+</details>
+<h3 id="termux">Termux
+</h3><p>参见：<a class="link" href="/passage/system/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd" >Termux启动SSH功能
+    
+    
+
+</a></p>
+<h2 id="连接-ssh">连接 SSH
+</h2><h3 id="直接连接">直接连接
+</h3><p>在 Windows 本地测试：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@localhost
+</span></span></code></pre></div><p>从局域网其他设备连接：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@&lt;Windows主机IP&gt;
+</span></span></code></pre></div><h3 id="ssh配置文件">SSH配置文件
+</h3><p>通常位于<code>C:\Users\你的用户名\.ssh\config</code>文件中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Host xxxx                       # Host的名称，可自定义
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    HostName xxx.xxx.xxx.xxx    # SSH服务端的IP地址
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    User xxxxx                  # 登录的用户名
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    Port xxxxx                  # SSH服务端的IP端口
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    IdentityFile xxxxx          # SSH的连接私钥
+</span></span></code></pre></div><blockquote>
+<p>注意：VScode的<code>Host</code>名会绑定远程主机的操作系统（Windows、Linux、MacOS），如果使用同一个Host名连接不同操作系统的主机，需要在设置中修改，否则会报错。（就因为这个，让我花了近1小时）</p>
+<p>修改方法：打开<code>设置</code>，搜索<code>Remote Platform</code>，修改相应项的值
+<figure><img src="/passage/guide/ssh/images/Remote-Platform.png" width="800"><figcaption>
+      <h4>Remote Platform</h4>
+    </figcaption>
+</figure>
+</p>
+</blockquote>
+<h2 id="使用ssh密钥">使用SSH密钥
+</h2><p>SSH密钥可以实现免密登录，省去输入密码的操作，但需要保证私钥文件的存放安全。</p>
+<h3 id="制作密钥对">制作密钥对
+</h3><p>首先在服务器上制作密钥对：用密码登录到你打算使用密钥登录的账户，然后执行以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh-keygen
+</span></span></code></pre></div><p>之后会让你进行如下配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">Generating public/private rsa key pair.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Enter file in which to save the key <span class="o">(</span>/name/.ssh/id_rsa<span class="o">)</span>:    <span class="c1"># 密钥生成位置，按Enter即可</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Created directory <span class="s1">&#39;/name/.ssh&#39;</span>.
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:                 <span class="c1"># 输入密钥锁码，按Enter留空</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">Enter same passphrase again:                                <span class="c1"># 再输入一遍密钥锁码</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">Your identification has been saved in /name/.ssh/id_rsa.    <span class="c1"># 私钥</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">Your public key has been saved in /name/.ssh/id_rsa.pub.    <span class="c1"># 公钥</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">The key fingerprint is:
+</span></span><span class="line"><span class="ln">9</span><span class="cl">0f:d3:e7:1a:1c:bd:5c:03:f1:19:f1:22:df:9b:cc:08 name@host
+</span></span></code></pre></div><h3 id="在服务器上安装公钥">在服务器上安装公钥
+</h3><p>键入以下命令，在服务器上安装公钥：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> .ssh
+</span></span><span class="line"><span class="ln">2</span><span class="cl">cat id_rsa.pub &gt;&gt; authorized_keys
+</span></span></code></pre></div><blockquote>
+<p>也可以直接将<code>id_rsa.pub</code>文件中的内容复制到<code>authorized_keys</code>文件中。</p>
+</blockquote>
+<p>为了确保连接成功，请保证以下文件权限正确：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">chmod <span class="m">600</span> authorized_keys
+</span></span><span class="line"><span class="ln">2</span><span class="cl">chmod <span class="m">700</span> ~/.ssh
+</span></span></code></pre></div><h3 id="打开密钥登录功能">打开密钥登录功能
+</h3><p>编辑<code>/etc/ssh/sshd_config</code>文件，进行如下设置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">RSAAuthentication yes
+</span></span><span class="line"><span class="ln">2</span><span class="cl">PubkeyAuthentication yes
+</span></span></code></pre></div><blockquote>
+<p>另外，请留意 root 用户能否通过 SSH 登录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">PermitRootLogin yes
+</span></span></code></pre></div></blockquote>
+<p>当你完成全部设置，并以密钥方式登录成功后，再禁用密码登录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">PasswordAuthentication no
+</span></span></code></pre></div><p>最后，重启 SSH 服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">service sshd restart
+</span></span></code></pre></div><h3 id="下载私钥到客户端">下载私钥到客户端
+</h3><p>使用 WinSCP、SFTP 等工具将私钥文件<code>id_rsa</code>下载到客户端机器上，之后在SSH客户端中可输入私钥文件所在目录或其中的内容实现免密登录SSH。</p>
+<h2 id="ssh应用程序">SSH应用程序
+</h2><p>SSH应用程序可以简化连接操作，而且可以使用SFTP方便地进行文件上传和下载。</p>
+<h3 id="visual-studio-code">Visual Studio Code
+</h3><p>这是目前为止（我发现的）最方便的SSH应用，只需下载VScode并安装Remote-ssh插件，写好配置文件后就能连接。</p>
+<p><img src="/passage/guide/ssh/images/Remote-SSH.png"
+	width="1471"
+	height="486"
+	srcset="/passage/guide/ssh/images/Remote-SSH_hu_19cab96d40efecc9.png 480w, /passage/guide/ssh/images/Remote-SSH_hu_cd900264a51922ae.png 1024w"
+	loading="lazy"
+	
+		alt="VSCode的Remote-SSH插件"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="302"
+		data-flex-basis="726px"
+	
+></p>
+<p>全程免费，而且附带端口转发、文件编辑、下载等功能。</p>
 <h3 id="tabby">Tabby
 </h3><p>Tabby是一款现代的终端应用，界面简洁。</p>
 <blockquote>
@@ -620,18 +867,18 @@
 </blockquote>
 <h3 id="serverbox">ServerBox
 </h3><p>ServerBox是一款国产的远程服务器监控和操作应用，支持Windows、Linux、Android、MacOS等操作系统。优点是可以监测服务器实时运行状态（包括CPU、内存、温度、网络、硬盘等）。</p>
-<p><img src="/passage/guide/ssh/serverbox.png"
-	width="643"
-	height="459"
-	srcset="/passage/guide/ssh/serverbox_hu_659d8f6a579ef453.png 480w, /passage/guide/ssh/serverbox_hu_a21fa07204a654fc.png 1024w"
+<p><img src="/passage/guide/ssh/images/serverbox.png"
+	width="1307"
+	height="709"
+	srcset="/passage/guide/ssh/images/serverbox_hu_4e4b4f53edd302b2.png 480w, /passage/guide/ssh/images/serverbox_hu_3b3b382a7dda894e.png 1024w"
 	loading="lazy"
 	
 		alt="Serverbox的监测界面"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="140"
-		data-flex-basis="336px"
+		data-flex-grow="184"
+		data-flex-basis="442px"
 	
 ></p>
 <p>注意，Serverbox自带的脚本只支持监控Linux系统的运行数据，对于WSL系统，只能监控部分数据。</p>
@@ -673,191 +920,10 @@
       <tr>
           <td>Serverbox</td>
           <td>可以监控服务端的运行</td>
-          <td>Windows/Android</td>
+          <td>Windows/Android/MacOS</td>
       </tr>
   </tbody>
 </table></div>
-<h2 id="配置-ssh">配置 SSH
-</h2><p>连接到远程主机的原理与连接MC服务器类似，关键在于确定远程主机的IP地址和端口。</p>
-<h3 id="windows系统">Windows系统
-</h3><ol>
-<li>安装 SSH 服务</li>
-</ol>
-<p>首先在要连接的主机上打开设置，搜索“可选功能”，在“添加可选功能”中搜索“OpenSSH服务器”，下载该功能。</p>
-<ol start="2">
-<li>启动并配置 SSH 服务</li>
-</ol>
-<p>管理员权限打开Powershell，输入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">Start-Service</span> <span class="n">sshd</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">Set-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-StartupType</span> <span class="s1">&#39;Automatic&#39;</span>
-</span></span></code></pre></div><p>然后开放防火墙端口（默认22）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="mf">22</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c"># 其中&#39;OpenSSH Server&#39;是协议的名称，可自行修改</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c"># 这样默认同时开启IPV4和IPV6的端口，即“127.0.0.1:22”和“[0:0:0:0]:22”</span>
-</span></span></code></pre></div><p>还可以通过以下方法实现：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>步骤</th>
-          <th>操作</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>①</td>
-          <td>打开防火墙高级设置：控制面板 &gt; Windows Defender 防火墙 &gt; 高级设置（或<code>win+R</code>输入<code>wf.msc</code>）</td>
-      </tr>
-      <tr>
-          <td>②</td>
-          <td>新建入站规则：右键“入站规则” &gt; 新建规则。</td>
-      </tr>
-      <tr>
-          <td>③</td>
-          <td>选择规则类型：选择“端口” &gt; 下一步。</td>
-      </tr>
-      <tr>
-          <td>④</td>
-          <td>指定端口和协议：协议类型：选择 TCP（或 UDP，视应用而定）；特定本地端口：输入 22 &gt; 下一步。</td>
-      </tr>
-      <tr>
-          <td>⑤</td>
-          <td>选择操作：选择“允许连接” &gt; 下一步。</td>
-      </tr>
-      <tr>
-          <td>⑥</td>
-          <td>选择配置文件：默认全选（域、专用、公用）&gt; 下一步。</td>
-      </tr>
-      <tr>
-          <td>⑦</td>
-          <td>指定规则名称：如“允许 IPv6 22222 端口” &gt; 完成。</td>
-      </tr>
-  </tbody>
-</table></div>
-
-
-<blockquote class="alert alert-note">
-    <p>如果有时开放了防火墙但仍无法连接，可尝试重启电脑（我就是这样解决的……）</p></blockquote>
-<h3 id="linux系统">Linux系统
-</h3><ol>
-<li>安装 OpenSSH Server</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
-</span></span></code></pre></div><ol start="2">
-<li>启动 SSH 服务</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl start ssh
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo systemctl <span class="nb">enable</span> ssh   <span class="c1"># 设置开机自启</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo systemctl status ssh   <span class="c1"># 检查ssh运行状态</span>
-</span></span></code></pre></div><p>输出中应显示<code>active (running)</code>。</p>
-<ol start="3">
-<li>配置防火墙</li>
-</ol>
-<p>允许 SSH 默认端口（22）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo ufw <span class="nb">enable</span>  <span class="c1"># 如果防火墙未启用</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo ufw allow ssh
-</span></span></code></pre></div><ol start="4">
-<li>获取服务器的IP地址</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ip a  <span class="c1"># 或 hostname -I</span>
-</span></span></code></pre></div><p>找到类似 192.168.x.x 的局域网 IP 或公网 IP（如果适用）。</p>
-<h3 id="wsl系统">WSL系统
-</h3><ol>
-<li>安装 OpenSSH Server</li>
-</ol>
-<p>打开 WSL 中的 Ubuntu 终端，执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt update
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt install openssh-server
-</span></span></code></pre></div><ol start="2">
-<li>配置 SSH</li>
-</ol>
-<p>编辑配置文件：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo nano /etc/ssh/sshd_config
-</span></span></code></pre></div><p>确保以下配置项存在且未被注释：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">...
-</span></span><span class="line"><span class="ln">2</span><span class="cl">Port 22
-</span></span><span class="line"><span class="ln">3</span><span class="cl">...
-</span></span><span class="line"><span class="ln">4</span><span class="cl">PasswordAuthentication yes
-</span></span><span class="line"><span class="ln">5</span><span class="cl">PermitRootLogin yes
-</span></span></code></pre></div><p>如果要启用IPV6的SSH连接，还应该保持以下内容未被注释：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Port 22
-</span></span><span class="line"><span class="ln">2</span><span class="cl">AddressFamily any
-</span></span><span class="line"><span class="ln">3</span><span class="cl">ListenAddress 0.0.0.0
-</span></span><span class="line"><span class="ln">4</span><span class="cl">ListenAddress ::
-</span></span></code></pre></div><ol start="3">
-<li>启动 SSH 服务</li>
-</ol>
-<p>在 WSL 中，不能使用 systemctl，请使用：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh start
-</span></span></code></pre></div><p>验证服务是否运行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo service ssh status
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 或使用</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">ps aux <span class="p">|</span> grep sshd
-</span></span></code></pre></div><blockquote>
-<p>注意事项:</p>
-<p>必须保证Windows防火墙的22端口已被放行；</p>
-<p>WSL系统是Windows的子系统，在Windows开机时，WSL的ssh功能默认并不能开启，此时需要将WSL的ssh注册为系统服务实现Windows开机时启用WSL的ssh功能。</p>
-</blockquote>
-<details>
-    <summary>下面给出使用任务计划程序（无需第三方程序）的方法：点击展开</summary>
-<p>打开任务计划程序
-<code>Win+R</code> → <code>taskschd.msc</code></p>
-<p>创建任务：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>选项</th>
-          <th>操作</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>名称</td>
-          <td>StartWSL</td>
-      </tr>
-      <tr>
-          <td>触发器</td>
-          <td>选择「计算机启动时」</td>
-      </tr>
-      <tr>
-          <td>操作</td>
-          <td>新建 →程序/脚本：<code>wsl.exe</code>，参数：<code>-d Ubuntu-22.04 -u root /usr/sbin/service ssh start</code>（或 <code>-d Ubuntu-22.04 true</code> 单纯启动实例）</td>
-      </tr>
-      <tr>
-          <td>设置</td>
-          <td>勾选「允许任务按需运行」</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>保存时输入管理员密码。重启测试即可。</p>
-</details>
-<h3 id="termux">Termux
-</h3><p>参见：<a class="link" href="/passage/system/termux/#termux%e5%90%af%e5%8a%a8ssh%e5%8a%9f%e8%83%bd" >Termux启动SSH功能
-    
-    
-
-</a></p>
-<h2 id="连接-ssh">连接 SSH
-</h2><ol>
-<li>在 Windows 本地测试：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@localhost
-</span></span></code></pre></div><ol start="2">
-<li>从局域网其他设备连接：</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ssh 用户名@&lt;Windows主机IP&gt;
-</span></span></code></pre></div><ol start="3">
-<li>VScode的SSH配置文件:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">Host xxxx                       # Host的名称，可自定义
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    HostName xxx.xxx.xxx.xxx    # SSH服务端的IP地址
-</span></span><span class="line"><span class="ln">3</span><span class="cl">    User xxxxx                  # 登录的用户名
-</span></span><span class="line"><span class="ln">4</span><span class="cl">    Port xxxxx                  # SSH服务端的IP端口
-</span></span></code></pre></div><blockquote>
-<p>注意：VScode的<code>Host</code>名会绑定远程主机的操作系统（Windows、Linux、MacOS）。如果使用同一个Host名连接不同操作系统的主机，需要在设置中修改，否则会报错。（就因为这个，让我花了近1小时）</p>
-<p>修改方法：打开<code>设置</code> → 搜索<code>Remote Platform</code> → 修改相应项的值</p>
-</blockquote>
 
 </section>
 
@@ -923,6 +989,30 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/guide/docker/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/guide/docker/docker.d8ea8af649283113ca920ba8d5930c42_hu_8c6dbe217a7c0a45.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Docker"
+                        data-key="guide/docker" 
+                        data-hash="md5-2OqK9kkoMRPKkguo1ZMMQg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Docker</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -993,30 +1083,6 @@
 
         <div class="article-details">
             <h2 class="article-title">Windows系统安装与修复</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/passage/system/termux/">
-        
-        
-            <div class="article-image">
-                <img src="/passage/system/termux/termux.ef9c8dc02981dfda7424f6d78125f014_hu_82cffd8a4244ea7f.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Termux使用小技巧"
-                        data-key="system/termux" 
-                        data-hash="md5-75yNwCmB39p0JPbXgSXwFA==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Termux使用小技巧</h2>
         </div>
     </a>
 </article>
