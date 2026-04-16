@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 特征 概念 分阶段 状态依赖 无后效性 最优子结构 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 概念 分阶段 问题可分解为顺序执行的子阶段 状态依赖 每个阶段的决策依赖于当前状态 无后效性 当前决策仅影响未来状态，与过去路径无关 最优子结构 全局最优解包含子问题的最优解 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
 <title>算法：动态规划</title>
 
 <link rel='canonical' href='https://rd806.github.io/passage/cs/algorithm/dynamic/'>
 
 <link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="算法：动态规划">
-<meta property='og:description' content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 特征 概念 分阶段 状态依赖 无后效性 最优子结构 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
+<meta property='og:description' content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 概念 分阶段 问题可分解为顺序执行的子阶段 状态依赖 每个阶段的决策依赖于当前状态 无后效性 当前决策仅影响未来状态，与过去路径无关 最优子结构 全局最优解包含子问题的最优解 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/algorithm/dynamic/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-13T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="算法：动态规划">
-<meta name="twitter:description" content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 特征 概念 分阶段 状态依赖 无后效性 最优子结构 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
+<meta name="twitter:description" content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 概念 分阶段 问题可分解为顺序执行的子阶段 状态依赖 每个阶段的决策依赖于当前状态 无后效性 当前决策仅影响未来状态，与过去路径无关 最优子结构 全局最优解包含子问题的最优解 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -319,12 +319,14 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#特征">特征</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#应用">应用</a>
       <ol>
         <li><a href="#多段图">多段图</a></li>
         <li><a href="#01-背包问题">0/1 背包问题</a></li>
+        <li><a href="#旅行商问题">旅行商问题</a></li>
+        <li><a href="#矩阵乘法链">矩阵乘法链</a></li>
+        <li><a href="#all-pair最短路径问题">All-Pair最短路径问题</a></li>
       </ol>
     </li>
   </ol>
@@ -573,8 +575,7 @@
     
     
     <p>动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。</p>
-<h2 id="特征">特征
-</h2><div class="table-wrapper"><table>
+<div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>特征</th>
@@ -584,34 +585,83 @@
   <tbody>
       <tr>
           <td>分阶段</td>
-          <td></td>
+          <td>问题可分解为顺序执行的子阶段</td>
       </tr>
       <tr>
           <td>状态依赖</td>
-          <td></td>
+          <td>每个阶段的决策依赖于当前状态</td>
       </tr>
       <tr>
           <td>无后效性</td>
-          <td></td>
+          <td>当前决策仅影响未来状态，与过去路径无关</td>
       </tr>
       <tr>
           <td>最优子结构</td>
-          <td></td>
+          <td>全局最优解包含子问题的最优解</td>
       </tr>
   </tbody>
 </table></div>
 <h2 id="原理">原理
 </h2><p>动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程</p>
 <p>利用优化原理，使用枚举法建立不同长度子问题的优化值之间的递归关系——动态规划方程</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本步骤</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定义子问题</td>
+          <td>将原问题划分为一系列更小的子问题。这些子问题通常是重叠的，原问题的解将依赖于子问题的解</td>
+      </tr>
+      <tr>
+          <td>建立状态转移方程</td>
+          <td>根据子问题之间的关系建立状态转移方程</td>
+      </tr>
+      <tr>
+          <td>确立边界条件</td>
+          <td>确定当问题简化到一定程度时的解</td>
+      </tr>
+      <tr>
+          <td>计算最优解</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="应用">应用
 </h2><h3 id="多段图">多段图
 </h3><p>最短路径上的子路径也是该两点之间的最短路径。</p>
 <p>节点1到目的节点的最短路长度 $c(1)$ 可从2，3，4到目的节点的最短长度 $c(i)$ 加上 节点1到这些节点的边成本 $\text{cost}(1,i)$ 经过枚举得到：</p>
-$$c(1) = \min_{i \in \{2,3,4\}} \{c(i) + \text{cost}(1,i)\}$$<p>则有 </p>
+$$c(1) = \min_{i \in \{2,3,4\}} \{c(i) + \text{cost}(1,i)\}$$<p>则有状态转移方程 </p>
 $$c(i) = \min_{j \in A(i)} \{c(j) + \text{cost}(i,j)\}$$<h3 id="01-背包问题">0/1 背包问题
 </h3><p>虽然不知道优化解是否放物品1，但我们可以利用优化原理，从枚举“放”和“不放”两种情形建立递归式</p>
 <p>设 $f(i,y)$ 为以背包容量 $y$ 放物品 $i,&hellip;,n$ 得到的优化效益值，以下递归关系成立：</p>
-$$f(1,c) = \max \{f(2,c), f(2, c-w_1)+p_1\}$$
+$$f(1,c) = \max \{f(2,c), f(2, c-w_1)+p_1\}$$<p>令 $f(i,y)$ 表示容量为 $y$，物品 $i, i+1, \cdots, n$ 的优化效益值，按优化原理可列递归关系式如下：</p>
+$$f(i,y) = \left\{ \begin{array}{c} \begin{align*} &\max\{f(i+1, y), f(i+1, y-w_i)+p_i\} & y \geqslant w_i \\\\ &f(i+1, y) & 0 \leqslant y < w_i \end{align*} \end{array} \right.$$<p>第2行表示背包容量 $y$ 不足以放下物品 $i$。</p>
+<h3 id="旅行商问题">旅行商问题
+</h3><p>给定一个图，寻找一条最短的环路，使得每个顶点恰好经过一次，并且最后回到原点。</p>
+<p>求图 $G=(V,E)$ 的最小成本周游路线</p>
+<p>令 $S$ 为 $V$ 的不含节点1的子集，设 $g(i,S)$ 表示从节点 $i$ 出发，经过 $S$ 中所有节点各一次，到达节点1的最短路径长度，则有以下状态转移方程：</p>
+$$g(i,S) = \min_{j \in S}\{c_{i,j} + g(j, S-\{j\})\}$$<p>原问题为：$g(1, V-\{1\})$</p>
+<p>初始：$g(i, \oslash) = c_{i,1}$</p>
+<p>从 $S = \oslash$ 开始，依次对 $|S| = 1,2, \cdots, n-1$ 计算</p>
+<p>考虑有如下邻接矩阵的图：</p>
+$$\left[ \begin{matrix} 0 &10 &15 &20 \\ 5 &0 &9 &10 \\ 6 &13 &0 &12 \\ 8 &8 &9 &0 \end{matrix} \right]$$<p> 计算过程如下：</p>
+<h3 id="矩阵乘法链">矩阵乘法链
+</h3><p>$m \times n$ 矩阵 $\bm{A}$ 与 $n \times p$ 矩阵 $\bm{B}$ 相乘需要元素乘法 $m \cdot n \cdot p$ 次，</p>
+<p>$(\bm{A} \times \bm{B}) \times \bm{C}$ 与 $\bm{A} \times (\bm{B} \times \bm{C})$ 的元素乘法次数不同。例如，假定 $\bm{A} \in \mathbb{R}^{100 \times 1}$，$\bm{B} \in \mathbb{R}^{1 \times 100}$，$\bm{C} \in \mathbb{R}^{100 \times 1}$，则：</p>
+<ul>
+<li>$(\bm{A} \times \bm{B}) \times \bm{C}$ 的乘法次数为 $1 \times 100 \times 100 + 100 \times 100 \times 1 = 20000$</li>
+<li>$\bm{A} \times (\bm{B} \times \bm{C})$ 的乘法次数为 $1 \times 100 \times 1 + 100 \times 1 \times 1 = 200$</li>
+</ul>
+<p>问题：对任意给定长度 $q$ 的矩阵乘法链 </p>
+$$\bm{M}_1 \times \bm{M_2} \times \cdots \times \bm{M}_q$$<p> 求优化的乘法顺序使得计算该乘法链所用的乘法数最少</p>
+<p>用 $M(i,j)$ 表示链 $M_i \times \cdots \times M_j$ 的乘积，假设优化的矩阵乘法链的顺序最后计算乘积 $M(i,k) \times M(k+1,j)$，则计算 $M(i,j)$ 的优化乘法顺序在计算子链 $M(i,k)$ 和 $M(k+1,j)$ 时也是优化的。</p>
+<h3 id="all-pair最短路径问题">All-Pair最短路径问题
+</h3><p>设 $G$ 为有向图，其中每条边都有一个成本，图中每条有向路径</p>
+
 </section>
 
 
@@ -678,9 +728,20 @@ $$f(1,c) = \max \{f(2,c), f(2, c-w_1)+p_1\}$$
         <div class="flex article-list--tile">
             
                 
-<article class="">
+<article class="has-image">
     <a href="/passage/software/formal_methods/">
         
+        
+            <div class="article-image">
+                <img src="/passage/software/formal_methods/cover.78e41658488ae58a4d3c829e46fef005_hu_a3a497ac026fe855.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 形式化方法"
+                        data-key="software/formal_methods" 
+                        data-hash="md5-eOQWWEiK5YpNPIKeRv7wBQ==">
+                
+            </div>
         
 
         <div class="article-details">
