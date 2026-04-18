@@ -782,8 +782,11 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
-&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
+&lt;h2 id=&#34;多窗口&#34;&gt;多窗口
+&lt;/h2&gt;&lt;h3 id=&#34;tmux&#34;&gt;tmux
+&lt;/h3&gt;&lt;h3 id=&#34;screen&#34;&gt;screen
+&lt;/h3&gt;&lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
+&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/guide/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
     
     
 

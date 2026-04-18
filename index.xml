@@ -11313,8 +11313,11 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
-&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/p/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
+&lt;h2 id=&#34;多窗口&#34;&gt;多窗口
+&lt;/h2&gt;&lt;h3 id=&#34;tmux&#34;&gt;tmux
+&lt;/h3&gt;&lt;h3 id=&#34;screen&#34;&gt;screen
+&lt;/h3&gt;&lt;h2 id=&#34;ssh连接linux系统&#34;&gt;SSH连接Linux系统
+&lt;/h2&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/guide/ssh/#linux%e7%b3%bb%e7%bb%9f&#34; &gt;SSH配置简介
     
     
 
@@ -11909,12 +11912,12 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
       &lt;tr&gt;
           &lt;td&gt;Mohist（墨端）&lt;/td&gt;
           &lt;td&gt;混合端&lt;/td&gt;
-          &lt;td&gt;全版本&lt;/td&gt;
+          &lt;td&gt;主要为1.20.1&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&#34;安装-java-环境&#34;&gt;安装 Java 环境
-&lt;/h3&gt;&lt;p&gt;Java环境是MC服务器必备的运行环境。Java有多个发行版，不同的MC服务端对应不同的Java。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;Java环境是MC服务器必备的运行环境。Java有多个版本，不同的MC服务端对应不同的Java。&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -11964,16 +11967,26 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/a&gt;下载。&lt;/p&gt;
 &lt;p&gt;使用&lt;code&gt;.exe&lt;/code&gt;或&lt;code&gt;.msi&lt;/code&gt;文件安装的Java一般自动配置好了环境变量，如果使用&lt;code&gt;.zip&lt;/code&gt;安装Java则需手动配置。&lt;/p&gt;
 &lt;h3 id=&#34;服务端启动流程&#34;&gt;服务端启动流程
-&lt;/h3&gt;&lt;p&gt;首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。&lt;/p&gt;
-&lt;p&gt;然后新建一个文本文档，在文档内输入&lt;code&gt;java -jar 你的服务端核心名.jar&lt;/code&gt;，保存后将文件扩展名改为&lt;code&gt;.bat&lt;/code&gt;。之后双击&lt;code&gt;.bat&lt;/code&gt;文件，服务端将会运行并且在终端实时输出。这时通常会出现&lt;code&gt;是否同意eula协议&lt;/code&gt;，此时须在文件夹内找到&lt;code&gt;eula&lt;/code&gt;开头的文件，将其中的&lt;code&gt;false&lt;/code&gt;改为&lt;code&gt;true&lt;/code&gt;。最后再次启动&lt;code&gt;.bat&lt;/code&gt;文件，服务端开启成功。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;以Windows系统为例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;从网络上下载对应的服务端，通常是一个&lt;code&gt;.jar&lt;/code&gt;文件。&lt;/li&gt;
+&lt;li&gt;新建一个文件夹，将服务端核心放在文件夹内。&lt;/li&gt;
+&lt;li&gt;在文件夹内新建一个文本文档，文档内输入&lt;code&gt;java -jar 你的服务端核心名.jar&lt;/code&gt;，保存后将文件扩展名改为&lt;code&gt;.bat&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;双击&lt;code&gt;.bat&lt;/code&gt;文件，服务端将会运行并且在终端实时输出。这时通常会出现&lt;code&gt;是否同意eula协议&lt;/code&gt;，此时须在文件夹内找到&lt;code&gt;eula&lt;/code&gt;开头的文件，将其中的&lt;code&gt;false&lt;/code&gt;改为&lt;code&gt;true&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;再次启动&lt;code&gt;.bat&lt;/code&gt;文件，服务端开启成功。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若为Linux系统，则需要将启动文件改为&lt;code&gt;.sh&lt;/code&gt;文件，同时使用&lt;code&gt;chmod +x xxx.sh&lt;/code&gt;赋予执行权限。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;网络配置&#34;&gt;网络配置
 &lt;/h2&gt;&lt;p&gt;搭建服务器最重要的是配置好网络，核心是确定服务器的IP地址和端口号。&lt;/p&gt;
 &lt;h3 id=&#34;局域网联机&#34;&gt;局域网联机
 &lt;/h3&gt;&lt;p&gt;局域网联机最简单，只需知道服务器运行的主机的IP地址即可。&lt;/p&gt;
-&lt;p&gt;Windows平台：&lt;code&gt;win+r&lt;/code&gt;打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。&lt;/p&gt;
+&lt;p&gt;Windows平台：&lt;kbd&gt;WIN&lt;/kbd&gt; + &lt;kbd&gt;R&lt;/kbd&gt; 打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。&lt;/p&gt;
 &lt;p&gt;Linux平台：命令行输入 &lt;code&gt;ip a&lt;/code&gt; 。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。&lt;/p&gt;
+&lt;p&gt;若路由器开启了AP隔离（大部分校园网等），则此方法可能失效。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;内网穿透&#34;&gt;内网穿透
 &lt;/h3&gt;&lt;p&gt;请在网络上自行查找相关内容。&lt;/p&gt;
@@ -11982,10 +11995,39 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;ipv6连接&#34;&gt;IPv6连接
 &lt;/h3&gt;&lt;p&gt;这是目前成本最低，效果最好的连接方式。&lt;/p&gt;
-&lt;p&gt;首先必须确保你和你的伙伴都有IPv6访问，然后&lt;code&gt;win+r&lt;/code&gt;打开cmd，输入&lt;code&gt;ipconfig&lt;/code&gt;，这时应该可以看到一串&lt;code&gt;240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx&lt;/code&gt;（必须为&lt;code&gt;240e&lt;/code&gt;开头，这样才是公网IPv6），这时&lt;code&gt;[IPV6地址]:端口号&lt;/code&gt;的形式就是服务器的IP地址。&lt;/p&gt;
+&lt;p&gt;首先必须确保你和你的伙伴都有IPv6访问，然后查看IP地址，这时应该可以看到一串&lt;code&gt;240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx&lt;/code&gt;（必须为&lt;code&gt;240e&lt;/code&gt;开头，这样才是公网IPv6），这时&lt;code&gt;[IPV6地址]:端口号&lt;/code&gt;的形式就是服务器的IP地址。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用“ : ”隔开；IPv6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。&lt;/p&gt;
+&lt;p&gt;目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用&lt;code&gt;.&lt;/code&gt;隔开；IPv6地址为28个16进制数，每4个数字用&lt;code&gt;:&lt;/code&gt;隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;如果你拥有一个域名，则可以给该域名添加一个&lt;code&gt;AAAA&lt;/code&gt;记录（如&lt;code&gt;www.yourdomain.com&lt;/code&gt;）绑定到公网IPv6，再添加一个&lt;code&gt;CNAME&lt;/code&gt;记录（如&lt;code&gt;mc.yourdomain.com&lt;/code&gt;）指向该&lt;code&gt;AAAA&lt;/code&gt;记录。这样就可以通过&lt;code&gt;mc.yourdomain.com:port&lt;/code&gt;连接到服务器。&lt;/p&gt;
+&lt;p&gt;如果想去除端口号，则再添加一个&lt;code&gt;SRV&lt;/code&gt;记录：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;设置&lt;/th&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;名称&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;_minecraft._tcp.mc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;权重&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;5&lt;/code&gt;（满足取值要求即可）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;端口&lt;/td&gt;
+          &lt;td&gt;服务器的端口&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;目标&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;www.yourdomain.com&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;这样就可以通过&lt;code&gt;mc.yourdomain.com&lt;/code&gt;直接连接。&lt;/p&gt;
 &lt;h2 id=&#34;服务器进阶&#34;&gt;服务器进阶
 &lt;/h2&gt;&lt;h3 id=&#34;修改服务器配置&#34;&gt;修改服务器配置
 &lt;/h3&gt;&lt;p&gt;依据服务端核心的不同，修改方法也有所区别。&lt;/p&gt;
@@ -12024,7 +12066,7 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;在&lt;code&gt;java -jar 你的服务端核心名.jar&lt;/code&gt;中，可在&lt;code&gt;-jar&lt;/code&gt;之后加上&lt;code&gt;-XmsAG -XmxBG&lt;/code&gt;表示给服务器至少分配A个G的内存，至多分配B个G的内存。&lt;/p&gt;
-&lt;p&gt;特别的，&lt;code&gt;java&lt;/code&gt;可以替换为具体的&lt;code&gt;Java/bin&lt;/code&gt;路径。若未指明，默认为最新版的Java。&lt;/p&gt;
+&lt;p&gt;特别的，&lt;code&gt;java&lt;/code&gt;可以替换为具体的&lt;code&gt;Java/bin&lt;/code&gt;路径。若未指明，默认为环境变量中的Java。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;serverproperties&#34;&gt;&lt;code&gt;server.properties&lt;/code&gt;
 &lt;/h4&gt;&lt;p&gt;这是所有服务器都具备的配置文件。&lt;/p&gt;
@@ -12058,7 +12100,7 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;max-players&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;40                          #服务器允许的最多人数&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;max-tick-time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;60000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;max-world-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;29999984&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;motd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;智算11班公益养老服(1.4)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;motd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;rd806&amp;#39;s server                     #服务器说明，显示在多人游戏界面&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;network-compression-threshold&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;256&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;online-mode&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;false                       #是否启用在线模式&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;op-permission-level&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;4                   #管理员命令等级&lt;/span&gt;
@@ -12088,15 +12130,23 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;bukkityml&#34;&gt;&lt;code&gt;bukkit.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h4 id=&#34;spiogtyml&#34;&gt;&lt;code&gt;spiogt.yml&lt;/code&gt;
 &lt;/h4&gt;&lt;h3 id=&#34;安装插件和模组&#34;&gt;安装插件和模组
-&lt;/h3&gt;&lt;h3 id=&#34;使用ssh远程连接服务器主机&#34;&gt;使用SSH远程连接服务器主机
-&lt;/h3&gt;&lt;p&gt;参见：&lt;a class=&#34;link&#34; href=&#34;https://rd806.github.io/passage/guide/ssh/&#34; &gt;SSH配置简介
+&lt;/h3&gt;&lt;p&gt;插件放至&lt;code&gt;plugins&lt;/code&gt;文件夹&lt;/p&gt;
+&lt;p&gt;模组放至&lt;code&gt;mods&lt;/code&gt;文件夹&lt;/p&gt;
+&lt;h3 id=&#34;服务器引入mysql&#34;&gt;服务器引入MySQL
+&lt;/h3&gt;&lt;p&gt;对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。&lt;/p&gt;
+&lt;p&gt;下面以服务端插件&lt;a class=&#34;link&#34; href=&#34;https://modrinth.com/plugin/powerranks&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PowerRanks
     
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
     
 
-&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;使用mysql管理玩家数据&#34;&gt;使用MySQL管理玩家数据
-&lt;/h3&gt;&lt;p&gt;对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。&lt;/p&gt;
-&lt;p&gt;下面以服务端插件PowerRanks为例进行说明。&lt;/p&gt;
+&lt;/a&gt;为例进行说明：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;打开PowerRanks的配置文件，找到关于数据来源的配置。 将&lt;code&gt;type&lt;/code&gt;改为&lt;code&gt;mysql&lt;/code&gt;，并配置好端口、用户名和密码。这样在启动时，插件会自动从&lt;code&gt;127.0.0.1:3306&lt;/code&gt;端口的&lt;code&gt;root&lt;/code&gt;用户读入数据。&lt;/li&gt;
 &lt;/ol&gt;
@@ -12113,20 +12163,104 @@ $$|f&#39;(x)| \leqslant \frac{f(x)}{|h|} + M \cdot \frac{|h|}{2} \leqslant 2 \sq
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;verbose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nn&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;在MySQL的表中创建新表，命名为&lt;code&gt;powerranks&lt;/code&gt;，此处名称应与配置文件中的&lt;code&gt;database&lt;/code&gt;后的名称相同。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;启动MC服务器，这样Powerranks插件就会自动在MySQL中创建数据表，可以对其进行相关操作。&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;在MySQL的表中创建新表，命名为&lt;code&gt;powerranks&lt;/code&gt;，此处名称应与配置文件中的&lt;code&gt;database&lt;/code&gt;后的名称相同。&lt;/li&gt;
+&lt;li&gt;启动MC服务器，这样Powerranks插件就会自动在MySQL中创建数据表，可以对其进行相关操作。&lt;/li&gt;
 &lt;/ol&gt;
+
+
+&lt;blockquote class=&#34;alert alert-note&#34;&gt;
+    &lt;p&gt;使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端（&lt;code&gt;sudo service mysql start&lt;/code&gt;），否则会报错。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;使用nginx反向代理&#34;&gt;使用Nginx反向代理
+&lt;/h3&gt;&lt;h2 id=&#34;常见问题&#34;&gt;常见问题
+&lt;/h2&gt;&lt;h3 id=&#34;服务端加载长时间停顿&#34;&gt;服务端加载长时间停顿
+&lt;/h3&gt;&lt;p&gt;服务端在&lt;strong&gt;加载阶段&lt;/strong&gt;出现长时间停顿（即日志没有输出且未出现&lt;code&gt;Preparing level &amp;quot;world&amp;quot;&lt;/code&gt;）时，可能是出现网络访问超时。&lt;/p&gt;
+&lt;p&gt;例如，在落幕曲1.6.2服务端中，当服务端加载至&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;[xx:xx:xx]: Async Sound System initialized
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可能会出现长达5分钟的停顿，且CPU占用为0。&lt;/p&gt;
+&lt;p&gt;此时新建一个终端，使用如下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 找到 Java 进程 PID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ps aux &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep java
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 打印所有线程的堆栈信息&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;jstack &amp;lt;PID&amp;gt; &amp;gt; thread_dump.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开生成的堆栈信息文件&lt;code&gt;thread_dump.txt&lt;/code&gt;，找到35号线程的部分：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;Full thread dump OpenJDK 64-Bit Server VM (17.0.18+8-Ubuntu-122.04.1 mixed mode, sharing):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;&amp;#34;modloading-worker-0&amp;#34; #35 daemon prio=5 os_prio=0 cpu=7390.32ms elapsed=106.47s tid=0x000076b40eed00f0 nid=0x4e92 runnable  [0x000076b381dfc000]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;   java.lang.Thread.State: RUNNABLE
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.nio.ch.SocketDispatcher.read0(java.base@17.0.18/Native Method)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	- parking to wait for  &amp;lt;0x0000000617032388&amp;gt; (a java.util.concurrent.ForkJoinPool)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.nio.ch.SocketDispatcher.read(java.base@17.0.18/SocketDispatcher.java:47)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.nio.ch.NioSocketImpl.tryRead(java.base@17.0.18/NioSocketImpl.java:266)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.nio.ch.NioSocketImpl.implRead(java.base@17.0.18/NioSocketImpl.java:317)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.nio.ch.NioSocketImpl.read(java.base@17.0.18/NioSocketImpl.java:355)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.nio.ch.NioSocketImpl$1.read(java.base@17.0.18/NioSocketImpl.java:808)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.net.Socket$SocketInputStream.read(java.base@17.0.18/Socket.java:966)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.security.ssl.SSLSocketInputRecord.read(java.base@17.0.18/SSLSocketInputRecord.java:484)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.security.ssl.SSLSocketInputRecord.readHeader(java.base@17.0.18/SSLSocketInputRecord.java:478)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(java.base@17.0.18/SSLSocketInputRecord.java:70)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.security.ssl.SSLSocketImpl.readApplicationRecord(java.base@17.0.18/SSLSocketImpl.java:1465)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.security.ssl.SSLSocketImpl$AppInputStream.read(java.base@17.0.18/SSLSocketImpl.java:1069)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.io.BufferedInputStream.fill(java.base@17.0.18/BufferedInputStream.java:244)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.io.BufferedInputStream.read1(java.base@17.0.18/BufferedInputStream.java:284)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.io.BufferedInputStream.read(java.base@17.0.18/BufferedInputStream.java:343)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	- locked &amp;lt;0x00000007134d3608&amp;gt; (a java.io.BufferedInputStream)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.net.www.http.HttpClient.parseHTTPHeader(java.base@17.0.18/HttpClient.java:826)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.net.www.http.HttpClient.parseHTTP(java.base@17.0.18/HttpClient.java:761)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;26&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(java.base@17.0.18/HttpURLConnection.java:1740)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;27&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(java.base@17.0.18/HttpURLConnection.java:1641)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;28&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(java.base@17.0.18/HttpsURLConnectionImpl.java:224)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;29&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at com.github.alexmodguy.alexscaves.server.misc.WebHelper.getURLContents(alexscaves@2.0.1/WebHelper.java:24)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at com.github.alexmodguy.alexscaves.AlexsCaves.readModIncompatibilities(alexscaves@2.0.1/AlexsCaves.java:202)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;31&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at com.github.alexmodguy.alexscaves.AlexsCaves.commonSetup(alexscaves@2.0.1/AlexsCaves.java:172)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;32&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at com.github.alexmodguy.alexscaves.AlexsCaves$$Lambda$18719/0x000076b38ad5f788.accept(alexscaves@2.0.1/Unknown Source)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;33&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.eventbus.EventBus.doCastFilter(net.minecraftforge.eventbus/EventBus.java:263)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.eventbus.EventBus.lambda$addListener$11(net.minecraftforge.eventbus/EventBus.java:255)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.eventbus.EventBus$$Lambda$1730/0x000076b388779180.invoke(net.minecraftforge.eventbus/Unknown Source)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;36&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.eventbus.EventBus$$Lambda$4480/0x000076b388d164b8.invoke(net.minecraftforge.eventbus/Unknown Source)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;37&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.eventbus.EventBus.post(net.minecraftforge.eventbus/EventBus.java:319)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;38&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.eventbus.EventBus.post(net.minecraftforge.eventbus/EventBus.java:299)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;39&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(javafmllanguage@1.20.1-47.4.0/FMLModContainer.java:162)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;40&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$5(fmlcore@1.20.1-47.4.0/ModContainer.java:127)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;41&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at net.minecraftforge.fml.ModContainer$$Lambda$4459/0x000076b388d55458.run(fmlcore@1.20.1-47.4.0/Unknown Source)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.CompletableFuture$AsyncRun.run(java.base@17.0.18/CompletableFuture.java:1804)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;43&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.CompletableFuture$AsyncRun.exec(java.base@17.0.18/CompletableFuture.java:1796)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;44&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.ForkJoinTask.doExec(java.base@17.0.18/ForkJoinTask.java:373)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;45&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(java.base@17.0.18/ForkJoinPool.java:1182)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;46&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.ForkJoinPool.scan(java.base@17.0.18/ForkJoinPool.java:1655)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;47&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.ForkJoinPool.runWorker(java.base@17.0.18/ForkJoinPool.java:1622)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;48&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;	at java.util.concurrent.ForkJoinWorkerThread.run(java.base@17.0.18/ForkJoinWorkerThread.java:165)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;49&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;51&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;52&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;JNI global refs: 70, weak refs: 90
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;观察可知Alex&amp;rsquo;s Caves 模组在&lt;code&gt;commonSetup&lt;/code&gt;阶段尝试从网络下载模组不兼容列表，但连接被阻塞了（&lt;code&gt;SocketDispatcher.read0&lt;/code&gt;在等待网络响应）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;at com.github.alexmodguy.alexscaves.server.misc.WebHelper.getURLContents(alexscaves@2.0.1/WebHelper.java:24)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;at com.github.alexmodguy.alexscaves.AlexsCaves.readModIncompatibilities(alexscaves@2.0.1/AlexsCaves.java:202)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;at com.github.alexmodguy.alexscaves.AlexsCaves.commonSetup(alexscaves@2.0.1/AlexsCaves.java:172)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;继续在终端中执行&lt;code&gt;ss -tnp | grep java&lt;/code&gt;获取网络状态，可得如下结果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;ESTAB &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;m&#34;&gt;367&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;2403:ac00:a201:10f4:a2dc:efb6:7d70:711c&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;:40888   &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;2606:50c0:8003::154&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;:443   users:&lt;span class=&#34;o&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;java&amp;#34;&lt;/span&gt;,pid&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;12938,fd&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;880&lt;span class=&#34;o&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是一个 IPv6 连接，状态是&lt;code&gt;ESTAB&lt;/code&gt;（已建立），但&lt;code&gt;Send-Q&lt;/code&gt;是&lt;code&gt;367&lt;/code&gt;（第二列数字）。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注意：使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端，否则插件会报错。&lt;/p&gt;
-&lt;p&gt;可以使用命令：&lt;code&gt;sudo service mysql start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;正常情况下&lt;code&gt;Send-Q&lt;/code&gt;应该是&lt;code&gt;0&lt;/code&gt;。&lt;code&gt;367&lt;/code&gt;表示TCP发送缓冲区里有&lt;code&gt;367&lt;/code&gt;字节数据，对端一直没有确认。表明你的服务器在等对方说&amp;quot;我收到了&amp;quot;，但对方没回应。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;开发者选项&#34;&gt;开发者选项
-&lt;/h2&gt;&lt;h3 id=&#34;制作自己的服务端插件&#34;&gt;制作自己的服务端插件
-&lt;/h3&gt;</description>
+&lt;p&gt;目标地址&lt;code&gt;2606:50c0:8003::154&lt;/code&gt;解析后是 GitHub 的 IPv6 地址（CDN 节点）。说明Alex&amp;rsquo;s Caves 正在从 GitHub 下载不兼容列表。但是有时 GitHub 的 IPv6 节点响应正常，有时这个节点丢包或延迟高，导致启动服务器时会&lt;strong&gt;概率地&lt;/strong&gt;发生“卡住”的现象，而5分钟正好是HTTP响应超时的用时。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所以为什么日志中没有显示呢？我也不知道……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一劳永逸的解决方法是修改&lt;code&gt;host&lt;/code&gt;文件，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/hosts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加如下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;127.0.0.1 raw.githubusercontent.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;127.0.0.1 api.github.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过将 GitHub 的域名指向本地，模组的连接请求会立刻失败，从而瞬间跳过。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;或者想办法与Github建立稳定连接，&lt;del&gt;我们将其作为习题留给读者思考。&lt;/del&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;保存文件后，重新启动服务器即可。&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>SSH配置简介</title>

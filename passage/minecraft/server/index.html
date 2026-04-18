@@ -345,13 +345,13 @@
           </ol>
         </li>
         <li><a href="#安装插件和模组">安装插件和模组</a></li>
-        <li><a href="#使用ssh远程连接服务器主机">使用SSH远程连接服务器主机</a></li>
-        <li><a href="#使用mysql管理玩家数据">使用MySQL管理玩家数据</a></li>
+        <li><a href="#服务器引入mysql">服务器引入MySQL</a></li>
+        <li><a href="#使用nginx反向代理">使用Nginx反向代理</a></li>
       </ol>
     </li>
-    <li><a href="#开发者选项">开发者选项</a>
+    <li><a href="#常见问题">常见问题</a>
       <ol>
-        <li><a href="#制作自己的服务端插件">制作自己的服务端插件</a></li>
+        <li><a href="#服务端加载长时间停顿">服务端加载长时间停顿</a></li>
       </ol>
     </li>
   </ol>
@@ -682,12 +682,12 @@
       <tr>
           <td>Mohist（墨端）</td>
           <td>混合端</td>
-          <td>全版本</td>
+          <td>主要为1.20.1</td>
       </tr>
   </tbody>
 </table></div>
 <h3 id="安装-java-环境">安装 Java 环境
-</h3><p>Java环境是MC服务器必备的运行环境。Java有多个发行版，不同的MC服务端对应不同的Java。</p>
+</h3><p>Java环境是MC服务器必备的运行环境。Java有多个版本，不同的MC服务端对应不同的Java。</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -737,16 +737,26 @@
 </a>下载。</p>
 <p>使用<code>.exe</code>或<code>.msi</code>文件安装的Java一般自动配置好了环境变量，如果使用<code>.zip</code>安装Java则需手动配置。</p>
 <h3 id="服务端启动流程">服务端启动流程
-</h3><p>首先在网络上下载对应的服务端，通常是一个.jar文件。然后新建一个文件夹，将服务端核心放在文件夹内。</p>
-<p>然后新建一个文本文档，在文档内输入<code>java -jar 你的服务端核心名.jar</code>，保存后将文件扩展名改为<code>.bat</code>。之后双击<code>.bat</code>文件，服务端将会运行并且在终端实时输出。这时通常会出现<code>是否同意eula协议</code>，此时须在文件夹内找到<code>eula</code>开头的文件，将其中的<code>false</code>改为<code>true</code>。最后再次启动<code>.bat</code>文件，服务端开启成功。</p>
+</h3><p>以Windows系统为例：</p>
+<ol>
+<li>从网络上下载对应的服务端，通常是一个<code>.jar</code>文件。</li>
+<li>新建一个文件夹，将服务端核心放在文件夹内。</li>
+<li>在文件夹内新建一个文本文档，文档内输入<code>java -jar 你的服务端核心名.jar</code>，保存后将文件扩展名改为<code>.bat</code>。</li>
+<li>双击<code>.bat</code>文件，服务端将会运行并且在终端实时输出。这时通常会出现<code>是否同意eula协议</code>，此时须在文件夹内找到<code>eula</code>开头的文件，将其中的<code>false</code>改为<code>true</code>。</li>
+<li>再次启动<code>.bat</code>文件，服务端开启成功。</li>
+</ol>
+<blockquote>
+<p>若为Linux系统，则需要将启动文件改为<code>.sh</code>文件，同时使用<code>chmod +x xxx.sh</code>赋予执行权限。</p>
+</blockquote>
 <h2 id="网络配置">网络配置
 </h2><p>搭建服务器最重要的是配置好网络，核心是确定服务器的IP地址和端口号。</p>
 <h3 id="局域网联机">局域网联机
 </h3><p>局域网联机最简单，只需知道服务器运行的主机的IP地址即可。</p>
-<p>Windows平台：<code>win+r</code>打开cmd，输入<code>ipconfig</code>，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。</p>
+<p>Windows平台：<kbd>WIN</kbd> + <kbd>R</kbd> 打开cmd，输入<code>ipconfig</code>，查看Wifi（无线连接）或以太网（有线连接）下的IP地址。</p>
 <p>Linux平台：命令行输入 <code>ip a</code> 。</p>
 <blockquote>
 <p>通俗来说，通过同一个Wifi相连的设备都处于同一个局域网下。连接在同一个局域网下的设备，它们的设备IP地址仅最后一位不同。在同一个局域网下的设备可通过IP地址互相连接。</p>
+<p>若路由器开启了AP隔离（大部分校园网等），则此方法可能失效。</p>
 </blockquote>
 <h3 id="内网穿透">内网穿透
 </h3><p>请在网络上自行查找相关内容。</p>
@@ -755,10 +765,39 @@
 </blockquote>
 <h3 id="ipv6连接">IPv6连接
 </h3><p>这是目前成本最低，效果最好的连接方式。</p>
-<p>首先必须确保你和你的伙伴都有IPv6访问，然后<code>win+r</code>打开cmd，输入<code>ipconfig</code>，这时应该可以看到一串<code>240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx</code>（必须为<code>240e</code>开头，这样才是公网IPv6），这时<code>[IPV6地址]:端口号</code>的形式就是服务器的IP地址。</p>
+<p>首先必须确保你和你的伙伴都有IPv6访问，然后查看IP地址，这时应该可以看到一串<code>240e:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx</code>（必须为<code>240e</code>开头，这样才是公网IPv6），这时<code>[IPV6地址]:端口号</code>的形式就是服务器的IP地址。</p>
 <blockquote>
-<p>目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用“ : ”隔开；IPv6地址为28个16进制数，每4个数字用“ : ”隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。</p>
+<p>目前IP技术分为IPv4和IPv6两种。IPv4地址为12个十进制数，每3个数字用<code>.</code>隔开；IPv6地址为28个16进制数，每4个数字用<code>:</code>隔开。由此可见，IPv6地址比IPv4多得多，所以每个IPv6地址都可以作为公网使用。</p>
 </blockquote>
+<p>如果你拥有一个域名，则可以给该域名添加一个<code>AAAA</code>记录（如<code>www.yourdomain.com</code>）绑定到公网IPv6，再添加一个<code>CNAME</code>记录（如<code>mc.yourdomain.com</code>）指向该<code>AAAA</code>记录。这样就可以通过<code>mc.yourdomain.com:port</code>连接到服务器。</p>
+<p>如果想去除端口号，则再添加一个<code>SRV</code>记录：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>设置</th>
+          <th>参数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>名称</td>
+          <td><code>_minecraft._tcp.mc</code></td>
+      </tr>
+      <tr>
+          <td>权重</td>
+          <td><code>5</code>（满足取值要求即可）</td>
+      </tr>
+      <tr>
+          <td>端口</td>
+          <td>服务器的端口</td>
+      </tr>
+      <tr>
+          <td>目标</td>
+          <td><code>www.yourdomain.com</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>这样就可以通过<code>mc.yourdomain.com</code>直接连接。</p>
 <h2 id="服务器进阶">服务器进阶
 </h2><h3 id="修改服务器配置">修改服务器配置
 </h3><p>依据服务端核心的不同，修改方法也有所区别。</p>
@@ -797,7 +836,7 @@
 </span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="k">done</span>
 </span></span></code></pre></div><blockquote>
 <p>在<code>java -jar 你的服务端核心名.jar</code>中，可在<code>-jar</code>之后加上<code>-XmsAG -XmxBG</code>表示给服务器至少分配A个G的内存，至多分配B个G的内存。</p>
-<p>特别的，<code>java</code>可以替换为具体的<code>Java/bin</code>路径。若未指明，默认为最新版的Java。</p>
+<p>特别的，<code>java</code>可以替换为具体的<code>Java/bin</code>路径。若未指明，默认为环境变量中的Java。</p>
 </blockquote>
 <h4 id="serverproperties"><code>server.properties</code>
 </h4><p>这是所有服务器都具备的配置文件。</p>
@@ -831,7 +870,7 @@
 </span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="na">max-players</span><span class="o">=</span><span class="s">40                          #服务器允许的最多人数</span>
 </span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="na">max-tick-time</span><span class="o">=</span><span class="s">60000</span>
 </span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="na">max-world-size</span><span class="o">=</span><span class="s">29999984</span>
-</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="na">motd</span><span class="o">=</span><span class="s">智算11班公益养老服(1.4)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="na">motd</span><span class="o">=</span><span class="s">rd806&#39;s server                     #服务器说明，显示在多人游戏界面</span>
 </span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="na">network-compression-threshold</span><span class="o">=</span><span class="s">256</span>
 </span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="na">online-mode</span><span class="o">=</span><span class="s">false                       #是否启用在线模式</span>
 </span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="na">op-permission-level</span><span class="o">=</span><span class="s">4                   #管理员命令等级</span>
@@ -861,15 +900,23 @@
 </span></span></code></pre></div><h4 id="bukkityml"><code>bukkit.yml</code>
 </h4><h4 id="spiogtyml"><code>spiogt.yml</code>
 </h4><h3 id="安装插件和模组">安装插件和模组
-</h3><h3 id="使用ssh远程连接服务器主机">使用SSH远程连接服务器主机
-</h3><p>参见：<a class="link" href="/passage/guide/ssh/" >SSH配置简介
+</h3><p>插件放至<code>plugins</code>文件夹</p>
+<p>模组放至<code>mods</code>文件夹</p>
+<h3 id="服务器引入mysql">服务器引入MySQL
+</h3><p>对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。</p>
+<p>下面以服务端插件<a class="link" href="https://modrinth.com/plugin/powerranks"  target="_blank" rel="noopener"
+    >PowerRanks
     
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
     
 
-</a></p>
-<h3 id="使用mysql管理玩家数据">使用MySQL管理玩家数据
-</h3><p>对于多个服务器，如果想不同服务器之间共享玩家数据（如权限、经验等），可以使用MySQL数据库。</p>
-<p>下面以服务端插件PowerRanks为例进行说明。</p>
+</a>为例进行说明：</p>
 <ol>
 <li>打开PowerRanks的配置文件，找到关于数据来源的配置。 将<code>type</code>改为<code>mysql</code>，并配置好端口、用户名和密码。这样在启动时，插件会自动从<code>127.0.0.1:3306</code>端口的<code>root</code>用户读入数据。</li>
 </ol>
@@ -886,20 +933,104 @@
 </span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="nn">...</span><span class="w">
 </span></span></span></code></pre></div><ol start="2">
-<li>
-<p>在MySQL的表中创建新表，命名为<code>powerranks</code>，此处名称应与配置文件中的<code>database</code>后的名称相同。</p>
-</li>
-<li>
-<p>启动MC服务器，这样Powerranks插件就会自动在MySQL中创建数据表，可以对其进行相关操作。</p>
-</li>
+<li>在MySQL的表中创建新表，命名为<code>powerranks</code>，此处名称应与配置文件中的<code>database</code>后的名称相同。</li>
+<li>启动MC服务器，这样Powerranks插件就会自动在MySQL中创建数据表，可以对其进行相关操作。</li>
 </ol>
+
+
+<blockquote class="alert alert-note">
+    <p>使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端（<code>sudo service mysql start</code>），否则会报错。</p></blockquote>
+<h3 id="使用nginx反向代理">使用Nginx反向代理
+</h3><h2 id="常见问题">常见问题
+</h2><h3 id="服务端加载长时间停顿">服务端加载长时间停顿
+</h3><p>服务端在<strong>加载阶段</strong>出现长时间停顿（即日志没有输出且未出现<code>Preparing level &quot;world&quot;</code>）时，可能是出现网络访问超时。</p>
+<p>例如，在落幕曲1.6.2服务端中，当服务端加载至</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">[xx:xx:xx]: Async Sound System initialized
+</span></span></code></pre></div><p>可能会出现长达5分钟的停顿，且CPU占用为0。</p>
+<p>此时新建一个终端，使用如下命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 找到 Java 进程 PID</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ps aux <span class="p">|</span> grep java
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 打印所有线程的堆栈信息</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">jstack &lt;PID&gt; &gt; thread_dump.txt
+</span></span></code></pre></div><p>打开生成的堆栈信息文件<code>thread_dump.txt</code>，找到35号线程的部分：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="ln"> 1</span><span class="cl">Full thread dump OpenJDK 64-Bit Server VM (17.0.18+8-Ubuntu-122.04.1 mixed mode, sharing):
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">...
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">&#34;modloading-worker-0&#34; #35 daemon prio=5 os_prio=0 cpu=7390.32ms elapsed=106.47s tid=0x000076b40eed00f0 nid=0x4e92 runnable  [0x000076b381dfc000]
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">   java.lang.Thread.State: RUNNABLE
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">	at sun.nio.ch.SocketDispatcher.read0(java.base@17.0.18/Native Method)
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">	- parking to wait for  &lt;0x0000000617032388&gt; (a java.util.concurrent.ForkJoinPool)
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">	at sun.nio.ch.SocketDispatcher.read(java.base@17.0.18/SocketDispatcher.java:47)
+</span></span><span class="line"><span class="ln">10</span><span class="cl">	at sun.nio.ch.NioSocketImpl.tryRead(java.base@17.0.18/NioSocketImpl.java:266)
+</span></span><span class="line"><span class="ln">11</span><span class="cl">	at sun.nio.ch.NioSocketImpl.implRead(java.base@17.0.18/NioSocketImpl.java:317)
+</span></span><span class="line"><span class="ln">12</span><span class="cl">	at sun.nio.ch.NioSocketImpl.read(java.base@17.0.18/NioSocketImpl.java:355)
+</span></span><span class="line"><span class="ln">13</span><span class="cl">	at sun.nio.ch.NioSocketImpl$1.read(java.base@17.0.18/NioSocketImpl.java:808)
+</span></span><span class="line"><span class="ln">14</span><span class="cl">	at java.net.Socket$SocketInputStream.read(java.base@17.0.18/Socket.java:966)
+</span></span><span class="line"><span class="ln">15</span><span class="cl">	at sun.security.ssl.SSLSocketInputRecord.read(java.base@17.0.18/SSLSocketInputRecord.java:484)
+</span></span><span class="line"><span class="ln">16</span><span class="cl">	at sun.security.ssl.SSLSocketInputRecord.readHeader(java.base@17.0.18/SSLSocketInputRecord.java:478)
+</span></span><span class="line"><span class="ln">17</span><span class="cl">	at sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(java.base@17.0.18/SSLSocketInputRecord.java:70)
+</span></span><span class="line"><span class="ln">18</span><span class="cl">	at sun.security.ssl.SSLSocketImpl.readApplicationRecord(java.base@17.0.18/SSLSocketImpl.java:1465)
+</span></span><span class="line"><span class="ln">19</span><span class="cl">	at sun.security.ssl.SSLSocketImpl$AppInputStream.read(java.base@17.0.18/SSLSocketImpl.java:1069)
+</span></span><span class="line"><span class="ln">20</span><span class="cl">	at java.io.BufferedInputStream.fill(java.base@17.0.18/BufferedInputStream.java:244)
+</span></span><span class="line"><span class="ln">21</span><span class="cl">	at java.io.BufferedInputStream.read1(java.base@17.0.18/BufferedInputStream.java:284)
+</span></span><span class="line"><span class="ln">22</span><span class="cl">	at java.io.BufferedInputStream.read(java.base@17.0.18/BufferedInputStream.java:343)
+</span></span><span class="line"><span class="ln">23</span><span class="cl">	- locked &lt;0x00000007134d3608&gt; (a java.io.BufferedInputStream)
+</span></span><span class="line"><span class="ln">24</span><span class="cl">	at sun.net.www.http.HttpClient.parseHTTPHeader(java.base@17.0.18/HttpClient.java:826)
+</span></span><span class="line"><span class="ln">25</span><span class="cl">	at sun.net.www.http.HttpClient.parseHTTP(java.base@17.0.18/HttpClient.java:761)
+</span></span><span class="line"><span class="ln">26</span><span class="cl">	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(java.base@17.0.18/HttpURLConnection.java:1740)
+</span></span><span class="line"><span class="ln">27</span><span class="cl">	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(java.base@17.0.18/HttpURLConnection.java:1641)
+</span></span><span class="line"><span class="ln">28</span><span class="cl">	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(java.base@17.0.18/HttpsURLConnectionImpl.java:224)
+</span></span><span class="line"><span class="ln">29</span><span class="cl">	at com.github.alexmodguy.alexscaves.server.misc.WebHelper.getURLContents(alexscaves@2.0.1/WebHelper.java:24)
+</span></span><span class="line"><span class="ln">30</span><span class="cl">	at com.github.alexmodguy.alexscaves.AlexsCaves.readModIncompatibilities(alexscaves@2.0.1/AlexsCaves.java:202)
+</span></span><span class="line"><span class="ln">31</span><span class="cl">	at com.github.alexmodguy.alexscaves.AlexsCaves.commonSetup(alexscaves@2.0.1/AlexsCaves.java:172)
+</span></span><span class="line"><span class="ln">32</span><span class="cl">	at com.github.alexmodguy.alexscaves.AlexsCaves$$Lambda$18719/0x000076b38ad5f788.accept(alexscaves@2.0.1/Unknown Source)
+</span></span><span class="line"><span class="ln">33</span><span class="cl">	at net.minecraftforge.eventbus.EventBus.doCastFilter(net.minecraftforge.eventbus/EventBus.java:263)
+</span></span><span class="line"><span class="ln">34</span><span class="cl">	at net.minecraftforge.eventbus.EventBus.lambda$addListener$11(net.minecraftforge.eventbus/EventBus.java:255)
+</span></span><span class="line"><span class="ln">35</span><span class="cl">	at net.minecraftforge.eventbus.EventBus$$Lambda$1730/0x000076b388779180.invoke(net.minecraftforge.eventbus/Unknown Source)
+</span></span><span class="line"><span class="ln">36</span><span class="cl">	at net.minecraftforge.eventbus.EventBus$$Lambda$4480/0x000076b388d164b8.invoke(net.minecraftforge.eventbus/Unknown Source)
+</span></span><span class="line"><span class="ln">37</span><span class="cl">	at net.minecraftforge.eventbus.EventBus.post(net.minecraftforge.eventbus/EventBus.java:319)
+</span></span><span class="line"><span class="ln">38</span><span class="cl">	at net.minecraftforge.eventbus.EventBus.post(net.minecraftforge.eventbus/EventBus.java:299)
+</span></span><span class="line"><span class="ln">39</span><span class="cl">	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(javafmllanguage@1.20.1-47.4.0/FMLModContainer.java:162)
+</span></span><span class="line"><span class="ln">40</span><span class="cl">	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$5(fmlcore@1.20.1-47.4.0/ModContainer.java:127)
+</span></span><span class="line"><span class="ln">41</span><span class="cl">	at net.minecraftforge.fml.ModContainer$$Lambda$4459/0x000076b388d55458.run(fmlcore@1.20.1-47.4.0/Unknown Source)
+</span></span><span class="line"><span class="ln">42</span><span class="cl">	at java.util.concurrent.CompletableFuture$AsyncRun.run(java.base@17.0.18/CompletableFuture.java:1804)
+</span></span><span class="line"><span class="ln">43</span><span class="cl">	at java.util.concurrent.CompletableFuture$AsyncRun.exec(java.base@17.0.18/CompletableFuture.java:1796)
+</span></span><span class="line"><span class="ln">44</span><span class="cl">	at java.util.concurrent.ForkJoinTask.doExec(java.base@17.0.18/ForkJoinTask.java:373)
+</span></span><span class="line"><span class="ln">45</span><span class="cl">	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(java.base@17.0.18/ForkJoinPool.java:1182)
+</span></span><span class="line"><span class="ln">46</span><span class="cl">	at java.util.concurrent.ForkJoinPool.scan(java.base@17.0.18/ForkJoinPool.java:1655)
+</span></span><span class="line"><span class="ln">47</span><span class="cl">	at java.util.concurrent.ForkJoinPool.runWorker(java.base@17.0.18/ForkJoinPool.java:1622)
+</span></span><span class="line"><span class="ln">48</span><span class="cl">	at java.util.concurrent.ForkJoinWorkerThread.run(java.base@17.0.18/ForkJoinWorkerThread.java:165)
+</span></span><span class="line"><span class="ln">49</span><span class="cl">
+</span></span><span class="line"><span class="ln">50</span><span class="cl">...
+</span></span><span class="line"><span class="ln">51</span><span class="cl">
+</span></span><span class="line"><span class="ln">52</span><span class="cl">JNI global refs: 70, weak refs: 90
+</span></span></code></pre></div><p>观察可知Alex&rsquo;s Caves 模组在<code>commonSetup</code>阶段尝试从网络下载模组不兼容列表，但连接被阻塞了（<code>SocketDispatcher.read0</code>在等待网络响应）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="ln">1</span><span class="cl">at com.github.alexmodguy.alexscaves.server.misc.WebHelper.getURLContents(alexscaves@2.0.1/WebHelper.java:24)
+</span></span><span class="line"><span class="ln">2</span><span class="cl">at com.github.alexmodguy.alexscaves.AlexsCaves.readModIncompatibilities(alexscaves@2.0.1/AlexsCaves.java:202)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">at com.github.alexmodguy.alexscaves.AlexsCaves.commonSetup(alexscaves@2.0.1/AlexsCaves.java:172)
+</span></span></code></pre></div><p>继续在终端中执行<code>ss -tnp | grep java</code>获取网络状态，可得如下结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ESTAB <span class="m">0</span>  <span class="m">367</span>    <span class="o">[</span>2403:ac00:a201:10f4:a2dc:efb6:7d70:711c<span class="o">]</span>:40888   <span class="o">[</span>2606:50c0:8003::154<span class="o">]</span>:443   users:<span class="o">((</span><span class="s2">&#34;java&#34;</span>,pid<span class="o">=</span>12938,fd<span class="o">=</span>880<span class="o">))</span>
+</span></span></code></pre></div><p>这是一个 IPv6 连接，状态是<code>ESTAB</code>（已建立），但<code>Send-Q</code>是<code>367</code>（第二列数字）。</p>
 <blockquote>
-<p>注意：使用MySQL的数据时，每次启动服务器前应当先启动MySQL客户端，否则插件会报错。</p>
-<p>可以使用命令：<code>sudo service mysql start</code></p>
+<p>正常情况下<code>Send-Q</code>应该是<code>0</code>。<code>367</code>表示TCP发送缓冲区里有<code>367</code>字节数据，对端一直没有确认。表明你的服务器在等对方说&quot;我收到了&quot;，但对方没回应。</p>
 </blockquote>
-<h2 id="开发者选项">开发者选项
-</h2><h3 id="制作自己的服务端插件">制作自己的服务端插件
-</h3>
+<p>目标地址<code>2606:50c0:8003::154</code>解析后是 GitHub 的 IPv6 地址（CDN 节点）。说明Alex&rsquo;s Caves 正在从 GitHub 下载不兼容列表。但是有时 GitHub 的 IPv6 节点响应正常，有时这个节点丢包或延迟高，导致启动服务器时会<strong>概率地</strong>发生“卡住”的现象，而5分钟正好是HTTP响应超时的用时。</p>
+<blockquote>
+<p>所以为什么日志中没有显示呢？我也不知道……</p>
+</blockquote>
+<p>一劳永逸的解决方法是修改<code>host</code>文件，</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo nano /etc/hosts
+</span></span></code></pre></div><p>添加如下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">127.0.0.1 raw.githubusercontent.com
+</span></span><span class="line"><span class="ln">2</span><span class="cl">127.0.0.1 api.github.com
+</span></span></code></pre></div><p>通过将 GitHub 的域名指向本地，模组的连接请求会立刻失败，从而瞬间跳过。</p>
+<blockquote>
+<p>或者想办法与Github建立稳定连接，<del>我们将其作为习题留给读者思考。</del></p>
+</blockquote>
+<p>保存文件后，重新启动服务器即可。</p>
+
 </section>
 
 
