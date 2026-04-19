@@ -394,7 +394,29 @@
     </li>
     <li><a href="#mpi">MPI</a>
       <ol>
-        <li><a href="#mpi概述">MPI概述</a></li>
+        <li><a href="#mpi概述">MPI概述</a>
+          <ol>
+            <li><a href="#mpi程序的结构">MPI程序的结构</a></li>
+            <li><a href="#开始与结束">开始与结束</a></li>
+            <li><a href="#进程的标识">进程的标识</a></li>
+            <li><a href="#发送与接收信息">发送与接收信息</a></li>
+          </ol>
+        </li>
+        <li><a href="#点到点通信">点到点通信</a>
+          <ol>
+            <li><a href="#send和recv">Send和Recv</a></li>
+            <li><a href="#标签的使用">标签的使用</a></li>
+          </ol>
+        </li>
+        <li><a href="#组通信">组通信</a>
+          <ol>
+            <li><a href="#broadcast">Broadcast</a></li>
+            <li><a href="#scatter">Scatter</a></li>
+            <li><a href="#gather">Gather</a></li>
+            <li><a href="#allgather">Allgather</a></li>
+            <li><a href="#reduce">Reduce</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -1492,8 +1514,360 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
   </tbody>
 </table></div>
 <h2 id="mpi">MPI
-</h2><h3 id="mpi概述">MPI概述
-</h3>
+</h2><p>MPI是一种标准或规范的代表，同时也是一种消息传递编程模型。</p>
+<p>MPI的实现是一个库，而不是一门语言</p>
+<blockquote>
+<p>可以把<code>C+MPI</code>看作是一种在原来串行语言基础之上扩展后得到的并行语言。</p>
+</blockquote>
+<h3 id="mpi概述">MPI概述
+</h3><p>程序示例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;studio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;mpi.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">err</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">err</span> <span class="o">=</span> <span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Hello World</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">err</span> <span class="o">=</span> <span class="n">MPI_Finalize</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="mpi程序的结构">MPI程序的结构
+</h4><p><img src="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84.png"
+	width="688"
+	height="667"
+	srcset="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84_hu_f7cca30528d5fa17.png 480w, /passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84_hu_5bd1bca69127e658.png 1024w"
+	loading="lazy"
+	
+		alt="MPI程序结构"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="103"
+		data-flex-basis="247px"
+	
+></p>
+<h4 id="开始与结束">开始与结束
+</h4><p>MPI代码开始之前必须进行如下的调用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+</span></span></code></pre></div><p>MPI系统将通过<code>argc</code>，<code>argv</code>得到命令行参数</p>
+<p>MPI的最后一行必须是</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Finalize</span><span class="p">();</span>
+</span></span></code></pre></div><h4 id="进程的标识">进程的标识
+</h4><p>通信域默认为<code>MPI_COMM_WORLD</code>。</p>
+<p><code>MPI_Comm_size(MPI_COMM_WORLD, &amp;size)</code>：获得通信域内所有进程的数目，赋值给<code>size</code>。</p>
+<p><code>MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank)</code>：获得进程在通信域内的编号，赋值给<code>myrank</code></p>
+<h4 id="发送与接收信息">发送与接收信息
+</h4><p>发送消息示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="o">&amp;</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
+</span></span></code></pre></div><p>接收消息示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
+</span></span></code></pre></div><p>据此可以得出MPI程序运行的完整过程：</p>
+<p><img src="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B.png"
+	width="1125"
+	height="690"
+	srcset="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B_hu_9efd0f829415ef1b.png 480w, /passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B_hu_802cb3ce71e6b6ac.png 1024w"
+	loading="lazy"
+	
+		alt="MPI程序运行的完整过程"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="163"
+		data-flex-basis="391px"
+	
+></p>
+<h3 id="点到点通信">点到点通信
+</h3><h4 id="send和recv">Send和Recv
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">communicator</span><span class="p">);</span>
+</span></span></code></pre></div><p>具体解释如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>参数</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>buffer</td>
+          <td>指明消息缓存的起始地址，即存放要发送的数据信息</td>
+      </tr>
+      <tr>
+          <td>count</td>
+          <td>指明消息中给定的数据类型有多少项，数据类型由<code>datatype</code>给定</td>
+      </tr>
+      <tr>
+          <td>datatype</td>
+          <td>数据类型要么是基本数据类型，要么是导出数据类型（由用户指定的混合数据类型）</td>
+      </tr>
+      <tr>
+          <td>destination</td>
+          <td>目的进程的标识符（进程编号）</td>
+      </tr>
+      <tr>
+          <td>tag</td>
+          <td>消息标签</td>
+      </tr>
+      <tr>
+          <td>communicator</td>
+          <td>标识进程组和上下文，即通信域。通常消息只能在同组的进程间传递，但MPI允许通过<code>intercommunicator</code>在组间传递</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">communicator</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+</span></span></code></pre></div><p>具体解释如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>参数</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>address</td>
+          <td>指明接收消息缓冲的起始地址，即存放接收消息的内存地址</td>
+      </tr>
+      <tr>
+          <td>count</td>
+          <td>指明给定数据类型<code>datatype</code>可以被接收的最大项数</td>
+      </tr>
+      <tr>
+          <td>datatype</td>
+          <td>指定接收的数据类型</td>
+      </tr>
+      <tr>
+          <td>destination</td>
+          <td>源进程的标识符（进程编号）</td>
+      </tr>
+      <tr>
+          <td>tag</td>
+          <td>消息标签</td>
+      </tr>
+      <tr>
+          <td>communicator</td>
+          <td>标识通信域</td>
+      </tr>
+      <tr>
+          <td>status</td>
+          <td>指向一个结构<code>MPI_Status</code>，存放有关接收消息的各种信息</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="标签的使用">标签的使用
+</h4><p>考虑下列程序：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 进程P
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">Q</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">Q</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1">// 进程Q
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">P</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">P</span><span class="p">);</span>
+</span></span></code></pre></div><p>进程P需要传递A进程的前32个字节进入X，传递B的前16个字节进入Y。但是，如果消息B后发送但是先到达进程Q，就会被Q的第一个<code>MPI_Recv()</code>接收到X中。</p>
+<p>使用标签可以避免这个错误：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 进程P
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">tag1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">tag2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1">// 进程Q
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tag1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tag2</span><span class="p">);</span>
+</span></span></code></pre></div><blockquote>
+<p>标签还可以应用在不同客户端请求服务端数据时，服务端根据标签的不同而分别采用相应的函数。</p>
+</blockquote>
+<h3 id="组通信">组通信
+</h3><p>组通信的函数分类如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th>函数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>一对多</td>
+          <td><code>Broadcast</code>，<code>Scatter</code></td>
+      </tr>
+      <tr>
+          <td>多到一</td>
+          <td><code>Reduce</code>，<code>Gather</code></td>
+      </tr>
+      <tr>
+          <td>多到多</td>
+          <td><code>Allreduce</code>，<code>Allgather</code></td>
+      </tr>
+      <tr>
+          <td>同步</td>
+          <td><code>Barrier</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="broadcast">Broadcast
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Bcast</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p>标号为<code>root</code>的进程发送相同的消息给标记为<code>comm</code>的通信子中的所有进程。</p>
+<p>消息的内容如同点对点通信一样由三元组<code>(address, count, datatype)</code>标识。对<code>root</code>进程来说，这个三元组既定义了发送缓冲也定义了接收缓冲；对其他进程来说，这个三元组只定义了接收缓冲。</p>
+<p><img src="/passage/cs/parallel_computing/images/MPI_Bcast.png"
+	width="1024"
+	height="315"
+	srcset="/passage/cs/parallel_computing/images/MPI_Bcast_hu_9ad8186069ecfa94.png 480w, /passage/cs/parallel_computing/images/MPI_Bcast_hu_624cecf7cadfcced.png 1024w"
+	loading="lazy"
+	
+		alt="MPI_Bast"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="325"
+		data-flex-basis="780px"
+	
+></p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="n">rank</span><span class="p">,</span> <span class="n">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">MPI_Comm_rank</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rank</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="c1">// 进程0读入需要广播的数据
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="c1">// 将该数据广播出去
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="n">MPI_Bcast</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="c1">// 各进程打印收到的数据
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Process %d got %d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">MPI_Finalize</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="scatter">Scatter
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Scatter</span><span class="p">(</span><span class="n">sendAddress</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">sendDatatype</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvAddress</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">recvDatatype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>root</code>进程发送给所有n个进程各发送一个不同的消息，包括自己。</p>
+<p>这n个消息在<code>root</code>进程的发送缓冲区中按标号的顺序有序地存放。每个接收缓冲区由三元组<code>(recvAddress, recvCount, recvDatatype)</code>标识。非<code>root</code>进程忽略发送缓冲。</p>
+<p>对于<code>root</code>进程，发送缓冲由三元组<code>(sendAddress, sendCount, sendDatatype)</code>标识。</p>
+<p><img src="/passage/cs/parallel_computing/images/MPI_Scatter.png"
+	width="1009"
+	height="452"
+	srcset="/passage/cs/parallel_computing/images/MPI_Scatter_hu_fcafba09ccf6a28c.png 480w, /passage/cs/parallel_computing/images/MPI_Scatter_hu_71c52bf690c17c5.png 1024w"
+	loading="lazy"
+	
+		alt="MPI_Scatter"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="223"
+		data-flex-basis="535px"
+	
+></p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 根进程向组内每个进程散播100个整型数据
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="kt">int</span> <span class="n">gsize</span><span class="p">,</span> <span class="o">*</span><span class="n">sendbuf</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gsize</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">sendbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="n">gsize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="n">MPI_Scatter</span><span class="p">(</span><span class="n">sendbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p>根进程向各个进程发送个数不等的数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Scatterv</span><span class="p">(</span><span class="n">sendbuf</span><span class="p">,</span> <span class="n">sendcounts</span><span class="p">,</span> <span class="n">displs</span><span class="p">,</span> <span class="n">sendtype</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvbuf</span><span class="p">,</span> <span class="n">recvcount</span><span class="p">,</span> <span class="n">recvtype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><h4 id="gather">Gather
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Gather</span><span class="p">(</span><span class="n">sendAddress</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">sendDatatype</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvAddress</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">recvDatatype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p><code>root</code>进程接收各个进程（包括它自己）的消息。这n个进程的连接按序号<code>rank</code>进行，存放在<code>root</code>进程的接收缓冲中。</p>
+<p>每个发送缓冲由三元组<code>(sendAddress, sendCount, sendDatatype)</code>标识。</p>
+<p>非<code>root</code>进程忽略接收缓冲。对于<code>root</code>进程，发送缓冲由三元组<code>(recvAddress, recvCount, recvDatatype)</code>标识。<code>recvCount</code>标识<code>root</code>进程从每个进程接收数据的个数。</p>
+<p><img src="/passage/cs/parallel_computing/images/MPI_Gather.png"
+	width="936"
+	height="422"
+	srcset="/passage/cs/parallel_computing/images/MPI_Gather_hu_37c68b45a2c9b245.png 480w, /passage/cs/parallel_computing/images/MPI_Gather_hu_bd7fb72f95534021.png 1024w"
+	loading="lazy"
+	
+		alt="MPI_Gather"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="221"
+		data-flex-basis="532px"
+	
+></p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 根进程从进程组中每个进程收集100个整型数据
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="kt">int</span> <span class="n">gsize</span><span class="p">,</span> <span class="n">sendarray</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gsize</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">rbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="n">gsize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="n">MPI_Gather</span><span class="p">(</span><span class="n">sendarray</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p>从不同进程接收不同数量的数据</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Gatherv</span><span class="p">(</span><span class="n">sendbuf</span><span class="p">,</span> <span class="n">sendcount</span><span class="p">,</span> <span class="n">sendtype</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvbuf</span><span class="p">,</span> <span class="n">recvcounts</span><span class="p">,</span> <span class="n">displs</span><span class="p">,</span> <span class="n">recvtype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><h4 id="allgather">Allgather
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Allgather</span><span class="p">(</span><span class="n">sendAddress</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">sendDatatype</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">                <span class="n">recvAddress</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">recvDatatype</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/images/MPI_Allgather.png"
+	width="903"
+	height="683"
+	srcset="/passage/cs/parallel_computing/images/MPI_Allgather_hu_edd1e09f4b34e3a.png 480w, /passage/cs/parallel_computing/images/MPI_Allgather_hu_a3667f69690964dc.png 1024w"
+	loading="lazy"
+	
+		alt="MPI_Allgather"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="317px"
+	
+></p>
+<p>示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 每个进程都从其他进程收集100个数据，存入自己的缓冲区
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="kt">int</span> <span class="n">gsize</span><span class="p">,</span> <span class="n">sendarray</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">rbuf</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gsize</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">rbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="n">gsize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="n">MPI_Allgather</span><span class="p">(</span><span class="n">sendarray</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><h4 id="reduce">Reduce
+</h4><p>所有进程向同一进程发送消息，与<code>Broadcast</code>的消息发送方向相反。</p>
+<p>接收进程对所有收到的消息进行规约处理。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Reduce</span><span class="p">(</span><span class="n">inbuf</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
+</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/images/MPI_Reduce.png"
+	width="1009"
+	height="469"
+	srcset="/passage/cs/parallel_computing/images/MPI_Reduce_hu_c85fae6ee48a9a2c.png 480w, /passage/cs/parallel_computing/images/MPI_Reduce_hu_4e936d4ffc58ef42.png 1024w"
+	loading="lazy"
+	
+		alt="MPI_Reduce"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="516px"
+	
+></p>
+<p>不同类型的规约操作对比</p>
+<p><img src="/passage/cs/parallel_computing/images/%E8%A7%84%E7%BA%A6%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94.png"
+	width="1282"
+	height="698"
+	srcset="/passage/cs/parallel_computing/images/%E8%A7%84%E7%BA%A6%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94_hu_e19018d799dbe94c.png 480w, /passage/cs/parallel_computing/images/%E8%A7%84%E7%BA%A6%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94_hu_2291e1c97a5bd3a8.png 1024w"
+	loading="lazy"
+	
+		alt="不同类型的规约操作对比"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="183"
+		data-flex-basis="440px"
+	
+></p>
+
 </section>
 
 
