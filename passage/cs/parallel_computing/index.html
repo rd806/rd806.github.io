@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="并行计算概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="谁不想急头白脸地参加并行计算考试呢">
 <title>并行计算</title>
 
 <link rel='canonical' href='https://rd806.github.io/passage/cs/parallel_computing/'>
 
 <link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="并行计算">
-<meta property='og:description' content="并行计算概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta property='og:description' content="谁不想急头白脸地参加并行计算考试呢">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/parallel_computing/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-11T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="并行计算">
-<meta name="twitter:description" content="并行计算概述 并行计算基本概念 基本概念 内容 计算 数学计算、数据处理、IT服务 性能 FLOPS（浮点计算数/秒） 浮点计算能力 计算机主频每时钟周期的浮点指令数 产生原因 满足不断增长的计算力需求：用多个处理器同时解决一个问题 计算机硬件与网络技术的发展 单处理器性能提升受限 存储、I/O速率远低于处理器 并行化方法 域分解 首先确定数据如何划分到各个处理器，然后确定每个处理器所需要做的事情。\n">
+<meta name="twitter:description" content="谁不想急头白脸地参加并行计算考试呢">
     <link rel="shortcut icon" href="/favicon.ico" />
 <style>
      
@@ -365,60 +365,7 @@
         <li><a href="#可扩放性评测">可扩放性评测</a></li>
       </ol>
     </li>
-    <li><a href="#多线程并行程序设计">多线程并行程序设计</a>
-      <ol>
-        <li><a href="#多线程基本概念">多线程基本概念</a></li>
-        <li><a href="#共享存储访问">共享存储访问</a>
-          <ol>
-            <li><a href="#竞态条件与临界区">竞态条件与临界区</a></li>
-            <li><a href="#互斥锁">互斥锁</a></li>
-          </ol>
-        </li>
-        <li><a href="#实例分析">实例分析</a></li>
-        <li><a href="#pthread多线段">PThread多线段</a></li>
-        <li><a href="#java多线程">Java多线程</a></li>
-      </ol>
-    </li>
-    <li><a href="#openmp">OpenMP</a>
-      <ol>
-        <li><a href="#编译制导语句">编译制导语句</a>
-          <ol>
-            <li><a href="#并行域">并行域</a></li>
-            <li><a href="#共享任务">共享任务</a></li>
-            <li><a href="#同步">同步</a></li>
-            <li><a href="#数据域">数据域</a></li>
-          </ol>
-        </li>
-        <li><a href="#运行库与环境变量">运行库与环境变量</a></li>
-      </ol>
-    </li>
-    <li><a href="#mpi">MPI</a>
-      <ol>
-        <li><a href="#mpi概述">MPI概述</a>
-          <ol>
-            <li><a href="#mpi程序的结构">MPI程序的结构</a></li>
-            <li><a href="#开始与结束">开始与结束</a></li>
-            <li><a href="#进程的标识">进程的标识</a></li>
-            <li><a href="#发送与接收信息">发送与接收信息</a></li>
-          </ol>
-        </li>
-        <li><a href="#点到点通信">点到点通信</a>
-          <ol>
-            <li><a href="#send和recv">Send和Recv</a></li>
-            <li><a href="#标签的使用">标签的使用</a></li>
-          </ol>
-        </li>
-        <li><a href="#组通信">组通信</a>
-          <ol>
-            <li><a href="#broadcast">Broadcast</a></li>
-            <li><a href="#scatter">Scatter</a></li>
-            <li><a href="#gather">Gather</a></li>
-            <li><a href="#allgather">Allgather</a></li>
-            <li><a href="#reduce">Reduce</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
+    <li><a href="#并行程序设计方法">并行程序设计方法</a></li>
   </ol>
 </nav>
         </div>
@@ -629,6 +576,10 @@
             <a href="/passage/cs/parallel_computing/">并行计算</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            谁不想急头白脸地参加并行计算考试呢
+        </h3>
         
     </div>
 
@@ -1010,863 +961,143 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
 <li>额外开销的增加可能慢于有效计算的增加</li>
 <li>算法中的串行分量比例不是固定不变的，随问题规模的增加而减小</li>
 </ol>
-<h2 id="多线程并行程序设计">多线程并行程序设计
-</h2><h3 id="多线程基本概念">多线程基本概念
-</h3><p>线程（Thread）是进程上下文（contex）中执行的代码序列，也称作轻量级进程。</p>
-<p>在支持多线程的系统中，进程是资源分配的实体，线程是被调度执行的基本单元。</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>线程与进程的比较</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>调度</td>
-          <td>线程是CPU调度的基本单位，进程是资源拥有的基本单位。同一进程中线程的切换不会引起进程切换，从而避免频繁的系统调用。</td>
-      </tr>
-      <tr>
-          <td>并发性</td>
-          <td>不仅进程之间可以并发执行，一个进程的多个线程之间也可以并发执行，一个进程下可设置多个线程</td>
-      </tr>
-      <tr>
-          <td>拥有资源</td>
-          <td>进程是拥有资源的独立单位；线程不拥有系统资源，但可以访问其所属进程的资源，即一个进程的资源可供其所有线程共享。</td>
-      </tr>
-      <tr>
-          <td>系统开销</td>
-          <td>进程在创建或销毁时系统均需要为之分配或回收资源，进程切换时系统需保存当前进程的所有设置；线程切换时只需保存和设置少量寄存器的内容，同一进程的线程之间的通信比较容易。</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>在计算机中，系统通过线程池管理线程。一个线程池可维护多个线程，等待调度器分配可并发执行的任务。避免了在短处理时间任务时创建与销毁线程的代价。</p>
-<h3 id="共享存储访问">共享存储访问
-</h3><p>计算机采用层次结构存储系统。</p>
-<p><img src="/passage/cs/parallel_computing/images/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.png"
-	width="1149"
-	height="423"
-	srcset="/passage/cs/parallel_computing/images/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84_hu_51f720a9b3b92b4e.png 480w, /passage/cs/parallel_computing/images/%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84_hu_7d251da3d3a79e7f.png 1024w"
-	loading="lazy"
-	
-		alt="存储器层次结构"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="271"
-		data-flex-basis="651px"
-	
-></p>
-<h4 id="竞态条件与临界区">竞态条件与临界区
-</h4><p>但是这样会出现<strong>竞态条件</strong>（Race Conditions）：当两个或多个线程试图在同一时刻访问共享内存或读写某些共享数据时，寄存器的值可能无法及时更新，导致最后的结果取决于线程的执行顺序。</p>
-<p>为了解决这一困境，提出了<strong>临界区</strong>的概念：包含访问共享数据的代码。因此，在临界区内，任意时刻至多只能有一个线程在执行相关代码。</p>
-<h4 id="互斥锁">互斥锁
-</h4><p>互斥锁（mutex）是实现线程同步的一种方法。线程对共享资源访问之前必须先获得锁，否则线程将保持等待状态，直到该锁可用。</p>
-<h3 id="实例分析">实例分析
-</h3><p>假设现有一段长文本，要求统计其中3的个数</p>
-<p>普通的串行代码应为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">int</span> <span class="nf">countThree</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>运用域分解并行化方法，将其划分为若干个子数据段：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">countThree</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">// 创建线程
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">t</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">thread_create</span><span class="p">(</span><span class="n">countThree_thread</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="kt">void</span> <span class="nf">countThree_thread</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="kt">int</span> <span class="n">length_per_thread</span> <span class="o">=</span> <span class="n">length</span> <span class="o">/</span> <span class="n">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">id</span><span class="o">*</span><span class="n">length_per_thread</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl">
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">start</span><span class="o">+</span><span class="n">length_per_thread</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">            <span class="c1">// 加互斥锁
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl">            <span class="nf">mutex_lock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="n">count</span> <span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">            <span class="c1">// 解锁
-</span></span></span><span class="line"><span class="ln">26</span><span class="cl">            <span class="nf">mutex_unlock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>但是，此并行算法的性能远不及串行算法：</p>
-<p><img src="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%901.png"
-	width="948"
-	height="568"
-	srcset="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%901_hu_9e4606d0ceb22404.png 480w, /passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%901_hu_5559e9f8e1e720ae.png 1024w"
-	loading="lazy"
-	
-		alt="算法性能分析1"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="166"
-		data-flex-basis="400px"
-	
-></p>
-<p>这是因为加锁会消耗时间，同时所有线程两两互斥可看作串行逻辑，并没有变化。</p>
-<p>改进方法：加锁过程应当放在循环计数外。当每个线程分别计数完成后，再将各个数目相加得到总数目。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">private_count</span><span class="p">[</span><span class="n">MaxThreads</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="n">mutex</span> <span class="n">m</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">void</span> <span class="nf">countThree_thread</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">length_per_thread</span> <span class="o">=</span> <span class="n">length</span> <span class="o">/</span> <span class="n">t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="n">id</span><span class="o">*</span><span class="n">length_per_thread</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">start</span><span class="o">+</span><span class="n">length_per_thread</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">            <span class="n">private_count</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="c1">// 汇总时必须加锁，防止出现竞争
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nf">mutex_lock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">count</span> <span class="o">+=</span> <span class="n">private_count</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="nf">mutex_unlock</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>修改后并行效率大幅提升，但仍与串行有差距。这是因为计算机系统的cache一致性与伪共享，虽然不同线程的<code>private_count</code>形式上互不干扰，但在缓存中可能处于一个缓存块中，在更新数据时会发生阻塞。</p>
-<p><img src="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%902.png"
-	width="886"
-	height="626"
-	srcset="/passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%902_hu_d4a7b5aace31fb51.png 480w, /passage/cs/parallel_computing/images/%E7%AE%97%E6%B3%95%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%902_hu_89b311bd4404ead.png 1024w"
-	loading="lazy"
-	
-		alt="算法性能分析2"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="141"
-		data-flex-basis="339px"
-	
-></p>
-<p>一种解决办法是强行将计数器的占用加大，使它们分别位于不同的缓存块中。</p>
-<h3 id="pthread多线段">PThread多线段
-</h3><p>主要操作函数：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>函数</th>
-          <th>功能</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>pthread_create</code></td>
-          <td>创建一个线程</td>
-      </tr>
-      <tr>
-          <td><code>pthread_cancel</code></td>
-          <td>终止另一个线程</td>
-      </tr>
-      <tr>
-          <td><code>pthread_detach</code></td>
-          <td>分离线程</td>
-      </tr>
-      <tr>
-          <td><code>pthread_equal</code></td>
-          <td>检查两个线程的id是否相等</td>
-      </tr>
-      <tr>
-          <td><code>pthread_exit</code></td>
-          <td>退出线程但不退出进程</td>
-      </tr>
-      <tr>
-          <td><code>pthread_join</code></td>
-          <td>等待一个线程</td>
-      </tr>
-      <tr>
-          <td><code>pthread_self</code></td>
-          <td>获得自己的线程id</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="java多线程">Java多线程
-</h3><p>创建方法：</p>
-<ol>
-<li>通过<code>Thread</code>类的子类实现多线程。</li>
-<li>定义一个实现<code>Runnable</code>接口的类实现多线程。</li>
-</ol>
-<h2 id="openmp">OpenMP
-</h2><p>OpenMP是一种面向共享内存以及分布式共享内存的多处理器多线程的并行编程语言。</p>
-<p>编程模型：Fork-Join</p>
-<ol>
-<li>开始执行时，只有主线程存在</li>
-<li>主线程运行过程中，当遇到需要并行计算的时候，Fork新线程来并行执行任务。</li>
-<li>并行执行时，主线程和派生线程共同工作</li>
-<li>并行部分执行结束后，派生线程退出并挂起，不再工作，控制流回到单独的主线程中（Join）</li>
-</ol>
-<h3 id="编译制导语句">编译制导语句
-</h3><p>编译制导语句是在编译器编译程序时，识别特定的、包含OpenMP程序语义的注释</p>
-<blockquote>
-<p>在C/C++程序中，用<code>#pragma omp parallel</code>来标识一段并行程序块。在一个无法识别OpenMP语义的普通编译器中，这些特定的注释会被视作普通的注释而被忽略。</p>
-</blockquote>
-<h4 id="并行域">并行域
-</h4><p>并行域中的代码被所有线程执行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp parallel [clause[[,] clause] ...] newline
-</span></span></span></code></pre></div><p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;omp.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="kt">int</span> <span class="n">nthreads</span><span class="p">,</span> <span class="n">tid</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="c1">// 创建多个线程
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="cp">#pragma omp parallel private(tid) 
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="c1">// 获取线程ID
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">tid</span> <span class="o">=</span> <span class="nf">omp_get_thread_num</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Hello World from thread = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tid</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">
-</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="c1">// 仅主线程执行此段
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">tid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="n">nthreads</span> <span class="o">=</span> <span class="nf">omp_get_num_threads</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">            <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Number of threads = %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">nthreads</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="p">}</span>   <span class="c1">// 所有线程在此处回到主线程
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl">
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="共享任务">共享任务
-</h4><p>共享任务结构将它所包含的代码划分给线程组的各成员来执行。</p>
-<h5 id="for语句">for语句
-</h5><p>for语句：指定紧随它的循环语句必须由线程组并行执行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp for[clause[[,] clause]...] newline
-</span></span></span></code></pre></div><p><code>schedule(type, [,chunck])</code>：描述如何将循环的迭代划分给线程组中的线程，其中<code>chunck</code>表示每个线程分配的计算量（未指定则尽可能平均分配），<code>type</code>则有<code>static</code>（静态划分）和<code>dynamic</code>（动态划分）</p>
-<p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;omp.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define CHUNKSIZE 100
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define N 1000
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">float</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">M</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="n">chunk</span> <span class="o">=</span> <span class="n">CHUNKSIZE</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="cp">#pragma omp parallel shared(a, b, c, chunk) private(i)
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="cp">#pragma omp for schedule(dynamic, chunk) nowait
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">            <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h5 id="sections语句">sections语句
-</h5><p>sections编译制导语句指定内部的代码被划分给线程组中的各线程，不同的<code>section</code>由不同的线程执行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp sections [clause [[,] clause] ...] newline
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="cp">#pragma omp section newline
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl">    <span class="cp">#pragma omp section newline
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl">    <span class="p">...</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;omp.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define N 1000
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">float</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mf">22.35</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="cp">#pragma omp parallel shared(a, b, c, d) private(i)
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">            <span class="cp">#pragma omp sections nowait
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="p">{</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">                <span class="cp">#pragma omp section
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">                    <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">                <span class="cp">#pragma omp section
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">22</span><span class="cl">                    <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">                <span class="p">}</span>
-</span></span><span class="line"><span class="ln">24</span><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="ln">25</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">27</span><span class="cl">
-</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h5 id="single语句">single语句
-</h5><p>single编译制导语句指定内部代码只有线程组中的一个线程执行，线程组中没有执行<code>single</code>语句的线程会一直等待代码块的结束（使用<code>nowait</code>子句除外）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp single [clause [[,] clause ...]] newline
-</span></span></span></code></pre></div><p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;omp.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">void</span> <span class="nf">work1</span><span class="p">()</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">void</span> <span class="nf">work2</span><span class="p">()</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="cp">#pragma omp parallel
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="cp">#pragma omp single
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Beginning work1. </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="nf">work1</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">
-</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="cp">#pragma omp single
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Finishing work1.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">
-</span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="cp">#pragma omp single nowait
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Finishing work1 and beginning work2.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="nf">work</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">21</span><span class="cl">
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h5 id="parallel-for编译制导语句">parallel for编译制导语句
-</h5><p><code>parallel for</code>编译制导语句表明一个并行域包含一个独立的<code>for</code>语句</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp parallel for [clause ...] newline
-</span></span></span></code></pre></div><p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;omp.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#define N 1000
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cp">#define CHUNKSIZE 100
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="kt">float</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">N</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">chunk</span> <span class="o">=</span> <span class="n">CHUNKSIZE</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="cp">#pragma omp parallel for shared(a,b,c,chunk) private(i) schedule(static, chunk)
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h5 id="parallel-sections编译制导语句">parallel sections编译制导语句
-</h5><p><code>parallel sections</code>编译制导语句表明一个并行域包含单独的一个<code>section</code>语句</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln">1</span><span class="cl"><span class="cp">#pragma omp parallel sections [clause ...] newline
-</span></span></span></code></pre></div><p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;omp.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kt">void</span> <span class="nf">XAXIS</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">void</span> <span class="nf">YAXIS</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">void</span> <span class="nf">ZAXIS</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="cp">#pragma omp parallel sections
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="cp">#pragma omp section
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="nf">XAXIS</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">
-</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="cp">#pragma omp section
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="nf">YAXIS</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">
-</span></span><span class="line"><span class="ln">16</span><span class="cl">        <span class="cp">#pragma omp section
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl">        <span class="nf">ZAXIS</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="同步">同步
-</h4><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>制导语句</th>
-          <th>作用</th>
-          <th>格式</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>master</td>
-          <td>指定代码段只有主线程执行</td>
-          <td><code>#pragma omp master newline</code></td>
-      </tr>
-      <tr>
-          <td>critical</td>
-          <td>表明域中的代码一次只能在一个线程执行，其他线程被阻塞在临界区</td>
-          <td><code>#pragma omp critical [name] newline</code></td>
-      </tr>
-      <tr>
-          <td>barrier</td>
-          <td>同步一个线程组中的所有线程，先到达的在此阻塞，等待其他线程</td>
-          <td><code>#pragma omp barrier newline</code></td>
-      </tr>
-      <tr>
-          <td>atomic</td>
-          <td>指定特定的存储单元将被原子更新</td>
-          <td><code>#pragma omp atomic newline</code></td>
-      </tr>
-      <tr>
-          <td>flush</td>
-          <td>用以标识一个同步点，用以确保所有的线程看到一致的存储器视图</td>
-          <td><code>#pragma omp flush (list) newline</code></td>
-      </tr>
-      <tr>
-          <td>order</td>
-          <td>指出其所包含循环的执行按照循环次序进行，任何时候只能有一个线程执行被ordered限制的部分</td>
-          <td><code>#pragma omp ordered newline</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<h4 id="数据域">数据域
-</h4><p>数据域共享属性子句</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>子句</th>
-          <th>作用</th>
-          <th>格式</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>private</td>
-          <td>表示它列出的变量对于每个线程是局部的</td>
-          <td><code>private(list)</code></td>
-      </tr>
-      <tr>
-          <td>shared</td>
-          <td>表示它所列出的变量被线程组中的所有线程共享，所有线程都能对它进行读写访问</td>
-          <td><code>shared(list)</code></td>
-      </tr>
-      <tr>
-          <td>default</td>
-          <td>让用户自行规定在一个并行域的静态范围内所定义的变量的缺省作用范围</td>
-          <td><code>default(shared | none)</code></td>
-      </tr>
-      <tr>
-          <td>firstprivate</td>
-          <td>private子句的超集，对变量作原子初始化</td>
-          <td><code>firstprivate(list)</code></td>
-      </tr>
-      <tr>
-          <td>lastprivate</td>
-          <td>private子句的超集，将变量从最后的循环迭代或段复制给原始的变量</td>
-          <td><code>lastprivate(list)</code></td>
-      </tr>
-      <tr>
-          <td>reduction</td>
-          <td>使用指定的操作对其列表中出现的变量进行规约，初始时每个线程保留一份私有拷贝，结构尾部对变量进行规约并更新全局值</td>
-          <td><code>reduction(operator: list)</code></td>
-      </tr>
-      <tr>
-          <td>threadprivate</td>
-          <td>使一个全局文件作用域的变量在并行域内变为每个线程私有，复制一份私有拷贝</td>
-          <td><code>#pragma omp threadprivate (list) newline</code></td>
-      </tr>
-      <tr>
-          <td>copyin</td>
-          <td>为线程组中所有线程的threadprivate变量赋相同的值，主线程中该变量的值作为初始值</td>
-          <td><code>copyin(list)</code></td>
-      </tr>
-      <tr>
-          <td>copyprivate</td>
-          <td>用一个私有变量将一个值从一个线程广播到执行同一个并行区域的其他线程</td>
-          <td><code>copyprivate(list)</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="运行库与环境变量">运行库与环境变量
-</h3><p>OpenMP标准定义了一个应用编程接口来调用库中的函数</p>
-<p>对于C/C++，需要在程序开头引用文件<code>&lt;omp.h&gt;</code></p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>环境变量</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>OMP_SCHEDULE</code></td>
-          <td>线程调度类型，只能用到<code>for</code>，<code>parallel for</code>中</td>
-      </tr>
-      <tr>
-          <td><code>OMP_NUM_THREADS</code></td>
-          <td>定义执行中最大的线程数</td>
-      </tr>
-      <tr>
-          <td><code>OMP_DYNAMIC</code></td>
-          <td>通过设定变量值<code>TRUE</code>或<code>FALSE</code>来确定是否动态设定并行域执行的线程数</td>
-      </tr>
-      <tr>
-          <td><code>OMP_NESTED</code></td>
-          <td>确定是否可以并行嵌套</td>
-      </tr>
-  </tbody>
-</table></div>
-<h2 id="mpi">MPI
-</h2><p>MPI是一种标准或规范的代表，同时也是一种消息传递编程模型。</p>
-<p>MPI的实现是一个库，而不是一门语言</p>
-<blockquote>
-<p>可以把<code>C+MPI</code>看作是一种在原来串行语言基础之上扩展后得到的并行语言。</p>
-</blockquote>
-<h3 id="mpi概述">MPI概述
-</h3><p>程序示例</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;studio.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;mpi.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">int</span> <span class="n">err</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">err</span> <span class="o">=</span> <span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Hello World</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="n">err</span> <span class="o">=</span> <span class="n">MPI_Finalize</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="mpi程序的结构">MPI程序的结构
-</h4><p><img src="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84.png"
-	width="688"
-	height="667"
-	srcset="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84_hu_f7cca30528d5fa17.png 480w, /passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84_hu_5bd1bca69127e658.png 1024w"
-	loading="lazy"
-	
-		alt="MPI程序结构"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="103"
-		data-flex-basis="247px"
-	
-></p>
-<h4 id="开始与结束">开始与结束
-</h4><p>MPI代码开始之前必须进行如下的调用：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
-</span></span></code></pre></div><p>MPI系统将通过<code>argc</code>，<code>argv</code>得到命令行参数</p>
-<p>MPI的最后一行必须是</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Finalize</span><span class="p">();</span>
-</span></span></code></pre></div><h4 id="进程的标识">进程的标识
-</h4><p>通信域默认为<code>MPI_COMM_WORLD</code>。</p>
-<p><code>MPI_Comm_size(MPI_COMM_WORLD, &amp;size)</code>：获得通信域内所有进程的数目，赋值给<code>size</code>。</p>
-<p><code>MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank)</code>：获得进程在通信域内的编号，赋值给<code>myrank</code></p>
-<h4 id="发送与接收信息">发送与接收信息
-</h4><p>发送消息示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="o">&amp;</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
-</span></span></code></pre></div><p>接收消息示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">status</span><span class="p">);</span>
-</span></span></code></pre></div><p>据此可以得出MPI程序运行的完整过程：</p>
-<p><img src="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B.png"
-	width="1125"
-	height="690"
-	srcset="/passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B_hu_9efd0f829415ef1b.png 480w, /passage/cs/parallel_computing/images/MPI%E7%A8%8B%E5%BA%8F%E8%BF%87%E7%A8%8B_hu_802cb3ce71e6b6ac.png 1024w"
-	loading="lazy"
-	
-		alt="MPI程序运行的完整过程"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="163"
-		data-flex-basis="391px"
-	
-></p>
-<h3 id="点到点通信">点到点通信
-</h3><h4 id="send和recv">Send和Recv
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">destination</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">communicator</span><span class="p">);</span>
-</span></span></code></pre></div><p>具体解释如下：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>参数</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>buffer</td>
-          <td>指明消息缓存的起始地址，即存放要发送的数据信息</td>
-      </tr>
-      <tr>
-          <td>count</td>
-          <td>指明消息中给定的数据类型有多少项，数据类型由<code>datatype</code>给定</td>
-      </tr>
-      <tr>
-          <td>datatype</td>
-          <td>数据类型要么是基本数据类型，要么是导出数据类型（由用户指定的混合数据类型）</td>
-      </tr>
-      <tr>
-          <td>destination</td>
-          <td>目的进程的标识符（进程编号）</td>
-      </tr>
-      <tr>
-          <td>tag</td>
-          <td>消息标签</td>
-      </tr>
-      <tr>
-          <td>communicator</td>
-          <td>标识进程组和上下文，即通信域。通常消息只能在同组的进程间传递，但MPI允许通过<code>intercommunicator</code>在组间传递</td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">communicator</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
-</span></span></code></pre></div><p>具体解释如下：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>参数</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>address</td>
-          <td>指明接收消息缓冲的起始地址，即存放接收消息的内存地址</td>
-      </tr>
-      <tr>
-          <td>count</td>
-          <td>指明给定数据类型<code>datatype</code>可以被接收的最大项数</td>
-      </tr>
-      <tr>
-          <td>datatype</td>
-          <td>指定接收的数据类型</td>
-      </tr>
-      <tr>
-          <td>destination</td>
-          <td>源进程的标识符（进程编号）</td>
-      </tr>
-      <tr>
-          <td>tag</td>
-          <td>消息标签</td>
-      </tr>
-      <tr>
-          <td>communicator</td>
-          <td>标识通信域</td>
-      </tr>
-      <tr>
-          <td>status</td>
-          <td>指向一个结构<code>MPI_Status</code>，存放有关接收消息的各种信息</td>
-      </tr>
-  </tbody>
-</table></div>
-<h4 id="标签的使用">标签的使用
-</h4><p>考虑下列程序：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 进程P
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">Q</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">Q</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1">// 进程Q
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">P</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">P</span><span class="p">);</span>
-</span></span></code></pre></div><p>进程P需要传递A进程的前32个字节进入X，传递B的前16个字节进入Y。但是，如果消息B后发送但是先到达进程Q，就会被Q的第一个<code>MPI_Recv()</code>接收到X中。</p>
-<p>使用标签可以避免这个错误：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 进程P
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">tag1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">tag2</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1">// 进程Q
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tag1</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">MPI_Recv</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tag2</span><span class="p">);</span>
-</span></span></code></pre></div><blockquote>
-<p>标签还可以应用在不同客户端请求服务端数据时，服务端根据标签的不同而分别采用相应的函数。</p>
-</blockquote>
-<h3 id="组通信">组通信
-</h3><p>组通信的函数分类如下：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>功能</th>
-          <th>函数</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>一对多</td>
-          <td><code>Broadcast</code>，<code>Scatter</code></td>
-      </tr>
-      <tr>
-          <td>多到一</td>
-          <td><code>Reduce</code>，<code>Gather</code></td>
-      </tr>
-      <tr>
-          <td>多到多</td>
-          <td><code>Allreduce</code>，<code>Allgather</code></td>
-      </tr>
-      <tr>
-          <td>同步</td>
-          <td><code>Barrier</code></td>
-      </tr>
-  </tbody>
-</table></div>
-<h4 id="broadcast">Broadcast
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Bcast</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p>标号为<code>root</code>的进程发送相同的消息给标记为<code>comm</code>的通信子中的所有进程。</p>
-<p>消息的内容如同点对点通信一样由三元组<code>(address, count, datatype)</code>标识。对<code>root</code>进程来说，这个三元组既定义了发送缓冲也定义了接收缓冲；对其他进程来说，这个三元组只定义了接收缓冲。</p>
-<p><img src="/passage/cs/parallel_computing/images/MPI_Bcast.png"
-	width="1024"
-	height="315"
-	srcset="/passage/cs/parallel_computing/images/MPI_Bcast_hu_9ad8186069ecfa94.png 480w, /passage/cs/parallel_computing/images/MPI_Bcast_hu_624cecf7cadfcced.png 1024w"
-	loading="lazy"
-	
-		alt="MPI_Bast"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="325"
-		data-flex-basis="780px"
-	
-></p>
-<p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="kt">int</span> <span class="n">rank</span><span class="p">,</span> <span class="n">value</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="n">MPI_Comm_rank</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rank</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    <span class="k">do</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="c1">// 进程0读入需要广播的数据
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">        <span class="c1">// 将该数据广播出去
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl">        <span class="n">MPI_Bcast</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="c1">// 各进程打印收到的数据
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Process %d got %d </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">MPI_Finalize</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h4 id="scatter">Scatter
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Scatter</span><span class="p">(</span><span class="n">sendAddress</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">sendDatatype</span><span class="p">,</span> 
-</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvAddress</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">recvDatatype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p><code>root</code>进程发送给所有n个进程各发送一个不同的消息，包括自己。</p>
-<p>这n个消息在<code>root</code>进程的发送缓冲区中按标号的顺序有序地存放。每个接收缓冲区由三元组<code>(recvAddress, recvCount, recvDatatype)</code>标识。非<code>root</code>进程忽略发送缓冲。</p>
-<p>对于<code>root</code>进程，发送缓冲由三元组<code>(sendAddress, sendCount, sendDatatype)</code>标识。</p>
-<p><img src="/passage/cs/parallel_computing/images/MPI_Scatter.png"
-	width="1009"
-	height="452"
-	srcset="/passage/cs/parallel_computing/images/MPI_Scatter_hu_fcafba09ccf6a28c.png 480w, /passage/cs/parallel_computing/images/MPI_Scatter_hu_71c52bf690c17c5.png 1024w"
-	loading="lazy"
-	
-		alt="MPI_Scatter"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="223"
-		data-flex-basis="535px"
-	
-></p>
-<p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 根进程向组内每个进程散播100个整型数据
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="kt">int</span> <span class="n">gsize</span><span class="p">,</span> <span class="o">*</span><span class="n">sendbuf</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gsize</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">sendbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="n">gsize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="n">MPI_Scatter</span><span class="p">(</span><span class="n">sendbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p>根进程向各个进程发送个数不等的数据</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Scatterv</span><span class="p">(</span><span class="n">sendbuf</span><span class="p">,</span> <span class="n">sendcounts</span><span class="p">,</span> <span class="n">displs</span><span class="p">,</span> <span class="n">sendtype</span><span class="p">,</span> 
-</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvbuf</span><span class="p">,</span> <span class="n">recvcount</span><span class="p">,</span> <span class="n">recvtype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><h4 id="gather">Gather
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Gather</span><span class="p">(</span><span class="n">sendAddress</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">sendDatatype</span><span class="p">,</span> 
-</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvAddress</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">recvDatatype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p><code>root</code>进程接收各个进程（包括它自己）的消息。这n个进程的连接按序号<code>rank</code>进行，存放在<code>root</code>进程的接收缓冲中。</p>
-<p>每个发送缓冲由三元组<code>(sendAddress, sendCount, sendDatatype)</code>标识。</p>
-<p>非<code>root</code>进程忽略接收缓冲。对于<code>root</code>进程，发送缓冲由三元组<code>(recvAddress, recvCount, recvDatatype)</code>标识。<code>recvCount</code>标识<code>root</code>进程从每个进程接收数据的个数。</p>
-<p><img src="/passage/cs/parallel_computing/images/MPI_Gather.png"
-	width="936"
-	height="422"
-	srcset="/passage/cs/parallel_computing/images/MPI_Gather_hu_37c68b45a2c9b245.png 480w, /passage/cs/parallel_computing/images/MPI_Gather_hu_bd7fb72f95534021.png 1024w"
-	loading="lazy"
-	
-		alt="MPI_Gather"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="221"
-		data-flex-basis="532px"
-	
-></p>
-<p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 根进程从进程组中每个进程收集100个整型数据
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="kt">int</span> <span class="n">gsize</span><span class="p">,</span> <span class="n">sendarray</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">int</span> <span class="n">root</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gsize</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">rbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="n">gsize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="n">MPI_Gather</span><span class="p">(</span><span class="n">sendarray</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p>从不同进程接收不同数量的数据</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Gatherv</span><span class="p">(</span><span class="n">sendbuf</span><span class="p">,</span> <span class="n">sendcount</span><span class="p">,</span> <span class="n">sendtype</span><span class="p">,</span> 
-</span></span><span class="line"><span class="ln">2</span><span class="cl">            <span class="n">recvbuf</span><span class="p">,</span> <span class="n">recvcounts</span><span class="p">,</span> <span class="n">displs</span><span class="p">,</span> <span class="n">recvtype</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><h4 id="allgather">Allgather
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Allgather</span><span class="p">(</span><span class="n">sendAddress</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">sendDatatype</span><span class="p">,</span> 
-</span></span><span class="line"><span class="ln">2</span><span class="cl">                <span class="n">recvAddress</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">recvDatatype</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/images/MPI_Allgather.png"
-	width="903"
-	height="683"
-	srcset="/passage/cs/parallel_computing/images/MPI_Allgather_hu_edd1e09f4b34e3a.png 480w, /passage/cs/parallel_computing/images/MPI_Allgather_hu_a3667f69690964dc.png 1024w"
-	loading="lazy"
-	
-		alt="MPI_Allgather"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="132"
-		data-flex-basis="317px"
-	
-></p>
-<p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 每个进程都从其他进程收集100个数据，存入自己的缓冲区
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="kt">int</span> <span class="n">gsize</span><span class="p">,</span> <span class="n">sendarray</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="kt">int</span> <span class="o">*</span><span class="n">rbuf</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">comm</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">gsize</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="n">rbuf</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span> <span class="p">(</span><span class="n">gsize</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="n">MPI_Allgather</span><span class="p">(</span><span class="n">sendarray</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">rbuf</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><h4 id="reduce">Reduce
-</h4><p>所有进程向同一进程发送消息，与<code>Broadcast</code>的消息发送方向相反。</p>
-<p>接收进程对所有收到的消息进行规约处理。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Reduce</span><span class="p">(</span><span class="n">inbuf</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">comm</span><span class="p">);</span>
-</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/images/MPI_Reduce.png"
-	width="1009"
-	height="469"
-	srcset="/passage/cs/parallel_computing/images/MPI_Reduce_hu_c85fae6ee48a9a2c.png 480w, /passage/cs/parallel_computing/images/MPI_Reduce_hu_4e936d4ffc58ef42.png 1024w"
-	loading="lazy"
-	
-		alt="MPI_Reduce"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="215"
-		data-flex-basis="516px"
-	
-></p>
-<p>不同类型的规约操作对比</p>
-<p><img src="/passage/cs/parallel_computing/images/%E8%A7%84%E7%BA%A6%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94.png"
-	width="1282"
-	height="698"
-	srcset="/passage/cs/parallel_computing/images/%E8%A7%84%E7%BA%A6%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94_hu_e19018d799dbe94c.png 480w, /passage/cs/parallel_computing/images/%E8%A7%84%E7%BA%A6%E6%93%8D%E4%BD%9C%E5%AF%B9%E6%AF%94_hu_2291e1c97a5bd3a8.png 1024w"
-	loading="lazy"
-	
-		alt="不同类型的规约操作对比"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="183"
-		data-flex-basis="440px"
-	
-></p>
+<h2 id="并行程序设计方法">并行程序设计方法
+</h2><p>以下提供一些并行计算的程序设计方法。请注意，这些方法通常不会单一出现，而是综合使用。</p>
+<div class="catalogue">
+    <div class="logo">
+        <a class="name" href=/passage/cs/parallel_computing/thread >多线程与Pthread</a>
+    </div>
+    <div class="description"></div>
+</div>
+
+<style>
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme="light"] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme="dark"] {
+        .name {
+            color: #cebef4;
+        }
+    }
+</style>
+
+<div class="catalogue">
+    <div class="logo">
+        <a class="name" href=/passage/cs/parallel_computing/openmp >OpenMP编程</a>
+    </div>
+    <div class="description"></div>
+</div>
+
+<style>
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme="light"] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme="dark"] {
+        .name {
+            color: #cebef4;
+        }
+    }
+</style>
+
+<div class="catalogue">
+    <div class="logo">
+        <a class="name" href=/passage/cs/parallel_computing/mpi >MPI编程</a>
+    </div>
+    <div class="description"></div>
+</div>
+
+<style>
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme="light"] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme="dark"] {
+        .name {
+            color: #cebef4;
+        }
+    }
+</style>
+
 
 </section>
 

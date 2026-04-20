@@ -528,103 +528,6 @@
 
 
             <main class="main full-width">
-    
-        
-
-<!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>密码</title>
-        <style>
-             
-            .password-box {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 10px;
-                 
-                max-height: 35vh;
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
-            .password-guide {
-                color: var(--card-text-color-main);
-            }
-            .cloze {
-                color: var(--card-text-color-main);
-            }
-            
-             
-            .widget-icon {
-                color: var(--body-text-color);
-            }
-
-             
-            .main-article {
-                display: none;
-            }
-            .widget--toc {
-               display: none;
-               max-height: 40vh;
-               overflow-y: auto;
-            }
-        </style>
-    </head>
-
-    
-    <section class="widget password"> 
-        <div class="password-box">
-            <div class="widget-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" /><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M8 11v-4a4 4 0 1 1 8 0v4" /></svg>
-            </div>
-            <div class="password-guide"><p>请输入密码以查看内容：</p></div>
-            <input id="password-input" type="password"  />
-            <button id="check">提交</button>
-            <div class="cloze" style="display: block;">
-                <p>密码为以下题目答案（保留6位小数）：</p>
-                <p>计算三重积分 $\displaystyle \iiint\limits_{\varOmega} \frac{xyz}{x^2+y^2} \mathrm{d}x\mathrm{d}y\mathrm{d}z$，其中 $\varOmega$ 是由曲面 $(x^2+y^2+z^2)^2 = 2xy$ 围成的区域在第一卦限的部分. </p>
-            </div>
-        </div>
-    </section>
-
-
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
-
-    <script>
-        function checkPassword() {
-            const input = document.getElementById("password-input").value;
-            const correctPassword = "0.013888";
-            if (input == correctPassword) {
-                document.querySelector(".main-article").style.display = "block";
-                document.querySelector(".widget--toc").style.display = "block";
-                document.querySelector(".password-box").style.display = "none";
-            }
-            else {
-                alert("密码错误！");
-            }
-            window.Stack.init();
-        }
-
-        document.querySelector("#check").addEventListener("click", checkPassword);
-        
-    </script>
-</html>
      
     
     <article class="main-article">
@@ -720,19 +623,19 @@
   </thead>
   <tbody>
       <tr>
-          <td><code>mm_init()</code></td>
+          <td>mm_init()</td>
           <td>调用<code>mm_init</code>执行任何必要的初始化，例如分配初始堆区域。如果在执行初始化时出现问题，则返回值应为<code>-1</code>，否则为<code>0</code>。</td>
       </tr>
       <tr>
-          <td><code>mm_malloc()</code></td>
+          <td>mm_malloc()</td>
           <td><code>mm_malloc</code>例程返回一个指向至少大小为size字节的分配块有效负载的指针。</td>
       </tr>
       <tr>
-          <td><code>mm_free()</code></td>
+          <td>mm_free()</td>
           <td><code>mm_free</code>例程释放<code>ptr</code>指向的块。它不返回任何内容。只有当传递的指针（<code>ptr</code>）是由先前的<code>mm_malloc</code>或<code>mm_realloc</code>调用返回的，并且尚未被释放时，此例程才保证可工作。</td>
       </tr>
       <tr>
-          <td><code>mm_realloc()</code></td>
+          <td>mm_realloc()</td>
           <td><code>mm_realloc</code>例程返回一个指向至少大小为<code>size</code>字节的分配区域的指针。</td>
       </tr>
   </tbody>
@@ -1067,15 +970,18 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl">    <span class="kt">size_t</span> <span class="n">copySize</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">    
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="n">newptr</span> <span class="o">=</span> <span class="nf">mm_malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">newptr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">      <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">copySize</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HDRP</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;</span> <span class="n">copySize</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">      <span class="n">copySize</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="nf">memcpy</span><span class="p">(</span><span class="n">newptr</span><span class="p">,</span> <span class="n">oldptr</span><span class="p">,</span> <span class="n">copySize</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="nf">mm_free</span><span class="p">(</span><span class="n">oldptr</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="k">return</span> <span class="n">newptr</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">newptr</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">copySize</span> <span class="o">=</span> <span class="nf">GET_SIZE</span><span class="p">(</span><span class="nf">HDRP</span><span class="p">(</span><span class="n">ptr</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&lt;</span> <span class="n">copySize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">copySize</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span> 
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="nf">memcpy</span><span class="p">(</span><span class="n">newptr</span><span class="p">,</span> <span class="n">oldptr</span><span class="p">,</span> <span class="n">copySize</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="nf">mm_free</span><span class="p">(</span><span class="n">oldptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="k">return</span> <span class="n">newptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="总结">总结
 </h2><p>本次的动态内存分配实验是对链表这种数据结构的一次具体应用，让我体会到链表和指针在执行内存管理任务时的巨大作用，同时我也感受到C语言因具有指针这种特殊数据类型而相较于其他高级语言展现出无可比拟的优势。</p>
 <p>在实验中，我多次参考了书本上的案例，但同时也发现其代码存在的不健壮性。这提醒我在编写程序时应学会与时俱进，及时修改可能出现的漏洞和错误，才能保证程序在多种条件下依然能够正常运行。</p>
