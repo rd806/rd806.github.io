@@ -1708,7 +1708,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 &lt;h2 id=&#34;具体实现&#34;&gt;具体实现
 &lt;/h2&gt;&lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/cslab/NEMU/part1 &gt;PA1&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/cslab/nemu/part1 &gt;PA1&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1753,7 +1753,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/cslab/NEMU/part2 &gt;PA2&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/cslab/nemu/part2 &gt;PA2&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1798,7 +1798,7 @@ $$ P = wU + (1 − w) \cdot \mathrm{min} \left\{ 1, \ \frac{T}{T_{\mathrm{libc}}
 
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
-        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/cslab/NEMU/part3 &gt;PA3&lt;/a&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/cslab/nemu/part3 &gt;PA3&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
 &lt;/div&gt;

@@ -379,6 +379,20 @@
         <li><a href="#自定义数据类型-1">自定义数据类型</a></li>
       </ol>
     </li>
+    <li><a href="#虚拟进程拓扑">虚拟进程拓扑</a>
+      <ol>
+        <li><a href="#虚拟拓扑的作用">虚拟拓扑的作用</a></li>
+        <li><a href="#常用拓扑构型">常用拓扑构型</a></li>
+        <li><a href="#虚拟拓扑的使用">虚拟拓扑的使用</a>
+          <ol>
+            <li><a href="#创建虚拟拓扑">创建虚拟拓扑</a></li>
+            <li><a href="#构建坐标映射">构建坐标映射</a></li>
+            <li><a href="#数据平移">数据平移</a></li>
+            <li><a href="#划分子拓扑">划分子拓扑</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -671,7 +685,7 @@
 </span></span></code></pre></div><h3 id="进程的标识">进程的标识
 </h3><p>通信域默认为<code>MPI_COMM_WORLD</code>。</p>
 <p><code>MPI_Comm_size(MPI_COMM_WORLD, &amp;size)</code>：获得通信域内所有进程的数目，赋值给<code>size</code>。</p>
-<p><code>MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank)</code>：获得进程在通信域内的编号，赋值给<code>myrank</code></p>
+<p><code>MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank)</code>：获得进程在通信域内的编号，赋值给<code>myrank</code>。</p>
 <h3 id="发送与接收信息">发送与接收信息
 </h3><p>发送消息示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Send</span><span class="p">(</span><span class="o">&amp;</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
@@ -1151,6 +1165,7 @@
 <h3 id="重复非阻塞通信">重复非阻塞通信
 </h3><p>通信重复执行，比如循环结构内的通信调用。</p>
 <p>通过将通信参数和MPI内部对象建立起固定联系，然后通过该对象完成重复通信的任务，并优化以降低开销。这样的通信方式在MPI中都是非阻塞通信。</p>
+<p>阻塞通信和非阻塞通信的比较：</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1362,7 +1377,146 @@ $$h_{i,j} = \frac{h_{i-1,j} + h_{i+1,j} + h_{i,j-1} + h_{i,j+1}}{4}$$<p>对Jacob
 </span></span><span class="line"><span class="ln">10</span><span class="cl">                    <span class="n">MPI_Aint</span><span class="o">*</span> <span class="n">array_of_displacements</span><span class="p">,</span> 
 </span></span><span class="line"><span class="ln">11</span><span class="cl">                    <span class="n">MPI_Datatype</span><span class="o">*</span> <span class="n">array_of_types</span><span class="p">,</span>
 </span></span><span class="line"><span class="ln">12</span><span class="cl">                    <span class="n">MPI_Datatype</span><span class="o">*</span> <span class="n">newtype</span><span class="p">)</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="虚拟进程拓扑">虚拟进程拓扑
+</h2><p>在许多并行应用程序中，进程的线性排列通常不能充分地反映进程间在逻辑上的通信模型。此时我们经常将进程排列为二维或三维网格形式的拓扑模型，并用一个图来描述逻辑进程排列。</p>
+<p>这种逻辑进程的排列称作<strong>虚拟进程拓扑</strong></p>
+<h3 id="虚拟拓扑的作用">虚拟拓扑的作用
+</h3><p>拓扑是组内通信域上的额外、可选的属性，它不能附加在组间通信域上。</p>
+<p>作用：</p>
+<ol>
+<li>便于命名：拓扑能够提供一种方便的命名机制，对于有特定拓扑要求的算法使用起来直接、自然且方便。</li>
+<li>简化代码编写。</li>
+<li>辅助运行时系统将进程映射到实际的硬件结构之上。</li>
+<li>便于MPI内部对通信进行优化。</li>
+</ol>
+<h3 id="常用拓扑构型">常用拓扑构型
+</h3><p>笛卡尔拓扑：</p>
+<ol>
+<li>每个进程处于一个虚拟的网络内，与其邻居通信</li>
+<li>边界可以构成环</li>
+<li>通过笛卡尔坐标（平面直角坐标）来标识进程</li>
+<li>任何两个进程之间都可以通信</li>
+</ol>
+<p>图拓扑：适用于更复杂的通信情形。</p>
+<p>案例：二维阵列拓扑</p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/%E4%BA%8C%E7%BB%B4%E9%98%B5%E5%88%97%E6%8B%93%E6%89%91.png"
+	width="1044"
+	height="701"
+	srcset="/passage/cs/parallel_computing/mpi/images/%E4%BA%8C%E7%BB%B4%E9%98%B5%E5%88%97%E6%8B%93%E6%89%91_hu_62afba0bfed0e0a.png 480w, /passage/cs/parallel_computing/mpi/images/%E4%BA%8C%E7%BB%B4%E9%98%B5%E5%88%97%E6%8B%93%E6%89%91_hu_ad87567d7634f6cc.png 1024w"
+	loading="lazy"
+	
+		alt="二维阵列拓扑"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="357px"
+	
+></p>
+<h3 id="虚拟拓扑的使用">虚拟拓扑的使用
+</h3><h4 id="创建虚拟拓扑">创建虚拟拓扑
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Cart_create</span><span class="p">(</span><span class="n">MPI_Comm</span> <span class="n">comm_old</span><span class="p">,</span> <span class="kt">int</span> <span class="n">ndims</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">                    <span class="kt">int</span><span class="o">*</span> <span class="n">dims</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">periods</span><span class="p">,</span> <span class="kt">int</span> <span class="n">reorder</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">                    <span class="n">MPI_Comm</span><span class="o">*</span> <span class="n">comm_cart</span><span class="p">)</span>
+</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/mpi/images/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%8B%93%E6%89%91.png"
+	width="945"
+	height="303"
+	srcset="/passage/cs/parallel_computing/mpi/images/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%8B%93%E6%89%91_hu_7a31d7ede8b149.png 480w, /passage/cs/parallel_computing/mpi/images/%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%8B%93%E6%89%91_hu_805bbf67740f27d.png 1024w"
+	loading="lazy"
+	
+		alt="创建虚拟拓扑"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="311"
+		data-flex-basis="748px"
+	
+></p>
+<h4 id="构建坐标映射">构建坐标映射
+</h4><p>实现进程号与其在虚拟进程拓扑中坐标的映射</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 给定进程号返回其笛卡尔坐标
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Cart_coords</span><span class="p">(</span><span class="n">MPI_Comm</span> <span class="n">comm_cart</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rank</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxdims</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">coords</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">// 给定笛卡尔坐标返回进程号
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Cart_rank</span><span class="p">(</span><span class="n">MPI_Comm</span> <span class="n">comm_cart</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">coords</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">rank</span><span class="p">)</span>
+</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/mpi/images/%E8%AE%A1%E7%AE%97%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9D%90%E6%A0%87.png"
+	width="1005"
+	height="636"
+	srcset="/passage/cs/parallel_computing/mpi/images/%E8%AE%A1%E7%AE%97%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9D%90%E6%A0%87_hu_de4388ff10bcb33b.png 480w, /passage/cs/parallel_computing/mpi/images/%E8%AE%A1%E7%AE%97%E5%BD%93%E5%89%8D%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9D%90%E6%A0%87_hu_435e7de490e65c2d.png 1024w"
+	loading="lazy"
+	
+		alt="计算当前进程的坐标"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="379px"
+	
+></p>
+<h4 id="数据平移">数据平移
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Cart_shift</span><span class="p">(</span><span class="n">MPI_Comm</span> <span class="n">comm_cart</span><span class="p">,</span> <span class="kt">int</span> <span class="n">direction</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">                    <span class="kt">int</span> <span class="n">disp</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">rank_source</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">rank_dest</span><span class="p">)</span>
+</span></span></code></pre></div><p>计算相邻进程的<code>rank</code>，如果没有邻居则返回<code>MPI_PROC_NULL</code></p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/%E6%95%B0%E6%8D%AE%E5%B9%B3%E7%A7%BB.png"
+	width="843"
+	height="553"
+	srcset="/passage/cs/parallel_computing/mpi/images/%E6%95%B0%E6%8D%AE%E5%B9%B3%E7%A7%BB_hu_a81518e6bfdde5a6.png 480w, /passage/cs/parallel_computing/mpi/images/%E6%95%B0%E6%8D%AE%E5%B9%B3%E7%A7%BB_hu_bf868eb794763d44.png 1024w"
+	loading="lazy"
+	
+		alt="数据平移"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="152"
+		data-flex-basis="365px"
+	
+></p>
+<h4 id="划分子拓扑">划分子拓扑
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="n">MPI_Cart_sub</span><span class="p">(</span><span class="n">comm_cart</span><span class="p">,</span> <span class="n">remain_dims</span><span class="p">,</span> <span class="n">comm_sub</span><span class="p">,</span> <span class="n">ierror</span><span class="p">)</span>
+</span></span></code></pre></div><p><img src="/passage/cs/parallel_computing/mpi/images/%E5%88%92%E5%88%86%E5%AD%90%E6%8B%93%E6%89%91.png"
+	width="915"
+	height="649"
+	srcset="/passage/cs/parallel_computing/mpi/images/%E5%88%92%E5%88%86%E5%AD%90%E6%8B%93%E6%89%91_hu_6b7283068dbc64fc.png 480w, /passage/cs/parallel_computing/mpi/images/%E5%88%92%E5%88%86%E5%AD%90%E6%8B%93%E6%89%91_hu_665ba69a8dc23167.png 1024w"
+	loading="lazy"
+	
+		alt="划分子拓扑"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="140"
+		data-flex-basis="338px"
+	
+></p>
+<p>使用块划分的Jacobi迭代方法：</p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/Jacobi%E5%9D%97%E5%88%92%E5%88%86.png"
+	width="1212"
+	height="544"
+	srcset="/passage/cs/parallel_computing/mpi/images/Jacobi%E5%9D%97%E5%88%92%E5%88%86_hu_bf0967a79f6bf1f2.png 480w, /passage/cs/parallel_computing/mpi/images/Jacobi%E5%9D%97%E5%88%92%E5%88%86_hu_e8eae1ddb5d8ee21.png 1024w"
+	loading="lazy"
+	
+		alt="Jacobi块划分"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="222"
+		data-flex-basis="534px"
+	
+></p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/Jacobi%E5%9D%97%E9%80%9A%E4%BF%A1.png"
+	width="1051"
+	height="638"
+	srcset="/passage/cs/parallel_computing/mpi/images/Jacobi%E5%9D%97%E9%80%9A%E4%BF%A1_hu_25262f35b9454aa7.png 480w, /passage/cs/parallel_computing/mpi/images/Jacobi%E5%9D%97%E9%80%9A%E4%BF%A1_hu_7c6a7bed67e86d29.png 1024w"
+	loading="lazy"
+	
+		alt="Jacobi块通信"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="164"
+		data-flex-basis="395px"
+	
+></p>
+
 </section>
 
 
