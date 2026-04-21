@@ -362,6 +362,21 @@
             <li><a href="#多个非阻塞通信的完成">多个非阻塞通信的完成</a></li>
           </ol>
         </li>
+        <li><a href="#通信取消">通信取消</a></li>
+        <li><a href="#消息到达的检查">消息到达的检查</a></li>
+        <li><a href="#重复非阻塞通信">重复非阻塞通信</a></li>
+      </ol>
+    </li>
+    <li><a href="#mpi_sendrecv和虚进程">MPI_Sendrecv和虚进程</a>
+      <ol>
+        <li><a href="#捆绑发送和接收">捆绑发送和接收</a></li>
+        <li><a href="#虚拟进程">虚拟进程</a></li>
+      </ol>
+    </li>
+    <li><a href="#自定义数据类型">自定义数据类型</a>
+      <ol>
+        <li><a href="#mpi基本数据类型">MPI基本数据类型</a></li>
+        <li><a href="#自定义数据类型-1">自定义数据类型</a></li>
       </ol>
     </li>
   </ol>
@@ -1113,6 +1128,240 @@
 </span></span></span><span class="line"><span class="ln">18</span><span class="cl">                    <span class="kt">int</span><span class="o">*</span> <span class="n">outcount</span><span class="p">,</span>                      <span class="c1">// 已完成的对象个数
 </span></span></span><span class="line"><span class="ln">19</span><span class="cl">                    <span class="kt">int</span><span class="o">*</span> <span class="n">array_of_indices</span><span class="p">,</span>              <span class="c1">// 已完成的对象下标数组
 </span></span></span><span class="line"><span class="ln">20</span><span class="cl">                    <span class="n">MPI_Status</span><span class="o">*</span> <span class="n">array_of_statuses</span><span class="p">)</span>                    
+</span></span></code></pre></div><h3 id="通信取消">通信取消
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Cancel</span><span class="p">(</span><span class="n">MPI_Request</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span>
+</span></span></code></pre></div><p>如果一个非阻塞通信已经被执行了取消操作，则该通信的<code>MPI_Wait</code>或<code>MPI_Test</code>将释放取消通信的非阻塞通信对象，并且在返回结果的<code>status</code>中指明该通信已经被取消。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Test_cancelled</span><span class="p">(</span><span class="n">MPI_Status</span> <span class="n">status</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">flag</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回结果<code>flag = true</code>表明该通信已经被成功取消，否则还未被取消。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Request_free</span><span class="p">(</span><span class="n">MPI_Request</span><span class="o">*</span> <span class="n">request</span><span class="p">)</span>
+</span></span></code></pre></div><p>表明非阻塞通信完成后将该对象占用的资源释放，此时<code>request</code>变为<code>MPI_Request_Null</code></p>
+<p>执行了释放操作后，非阻塞通信对象就无法再通过其他任何调用访问。但如果与该非阻塞通信对象相联系的通信还没有完成，则该对象的资源不会立即释放，它将等到该非阻塞通信结束后再释放。因此非阻塞通信对象的释放并不影响该非阻塞通信的完成。</p>
+<h3 id="消息到达的检查">消息到达的检查
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Probe</span><span class="p">(</span><span class="kt">int</span> <span class="n">source</span><span class="p">,</span>       <span class="c1">// 源进程标识（可任意源）
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl">            <span class="kt">int</span> <span class="n">tag</span><span class="p">,</span>            <span class="c1">// 标签值（可任意标签）
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl">            <span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">            <span class="n">MPI_Status</span><span class="o">*</span> <span class="n">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Iprobe</span><span class="p">(</span><span class="kt">int</span> <span class="n">source</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            <span class="kt">int</span> <span class="n">tag</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">            <span class="kt">int</span><span class="o">*</span> <span class="n">flag</span><span class="p">,</span>          <span class="c1">// 是否有标签到达
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">MPI_Status</span><span class="o">*</span> <span class="n">status</span><span class="p">)</span>
+</span></span></code></pre></div><p><code>MPI_Probe</code>是阻塞调用，检测到消息后才返回。</p>
+<h3 id="重复非阻塞通信">重复非阻塞通信
+</h3><p>通信重复执行，比如循环结构内的通信调用。</p>
+<p>通过将通信参数和MPI内部对象建立起固定联系，然后通过该对象完成重复通信的任务，并优化以降低开销。这样的通信方式在MPI中都是非阻塞通信。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>阻塞操作</th>
+          <th>非阻塞操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>阻塞发送返回意味着发送缓冲区可被再次使用而不会影响接收方，但并不意味着接收方已经完成接收</td>
+          <td>非阻塞的发送和接收在调用后都可以立即返回，不会等待任何与通信相关的事件</td>
+      </tr>
+      <tr>
+          <td>阻塞发送可以同步形式工作，，发送方与接收方需要实施一个握手协议来确保发送动作的安全</td>
+          <td>非阻塞只对MPI环境提出一个要求：在可能的时候启动通信。用户无法预测通信何时发生</td>
+      </tr>
+      <tr>
+          <td>阻塞发送可以异步进行，此时需要系统缓冲区进行缓存</td>
+          <td>在通过某种手段确定MPI环境确实执行了通信之前，修改发送缓冲区的数据是不安全的</td>
+      </tr>
+      <tr>
+          <td>阻塞接收操作仅当消息接收完成后才可以返回</td>
+          <td>非阻塞通信的主要目的是把计算和通信重叠起来，从而改进并行效率</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote>
+<p>非阻塞通信的一个重要作用就是避免死锁。</p>
+</blockquote>
+<h2 id="mpi_sendrecv和虚进程">MPI_Sendrecv和虚进程
+</h2><p>以Jacobi迭代问题为例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">...
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">REAL A(N+1, N+1), B(N+1, N+1)
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">...
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">DO K=1, STEP
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">    DO J=1, N
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        DO I=1, N
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">            B(I, J) = 0.25*(A(I-1, J) + A(I+1, J) + A(I, J+1) + A(I, J-1))
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">        END DO
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    DO J=1, N
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        DO I=1, N
+</span></span><span class="line"><span class="ln">11</span><span class="cl">            A(I, J) = B(I, J)
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    END DO
+</span></span><span class="line"><span class="ln">13</span><span class="cl">END DO
+</span></span></code></pre></div><p>也就是对一个矩阵 $\bm{H}$ 的所有元素作以下操作：</p>
+$$h_{i,j} = \frac{h_{i-1,j} + h_{i+1,j} + h_{i,j-1} + h_{i,j+1}}{4}$$<p>对Jacobi迭代进行数据按列划分，容易得知，数据域的中间可以直接使用进程内部的数据，而两侧需要接收来自其他进程的数据。</p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/Jacobi%E6%95%B0%E6%8D%AE%E5%88%92%E5%88%86.png"
+	width="903"
+	height="584"
+	srcset="/passage/cs/parallel_computing/mpi/images/Jacobi%E6%95%B0%E6%8D%AE%E5%88%92%E5%88%86_hu_6fa4bfa4aefb6db0.png 480w, /passage/cs/parallel_computing/mpi/images/Jacobi%E6%95%B0%E6%8D%AE%E5%88%92%E5%88%86_hu_f6b5b30b4d007f9d.png 1024w"
+	loading="lazy"
+	
+		alt="Jacobi迭代的数据划分"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="154"
+		data-flex-basis="371px"
+	
+></p>
+<p>因此需要在每个进程数据域的两边各增加一列，用于存放通信得到的数据。</p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/Jacobi%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B.png"
+	width="855"
+	height="636"
+	srcset="/passage/cs/parallel_computing/mpi/images/Jacobi%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B_hu_23b61a47777d7152.png 480w, /passage/cs/parallel_computing/mpi/images/Jacobi%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B_hu_8efcb0440e86d1e7.png 1024w"
+	loading="lazy"
+	
+		alt="Jacobi迭代的通信过程"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="134"
+		data-flex-basis="322px"
+	
+></p>
+<h3 id="捆绑发送和接收">捆绑发送和接收
+</h3><p>MPI提供了<code>MPI_Sendrecv</code>操作，可以在一条MPI语句中同时实现向其他进程的数据发送和从其他进程接收数据的操作。该操作把发送一个消息到一个目的地和从另一个进程接收一个消息合并到一个调用中，源和目的可以相同。</p>
+<p>在语义上等同于一个发送操作和一个接收操作的结合，但可以有效地避免单独调用发送和接收操作时由于次序错误而造成的死锁。</p>
+<blockquote>
+<p>因为该调用由通信系统来实现，系统会优化通信次序从而有效地避免不合理的通信次序，最大限度地避免死锁的产生。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Sendrecv</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">sendbuf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sendcount</span><span class="p">,</span> <span class="n">MPI_Datatype</span> <span class="n">sendtype</span><span class="p">,</span> <span class="kt">int</span> <span class="n">dest</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">                <span class="kt">int</span> <span class="n">sendtag</span><span class="p">,</span> <span class="kt">void</span><span class="o">*</span> <span class="n">recvbuf</span><span class="p">,</span> <span class="kt">int</span> <span class="n">recvcount</span><span class="p">,</span> <span class="n">MPI_Datatype</span> <span class="n">recvtype</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">                <span class="kt">int</span> <span class="n">source</span><span class="p">,</span> <span class="kt">int</span> <span class="n">recvtag</span><span class="p">,</span> <span class="n">MPI_Comm</span> <span class="n">comm</span><span class="p">,</span> <span class="n">MPI_Status</span><span class="o">*</span> <span class="n">status</span><span class="p">)</span>
+</span></span></code></pre></div><p>捆绑发送接收操作是不对称的，即一个由捆绑发送接收调用发出的消息可以被一个普通接收操作接收，一个捆绑发送接收调用可以接收一个普通发送操作发送的消息。</p>
+<p>该操作执行一个阻塞的发送和接收，接收和发送操作使用同一个通信域。发送缓冲区和接收缓冲区必须分开，可以是不同的数据长度和不同的数据类型。</p>
+<p><img src="/passage/cs/parallel_computing/mpi/images/MPI_Sendrecv.png"
+	width="771"
+	height="658"
+	srcset="/passage/cs/parallel_computing/mpi/images/MPI_Sendrecv_hu_878fa84272c91fe4.png 480w, /passage/cs/parallel_computing/mpi/images/MPI_Sendrecv_hu_acc0da899de8708f.png 1024w"
+	loading="lazy"
+	
+		alt="MPI_Sendrecv"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="117"
+		data-flex-basis="281px"
+	
+></p>
+<h3 id="虚拟进程">虚拟进程
+</h3><p>虚拟进程（<code>MPI_PROC_NULL</code>）是不存在的假想进程，在MPI中的主要作用是充当真实进程通信的目的或源进程。</p>
+<blockquote>
+<p>引入虚拟进程的目的是为了在某些情况下编写通信语句的方便。</p>
+</blockquote>
+<ol>
+<li>一个真实进程向一个虚拟进程发送数据或从一个虚拟进程接收数据时，该真实进程会立即正确返回，如同执行了一个空操作。</li>
+<li>一个真实进程从虚拟进程接收消息时，也会立即成功返回，并且对接收缓冲区没有任何改变。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">myid</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    <span class="n">left</span> <span class="o">=</span> <span class="n">myid</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">    <span class="n">left</span> <span class="o">=</span> <span class="n">MPI_PROC_NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">myid</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="n">right</span> <span class="o">=</span> <span class="n">myid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">right</span> <span class="o">=</span> <span class="n">NPI_PROC_NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">// 从左向右平移数据
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="n">MPI_Sendrecv</span><span class="p">(</span><span class="n">sendData1</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">MPI_FLOAT</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">tag1</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">15</span><span class="cl">            <span class="n">recvData1</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">MPI_FLOAT</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">tag1</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="c1">// 从右向左平移数据
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="n">MPI_Sendrecv</span><span class="p">(</span><span class="n">sendData2</span><span class="p">,</span> <span class="n">sendCount</span><span class="p">,</span> <span class="n">MPI_FLOAT</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">tag1</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">19</span><span class="cl">            <span class="n">recvData2</span><span class="p">,</span> <span class="n">recvCount</span><span class="p">,</span> <span class="n">MPI_FLOAT</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">tag1</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="自定义数据类型">自定义数据类型
+</h2><h3 id="mpi基本数据类型">MPI基本数据类型
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>MPI_Datatype</th>
+          <th>C datatype</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>MPI_CHAR</code></td>
+          <td><code>signed char</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_SHORT</code></td>
+          <td><code>signed short</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_INT</code></td>
+          <td><code>signed int</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_LONG</code></td>
+          <td><code>signed long int</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_UNSIGNED_CHAR</code></td>
+          <td><code>unsigned char</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_UNSIGNED_SHORT</code></td>
+          <td><code>unsigned short int</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_UNSIGNED_INT</code></td>
+          <td><code>unsigned int</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_UNSIGNED_LONG</code></td>
+          <td><code>unsigned long int</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_FLOAT</code></td>
+          <td><code>float</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_DOUBLE</code></td>
+          <td><code>double</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_LONG_DOUBLE</code></td>
+          <td><code>long double</code></td>
+      </tr>
+      <tr>
+          <td><code>MPI_BYTE</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>MPI_PACKED</code></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="自定义数据类型-1">自定义数据类型
+</h3><p>MPI的自定义数据类型需要固定的创建格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">// 创建数据类型
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">MPI_Type_struct</span><span class="p">(...,</span> <span class="o">&amp;</span><span class="n">buff_datatype</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">// 声明数据类型
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">MPI_Type_commit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buff_datatype</span><span class="p">);</span>
+</span></span></code></pre></div><p>创建方式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">// 连续数据
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Type_contiguous</span><span class="p">(</span><span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="n">MPI_Datatype</span> <span class="n">oldtype</span><span class="p">,</span> <span class="n">MPI_Datatype</span><span class="o">*</span> <span class="n">newtype</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">// 向量
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Type_vector</span><span class="p">(</span><span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">blocklength</span><span class="p">,</span> <span class="kt">int</span> <span class="n">stride</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">                    <span class="n">MPI_Datatype</span> <span class="n">oldtype</span><span class="p">,</span> <span class="n">MPI_Datatype</span><span class="o">*</span> <span class="n">newtype</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">// 结构体
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="kt">int</span> <span class="n">MPI_Type_struct</span><span class="p">(</span><span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">array_of_blocklengths</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">10</span><span class="cl">                    <span class="n">MPI_Aint</span><span class="o">*</span> <span class="n">array_of_displacements</span><span class="p">,</span> 
+</span></span><span class="line"><span class="ln">11</span><span class="cl">                    <span class="n">MPI_Datatype</span><span class="o">*</span> <span class="n">array_of_types</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">                    <span class="n">MPI_Datatype</span><span class="o">*</span> <span class="n">newtype</span><span class="p">)</span>
 </span></span></code></pre></div>
 </section>
 

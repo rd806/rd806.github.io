@@ -1031,7 +1031,7 @@
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">	<span class="nf">nemu_assert</span><span class="p">(</span><span class="o">*</span><span class="n">p_magic</span> <span class="o">==</span> <span class="n">elf_magic</span><span class="p">);</span>
 </span></span><span class="line"><span class="ln"> 7</span><span class="cl"> 
 </span></span><span class="line"><span class="ln"> 8</span><span class="cl">	<span class="cm">/* Load each program segment */</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">//初始化ph指向program header开头，buf指向elf文件的开头，e_phoff为program header偏移量
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="c1">//初始化ph指向program header开头，buf指向elf文件的开头，e_phoff为program header偏移
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="n">ph</span> <span class="o">=</span> <span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">buf</span> <span class="o">+</span> <span class="n">elf</span><span class="o">-&gt;</span><span class="n">e_phoff</span><span class="p">;</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="c1">//eph指向program header的末尾，e_phnum为program header中segment的数量
 </span></span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="c1">//遍历program header表，加载需要加载的segment
@@ -1124,38 +1124,12 @@
             
                 
 <article class="">
-    <a href="/passage/cs/cslab/nemu/part3/">
+    <a href="/passage/cs/cslab/nemu/prepared/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">NEMU-PART III</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/passage/cs/cslab/nemu/part2-pre/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">NEMU-PART II Pre</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/passage/cs/cslab/nemu/part1/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">NEMU-PART I</h2>
+            <h2 class="article-title">NEMU</h2>
         </div>
     </a>
 </article>
@@ -1182,6 +1156,43 @@
 
         <div class="article-details">
             <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/malloc/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Malloc实验</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/passage/guide/texstudio/">
+        
+        
+            <div class="article-image">
+                <img src="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.8d91853d7ef39979103db0b36c4d1d57_hu_4210f327eb385ada.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Tex排版"
+                        data-key="guide/texstudio" 
+                        data-hash="md5-jZGFPX7zmXkQPbCzbE0dVw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tex排版</h2>
         </div>
     </a>
 </article>
