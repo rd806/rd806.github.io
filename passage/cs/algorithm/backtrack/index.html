@@ -323,6 +323,9 @@
     <li><a href="#问题举例">问题举例</a>
       <ol>
         <li><a href="#两船装箱问题">两船装箱问题</a></li>
+        <li><a href="#01-背包问题">0/1 背包问题</a></li>
+        <li><a href="#最大团问题">最大团问题</a></li>
+        <li><a href="#旅行商问题">旅行商问题</a></li>
       </ol>
     </li>
   </ol>
@@ -602,6 +605,71 @@ $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<blockquote>
 </blockquote>
 <h2 id="问题举例">问题举例
 </h2><h3 id="两船装箱问题">两船装箱问题
+</h3><p>给定两艘容量分别为 $c_1$ 和 $c_2$ 的货船和 $n$ 个集装箱，其重量分别为 $(w_1, w_2, \cdots, w_n)$，满足 </p>
+$$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装载方案，使得所有集装箱均可以装入两艘货船并且不超载。</p>
+<p>基本原理：</p>
+<ol>
+<li>第一艘货船尽可能接近其容量装载。</li>
+<li>剩余集装箱装入第二艘货船。</li>
+</ol>
+<p>问题转化为选择集装箱子集，使其总重量尽可能接近 $c_1$ 的最优化问题：</p>
+$$\max \sum_{i=1}^{n} w_i x_i$$<p>约束条件：</p>
+$$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$，$x_i$ 表示装载第 $i$ 个集装箱，否则记为 $0$。</p>
+<p>状态空间树：</p>
+<p>将集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层，定义：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>限界函数</th>
+          <th>表达式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>已装载的集装箱总重量</td>
+          <td>$\displaystyle cw = \sum_{j=1}^{i-1} x_j w_j$</td>
+      </tr>
+      <tr>
+          <td>未装载集装箱总重量</td>
+          <td>$r = \sum_{j=i}^{n} w_j$</td>
+      </tr>
+      <tr>
+          <td>当前最优总重量</td>
+          <td>$w_{\text{best}}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>限界条件：</p>
+<ol>
+<li>若 $cw + w_i &gt; c_i$，则剪枝（无法装载第 $i$ 个集装箱）</li>
+<li>若 $cw + r \leqslant w_{\text{best}}$，则剪枝（剩余集装箱无法改善当前最优解）</li>
+</ol>
+<h3 id="01-背包问题">0/1 背包问题
+</h3><p>假设物品按 $\displaystyle \frac{p}{w}$ 降序排序，节点 $k-1$ 为 $E-$ 节点，定义</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>限界函数</th>
+          <th>表达式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>当前装包利润</td>
+          <td>$\displaystyle cp = \sum_{j=1}^{k-1} x_j p_j$</td>
+      </tr>
+      <tr>
+          <td>剩余物品总利润</td>
+          <td>$rp = \sum_{j=k}^{n} p_j$</td>
+      </tr>
+      <tr>
+          <td>当前最大利润</td>
+          <td>$p_{\text{best}}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="最大团问题">最大团问题
+</h3><h3 id="旅行商问题">旅行商问题
 </h3>
 </section>
 

@@ -2536,6 +2536,51 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
     }
 &lt;/style&gt;
 
+&lt;div class=&#34;catalogue&#34;&gt;
+    &lt;div class=&#34;logo&#34;&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/parallel_computing/cuda &gt;GPU编程&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme=&#34;light&#34;] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme=&#34;dark&#34;] {
+        .name {
+            color: #cebef4;
+        }
+    }
+&lt;/style&gt;
+
 </description>
         </item>
         <item>
