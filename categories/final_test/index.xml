@@ -2088,6 +2088,7 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
 &lt;/ol&gt;
 &lt;h2 id=&#34;并行程序设计方法&#34;&gt;并行程序设计方法
 &lt;/h2&gt;&lt;p&gt;以下提供一些并行计算的程序设计方法。请注意，这些方法通常不会单一出现，而是综合使用。&lt;/p&gt;
+&lt;p&gt;并行设计方法大体上分为两类：共享内存型（Pthread、OpenMP，CUDA）和分布式计算型（MPI、MapReduce）。&lt;/p&gt;
 &lt;div class=&#34;catalogue&#34;&gt;
     &lt;div class=&#34;logo&#34;&gt;
         &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/parallel_computing/thread &gt;多线程与Pthread&lt;/a&gt;
@@ -2268,6 +2269,200 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
     }
 &lt;/style&gt;
 
+&lt;div class=&#34;catalogue&#34;&gt;
+    &lt;div class=&#34;logo&#34;&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/parallel_computing/multiple &gt;MPI多级混合编程&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme=&#34;light&#34;] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme=&#34;dark&#34;] {
+        .name {
+            color: #cebef4;
+        }
+    }
+&lt;/style&gt;
+
+&lt;div class=&#34;catalogue&#34;&gt;
+    &lt;div class=&#34;logo&#34;&gt;
+        &lt;a class=&#34;name&#34; href=https://rd806.github.io/passage/cs/parallel_computing/mapreduce &gt;MapReduce编程&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;description&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .catalogue {
+        border: 1px solid var(--card-text-color-main);
+        border-radius: var(--card-border-radius);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    .name {
+        font-weight: bold;
+        margin-left: 0.5em;
+        position: relative;
+    }
+
+    .description {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: var(--card-text-color-main);
+        text-align: justify;
+        font-size: 90%;
+        transition: all 0.5s;
+    }
+
+    
+    :root[data-scheme=&#34;light&#34;] {
+        .name {
+            color: #07639c;
+        }   
+    }
+
+    :root[data-scheme=&#34;dark&#34;] {
+        .name {
+            color: #cebef4;
+        }
+    }
+&lt;/style&gt;
+
+&lt;h2 id=&#34;并行算法设计&#34;&gt;并行算法设计
+&lt;/h2&gt;&lt;p&gt;算法：计算指令序列（逻辑）&lt;/p&gt;
+&lt;p&gt;串行算法：只有一组计算指令&lt;/p&gt;
+&lt;p&gt;并行算法：一些可同时执行的计算任务的集合，这些计算任务分工合作获得给定问题的求解。&lt;/p&gt;
+&lt;h3 id=&#34;设计思想&#34;&gt;设计思想
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;并行算法设计并不是串行算法设计的进阶：串行算法的设计思想，一般都基于冯式架构，指令逻辑顺序清晰；并行计算硬件环境没有统一的体系结构。&lt;/li&gt;
+&lt;li&gt;并行算法中部分计算过程可以是串行算法，串行算法中的部分计算过程也可以并行化&lt;/li&gt;
+&lt;li&gt;并行算法的设计，与问题本身以及硬件平台均相关：问题类型与硬件平台类型的组合，能够形成并行算法（程序）设计的模式&lt;/li&gt;
+&lt;li&gt;并行算法的类型：计算密集or数据密集&lt;/li&gt;
+&lt;li&gt;数据结构与算法密不可分&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;一般策略&#34;&gt;一般策略
+&lt;/h3&gt;&lt;h4 id=&#34;串行算法的直接并行化&#34;&gt;串行算法的直接并行化
+&lt;/h4&gt;&lt;p&gt;分析现有串行算法中固有的并行性，直接将其并行化：该方法并不是对所有问题都可行，但对很多应用问题仍不失为一种有效的方法。&lt;/p&gt;
+&lt;p&gt;由串行算法直接并行化的方法是并行算法设计的最常用方法之一，但需要注意以下方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不是所有的串行算法都可以直接并行化；&lt;/li&gt;
+&lt;li&gt;一个好的串行算法未必能并行化为一个好的并行算法；&lt;/li&gt;
+&lt;li&gt;许多数值串行算法可以并行化为有效的数值并行算法。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;重新设计并行算法&#34;&gt;重新设计并行算法
+&lt;/h4&gt;&lt;p&gt;从问题本身的描述出发，根据问题的固有属性，从头设计一个全新的并行算法：这种方法有一定难度，但所设计的并行算法通常更高效。&lt;/p&gt;
+&lt;h4 id=&#34;利用已有的并行算法&#34;&gt;利用已有的并行算法
+&lt;/h4&gt;&lt;p&gt;借助已有的并行算法求解新问题。&lt;/p&gt;
+&lt;h2 id=&#34;pcam方法学&#34;&gt;PCAM方法学
+&lt;/h2&gt;&lt;p&gt;设计并行程序的四个阶段&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;阶段&lt;/th&gt;
+          &lt;th&gt;任务&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;划分（Partitioning）&lt;/td&gt;
+          &lt;td&gt;分解成小的任务，开拓并发性&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;通讯（Communication）&lt;/td&gt;
+          &lt;td&gt;确定诸任务间的数据交换，监测划分的合理性&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;组合 （Agglomeration）&lt;/td&gt;
+          &lt;td&gt;依据任务的局部性，组合成更大的任务&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;映射 （Mapping）&lt;/td&gt;
+          &lt;td&gt;将每个任务分配到处理器上，提高算法的性能&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;划分&#34;&gt;划分
+&lt;/h3&gt;&lt;p&gt;充分开拓算法的并发性和可扩放性；&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先进行数据分解（域分解），再进行计算功能的分解（功能分解）；&lt;/li&gt;
+&lt;li&gt;使数据集和计算集互不相交；&lt;/li&gt;
+&lt;li&gt;划分阶段忽略处理器数目和目标机器的体系结构；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;通讯&#34;&gt;通讯
+&lt;/h3&gt;&lt;p&gt;通讯是PCAM设计过程的重要阶段；&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;划分产生的诸任务，一般不能完全独立执行，需要在任务间进行数据交流，从而产生了通讯；&lt;/li&gt;
+&lt;li&gt;功能分解确定了诸任务之间的数据流；&lt;/li&gt;
+&lt;li&gt;诸任务是并发执行的，通讯则限制了这种并发性；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;通讯模式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;局部/全局通讯&lt;/li&gt;
+&lt;li&gt;结构化/非结构化通讯&lt;/li&gt;
+&lt;li&gt;静态/动态通讯&lt;/li&gt;
+&lt;li&gt;同步/异步通讯&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;组合&#34;&gt;组合
+&lt;/h3&gt;&lt;p&gt;组合是由抽象到具体的过程，将组合的任务能在一类并行机上有效的执行&lt;/p&gt;
+&lt;p&gt;合并小尺寸任务，减少任务数。如果任务数恰好等于处理器数，则也完成了映射过程。&lt;/p&gt;
+&lt;p&gt;增加任务的粒度和重复计算，可以减少通讯成本。保持映射和扩展的灵活性，降低软件工程成本&lt;/p&gt;
+&lt;h3 id=&#34;映射&#34;&gt;映射
+&lt;/h3&gt;&lt;p&gt;每个任务要映射到具体的处理器（计算资源），定位到运行机器上；&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;任务数大于处理器数时，存在负载平衡和任务调度问题；&lt;/li&gt;
+&lt;li&gt;映射的目标：减少算法的执行时间&lt;/li&gt;
+&lt;li&gt;并发的任务分配到不同的处理器，任务之间存在高通讯的分配到同一处理器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;映射实际是一种权衡，属于NP完全问题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;静态映射模式&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基于数据划分的映射&lt;/li&gt;
+&lt;li&gt;基于任务图划分的映射&lt;/li&gt;
+&lt;li&gt;复合的映射&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;动态映射模式（也称为动态负载均衡，因为负载均衡是动态调度的主要动机）可以是集中式的和分布式的。&lt;/p&gt;
+&lt;p&gt;映射的原则：最小化交互开销&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最大化数据局部性：只要可能就复用中间数据，重建计算以使数据在较小的窗口内得到重用&lt;/li&gt;
+&lt;li&gt;最小化数据交换量&lt;/li&gt;
+&lt;li&gt;最小化交互的频度&lt;/li&gt;
+&lt;li&gt;最小化竞争和热点&lt;/li&gt;
+&lt;li&gt;计算与通信重叠：使用非阻塞式通信；多线程；预取以隐藏时延&lt;/li&gt;
+&lt;li&gt;使用成组通信而非点对点通信&lt;/li&gt;
+&lt;/ol&gt;
 </description>
         </item>
         <item>
