@@ -319,10 +319,26 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#定义">定义</a></li>
+    <li><a href="#定义">定义</a>
+      <ol>
+        <li><a href="#解空间">解空间</a></li>
+        <li><a href="#搜索策略">搜索策略</a></li>
+      </ol>
+    </li>
+    <li><a href="#原理">原理</a>
+      <ol>
+        <li><a href="#约束与限界函数">约束与限界函数</a></li>
+        <li><a href="#回溯算法的通用框架">回溯算法的通用框架</a></li>
+      </ol>
+    </li>
     <li><a href="#问题举例">问题举例</a>
       <ol>
-        <li><a href="#两船装箱问题">两船装箱问题</a></li>
+        <li><a href="#两船装箱问题">两船装箱问题</a>
+          <ol>
+            <li><a href="#基本原理">基本原理</a></li>
+            <li><a href="#限界函数">限界函数</a></li>
+          </ol>
+        </li>
         <li><a href="#01-背包问题">0/1 背包问题</a></li>
         <li><a href="#最大团问题">最大团问题</a></li>
         <li><a href="#旅行商问题">旅行商问题</a></li>
@@ -582,19 +598,47 @@
 </h2><p>计算问题定义为关系 $R \subseteq I \times S$，其中 $I$ 是输入实例集合，$S$ 是候选解的集合，实例 $x$ 的解是满足 $(x,s) \in R$ 的任意元素 $s \in S(x)$</p>
 <p>对于输入实例 $x \in I$，解空间 $S(x)$ 是满足约束的所有有效解的集合：</p>
 $$S(x) = \{s \in S \mid (x,s) \in R \}$$<p>问题P的全局解空间定义为：</p>
-$$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<blockquote>
+$$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<p>关键特征：</p>
 <ol>
 <li>判定问题：解空间为二元集合（如是、否）</li>
 <li>搜索问题：解空间包含所有有效输出</li>
 <li>最优化问题：解空间包含所有可行解，最优解满足：</li>
 </ol>
+<h3 id="解空间">解空间
+</h3><p>解可表示为 $n$ 维元组 $(x_1, x_2, \cdots, x_n)$，其中 $x_i$ 取自有限集合 $S_i$，根据维度是否固定可分为定长元组（FLT）和变长元组（VLT）。</p>
+<blockquote>
+<ul>
+<li>FLT：$X = \{(x_1, x_2, \cdots, x_n \mid x_i \in S_i)\}$</li>
+<li>VLT：$X = \{X^1, X^2, \cdots, X^k\}$，其中 $X^j = \{(x_{j1}, x_{j2}, \cdots, x_{jk})\}$</li>
+</ul>
 </blockquote>
-<p>解可表示为 $n$ 维元组 $(x_1, x_2, \cdots, x_n)$</p>
-<p>问题状态：解空间中的一个点，可验证是否满足目标条件
-初始状态：开始搜索的起始状态（根节点）
-解状态：从当前状态到根节点的路径构成有效解
-目标状态：解空间中满足最终目标的状态</p>
-<p>问题的状态空间可定义为五元组 $(V, E, v_0, \mathcal{S}, \mathcal{A})$</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>问题状态</td>
+          <td>解空间中的一个点，可验证是否满足目标条件</td>
+      </tr>
+      <tr>
+          <td>初始状态</td>
+          <td>开始搜索的起始状态（根节点）</td>
+      </tr>
+      <tr>
+          <td>解状态</td>
+          <td>从当前状态到根节点的路径构成有效解</td>
+      </tr>
+      <tr>
+          <td>目标状态</td>
+          <td>解空间中满足最终目标的状态</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>问题的状态空间可定义为五元组 $(V, E, v_0, \mathcal{S}, \mathcal{A})$。其中 $V$ 表示问题状态的集合，$E$ 表示状态间的转移关系集合，$v_0 \in V$ 表示初始状态的根节点，$\mathcal{S} \subseteq V$ 表示目标状态集合，$\mathcal{A}$ 表示状态转移函数，生成有效子节点。</p>
 <blockquote>
 <p>每个状态 $v \in V$ 可表示为</p>
 <ol>
@@ -603,12 +647,120 @@ $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<blockquote>
 <li>决策路径</li>
 </ol>
 </blockquote>
-<h2 id="问题举例">问题举例
+<p>八皇后问题：在标准国际象棋棋盘上放置8个皇后，使得任意两个皇后不能互相攻击。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>形式表达</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>解的表示</td>
+          <td>8维元组 $(x_1, x_2, \cdots, x_8)$</td>
+      </tr>
+      <tr>
+          <td>解空间大小</td>
+          <td>$8^8$</td>
+      </tr>
+      <tr>
+          <td>约束条件</td>
+          <td>$\forall i, j, x_i \ne x_j$，且 $| x_i - x_j | \ne | j-i |$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>子集和问题：在正整数集合 $S = \{w_1, w_2, \cdots, w_n\}$ 中寻找和为 $M$ 的子集。</p>
+<p>例如，$M = 31$，$n = 4$，$W = (11, 13, 24, 7)$，存在解 $11 + 13 + 7 = 31$ 和 $24 + 7 = 31$</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>解的表示</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FLT表示</td>
+          <td>$(x_1, x_2, \cdots, x_n)$，其中 $x_i = 1$ 表示选中元素 $w_i$</td>
+      </tr>
+      <tr>
+          <td>VLT表示</td>
+          <td>$(j_1, j_2, \cdots, j_k)$，其中 $j_i$ 为选中元素下标</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="搜索策略">搜索策略
+</h3><p>问题的求解需要遍历状态空间树。</p>
+<p>节点在遍历中有三种状态：</p>
+<ol>
+<li>活动节点：已到达但未完全展开。</li>
+<li>死亡节点：所有子节点已展开。</li>
+<li>扩展结点：当前正在展开子节点的后的子节点。</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>搜索策略</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>BFS</td>
+          <td>广度优先搜索</td>
+      </tr>
+      <tr>
+          <td>DFS</td>
+          <td>深度优先搜索</td>
+      </tr>
+      <tr>
+          <td>回溯算法</td>
+          <td>DFS + 剪枝函数</td>
+      </tr>
+      <tr>
+          <td>分支限界</td>
+          <td>树搜索 + 限界 + 节点选择策略</td>
+      </tr>
+      <tr>
+          <td>最佳优先搜索</td>
+          <td>优先扩展最有潜力的节点</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="原理">原理
+</h2><p>回溯算法是一种通过深度优先搜索结合限界函数探索解空间的算法策略。</p>
+<p>回溯算法将问题抽象为一棵隐式的树形结构，其中树的深度对应决策步骤，宽度对应每一步可能的选择。</p>
+<p>通过递归逐步构建解，并评估其成为最优解的可能性。若当前选择导致无效路径（如违反约束条件），或无法产生更优解时则回溯到上一步。</p>
+<h3 id="约束与限界函数">约束与限界函数
+</h3><ol>
+<li>约束函数：在搜索过程中实时检查当前路径是否违反问题约束，若违反则进行剪枝。</li>
+<li>限界函数：针对优化问题，若当前路径的代价已劣于已知的最优解，则提前终止该路径的探索。</li>
+</ol>
+<p>例如，子集和问题的限界函数：</p>
+<ul>
+<li>基础限界条件：当部分解的总和加上剩余元素的总和仍小于目标值时剪枝。$$\sum_{i=1}^{k} W(i) X(i) + \sun_{i=k+1}^{n} W(i) < M$$</li>
+<li>增强限界条件：元素非递减排序。$$\sum_{i=1}^{k} W(i) X(i) + W(k+1) > M$$</li>
+</ul>
+<h3 id="回溯算法的通用框架">回溯算法的通用框架
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">k</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> 
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="n">forall</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="n">in</span> <span class="err">可行值集合</span> <span class="k">do</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        <span class="c1">// 基于已选值 x[1] ... x[k-1] 生成候选值
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl">        <span class="k">if</span> <span class="err">约束条件</span> <span class="n">B</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">...,</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">==</span> <span class="nb">false</span> 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">            <span class="k">if</span> <span class="err">当前路径构成有效解</span> <span class="n">then</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">                <span class="err">输出解</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">...,</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>    <span class="c1">// 继续扩展至下一层
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">            <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>    <span class="c1">// 回溯到上一层
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="c1">// 解存储在 X(1:n) 中
+</span></span></span></code></pre></div><h2 id="问题举例">问题举例
 </h2><h3 id="两船装箱问题">两船装箱问题
 </h3><p>给定两艘容量分别为 $c_1$ 和 $c_2$ 的货船和 $n$ 个集装箱，其重量分别为 $(w_1, w_2, \cdots, w_n)$，满足 </p>
 $$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装载方案，使得所有集装箱均可以装入两艘货船并且不超载。</p>
-<p>基本原理：</p>
-<ol>
+<h4 id="基本原理">基本原理
+</h4><ol>
 <li>第一艘货船尽可能接近其容量装载。</li>
 <li>剩余集装箱装入第二艘货船。</li>
 </ol>
@@ -616,7 +768,8 @@ $$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装�
 $$\max \sum_{i=1}^{n} w_i x_i$$<p>约束条件：</p>
 $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$，$x_i$ 表示装载第 $i$ 个集装箱，否则记为 $0$。</p>
 <p>状态空间树：</p>
-<p>将集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层，定义：</p>
+<h4 id="限界函数">限界函数
+</h4><p>将集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层，定义：</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -631,7 +784,7 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$�
       </tr>
       <tr>
           <td>未装载集装箱总重量</td>
-          <td>$r = \sum_{j=i}^{n} w_j$</td>
+          <td>$\displaystyle r = \sum_{j=i}^{n} w_j$</td>
       </tr>
       <tr>
           <td>当前最优总重量</td>
@@ -644,6 +797,7 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$�
 <li>若 $cw + w_i &gt; c_i$，则剪枝（无法装载第 $i$ 个集装箱）</li>
 <li>若 $cw + r \leqslant w_{\text{best}}$，则剪枝（剩余集装箱无法改善当前最优解）</li>
 </ol>
+<p>例如，当 $n = 4$，$c_1 = 12$，$w = [8, 6, 2 ,3]$</p>
 <h3 id="01-背包问题">0/1 背包问题
 </h3><p>假设物品按 $\displaystyle \frac{p}{w}$ 降序排序，节点 $k-1$ 为 $E-$ 节点，定义</p>
 <div class="table-wrapper"><table>
@@ -668,8 +822,43 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$�
       </tr>
   </tbody>
 </table></div>
+<p>限界条件：若 $cp + rp \leqslant p_{\text{best}}$ 则剪枝。</p>
 <h3 id="最大团问题">最大团问题
-</h3><h3 id="旅行商问题">旅行商问题
+</h3><p>子图 $G' = \left&lt;V', E'\right&gt;$ 是无向图 $G = \left&lt;V, E\right&gt;$ 的完全子图，当 $V' \subset V$ 且对 $\forall u \in V', v \in V'$，$(u,v) \in E' \subset E$</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>团</td>
+          <td>$G$ 的完全子图且不被其他完全子图包含</td>
+      </tr>
+      <tr>
+          <td>最大团</td>
+          <td>图中最大尺寸的团</td>
+      </tr>
+      <tr>
+          <td>独立顶点集</td>
+          <td>$G$ 的无边子图且不被其他独立集包含</td>
+      </tr>
+      <tr>
+          <td>最大独立顶点集</td>
+          <td>图中最大尺寸的独立集</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>目标：寻找图 $G$ 的最大团。</p>
+<p>使用固定长度元组 $X = x[1&hellip;n]$（$x[i] = 1$ 表示顶点 $i$）表示解空间。状态空间树为子集数。</p>
+<p>限界条件：</p>
+<ol>
+<li>从根到节点 $i$ 的顶点不能构成完全子图。</li>
+<li>根到节点 $i$ 的顶点数加上剩余顶点数不超过当前最优解。</li>
+</ol>
+<h3 id="旅行商问题">旅行商问题
 </h3>
 </section>
 
