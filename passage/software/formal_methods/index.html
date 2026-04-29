@@ -575,7 +575,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 8 分钟
                     </time>
                 
             </div>
@@ -1029,32 +1029,15 @@ $$\begin{array}{l} \text{IncludeS} \\ \left\| \begin{array}{l} c:N \\ S \\ \hlin
 </h4><p>Delta convention 表示模式的改变，可以类比为复制一份，可表示为</p>
 $$\begin{array}{l} \Delta\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ \hline \end{array} \right.\end{array}$$<p>Xi convention 表示模式的改变，可以类比为复制一份，它的声明比Delta convention更强，可表示为</p>
 $$\begin{array}{l} \Xi\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ a=a' \\ b=b' \\ \hline \end{array} \right.\end{array}$$<h4 id="其他">其他
-</h4><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>运算</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>重命名（Renaming）</td>
-          <td>$$\text{newSchemaName} ==\\ \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$</td>
-      </tr>
-      <tr>
-          <td>隐藏（Hide）</td>
-          <td>隐藏声明中的变量，让它只存在于谓词的运算符中，语法：$$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$</td>
-      </tr>
-      <tr>
-          <td>投影（Project）</td>
-          <td>隐藏除指定变量之外的变量，语法：$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$</td>
-      </tr>
-      <tr>
-          <td>合成（Composition）</td>
-          <td>表示执行 $S$ 后执行 $T$，隐藏了中间变量</td>
-      </tr>
-  </tbody>
-</table></div>
+</h4><ol>
+<li>重命名（Renaming）：
+$$\text{newSchemaName} == \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$</li>
+<li>隐藏（Hide）：隐藏声明中的变量，让它只存在于谓词的运算符中，
+$$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$</li>
+<li>投影（Project）：隐藏除指定变量之外的变量，
+$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$</li>
+<li>合成（Composition）：表示执行 $S$ 后执行 $T$，隐藏了中间变量</li>
+</ol>
 <h3 id="输入和输出变量">输入和输出变量
 </h3><p>输入变量：变量名 + ?</p>
 <p>输出变量：变量名 + !</p>
@@ -1355,6 +1338,38 @@ $$\begin{array}{c} \begin{align*} &[\text{CITY}] \quad \text{the set of cities o
     </footer>
 
 
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
     
 </article>
 
