@@ -1,76 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on RunicDolphin806</title>
         <link>https://rd806.github.io/categories/</link>
         <description>Recent content in Categories on RunicDolphin806</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>期末救急</title>
-        <link>https://rd806.github.io/categories/final_test/</link>
-        <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/final_test/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/final_test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 期末救急" /&gt;</description>
-        </item>
-        <item>
-        <title>教程</title>
-        <link>https://rd806.github.io/categories/guide/</link>
-        <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/guide/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>网站</title>
-        <link>https://rd806.github.io/categories/website/</link>
-        <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/website/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/website/Website.jpg" alt="Featured image of post 网站" /&gt;</description>
-        </item>
-        <item>
-        <title>小乐趣</title>
-        <link>https://rd806.github.io/categories/interesting/</link>
-        <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/interesting/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CSAPP</title>
-        <link>https://rd806.github.io/categories/csapp/</link>
-        <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/csapp/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>NEMU</title>
-        <link>https://rd806.github.io/categories/nemu/</link>
-        <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/nemu/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/nemu/NEMU.png" alt="Featured image of post NEMU" /&gt;</description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>https://rd806.github.io/categories/linux/</link>
-        <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/linux/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/linux/Linux.jpg" alt="Featured image of post Linux" /&gt;</description>
-        </item>
-        <item>
-        <title>Minecraft</title>
-        <link>https://rd806.github.io/categories/minecraft/</link>
-        <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/categories/minecraft/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
-        </item>
-        
-    </channel>
+            <title>期末救急</title>
+            <link>https://rd806.github.io/categories/final_test/</link>
+            <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/final_test/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/final_test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg&#34; alt=&#34;Featured image of post 期末救急&#34; /&gt;</description>
+        </item><item>
+            <title>教程</title>
+            <link>https://rd806.github.io/categories/guide/</link>
+            <pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/guide/</guid>
+            <description></description>
+        </item><item>
+            <title>网站</title>
+            <link>https://rd806.github.io/categories/website/</link>
+            <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/website/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/website/Website.jpg&#34; alt=&#34;Featured image of post 网站&#34; /&gt;</description>
+        </item><item>
+            <title>小乐趣</title>
+            <link>https://rd806.github.io/categories/interesting/</link>
+            <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/interesting/</guid>
+            <description></description>
+        </item><item>
+            <title>CSAPP</title>
+            <link>https://rd806.github.io/categories/csapp/</link>
+            <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/csapp/</guid>
+            <description></description>
+        </item><item>
+            <title>NEMU</title>
+            <link>https://rd806.github.io/categories/nemu/</link>
+            <pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/nemu/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/nemu/NEMU.png&#34; alt=&#34;Featured image of post NEMU&#34; /&gt;</description>
+        </item><item>
+            <title>Linux</title>
+            <link>https://rd806.github.io/categories/linux/</link>
+            <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/linux/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/linux/Linux.jpg&#34; alt=&#34;Featured image of post Linux&#34; /&gt;</description>
+        </item><item>
+            <title>Minecraft</title>
+            <link>https://rd806.github.io/categories/minecraft/</link>
+            <pubDate>Thu, 31 Jul 2025 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/categories/minecraft/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/minecraft/screenshot.png&#34; alt=&#34;Featured image of post Minecraft&#34; /&gt;</description>
+        </item></channel>
 </rss>

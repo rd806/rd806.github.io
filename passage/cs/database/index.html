@@ -4,9 +4,15 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数据库系统研究的是：如何用计算机有效地组织和管理数据\n关系数据库模型 数据库与DBMS 概念 数据（Data） 数据库存储的基本对象，数字、文本、图形、音频、视频等均可看作数据 语义 数据的标签，具备语义的数据才可成为信息 数据库（Database） 长期存储在计算机内的、有组织的、可共享的数据的集合 数据库管理系统（DBMS） 位于用户与操作系统之间的一层数据管理软件，通过调用系统资源操作和管理数据 关系数据模型 概念 关系数据模型 用于描述数据的符号语言，它包括结构、操作和约束等3个部分。 关系（Relation） 二维的表格 属性（Attribute） 关系列的表头，描述了该列内容的实际含义 模式（Scheme） 关系与其属性的范式 元组（Tuples） 关系的具体内容 域（Domains） 关系的数据类型 键（Key） 关系的其中一个元素 ">
 <title>数据库系统</title>
 
-<link rel='canonical' href='https://rd806.github.io/passage/cs/database/'>
 
-<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="数据库系统">
+<link rel="canonical" href="https://rd806.github.io/passage/cs/database/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.11c2d57a0593b5e2b090927b436ba89b69c38df2251ecc02ad0c84e4fdaeaa1f.css"><meta property='og:title' content="数据库系统">
 <meta property='og:description' content="数据库系统研究的是：如何用计算机有效地组织和管理数据\n关系数据库模型 数据库与DBMS 概念 数据（Data） 数据库存储的基本对象，数字、文本、图形、音频、视频等均可看作数据 语义 数据的标签，具备语义的数据才可成为信息 数据库（Database） 长期存储在计算机内的、有组织的、可共享的数据的集合 数据库管理系统（DBMS） 位于用户与操作系统之间的一层数据管理软件，通过调用系统资源操作和管理数据 关系数据模型 概念 关系数据模型 用于描述数据的符号语言，它包括结构、操作和约束等3个部分。 关系（Relation） 二维的表格 属性（Attribute） 关系列的表头，描述了该列内容的实际含义 模式（Scheme） 关系与其属性的范式 元组（Tuples） 关系的具体内容 域（Domains） 关系的数据类型 键（Key） 关系的其中一个元素 ">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/database/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -14,7 +20,7 @@
 <meta name="twitter:title" content="数据库系统">
 <meta name="twitter:description" content="数据库系统研究的是：如何用计算机有效地组织和管理数据\n关系数据库模型 数据库与DBMS 概念 数据（Data） 数据库存储的基本对象，数字、文本、图形、音频、视频等均可看作数据 语义 数据的标签，具备语义的数据才可成为信息 数据库（Database） 长期存储在计算机内的、有组织的、可共享的数据的集合 数据库管理系统（DBMS） 位于用户与操作系统之间的一层数据管理软件，通过调用系统资源操作和管理数据 关系数据模型 概念 关系数据模型 用于描述数据的符号语言，它包括结构、操作和约束等3个部分。 关系（Relation） 二维的表格 属性（Attribute） 关系列的表头，描述了该列内容的实际含义 模式（Scheme） 关系与其属性的范式 元组（Tuples） 关系的具体内容 域（Domains） 关系的数据类型 键（Key） 关系的其中一个元素 "><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://rd806.github.io/passage/cs/database/mysql.jpg' />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
     @media print {
@@ -71,25 +77,19 @@
     </button>
 
     <header>
-        
-            
-            <figure class="site-avatar">
+        <figure class="site-avatar">
                 <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/RunicDolphin806_hu_1cf19e68755c676d.png" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
                 </a>
                 
-                    <span class="emoji">🍥</span>
+                    <span class="emoji">✏️</span>
                 
             </figure>
-            
         
         
         <div class="site-meta">
@@ -100,9 +100,9 @@
             
                 <li>
                     <a 
-                        href='https://space.bilibili.com/1102225810?spm_id_from=333.337.0.0'
-                        target="_blank"
-                        title="Bilibili"
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
                         rel="me"
                     >
                         
@@ -115,7 +115,7 @@
                 <li>
                     <a 
                         href='https://github.com/rd806'
-                        target="_blank"
+                        
                         title="GitHub"
                         rel="me"
                     >
@@ -139,8 +139,6 @@
         <li >
             <a href='/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="5 12 3 12 12 3 21 12 19 12" />
@@ -159,8 +157,6 @@
         <li >
             <a href='/about/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="7" r="4" />
@@ -177,8 +173,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -198,8 +192,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -216,8 +208,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -236,8 +226,6 @@
         <li >
             <a href='/exercises/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
                 
                 <span>壹题</span>
@@ -246,9 +234,8 @@
         
         <li class="menu-bottom-section">
             <ol class="menu">
-                    
-                        <li id="i18n-switch">  
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M4 5h7" />
   <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
@@ -259,15 +246,24 @@
 
 
 
-                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
                                 
-                                    <option value="https://rd806.github.io/en/" >English</option>
                                 
-                                    <option value="https://rd806.github.io/" selected>简体中文</option>
+                                    
+                                        
+                                    
                                 
-                            </select>
-                        </li>
-                    
+                                <option value="/passage/cs/database/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
                 
 
                 
@@ -555,54 +551,6 @@
 </script>
             
         
-            
-                <!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-        <style>
-            .aplayer-music {
-                overflow-x: scroll
-            }
-
-            
-        </style>
-    </head>
-
-    <section class="widget music"> 
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
-        </div>
-        <h2 class="widget-title section-title">音乐</h2>
-        <div id="aplayer"></div>
-    </section>
-
-    <script>
-        
-        fetch('/resources/json/music.json')
-            .then(r => r.json())    
-            .then(list => {
-                const ap = new APlayer({ 
-                    container: document.getElementById('aplayer'), 
-                    mini: false,
-                    fixed: false,
-                    listFolded: true,
-                    listMaxHeight: '200px',
-                    lrcType: 3,
-                    audio: list 
-                });
-        });
-    </script>
-</html>
-
-
-    
-
-            
-        
     </aside>
 
 
@@ -611,17 +559,11 @@
     
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/passage/cs/database/">
-                <img src="/passage/cs/database/mysql_hu_50e14b964f055329.jpg"
-                        srcset="/passage/cs/database/mysql_hu_50e14b964f055329.jpg 800w, /passage/cs/database/mysql_hu_de5695c3cf03de63.jpg 1600w"
-                        width="800" 
-                        height="450" 
-                        loading="lazy"
-                        alt="Featured image of post 数据库系统" />
-                
-            </a>
-        </div>
+    <div class="article-image">
+        <a href="/passage/cs/database/">
+            <img alt="Featured image of post 数据库系统" height="405" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/mysql.jpg" width="720">
+        </a>
+    </div>
     
 
     <div class="article-details">
@@ -657,10 +599,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -669,18 +615,153 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published" datetime='2026-03-14T00:00:00Z'>Mar 14, 2026</time>
+                    <time class="article-time--published" datetime='2026-03-14T00:00:00Z'>2026年3月14日星期六</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 15 分钟
+                    </time>
+                
             </div>
+        
+
         
 
         
     </footer>
     
-
-    
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#关系数据库模型">关系数据库模型</a>
+      <ol>
+        <li><a href="#数据库与dbms">数据库与DBMS</a></li>
+        <li><a href="#关系数据模型">关系数据模型</a></li>
+        <li><a href="#关系代数ra">关系代数（RA）</a>
+          <ol>
+            <li><a href="#集合运算">集合运算</a></li>
+            <li><a href="#投影运算">投影运算</a></li>
+            <li><a href="#选择运算">选择运算</a></li>
+            <li><a href="#笛卡尔积">笛卡尔积</a></li>
+            <li><a href="#自然连接">自然连接</a></li>
+            <li><a href="#theta-连接">$\theta$-连接</a></li>
+            <li><a href="#重命名">重命名</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#关系数据库设计">关系数据库设计</a>
+      <ol>
+        <li><a href="#函数依赖">函数依赖</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#关系的键">关系的键</a></li>
+          </ol>
+        </li>
+        <li><a href="#函数依赖的规则">函数依赖的规则</a>
+          <ol>
+            <li><a href="#分解结合规则">分解/结合规则</a></li>
+            <li><a href="#平凡函数依赖">平凡函数依赖</a></li>
+            <li><a href="#属性的闭包">属性的闭包</a></li>
+            <li><a href="#传递规则">传递规则</a></li>
+            <li><a href="#函数依赖的投影">函数依赖的投影</a></li>
+          </ol>
+        </li>
+        <li><a href="#模式设计">模式设计</a>
+          <ol>
+            <li><a href="#关系的分解">关系的分解</a></li>
+            <li><a href="#bc范式">BC范式</a></li>
+            <li><a href="#分解为bc范式">分解为BC范式</a></li>
+          </ol>
+        </li>
+        <li><a href="#分解的优劣">分解的优劣</a>
+          <ol>
+            <li><a href="#从分解中恢复信息">从分解中恢复信息</a></li>
+            <li><a href="#无损连接的检验">无损连接的检验</a></li>
+            <li><a href="#依赖的保持">依赖的保持</a></li>
+          </ol>
+        </li>
+        <li><a href="#第三范式">第三范式</a></li>
+        <li><a href="#多值依赖">多值依赖</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#推导">推导</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#sql语言">SQL语言</a>
+      <ol>
+        <li><a href="#sql的数据类型">SQL的数据类型</a></li>
+        <li><a href="#ddl">DDL</a>
+          <ol>
+            <li><a href="#查询">查询</a></li>
+            <li><a href="#创建">创建</a></li>
+            <li><a href="#修改">修改</a></li>
+            <li><a href="#删除">删除</a></li>
+          </ol>
+        </li>
+        <li><a href="#dml">DML</a>
+          <ol>
+            <li><a href="#添加数据">添加数据</a></li>
+            <li><a href="#修改数据">修改数据</a></li>
+            <li><a href="#删除数据">删除数据</a></li>
+          </ol>
+        </li>
+        <li><a href="#dql">DQL</a>
+          <ol>
+            <li><a href="#基本条件查询">基本条件查询</a></li>
+            <li><a href="#多表查询">多表查询</a></li>
+            <li><a href="#反身查询">反身查询</a></li>
+            <li><a href="#子查询">子查询</a></li>
+            <li><a href="#分组与聚合">分组与聚合</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#mysql">MySQL</a>
+      <ol>
+        <li><a href="#准备工作">准备工作</a></li>
+        <li><a href="#配置mysql">配置MySQL</a>
+          <ol>
+            <li><a href="#设置用户密码">设置用户密码</a></li>
+            <li><a href="#允许远程访问">允许远程访问</a></li>
+            <li><a href="#创建新用户">创建新用户</a></li>
+          </ol>
+        </li>
+        <li><a href="#通用语法">通用语法</a></li>
+      </ol>
+    </li>
+    <li><a href="#opengauss">openGauss</a></li>
+    <li><a href="#数据库管理可视化">数据库管理可视化</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -753,57 +834,31 @@
       </tr>
   </tbody>
 </table></div>
-<p><img src="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png"
-	width="1128"
-	height="479"
-	srcset="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_1514a4afd7f466db.png 480w, /passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_3850caad09c48f5.png 1024w"
-	loading="lazy"
-	
-		alt="关系数据模型"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="235"
-		data-flex-basis="565px"
-	
-></p>
+<p><img alt="关系数据模型" class="gallery-image" data-flex-basis="565px" data-flex-grow="235" height="479" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png" srcset="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_a9e88d670243a9e5.png 800w, /passage/cs/database/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png 1128w" width="1128"></p>
 <h3 id="关系代数ra">关系代数（RA）
 </h3><p>关系代数用于在关系数据模型上查询和修改数据，它的输入和输出均为关系，因此可视为一个封闭的代数系统。</p>
 <p>SQL语句的核心就是关系代数。</p>
-<blockquote>
-<p>SQL的功能远低于C语言和Java，为什么使用它？</p>
+
+    <blockquote>
+        <p>SQL的功能远低于C语言和Java，为什么使用它？</p>
 <ol>
 <li>关系代数的用途十分广泛。</li>
 <li>SQL的编译十分便捷，易于优化。</li>
 </ol>
-</blockquote>
-<blockquote>
-<p><strong>代数</strong>（Algebra）是操作数（Operands）和运算符（Operators）的集合。</p>
-</blockquote>
+
+    </blockquote>
+
+    <blockquote>
+        <p><strong>代数</strong>（Algebra）是操作数（Operands）和运算符（Operators）的集合。</p>
+
+    </blockquote>
 <p>通过关系代数的运算符和各种关系相连接。可以得到关系表达式。例如：</p>
 $$ R(t,y,l,i,s,p) := \sigma_{\mathrm{length} \leqslant 100}(\mathrm{Movies}) $$<p>
 </p>
 $$ S(t,y,l,i,s,p) := \sigma_{\mathrm{studioName='Fox'}}(\mathrm{Movies}) $$<p>
 </p>
-$$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式都可以写成<a class="link" href="/p/data-structure-tree" >树
-    
-    
-
-</a>的形式。上式即可表达为：</p>
-<p><img src="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.png"
-	width="391"
-	height="397"
-	srcset="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F_hu_f63a982b25c80920.png 480w, /passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F_hu_9bd145048072a858.png 1024w"
-	loading="lazy"
-	
-		alt="关系代数表达式"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="98"
-		data-flex-basis="236px"
-	
-></p>
+$$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式都可以写成<a class="link" href="/p/data-structure-tree" >树</a>的形式。上式即可表达为：</p>
+<p><img alt="关系代数表达式" class="gallery-image" data-flex-basis="236px" data-flex-grow="98" height="397" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" width="391"></p>
 <h4 id="集合运算">集合运算
 </h4><div class="table-wrapper"><table>
   <thead>
@@ -832,147 +887,113 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
   </tbody>
 </table></div>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">          </span><span class="c1">--- 并
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">INTERSECT</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">      </span><span class="c1">--- 交
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">EXCEPT</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">         </span><span class="c1">--- 差
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png"
-	width="888"
-	height="530"
-	srcset="/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_e5d47e6fab3e483c.png 480w, /passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_52f11bcdb1a34a37.png 1024w"
-	loading="lazy"
-	
-		alt="集合运算"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="167"
-		data-flex-basis="402px"
-	
-></p>
-<blockquote>
-<p>集合运算中的关系 $R$ 和 $S$ 的属性必须相同且排列顺序一致，且每个属性在两者中的域（数据类型）必须相同。</p>
-</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">          </span><span class="c1">--- 并
+</span></span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">INTERSECT</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">      </span><span class="c1">--- 交
+</span></span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">EXCEPT</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">         </span><span class="c1">--- 差
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="集合运算" class="gallery-image" data-flex-basis="402px" data-flex-grow="167" height="530" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_325e05f5a5a228d0.png 800w, /passage/cs/database/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png 888w" width="888"></p>
+
+    <blockquote>
+        <p>集合运算中的关系 $R$ 和 $S$ 的属性必须相同且排列顺序一致，且每个属性在两者中的域（数据类型）必须相同。</p>
+
+    </blockquote>
 <h4 id="投影运算">投影运算
 </h4><p>从关系 $R$ 生成一个仅包含 $R$ 部分属性的新关系（Project），可表示为 $\pi_{A_1, A_2, \cdots, A_n}(R)$</p>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png"
-	width="977"
-	height="580"
-	srcset="/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_eff64346f6be825f.png 480w, /passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_1e0011c9803b5c06.png 1024w"
-	loading="lazy"
-	
-		alt="投影运算"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="168"
-		data-flex-basis="404px"
-	
-></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="投影运算" class="gallery-image" data-flex-basis="404px" data-flex-grow="168" height="580" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_c657c6fbc93547fc.png 800w, /passage/cs/database/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png 977w" width="977"></p>
 <h4 id="选择运算">选择运算
 </h4><p>生成关系 $R$ 满足条件 $C$ 的元组子集作为一个新关系，结果关系的模式与原关系的相同（SELECTION）。可表示为：$\sigma_{C}(R)$</p>
-<blockquote>
-<p>用集合表示则可写作：$\sigma_{C}(R) = \{ t | t \in R \land C(t) = \mathrm{true} \}$</p>
-</blockquote>
+
+    <blockquote>
+        <p>用集合表示则可写作：$\sigma_{C}(R) = \{ t | t \in R \land C(t) = \mathrm{true} \}$</p>
+
+    </blockquote>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png"
-	width="977"
-	height="623"
-	srcset="/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_c49455beddff3f1f.png 480w, /passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_836f5bb61cff01da.png 1024w"
-	loading="lazy"
-	
-		alt="选择运算"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="156"
-		data-flex-basis="376px"
-	
-></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="选择运算" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="623" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_391bece7293e33b2.png 800w, /passage/cs/database/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png 977w" width="977"></p>
 <h4 id="笛卡尔积">笛卡尔积
 </h4><p>选择关系 $R$ 的一个元素为有序对的第一个元素，关系 $S$ 的一个元素为第二个元素，以此类推形成的新关系（Cartesian Product）。可表示为：$R \times S$</p>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png"
-	width="1022"
-	height="648"
-	srcset="/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_6c6b60bee755741f.png 480w, /passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_8d0f83bb61a32cfa.png 1024w"
-	loading="lazy"
-	
-		alt="笛卡尔积"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="157"
-		data-flex-basis="378px"
-	
-></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="笛卡尔积" class="gallery-image" data-flex-basis="378px" data-flex-grow="157" height="648" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png" srcset="/passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_e716fede6682bc5b.png 800w, /passage/cs/database/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png 1022w" width="1022"></p>
 <h4 id="自然连接">自然连接
 </h4><p>设 $A_1, A_2, \cdots, A_n$ 为关系 $R$ 和 $S$ 中所有共同属性，当两者的共同属性的内容完全一致时则合并为一个关系，合并的结果应包含关系 $R$ 和 $S$ 中的所有属性（Natural Joins）。可表示为：$R \bowtie S$</p>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">NATURAL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png"
-	width="1010"
-	height="455"
-	srcset="/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_8cbbbce04077da66.png 480w, /passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_23018dc791c2ed7a.png 1024w"
-	loading="lazy"
-	
-		alt="自然连接"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="221"
-		data-flex-basis="532px"
-	
-></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">NATURAL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="自然连接" class="gallery-image" data-flex-basis="532px" data-flex-grow="221" height="455" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_ebdb88aa32e5a51d.png 800w, /passage/cs/database/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png 1010w" width="1010"></p>
 <h4 id="theta-连接">$\theta$-连接
 </h4><p>关系 $R$ 与 $S$ 先做笛卡尔积，在从中选择满足条件 $C$ 的部分（Theta-Joins）。可表示为 $ R \bowtie_{C} S $</p>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">C</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5.png"
-	width="1027"
-	height="633"
-	srcset="/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_a881c67a3b0e5f41.png 480w, /passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_f000d61c30a4ce46.png 1024w"
-	loading="lazy"
-	
-		alt="Theta连接"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="162"
-		data-flex-basis="389px"
-	
-></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">C</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="Theta连接" class="gallery-image" data-flex-basis="389px" data-flex-grow="162" height="633" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5_hu_97d88d2a566a925c.png 800w, /passage/cs/database/images/Theta%E8%BF%9E%E6%8E%A5.png 1027w" width="1027"></p>
 <h4 id="重命名">重命名
 </h4><p>将关系 $R$ 重命名为关系 $S$，$R$ 中对应的属性重命名为 $A_1, A_2, \cdots, A_n$。可表示为 $\rho_{S(A_1, A_2, \cdots, A_n)}(R)$</p>
 <p>对应的SQL语言：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">a_1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_1</span><span class="p">,</span><span class="w"> </span><span class="n">a_2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">a_n</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_n</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p><img src="/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D.png"
-	width="1012"
-	height="601"
-	srcset="/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_49266adc3287b2bf.png 480w, /passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_e478b9852f74d46e.png 1024w"
-	loading="lazy"
-	
-		alt="重命名"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="168"
-		data-flex-basis="404px"
-	
-></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">a_1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_1</span><span class="p">,</span><span class="w"> </span><span class="n">a_2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">a_n</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_n</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="重命名" class="gallery-image" data-flex-basis="404px" data-flex-grow="168" height="601" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D.png" srcset="/passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_3ba4da181bf0b9f0.png 800w, /passage/cs/database/images/%E9%87%8D%E5%91%BD%E5%90%8D.png 1012w" width="1012"></p>
 <h2 id="关系数据库设计">关系数据库设计
 </h2><p>依赖（Dependency）涉及如何构建一个良好的关系数据库模式，以及当一个模式存在缺陷时如何改进的问题，并使用“异常”来指代这些问题。</p>
 <h3 id="函数依赖">函数依赖
 </h3><h4 id="定义">定义
 </h4><p>如果两个元组在属性 $A_1, A_2, \cdots, A_n$ 上一致（即它们对应属性的分量值都相等），那么它们必定在其他属性上 $B_1, B_2, \cdots, B_m$ 上也一致。记作 </p>
 $$A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$$<p> 即 $B_1, B_2, \cdots, B_m$ <strong>函数依赖</strong> $A_1, A_2, \cdots, A_n$，或称 $A_1, A_2, \cdots, A_n$ <strong>函数决定</strong> $B_1, B_2, \cdots, B_m$。</p>
-<blockquote>
-<p>若 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 成立，则以下各式均成立：
+
+    <blockquote>
+        <p>若 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 成立，则以下各式均成立：
 </p>
-$$\begin{array}{c}  A_1 A_2 \cdots A_n \rightarrow B_1 \\ A_1 A_2 \cdots A_n \rightarrow B_2 \\ \cdots \\ A_1 A_2 \cdots A_n \rightarrow B_m \end{array}$$</blockquote>
+$$\begin{array}{c}  A_1 A_2 \cdots A_n \rightarrow B_1 \\ A_1 A_2 \cdots A_n \rightarrow B_2 \\ \cdots \\ A_1 A_2 \cdots A_n \rightarrow B_m \end{array}$$
+    </blockquote>
 <p>如果关系 $R$ 的每个实例都满足一个确定的函数依赖 $f$，那么称 $R$ 满足 <strong>函数依赖</strong> $f$，即在 $R$ 上声明了一个约束。</p>
 <h4 id="关系的键">关系的键
 </h4><p>若属性集 $\{A_1, A_2, \cdots, A_n\}$ 满足：</p>
@@ -981,14 +1002,18 @@ $$\begin{array}{c}  A_1 A_2 \cdots A_n \rightarrow B_1 \\ A_1 A_2 \cdots A_n \ri
 <li>在 $\{A_1, A_2, \cdots, A_n\}$ 的所有真子集均不能决定关系 $R$ 的所有其他属性，即键必须是最小的。</li>
 </ol>
 <p>则称 $\{A_1, A_2, \cdots, A_n\}$ 是关系 $R$ 的<strong>键</strong>。</p>
-<blockquote>
-<p>可以将关系 $R$ 中的键类比为 $n$ 维线性空间的一个 $n$ 元向量组 $[\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_n]$，它可以表示该空间内的所有向量。</p>
-</blockquote>
+
+    <blockquote>
+        <p>可以将关系 $R$ 中的键类比为 $n$ 维线性空间的一个 $n$ 元向量组 $[\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_n]$，它可以表示该空间内的所有向量。</p>
+
+    </blockquote>
 <p>有时，一个关系可能会有多个可行的键，这时需指定其中一个为<strong>主键</strong>（Primary key）。</p>
 <p>一个包含键的属性集就称为<strong>超建</strong>。</p>
-<blockquote>
-<p>容易得出，每个键都是该关系的超键（$A \subseteq A$）</p>
-</blockquote>
+
+    <blockquote>
+        <p>容易得出，每个键都是该关系的超键（$A \subseteq A$）</p>
+
+    </blockquote>
 <h3 id="函数依赖的规则">函数依赖的规则
 </h3><p>函数依赖的规则给出了推导函数依赖的一般方法。</p>
 <h4 id="分解结合规则">分解/结合规则
@@ -998,15 +1023,17 @@ $$\begin{array}{c}  A_1 A_2 \cdots A_n \rightarrow B_1 \\ A_1 A_2 \cdots A_n \ri
 <h4 id="平凡函数依赖">平凡函数依赖
 </h4><p>对于函数依赖 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$，若满足 </p>
 $$\{B_1 B_2 \cdots B_m\} \subseteq \{A_1 A_2 \cdots A_n\}$$<p> 则称其为 <strong>平凡函数依赖</strong>。</p>
-<blockquote>
-<p>若 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$，且 $\{B_1, B_2, \cdots, B_m\} - \{A_1, A_2, \cdots, A_n\} = \{C_1, C_2, \cdots, C_k\}$，则有 </p>
+
+    <blockquote>
+        <p>若 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$，且 $\{B_1, B_2, \cdots, B_m\} - \{A_1, A_2, \cdots, A_n\} = \{C_1, C_2, \cdots, C_k\}$，则有 </p>
 $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<p> 这称为平凡依赖规则。如图所示：
 <figure><img src="/passage/cs/database/images/%E5%B9%B3%E5%87%A1%E4%BE%9D%E8%B5%96%E8%A7%84%E5%88%99.png" width="700"><figcaption>
       <h4>平凡依赖规则</h4>
     </figcaption>
 </figure>
 </p>
-</blockquote>
+
+    </blockquote>
 <h4 id="属性的闭包">属性的闭包
 </h4><p>设 $\{A_1, A_2, \cdots, A_n\}$ 是属性集合，$S$ 是函数依赖的集合，则 $S$ 下属性集合 $\{A_1, A_2, \cdots, A_n\}$ 的闭包定义为：满足 $S$ 中所有函数依赖关系的属性集合 $B$，记作 $\{A_1, A_2, \cdots, A_n\}^+$</p>
 <p>计算属性闭包的方法：</p>
@@ -1017,8 +1044,9 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<p> 这称为平凡依赖�
 </ol>
 <h4 id="传递规则">传递规则
 </h4><p>若关系 $R$ 满足 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 和 $B_1 B_2 \cdots B_m \rightarrow C_1 C_2 \cdots C_k$，则有 </p>
-$$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<blockquote>
-<p>Armstrong公理</p>
+$$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$
+    <blockquote>
+        <p>Armstrong公理</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1041,7 +1069,8 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<blockquote>
       </tr>
   </tbody>
 </table></div>
-</blockquote>
+
+    </blockquote>
 <h4 id="函数依赖的投影">函数依赖的投影
 </h4><p>记 $R_1 = \pi_{L} (R)$，函数依赖集合 $S$ 的投影是满足下列条件的函数依赖的集合：</p>
 <ol>
@@ -1060,9 +1089,11 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<blockquote>
 <h4 id="bc范式">BC范式
 </h4><p>分解的目的就是将一个关系用多个不存在异常的关系替换，即在一个简单的条件下保证异常不存在，这个条件就称作BC范式（BCNF）。</p>
 <p>定义：当且仅当如果关系 $R$ 中非平凡函数依赖 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 成立，则 $\{A_1, A_2, \cdots, A_n\}$ 是关系 $R$ 的超键。此时称关系 $R$ 为BC范式。</p>
-<blockquote>
-<p>换言之，就是每个非平凡函数依赖的左侧必须包含该关系的键。</p>
-</blockquote>
+
+    <blockquote>
+        <p>换言之，就是每个非平凡函数依赖的左侧必须包含该关系的键。</p>
+
+    </blockquote>
 <h4 id="分解为bc范式">分解为BC范式
 </h4><p>目标：将任何一个关系模式分解为带有以下性质的、具有多个属性的子集：</p>
 <ol>
@@ -1110,22 +1141,26 @@ $$R = \pi_{X \cup Y}(R) \bowtie \pi_{Y \cup Z}(R)$$<p> 即该分解包含无损�
 </h4><p>在某些情况下，把一个关系分解为一系列BCNF关系时，无法同时拥有无损连接和依赖保持两种性质。</p>
 <h3 id="第三范式">第三范式
 </h3><p>定义：如果一个关系 $R$ 满足只要 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 是非平凡函数依赖，那么或者 $\{A_1, A_2 ,\cdots, A_n\}$ 是超键，或者每个属于 $B_1, B_2, \cdots, B_n$ 但不属于 $A$ 的属性都是某个键的成员。</p>
-<blockquote>
-<p>如果一个属性是某个键的成员，则常被成为“主属性”。因此，3NF的条件等价于：对于每个非平凡FD，或者其左边是超键，或者其右边仅由主属性构成。</p>
-</blockquote>
+
+    <blockquote>
+        <p>如果一个属性是某个键的成员，则常被成为“主属性”。因此，3NF的条件等价于：对于每个非平凡FD，或者其左边是超键，或者其右边仅由主属性构成。</p>
+
+    </blockquote>
 <h3 id="多值依赖">多值依赖
 </h3><p>“多值依赖（MVD）”是两个属性或属性集合之间相互独立的断言，是广义的函数依赖。</p>
 <h4 id="定义-1">定义
 </h4><p>在关系 $R$ 中，当给定某个属性集合的值时，存在另外一组属性集合，该组属性的值与关系中所有其他属性的值独立。即若给定 $R$ 中属于 $A$ 的各属性的值，存在一个属性 $B$，其中属性的值独立于 $R$ 中既不属于 $A$ 也不属于 $B$ 的属性集合的值，则称 MVD </p>
 $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中成立</p>
-<blockquote>
-<p>更准确的说法：若MVD成立，则对于 $R$ 中每个在所有 $A$ 属性上一致的元组对 $r$ 和 $u$，能在 $R$ 中找到满足下列条件的元组 $v$：</p>
+
+    <blockquote>
+        <p>更准确的说法：若MVD成立，则对于 $R$ 中每个在所有 $A$ 属性上一致的元组对 $r$ 和 $u$，能在 $R$ 中找到满足下列条件的元组 $v$：</p>
 <ol>
 <li>在 $A$ 属性上的取值与 $t$ 和 $u$ 相同</li>
 <li>在 $B$ 属性上的取值与 $t$ 相同</li>
 <li>在 $R$ 中不属于 $A$ 和 $B$ 的所有其他属性上的取值与 $u$ 相同</li>
 </ol>
-</blockquote>
+
+    </blockquote>
 <h4 id="推导">推导
 </h4><div class="table-wrapper"><table>
   <thead>
@@ -1355,9 +1390,11 @@ $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中
       </tr>
   </tbody>
 </table></div>
-<blockquote>
-<p>空值<code>NULL</code>不是常量，不可将其用作操作数。</p>
-</blockquote>
+
+    <blockquote>
+        <p>空值<code>NULL</code>不是常量，不可将其用作操作数。</p>
+
+    </blockquote>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1380,139 +1417,293 @@ $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中
       </tr>
   </tbody>
 </table></div>
-<blockquote>
-<p>布尔操作的法则：</p>
+
+    <blockquote>
+        <p>布尔操作的法则：</p>
 <ol>
 <li><code>AND</code>操作符返回两者约定值较小的那个。</li>
 <li><code>OR</code>操作符返回两者约定值较大的那个。</li>
 <li>布尔变量<code>v</code>反转后为<code>1-v</code>。</li>
 </ol>
 <p>例如，若执行SQL语句</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">length</span><span class="o">&lt;=</span><span class="mi">120</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">length</span><span class="o">&gt;</span><span class="mi">120</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>若某些元组的<code>length</code>值为<code>NULL</code>，条件的返回值则为<code>UNKNOWN</code>，将不会出现在结果中。</p>
-</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">length</span><span class="o">&lt;=</span><span class="mi">120</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">length</span><span class="o">&gt;</span><span class="mi">120</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>若某些元组的<code>length</code>值为<code>NULL</code>，条件的返回值则为<code>UNKNOWN</code>，将不会出现在结果中。</p>
+
+    </blockquote>
 <h3 id="ddl">DDL
 </h3><p>数据定义语言，用于定义数据库对象</p>
 <h4 id="查询">查询
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* -- 数据库操作 -- */</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">-- 查询所有数据库
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">-- 查询当前数据库
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">-- 查询当前数据库中所有表
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">TABLE</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">/* -- 表操作 -- */</span><span class="w">
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1">-- 查询表结构
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="k">DESC</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1">-- 查询指定表的建表语句
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><h4 id="创建">创建
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="cm">/* -- 数据库操作 -- */</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1">-- 创建数据库
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="err">字符集</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">COLLATE</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1">-- 使用数据库
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="cm">/* -- 表操作 -- */</span><span class="w">
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">-- 创建表
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="err">类型</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;这是主键&#39;</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">2</span><span class="w"> </span><span class="err">字段</span><span class="mi">2</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段2注释&#39;</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">3</span><span class="w"> </span><span class="err">字段</span><span class="mi">3</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段3注释&#39;</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
-</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;表注释&#39;</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1">-- 示例
-</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">movie</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">    </span><span class="n">cert</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;主键&#39;</span><span class="p">],</span><span class="w">
-</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">    </span><span class="n">networth</span><span class="w"> </span><span class="nb">INT</span><span class="w">
-</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">studio</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="w">    </span><span class="n">presc</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">presc</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">movie</span><span class="p">(</span><span class="n">cert</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;外键&#39;</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="p">);</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
-<p>MySQL中建议使用字符集<code>UTF8mb4</code>。</p>
-<p>参见：<a class="link" href="/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" >MySQL的数据类型
-    
-    
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="cm">/* -- 数据库操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询所有数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询当前数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询当前数据库中所有表
+</span></span></span><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">TABLE</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/* -- 表操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询表结构
+</span></span></span><span class="line"><span class="cl"><span class="k">DESC</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询指定表的建表语句
+</span></span></span><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="创建">创建
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="cm">/* -- 数据库操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 创建数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="err">字符集</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">COLLATE</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 使用数据库
+</span></span></span><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/* -- 表操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 创建表
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="err">类型</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;这是主键&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">2</span><span class="w"> </span><span class="err">字段</span><span class="mi">2</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段2注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">3</span><span class="w"> </span><span class="err">字段</span><span class="mi">3</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段3注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;表注释&#39;</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 示例
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">movie</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cert</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;主键&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">networth</span><span class="w"> </span><span class="nb">INT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">studio</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">presc</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">presc</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">movie</span><span class="p">(</span><span class="n">cert</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;外键&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>MySQL中建议使用字符集<code>UTF8mb4</code>。</p>
+<p>参见：<a class="link" href="/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" >MySQL的数据类型</a></p>
 
-</a></p>
-</blockquote>
+    </blockquote>
 <h4 id="修改">修改
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">--- 添加字段
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">--- 修改数据类型
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">新数据类型</span><span class="p">(</span><span class="err">长度</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1">--- 修改字段名和字段类型
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="n">CHANGE</span><span class="w"> </span><span class="err">旧字段名</span><span class="w"> </span><span class="err">新字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">--- 修改表名
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">新表名</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><h4 id="删除">删除
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">--- 删除字段
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="err">字段名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">-- 删除表
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1">-- 删除指定表，并重新创建该表
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1">--- 删除数据库
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><h3 id="dml">DML
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">--- 添加字段
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 修改数据类型
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">新数据类型</span><span class="p">(</span><span class="err">长度</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 修改字段名和字段类型
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="n">CHANGE</span><span class="w"> </span><span class="err">旧字段名</span><span class="w"> </span><span class="err">新字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 修改表名
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">新表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="删除">删除
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">--- 删除字段
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="err">字段名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 删除表
+</span></span></span><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 删除指定表，并重新创建该表
+</span></span></span><span class="line"><span class="cl"><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 删除数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="dml">DML
 </h3><p>数据操作语言，用于数据库中数据的增删改。</p>
 <h4 id="添加数据">添加数据
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">-- 给指定字段添加数据
-</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">字段名</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1">-- 给全部字段添加数据
-</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm">/* -- 批量添加数据 -- */</span><span class="w">
-</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">-- 指定字段名添加
-</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(...);</span><span class="w">
-</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1">-- 全部添加
-</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
-<p>注意：</p>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- 给指定字段添加数据
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">字段名</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 给全部字段添加数据
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/* -- 批量添加数据 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 指定字段名添加
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 全部添加
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>注意：</p>
 <ol>
 <li>插入数据时，指定的字段顺序需要与值的顺序相对应。</li>
 <li>字符串和日期型数据应包含在引号中。</li>
 <li>插入数据的大小应该在字段的指定范围内。</li>
 </ol>
-</blockquote>
+
+    </blockquote>
 <h4 id="修改数据">修改数据
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="err">字段名</span><span class="mi">1</span><span class="o">=</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="o">=</span><span class="err">值</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">-- 作用是修改满足条件的一行数据对应字段的值，不是修改字段名
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
-</span></span></span></code></pre></div><h4 id="删除数据">删除数据
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">-- DELETE语句不能删除某一个字段的值，可以使用UPDATE将该字段值设为NONE
-</span></span></span></code></pre></div><h3 id="dql">DQL
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="err">字段名</span><span class="mi">1</span><span class="o">=</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="o">=</span><span class="err">值</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 作用是修改满足条件的一行数据对应字段的值，不是修改字段名
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="删除数据">删除数据
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- DELETE语句不能删除某一个字段的值，可以使用UPDATE将该字段值设为NONE
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="dql">DQL
 </h3><p>数据查询语言，用于查询数据库中表的记录。它完整的参数可包含如下内容：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="err">字段列表</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="err">表名列表</span><span class="p">]</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="err">条件列表</span><span class="p">]</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="err">分组字段列表</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">HAVING</span><span class="w"> </span><span class="p">[</span><span class="err">分组后筛选列表</span><span class="p">]</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="err">排序字段列表</span><span class="p">]</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="p">[</span><span class="err">分页参数</span><span class="p">];</span><span class="w">
-</span></span></span></code></pre></div><h4 id="基本条件查询">基本条件查询
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
-</span></span></span></code></pre></div><p>它与关系代数 $\pi_{L}(\sigma_{C}(R))$ 对应。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="err">字段列表</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="err">表名列表</span><span class="p">]</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="err">条件列表</span><span class="p">]</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="err">分组字段列表</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">HAVING</span><span class="w"> </span><span class="p">[</span><span class="err">分组后筛选列表</span><span class="p">]</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="err">排序字段列表</span><span class="p">]</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="p">[</span><span class="err">分页参数</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="基本条件查询">基本条件查询
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>它与关系代数 $\pi_{L}(\sigma_{C}(R))$ 对应。</p>
 <p>常用运算符总结：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -1568,42 +1759,79 @@ $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中
       </tr>
   </tbody>
 </table></div>
-<blockquote>
-<p><code>LIKE</code>后可接一个通配符，用于模糊匹配字段</p>
+
+    <blockquote>
+        <p><code>LIKE</code>后可接一个通配符，用于模糊匹配字段</p>
 <ol>
 <li><code>&quot;Star ____&quot;</code>将匹配字段中含有一个<code>Star</code>和4个字符的字符串。</li>
 <li><code>%&quot;s%</code>将匹配包含<code>'s</code>的字符串。</li>
 <li>SQL允许使用<code>ESCAPE</code>命令来排除特定的字符，例如<code>'x%%x%' ESCAPE 'x'</code>将匹配以<code>%</code>开头和结尾的字符串。</li>
 </ol>
-</blockquote>
+
+    </blockquote>
 <p>查询结果可通过参数<code>ORDER BY</code>排序，默认为升序排列。可通过<code>ORDER BY DESC</code>指定为降序排列，<code>ORDER BY ASC</code>为升序排列。</p>
 <h4 id="多表查询">多表查询
 </h4><p><code>FROM</code>后可接多个表，例如</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="p">,</span><span class="w"> </span><span class="n">MovieExec</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Star Wars&#34;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>其中<code>title</code>和<code>producerC#</code>位于表<code>Movies</code>中、<code>cert#</code>位于表<code>MovieExec</code>中，则查询结果将返回<code>producerC#</code>与<code>cert#</code>字段相同，且<code>title</code>为<code>&quot;Star Wars&quot;</code>的内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="p">,</span><span class="w"> </span><span class="n">MovieExec</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Star Wars&#34;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中<code>title</code>和<code>producerC#</code>位于表<code>Movies</code>中、<code>cert#</code>位于表<code>MovieExec</code>中，则查询结果将返回<code>producerC#</code>与<code>cert#</code>字段相同，且<code>title</code>为<code>&quot;Star Wars&quot;</code>的内容。</p>
 <h4 id="反身查询">反身查询
 </h4><p>若要在同一张表中查询元组内部元素之间的关系，则需对该表设置两个副本再进行查询。</p>
 <p>例如，查询哪两个Star有相同的address，则输入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">name</span><span class="w"> 
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">MovieStar</span><span class="w"> </span><span class="n">Star1</span><span class="p">,</span><span class="w"> </span><span class="n">MovieStar</span><span class="w"> </span><span class="n">Star2</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">address</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">name</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
-<p>必须设置两个副本<code>Star1</code>和<code>Star2</code>，否则条件判断将始终为<code>TRUE</code>。</p>
-</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">name</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">MovieStar</span><span class="w"> </span><span class="n">Star1</span><span class="p">,</span><span class="w"> </span><span class="n">MovieStar</span><span class="w"> </span><span class="n">Star2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">address</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">name</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>必须设置两个副本<code>Star1</code>和<code>Star2</code>，否则条件判断将始终为<code>TRUE</code>。</p>
+
+    </blockquote>
 <p>对应的关系代数为：</p>
 $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, A_3, A_4)}(\mathrm{MovieStar}) \times \rho_{N(A_5, A_6, A_7, A_8)}(\mathrm{MovieStar})))$$<h4 id="子查询">子查询
 </h4><p>查询也可成为其他查询的一部分，像这样嵌套在查询内部的查询称作子查询。</p>
 <p>子查询可返回单个常量，用于<code>WHERE</code>语句；也可以返回一个关系；还可以在<code>FROM</code>语句中后接元组变量。</p>
 <p>这里主要展示返回标量值的子查询。</p>
-<blockquote>
-<p>标量值（Scalar）：元组的一个组成部分。例如元组 <code>Movies(title, year, length, genre, studioName, producerC#)</code>中，若使用SQL查询：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>返回值即为一个标量值。</p>
-</blockquote>
+
+    <blockquote>
+        <p>标量值（Scalar）：元组的一个组成部分。例如元组 <code>Movies(title, year, length, genre, studioName, producerC#)</code>中，若使用SQL查询：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回值即为一个标量值。</p>
+
+    </blockquote>
 <p>示例：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MovieExec</span><span class="w"> 
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></div><h4 id="分组与聚合">分组与聚合
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MovieExec</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="分组与聚合">分组与聚合
 </h4><p>聚合：将关系中的某些列合并。</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -1640,45 +1868,94 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
 <h2 id="mysql">MySQL
 </h2><p>MySQL是目前流行的数据库管理系统，使用SQL语法操作和管理。</p>
 <h3 id="准备工作">准备工作
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 安装MYSQL</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo apt-get install mysql-server
-</span></span><span class="line"><span class="ln">3</span><span class="cl">
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 启动MySQL服务</span>
-</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo service mysql start
-</span></span><span class="line"><span class="ln">6</span><span class="cl">
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"># 登录MySQL</span>
-</span></span><span class="line"><span class="ln">8</span><span class="cl">mysql -u <span class="s1">&#39;用户名&#39;</span> -p <span class="s1">&#39;密码&#39;</span>
-</span></span></code></pre></div><h3 id="配置mysql">配置MySQL
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 安装MYSQL</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install mysql-server
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动MySQL服务</span>
+</span></span><span class="line"><span class="cl">sudo service mysql start
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 登录MySQL</span>
+</span></span><span class="line"><span class="cl">mysql -u <span class="s1">&#39;用户名&#39;</span> -p <span class="s1">&#39;密码&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置mysql">配置MySQL
 </h3><p>首先使用命令</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo mysql -u root
-</span></span></code></pre></div><p>进入MySQL界面，然后操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mysql -u root
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>进入MySQL界面，然后操作</p>
 <h4 id="设置用户密码">设置用户密码
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">mysql_native_password</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;你的新密码&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">EXIT</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>退出后以新的密码即可登录MySQL。</p>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">mysql_native_password</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;你的新密码&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">EXIT</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>退出后以新的密码即可登录MySQL。</p>
 <h4 id="允许远程访问">允许远程访问
 </h4><p>在Shell中输入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
-</span></span></code></pre></div><p>找到<code>bind-address</code>，将其修改为<code>0.0.0.0</code>或注释掉该行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>找到<code>bind-address</code>，将其修改为<code>0.0.0.0</code>或注释掉该行。</p>
 <p>保存后重启服务：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo service mysql restart
-</span></span></code></pre></div><h4 id="创建新用户">创建新用户
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;新用户名&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;新密码&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;新用户名&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><p>退出后以新的用户名和密码即可登录MySQL。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo service mysql restart
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="创建新用户">创建新用户
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;新用户名&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;新密码&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;新用户名&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">GRANT</span><span class="w"> </span><span class="k">OPTION</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>退出后以新的用户名和密码即可登录MySQL。</p>
 <h3 id="通用语法">通用语法
 </h3><ol>
 <li>单行或多行书写，<strong>以分号结尾</strong>。</li>
 <li>可以使用空格/缩进。</li>
 <li>SQL语句不区分大小写，关键字建议大写。</li>
 <li>单行注释：<code>--注释内容</code>或<code># 注释内容</code>；多行注释：<code>/* 注释内容 */</code>。</li>
-<li>其他参照<a class="link" href="#sql%e8%af%ad%e8%a8%80" >SQL语言
-    
-    
-
-</a>。</li>
+<li>其他参照<a class="link" href="#sql%e8%af%ad%e8%a8%80" >SQL语言</a>。</li>
 </ol>
 <h2 id="opengauss">openGauss
 </h2><h2 id="数据库管理可视化">数据库管理可视化
@@ -1694,52 +1971,19 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
   <tbody>
       <tr>
           <td><a class="link" href="https://www.navicat.com.cn/"  target="_blank" rel="noopener"
-    >Navicat
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
-
-</a></td>
+    >Navicat</a></td>
           <td>Navicat是一款综合性的数据库管理软件，允许通过一个界面连接和管理多个数据库（其实这个功能大多数类似软件都有）。</td>
           <td>Navicat提供多个版本，其中只有Navicat Premium Lite可免费使用（貌似还要注册一个账号）。</td>
       </tr>
       <tr>
           <td><a class="link" href="https://dbeaver.io/"  target="_blank" rel="noopener"
-    >DBeaver
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
-
-</a></td>
+    >DBeaver</a></td>
           <td>功能与Navicat类似</td>
           <td>它提供免费的社区版下载，而且不用注册账号，就像JetBrain全家桶</td>
       </tr>
       <tr>
           <td><a class="link" href="https://www.mysql.com/products/workbench/"  target="_blank" rel="noopener"
-    >MySQL Workbench
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
-
-</a></td>
+    >MySQL Workbench</a></td>
           <td>MySQL的官方提供的可视化管理工具</td>
           <td>免费，但是没有中文支持。</td>
       </tr>
@@ -1749,11 +1993,11 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
 
     
-    <section class="article-copyright">
+    <section class="article-copyright inline-meta">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
@@ -1762,131 +2006,75 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
 
 
 
-        <span>Licensed under CC BY-NC-SA 4.0</span>
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
     </section>
     </footer>
 
 
     
-        <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
-            ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
-                defer
-                >
-            </script><script>
-    window.addEventListener("DOMContentLoaded", () => {
-        const elementsToRender = [".main-article", ".widget--toc"];
-
-        elementsToRender.forEach(selector => {
-            const element = document.querySelector(selector);
-            if (element) {
-                renderMathInElement(element, {
-                    delimiters: [
-                        { left: "$$", right: "$$", display: true },
-                        { left: "$", right: "$", display: false },
-                        { left: "\\(", right: "\\)", display: false },
-                        { left: "\\[", right: "\\]", display: true }
-                    ],
-                    ignoredClasses: ["gist"]
-                });
-            }
-        });
-    });
-</script>
-    
 </article>
 
     
 
     
 
-<aside class="related-content--wrapper">
+<aside>
     <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
+    <div class="subsection-list">
+        <div class="article-list--tile">
             
                 
 <article class="has-image">
     <a href="/passage/guide/docker/">
         
-        
-            <div class="article-image">
-                <img src="/passage/guide/docker/docker.d8ea8af649283113ca920ba8d5930c42_hu_8c6dbe217a7c0a45.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Docker"
-                        data-key="guide/docker" 
-                        data-hash="md5-2OqK9kkoMRPKkguo1ZMMQg==">
-                
-            </div>
+        <div class="article-image">
+            <img alt="Featured image of post Docker" height="150" loading="lazy" src="/passage/guide/docker/docker_hu_fd0c0f7d79f64cbf.png" srcset="/passage/guide/docker/docker_hu_fd0c0f7d79f64cbf.png 1x, /passage/guide/docker/docker_hu_3a309e6aee09cc1c.png 2x" width="250">
+
+        </div>
         
 
-        <div class="article-details">
+        <div class="article-details"style="background: linear-gradient(0deg, #0b0a0d80 0%, #f8f9faC0 100%);">
             <h2 class="article-title">Docker</h2>
         </div>
     </a>
 </article>
-
             
                 
 <article class="has-image">
     <a href="/passage/website/cloudflare/">
         
-        
-            <div class="article-image">
-                <img src="/passage/website/cloudflare/cloudflare.d55d93696df716626c6ba30f7fc5989d_hu_37580efb6e843b24.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Cloudflare的使用"
-                        data-key="website/cloudflare" 
-                        data-hash="md5-1V2TaW33FmJsa6MPf8WYnQ==">
-                
-            </div>
+        <div class="article-image">
+            <img alt="Featured image of post Cloudflare的使用" height="150" loading="lazy" src="/passage/website/cloudflare/cloudflare_hu_341a2ee6ee8453a4.png" srcset="/passage/website/cloudflare/cloudflare_hu_341a2ee6ee8453a4.png 1x, /passage/website/cloudflare/cloudflare_hu_c50b0e49aa74e818.png 2x" width="250">
+
+        </div>
         
 
-        <div class="article-details">
+        <div class="article-details"style="background: linear-gradient(0deg, #f6932a80 0%, #323332C0 100%);">
             <h2 class="article-title">Cloudflare的使用</h2>
         </div>
     </a>
 </article>
-
             
                 
 <article class="has-image">
     <a href="/passage/software/formal_methods/">
         
-        
-            <div class="article-image">
-                <img src="/passage/software/formal_methods/cover.78e41658488ae58a4d3c829e46fef005_hu_a3a497ac026fe855.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 形式化方法"
-                        data-key="software/formal_methods" 
-                        data-hash="md5-eOQWWEiK5YpNPIKeRv7wBQ==">
-                
-            </div>
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
         
 
-        <div class="article-details">
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
             <h2 class="article-title">形式化方法</h2>
         </div>
     </a>
 </article>
-
             
                 
 <article class="">
     <a href="/passage/cs/parallel_computing/">
-        
         
 
         <div class="article-details">
@@ -1894,31 +2082,22 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
         </div>
     </a>
 </article>
-
             
                 
 <article class="has-image">
     <a href="/passage/cs/algorithm/">
         
-        
-            <div class="article-image">
-                <img src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 算法设计与分析"
-                        data-key="cs/algorithm" 
-                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
-                
-            </div>
+        <div class="article-image">
+            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+
+        </div>
         
 
-        <div class="article-details">
+        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
             <h2 class="article-title">算法设计与分析</h2>
         </div>
     </a>
 </article>
-
             
         </div>
     </div>
@@ -1927,6 +2106,8 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
      
     
         
+
+
     
 
     <footer class="site-footer">
@@ -1939,8 +2120,6 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
     </section>
     
     <section class="powerby">
-        
-            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 
@@ -1949,101 +2128,40 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
     
-    <div class="pswp__bg"></div>
+    if (shouldLoad) {
+        gallery(articleContent);
 
-    
-    <div class="pswp__scroll-wrap">
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
 
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
 
-        
-        <div class="pswp__ui pswp__ui--hidden">
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
 <script>
     async function renderKaTeX() {
         
@@ -2129,9 +2247,6 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
 </script>
 
 
-    
-    <script src=https://rd806.github.io/js/topbar.min.js></script>
-
 <script>
     
     topbar.config({
@@ -2173,5 +2288,6 @@ $$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, 
 </style>
 
 <script defer src="https://cn.vercount.one/js"></script>
+
     </body>
 </html>

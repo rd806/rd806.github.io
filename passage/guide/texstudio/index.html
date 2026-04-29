@@ -4,9 +4,15 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="排版与排版工具 排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。\n排版工具 特点 Word 所见即所得 方正书版 暂时未知（没用过） $\\LaTeX$ 使用 $\\TeX$ 语句编辑 TeX环境配置 本文使用Tex Live为例。\n">
 <title>Tex排版</title>
 
-<link rel='canonical' href='https://rd806.github.io/passage/guide/texstudio/'>
 
-<link rel="stylesheet" href="/scss/style.min.fd5d583aa2a5f56d4b3c78317c4fae22d7354e5b93022c88041cfa7961cd1a79.css"><meta property='og:title' content="Tex排版">
+<link rel="canonical" href="https://rd806.github.io/passage/guide/texstudio/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.11c2d57a0593b5e2b090927b436ba89b69c38df2251ecc02ad0c84e4fdaeaa1f.css"><meta property='og:title' content="Tex排版">
 <meta property='og:description' content="排版与排版工具 排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。\n排版工具 特点 Word 所见即所得 方正书版 暂时未知（没用过） $\\LaTeX$ 使用 $\\TeX$ 语句编辑 TeX环境配置 本文使用Tex Live为例。\n">
 <meta property='og:url' content='https://rd806.github.io/passage/guide/texstudio/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -14,7 +20,7 @@
 <meta name="twitter:title" content="Tex排版">
 <meta name="twitter:description" content="排版与排版工具 排版是指对文字、图片等元素的布局处理，使之符合我们的阅读习惯。\n排版工具 特点 Word 所见即所得 方正书版 暂时未知（没用过） $\\LaTeX$ 使用 $\\TeX$ 语句编辑 TeX环境配置 本文使用Tex Live为例。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://rd806.github.io/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg' />
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
     @media print {
@@ -71,25 +77,19 @@
     </button>
 
     <header>
-        
-            
-            <figure class="site-avatar">
+        <figure class="site-avatar">
                 <a href="/">
-                
-                    
-                    
-                    
-                        
-                        <img src="/img/RunicDolphin806_hu_1cf19e68755c676d.png" width="300"
-                            height="300" class="site-logo" loading="lazy" alt="Avatar">
-                    
-                
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
                 </a>
                 
-                    <span class="emoji">🍥</span>
+                    <span class="emoji">✏️</span>
                 
             </figure>
-            
         
         
         <div class="site-meta">
@@ -100,9 +100,9 @@
             
                 <li>
                     <a 
-                        href='https://space.bilibili.com/1102225810?spm_id_from=333.337.0.0'
-                        target="_blank"
-                        title="Bilibili"
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
                         rel="me"
                     >
                         
@@ -115,7 +115,7 @@
                 <li>
                     <a 
                         href='https://github.com/rd806'
-                        target="_blank"
+                        
                         title="GitHub"
                         rel="me"
                     >
@@ -139,8 +139,6 @@
         <li >
             <a href='/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="5 12 3 12 12 3 21 12 19 12" />
@@ -159,8 +157,6 @@
         <li >
             <a href='/about/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="7" r="4" />
@@ -177,8 +173,6 @@
         
         <li >
             <a href='/archives/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -198,8 +192,6 @@
         <li >
             <a href='/search/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="10" cy="10" r="7" />
@@ -216,8 +208,6 @@
         
         <li >
             <a href='/links/' >
-                
-                
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
@@ -236,8 +226,6 @@
         <li >
             <a href='/exercises/' >
                 
-                
-                
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
                 
                 <span>壹题</span>
@@ -246,9 +234,8 @@
         
         <li class="menu-bottom-section">
             <ol class="menu">
-                    
-                        <li id="i18n-switch">  
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M4 5h7" />
   <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
@@ -259,15 +246,24 @@
 
 
 
-                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
                                 
-                                    <option value="https://rd806.github.io/en/" >English</option>
                                 
-                                    <option value="https://rd806.github.io/" selected>简体中文</option>
+                                    
+                                        
+                                    
                                 
-                            </select>
-                        </li>
-                    
+                                <option value="/passage/guide/texstudio/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
                 
 
                 
@@ -469,54 +465,6 @@
 </script>
             
         
-            
-                <!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-        <style>
-            .aplayer-music {
-                overflow-x: scroll
-            }
-
-            
-        </style>
-    </head>
-
-    <section class="widget music"> 
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-music"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M9 17v-13h10v13" /><path d="M9 8h10" /></svg>
-        </div>
-        <h2 class="widget-title section-title">音乐</h2>
-        <div id="aplayer"></div>
-    </section>
-
-    <script>
-        
-        fetch('/resources/json/music.json')
-            .then(r => r.json())    
-            .then(list => {
-                const ap = new APlayer({ 
-                    container: document.getElementById('aplayer'), 
-                    mini: false,
-                    fixed: false,
-                    listFolded: true,
-                    listMaxHeight: '200px',
-                    lrcType: 3,
-                    audio: list 
-                });
-        });
-    </script>
-</html>
-
-
-    
-
-            
-        
     </aside>
 
 
@@ -525,17 +473,11 @@
     
     <article class="has-image main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/passage/guide/texstudio/">
-                <img src="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_424be062a4fb162f.jpg"
-                        srcset="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_424be062a4fb162f.jpg 800w, /passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_da3d8e37067b5374.jpg 1600w"
-                        width="800" 
-                        height="450" 
-                        loading="lazy"
-                        alt="Featured image of post Tex排版" />
-                
-            </a>
-        </div>
+    <div class="article-image">
+        <a href="/passage/guide/texstudio/">
+            <img alt="Featured image of post Tex排版" height="1080" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg" srcset="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_f5184d29df490769.jpg 800w, /passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_1b4df9a9e815e217.jpg 1600w, /passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash.jpg 1920w" width="1920">
+        </a>
+    </div>
     
 
     <div class="article-details">
@@ -571,10 +513,14 @@
     
     
     
-    <footer class="article-time">
+    
+    
+    
+    <footer class="article-meta">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
   <circle cx="18" cy="18" r="4" />
@@ -583,18 +529,67 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published" datetime='2025-10-29T00:00:00Z'>Oct 29, 2025</time>
+                    <time class="article-time--published" datetime='2025-10-29T00:00:00Z'>2025年10月29日星期三</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 2 分钟
+                    </time>
+                
             </div>
+        
+
         
 
         
     </footer>
     
-
-    
 </div>
 
 </header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#排版与排版工具">排版与排版工具</a></li>
+    <li><a href="#tex环境配置">TeX环境配置</a>
+      <ol>
+        <li><a href="#texlive介绍">TeXLive介绍</a></li>
+        <li><a href="#下载texlive镜像">下载TeXLive镜像</a></li>
+        <li><a href="#挂载镜像并启动安装程序">挂载镜像并启动安装程序</a></li>
+        <li><a href="#安装texlive">安装TeXLive</a></li>
+      </ol>
+    </li>
+    <li><a href="#tex语法">TeX语法</a>
+      <ol>
+        <li><a href="#宏包">宏包</a></li>
+        <li><a href="#文档元素">文档元素</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
@@ -627,32 +622,37 @@
 </h2><p>本文使用Tex Live为例。</p>
 <h3 id="texlive介绍">TeXLive介绍
 </h3><p>TeXLive 是目前 Windows 平台和 Linux 平台上最主流的 $\LaTeX$ 发行版。</p>
-<blockquote>
-<p>$\LaTeX$ 发行版，是指将 $\LaTeX$ 编译引擎（如 <code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code> 等）、宏包（如 <code>beamer</code>、<code>pgf/tikz</code> 等）、模板（比如一些学校的毕业论文模板）、字体、配套工具（如 <code>tlmgr</code>、<code>texworks</code> 等）打包在一起的、开箱即用的 $\LaTeX$ 套件。</p>
-</blockquote>
+
+    <blockquote>
+        <p>$\LaTeX$ 发行版，是指将 $\LaTeX$ 编译引擎（如 <code>pdflatex</code>、<code>xelatex</code>、<code>lualatex</code> 等）、宏包（如 <code>beamer</code>、<code>pgf/tikz</code> 等）、模板（比如一些学校的毕业论文模板）、字体、配套工具（如 <code>tlmgr</code>、<code>texworks</code> 等）打包在一起的、开箱即用的 $\LaTeX$ 套件。</p>
+
+    </blockquote>
 <h3 id="下载texlive镜像">下载TeXLive镜像
 </h3><p>到某个国内的 CTAN 镜像站下载最新版的 TeXLive 镜像，比如：<a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/"  target="_blank" rel="noopener"
-    >清华大学开源软件镜像站
-    
-    
-    <span style="white-space: nowrap;"><svg width=".7em"
-        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
-        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
-            fill="currentColor">
-    </svg></span>
-    
-
-</a>。</p>
+    >清华大学开源软件镜像站</a>。</p>
 <p>目前最新的 TeXLive 版本为 2025，该文件夹下包含3个<code>.iso</code>文件，它们仅有文件名不同，内容完全相同，可以任选一个下载。该文件夹下还包含有<code>md5</code>摘要文件，也可以下载下来以备校验。</p>
 <details> 
     <summary>校验安装镜像（可选）：</summary>
 <p>进入到 TeXLive 和<code>md5</code>文件所在的文件夹，执行命令</p>
 <p>Windows系统：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">certutil -hashfile texlive2025.iso md5
-</span></span></code></pre></div><p>Linux系统：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">md5sum texlive2025.iso
-</span></span></code></pre></div><p>你应该可以得到 TeXLive 2025 镜像文件的<code>md5</code>值：<code>69b4a8882983d9ea521730b5f42175e7</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certutil -hashfile texlive2025.iso md5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Linux系统：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">md5sum texlive2025.iso
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>你应该可以得到 TeXLive 2025 镜像文件的<code>md5</code>值：<code>69b4a8882983d9ea521730b5f42175e7</code>。</p>
 </details>
 <h3 id="挂载镜像并启动安装程序">挂载镜像并启动安装程序
 </h3><ol>
@@ -660,15 +660,30 @@
 </ol>
 <p>找到 TeXLive 文件，右击并选择“挂载”选项，可以看到磁盘管理器中出现新的盘符（如<code>E:</code>）。</p>
 <p>然后打开<code>PowerShell</code>或<code>cmd</code>，运行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="ln">1</span><span class="cl">Z<span class="p">:</span><span class="nl">\install-tl-windows.bat</span><span class="c1"> --no-gui</span>
-</span></span></code></pre></div><p>或者直接点击<code>install-tl-windows.bat</code>启动安装程序。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">Z<span class="p">:</span><span class="nl">\install-tl-windows.bat</span><span class="c1"> --no-gui</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者直接点击<code>install-tl-windows.bat</code>启动安装程序。</p>
 <ol start="2">
 <li>Linux系统</li>
 </ol>
 <p>在<code>Shell</code>中执行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo mkdir /mnt/texlive
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo mount <span class="s2">&#34;TeXLive文件位置&#34;</span> /mnt/texlive
-</span></span></code></pre></div><h3 id="安装texlive">安装TeXLive
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir /mnt/texlive
+</span></span><span class="line"><span class="cl">sudo mount <span class="s2">&#34;TeXLive文件位置&#34;</span> /mnt/texlive
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装texlive">安装TeXLive
 </h3><h2 id="tex语法">TeX语法
 </h2><h3 id="宏包">宏包
 </h3><p>$\TeX$ 中的宏包类似于“扩展组件”，提供原生 $\TeX$ 中没有的功能。</p>
@@ -677,11 +692,11 @@
 </section>
 
 
-    <footer class="article-footer">
+    <footer class="article-meta article-footer">
     
 
     
-    <section class="article-copyright">
+    <section class="article-copyright inline-meta">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
@@ -690,7 +705,8 @@
 
 
 
-        <span>Licensed under CC BY-NC-SA 4.0</span>
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
     </section>
     </footer>
 
@@ -734,15 +750,14 @@
 
     
 
-<aside class="related-content--wrapper">
+<aside>
     <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
+    <div class="subsection-list">
+        <div class="article-list--tile">
             
                 
 <article class="">
     <a href="/passage/cs/cslab/nemu/prepared/">
-        
         
 
         <div class="article-details">
@@ -750,36 +765,26 @@
         </div>
     </a>
 </article>
-
             
                 
 <article class="has-image">
     <a href="/passage/cs/algorithm/">
         
-        
-            <div class="article-image">
-                <img src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash.a5c23d175a15257c42bf42a31e33648f_hu_11543831e72c1aef.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post 算法设计与分析"
-                        data-key="cs/algorithm" 
-                        data-hash="md5-pcI9F1oVJXxCv0KjHjNkjw==">
-                
-            </div>
+        <div class="article-image">
+            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+
+        </div>
         
 
-        <div class="article-details">
+        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
             <h2 class="article-title">算法设计与分析</h2>
         </div>
     </a>
 </article>
-
             
                 
 <article class="">
     <a href="/passage/cs/cslab/proxy/">
-        
         
 
         <div class="article-details">
@@ -787,12 +792,10 @@
         </div>
     </a>
 </article>
-
             
                 
 <article class="">
     <a href="/passage/cs/csapp/">
-        
         
 
         <div class="article-details">
@@ -800,12 +803,10 @@
         </div>
     </a>
 </article>
-
             
                 
 <article class="">
     <a href="/passage/cs/cslab/malloc/">
-        
         
 
         <div class="article-details">
@@ -813,7 +814,6 @@
         </div>
     </a>
 </article>
-
             
         </div>
     </div>
@@ -822,6 +822,8 @@
      
     
         
+
+
     
 
     <footer class="site-footer">
@@ -834,8 +836,6 @@
     </section>
     
     <section class="powerby">
-        
-            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 
@@ -844,101 +844,40 @@
 
 
     
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
     
-    <div class="pswp__bg"></div>
+    if (shouldLoad) {
+        gallery(articleContent);
 
-    
-    <div class="pswp__scroll-wrap">
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
 
-        
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
 
-        
-        <div class="pswp__ui pswp__ui--hidden">
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
 
-            <div class="pswp__top-bar">
-
-                
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                
-                
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer
-                >
-            </script><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
-            ><link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
-            >
 
             </main>
         </div>
-        <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
-                
-                >
-            </script><script type="text/javascript" src="/ts/main.4cfd38f5b6dfa8b863116716f640326e6c2a91cf464c17f31bc16e72400df208.js" defer></script><script type="text/javascript" src="/ts/custom.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
-
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
-
-        document.head.appendChild(customFont);
-    }());
-</script>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
 <script>
     async function renderKaTeX() {
         
@@ -1024,9 +963,6 @@
 </script>
 
 
-    
-    <script src=https://rd806.github.io/js/topbar.min.js></script>
-
 <script>
     
     topbar.config({
@@ -1068,5 +1004,6 @@
 </style>
 
 <script defer src="https://cn.vercount.one/js"></script>
+
     </body>
 </html>

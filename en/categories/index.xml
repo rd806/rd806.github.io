@@ -1,68 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on RunicDolphin806</title>
         <link>https://rd806.github.io/en/categories/</link>
         <description>Recent content in Categories on RunicDolphin806</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>RunicDolphin806</copyright>
         <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://rd806.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Guide</title>
-        <link>https://rd806.github.io/en/categories/guide/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/guide/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Final Test</title>
-        <link>https://rd806.github.io/en/categories/final_test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/final_test/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/final_test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Final Test" /&gt;</description>
-        </item>
-        <item>
-        <title>Interesting things</title>
-        <link>https://rd806.github.io/en/categories/interesting/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/interesting/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Linux</title>
-        <link>https://rd806.github.io/en/categories/linux/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/linux/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/linux/Linux.jpg" alt="Featured image of post Linux" /&gt;</description>
-        </item>
-        <item>
-        <title>Minecraft</title>
-        <link>https://rd806.github.io/en/categories/minecraft/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/minecraft/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/minecraft/screenshot.png" alt="Featured image of post Minecraft" /&gt;</description>
-        </item>
-        <item>
-        <title>NEMU</title>
-        <link>https://rd806.github.io/en/categories/nemu/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/nemu/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/nemu/NEMU.png" alt="Featured image of post NEMU" /&gt;</description>
-        </item>
-        <item>
-        <title>Website</title>
-        <link>https://rd806.github.io/en/categories/website/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://rd806.github.io/en/categories/website/</guid>
-        <description>&lt;img src="https://rd806.github.io/categories/website/Website.jpg" alt="Featured image of post Website" /&gt;</description>
-        </item>
-        
-    </channel>
+            <title>Guide</title>
+            <link>https://rd806.github.io/en/categories/guide/</link>
+            <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/guide/</guid>
+            <description></description>
+        </item><item>
+            <title>Final Test</title>
+            <link>https://rd806.github.io/en/categories/final_test/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/final_test/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/final_test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg&#34; alt=&#34;Featured image of post Final Test&#34; /&gt;</description>
+        </item><item>
+            <title>Interesting things</title>
+            <link>https://rd806.github.io/en/categories/interesting/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/interesting/</guid>
+            <description></description>
+        </item><item>
+            <title>Linux</title>
+            <link>https://rd806.github.io/en/categories/linux/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/linux/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/linux/Linux.jpg&#34; alt=&#34;Featured image of post Linux&#34; /&gt;</description>
+        </item><item>
+            <title>Minecraft</title>
+            <link>https://rd806.github.io/en/categories/minecraft/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/minecraft/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/minecraft/screenshot.png&#34; alt=&#34;Featured image of post Minecraft&#34; /&gt;</description>
+        </item><item>
+            <title>NEMU</title>
+            <link>https://rd806.github.io/en/categories/nemu/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/nemu/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/nemu/NEMU.png&#34; alt=&#34;Featured image of post NEMU&#34; /&gt;</description>
+        </item><item>
+            <title>Website</title>
+            <link>https://rd806.github.io/en/categories/website/</link>
+            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+            <guid>https://rd806.github.io/en/categories/website/</guid>
+            <description>&lt;img src=&#34;https://rd806.github.io/categories/website/Website.jpg&#34; alt=&#34;Featured image of post Website&#34; /&gt;</description>
+        </item></channel>
 </rss>

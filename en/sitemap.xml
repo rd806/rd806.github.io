@@ -132,6 +132,19 @@
                 href="https://rd806.github.io/en/passage/guide/markdown/"
                 />
   </url><url>
+    <loc>https://rd806.github.io/en/post/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://rd806.github.io/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rd806.github.io/en/post/"
+                />
+  </url><url>
     <loc>https://rd806.github.io/en/tags/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
     <xhtml:link
