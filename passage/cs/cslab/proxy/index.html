@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.11c2d57a0593b5e2b090927b436ba89b69c38df2251ecc02ad0c84e4fdaeaa1f.css"><meta property='og:title' content="Proxy实验">
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="Proxy实验">
 <meta property='og:description' content="实现网络代理服务器">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/cslab/proxy/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -86,7 +86,7 @@
                         alt="Avatar">
                 </a>
                 
-                    <span class="emoji">✏️</span>
+                    <span class="emoji">🤔</span>
                 
             </figure>
         
@@ -296,7 +296,10 @@
             
                 
     
-    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
     <section class="widget archives" id="toc-container">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -394,8 +397,8 @@
         right: 20px;
         padding: 10px 10px;
         z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
         box-shadow: var(--shadow-l1);
         background-color: #00640010;
         color: var(--card-text-color-main);
@@ -403,7 +406,6 @@
         display: none;       
         margin-bottom: -20px;
         cursor: pointer;
-        font-size: 1.2rem;
     }
 
     @media screen and (max-width: 768px) {
@@ -443,6 +445,7 @@
         }
     }
 </style>
+
 <script>
     var toggleButton = document.getElementById('toggle-toc');
     var tocContainer = document.getElementById('toc-container');
@@ -1689,6 +1692,8 @@
     </section>
     
     <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 

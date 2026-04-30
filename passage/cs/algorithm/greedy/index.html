@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.11c2d57a0593b5e2b090927b436ba89b69c38df2251ecc02ad0c84e4fdaeaa1f.css"><meta property='og:title' content="算法：贪心法">
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="算法：贪心法">
 <meta property='og:description' content="每一步都做出当前的最优选择">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/algorithm/greedy/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -86,7 +86,7 @@
                         alt="Avatar">
                 </a>
                 
-                    <span class="emoji">✏️</span>
+                    <span class="emoji">🤔</span>
                 
             </figure>
         
@@ -296,7 +296,10 @@
             
                 
     
-    <button id="toggle-toc" class="mobile-only">Toc</button>
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
     <section class="widget archives" id="toc-container">
         <div class="widget-icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -320,7 +323,7 @@
     <li><a href="#案例">案例</a>
       <ol>
         <li><a href="#货箱装船">货箱装船</a></li>
-        <li><a href="#背包问题">背包问题</a></li>
+        <li><a href="#01背包问题">0/1背包问题</a></li>
         <li><a href="#哈夫曼编码">哈夫曼编码</a></li>
         <li><a href="#拓扑排序">拓扑排序</a></li>
         <li><a href="#最短路径">最短路径</a></li>
@@ -330,6 +333,7 @@
             <li><a href="#prim算法">Prim算法</a></li>
           </ol>
         </li>
+        <li><a href="#偶图覆盖">偶图覆盖</a></li>
       </ol>
     </li>
   </ol>
@@ -384,8 +388,8 @@
         right: 20px;
         padding: 10px 10px;
         z-index: 9998 !important;
-        border: 0px solid #96979a50;
-        border-radius: 7px;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
         box-shadow: var(--shadow-l1);
         background-color: #00640010;
         color: var(--card-text-color-main);
@@ -393,7 +397,6 @@
         display: none;       
         margin-bottom: -20px;
         cursor: pointer;
-        font-size: 1.2rem;
     }
 
     @media screen and (max-width: 768px) {
@@ -433,6 +436,7 @@
         }
     }
 </style>
+
 <script>
     var toggleButton = document.getElementById('toggle-toc');
     var tocContainer = document.getElementById('toc-container');
@@ -534,7 +538,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 2 分钟
+                        阅读时长: 4 分钟
                     </time>
                 
             </div>
@@ -566,7 +570,7 @@
     <li><a href="#案例">案例</a>
       <ol>
         <li><a href="#货箱装船">货箱装船</a></li>
-        <li><a href="#背包问题">背包问题</a></li>
+        <li><a href="#01背包问题">0/1背包问题</a></li>
         <li><a href="#哈夫曼编码">哈夫曼编码</a></li>
         <li><a href="#拓扑排序">拓扑排序</a></li>
         <li><a href="#最短路径">最短路径</a></li>
@@ -576,6 +580,7 @@
             <li><a href="#prim算法">Prim算法</a></li>
           </ol>
         </li>
+        <li><a href="#偶图覆盖">偶图覆盖</a></li>
       </ol>
     </li>
   </ol>
@@ -593,7 +598,7 @@
 </h2><p>一个优化问题可以描述如下：</p>
 <ol>
 <li>问题的解为一个复杂的结构，例如元组形式 $(x_1, x_2, \cdots, x_n)$</li>
-<li>约束条件：$B(x_1 K x_n)$</li>
+<li>约束条件：$B(x_1 K x_n)$，使得 $B(x_1, K, x_n)$ 为真的元组称为可行解。</li>
 <li>目标函数；$f(x_1 K x_n)$</li>
 </ol>
 <p>贪心问题的数学形式化描述：$\max / \min f(x)$ 其中，$x$ 通过贪心策略逐步构建</p>
@@ -614,13 +619,15 @@
           <td>最优子结构</td>
           <td>如果一个问题的最优解包含其子问题的最优解，那么这个问题就具有最优子结构的性质</td>
       </tr>
-      <tr>
-          <td>局部最优</td>
-          <td></td>
-      </tr>
   </tbody>
 </table></div>
-<p>贪心法是一种通过局部最优选择逐步逼近全局最优解的算法</p>
+<p>贪心法是一种通过局部最优选择逐步逼近全局最优解的算法，特点：</p>
+<ol>
+<li>不回溯：选定一个分量后，不重试其他可能。</li>
+<li>局部最优：减小计算开销，但可能只能得到近似解。</li>
+<li>高效性：通常时间复杂度低。</li>
+<li>实现简单：逻辑清晰易懂。</li>
+</ol>
 
     <blockquote>
         <p>存在具有最优子结构，但是不满足贪心选择性的问题</p>
@@ -663,21 +670,75 @@
 </ol>
 <p>贪心算法的性能</p>
 <p>贪心算法并不总能求出问题的整体最优解</p>
-<h2 id="案例">案例
+<p>通用的贪心伪代码框架如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">def greedy(problem):
+</span></span><span class="line"><span class="cl">    # 初始化
+</span></span><span class="line"><span class="cl">    solution = []
+</span></span><span class="line"><span class="cl">    # 遍历所有可选项，通常需要按照某种规则排序
+</span></span><span class="line"><span class="cl">    for item in sorted(problem.items, key = rule):
+</span></span><span class="line"><span class="cl">        # 贪心选择：如果当前选择满足条件则采纳它
+</span></span><span class="line"><span class="cl">        if isFeasible(solution, item):
+</span></span><span class="line"><span class="cl">            solution.append(item)
+</span></span><span class="line"><span class="cl">    # 返回最终构造的解
+</span></span><span class="line"><span class="cl">    return solution
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="案例">案例
 </h2><h3 id="货箱装船">货箱装船
 </h3><p>设有 $n$ 个集装箱，集装箱大小一样，第 $i$ 个集装箱的重量为 $w_i$，船的载重量为 $c$，设计一个装船的方法使得装入的集装箱数量最多。</p>
 <p>最优子结构：装载 $k$ 个集装箱后，移除一个集装箱后剩余集装箱的装载问题仍需是最优解。</p>
 <p>令 $(x_1, x_2, \cdots, x_k)$ 是一种装载方法</p>
 <p>约束条件：$\displaystyle \sum_{i=1}^{n} w_i \leqslant c$</p>
 <p>目标函数：$\displaystyle \sum_{i=1}^{n} w_i$</p>
-<h3 id="背包问题">背包问题
-</h3><ol>
-<li>从未装入的物品中，选取效益值最大的物品装入背包。</li>
-<li>从未装入的物品中，选择重量最小的物品装入背包。</li>
-<li>按价值率，选择价值率最高的的物品装入背包。</li>
+<p>算法：按重量从小到大对集装箱排序，并依次装入直到超过船的载重量。</p>
+
+    <blockquote>
+        <p>证明：</p>
+<p>设货箱装船问题的最优解为 $(y_1, y_2, \cdots, y_n)$。如果最优解不含箱子1（$y_1=0$），将箱子1替换优化解中某一个箱子得到一个新的解（必须替换，因为如果箱子1还能继续装入船中，则 $(y_1, y_2, \cdots, y_n)$ 不是优化解），</p>
+<p>由于箱子1是最轻的，所以替换后的解仍是可行的。替换后装入的箱子数仍然等于优化解的装箱数，所以它仍是优化解。</p>
+<p>经过有限次替换后，新的优化解与设想的贪心解都包含箱子1。反复替换得到一个优化解，它就是设想的贪心解。</p>
+
+    </blockquote>
+<h3 id="01背包问题">0/1背包问题
+</h3><p>设有容量为 $c$ 的背包和 $u$ 件物品，物品 $u_i$ 的重量为 $w_i$，价值为 $p_i$。给出一个装入物品的方法，使得总收益最大。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>0/1背包问题是NP难问题，任何多项式复杂度的算法产生的解都是近似解。</p>
+        </div>
+    </blockquote>
+<p>使用数组 $(x_1, x_2, \cdots, x_n)$ 表示一个装法，其中 $x_i = 1$ 表示装物品 $i$，否则不装。此时约束条件为：</p>
+$$\sum_{i=1}^{n} w_i x_i \leqslant c$$<p>可用的贪心策略：</p>
+<ol>
+<li>价值优先：从未装入的物品中，选取效益值最大的物品装入背包。</li>
+<li>重量优先：从未装入的物品中，选择重量最小的物品装入背包。</li>
+<li>价值率优先：选择价值率 $\displaystyle \frac{p_i}{w_i}$ 最高的的物品装入背包。</li>
+<li>k-优化算法：先对物品按价值率从大到小排序，现将一些物品装入背包，然后对剩余物品使用贪心法。</li>
 </ol>
+
+    <blockquote>
+        <p>使用k-优化算法得到的解误差不超过 $\displaystyle \frac{1}{k+1}$</p>
+
+    </blockquote>
 <h3 id="哈夫曼编码">哈夫曼编码
-</h3><p>前缀码：</p>
+</h3><p>前缀码：一种编码方式，其中任意一个字符的二进制代码都不是另一个字符代码的前缀。</p>
 <p>使用哈夫曼编码进行压缩和解压时，必须提前有一个字典</p>
 <p><a class="link" href="/passage/cs/data-structure/tree#%e9%9c%8d%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81" >构造哈夫曼编码</a></p>
 <p>局部最优达到全局最优</p>
@@ -690,6 +751,17 @@
 </h4><p>贪心策略：每次选择权值 $c(e)$ 最小且与之前选择的边不成环的边 $e$</p>
 <h4 id="prim算法">Prim算法
 </h4><p><a class="link" href="/passage/cs/data-structure/graph#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91" >最小生成树</a></p>
+<h3 id="偶图覆盖">偶图覆盖
+</h3><p>偶图是图论中的一个重要概念，也称为二分图。偶图中，所有的顶点可以被分为两个不相交的集合，使得图中的每一条边都连接了这两个集合中的两个顶点。</p>
+<p>形式化定义：一个图 $G=(V,E)$ 是偶图当且仅当它的顶点集 $V$ 可以被划分为两个互不相交的子集 $(V_1, V_2)$，满足：</p>
+<ol>
+<li>$V_1, V_2 \ne \oslash$。</li>
+<li>没有两个在 $V_1$ 中的顶点之间有边相连；没有两个在 $V_2$ 中的顶点之间有边相连。</li>
+<li>$V_1$ 中的每个顶点都至少与 $V_2$ 中的一个顶点右边相连，反之也成立。</li>
+</ol>
+<p>在偶图中寻找最小覆盖的问题称为偶图覆盖问题。</p>
+<p>例如，对于如图所示的具有17个顶点的二分图，可划分为子集 $A = \{1, 2, 3, 16, 17\}$ 和 $B = \{4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\}$。其中 $A' = \{1, 16, 17\}$ 是 $B$ 的最小覆盖。</p>
+<p>贪心策略：选择覆盖 $B$ 中那些尚未被覆盖的顶点数最多的 $A$ 的节点。</p>
 
 </section>
 
@@ -848,6 +920,8 @@
     </section>
     
     <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
         使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
 
