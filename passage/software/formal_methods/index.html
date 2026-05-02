@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="感谢 superpung 的notion\n集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 $S \\subset T$：集合 $S$ 是 $T$ 的真子 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$：集合 $S$ 中元素的个数 $A \\cup B$：集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $A \\cap B$：集合 $A$ 与 $B$ 的交集：$A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $A - B$：集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素：$A - B = {x \\mid x \\in A \\land x \\notin B} = {x \\mid \\lnot(x \\in A \\to x \\in B)}$ $\\overline{A}$：集合 $A$ 相对于全集 $U$ 的补集 $A \\oplus B$：集合 $A$ 与 $B$ 的对称差：在集合 $A$ 和 $B$ 但不在其交集的元素 📝 备注 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
+<title>形式化方法</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/software/formal_methods/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="形式化方法">
+<meta property='og:description' content="感谢 superpung 的notion\n集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 $S \\subset T$：集合 $S$ 是 $T$ 的真子 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$：集合 $S$ 中元素的个数 $A \\cup B$：集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $A \\cap B$：集合 $A$ 与 $B$ 的交集：$A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $A - B$：集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素：$A - B = {x \\mid x \\in A \\land x \\notin B} = {x \\mid \\lnot(x \\in A \\to x \\in B)}$ $\\overline{A}$：集合 $A$ 相对于全集 $U$ 的补集 $A \\oplus B$：集合 $A$ 与 $B$ 的对称差：在集合 $A$ 和 $B$ 但不在其交集的元素 📝 备注 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n">
+<meta property='og:url' content='https://rd806.github.io/passage/software/formal_methods/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://rd806.github.io/passage/software/formal_methods/cover.png' />
+<meta name="twitter:title" content="形式化方法">
+<meta name="twitter:description" content="感谢 superpung 的notion\n集合论 集合是一个无顺序的结构，包含 $0$ 个或多个对象。\n常用的集合 描述 $\\textbf{N}$ 自然数集：$\\textbf{N} = \\{ 0, 1, 2, \\cdots \\}$ $\\textbf{Z}$ 整数集：$\\textbf{Z} = \\{\\cdots, -2, -1, 0, 1, 2, \\cdots\\}$ $\\textbf{R}$ 实数集 $\\oslash$ 空集：$\\oslash = \\{\\} = \\{x \\mid \\textbf{False}\\}$ 也可表示为： $\\lnot\\ \\exist\\ x : x \\in \\oslash$ 集合间的运算 $S \\subset T$：集合 $S$ 是 $T$ 的真子 $S \\subseteq T$ 但是 $T \\nsubseteq S$ $|S|$：集合 $S$ 中元素的个数 $A \\cup B$：集合 $A$ 与 $B$ 的并集 $A \\cup B = \\{x \\mid x \\in A \\lor x \\in B\\}$ $A \\cap B$：集合 $A$ 与 $B$ 的交集：$A \\cap B = \\{x \\mid x \\in A \\land x \\in B\\}$ $A - B$：集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素：$A - B = {x \\mid x \\in A \\land x \\notin B} = {x \\mid \\lnot(x \\in A \\to x \\in B)}$ $\\overline{A}$：集合 $A$ 相对于全集 $U$ 的补集 $A \\oplus B$：集合 $A$ 与 $B$ 的对称差：在集合 $A$ 和 $B$ 但不在其交集的元素 📝 备注 集合内的元素也可以是集合，例如 $S = \\{ x | x \\subseteq \\{1, 2, 3\\} \\} = \\{\\oslash, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://rd806.github.io/passage/software/formal_methods/cover.png' />
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/software/formal_methods/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        toc
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#集合论">集合论</a>
+      <ol>
+        <li><a href="#集合间的运算">集合间的运算</a></li>
+        <li><a href="#幂集">幂集</a></li>
+        <li><a href="#笛卡尔积">笛卡尔积</a></li>
+        <li><a href="#集合间的关系">集合间的关系</a></li>
+        <li><a href="#函数">函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#集合的描述">集合的描述</a>
+      <ol>
+        <li><a href="#数据类型">数据类型</a>
+          <ol>
+            <li><a href="#buildin-types">BuildIn types</a></li>
+            <li><a href="#basic-types">Basic types</a></li>
+            <li><a href="#free-types">Free types</a></li>
+          </ol>
+        </li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#集合">集合</a></li>
+        <li><a href="#用集合描述系统">用集合描述系统</a></li>
+      </ol>
+    </li>
+    <li><a href="#模式">模式</a>
+      <ol>
+        <li><a href="#模式表达">模式表达</a></li>
+        <li><a href="#模式推演">模式推演</a>
+          <ol>
+            <li><a href="#修饰">修饰</a></li>
+            <li><a href="#包含">包含</a></li>
+            <li><a href="#合取与析取">合取与析取</a></li>
+            <li><a href="#delta--xi">Delta &amp; Xi</a></li>
+            <li><a href="#其他">其他</a></li>
+          </ol>
+        </li>
+        <li><a href="#输入和输出变量">输入和输出变量</a></li>
+      </ol>
+    </li>
+    <li><a href="#谓词量词与关系">谓词、量词与关系</a>
+      <ol>
+        <li><a href="#谓词">谓词</a></li>
+        <li><a href="#量词">量词</a>
+          <ol>
+            <li><a href="#全称量词">全称量词</a></li>
+            <li><a href="#存在量词">存在量词</a></li>
+            <li><a href="#唯一量词">唯一量词</a></li>
+          </ol>
+        </li>
+        <li><a href="#z中的关系">Z中的关系</a>
+          <ol>
+            <li><a href="#声明关系">声明关系</a></li>
+            <li><a href="#常用关系">常用关系</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#函数-1">函数</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#函数重写">函数重写</a></li>
+      </ol>
+    </li>
+    <li><a href="#序列">序列</a>
+      <ol>
+        <li><a href="#序列的声明">序列的声明</a></li>
+        <li><a href="#序列的操作">序列的操作</a></li>
+      </ol>
+    </li>
+    <li><a href="#petri网">Petri网</a>
+      <ol>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#行为特性">行为特性</a>
+          <ol>
+            <li><a href="#可达性">可达性</a></li>
+            <li><a href="#活性">活性</a></li>
+            <li><a href="#有界性">有界性</a></li>
+            <li><a href="#安全性">安全性</a></li>
+            <li><a href="#可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）</a></li>
+            <li><a href="#守恒性">守恒性</a></li>
+          </ol>
+        </li>
+        <li><a href="#petri网的应用">Petri网的应用</a>
+          <ol>
+            <li><a href="#描述系统">描述系统</a></li>
+            <li><a href="#分析系统故障">分析系统故障</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+     
+    
+    <article class="has-image main-article">
+    <header class="article-header">
+    <div class="article-image">
+        <a href="/passage/software/formal_methods/">
+            <img alt="Featured image of post 形式化方法" height="883" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/cover.png" srcset="/passage/software/formal_methods/cover_hu_ef0df42d1cf05242.png 800w, /passage/software/formal_methods/cover_hu_20ca2da248acacca.png 1600w, /passage/software/formal_methods/cover.png 1601w" width="1601">
+        </a>
+    </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/software/formal_methods/">形式化方法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-03-15T00:00:00Z'>2026年3月15日星期日</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 14 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#集合论">集合论</a>
+      <ol>
+        <li><a href="#集合间的运算">集合间的运算</a></li>
+        <li><a href="#幂集">幂集</a></li>
+        <li><a href="#笛卡尔积">笛卡尔积</a></li>
+        <li><a href="#集合间的关系">集合间的关系</a></li>
+        <li><a href="#函数">函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#集合的描述">集合的描述</a>
+      <ol>
+        <li><a href="#数据类型">数据类型</a>
+          <ol>
+            <li><a href="#buildin-types">BuildIn types</a></li>
+            <li><a href="#basic-types">Basic types</a></li>
+            <li><a href="#free-types">Free types</a></li>
+          </ol>
+        </li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#集合">集合</a></li>
+        <li><a href="#用集合描述系统">用集合描述系统</a></li>
+      </ol>
+    </li>
+    <li><a href="#模式">模式</a>
+      <ol>
+        <li><a href="#模式表达">模式表达</a></li>
+        <li><a href="#模式推演">模式推演</a>
+          <ol>
+            <li><a href="#修饰">修饰</a></li>
+            <li><a href="#包含">包含</a></li>
+            <li><a href="#合取与析取">合取与析取</a></li>
+            <li><a href="#delta--xi">Delta &amp; Xi</a></li>
+            <li><a href="#其他">其他</a></li>
+          </ol>
+        </li>
+        <li><a href="#输入和输出变量">输入和输出变量</a></li>
+      </ol>
+    </li>
+    <li><a href="#谓词量词与关系">谓词、量词与关系</a>
+      <ol>
+        <li><a href="#谓词">谓词</a></li>
+        <li><a href="#量词">量词</a>
+          <ol>
+            <li><a href="#全称量词">全称量词</a></li>
+            <li><a href="#存在量词">存在量词</a></li>
+            <li><a href="#唯一量词">唯一量词</a></li>
+          </ol>
+        </li>
+        <li><a href="#z中的关系">Z中的关系</a>
+          <ol>
+            <li><a href="#声明关系">声明关系</a></li>
+            <li><a href="#常用关系">常用关系</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#函数-1">函数</a>
+      <ol>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#函数重写">函数重写</a></li>
+      </ol>
+    </li>
+    <li><a href="#序列">序列</a>
+      <ol>
+        <li><a href="#序列的声明">序列的声明</a></li>
+        <li><a href="#序列的操作">序列的操作</a></li>
+      </ol>
+    </li>
+    <li><a href="#petri网">Petri网</a>
+      <ol>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#行为特性">行为特性</a>
+          <ol>
+            <li><a href="#可达性">可达性</a></li>
+            <li><a href="#活性">活性</a></li>
+            <li><a href="#有界性">有界性</a></li>
+            <li><a href="#安全性">安全性</a></li>
+            <li><a href="#可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）</a></li>
+            <li><a href="#守恒性">守恒性</a></li>
+          </ol>
+        </li>
+        <li><a href="#petri网的应用">Petri网的应用</a>
+          <ol>
+            <li><a href="#描述系统">描述系统</a></li>
+            <li><a href="#分析系统故障">分析系统故障</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p>感谢 superpung 的<a class="link" href="https://superpung.notion.site/a234e03327a5483d9bb38b16d84bbc80"  target="_blank" rel="noopener"
+    >notion</a></p>
+<h2 id="集合论">集合论
+</h2><p>集合是一个无顺序的结构，包含 $0$ 个或多个对象。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>常用的集合</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\textbf{N}$</td>
+          <td>自然数集：$\textbf{N} = \{ 0, 1, 2, \cdots \}$</td>
+      </tr>
+      <tr>
+          <td>$\textbf{Z}$</td>
+          <td>整数集：$\textbf{Z} = \{\cdots, -2, -1, 0, 1, 2, \cdots\}$</td>
+      </tr>
+      <tr>
+          <td>$\textbf{R}$</td>
+          <td>实数集</td>
+      </tr>
+      <tr>
+          <td>$\oslash$</td>
+          <td>空集：$\oslash = \{\} = \{x \mid \textbf{False}\}$ <br> 也可表示为： $\lnot\ \exist\ x : x \in \oslash$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="集合间的运算">集合间的运算
+</h3><ol>
+<li>$S \subset T$：集合 $S$ 是 $T$ 的真子 $S \subseteq T$ 但是 $T \nsubseteq S$</li>
+<li>$|S|$：集合 $S$ 中元素的个数</li>
+<li>$A \cup B$：集合 $A$ 与 $B$ 的并集 $A \cup B = \{x \mid x \in A \lor x \in B\}$</li>
+<li>$A \cap B$：集合 $A$ 与 $B$ 的交集：$A \cap B = \{x \mid x \in A \land x \in B\}$</li>
+<li>$A - B$：集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素：$A - B = {x \mid x \in A \land x \notin B} = {x \mid \lnot(x \in A \to x \in B)}$</li>
+<li>$\overline{A}$：集合 $A$ 相对于全集 $U$ 的补集</li>
+<li>$A \oplus B$：集合 $A$ 与 $B$ 的对称差：在集合 $A$ 和 $B$ 但不在其交集的元素</li>
+</ol>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>集合内的元素也可以是集合，例如 $S = \{ x | x \subseteq \{1, 2, 3\} \} = \{\oslash, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$</p>
+<p>注意：$1 \ne \{1\} \ne \{\{1\}\}$</p>
+<p>特别地，若 $A \cap B = \oslash$，则称集合 $A$ 和 $B$ 不连接（disjoint）。</p>
+        </div>
+    </blockquote>
+<h3 id="幂集">幂集
+</h3><p>集合 $S$ 的所有子集称作集合 $S$ 的幂集，记作 $P(S) = \{x \mid  x \subseteq S\}$。</p>
+
+    <blockquote>
+        <p>例如，$P(\{a,b\}) = \{\oslash, \{a\}, \{b\}, \{a,b\}\}$</p>
+
+    </blockquote>
+<p>我们有以下结论：$\mid P(S) \mid = 2^{\mid S \mid}$</p>
+<h3 id="笛卡尔积">笛卡尔积
+</h3><p>定义 $A \times B :\equiv \{(a,b) \mid a \in A \land b \in B\}$ 为集合 $A$ 与 $B$ 的笛卡尔积。</p>
+
+    <blockquote>
+        <p>例如，$\{a,b\} \times \{1,2\} = \{(a,1), (a,2), (b,1), (b,2)\}$</p>
+
+    </blockquote>
+<p>具有以下结论：</p>
+<ol>
+<li>$|A \times B| = |A| \cdot |B|$。</li>
+<li>$\lnot \forall AB: A \times B = B \times A$，即笛卡尔积不具备交换律。</li>
+</ol>
+<h3 id="集合间的关系">集合间的关系
+</h3><p>集合 $A$ 与 $B$ 之间的关系 $R$ 是 $A \times B$ 的一个子集，记作：$R: A \leftrightarrow B$</p>
+<p>通常，我们用 $aRb$ 表示 $(a,b) \in R$，即元素 $a$ 与 $b$ 具备关系 $R$。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>常见的关系</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>空关系</td>
+          <td>$\oslash$</td>
+      </tr>
+      <tr>
+          <td>恒等关系</td>
+          <td>$\mathrm{i}d_A : \{(a,a) \mid (a \in A)\}$</td>
+      </tr>
+      <tr>
+          <td>逆关系</td>
+          <td>$R^{-1} :\equiv \{(b,a) \mid (a,b) \in R\}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>关系的性质</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>自反性</td>
+          <td>对于 $A$ 上的关系 $R$，$\forall a \in A$，都有 $aRa$</td>
+      </tr>
+      <tr>
+          <td>对称性</td>
+          <td>当且仅当关系 $R$ 满足 $R = R^{-1}$，即 $(a,b) \in R \leftrightarrow (b,a) \in R$</td>
+      </tr>
+      <tr>
+          <td>反对称性</td>
+          <td>当且仅当关系 $R$ 满足 $(\forall a)(\forall b) ((a \in A \land b \in A) \Rightarrow ((a,b) \in R \land (b,a) \in R) \Rightarrow a = b)$</td>
+      </tr>
+      <tr>
+          <td>传递性</td>
+          <td>当且仅当关系 $R$ 满足 $\forall a,b,c$，都有 $(a,b) \in R \land (b,c) \in R \rightarrow (a,c) \in R$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>当集合上的关系同时满足一些性质时，则称该关系为一种特殊的关系。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>特殊关系</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>等价关系</td>
+          <td>同时满足自反性、对称性和传递性</td>
+      </tr>
+      <tr>
+          <td>偏序关系</td>
+          <td>同时满足自反性、反对称性和传递性</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>通过集合论，我们可以形式化地给出自然数的定义：</p>
+$$
+\begin{array}{c}\begin{align*}
+0 &= \oslash \\
+1 &= \{0\} = \{\oslash\} = \oslash \cup \{\oslash\} = 0 \cup \{0\} \\
+2 &= \{0, 1\} = \{\oslash, \{\oslash\}\} = 1 \cup \{1\} = 0 \cup \{0\} \cup \{1\} \\
+3 &= \{0, 1, 2\} = \{\oslash, \{\oslash\}, \{\oslash \cup \{\oslash\}\}\} = 2 \cup \{2\} = 0 \cup \{0\} \cup \{1\} \cup \{2\} \\
+& \cdots \\
+n+1 &= n \cup \{n\}
+\end{align*}
+\end{array}$$
+    </blockquote>
+<h3 id="函数">函数
+</h3><p>函数定义为从集合 $A$ 到集合 $B$ 的一种对应关系，记作 $f: A \rightarrow B$。</p>
+<h2 id="集合的描述">集合的描述
+</h2><h3 id="数据类型">数据类型
+</h3>
+    <blockquote>
+        <p>某个类型的所有可能成员都具备一些共同特征，这时我们称它们属于同一个类型。</p>
+<p>Z语言就是在类型的集合论上建立起来的。</p>
+
+    </blockquote>
+<h4 id="buildin-types">BuildIn types
+</h4><p>Z语言的内置类型，无需定义即可使用。<br> Integer：记作 $Z$，可使用 &ldquo;+, -, *, div, mod&rdquo; 运算 <br> Natural：Integer类型的子集，记作 $N$，必须为非负数。$N1$ 则表示正整数</p>
+<h4 id="basic-types">Basic types
+</h4><p>在名称周围添加方括号来声明，可附带注释。例如：<br> $[\mathrm{PERSON}] \qquad \text{the set of all persons}$</p>
+<h4 id="free-types">Free types
+</h4><p>通过列举其元素来定义的数据类型，例如：<br> $\text{freeType} ::= \text{element}_1 \mid \text{element}_2 \mid \cdots \text{element}_n$ |</p>
+<h3 id="变量">变量
+</h3><p>Z语言的每个变量名在赋值前必须先声明，格式为 $v: \text{TYPE}$</p>
+<p>示例：$\text{chauffeur}: \text{PERSON}$</p>
+<h3 id="集合">集合
+</h3><p>Z语言中的集合可以通过在括号内列举它的所有值来声明。</p>
+
+    <blockquote>
+        <p>集合中的元素值的类型必须是先前声明过的类型，否则视为非法值。</p>
+
+    </blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>幂集</td>
+          <td>$\mathbb{P} S$</td>
+      </tr>
+      <tr>
+          <td>差</td>
+          <td>$S \backslash T$</td>
+      </tr>
+      <tr>
+          <td>并集</td>
+          <td>$S \cup T$</td>
+      </tr>
+      <tr>
+          <td>交集</td>
+          <td>$S \cap T$</td>
+      </tr>
+      <tr>
+          <td>划分</td>
+          <td>$S \cup T = U \land S \cap T = \oslash$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="用集合描述系统">用集合描述系统
+</h3><p>特点：以状态的转换为核心描述系统行为；系统的操作（函数）通过描述其执行如何改变系统状态来定义。</p>
+<p>步骤</p>
+<ol>
+<li>定义描述目标系统状态的变量以及与这些变量相关的任何不变的性质</li>
+<li>定义初始操作，将变量的值设置为满足不变性质的某个初始状态</li>
+<li>定义对状态的操作，满足在改变状态的同时保持不变的性质</li>
+<li>定义查询操作，使其在不改变系统状态的前提下获取系统信息</li>
+</ol>
+<p>案例：乘客登机系统</p>
+<h2 id="模式">模式
+</h2><p>模式是一种结构化的规格说明。</p>
+<h3 id="模式表达">模式表达
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>格式</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>图表格式</td>
+          <td>$\begin{array}{l} \text{SchemaName} \\ \left| \begin{array}{l} \text{Declarations} \\ \hline \text{Predicate} \\ \hline \end{array} \right.\end{array}$</td>
+      </tr>
+      <tr>
+          <td>文字格式</td>
+          <td>$\text{SchemaName} == [\ \text{Declarations} \mid \text{Predicate} \ ]$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>内容</th>
+          <th>规范</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>声明</td>
+          <td>每行声明均被视为以分号结尾，若干行构成一个序列</td>
+      </tr>
+      <tr>
+          <td>谓词</td>
+          <td>若干行谓词被视为以运算符连接</td>
+      </tr>
+      <tr>
+          <td>不含谓词部分的模式</td>
+          <td>只声明新变量，不施加约束谓词</td>
+      </tr>
+      <tr>
+          <td>局部变量</td>
+          <td>模式里声明的变量，在其他模式里引用时需要明确包含该定义的模式</td>
+      </tr>
+      <tr>
+          <td>全局变量</td>
+          <td>在规格说明始终可以引用，以公理定义声明；值不能被规格说明运算改变</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="模式推演">模式推演
+</h3><p>模式可作为单元，进行类似逻辑运算的操作</p>
+<h4 id="修饰">修饰
+</h4><p>修饰（Decoration）：表示一个模式在执行了某些操作后的值，可表示为</p>
+$$\begin{array}{l} \text{S} \\ \left\| \begin{array}{l} a,b:N \\ \hline a < b \\ \hline \end{array} \right. \end{array} \begin{array}{l} \text{S'} \\ \left\| \begin{array}{l} a',b':N \\ \hline a' < b' \\ \hline \end{array} \right. \end{array}$$<h4 id="包含">包含
+</h4><p>包含（Inclusion）： 一个模式的声明可以包含另一个模式，会将被包含模式的声明和谓词合并，可表示为</p>
+$$\begin{array}{l} \text{IncludeS} \\ \left\| \begin{array}{l} c:N \\ S \\ \hline c<10 \\ \hline \end{array} \right.\end{array}$$<h4 id="合取与析取">合取与析取
+</h4><p>合取（Conjunction）：将两个模式取交，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的与</p>
+<p>析取（Disjunction）：将两个模式取并，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的或</p>
+<h4 id="delta--xi">Delta &amp; Xi
+</h4><p>Delta convention 表示模式的改变，可以类比为复制一份，可表示为</p>
+$$\begin{array}{l} \Delta\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ \hline \end{array} \right.\end{array}$$<p>Xi convention 表示模式的改变，可以类比为复制一份，它的声明比Delta convention更强，可表示为</p>
+$$\begin{array}{l} \Xi\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ a=a' \\ b=b' \\ \hline \end{array} \right.\end{array}$$<h4 id="其他">其他
+</h4><p>重命名（Renaming）： </p>
+$$\text{newSchemaName} == \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$<p>隐藏（Hide）：隐藏声明中的变量，让它只存在于谓词的运算符中，</p>
+$$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$<p>投影（Project）：隐藏除指定变量之外的变量，</p>
+$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$<p>合成（Composition）：表示执行 $S$ 后执行 $T$，隐藏了中间变量</p>
+<h3 id="输入和输出变量">输入和输出变量
+</h3><p>输入变量：变量名 + ?</p>
+<p>输出变量：变量名 + !</p>
+<p>举例：</p>
+$$\begin{array}{l} \text{Add} \\ \left\| \begin{array}{l} a?,b?:N \\ sum!:N \\ \hline sum! = a? + b? \\ \hline \end{array} \right.\end{array}$$<h2 id="谓词量词与关系">谓词、量词与关系
+</h2><h3 id="谓词">谓词
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>谓词</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>零元谓词</td>
+          <td>事实的陈述，独立于单个变量</td>
+      </tr>
+      <tr>
+          <td>一元谓词</td>
+          <td>反映对象（个体）的特性</td>
+      </tr>
+      <tr>
+          <td>二元谓词</td>
+          <td>一对对象（个体）的关系</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="量词">量词
+</h3><h4 id="全称量词">全称量词
+</h4>$$\forall \ \text{declaration} \mid \text{constraint} \cdot \text{predicate}$$<p>$\text{declaration}$ 给出一些变量，$\text{contraint}$ 约束为确定的值，$\text{predicate}$ 均为真</p>
+<h4 id="存在量词">存在量词
+</h4>$$\exist \ \text{declaration} \mid \text{constraint} \cdot \text{predicate}$$<p>$\text{declaration}$ 给出一些变量，$\text{contraint}$ 约束为确定的值，$\text{predicate}$ 对于一些值为真</p>
+<h4 id="唯一量词">唯一量词
+</h4>$$\exist_1 \ \text{declaration} \mid \text{constraint} \cdot \text{predicate}$$<p> | 只存在一个值使得 $\text{declaration}$ 为真 |</p>
+<p>集合推导：通过给定条件（谓词）来定义集合。表示为 $\{\text{declaration} \mid \text{constraint} \cdot \text{expression}\}$</p>
+<p>例如：$\{x: Z \mid \text{Even}(x) \cdot x^2 \}$ 表示偶数的平方的集合。</p>
+<h3 id="z中的关系">Z中的关系
+</h3><h4 id="声明关系">声明关系
+</h4>$$R: X \leftrightarrow Y \quad (X \leftrightarrow Y == \mathbb{P}(X \times Y))$$<p>举例：</p>
+$$\begin{align*} &[\text{COUNTRY}] \quad \text{the set of all countries} \\ &[\text{LANGUANGE}] \quad \text{the set of all languages} \\ &\text{speaks}: \text{COUNTRY} \leftrightarrow \text{LANGUAGE} \end{align*}$$
+    <blockquote>
+        <p>映射与关系</p>
+<p>$x \mapsto y == (x,y)$ 表示 $x$ 与 $y$ 有关</p>
+<p>有以下等价关系：</p>
+$$xRy == x \mapsto y \in R == (x,y) \in R$$
+    </blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定义域（Domain）</td>
+          <td>$\text{dom} R == \{a \mid (\exist \ b)((a,b) \in R) \}$</td>
+      </tr>
+      <tr>
+          <td>值域（Range）</td>
+          <td>$\text{ran} R == \{b \mid (\exist \ a)((a,b) \in R)\}$</td>
+      </tr>
+      <tr>
+          <td>像（Image）</td>
+          <td>对于 $S \subseteq \text{dom} R$，$R(|S|)$ 是 $S$ 对应值的集合</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="常用关系">常用关系
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>记法</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>中缀关系</td>
+          <td>$\_\ R\ \_ : X \leftrightarrow Y$</td>
+      </tr>
+      <tr>
+          <td>反转关系</td>
+          <td>$R\sim \ : Y \leftrightarrow X$</td>
+      </tr>
+      <tr>
+          <td>组合关系</td>
+          <td>若 $R: X \leftrightarrow Y$，$Q: Y \leftrightarrow Z$，则 $R;Q: X \leftrightarrow Z$，$Q \circ R == R;Q$</td>
+      </tr>
+      <tr>
+          <td>恒等关系</td>
+          <td>$\text{id} X == \{x:X \cdot x \mapsto x\}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>限制</th>
+          <th>记号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>定义域限制</td>
+          <td>$S \triangleleft R$，表示关系 $R$ 的定义域限制在 $S$ 内</td>
+      </tr>
+      <tr>
+          <td>值域限制</td>
+          <td>$R \triangleright S$，表示关系 $R$ 的值域限制在 $S$ 内</td>
+      </tr>
+      <tr>
+          <td>定义域去除</td>
+          <td>$S \ntriangleleft R$，表示关系 $R$ 的定义域去掉 $S$</td>
+      </tr>
+      <tr>
+          <td>值域去除</td>
+          <td>$R \ntriangleright S$，表示关系 $R$ 的值域去掉 $S$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>闭包</th>
+          <th>记号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>传递闭包</td>
+          <td>$x R^+ y$</td>
+      </tr>
+      <tr>
+          <td>自反传递闭包</td>
+          <td>$R^* = R^+ \cup \text{id} X$</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>案例：使用关系定义家庭成员关系
+</p>
+$$\begin{align*} & \text{[PERSON]} \\ & \text{father, mother}: \text{PERSON} \leftrightarrow \text{PERSON} \\ & \text{parent}: \text{PERSON} \leftrightarrow \text{PERSON} \\ & \text{sibling}: \text{PERSON} \leftrightarrow \text{PERSON} \\ & \text{ancestor}: \text{PERSON} \leftrightarrow \text{PERSON} \\ \\ & \text{parent}: \text{father} \cup \text{mother} \\ & \text{sibling}: (\text{parent}; \text{parent}\sim) \ \backslash \text{id} \ \text{PERSON} \\ & \text{ancestor}: \text{parent}^+ \\ \end{align*}$$
+    </blockquote>
+<h2 id="函数-1">函数
+</h2><h3 id="定义">定义
+</h3><p>Z语言中的函数是一种特殊的关系，可为一对一或多对一。定义域有限的函数也称作映射。</p>
+<p>记法：$f: X + \rightarrow Y$（从 $X$ 到 $Y$ 的函数）</p>
+
+    <blockquote>
+        <p>当 $x \in \text{dom}f$ 且最多只对应一个 $y$ 时，等价于关系 $f: X \leftrightarrow Y, x \in \text{dom}f \Rightarrow \exist_1 y:Y \cdot xfy$</p>
+
+    </blockquote>
+<p>若 $\text{source}$ 不全在 $\text{domain}$ 中，则称为部分函数；</p>
+<p>若 $\text{source}$ 全在 $\text{domain}$ 中，则称为全函数。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>单射</td>
+          <td>一对一的关系，部分函数中记作 $f: X &gt;+ \rightarrow Y$，全函数中记作 $f: X &gt; \rightarrow Y$</td>
+      </tr>
+      <tr>
+          <td>满射</td>
+          <td>函数的值域是整个 $\text{target}$，部分函数记作 $f: X + \rightarrow &gt; Y$，全函数中记作 $f: X \rightarrow &gt; Y$</td>
+      </tr>
+      <tr>
+          <td>双射</td>
+          <td>既是单射又是满射的函数，记作 $f: X &gt; \rightarrow &gt; Y$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="函数重写">函数重写
+</h3><p>对于一个已知函数，指定其定义域的一个子集，在对应的值域赋予其新的值。</p>
+<p>例如，若 $f: X +\rightarrow Y$，$g: X +\rightarrow Y$，其中 $f$ 被 $g$ 重写为新的函数 $f \oplus g$，则有：</p>
+<ol>
+<li>$f \oplus g == (\text{dom} g \ntriangleleft f) \cup g$（即 $f$ 的定义域去掉 $g$ 的定义域，再并上 $g$）</li>
+<li>当 $x$ 在 $f$ 的定义域而不在 $g$ 的定义域中时，$f \oplus g\ x = f \ x$</li>
+<li>当 $x$ 在 $g$ 的定义域中时，$f \oplus g\ x = g \ x$</li>
+</ol>
+<h2 id="序列">序列
+</h2><p>序列可视为元素到自然数的一个函数，该函数的定义域为从1到序列大小的连续自然数。</p>
+<p>不含任何元素的序列称为空序列。</p>
+<h3 id="序列的声明">序列的声明
+</h3><p>$s: \text{seq} X$ 等价于声明函数 $\{f: N + \rightarrow X \mid \text{dom} f = 1,2\cdots\}$</p>
+
+    <blockquote>
+        <p>若序列必须非空，则可声明为 $s: \text{seq}_1 X$</p>
+<p>若序列为单射（即 $X$ 中的元素在序列中只出现一次），则可声明为 $s: \text{iseq} X$</p>
+
+    </blockquote>
+<p>常量序列：$s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</p>
+<p>例如：</p>
+$$\begin{array}{c} \begin{align*} &[\text{CITY}] \quad \text{the set of cities of the world} \\ &\text{flight}: \text{seq} \quad \text{CITY} \\ & \text{flight} = \left<\text{Geneva}, \text{Paris}, \text{London}, \text{NewYork}\right> \end{align*} \end{array}$$<h3 id="序列的操作">序列的操作
+</h3><p>设序列 $s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>语法</th>
+          <th>示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>选择（Selection）</td>
+          <td>获取序列中特定的元素</td>
+          <td>$s \ 2 = s_2$</td>
+      </tr>
+      <tr>
+          <td>首元素（Head）</td>
+          <td>获取序列中第一个元素</td>
+          <td>$\text{head } s = s_1$</td>
+      </tr>
+      <tr>
+          <td>首元素序列（Front）</td>
+          <td>获取序列中除去最后一个元素的序列</td>
+          <td>$\text{front } s = \left&lt;s_1, s_2, \cdots, s_{n-1}\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>尾元素（Last）</td>
+          <td>获取序列中最后一个元素</td>
+          <td>$\text{last } s = s_n$</td>
+      </tr>
+      <tr>
+          <td>尾元素序列（Tail）</td>
+          <td>获取序列中除去第一个元素的序列</td>
+          <td>$\text{tail } s = \left&lt;s_2, s_3 \cdots, s_n\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>取值范围（Range）</td>
+          <td>获取序列中所有元素</td>
+          <td>$\text{ran } s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>反转（Reversion）</td>
+          <td>将序列中的元素逆序排列</td>
+          <td>$\text{rev } s = \left&lt;s_n, s_{n-1}, \cdots, s_1\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>连接（Concatenation）</td>
+          <td>对于两个类型相同的序列 $s = \left&lt;s_1, s_2, \cdots, s_m\right&gt;$ 和 $t = \left&lt;t_1, t_2, \cdots, t_n\right&gt;$，可连接称为一个新序列，它包含两个序列的所有元素。</td>
+          <td>$s \wedge t = \left&lt;s_1, s_2, \cdots, s_m, t_1, t_2, \cdots, t_n\right&gt;$</td>
+      </tr>
+      <tr>
+          <td>过滤（Filtering）</td>
+          <td>从一个序列中尝试获取指定的元素，并按照原序列的次序排列</td>
+          <td>$s \uparrow t$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="petri网">Petri网
+</h2><p>Petri网使用简单的图形较好地表示并发、同步、因果等关系，以网图的形式简洁、直观地模拟离散事件系统。</p>
+<h3 id="基本概念">基本概念
+</h3><p>Petri网是一种网状信息流模型，包括条件和事件两类节点，在条件和事件为节点的有向二分图基础上添加表示状态信息的token分布，并按引发规则使得事件驱动状态演变，从而反映系统动态运行过程。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>元素</th>
+          <th>表示</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>小矩形</td>
+          <td>事件（变迁）结点</td>
+      </tr>
+      <tr>
+          <td>小圆形</td>
+          <td>条件（位置）结点</td>
+      </tr>
+      <tr>
+          <td>有向弧</td>
+          <td>变迁结点之间、位置结点之间不能有有向弧，变迁结点与位置节点之间连接有向弧</td>
+      </tr>
+      <tr>
+          <td>若干黑点</td>
+          <td>网的某些位置结点中标上的token</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>由此构成的有向二分图称作网，从而构成Petri网。</p>
+<p><img alt="Petri网示例" class="gallery-image" data-flex-basis="235px" data-flex-grow="98" height="674" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/images/Petri%E7%BD%91%E7%A4%BA%E4%BE%8B.png" width="661"></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>组成</th>
+          <th>概念</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>资源</td>
+          <td>与系统状态变化有关的因素，如原料、产品、工具、设备等</td>
+      </tr>
+      <tr>
+          <td>状态元素</td>
+          <td>资源归类后的抽象</td>
+      </tr>
+      <tr>
+          <td>库所</td>
+          <td>一个场所，存放状态元素</td>
+      </tr>
+      <tr>
+          <td>变迁</td>
+          <td>资源状态变化</td>
+      </tr>
+      <tr>
+          <td>事件</td>
+          <td>引起条件的变迁称为事件</td>
+      </tr>
+      <tr>
+          <td>容量</td>
+          <td>库所的最大资源数量</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>一个Petri网是一个三元组 $N = (P, T, F)$，其中：</p>
+<ol>
+<li>$P = \{p_1, p_2, \cdots, p_m\}$ 为库所的集合</li>
+<li>$T = \{t_1, t_2, \cdots, t_n\}$ 为变迁的集合</li>
+<li>$F = (P \times T) \cup (T \times P)$ 为输入函数和输出函数集，称为流关系。</li>
+</ol>
+
+    <blockquote>
+        <p>约束：</p>
+<ol>
+<li>$P \cap T = \oslash$，规定了库所和变迁是两类不同的元素</li>
+<li>$P \cup T \ne \oslash$，表示网中至少有一个元素</li>
+<li>$F = (P \times T) \cup (T \times P)$ 建立了从库所到变迁、从变迁到库所的<strong>单方向</strong>联系，并且规定同类元素之间不能直接联系</li>
+</ol>
+
+    </blockquote>
+<p>在有向图 $N = (P, T, F)$ 中，</p>
+<ol>
+<li>设 $K: P \rightarrow \{1, 2, 3, \cdots \}$ 表示 $N$ 上 $P$ 的容量，用库所中的黑点表示（无黑点表示无穷大）；</li>
+<li>设 $W: F \rightarrow \{1, 2, 3, \cdots \}$ 表示 $N$ 上 $F$ 的权重，用有向弧上的数字表示（无数字表示权重是1）</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>基本Petri网</td>
+          <td>每个库所容量为1，这时库所可称为条件，变迁可称为事件。故又称为条件/事件系统（C/E）</td>
+      </tr>
+      <tr>
+          <td>低级Petri网</td>
+          <td>库所容量和权重为&gt;=1的任意整数，称为库所/变迁网（P/T）</td>
+      </tr>
+      <tr>
+          <td>定时Petri网</td>
+          <td>将各事件的持续时长标在库所旁边，库所中新产生的标记经过一须时间后才加入到网中，或是标在变迁上，经过时间延迟后发生</td>
+      </tr>
+      <tr>
+          <td>高级Petri网</td>
+          <td>谓词/事件网、染色网、随机网等</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="行为特性">行为特性
+</h3><p>Petri网具有一些专门的分析手段，对系统活性和死锁进行分析。分析系统中的顺序、并发及冲突等复杂事件的关系。</p>
+<h4 id="可达性">可达性
+</h4><p>可达性是研究任何系统动态特性的基础，决定系统能否到达一个指定的状态。</p>
+<p>系统按照一定的流程运行，系统是否能够实现一定的状态；或者不期望的状态不出现。或者要求到达一定的状态，如何确定系统的运行轨迹（流程）</p>
+<h4 id="活性">活性
+</h4><p>在系统中用于检测是否存在死锁。一个系统存在的一个潜在问题是死锁，为了避免死锁， 系统的Petri网模型必须具有活性。</p>
+<p>解决死锁的方法：</p>
+<ol>
+<li>互斥：同时争夺唯一资源</li>
+<li>占用且等待</li>
+<li>无抢占</li>
+<li>循环等待</li>
+</ol>
+<h4 id="有界性">有界性
+</h4><p>有界性是一个非常重要的特性，它保证系统在运行过程中不会需要无限的资源</p>
+<p>有界性反映一个库所在系统运行过程中能够获得的最大的令牌数，即所能获得的最大资源数，它与系统的初始令牌有关.</p>
+<p>在实际系统设计中，必须使网络中的每个库所在任何状态下的令牌数小于库所的容量，这样才能保证系统的正常运行。</p>
+<h4 id="安全性">安全性
+</h4><p>安全性决定系统中正在执行的操作不会发出请求。若Petri网为1有界，则称此Petri网是安全的。这种网的每一个库所要么有一个令牌，要么没有令牌。</p>
+<p>安全性是有界性的一种特殊情况 。</p>
+<h4 id="可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）
+</h4><p>在制造业系统和过程控制系统中存在着一个重要的问题：错误复原，即系统能否重新回到原来状态（保证系统的循环特性）。</p>
+<p>可逆：系统可自生初始化</p>
+<p>主宿（回家）：系统经过有限步骤将回到期望状态</p>
+<h4 id="守恒性">守恒性
+</h4><p>在一个Petri网系统中，令牌被用来描述系统资源。对这类Petri网，守恒性是一个重要性质，要使代表资源的令牌在Petri网运行中既不会增加也不会减少，最简单的方法就是网中总令牌数保持恒定。</p>
+<h3 id="petri网的应用">Petri网的应用
+</h3><h4 id="描述系统">描述系统
+</h4><p>Petri网描述系统的最基本概念是库所和变迁</p>
+<p>库所表示系统的状态。变迁表示资源的消耗、使用及使系统状态产生的变化。</p>
+<p>变迁的发生受到系统状态的控制，即变迁发生的前置条件必须满足；变迁发生后，某些前置条件不再满足，而某些后置条件则得到满足。</p>
+<p><img alt="形式化定义的Petri网" class="gallery-image" data-flex-basis="639px" data-flex-grow="266" height="272" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/images/%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89%E7%9A%84Petri%E7%BD%91.png" width="725"></p>
+
+    <blockquote>
+        <p>用圆圈表示为库所，粗实线表示变迁，联结库所与变迁之间的有向弧表示输入输出函数，用令牌（token）表示库所中拥有的资源数量（黑点或数字表示）</p>
+
+    </blockquote>
+<h4 id="分析系统故障">分析系统故障
+</h4><p>Petri网是一种图形演绎方法，应用Petri网分析系统故障就是将系统所不希望发生的事件作为顶库所，逐步找出导致这一事件的所有可能因素作为中间库所和底库所。</p>
+<p>故障树可以看作是系统中故障传播的逻辑关系，一般的单调关联故障树只含有与门和或门。故障树可以很方便地用Petri网表示，如与门采用多输入变迁代替，或门采用两个变迁代替。</p>
+<p><img alt="故障树的Petri网表示" class="gallery-image" data-flex-basis="282px" data-flex-grow="117" height="615" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/images/%E6%95%85%E9%9A%9C%E6%A0%91%E7%9A%84Petri%E7%BD%91%E8%A1%A8%E7%A4%BA.png" width="724"></p>
+<p>在故障树分析中，当一些底事件同时发生时，顶事件必然发生，能使顶事件发生的这些底事件的集合就称为割集。如果割集中的任一底事件不发生时，顶事件也不发生，则这样的割集称为最小割集。</p>
+<p><strong>关联矩阵</strong>是Petri网的主要分析方法之一:</p>
+<ol>
+<li>若从库所 $P$ 到变迁 $t$ 的输入函数取值为非负整数 $w$，记为 $I(P,t)=w$，用从 $P$ 到 $t$ 的一有向弧并旁注 $w$ 表示</li>
+<li>若从变迁 $t$ 到库所 $P$ 的输出函数取值为非负整数 $w$，记为 $O(P,t)=w$，用从 $t$ 到 $P$ 的一有向弧并旁注 $w$ 表示</li>
+<li>$O$ 与 $I$ 之差 $A^T=O-I$ 称为关联矩阵。这里我们探讨规范网，所以 $w=1$。</li>
+</ol>
+
+    <blockquote>
+        <p>特别地，若 $w=1$，则不必标注；若 $I(P,t)=0$ 或 $O(P,t)=0$，则不必画弧。$I$ 与 $O$ 均可表示为 $n \times m$ 非负整数矩阵。</p>
+
+    </blockquote>
+<p>例如，对于如下的Petri网：</p>
+<p><img alt="求关联矩阵" class="gallery-image" data-flex-basis="189px" data-flex-grow="78" height="518" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/images/%E6%B1%82%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5.png" width="408"></p>
+<p>有 </p>
+$$ \bm{I} = \left[ \begin{matrix} 1 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{matrix} \right]，\bm{O} = \left[ \begin{matrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{matrix} \right]$$<p>则 </p>
+$$\bm{A}^T = \bm{O}-\bm{I} = \left[ \begin{matrix} -1 & 0 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{matrix} \right]$$<p>割集求解步骤</p>
+<ol>
+<li>找出关联矩阵中只有 $1$ 和 $0$，没有 $-1$ 的行，则该行对应的为顶库所（只有输入库所，没有输出库所），由此库所开始寻找（在此关联矩阵中为最后一行）。</li>
+<li>由顶库所对应行的 $1$ 出发按列寻找到 $-1$，此 $-1$ 所对应行代表的库所为顶库所的一个输入库所，如果该列有多个 $-1$，则说明对应同一变迁有多个输入库所，并且输入的库所为“与”关系。</li>
+<li>由步骤2中找到的 $-1$ 按行寻找 $1$，如有 $1$ 则说明该库所为中间库所，继续按步骤2所述循环查找，直到所在行没有 $1$ 为止。没有 $1$，则说明该库所是一个底库所即基本事件。如果该行有多个 $1$，则说明由这些1对应的库所对应多个变迁，应为“或”关系。</li>
+<li>按步骤2、步骤3继续查找，直到查找到最底层的库所</li>
+<li>按照上面的“与”“或”关系将底库所展开，则得到所有割集。</li>
+<li>按照布尔吸收律、等幂率或素数法可求得最小割集</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/database/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 数据库系统" height="150" loading="lazy" src="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg" srcset="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg 1x, /passage/cs/database/mysql_hu_9f919c0deea6afa1.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #de8f1380 0%, #1b0514C0 100%);">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/parallel_computing/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">并行计算</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/network/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/math/probability/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 概率论与数理统计" height="150" loading="lazy" src="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a6e74ff3fef8f923.jpg" srcset="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a6e74ff3fef8f923.jpg 1x, /passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a665f413259291c6.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #aeaeae80 0%, #252525C0 100%);">
+            <h2 class="article-title">概率论与数理统计</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>
