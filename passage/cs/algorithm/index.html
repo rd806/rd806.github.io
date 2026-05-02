@@ -298,7 +298,7 @@
                 
     
     <button id="toggle-toc" class="mobile-only">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+        toc
     </button>
 
     <section class="widget archives" id="toc-container">
@@ -692,44 +692,13 @@
 <h3 id="复杂性函数的阶">复杂性函数的阶
 </h3><h4 id="渐进复杂性">渐进复杂性
 </h4><p>当输入规模 $n$ 趋近于极限时的复杂性</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>复杂性函数</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$$T(n) = \varOmega(f(n))$$</td>
-          <td>如果存在 $c&gt;0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \geqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的高阶，它给出了算法复杂度的下界</td>
-      </tr>
-      <tr>
-          <td>$$T(n) = O(f(n))$$</td>
-          <td>如果存在 $c&gt;0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \leqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的低阶，它给出了算法复杂度的上界</td>
-      </tr>
-      <tr>
-          <td>$$T(n) = \varTheta(f(n))$$</td>
-          <td>如果存在 $c_1, c_2 &gt; 0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $c_2 f(n) \leqslant T(n) \leqslant c_1 f(n)$ 恒成立，则称 $T(n)$ 与 $f(n)$ 同阶</td>
-      </tr>
-      <tr>
-          <td>严格低阶函数集合</td>
-          <td>$o(g(n)) = \{ f(n) | 对任意 c&gt;0，都存在正整数 n_0，使得当 n&gt;n_0 时都有 0 \leqslant f(n) \leqslant c \cdot g(n) \}$</td>
-      </tr>
-      <tr>
-          <td>严格高阶函数集合</td>
-          <td>$\omega(g(n)) = \{ f(n) | 对任意 c&gt;0，都存在正整数 n_0，使得当 n&gt;n_0 时都有 0 \leqslant c \cdot g(n) \leqslant f(n) \}$</td>
-      </tr>
-      <tr>
-          <td>严格上界</td>
-          <td>若 $f(n) \in o(g(n))$，称 $g(n)$ 是 $f(n)$ 的严格上界，记作 $f(n) = o(g(n))$</td>
-      </tr>
-      <tr>
-          <td>严格下界</td>
-          <td>若 $f(n) \in \omega(g(n))$，称 $g(n)$ 是 $f(n)$ 的严格下界，记作 $f(n) = \omega(g(n))$</td>
-      </tr>
-  </tbody>
-</table></div>
+<p>最坏时间复杂度$T(n) = \varOmega(f(n))$：如果存在 $c&gt;0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \geqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的高阶，它给出了算法复杂度的下界</p>
+<p>最好时间复杂度$T(n) = O(f(n))$：如果存在 $c&gt;0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \leqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的低阶，它给出了算法复杂度的上界</p>
+<p>平均时间复杂度$T(n) = \varTheta(f(n))$：如果存在 $c_1, c_2 &gt; 0$ 与正整数 $n_0 \leqslant 1$，当 $n \geqslant n_0$ 时，都有 $c_2 f(n) \leqslant T(n) \leqslant c_1 f(n)$ 恒成立，则称 $T(n)$ 与 $f(n)$ 同阶</p>
+<p>严格低阶函数集合 $o(g(n)) = \{ f(n) \mid 对任意 c&gt;0，都存在正整数 n_0，使得当 n&gt;n_0 时都有 0 \leqslant f(n) \leqslant c \cdot g(n) \}$ |</p>
+<p>严格高阶函数集合 $\omega(g(n)) = \{ f(n) \mid 对任意 c&gt;0，都存在正整数 n_0，使得当 n&gt;n_0 时都有 0 \leqslant c \cdot g(n) \leqslant f(n) \}$</p>
+<p>严格上界：若 $f(n) \in o(g(n))$，称 $g(n)$ 是 $f(n)$ 的严格上界，记作 $f(n) = o(g(n))$ |</p>
+<p>严格下界：若 $f(n) \in \omega(g(n))$，称 $g(n)$ 是 $f(n)$ 的严格下界，记作 $f(n) = \omega(g(n))$ |</p>
 
     <blockquote>
         <p>例如，对于 $f(n) = 3n^3+2n^2$，取 $n_0 = 1$，当 $n \geqslant n_0 = 1$ 时：</p>
@@ -1235,22 +1204,6 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
             
                 
 <article class="has-image">
-    <a href="/passage/software/formal_methods/">
-        
-        <div class="article-image">
-            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
-
-        </div>
-        
-
-        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
-            <h2 class="article-title">形式化方法</h2>
-        </div>
-    </a>
-</article>
-            
-                
-<article class="has-image">
     <a href="/passage/cs/database/">
         
         <div class="article-image">
@@ -1272,6 +1225,17 @@ $$g(n) = \sum_{i=0}^{k-1} a^i f(\frac{n}{b^i}) \leqslant \sum_{i=0}^{k-1} c^i f(
 
         <div class="article-details">
             <h2 class="article-title">并行计算</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/network/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
         </div>
     </a>
 </article>
