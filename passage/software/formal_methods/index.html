@@ -408,6 +408,19 @@
         </li>
       </ol>
     </li>
+    <li><a href="#命题逻辑">命题逻辑</a>
+      <ol>
+        <li><a href="#命题与真值">命题与真值</a></li>
+        <li><a href="#命题符号">命题符号</a></li>
+        <li><a href="#演绎系统">演绎系统</a></li>
+        <li><a href="#一阶谓词逻辑">一阶谓词逻辑</a>
+          <ol>
+            <li><a href="#逻辑推理">逻辑推理</a></li>
+            <li><a href="#含有量词的演绎系统">含有量词的演绎系统</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -612,7 +625,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 14 分钟
+                        阅读时长: 18 分钟
                     </time>
                 
             </div>
@@ -724,6 +737,19 @@
           <ol>
             <li><a href="#描述系统">描述系统</a></li>
             <li><a href="#分析系统故障">分析系统故障</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#命题逻辑">命题逻辑</a>
+      <ol>
+        <li><a href="#命题与真值">命题与真值</a></li>
+        <li><a href="#命题符号">命题符号</a></li>
+        <li><a href="#演绎系统">演绎系统</a></li>
+        <li><a href="#一阶谓词逻辑">一阶谓词逻辑</a>
+          <ol>
+            <li><a href="#逻辑推理">逻辑推理</a></li>
+            <li><a href="#含有量词的演绎系统">含有量词的演绎系统</a></li>
           </ol>
         </li>
       </ol>
@@ -1465,6 +1491,185 @@ $$\bm{A}^T = \bm{O}-\bm{I} = \left[ \begin{matrix} -1 & 0 & 0 \\ -1 & 0 & 0 \\ 0
 <li>按步骤2、步骤3继续查找，直到查找到最底层的库所</li>
 <li>按照上面的“与”“或”关系将底库所展开，则得到所有割集。</li>
 <li>按照布尔吸收律、等幂率或素数法可求得最小割集</li>
+</ol>
+<h2 id="命题逻辑">命题逻辑
+</h2><h3 id="命题与真值">命题与真值
+</h3><p>命题: 能判断真假的陈述句。这种陈述句的判断只有两种可能：一种是正确的判断，一种是错误的判断。称判断为正确的命题的真值为真，称判断为错误的命题的真值为假。</p>
+
+    <blockquote>
+        <p>因此又可称命题是具有唯一真值的陈述句或判断结果唯一的陈述句</p>
+
+    </blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>命题的真值</td>
+          <td>判断的结果</td>
+      </tr>
+      <tr>
+          <td>真值的取值</td>
+          <td>真与假，二者取一</td>
+      </tr>
+      <tr>
+          <td>真命题</td>
+          <td>真值为真的命题</td>
+      </tr>
+      <tr>
+          <td>假命题</td>
+          <td>真值为假的命题</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>感叹句、祈使句、疑问句都不是命题</p>
+<p>陈述句中的悖论以及判断结果不惟一确定的也不是命题</p>
+        </div>
+    </blockquote>
+<h3 id="命题符号">命题符号
+</h3><p>用小写英文字母 $p, q, r, \cdots, p_i, q_i, r_i$ $(i \leqslant1)$ 表示简单命题，将表示命题的符号放在该命题的前面，称为命题符号化。其中“1”表示真，用“0”表示假</p>
+<p>对简单命题而言，它的真值是确定的，因而又称为命题常项或命题常元。</p>
+<p>例如，记命题 $p$：$\sqrt{2}$ 是有理数，则 $p$ 的真值为 0；命题 $q$：$2 + 5 = 7$，则 $q$ 的真值为 1。</p>
+<h3 id="演绎系统">演绎系统
+</h3><p>演绎系统提供了一种证明 $\Sigma \vDash \psi$ 的方法。</p>
+<p>每个推理规则遵循如下的格式：</p>
+$$\frac{\Sigma_1 \vDash \varphi_1 \cdots \Sigma_n \vDash \varphi_n}{\Sigma \vDash \psi} \quad [\text{name}] \left< \text{condition} \right>$$<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>其中 $\Sigma$ 是一组公式的集合，$\varphi$ 表示一个公式。</p>
+<p>$\Sigma \vDash \varphi$ 表示对于任意解释（赋值），如果它使 $\Sigma$ 中所有公式都为真，那么它也必然使 $\varphi$ 为真。</p>
+        </div>
+    </blockquote>
+<p>演绎系统由以下有限的推理规则集组成：</p>
+<ol>
+<li>单调和参考规则</li>
+</ol>
+$$\frac{}{\varphi \vDash \varphi} \quad [\text{ref}] \qquad \frac{\Sigma \vDash \varphi}{\Sigma, \Gamma \vDash \varphi} \quad [+]$$<ol start="2">
+<li>属于规则</li>
+</ol>
+$$\frac{}{\Sigma \vDash \varphi} \quad [\in] \left<\varphi \in \Sigma \right>$$<ol start="3">
+<li>传递规则</li>
+</ol>
+$$\frac{\Sigma \vDash \varphi_1 \cdots \Sigma \vDash \varphi_n \quad \varphi_1, \cdots, \varphi_n \vDash \psi}{\Sigma \vDash \psi} \quad [\text{trans}]$$<ol start="4">
+<li>取反规则</li>
+</ol>
+$$\frac{\Sigma, \lnot \varphi \vDash \psi \quad \Sigma, \lnot \varphi \vDash \lnot \psi}{\Sigma \vDash \varphi} \quad[\lnot -]$$<ol start="5">
+<li>合取规则</li>
+</ol>
+$$\frac{\Sigma \vDash \varphi \land \psi}{\Sigma \vDash \varphi} \quad [\land -_1] \qquad \qquad \frac{\Sigma \vDash \varphi \land \psi}{\Sigma \vDash \psi} \quad [\land -_2]$$$$\frac{\Sigma \vDash \varphi \quad \Sigma \vDash \psi}{\Sigma \vDash \varphi \land \psi} \quad [\land +]$$<ol start="6">
+<li>析取规则</li>
+</ol>
+$$\frac{\Sigma, \varphi \vDash \chi \quad \Sigma, \psi \vDash \chi}{\Sigma, \varphi \lor \psi \vDash \chi} \quad [\lor-]$$$$\frac{\Sigma \vDash \varphi}{\Sigma \vDash \varphi \lor \psi} \quad[\lor+_1] \qquad \qquad \frac{\Sigma \vDash \varphi}{\Sigma \vDash \psi \lor \varphi} \quad[\lor+_2]$$<ol start="7">
+<li>蕴含规则</li>
+</ol>
+$$\frac{\Sigma \vDash \varphi \Rightarrow \psi \quad \Sigma \vDash \varphi}{\Sigma \vDash \psi} \quad [\Rightarrow -] \qquad \qquad \frac{\Sigma, \varphi \vDash \psi}{\Sigma \vDash \varphi \Rightarrow \psi} \quad [\Rightarrow+]$$<ol start="8">
+<li>等价规则</li>
+</ol>
+$$\frac{\Sigma \vDash \varphi \Leftrightarrow \psi \quad \Sigma \vDash \varphi}{\Sigma \vDash \psi} \quad [\Leftrightarrow -_1] \qquad \qquad \frac{\Sigma \vDash \varphi \Leftrightarrow \psi \quad \Sigma \vDash \psi}{\Sigma \vDash \varphi} \quad [\Leftrightarrow -_2]$$$$\frac{\Sigma, \varphi \vDash \psi \quad \Sigma, \psi \vDash \varphi}{\Sigma \vDash \varphi \Leftrightarrow \psi} \quad [\Leftrightarrow+]$$<h3 id="一阶谓词逻辑">一阶谓词逻辑
+</h3><p>项（Terms）是可以通过有限次应用以下规则获得的表达式：</p>
+<ol>
+<li>变量和常量符号是项</li>
+<li>如果 $t_1, t_2 \cdots, t_m$ 是项，$f$ 是 $m$ 元函数符号 $(m \geqslant 0)$，则 $f(t_1, \cdots, t_m)$ 也是一个项</li>
+</ol>
+<p>一阶公式（简称为公式）是通过有限次应用以下规则得到的表达式：</p>
+<ol>
+<li>如果 $t_1, t_2, \cdots, t_m$ 是项，$P$ 是 $m$ 元谓词符号，则 $P(t_1, t_2, \cdots, t_m)$ 和 $(t_1 = t_2)$ 是公式。这样的公式被称为原子公式。</li>
+<li>如果 $\varphi$ 和 $\psi$ 是公式，那么 $(\lnot \varphi)$，$(\varphi \land \psi)$，$(\varphi \lor \psi)$，$(\varphi \Rightarrow \psi)$，$(\varphi \Leftrightarrow \psi)$ 都是公式。</li>
+<li>如果 $\varphi$ 是一个公式，$x$ 是一个变量，$S$ 是一元谓词符号，那么 $\forall x:S \cdot \varphi$ 和 $\exist x:S \cdot \varphi$ 均是公式。在这两个公式中，$\varphi$ 分别被称为量词 $\forall x:S$ 和 $\exist x:S$ 的作用域。</li>
+</ol>
+<h4 id="逻辑推理">逻辑推理
+</h4><p>假设 $\Sigma = \{\varphi_1, \varphi_2, \cdots, \varphi_n\}$，$\varphi_1, \varphi_2, \cdots, \varphi_n$ 和 $\psi$ 是句子。如果 $ \varphi_1 \land \varphi_2 \land \cdots \land \varphi_n \Rightarrow \psi$ 成立，则记作 $\Sigma \vDash \psi$ （或 $\varphi_1, \varphi_2, \cdots, \varphi_n \vDash \psi$）。在这种情况下，我们说 $\psi$ 可以从 $\Sigma$ 导出。</p>
+<p>当 $\varphi \vDash \psi$ 且 $\psi \vDash \varphi$ 时，则称 $\varphi$ 与 $\psi$ 等价，记作 $\varphi \equiv \psi$</p>
+
+    <blockquote>
+        <p>以下是对这段描述的形式化定义：</p>
+<p>一个推理结构包含以下要素：</p>
+<ol>
+<li>一个非空集 $A$，称为 $A$ 的论域；</li>
+<li>每个 $m$ 元谓词符号 $P$ 在 $A$ 上的关系 $P^A$；</li>
+<li>每个 $m$ 元函数符号 $f$ 在 $A$ 上的函数 $f^A$；</li>
+<li>每个常数符号 $c$ 的元素 $c^A \in A$。</li>
+</ol>
+<p>记 $A$ 为一个推理结构，对 $A$ 的赋值操作 $v$ 是一个函数，它将每个变量 $x$ 映射到 $A$ 论域中的一个元素 $x^v$。</p>
+<p>记 $A$ 为一个推理结构，$v$ 为 $A$ 上的一个赋值操作，$t$ 为一个项，则有</p>
+<ol>
+<li>若 $t$ 为一个常量 $c$，则 $t^v = c^A$</li>
+<li>若 $t$ 为一个变量 $x$，则 $t^v = x^v$</li>
+<li>若 $t = f(t_1, t_2, \cdots, t_m)$，则 $t^v = f^A(t_1^v, t_2^v, \cdots, t_n^v)$</li>
+</ol>
+<p>给定一个推理结构 $A$，$A$ 上的一个赋值操作 $v$，变量 $x$ 和元素 $\alpha \in A$，令 $v[\alpha / x]$ 表示满足下列关系的变量：</p>
+<ol>
+<li>$x^{v[\alpha / x]} = \alpha$</li>
+<li>对任意的 $y \ne x$，有 $y^{v[\alpha / x]} = y^v$</li>
+</ol>
+<p>在 $A, v \vDash \varphi$ 中，如果 $\varphi$ 是一个语句，则可以省略 $v$，只需写 $A \vDash \varphi$。</p>
+<p>如果 $A \vDash \varphi$，那么我们说 $A$ 满足 $\varphi$，或者等价地说，$A$ 是 $\varphi$ 的模型</p>
+<p>设 $\Sigma$ 为一组句子。如果对于所有 $\varphi \in \Sigma$，都有 $A \vDash \varphi$，我们说 $A$ 是 $\Sigma$的模型，</p>
+<p>由此，我们可以得出逻辑推论的定义：</p>
+<p>记 $\Sigma$ 为一组公式，$\psi$ 为一个公式。如果对于 $A$ 上的所有赋值 $v$，都有 </p>
+$$(\forall \varphi \in \Sigma:A, v \vDash \varphi) \Rightarrow A,v \vDash \varphi$$<p> 那么我们说 $\Sigma$ 在逻辑上意味着 $\varphi$，写为 $\Sigma \vDash \varphi$，$\varphi$ 被称为 $\Sigma$ 的逻辑蕴含</p>
+
+    </blockquote>
+<p>一般地，我们有如下的表达：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>原式</th>
+          <th>等价表达</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\exist x:S \cdot (\varphi \land \psi)$</td>
+          <td>$\exist x:S \mid \varphi \cdot \psi$</td>
+      </tr>
+      <tr>
+          <td>$\forall x:S \cdot (\varphi \Rightarrow \psi)$</td>
+          <td>$\forall x:S \mid \varphi \cdot \psi$</td>
+      </tr>
+      <tr>
+          <td>$\exist x_1:S \cdot \exist x_2:S \cdots \exist x_n:S \cdot \varphi$</td>
+          <td>$\exist x_1, x_2, \cdots, x_n:S \cdot \varphi$</td>
+      </tr>
+      <tr>
+          <td>$\forall x_1:S \cdot \exist x_2:S \cdots \forall x_n:S \cdot \varphi$</td>
+          <td>$\forall x_1, x_2, \cdots, x_n:S \cdot \varphi$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="含有量词的演绎系统">含有量词的演绎系统
+</h4><ol>
+<li>
+<p>全称量词
+</p>
+$$\frac{\Sigma \vDash \forall x:S \cdot \varphi}{\Sigma \vDash t \in S \Rightarrow \varphi[t/x]} \quad [\forall-]$$<p>
+</p>
+$$\frac{\Sigma \vDash x \in S \Rightarrow \varphi}{\Sigma \vDash \forall x:S \cdot \varphi} \quad [\forall+]$$</li>
+<li>
+<p>存在量词
+</p>
+$$\frac{\Sigma, x \in S, \varphi \vDash \psi}{\Sigma, \exist x:S \cdot \varphi \vDash \psi} \quad [\exist-]$$<p>
+</p>
+$$\frac{\Sigma \vDash t \in S \land \varphi(t)}{\Sigma \vDash \exist x:S \cdot \varphi(x)} \quad [\exist+]$$</li>
+<li>
+<p>相等
+</p>
+$$\frac{\Sigma \vDash \varphi(t) \quad \Sigma \vDash t = t'}{\Sigma \vDash \varphi(t')} \quad [=-]$$<p>
+</p>
+$$\frac{}{\vDash x=x} \quad [=+]$$</li>
 </ol>
 
 </section>
