@@ -337,6 +337,10 @@
     <li><a href="#模式检查">模式检查</a>
       <ol>
         <li><a href="#基本时态">基本时态</a></li>
+        <li><a href="#线性时序逻辑">线性时序逻辑</a></li>
+        <li><a href="#迁移系统">迁移系统</a></li>
+        <li><a href="#路径">路径</a></li>
+        <li><a href="#满足关系">满足关系</a></li>
       </ol>
     </li>
   </ol>
@@ -541,7 +545,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 3 分钟
+                        阅读时长: 5 分钟
                     </time>
                 
             </div>
@@ -587,6 +591,10 @@
     <li><a href="#模式检查">模式检查</a>
       <ol>
         <li><a href="#基本时态">基本时态</a></li>
+        <li><a href="#线性时序逻辑">线性时序逻辑</a></li>
+        <li><a href="#迁移系统">迁移系统</a></li>
+        <li><a href="#路径">路径</a></li>
+        <li><a href="#满足关系">满足关系</a></li>
       </ol>
     </li>
   </ol>
@@ -837,7 +845,19 @@
 </div>
 </div><p>重复语句类似于选择语句，但它会重复执行，直到执行<code>break</code>语句或<code>goto-jump</code>将控制权转移到循环之外。</p>
 <h2 id="模式检查">模式检查
-</h2><h3 id="基本时态">基本时态
+</h2><p>给定一个结构 $M$ 和一个公式 $\varphi$，如果 $M \vDash \varphi$ 成立，则称 $M$ 是 $\varphi$ 的模型。</p>
+<p>证明 $M \vDash \varphi$ 的过程就称作模式检查。</p>
+
+    <blockquote>
+        <p>许多问题都可以用模式检查描述，例如：
+<figure><img src="/passage/software/formal_methods/model_checker/images/%E6%A8%A1%E5%BC%8F%E6%A3%80%E6%9F%A5%E7%9A%84%E5%BA%94%E7%94%A8.png" width="700"><figcaption>
+      <h4>模式检查的应用</h4>
+    </figcaption>
+</figure>
+</p>
+
+    </blockquote>
+<h3 id="基本时态">基本时态
 </h3><p>记符号 $p$ 为一个原子命题，例如<code>DeviceEnabled</code>，则有：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -865,6 +885,56 @@
       </tr>
   </tbody>
 </table></div>
+<p>它具有如下性质：</p>
+<ul>
+<li>否定律：$\lnot \text{X} \varphi \equiv \text{X} \lnot \varphi$，$\lnot \text{G} \varphi \equiv \text{G} \lnot \varphi$，$\lnot \text{F} \varphi \equiv \text{G} \lnot \varphi$</li>
+<li>分配律：$\text{G}(\varphi \land \psi) \equiv \text{G} \varphi \land \text{G} \psi$，$\text{F}(\varphi \lor \psi) \equiv \text{F} \varphi \lor \text{F} \psi$</li>
+<li>互定义：$\text{F} \varphi \equiv \lnot \text{G} \lnot \varphi$，$\text{G} \varphi \equiv \lnot \text{F} \lnot \varphi$，$\text{F} \varphi \equiv (p \lor \lnot p) \text{U} \varphi$</li>
+<li>幂等律：$\text{F} \text{F} \varphi \equiv \text{F} \varphi$，$\text{G} \text{G} \varphi \equiv \text{G} \varphi$</li>
+<li>$\text{G} \text{F} \text{G} \varphi \equiv \text{F} \text{G} \varphi$，$\text{F} \text{G} \text{F} \varphi \equiv \text{G} \text{F} \varphi$，$\text{G}(\text{F} \varphi \lor \text{F} \psi) \equiv \text{G} \text{F} \varphi \lor \text{G} \text{F} \psi$</li>
+</ul>
+<h3 id="线性时序逻辑">线性时序逻辑
+</h3><p>设Atom为命题变量集。为方便起见，设 $p, q, r, \cdots$（可能带有下标）表示命题变量。LTL则可以用如下的形式表示：</p>
+$$\varphi ::= p \mid (\lnot \varphi) \mid (\varphi \lor \varphi) \mid (\varphi \land \varphi) \mid (\varphi \Rightarrow \varphi) \mid (\text{X} \varphi) \mid (\text{F} \varphi) \mid (\text{G} \varphi) \mid (\varphi \text{U} \varphi)$$<p> 其中 $p$ 的范围为命题变量，$\varphi$ 的范围为LTL公式。</p>
+<h3 id="迁移系统">迁移系统
+</h3><p>迁移系统定义为一个元组 $M = (S, \rightarrow, L)$，其中：</p>
+<ul>
+<li>$S$ 是一个非空集，由一组状态组成。</li>
+<li>$\rightarrow \subseteq S \times S$ 是一个转换关系。</li>
+<li>$L: S \rightarrow P$ 是一个赋值函数。</li>
+</ul>
+<p>例如，在如下的弹簧系统中，有</p>
+<p><img alt="弹簧系统" class="gallery-image" data-flex-basis="505px" data-flex-grow="210" height="354" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/model_checker/images/%E5%BC%B9%E7%B0%A7%E7%B3%BB%E7%BB%9F.png" width="745"></p>
+<ul>
+<li>$S = \{s_1, s_2, s_3\}$</li>
+<li>$\rightarrow = \{(s_1, s_2), (s_2, s_1), (s_2, s_3), (s_3, s_3)\}$</li>
+<li>$L(s_1) = \oslash$，$L(s_2) = {\text{extended}}$，$L(s_3) = \{\text{extended}, \text{malfunction}\}$</li>
+</ul>
+<h3 id="路径">路径
+</h3><p>设 $M = (S, \rightarrow, L)$ 是一个迁移系统，则 $M$ 的一条路径是一个无限的序列 $\pi = (s_1, s_2, s_3, \cdots)$，其中 </p>
+$$\forall i \geqslant 1, (s_i \in S \land s_i \rightarrow s_{i+1})$$<p>在上述的弹簧示例中，有如下路径：</p>
+$$\pi_1 = \{s_1, s_2, s_3, s_3 ,s_3, \cdots\} \qquad \pi_2 = \{s_1, s_2. s_1, s_2, s_1, s_2, \cdots\}$$<h3 id="满足关系">满足关系
+</h3><p>设 $M = (S, \rightarrow, L)$ 是一个迁移系统，$M$ 的一条路径为 $\pi$，则如果 $\pi \vDash^i \varphi$，则称LTL公式 $\varphi$ 在第 $i$ 阶段由 $\pi$（在 $M$ 下）满足。</p>
+<p>常见的满足关系如下：</p>
+<ul>
+<li>$\pi \vDash^i p$ 当且仅当 $p \in L(\pi[i])$</li>
+<li>$\pi \vDash^i \varphi \land \psi$ 当且仅当 $\pi \vDash^i \varphi \land \pi \vDash^i \psi$</li>
+<li>$\pi \vDash^i \varphi \lor \psi$ 当且仅当 $\pi \vDash^i \varphi \lor \pi \vDash^i \psi$</li>
+<li>$\pi \vDash^i \varphi \Rightarrow \psi$ 当且仅当 $\pi \vDash^i \varphi \Rightarrow \pi \vDash^i \psi$</li>
+<li>$\pi \vDash^i \lnot \varphi$ 当且仅当 $\pi \nvDash^i \varphi$</li>
+<li>$\pi \vDash^i \text{X} \varphi$ 当且仅当 $\pi \vDash^{i+1} \varphi$</li>
+<li>$\pi \vDash^i \text{F} \varphi$ 当且仅当 $\exist\ j \geqslant i$，使得 $\pi \vDash^j \varphi$</li>
+<li>$\pi \vDash^i \text{G} \varphi$ 当且仅当 $\forall\ j \geqslant i$，都有 $\pi \vDash^j \varphi$</li>
+<li>$\pi \vDash^i \varphi \text{U} \psi$ 当且仅当 $\exist\ j \geqslant i$，使得 $\pi \vDash^j \psi$ 并且 $\forall\ k \in \{i,i+1,\cdots,j-1\}$，都有 $\pi \vDash^k \varphi$</li>
+</ul>
+<p>特别的，</p>
+<ul>
+<li>如果 $\pi \vDash^1 \varphi$，则可记为 $\pi \vDash \varphi$。</li>
+<li>设 $s \in S$，若 $M$ 的所有路径均满足 $\pi[1] = s$，则可记为 $M,s \vDash \varphi$</li>
+<li>若 $M$ 的所有路径均满足 $\pi \vDash \varphi$，则可记为 $M \vDash \varphi$。此时称 $M$ 为 $\varphi$ 的一个模式。</li>
+</ul>
+<p>对于两个LTL公式 $\varphi$ 和 $\psi$，若它们在同一个迁移系统 $M$ 下的所有路径 $\pi$ 的所有阶段 $i$ 均有 </p>
+$$\pi \vDash^i \varphi \text{ iff } \pi \vDash^i \psi$$<p> 则可记作 $\varphi \equiv \psi$</p>
 
 </section>
 
