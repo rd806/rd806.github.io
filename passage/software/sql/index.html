@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SQL语句分类：\n分类 全称 说明 DDL Data Definition Language 数据定义语言，用于定义数据库对象 DML Data Manipulation Language 数据操作语言，用于数据库中数据的增删改 DQL Data Query Language 数据查询语言，用于查询数据库中表的记录 DCL Data Control Language 数据控制语言，用于创建数据库用户、控制数据库访问权限 SQL的数据类型 数字类型 大小 描述 TINYINT 1 byte 小整数集 SMALLINT 2 bytes 大整数集 MEDIUMINT 3 bytes 大整数集 INT 4 bytes 大整数集 BIGINT 8 bytes 极大整数集 FLOAT 4 bytes 单精度浮点数集 DOUBLE 8 bytes 双精度浮点数集 DECIMAL 依赖精度值（总数位）和标度值（小数位） 精确定点数 字符串类型 大小 描述 CHAR() 0-255 bytes 定长字符串 VARCHAR() 0-65,535 bytes 变长字符串 TINYBLOB 0-255 bytes 二进制数据 TINYTEXT 0-255 bytes 短文本字符串 BLOB 0-65,535 bytes 二进制长文本数据 TEXT 0-65,535 bytes 长文本数据 MEDIUMBLOB 0-16,777,215 bytes 二进制中等长度文本数据 MEDIUMTEXT 0-16,777,215 bytes 中等长度文本数据 LONGBLOB 0-4,294,967,295 bytes 二进制极大文本数据 LONGTEXT 0-4,294,967,295 bytes 极大文本数据 日期类型 大小 格式 描述 DATA 3 YYYY-MM-DD 日期值 TIME 3 HH:MM:SS 时间值或持续时间 TEAR 1 YYYY 年份值 DATETIME 8 YYYY-MM-DD HH:MM:SS 混合日期和时间值 TIMESTAMP 4 YYYY-MM-DD HH:MM:SS 时间戳 空值NULL 出现情况 值本身未知、值不适用于目标对象、用作保留值 运算法则 对NULL进行算术操作，结果仍为NULL 对NULL进行逻辑操作，结果为UNKNOWN 空值NULL不是常量，不可将其用作操作数。\n">
+<title>SQL语言</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/software/sql/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="SQL语言">
+<meta property='og:description' content="SQL语句分类：\n分类 全称 说明 DDL Data Definition Language 数据定义语言，用于定义数据库对象 DML Data Manipulation Language 数据操作语言，用于数据库中数据的增删改 DQL Data Query Language 数据查询语言，用于查询数据库中表的记录 DCL Data Control Language 数据控制语言，用于创建数据库用户、控制数据库访问权限 SQL的数据类型 数字类型 大小 描述 TINYINT 1 byte 小整数集 SMALLINT 2 bytes 大整数集 MEDIUMINT 3 bytes 大整数集 INT 4 bytes 大整数集 BIGINT 8 bytes 极大整数集 FLOAT 4 bytes 单精度浮点数集 DOUBLE 8 bytes 双精度浮点数集 DECIMAL 依赖精度值（总数位）和标度值（小数位） 精确定点数 字符串类型 大小 描述 CHAR() 0-255 bytes 定长字符串 VARCHAR() 0-65,535 bytes 变长字符串 TINYBLOB 0-255 bytes 二进制数据 TINYTEXT 0-255 bytes 短文本字符串 BLOB 0-65,535 bytes 二进制长文本数据 TEXT 0-65,535 bytes 长文本数据 MEDIUMBLOB 0-16,777,215 bytes 二进制中等长度文本数据 MEDIUMTEXT 0-16,777,215 bytes 中等长度文本数据 LONGBLOB 0-4,294,967,295 bytes 二进制极大文本数据 LONGTEXT 0-4,294,967,295 bytes 极大文本数据 日期类型 大小 格式 描述 DATA 3 YYYY-MM-DD 日期值 TIME 3 HH:MM:SS 时间值或持续时间 TEAR 1 YYYY 年份值 DATETIME 8 YYYY-MM-DD HH:MM:SS 混合日期和时间值 TIMESTAMP 4 YYYY-MM-DD HH:MM:SS 时间戳 空值NULL 出现情况 值本身未知、值不适用于目标对象、用作保留值 运算法则 对NULL进行算术操作，结果仍为NULL 对NULL进行逻辑操作，结果为UNKNOWN 空值NULL不是常量，不可将其用作操作数。\n">
+<meta property='og:url' content='https://rd806.github.io/passage/software/sql/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-07-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-07-14T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="SQL语言">
+<meta name="twitter:description" content="SQL语句分类：\n分类 全称 说明 DDL Data Definition Language 数据定义语言，用于定义数据库对象 DML Data Manipulation Language 数据操作语言，用于数据库中数据的增删改 DQL Data Query Language 数据查询语言，用于查询数据库中表的记录 DCL Data Control Language 数据控制语言，用于创建数据库用户、控制数据库访问权限 SQL的数据类型 数字类型 大小 描述 TINYINT 1 byte 小整数集 SMALLINT 2 bytes 大整数集 MEDIUMINT 3 bytes 大整数集 INT 4 bytes 大整数集 BIGINT 8 bytes 极大整数集 FLOAT 4 bytes 单精度浮点数集 DOUBLE 8 bytes 双精度浮点数集 DECIMAL 依赖精度值（总数位）和标度值（小数位） 精确定点数 字符串类型 大小 描述 CHAR() 0-255 bytes 定长字符串 VARCHAR() 0-65,535 bytes 变长字符串 TINYBLOB 0-255 bytes 二进制数据 TINYTEXT 0-255 bytes 短文本字符串 BLOB 0-65,535 bytes 二进制长文本数据 TEXT 0-65,535 bytes 长文本数据 MEDIUMBLOB 0-16,777,215 bytes 二进制中等长度文本数据 MEDIUMTEXT 0-16,777,215 bytes 中等长度文本数据 LONGBLOB 0-4,294,967,295 bytes 二进制极大文本数据 LONGTEXT 0-4,294,967,295 bytes 极大文本数据 日期类型 大小 格式 描述 DATA 3 YYYY-MM-DD 日期值 TIME 3 HH:MM:SS 时间值或持续时间 TEAR 1 YYYY 年份值 DATETIME 8 YYYY-MM-DD HH:MM:SS 混合日期和时间值 TIMESTAMP 4 YYYY-MM-DD HH:MM:SS 时间戳 空值NULL 出现情况 值本身未知、值不适用于目标对象、用作保留值 运算法则 对NULL进行算术操作，结果仍为NULL 对NULL进行逻辑操作，结果为UNKNOWN 空值NULL不是常量，不可将其用作操作数。\n">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/software/sql/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        toc
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#sql的数据类型">SQL的数据类型</a></li>
+    <li><a href="#ddl">DDL</a>
+      <ol>
+        <li><a href="#查询">查询</a></li>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#修改">修改</a></li>
+        <li><a href="#删除">删除</a></li>
+      </ol>
+    </li>
+    <li><a href="#dml">DML</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#添加数据">添加数据</a></li>
+          </ol>
+        </li>
+        <li><a href="#修改数据">修改数据</a></li>
+        <li><a href="#删除数据">删除数据</a></li>
+      </ol>
+    </li>
+    <li><a href="#dql">DQL</a>
+      <ol>
+        <li><a href="#基本条件查询">基本条件查询</a></li>
+        <li><a href="#多表查询">多表查询</a></li>
+        <li><a href="#反身查询">反身查询</a></li>
+        <li><a href="#子查询">子查询</a></li>
+        <li><a href="#分组与聚合">分组与聚合</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
+            </a>
+        
+            
+            
+            
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/software/sql/">SQL语言</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-07-14T00:00:00Z'>2025年7月14日星期一</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 6 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#sql的数据类型">SQL的数据类型</a></li>
+    <li><a href="#ddl">DDL</a>
+      <ol>
+        <li><a href="#查询">查询</a></li>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#修改">修改</a></li>
+        <li><a href="#删除">删除</a></li>
+      </ol>
+    </li>
+    <li><a href="#dml">DML</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#添加数据">添加数据</a></li>
+          </ol>
+        </li>
+        <li><a href="#修改数据">修改数据</a></li>
+        <li><a href="#删除数据">删除数据</a></li>
+      </ol>
+    </li>
+    <li><a href="#dql">DQL</a>
+      <ol>
+        <li><a href="#基本条件查询">基本条件查询</a></li>
+        <li><a href="#多表查询">多表查询</a></li>
+        <li><a href="#反身查询">反身查询</a></li>
+        <li><a href="#子查询">子查询</a></li>
+        <li><a href="#分组与聚合">分组与聚合</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p>SQL语句分类：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>全称</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DDL</td>
+          <td>Data Definition Language</td>
+          <td>数据定义语言，用于定义数据库对象</td>
+      </tr>
+      <tr>
+          <td>DML</td>
+          <td>Data Manipulation Language</td>
+          <td>数据操作语言，用于数据库中数据的增删改</td>
+      </tr>
+      <tr>
+          <td>DQL</td>
+          <td>Data Query Language</td>
+          <td>数据查询语言，用于查询数据库中表的记录</td>
+      </tr>
+      <tr>
+          <td>DCL</td>
+          <td>Data Control Language</td>
+          <td>数据控制语言，用于创建数据库用户、控制数据库访问权限</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="sql的数据类型">SQL的数据类型
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>数字类型</th>
+          <th>大小</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>TINYINT</code></td>
+          <td>1 byte</td>
+          <td>小整数集</td>
+      </tr>
+      <tr>
+          <td><code>SMALLINT</code></td>
+          <td>2 bytes</td>
+          <td>大整数集</td>
+      </tr>
+      <tr>
+          <td><code>MEDIUMINT</code></td>
+          <td>3 bytes</td>
+          <td>大整数集</td>
+      </tr>
+      <tr>
+          <td><code>INT</code></td>
+          <td>4 bytes</td>
+          <td>大整数集</td>
+      </tr>
+      <tr>
+          <td><code>BIGINT</code></td>
+          <td>8 bytes</td>
+          <td>极大整数集</td>
+      </tr>
+      <tr>
+          <td><code>FLOAT</code></td>
+          <td>4 bytes</td>
+          <td>单精度浮点数集</td>
+      </tr>
+      <tr>
+          <td><code>DOUBLE</code></td>
+          <td>8 bytes</td>
+          <td>双精度浮点数集</td>
+      </tr>
+      <tr>
+          <td><code>DECIMAL</code></td>
+          <td>依赖精度值（总数位）和标度值（小数位）</td>
+          <td>精确定点数</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>字符串类型</th>
+          <th>大小</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>CHAR()</code></td>
+          <td>0-255 bytes</td>
+          <td>定长字符串</td>
+      </tr>
+      <tr>
+          <td><code>VARCHAR()</code></td>
+          <td>0-65,535 bytes</td>
+          <td>变长字符串</td>
+      </tr>
+      <tr>
+          <td><code>TINYBLOB</code></td>
+          <td>0-255 bytes</td>
+          <td>二进制数据</td>
+      </tr>
+      <tr>
+          <td><code>TINYTEXT</code></td>
+          <td>0-255 bytes</td>
+          <td>短文本字符串</td>
+      </tr>
+      <tr>
+          <td><code>BLOB</code></td>
+          <td>0-65,535 bytes</td>
+          <td>二进制长文本数据</td>
+      </tr>
+      <tr>
+          <td><code>TEXT</code></td>
+          <td>0-65,535 bytes</td>
+          <td>长文本数据</td>
+      </tr>
+      <tr>
+          <td><code>MEDIUMBLOB</code></td>
+          <td>0-16,777,215 bytes</td>
+          <td>二进制中等长度文本数据</td>
+      </tr>
+      <tr>
+          <td><code>MEDIUMTEXT</code></td>
+          <td>0-16,777,215 bytes</td>
+          <td>中等长度文本数据</td>
+      </tr>
+      <tr>
+          <td><code>LONGBLOB</code></td>
+          <td>0-4,294,967,295 bytes</td>
+          <td>二进制极大文本数据</td>
+      </tr>
+      <tr>
+          <td><code>LONGTEXT</code></td>
+          <td>0-4,294,967,295 bytes</td>
+          <td>极大文本数据</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>日期类型</th>
+          <th>大小</th>
+          <th>格式</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>DATA</code></td>
+          <td>3</td>
+          <td><code>YYYY-MM-DD</code></td>
+          <td>日期值</td>
+      </tr>
+      <tr>
+          <td><code>TIME</code></td>
+          <td>3</td>
+          <td><code>HH:MM:SS</code></td>
+          <td>时间值或持续时间</td>
+      </tr>
+      <tr>
+          <td><code>TEAR</code></td>
+          <td>1</td>
+          <td><code>YYYY</code></td>
+          <td>年份值</td>
+      </tr>
+      <tr>
+          <td><code>DATETIME</code></td>
+          <td>8</td>
+          <td><code>YYYY-MM-DD HH:MM:SS</code></td>
+          <td>混合日期和时间值</td>
+      </tr>
+      <tr>
+          <td><code>TIMESTAMP</code></td>
+          <td>4</td>
+          <td><code>YYYY-MM-DD HH:MM:SS</code></td>
+          <td>时间戳</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>空值<code>NULL</code></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>出现情况</td>
+          <td>值本身未知、值不适用于目标对象、用作保留值</td>
+      </tr>
+      <tr>
+          <td>运算法则</td>
+          <td>对<code>NULL</code>进行算术操作，结果仍为<code>NULL</code> <br> 对<code>NULL</code>进行逻辑操作，结果为<code>UNKNOWN</code></td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>空值<code>NULL</code>不是常量，不可将其用作操作数。</p>
+
+    </blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>布尔类型</th>
+          <th>约定值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>TRUE</code></td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td><code>FALSE</code></td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td><code>UNKNOWN</code></td>
+          <td>1/2</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>布尔操作的法则：</p>
+<ol>
+<li><code>AND</code>操作符返回两者约定值较小的那个。</li>
+<li><code>OR</code>操作符返回两者约定值较大的那个。</li>
+<li>布尔变量<code>v</code>反转后为<code>1-v</code>。</li>
+</ol>
+<p>例如，若执行SQL语句</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">length</span><span class="o">&lt;=</span><span class="mi">120</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">length</span><span class="o">&gt;</span><span class="mi">120</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>若某些元组的<code>length</code>值为<code>NULL</code>，条件的返回值则为<code>UNKNOWN</code>，将不会出现在结果中。</p>
+
+    </blockquote>
+<h2 id="ddl">DDL
+</h2><p>数据定义语言，用于定义数据库对象</p>
+<h3 id="查询">查询
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="cm">/* -- 数据库操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询所有数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">DATABASES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询当前数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DATABASE</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询当前数据库中所有表
+</span></span></span><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">TABLE</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/* -- 表操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询表结构
+</span></span></span><span class="line"><span class="cl"><span class="k">DESC</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 查询指定表的建表语句
+</span></span></span><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建">创建
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="cm">/* -- 数据库操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 创建数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="w"> </span><span class="err">字符集</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="k">COLLATE</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 使用数据库
+</span></span></span><span class="line"><span class="cl"><span class="n">USE</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/* -- 表操作 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 创建表
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="err">类型</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;这是主键&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">2</span><span class="w"> </span><span class="err">字段</span><span class="mi">2</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段2注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">3</span><span class="w"> </span><span class="err">字段</span><span class="mi">3</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;字段3注释&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;表注释&#39;</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 示例
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">movie</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">cert</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;主键&#39;</span><span class="p">],</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">networth</span><span class="w"> </span><span class="nb">INT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">studio</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">presc</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">presc</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">movie</span><span class="p">(</span><span class="n">cert</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;外键&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>MySQL中建议使用字符集<code>UTF8mb4</code>。</p>
+<p>参见：<a class="link" href="/p/mysql/#mysql%e7%9a%84%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" >MySQL的数据类型</a></p>
+
+    </blockquote>
+<h3 id="修改">修改
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">--- 添加字段
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 修改数据类型
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="err">新数据类型</span><span class="p">(</span><span class="err">长度</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 修改字段名和字段类型
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="n">CHANGE</span><span class="w"> </span><span class="err">旧字段名</span><span class="w"> </span><span class="err">新字段名</span><span class="w"> </span><span class="err">类型</span><span class="p">(</span><span class="err">长度</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;注释&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="err">约束</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 修改表名
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="err">新表名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删除">删除
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">--- 删除字段
+</span></span></span><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="err">字段名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 删除表
+</span></span></span><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 删除指定表，并重新创建该表
+</span></span></span><span class="line"><span class="cl"><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">--- 删除数据库
+</span></span></span><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="dml">DML
+</h2><p>数据操作语言，用于数据库中数据的增删改。</p>
+<h4 id="添加数据">添加数据
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="c1">-- 给指定字段添加数据
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">字段名</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 给全部字段添加数据
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="cm">/* -- 批量添加数据 -- */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 指定字段名添加
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="err">字段名</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="p">,...)</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 全部添加
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...),(</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">值</span><span class="mi">2</span><span class="p">,...);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>注意：</p>
+<ol>
+<li>插入数据时，指定的字段顺序需要与值的顺序相对应。</li>
+<li>字符串和日期型数据应包含在引号中。</li>
+<li>插入数据的大小应该在字段的指定范围内。</li>
+</ol>
+
+    </blockquote>
+<h3 id="修改数据">修改数据
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="err">字段名</span><span class="mi">1</span><span class="o">=</span><span class="err">值</span><span class="mi">1</span><span class="p">,</span><span class="err">字段名</span><span class="mi">2</span><span class="o">=</span><span class="err">值</span><span class="mi">2</span><span class="p">,...</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 作用是修改满足条件的一行数据对应字段的值，不是修改字段名
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删除数据">删除数据
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 如果没有修改条件，则会修改整张表中所有数据
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- DELETE语句不能删除某一个字段的值，可以使用UPDATE将该字段值设为NONE
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="dql">DQL
+</h2><p>数据查询语言，用于查询数据库中表的记录。它完整的参数可包含如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="err">字段列表</span><span class="p">]</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="err">表名列表</span><span class="p">]</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="err">条件列表</span><span class="p">]</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="err">分组字段列表</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">HAVING</span><span class="w"> </span><span class="p">[</span><span class="err">分组后筛选列表</span><span class="p">]</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">[</span><span class="err">排序字段列表</span><span class="p">]</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="p">[</span><span class="err">分页参数</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="基本条件查询">基本条件查询
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="w"> </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">排序规则</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>它与关系代数 $\pi_{L}(\sigma_{C}(R))$ 对应。</p>
+<p>常用运算符总结：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>功能</th>
+          <th>运算符</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&gt;</td>
+          <td>大于</td>
+          <td><code>IN(...)</code></td>
+          <td>在in之后的列表中的值（多选一）</td>
+      </tr>
+      <tr>
+          <td>&gt;=</td>
+          <td>大于等于</td>
+          <td><code>LIKE ' '</code></td>
+          <td>模糊匹配</td>
+      </tr>
+      <tr>
+          <td>&lt;</td>
+          <td>小于</td>
+          <td><code>IS NULL</code></td>
+          <td>数据为空</td>
+      </tr>
+      <tr>
+          <td>&lt;=</td>
+          <td>小于等于</td>
+          <td><code>AND</code> 或 <code>&amp;&amp;</code></td>
+          <td>逻辑与</td>
+      </tr>
+      <tr>
+          <td>=</td>
+          <td>等于</td>
+          <td><code>OR</code> 或 <code>||</code></td>
+          <td>逻辑或</td>
+      </tr>
+      <tr>
+          <td>&lt;&gt; 或 !=</td>
+          <td>不等于</td>
+          <td><code>NOT</code> 或 <code>!</code></td>
+          <td>逻辑非</td>
+      </tr>
+      <tr>
+          <td>BETWEEN&hellip;AND&hellip;</td>
+          <td>在某个范围之间（含端点）</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p><code>LIKE</code>后可接一个通配符，用于模糊匹配字段</p>
+<ol>
+<li><code>&quot;Star ____&quot;</code>将匹配字段中含有一个<code>Star</code>和4个字符的字符串。</li>
+<li><code>%&quot;s%</code>将匹配包含<code>'s</code>的字符串。</li>
+<li>SQL允许使用<code>ESCAPE</code>命令来排除特定的字符，例如<code>'x%%x%' ESCAPE 'x'</code>将匹配以<code>%</code>开头和结尾的字符串。</li>
+</ol>
+
+    </blockquote>
+<p>查询结果可通过参数<code>ORDER BY</code>排序，默认为升序排列。可通过<code>ORDER BY DESC</code>指定为降序排列，<code>ORDER BY ASC</code>为升序排列。</p>
+<h3 id="多表查询">多表查询
+</h3><p><code>FROM</code>后可接多个表，例如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="p">,</span><span class="w"> </span><span class="n">MovieExec</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;Star Wars&#34;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中<code>title</code>和<code>producerC#</code>位于表<code>Movies</code>中、<code>cert#</code>位于表<code>MovieExec</code>中，则查询结果将返回<code>producerC#</code>与<code>cert#</code>字段相同，且<code>title</code>为<code>&quot;Star Wars&quot;</code>的内容。</p>
+<h3 id="反身查询">反身查询
+</h3><p>若要在同一张表中查询元组内部元素之间的关系，则需对该表设置两个副本再进行查询。</p>
+<p>例如，查询哪两个Star有相同的address，则输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">name</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">MovieStar</span><span class="w"> </span><span class="n">Star1</span><span class="p">,</span><span class="w"> </span><span class="n">MovieStar</span><span class="w"> </span><span class="n">Star2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">address</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Star1</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Star2</span><span class="p">.</span><span class="n">name</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>必须设置两个副本<code>Star1</code>和<code>Star2</code>，否则条件判断将始终为<code>TRUE</code>。</p>
+
+    </blockquote>
+<p>对应的关系代数为：</p>
+$$\pi_{A_1, A_5}(\sigma_{A_2 = A_6 \ \mathrm{AND}\ A_1 < A_5}(\rho_{M(A_1, A_2, A_3, A_4)}(\mathrm{MovieStar}) \times \rho_{N(A_5, A_6, A_7, A_8)}(\mathrm{MovieStar})))$$<h3 id="子查询">子查询
+</h3><p>查询也可成为其他查询的一部分，像这样嵌套在查询内部的查询称作子查询。</p>
+<p>子查询可返回单个常量，用于<code>WHERE</code>语句；也可以返回一个关系；还可以在<code>FROM</code>语句中后接元组变量。</p>
+<p>这里主要展示返回标量值的子查询。</p>
+
+    <blockquote>
+        <p>标量值（Scalar）：元组的一个组成部分。例如元组 <code>Movies(title, year, length, genre, studioName, producerC#)</code>中，若使用SQL查询：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>返回值即为一个标量值。</p>
+
+    </blockquote>
+<p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MovieExec</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Star Wars&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="分组与聚合">分组与聚合
+</h3><p>聚合：将关系中的某些列合并。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>聚合操作符</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>SUM</code></td>
+          <td>对数值列求和</td>
+      </tr>
+      <tr>
+          <td><code>AVG</code></td>
+          <td>对数值列求平均值</td>
+      </tr>
+      <tr>
+          <td><code>MIN</code></td>
+          <td>数值列的最小值</td>
+      </tr>
+      <tr>
+          <td><code>MAX</code></td>
+          <td>数值列的最大值</td>
+      </tr>
+      <tr>
+          <td><code>COUNT</code></td>
+          <td>列中值的数量</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>分组：将元组的值分为若干组。<code>GROUP BY</code>后接一组分组属性，元组根据分组属性的值进行分组。</p>
+<p>分组后筛选：<code>HAVING</code>后接关于组的条件。</p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/database/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 数据库系统" height="150" loading="lazy" src="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg" srcset="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg 1x, /passage/cs/database/mysql_hu_9f919c0deea6afa1.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #de8f1380 0%, #1b0514C0 100%);">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/guide/docker/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post Docker" height="150" loading="lazy" src="/passage/guide/docker/docker_hu_fd0c0f7d79f64cbf.png" srcset="/passage/guide/docker/docker_hu_fd0c0f7d79f64cbf.png 1x, /passage/guide/docker/docker_hu_3a309e6aee09cc1c.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0b0a0d80 0%, #f8f9faC0 100%);">
+            <h2 class="article-title">Docker</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/website/cloudflare/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post Cloudflare的使用" height="150" loading="lazy" src="/passage/website/cloudflare/cloudflare_hu_341a2ee6ee8453a4.png" srcset="/passage/website/cloudflare/cloudflare_hu_341a2ee6ee8453a4.png 1x, /passage/website/cloudflare/cloudflare_hu_c50b0e49aa74e818.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #f6932a80 0%, #323332C0 100%);">
+            <h2 class="article-title">Cloudflare的使用</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/software/formal_methods/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/parallel_computing/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">并行计算</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>
