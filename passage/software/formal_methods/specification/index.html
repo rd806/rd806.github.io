@@ -1006,9 +1006,11 @@ $$\begin{array}{l} \Delta\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \
 $$\begin{array}{l} \Xi\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ a=a' \\ b=b' \\ \hline \end{array} \right.\end{array}$$<h4 id="其他">其他
 </h4><p>重命名（Renaming）：</p>
 $$\text{newSchemaName} == \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$<p>隐藏（Hide）：隐藏声明中的变量，让它只存在于谓词的运算符中，</p>
-$$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$<p>投影（Project）：隐藏除指定变量之外的变量，</p>
-$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$<p>合成（Composition）：表示执行 $S$ 后执行 $T$，隐藏了中间变量</p>
-<h3 id="输入和输出变量">输入和输出变量
+$$\text{newSchemaName} == \text{oldSchemaName} \backslash (\text{varName1}, \text{ varName2}, \cdots) $$<p> 例如：</p>
+$$\begin{array}{l} \text{S} \\ \left\| \begin{array}{l} x_1:T_1 \\ \vdots \\ x_n:T_n \\ \text{declaration} \\ \hline \varphi \\\hline \end{array} \right.\end{array} $$<p> 执行 $\text{S}_0 = \text{S} \backslash (x_1, x_2, \cdots, x_n)$ 后，可得 </p>
+$$\begin{array}{l} \text{S}_0 \\ \left\| \begin{array}{l} \text{declaration} \\ \hline \exist x_1:T_1; \cdots; x_n:T_n \cdot \varphi \\ \hline \end{array} \right.\end{array} $$<p>投影（Project）：隐藏除指定变量之外的变量，</p>
+$$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$<p>合成（Composition）：表示执行 $S$ 后执行 $T$，隐藏了中间变量，可表示为 </p>
+$$S \circ_g T = (S[x_1^+ / x'_1, \cdots, x_n^+ / x'_n] \land T[x_1^+ / x'_1, \cdots, x_n^+ / x'_n]) \backslash (x_1^+, \cdots, x_n^+) $$<h3 id="输入和输出变量">输入和输出变量
 </h3><p>输入变量：变量名 + $?$</p>
 <p>输出变量：变量名 + $!$</p>
 <p>举例：</p>

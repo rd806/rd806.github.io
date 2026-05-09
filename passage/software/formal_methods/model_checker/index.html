@@ -545,7 +545,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 5 分钟
+                        阅读时长: 6 分钟
                     </time>
                 
             </div>
@@ -752,7 +752,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">chan</span> <span class="n">cname</span> <span class="o">=</span> <span class="p">[</span><span class="err">&#39;</span><span class="k">const</span><span class="err">&#39;</span> <span class="p">]</span> <span class="n">of</span> <span class="p">{</span> <span class="kr">typename</span><span class="p">,</span> <span class="kr">typename</span><span class="p">,</span> <span class="err">…</span><span class="p">,</span> <span class="kr">typename</span><span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">chan</span> <span class="n">cname</span> <span class="o">=</span> <span class="p">[</span><span class="err">&#39;</span><span class="k">const</span><span class="err">&#39;</span> <span class="p">]</span> <span class="n">of</span> <span class="p">{</span> <span class="kr">typename</span><span class="p">,</span> <span class="kr">typename</span><span class="p">,</span> <span class="p">...,</span> <span class="kr">typename</span><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>例如：<code>chan ch = [16] of {short, byte, bit}</code></p>
@@ -784,7 +784,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 接收消息
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 参数的类型必须与声明中的类型相同
-</span></span></span><span class="line"><span class="cl"><span class="n">cname</span> <span class="err">？</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">cname</span> <span class="o">?</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果通道不为空，则该语句可执行（在这种情况下，消息将从通道中删除）；否则，该语句将被阻塞（等待正确的消息）。如果 $e_i$ 是一个变量，则消息中的值将被分配给 $e_i$。</p>
@@ -887,7 +887,7 @@
 </table></div>
 <p>它具有如下性质：</p>
 <ul>
-<li>否定律：$\lnot \text{X} \varphi \equiv \text{X} \lnot \varphi$，$\lnot \text{G} \varphi \equiv \text{G} \lnot \varphi$，$\lnot \text{F} \varphi \equiv \text{G} \lnot \varphi$</li>
+<li>否定律：$\lnot \text{X} \varphi \equiv \text{X} \lnot \varphi$，$\lnot \text{G} \varphi \equiv \text{F} \lnot \varphi$，$\lnot \text{F} \varphi \equiv \text{G} \lnot \varphi$</li>
 <li>分配律：$\text{G}(\varphi \land \psi) \equiv \text{G} \varphi \land \text{G} \psi$，$\text{F}(\varphi \lor \psi) \equiv \text{F} \varphi \lor \text{F} \psi$</li>
 <li>互定义：$\text{F} \varphi \equiv \lnot \text{G} \lnot \varphi$，$\text{G} \varphi \equiv \lnot \text{F} \lnot \varphi$，$\text{F} \varphi \equiv (p \lor \lnot p) \text{U} \varphi$</li>
 <li>幂等律：$\text{F} \text{F} \varphi \equiv \text{F} \varphi$，$\text{G} \text{G} \varphi \equiv \text{G} \varphi$</li>
@@ -913,7 +913,7 @@ $$\varphi ::= p \mid (\lnot \varphi) \mid (\varphi \lor \varphi) \mid (\varphi \
 <h3 id="路径">路径
 </h3><p>设 $M = (S, \rightarrow, L)$ 是一个迁移系统，则 $M$ 的一条路径是一个无限的序列 $\pi = (s_1, s_2, s_3, \cdots)$，其中 </p>
 $$\forall i \geqslant 1, (s_i \in S \land s_i \rightarrow s_{i+1})$$<p>在上述的弹簧示例中，有如下路径：</p>
-$$\pi_1 = \{s_1, s_2, s_3, s_3 ,s_3, \cdots\} \qquad \pi_2 = \{s_1, s_2. s_1, s_2, s_1, s_2, \cdots\}$$<h3 id="满足关系">满足关系
+$$\pi_1 = \{s_1, s_2, s_3, s_3 ,s_3, \cdots\} \qquad \pi_2 = \{s_1, s_2, s_1, s_2, s_1, s_2, \cdots\}$$<h3 id="满足关系">满足关系
 </h3><p>设 $M = (S, \rightarrow, L)$ 是一个迁移系统，$M$ 的一条路径为 $\pi$，则如果 $\pi \vDash^i \varphi$，则称LTL公式 $\varphi$ 在第 $i$ 阶段由 $\pi$（在 $M$ 下）满足。</p>
 <p>常见的满足关系如下：</p>
 <ul>
@@ -935,6 +935,12 @@ $$\pi_1 = \{s_1, s_2, s_3, s_3 ,s_3, \cdots\} \qquad \pi_2 = \{s_1, s_2. s_1, s_
 </ul>
 <p>对于两个LTL公式 $\varphi$ 和 $\psi$，若它们在同一个迁移系统 $M$ 下的所有路径 $\pi$ 的所有阶段 $i$ 均有 </p>
 $$\pi \vDash^i \varphi \text{ iff } \pi \vDash^i \psi$$<p> 则可记作 $\varphi \equiv \psi$</p>
+<p>对于上述的弹簧系统，则有：</p>
+<ul>
+<li>$\pi_1 \vDash^1 \text{X} \text{extended}$，即在路径1的条件下第1个迁移后的第2个状态 $s_2$ 为 $\text{extended}$</li>
+<li>$\pi_1 \vDash^1 \text{F} \text{malfunction}$，即在路径1的条件下第1个迁移后的未来某个时刻为 $\text{malfunction}$</li>
+<li>$\pi_2 \vDash^1 \lnot \text{F} \text{malfunction}$，即在路径2的条件下第1个迁移后未来的所有时刻都不会出现 $\text{malfunction}$，等价于 $\pi_2 \vDash^1 \text{G} \lnot \text{malfunction}$</li>
+</ul>
 
 </section>
 
