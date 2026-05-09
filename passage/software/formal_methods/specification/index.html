@@ -364,6 +364,7 @@
             <li><a href="#全称量词">全称量词</a></li>
             <li><a href="#存在量词">存在量词</a></li>
             <li><a href="#唯一量词">唯一量词</a></li>
+            <li><a href="#集合推导">集合推导</a></li>
           </ol>
         </li>
         <li><a href="#z中的关系">Z中的关系</a>
@@ -588,7 +589,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 10 分钟
                     </time>
                 
             </div>
@@ -661,6 +662,7 @@
             <li><a href="#全称量词">全称量词</a></li>
             <li><a href="#存在量词">存在量词</a></li>
             <li><a href="#唯一量词">唯一量词</a></li>
+            <li><a href="#集合推导">集合推导</a></li>
           </ol>
         </li>
         <li><a href="#z中的关系">Z中的关系</a>
@@ -727,7 +729,8 @@
 <li>$|S|$：集合 $S$ 中元素的个数</li>
 <li>$A \cup B$：集合 $A$ 与 $B$ 的并集 $A \cup B = \{x \mid x \in A \lor x \in B\}$</li>
 <li>$A \cap B$：集合 $A$ 与 $B$ 的交集：$A \cap B = \{x \mid x \in A \land x \in B\}$</li>
-<li>$A - B$：集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素：$A - B = {x \mid x \in A \land x \notin B} = {x \mid \lnot(x \in A \to x \in B)}$</li>
+<li>$A - B$：集合 $A$ 与 $B$ 的差，在集合 $A$ 但不在集合 $B$ 中的元素：
+$$A - B = \{x \mid x \in A \land x \notin B\} = \{x \mid \lnot(x \in A \to x \in B)\}$$</li>
 <li>$\overline{A}$：集合 $A$ 相对于全集 $U$ 的补集</li>
 <li>$A \oplus B$：集合 $A$ 与 $B$ 的对称差：在集合 $A$ 和 $B$ 但不在其交集的元素</li>
 </ol>
@@ -779,7 +782,7 @@
       </tr>
       <tr>
           <td>恒等关系</td>
-          <td>$\mathrm{i}d_A : \{(a,a) \mid (a \in A)\}$</td>
+          <td>$\mathrm{i}d_A :\equiv \{(a,a) \mid (a \in A)\}$</td>
       </tr>
       <tr>
           <td>逆关系</td>
@@ -806,7 +809,7 @@
       </tr>
       <tr>
           <td>反对称性</td>
-          <td>当且仅当关系 $R$ 满足 $(\forall a)(\forall b) ((a \in A \land b \in A) \Rightarrow ((a,b) \in R \land (b,a) \in R) \Rightarrow a = b)$</td>
+          <td>当且仅当关系 $R$ 满足 $(\forall a)(\forall b) ((a \in A \land b \in A) \Rightarrow ((a,b) \in R \land (b,a) \in R) \Rightarrow a = b)$，即仅有 $aRa$</td>
       </tr>
       <tr>
           <td>传递性</td>
@@ -851,27 +854,34 @@ n+1 &= n \cup \{n\}
 </h3><p>函数定义为从集合 $A$ 到集合 $B$ 的一种对应关系，记作 $f: A \rightarrow B$。</p>
 <h2 id="集合的描述">集合的描述
 </h2><h3 id="数据类型">数据类型
-</h3>
+</h3><p>某个类型的所有可能成员都具备一些共同特征，这时我们称它们属于同一个类型。Z语言就是在类型的集合论上建立起来的。</p>
+<h4 id="buildin-types">BuildIn types
+</h4><p>Z语言的内置类型，无需定义即可使用。常见的类型：</p>
+<ul>
+<li>Integer：表示所有整数，记作 $Z$，可使用 $+, -, *, \text{div}, \text{mod}$ 运算</li>
+<li>Natural（Integer类型的子集）：记作 $N$，必须为非负数。$N1$ 则表示正整数</li>
+</ul>
+<h4 id="basic-types">Basic types
+</h4><p>在名称周围添加方括号来声明，可附带注释。例如：</p>
+$$[\mathrm{PERSON}] \qquad \text{the set of all persons}$$<h4 id="free-types">Free types
+</h4><p>通过列举其元素来定义的数据类型，例如：</p>
+$$\text{freeType} ::= \text{element}_1 \mid \text{element}_2 \mid \cdots \mid \text{element}_n$$<h3 id="变量">变量
+</h3><p>Z语言的每个变量名在赋值前必须先声明，格式为 </p>
+$$v: \text{TYPE}$$
     <blockquote>
-        <p>某个类型的所有可能成员都具备一些共同特征，这时我们称它们属于同一个类型。</p>
-<p>Z语言就是在类型的集合论上建立起来的。</p>
+        <p>示例，$\text{chauffeur}: \text{PERSON}$，表示 $\text{chauffeur}$ 是 $\text{PERSON}$ 类型的变量。</p>
 
     </blockquote>
-<h4 id="buildin-types">BuildIn types
-</h4><p>Z语言的内置类型，无需定义即可使用。<br> Integer：记作 $Z$，可使用 &ldquo;+, -, *, div, mod&rdquo; 运算 <br> Natural：Integer类型的子集，记作 $N$，必须为非负数。$N1$ 则表示正整数</p>
-<h4 id="basic-types">Basic types
-</h4><p>在名称周围添加方括号来声明，可附带注释。例如：<br> $[\mathrm{PERSON}] \qquad \text{the set of all persons}$</p>
-<h4 id="free-types">Free types
-</h4><p>通过列举其元素来定义的数据类型，例如：<br> $\text{freeType} ::= \text{element}_1 \mid \text{element}_2 \mid \cdots \text{element}_n$ |</p>
-<h3 id="变量">变量
-</h3><p>Z语言的每个变量名在赋值前必须先声明，格式为 $v: \text{TYPE}$</p>
-<p>示例：$\text{chauffeur}: \text{PERSON}$</p>
 <h3 id="集合">集合
 </h3><p>Z语言中的集合可以通过在括号内列举它的所有值来声明。</p>
-
-    <blockquote>
-        <p>集合中的元素值的类型必须是先前声明过的类型，否则视为非法值。</p>
-
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>集合中的元素值的类型必须是先前声明过的类型，否则视为非法值。</p>
+        </div>
     </blockquote>
 <div class="table-wrapper"><table>
   <thead>
@@ -881,6 +891,10 @@ n+1 &= n \cup \{n\}
       </tr>
   </thead>
   <tbody>
+      <tr>
+          <td>集合的大小（势）</td>
+          <td>$\# S$</td>
+      </tr>
       <tr>
           <td>幂集</td>
           <td>$\mathbb{P} S$</td>
@@ -913,27 +927,40 @@ n+1 &= n \cup \{n\}
 <li>定义查询操作，使其在不改变系统状态的前提下获取系统信息</li>
 </ol>
 <p>案例：乘客登机系统</p>
+<ul>
+<li>基本数据类型：
+$$[\text{PERSON}]$$</li>
+<li>变量：
+$$\text{capacty}: N \quad \text{飞机的座位容量} \\ \text{onboard}: \mathbb{P}\text{PERSON} \quad \text{已登机的人群集合}$$</li>
+<li>全局约束：
+$$\# \text{onboard} \leqslant \text{capacity}$$</li>
+<li>初始化操作：
+$$\text{onboard}' = \oslash$$</li>
+<li>登机操作：
+$$\begin{align*} & p: \text{PERSON} \\ & p \in \text{onboard} \\ & \# \text{onboard} < \text{capacity} \\ & \text{onboard}' \cup \{p\}  \end{align*}$$</li>
+<li>下机操作：
+$$\begin{align*} & p: \text{PERSON} \\ & p \in \text{onboard} \\ & \text{onboard}' \backslash \{p\}  \end{align*}$$</li>
+<li>查询登机人数：
+$$\begin{align*} & \text{numOnboard}: N \\ & \text{numOnboard} = \# \text{onBoard} \\ & \text{onBoard}' = \text{onBoard} \end{align*}$$</li>
+<li>查询乘客是否登机：
+$$\begin{align*} & \text{RESPONSE} ::= \text{yes} \mid \text{no} \\ & \text{numOnboard}: N \\ & \text{reply}: \text{RESPONSE} \\ & ((p \in \text{onBoard} \land \text{reply} = \text{yes}) \lor (p \notin \text{onBorad} \land \text{reply} = no)) \\ & \text{onBoard}' = \text{onBoard} \end{align*}$$</li>
+</ul>
+
+    <blockquote>
+        <p>更一般的，可以使用集合和逻辑运算符一起描述一个系统：
+</p>
+$$\text{RESPONSE} ::= \text{OK} \mid \text{twoErrors} \mid \text{onBoard} \mid \text{full} \mid \text{notOnboard}$$<p>
+这样可以方便地给出登机操作：</p>
+$$\begin{align*} & p: \text{PERSON} \\ & \text{reply}: \text{RESPONSE} \\ & (p \notin \text{onBoard} \land \# \text{onBoard} < \text{capacity} \land \text{onBoard}' = \text{onBoard} \cup \{p\} \land \text{reply} = \text{OK}) \\ \lor & (p \in \text{onBoard} \land \# \text{onBoard} = \text{capacity} \land \text{onBoard}' = \text{onBoard} \land \text{reply} = \text{twoErrors}) \\ \lor & (p \in \text{onBoard} \land \# \text{onBoard} < \text{capacity} \land \text{onBoard}' = \text{onBoard} \land \text{reply} = \text{onBoard}) \\ \lor & (p \notin \text{onBoard} \land \# \text{onBoard} = \text{capacity} \land \text{onBoard}' = \text{onBoard} \land \text{reply} = \text{full}) \\\end{align*}$$<p>
+同理可给出下机操作：</p>
+$$\begin{align*} & p: \text{PERSON} \\ & \text{reply}: \text{RESPONSE} \\ & (p \in \text{onBoard} \land \text{onBoard}' = \text{onBoard} \backslash \{p\} \land \text{reply} = \text{OK}) \\ \lor & (p \notin \text{onBoard} \land \text{onBoard}' = \text{onBoard} \land \text{reply} = \text{notOnboard})\end{align*}$$
+    </blockquote>
 <h2 id="模式">模式
 </h2><p>模式是一种结构化的规格说明。</p>
 <h3 id="模式表达">模式表达
-</h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>格式</th>
-          <th>表示</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>图表格式</td>
-          <td>$\begin{array}{l} \text{SchemaName} \\ \left| \begin{array}{l} \text{Declarations} \\ \hline \text{Predicate} \\ \hline \end{array} \right.\end{array}$</td>
-      </tr>
-      <tr>
-          <td>文字格式</td>
-          <td>$\text{SchemaName} == [\ \text{Declarations} \mid \text{Predicate} \ ]$</td>
-      </tr>
-  </tbody>
-</table></div>
+</h3><p>图表格式：</p>
+$$\begin{array}{l} \text{SchemaName} \\ \left\| \begin{array}{l} \text{Declarations} \\ \hline \text{Predicate} \\ \hline \end{array} \right.\end{array}$$<p>文字格式：</p>
+$$\text{SchemaName} == [\ \text{Declarations} \mid \text{Predicate} \ ]$$<p>一个完整的模式应当包含以下内容：</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -971,21 +998,21 @@ n+1 &= n \cup \{n\}
 $$\begin{array}{l} \text{S} \\ \left\| \begin{array}{l} a,b:N \\ \hline a < b \\ \hline \end{array} \right. \end{array} \begin{array}{l} \text{S'} \\ \left\| \begin{array}{l} a',b':N \\ \hline a' < b' \\ \hline \end{array} \right. \end{array}$$<h4 id="包含">包含
 </h4><p>包含（Inclusion）： 一个模式的声明可以包含另一个模式，会将被包含模式的声明和谓词合并，可表示为</p>
 $$\begin{array}{l} \text{IncludeS} \\ \left\| \begin{array}{l} c:N \\ S \\ \hline c<10 \\ \hline \end{array} \right.\end{array}$$<h4 id="合取与析取">合取与析取
-</h4><p>合取（Conjunction）：将两个模式取交，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的与</p>
-<p>析取（Disjunction）：将两个模式取并，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的或</p>
+</h4><p>合取（Conjunction）：将两个模式取交，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的与。</p>
+<p>析取（Disjunction）：将两个模式取并，得到一个新模式，其声明原来两个模式的合并，谓词是原来两个模式的或。</p>
 <h4 id="delta--xi">Delta &amp; Xi
 </h4><p>Delta convention 表示模式的改变，可以类比为复制一份，可表示为</p>
 $$\begin{array}{l} \Delta\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ \hline \end{array} \right.\end{array}$$<p>Xi convention 表示模式的改变，可以类比为复制一份，它的声明比Delta convention更强，可表示为</p>
 $$\begin{array}{l} \Xi\text{S} \\ \left\| \begin{array}{l} a,b:N \\ a',b':N \\ \hline a < b \\ a' < b' \\ a=a' \\ b=b' \\ \hline \end{array} \right.\end{array}$$<h4 id="其他">其他
-</h4><p>重命名（Renaming）： </p>
+</h4><p>重命名（Renaming）：</p>
 $$\text{newSchemaName} == \text{oldSchemaName} [\text{newName1/oldName1}, \text{newName2/oldName2}, \cdots]$$<p>隐藏（Hide）：隐藏声明中的变量，让它只存在于谓词的运算符中，</p>
 $$\text{newSchemaName} == \text{oldSchemaName} \ (\text{varName1}, \text{ varName2}, \cdots) $$<p>投影（Project）：隐藏除指定变量之外的变量，</p>
 $$\text{newSchemaName} == \text{oldSchemaName} \uparrow (\text{varName1}, \text{varName2}, \cdots)$$<p>合成（Composition）：表示执行 $S$ 后执行 $T$，隐藏了中间变量</p>
 <h3 id="输入和输出变量">输入和输出变量
-</h3><p>输入变量：变量名 + ?</p>
-<p>输出变量：变量名 + !</p>
+</h3><p>输入变量：变量名 + $?$</p>
+<p>输出变量：变量名 + $!$</p>
 <p>举例：</p>
-$$\begin{array}{l} \text{Add} \\ \left\| \begin{array}{l} a?,b?:N \\ sum!:N \\ \hline sum! = a? + b? \\ \hline \end{array} \right.\end{array}$$<h2 id="谓词量词与关系">谓词、量词与关系
+$$\begin{array}{l} \text{Add} \\ \left\| \begin{array}{l} a?,b?:N \\ \text{sum}!:N \\ \hline \text{sum}! = a? + b? \\ \hline \end{array} \right.\end{array}$$<h2 id="谓词量词与关系">谓词、量词与关系
 </h2><h3 id="谓词">谓词
 </h3><div class="table-wrapper"><table>
   <thead>
@@ -1015,9 +1042,10 @@ $$\begin{array}{l} \text{Add} \\ \left\| \begin{array}{l} a?,b?:N \\ sum!:N \\ \
 <h4 id="存在量词">存在量词
 </h4>$$\exist \ \text{declaration} \mid \text{constraint} \cdot \text{predicate}$$<p>$\text{declaration}$ 给出一些变量，$\text{contraint}$ 约束为确定的值，$\text{predicate}$ 对于一些值为真</p>
 <h4 id="唯一量词">唯一量词
-</h4>$$\exist_1 \ \text{declaration} \mid \text{constraint} \cdot \text{predicate}$$<p> | 只存在一个值使得 $\text{declaration}$ 为真 |</p>
-<p>集合推导：通过给定条件（谓词）来定义集合。表示为 $\{\text{declaration} \mid \text{constraint} \cdot \text{expression}\}$</p>
-<p>例如：$\{x: Z \mid \text{Even}(x) \cdot x^2 \}$ 表示偶数的平方的集合。</p>
+</h4>$$\exist_1 \ \text{declaration} \mid \text{constraint} \cdot \text{predicate}$$<p> 只存在一个值使得 $\text{declaration}$ 为真</p>
+<h4 id="集合推导">集合推导
+</h4><p>通过给定条件（谓词）来定义集合。表示为 </p>
+$$\{\text{declaration} \mid \text{constraint} \cdot \text{expression}\}$$<p>例如：$\{x: Z \mid \text{Even}(x) \cdot x^2 \}$ 表示偶数的平方的集合。</p>
 <h3 id="z中的关系">Z中的关系
 </h3><h4 id="声明关系">声明关系
 </h4>$$R: X \leftrightarrow Y \quad (X \leftrightarrow Y == \mathbb{P}(X \times Y))$$<p>举例：</p>
@@ -1061,7 +1089,7 @@ $$xRy == x \mapsto y \in R == (x,y) \in R$$
   <tbody>
       <tr>
           <td>中缀关系</td>
-          <td>$\_\ R\ \_ : X \leftrightarrow Y$</td>
+          <td>$\_\ R\ \_ : X \leftrightarrow Y$ 常用来定义新关系</td>
       </tr>
       <tr>
           <td>反转关系</td>
@@ -1069,7 +1097,7 @@ $$xRy == x \mapsto y \in R == (x,y) \in R$$
       </tr>
       <tr>
           <td>组合关系</td>
-          <td>若 $R: X \leftrightarrow Y$，$Q: Y \leftrightarrow Z$，则 $R;Q: X \leftrightarrow Z$，$Q \circ R == R;Q$</td>
+          <td>若 $R: X \leftrightarrow Y$，$Q: Y \leftrightarrow Z$，则 $R;Q: X \leftrightarrow Z$</td>
       </tr>
       <tr>
           <td>恒等关系</td>
@@ -1077,6 +1105,12 @@ $$xRy == x \mapsto y \in R == (x,y) \in R$$
       </tr>
   </tbody>
 </table></div>
+
+    <blockquote>
+        <p>我们有反向组合 $Q \circ R == R;Q$</p>
+<p>特别地，若 $R: X \leftrightarrow X$（即 $xRx$ ），则 $R;R: X \leftrightarrow X$（可记作 $x R^2 x$）</p>
+
+    </blockquote>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1136,8 +1170,10 @@ $$\begin{align*} & \text{[PERSON]} \\ & \text{father, mother}: \text{PERSON} \le
         <p>当 $x \in \text{dom}f$ 且最多只对应一个 $y$ 时，等价于关系 $f: X \leftrightarrow Y, x \in \text{dom}f \Rightarrow \exist_1 y:Y \cdot xfy$</p>
 
     </blockquote>
-<p>若 $\text{source}$ 不全在 $\text{domain}$ 中，则称为部分函数；</p>
-<p>若 $\text{source}$ 全在 $\text{domain}$ 中，则称为全函数。</p>
+<ul>
+<li>若 $\text{source}$ 不全在 $\text{domain}$ 中，则称为部分函数；</li>
+<li>若 $\text{source}$ 全在 $\text{domain}$ 中，则称为全函数。</li>
+</ul>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1148,15 +1184,15 @@ $$\begin{align*} & \text{[PERSON]} \\ & \text{father, mother}: \text{PERSON} \le
   <tbody>
       <tr>
           <td>单射</td>
-          <td>一对一的关系，部分函数中记作 $f: X &gt;+ \rightarrow Y$，全函数中记作 $f: X &gt; \rightarrow Y$</td>
+          <td>一对一的关系，部分函数中记作 $f: X &gt;+ \rightarrow Y$，全函数中记作 $f: X \rightarrowtail Y$</td>
       </tr>
       <tr>
           <td>满射</td>
-          <td>函数的值域是整个 $\text{target}$，部分函数记作 $f: X + \rightarrow &gt; Y$，全函数中记作 $f: X \rightarrow &gt; Y$</td>
+          <td>函数的值域是整个 $\text{target}$，部分函数记作 $f: X + \twoheadrightarrow Y$，全函数记作 $f: X \twoheadrightarrow Y$</td>
       </tr>
       <tr>
           <td>双射</td>
-          <td>既是单射又是满射的函数，记作 $f: X &gt; \rightarrow &gt; Y$</td>
+          <td>既是单射又是满射的函数，记作 $f: X \rightarrowtail Y$</td>
       </tr>
   </tbody>
 </table></div>
