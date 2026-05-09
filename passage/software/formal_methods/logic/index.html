@@ -368,7 +368,7 @@
             <li><a href="#排奇律">排奇律</a></li>
             <li><a href="#单调律">单调律</a></li>
             <li><a href="#合取分配律">合取分配律</a></li>
-            <li><a href="#折取分配律">折取分配律</a></li>
+            <li><a href="#析取分配律">析取分配律</a></li>
           </ol>
         </li>
         <li><a href="#几种常用语句">几种常用语句</a>
@@ -582,7 +582,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 12 分钟
+                        阅读时长: 13 分钟
                     </time>
                 
             </div>
@@ -659,7 +659,7 @@
             <li><a href="#排奇律">排奇律</a></li>
             <li><a href="#单调律">单调律</a></li>
             <li><a href="#合取分配律">合取分配律</a></li>
-            <li><a href="#折取分配律">折取分配律</a></li>
+            <li><a href="#析取分配律">析取分配律</a></li>
           </ol>
         </li>
         <li><a href="#几种常用语句">几种常用语句</a>
@@ -726,9 +726,17 @@
         </div>
     </blockquote>
 <h3 id="命题符号">命题符号
-</h3><p>用小写英文字母 $p, q, r, \cdots, p_i, q_i, r_i$ $(i \leqslant1)$ 表示简单命题，将表示命题的符号放在该命题的前面，称为命题符号化。其中“1”表示真，用“0”表示假</p>
+</h3><p>用小写英文字母 $p, q, r, \cdots, p_i, q_i, r_i$ $(i \geqslant 1)$ 表示简单命题，将表示命题的符号放在该命题的前面，称为命题符号化。其中“1”表示真，用“0”表示假</p>
 <p>对简单命题而言，它的真值是确定的，因而又称为命题常项或命题常元。</p>
-<p>例如，记命题 $p$：$\sqrt{2}$ 是有理数，则 $p$ 的真值为 0；命题 $q$：$2 + 5 = 7$，则 $q$ 的真值为 1。</p>
+
+    <blockquote>
+        <p>例如，</p>
+<ul>
+<li>命题 $p$：$\sqrt{2}$ 是有理数，则 $p$ 的真值为 0；</li>
+<li>命题 $q$：$2 + 5 = 7$，则 $q$ 的真值为 1。</li>
+</ul>
+
+    </blockquote>
 <h3 id="演绎系统">演绎系统
 </h3><p>演绎系统提供了一种证明 $\Sigma \vDash \psi$ 的方法。</p>
 <p>每个推理规则遵循如下的格式：</p>
@@ -780,7 +788,9 @@ $$\frac{\Sigma \vDash \varphi \Leftrightarrow \psi \quad \Sigma \vDash \varphi}{
 <li>如果 $\varphi$ 是一个公式，$x$ 是一个变量，$S$ 是一元谓词符号，那么 $\forall x:S \cdot \varphi$ 和 $\exist x:S \cdot \varphi$ 均是公式。在这两个公式中，$\varphi$ 分别被称为量词 $\forall x:S$ 和 $\exist x:S$ 的作用域。</li>
 </ol>
 <h4 id="逻辑推理">逻辑推理
-</h4><p>假设 $\Sigma = \{\varphi_1, \varphi_2, \cdots, \varphi_n\}$，$\varphi_1, \varphi_2, \cdots, \varphi_n$ 和 $\psi$ 是句子。如果 $ \varphi_1 \land \varphi_2 \land \cdots \land \varphi_n \Rightarrow \psi$ 成立，则记作 $\Sigma \vDash \psi$ （或 $\varphi_1, \varphi_2, \cdots, \varphi_n \vDash \psi$）。在这种情况下，我们说 $\psi$ 可以从 $\Sigma$ 导出。</p>
+</h4><p>假设 $\Sigma = \{\varphi_1, \varphi_2, \cdots, \varphi_n\}$，$\varphi_1, \varphi_2, \cdots, \varphi_n$ 和 $\psi$ 是句子。如果 </p>
+$$ \varphi_1 \land \varphi_2 \land \cdots \land \varphi_n \Rightarrow \psi$$<p> 成立，则记作 </p>
+$$\Sigma \vDash \psi$$<p> （或 $\varphi_1, \varphi_2, \cdots, \varphi_n \vDash \psi$）。在这种情况下，我们说 $\psi$ 可以从 $\Sigma$ 导出。</p>
 <p>当 $\varphi \vDash \psi$ 且 $\psi \vDash \varphi$ 时，则称 $\varphi$ 与 $\psi$ 等价，记作 $\varphi \equiv \psi$</p>
 
     <blockquote>
@@ -805,8 +815,8 @@ $$\frac{\Sigma \vDash \varphi \Leftrightarrow \psi \quad \Sigma \vDash \varphi}{
 <li>对任意的 $y \ne x$，有 $y^{v[\alpha / x]} = y^v$</li>
 </ol>
 <p>在 $A, v \vDash \varphi$ 中，如果 $\varphi$ 是一个语句，则可以省略 $v$，只需写 $A \vDash \varphi$。</p>
-<p>如果 $A \vDash \varphi$，那么我们说 $A$ 满足 $\varphi$，或者等价地说，$A$ 是 $\varphi$ 的模型</p>
-<p>设 $\Sigma$ 为一组句子。如果对于所有 $\varphi \in \Sigma$，都有 $A \vDash \varphi$，我们说 $A$ 是 $\Sigma$的模型，</p>
+<p>如果 $A \vDash \varphi$，那么我们说 $A$ 满足 $\varphi$，或者等价地说，$A$ 是 $\varphi$ 的模型。</p>
+<p>设 $\Sigma$ 为一组句子。如果对于所有 $\varphi \in \Sigma$，都有 $A \vDash \varphi$，我们说 $A$ 是 $\Sigma$的模型。</p>
 <p>由此，我们可以得出逻辑推论的定义：</p>
 <p>记 $\Sigma$ 为一组公式，$\psi$ 为一个公式。如果对于 $A$ 上的所有赋值 $v$，都有 </p>
 $$(\forall \varphi \in \Sigma:A, v \vDash \varphi) \Rightarrow A,v \vDash \varphi$$<p> 那么我们说 $\Sigma$ 在逻辑上意味着 $\varphi$，写为 $\Sigma \vDash \varphi$，$\varphi$ 被称为 $\Sigma$ 的逻辑蕴含</p>
@@ -885,14 +895,71 @@ $$\frac{}{\vDash x=x} \quad [=+]$$</li>
 <li>建立检验条件</li>
 <li>验证检验条件</li>
 </ol>
+<p>例如，设 $x_1$，$x_2$ 是正整数，求它们的最大公约数 $z = \gcd(x_1,x_2)$。该程序的流程图如下：</p>
+<p><img alt="求最大公约数" class="gallery-image" data-flex-basis="212px" data-flex-grow="88" height="631" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/logic/images/%E6%B1%82%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0.png" width="558"></p>
 <h4 id="建立断言">建立断言
 </h4><p>建立输⼊断言和输出断言，</p>
 <p>若有循环，在循环通路中选取⼀个断点来“分割”循环，并在此建立一个适当的断言。</p>
+<p>对于求最大公约数的例子，则有：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>断言</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>输入断言</td>
+          <td>$P(x): x_1 &gt; 0 \land x_2 &gt; 0$</td>
+      </tr>
+      <tr>
+          <td>输出断言</td>
+          <td>$Q(x,z): z = \gcd(x_1, x_2)$</td>
+      </tr>
+      <tr>
+          <td>不变式断言</td>
+          <td>$p(x,y): x_1 &gt; 0 \land x_2 &gt; 0 \land y_1 &gt; 0 \land y_2 &gt; 0 \\ \land \gcd(x_1, x_2) = \gcd(y_1, y_2)$</td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="建立检验条件">建立检验条件
 </h4><p>程序的执行可以分解为几条有限的通路，对每一条通路建立一个检验条件（程序运行时要想通过通路应当满足的条件）。</p>
 <p>若将每一条通路看作一段程序，它的输入和输出断言分别为 $P_i(\overline{x}, \overline{y})$，$Q_i(\overline{x}, \overline{y})$，通过此通路的条件为 $R_i(\overline{x}, \overline{y})$，通过此路后 $y$ 的值变为 $r_i(\overline{x}, \overline{y})$，则相应的检验条件为 </p>
-$$P_i(\overline{x}, \overline{y}) \land R_i(\overline{x}, \overline{y}) \Rightarrow Q_i(\overline{x}, r_i(\overline{x}, \overline{y}))$$<h4 id="验证检验条件">验证检验条件
+$$P_i(\overline{x}, \overline{y}) \land R_i(\overline{x}, \overline{y}) \Rightarrow Q_i(\overline{x}, r_i(\overline{x}, \overline{y}))$$<p>对于求最大公约数的例子，则有4条通路：</p>
+<ul>
+<li>$a_1: A \rightarrow B$，
+<ul>
+<li>$R_1(x,y) = \text{True}$</li>
+<li>$r_1(x,y) = (x_1, x_2)$</li>
+<li>检验条件：$P(x) \land R_1(x,y) \Rightarrow p(x, r_1(x,y))$</li>
+</ul>
+</li>
+<li>$a_2: B \rightarrow D \rightarrow B$
+<ul>
+<li>$R_2(x,y) = (y_1 \ne y_2) \land (y_1 &gt; y_2)$</li>
+<li>$r_2(x,y) = (y_1 - y_2, y_2)$</li>
+<li>检验条件：$p(x,y) \land R_2(x,y) \Rightarrow p(x, r_2(x,y))$</li>
+</ul>
+</li>
+<li>$a_3: B \rightarrow E \rightarrow B$
+<ul>
+<li>$R_3(x,y) = (y_1 \ne y_2) \land (y_1 \leqslant y_2)$</li>
+<li>$r_3(x,y) = (y_1, y_2-y_1)$</li>
+<li>检验条件：$p(x,y) \land R_3(x,y) \Rightarrow p(x, r_3(x,y))$</li>
+</ul>
+</li>
+<li>$a_4: B \rightarrow G \rightarrow C$
+<ul>
+<li>$R_4(x,y) = (y_1 = y_2)$</li>
+<li>$r_4(x,z) = y_1$</li>
+<li>检验条件：$p(x,y) \land R_4(x,y) \Rightarrow Q(x, r_4(x,z))$</li>
+</ul>
+</li>
+</ul>
+<h4 id="验证检验条件">验证检验条件
 </h4><p>验证第2步中得到的所有的检验条件，如果每一通路的检验条件均为真，则该程序是部分正确的。</p>
+<p>对于求最大公约数的例子，将上述的4个检验条件展开，证明它们为真。</p>
 <h3 id="良序集法">良序集法
 </h3><h4 id="良序集的概念">良序集的概念
 </h4><p>设有一个非空集合 $W$ 和一个定义在 $W$ 上的二元关系 $\preccurlyeq$，满足以下性质：</p>
@@ -908,7 +975,9 @@ $$P_i(\overline{x}, \overline{y}) \land R_i(\overline{x}, \overline{y}) \Rightar
 <ol>
 <li>选择一个割点集合，去截断程序的各个循环部分，并在每一个截点 $i$ 处建立一个中间断言 $q_i(x,y)$。这样程序被分成若干个通路，同时规定每一通路都不含中间截断点。</li>
 <li>选取一个良序集 $(W, \preccurlyeq)$，并且在每一个截断点 $i$ 处定义一个终止表达式 $E_i(x,y)$</li>
-<li>证明所选取的断言是“良断言”，即对于每一个从程序入口到断点 $j$ 的通路 $a$ 有 $P(x) \land R_a(x,y) \Rightarrow q_j(x, r_a(x,y))$；对于每个从断点 $i$ 到断点 $j$ 的通路 $b$ 有 $q_i(x,y) \land R_b(x,y) \Rightarrow q_j(x, r_b(x,y))$</li>
+<li>证明所选取的断言是“良断言”，即对于每一个从程序入口到断点 $j$ 的通路 $a$ 有
+$$P(x) \land R_a(x,y) \Rightarrow q_j(x, r_a(x,y))$$对于每个从断点 $i$ 到断点 $j$ 的通路 $b$ 有
+$$q_i(x,y) \land R_b(x,y) \Rightarrow q_j(x, r_b(x,y))$$</li>
 </ol>
 
     <blockquote>
@@ -933,6 +1002,22 @@ $$q_i(x,y) \land R_a(x,y) \Rightarrow [E_i(x,y) \succcurlyeq E_j(x, r_a(x,y))]$$
         <p>步骤5进一步告诉我们，当程序通过与循环有关的每一条通路时，$E_i(x,y)$ 的值在所规定的关系 $\preccurlyeq$ 的意义续下递减</p>
 
     </blockquote>
+<p>例：证明计算 $z=\sqrt{x}$ 的程序的终止性</p>
+<p><img alt="良序集法" class="gallery-image" data-flex-basis="170px" data-flex-grow="71" height="879" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/logic/images/%E8%89%AF%E5%BA%8F%E9%9B%86%E6%B3%95.png" width="626"></p>
+<ol>
+<li>在 $B'$ 处将循环断开，有：$q(x,y_1,y_2,y_3): y_2 \leqslant x \land y_3&gt;0$</li>
+<li>取良序集为 $(N,\preccurlyeq)$，即具有小于关系的自然数集合，并在 $B'$ 点定义终止表达式：$E(x,y) = x-y_2$</li>
+<li>证明 $q(x,y)$ 是良断言，即证明对路径 $A \rightarrow B'$ 有：
+$$P(x) \land \text{True} \Rightarrow q(x,0,0,1)$$即：
+$$x \geqslant 0 \Rightarrow 0 \leqslant x \land 1>0$$对路径 $B' \rightarrow B'$ 有：
+$$q(x,y) \land y_2+y_3 \leqslant x \Rightarrow q(x,y_1+1,y_2+y_3,y_3+2)$$即：
+$$y_2 \leqslant x \land y_3>0 \land y_2+y_3 \leqslant x \Rightarrow (y_2+y_3 \leqslant x \land y_3+2>0)$$可以证明上式为真，因此中间断言 $q(x,y)$ 是良断言。</li>
+<li>证明 $E(x,y)$ 是良函数，即 $q(x,y) \Rightarrow E(x,y) \in N$，等价于
+$$y_2 \leqslant x \land y_3>0 \Rightarrow x-y_2 \geqslant 0$$</li>
+<li>证明终止条件成立，与循环有关的通路只有 $B' \rightarrow D \rightarrow B'$，因而只需证明
+$$q(x,y) \land y_2+y_3 \leqslant x \Rightarrow (E(x,y)>E(x,y_1+1,y_2+y_3,y_3+2))$$即：
+$$y_2 \leqslant x \land y_3>0 \land y_2+y_3 \leqslant x \Rightarrow (x-y_2)>(x-(y_2+y_3))$$这样，就证明了程序的终止性。</li>
+</ol>
 <h3 id="hoare公理学方法">Hoare公理学方法
 </h3><p>Hoare系统是一个关于形如 $[P]\ S\ [Q]$ 的断言的逻辑系统。$[P]\ S\ [Q]$ 是为了区别于完全正确的 $\{P\}S\{Q\}$ 断言的部分正确性断言的表示方法。这种方法是针对<code>WHILE</code>型程序提出的。</p>
 <h4 id="基本概念">基本概念
@@ -1002,7 +1087,7 @@ $$P = \text{wp}(S,Q)$$<h3 id="性质和公理">性质和公理
 </h4><p>如果 $R \subset Q$，则 </p>
 $$\text{wp}(S,R) \subset \text{wp}(S,Q)$$<h4 id="合取分配律">合取分配律
 </h4>$$\text{wp}(S,Q) \land \text{wp}(S,R) = \text{wp}(S, Q \land R)$$<p>表示从某一状态开始执行 $S$ 能终止，且分别满足 $Q$ 和 $R$ 的状态，那它终止时当然满足 $Q \land R$，反之亦然。</p>
-<h4 id="折取分配律">折取分配律
+<h4 id="析取分配律">析取分配律
 </h4>$$\text{wp}(S,Q) \lor \text{wp}(S,R) \supset \text{wp}(S, Q \lor R)$$<p>对于确定程序：从某一个状态出发，程序不管执行多少次，所经过的路径相同，所得的结果也相同。</p>
 $$\text{wp}(S,Q) \lor \text{wp}(S,R) = \text{wp}(S, Q \lor R)$$<p>对于不确定程序：从某一个状态出发，程序的任何两次执行可能得到的结果都不同，有时即便所得的结果相同，可能经过的路径也不同。</p>
 $$\text{wp}(S,Q) \lor \text{wp}(S,R) \supset \text{wp}(S, Q \lor R)$$<h3 id="几种常用语句">几种常用语句
