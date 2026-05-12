@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="关系数据库模型">
+<title>数据库系统</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/cs/database/model/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="数据库系统">
+<meta property='og:description' content="关系数据库模型">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/database/model/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-14T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="数据库系统">
+<meta name="twitter:description" content="关系数据库模型">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/cs/database/model/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        toc
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#关系代数ra">关系代数（RA）</a>
+      <ol>
+        <li><a href="#集合运算">集合运算</a></li>
+        <li><a href="#投影运算">投影运算</a></li>
+        <li><a href="#选择运算">选择运算</a></li>
+        <li><a href="#笛卡尔积">笛卡尔积</a></li>
+        <li><a href="#自然连接">自然连接</a></li>
+        <li><a href="#theta-连接">$\theta$-连接</a></li>
+        <li><a href="#重命名">重命名</a></li>
+      </ol>
+    </li>
+    <li><a href="#依赖">依赖</a>
+      <ol>
+        <li><a href="#函数依赖">函数依赖</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#关系的键">关系的键</a></li>
+          </ol>
+        </li>
+        <li><a href="#函数依赖的规则">函数依赖的规则</a>
+          <ol>
+            <li><a href="#分解结合规则">分解/结合规则</a></li>
+            <li><a href="#平凡函数依赖">平凡函数依赖</a></li>
+            <li><a href="#属性的闭包">属性的闭包</a></li>
+            <li><a href="#传递规则">传递规则</a></li>
+            <li><a href="#函数依赖的投影">函数依赖的投影</a></li>
+          </ol>
+        </li>
+        <li><a href="#模式设计">模式设计</a>
+          <ol>
+            <li><a href="#关系的分解">关系的分解</a></li>
+            <li><a href="#bc范式">BC范式</a></li>
+            <li><a href="#分解为bc范式">分解为BC范式</a></li>
+          </ol>
+        </li>
+        <li><a href="#分解的优劣">分解的优劣</a>
+          <ol>
+            <li><a href="#从分解中恢复信息">从分解中恢复信息</a></li>
+            <li><a href="#无损连接的检验">无损连接的检验</a></li>
+            <li><a href="#依赖的保持">依赖的保持</a></li>
+          </ol>
+        </li>
+        <li><a href="#第三范式">第三范式</a></li>
+        <li><a href="#多值依赖">多值依赖</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#推导">推导</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#高级数据库模型">高级数据库模型</a>
+      <ol>
+        <li><a href="#er模型">E/R模型</a>
+          <ol>
+            <li><a href="#er图">E/R图</a></li>
+            <li><a href="#二元联系">二元联系</a></li>
+            <li><a href="#多路联系">多路联系</a></li>
+            <li><a href="#联系中的角色">联系中的角色</a></li>
+            <li><a href="#子类">子类</a></li>
+          </ol>
+        </li>
+        <li><a href="#设计原则">设计原则</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/final_test/" style="background-color: #2a9d8f; color: #fff;">
+                期末救急
+            </a>
+        
+            
+            
+            
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/cs/database/model/">数据库系统</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            关系数据库模型
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-03-14T00:00:00Z'>2026年3月14日星期六</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 11 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#关系代数ra">关系代数（RA）</a>
+      <ol>
+        <li><a href="#集合运算">集合运算</a></li>
+        <li><a href="#投影运算">投影运算</a></li>
+        <li><a href="#选择运算">选择运算</a></li>
+        <li><a href="#笛卡尔积">笛卡尔积</a></li>
+        <li><a href="#自然连接">自然连接</a></li>
+        <li><a href="#theta-连接">$\theta$-连接</a></li>
+        <li><a href="#重命名">重命名</a></li>
+      </ol>
+    </li>
+    <li><a href="#依赖">依赖</a>
+      <ol>
+        <li><a href="#函数依赖">函数依赖</a>
+          <ol>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#关系的键">关系的键</a></li>
+          </ol>
+        </li>
+        <li><a href="#函数依赖的规则">函数依赖的规则</a>
+          <ol>
+            <li><a href="#分解结合规则">分解/结合规则</a></li>
+            <li><a href="#平凡函数依赖">平凡函数依赖</a></li>
+            <li><a href="#属性的闭包">属性的闭包</a></li>
+            <li><a href="#传递规则">传递规则</a></li>
+            <li><a href="#函数依赖的投影">函数依赖的投影</a></li>
+          </ol>
+        </li>
+        <li><a href="#模式设计">模式设计</a>
+          <ol>
+            <li><a href="#关系的分解">关系的分解</a></li>
+            <li><a href="#bc范式">BC范式</a></li>
+            <li><a href="#分解为bc范式">分解为BC范式</a></li>
+          </ol>
+        </li>
+        <li><a href="#分解的优劣">分解的优劣</a>
+          <ol>
+            <li><a href="#从分解中恢复信息">从分解中恢复信息</a></li>
+            <li><a href="#无损连接的检验">无损连接的检验</a></li>
+            <li><a href="#依赖的保持">依赖的保持</a></li>
+          </ol>
+        </li>
+        <li><a href="#第三范式">第三范式</a></li>
+        <li><a href="#多值依赖">多值依赖</a>
+          <ol>
+            <li><a href="#定义-1">定义</a></li>
+            <li><a href="#推导">推导</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#高级数据库模型">高级数据库模型</a>
+      <ol>
+        <li><a href="#er模型">E/R模型</a>
+          <ol>
+            <li><a href="#er图">E/R图</a></li>
+            <li><a href="#二元联系">二元联系</a></li>
+            <li><a href="#多路联系">多路联系</a></li>
+            <li><a href="#联系中的角色">联系中的角色</a></li>
+            <li><a href="#子类">子类</a></li>
+          </ol>
+        </li>
+        <li><a href="#设计原则">设计原则</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>关系数据模型</td>
+          <td>用于描述数据的符号语言，它包括结构、操作和约束等3个部分。</td>
+      </tr>
+      <tr>
+          <td>关系（Relation）</td>
+          <td>二维的表格</td>
+      </tr>
+      <tr>
+          <td>属性（Attribute）</td>
+          <td>关系列的表头，描述了该列内容的实际含义</td>
+      </tr>
+      <tr>
+          <td>模式（Scheme）</td>
+          <td>关系与其属性的范式</td>
+      </tr>
+      <tr>
+          <td>元组（Tuples）</td>
+          <td>关系的具体内容</td>
+      </tr>
+      <tr>
+          <td>域（Domains）</td>
+          <td>关系的数据类型</td>
+      </tr>
+      <tr>
+          <td>键（Key）</td>
+          <td>关系的其中一个元素</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="关系数据模型" class="gallery-image" data-flex-basis="565px" data-flex-grow="235" height="479" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png" srcset="/passage/cs/database/model/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B_hu_a9e88d670243a9e5.png 800w, /passage/cs/database/model/images/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png 1128w" width="1128"></p>
+<h2 id="关系代数ra">关系代数（RA）
+</h2><p>关系代数用于在关系数据模型上查询和修改数据，它的输入和输出均为关系，因此可视为一个封闭的代数系统。</p>
+<p>SQL语句的核心就是关系代数。</p>
+
+    <blockquote>
+        <p>SQL的功能远低于C语言和Java，为什么使用它？</p>
+<ol>
+<li>关系代数的用途十分广泛。</li>
+<li>SQL的编译十分便捷，易于优化。</li>
+</ol>
+
+    </blockquote>
+
+    <blockquote>
+        <p><strong>代数</strong>（Algebra）是操作数（Operands）和运算符（Operators）的集合。</p>
+
+    </blockquote>
+<p>通过关系代数的运算符和各种关系相连接。可以得到关系表达式。例如：</p>
+$$ R(t,y,l,i,s,p) := \sigma_{\mathrm{length} \leqslant 100}(\mathrm{Movies}) $$<p>
+</p>
+$$ S(t,y,l,i,s,p) := \sigma_{\mathrm{studioName='Fox'}}(\mathrm{Movies}) $$<p>
+</p>
+$$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式都可以写成<a class="link" href="/p/data-structure-tree" >树</a>的形式。上式即可表达为：</p>
+<p><img alt="关系代数表达式" class="gallery-image" data-flex-basis="236px" data-flex-grow="98" height="397" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" width="391"></p>
+<h3 id="集合运算">集合运算
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>集合操作</th>
+          <th>符号</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>并（Union）</td>
+          <td>$R \cup S$</td>
+          <td>关系 $R$ 和 $S$ 中所有的内容，相同的只出现一次</td>
+      </tr>
+      <tr>
+          <td>交（Intersection）</td>
+          <td>$R \cap S$</td>
+          <td>关系 $R$ 和 $S$ 中共同存在的内容</td>
+      </tr>
+      <tr>
+          <td>差（Difference）</td>
+          <td>$R - S$</td>
+          <td>关系 $R$ 中存在但不在关系 $S$ 中</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">          </span><span class="c1">-- 并
+</span></span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">INTERSECT</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">      </span><span class="c1">-- 交
+</span></span></span><span class="line"><span class="cl"><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">)</span><span class="w"> </span><span class="k">EXCEPT</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">         </span><span class="c1">-- 差
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="集合运算" class="gallery-image" data-flex-basis="402px" data-flex-grow="167" height="530" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/model/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97_hu_325e05f5a5a228d0.png 800w, /passage/cs/database/model/images/%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97.png 888w" width="888"></p>
+
+    <blockquote>
+        <p>集合运算中的关系 $R$ 和 $S$ 的属性必须相同且排列顺序一致，且每个属性在两者中的域（数据类型）必须相同。</p>
+
+    </blockquote>
+<h3 id="投影运算">投影运算
+</h3><p>从关系 $R$ 生成一个仅包含 $R$ 部分属性的新关系（Project），可表示为 $\pi_{A_1, A_2, \cdots, A_n}(R)$</p>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">An</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="投影运算" class="gallery-image" data-flex-basis="404px" data-flex-grow="168" height="580" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/model/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_c657c6fbc93547fc.png 800w, /passage/cs/database/model/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png 977w" width="977"></p>
+<h3 id="选择运算">选择运算
+</h3><p>生成关系 $R$ 满足条件 $C$ 的元组子集作为一个新关系，结果关系的模式与原关系的相同（SELECTION）。可表示为：$\sigma_{C}(R)$</p>
+
+    <blockquote>
+        <p>用集合表示则可写作：$\sigma_{C}(R) = \{ t | t \in R \land C(t) = \mathrm{true} \}$</p>
+
+    </blockquote>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">C</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="选择运算" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="623" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/model/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_391bece7293e33b2.png 800w, /passage/cs/database/model/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png 977w" width="977"></p>
+<h3 id="笛卡尔积">笛卡尔积
+</h3><p>选择关系 $R$ 的一个元素为有序对的第一个元素，关系 $S$ 的一个元素为第二个元素，以此类推形成的新关系（Cartesian Product）。可表示为：$R \times S$</p>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="笛卡尔积" class="gallery-image" data-flex-basis="378px" data-flex-grow="157" height="648" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png" srcset="/passage/cs/database/model/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_e716fede6682bc5b.png 800w, /passage/cs/database/model/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png 1022w" width="1022"></p>
+<h3 id="自然连接">自然连接
+</h3><p>设 $A_1, A_2, \cdots, A_n$ 为关系 $R$ 和 $S$ 中所有共同属性，当两者的共同属性的内容完全一致时则合并为一个关系，合并的结果应包含关系 $R$ 和 $S$ 中的所有属性（Natural Joins）。可表示为：$R \bowtie S$</p>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">NATURAL</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="自然连接" class="gallery-image" data-flex-basis="532px" data-flex-grow="221" height="455" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_ebdb88aa32e5a51d.png 800w, /passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png 1010w" width="1010"></p>
+<h3 id="theta-连接">$\theta$-连接
+</h3><p>关系 $R$ 与 $S$ 先做笛卡尔积，在从中选择满足条件 $C$ 的部分（Theta-Joins）。可表示为 $ R \bowtie_{C} S $</p>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">C</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="Theta连接" class="gallery-image" data-flex-basis="389px" data-flex-grow="162" height="633" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/Theta%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/model/images/Theta%E8%BF%9E%E6%8E%A5_hu_97d88d2a566a925c.png 800w, /passage/cs/database/model/images/Theta%E8%BF%9E%E6%8E%A5.png 1027w" width="1027"></p>
+<h3 id="重命名">重命名
+</h3><p>将关系 $R$ 重命名为关系 $S$，$R$ 中对应的属性重命名为 $A_1, A_2, \cdots, A_n$。可表示为 $\rho_{S(A_1, A_2, \cdots, A_n)}(R)$</p>
+<p>对应的SQL语言：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">a_1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_1</span><span class="p">,</span><span class="w"> </span><span class="n">a_2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">a_n</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">A_n</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">S</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="重命名" class="gallery-image" data-flex-basis="404px" data-flex-grow="168" height="601" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E9%87%8D%E5%91%BD%E5%90%8D.png" srcset="/passage/cs/database/model/images/%E9%87%8D%E5%91%BD%E5%90%8D_hu_3ba4da181bf0b9f0.png 800w, /passage/cs/database/model/images/%E9%87%8D%E5%91%BD%E5%90%8D.png 1012w" width="1012"></p>
+<h2 id="依赖">依赖
+</h2><p>依赖（Dependency）涉及如何构建一个良好的关系数据库模式，以及当一个模式存在缺陷时如何改进的问题，并使用“异常”来指代这些问题。</p>
+<h3 id="函数依赖">函数依赖
+</h3><h4 id="定义">定义
+</h4><p>如果两个元组在属性 $A_1, A_2, \cdots, A_n$ 上一致（即它们对应属性的分量值都相等），那么它们必定在其他属性上 $B_1, B_2, \cdots, B_m$ 上也一致。记作 </p>
+$$A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$$<p> 即 $B_1, B_2, \cdots, B_m$ <strong>函数依赖</strong> $A_1, A_2, \cdots, A_n$，或称 $A_1, A_2, \cdots, A_n$ <strong>函数决定</strong> $B_1, B_2, \cdots, B_m$。</p>
+
+    <blockquote>
+        <p>若 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 成立，则以下各式均成立：
+</p>
+$$\begin{array}{c}  A_1 A_2 \cdots A_n \rightarrow B_1 \\ A_1 A_2 \cdots A_n \rightarrow B_2 \\ \cdots \\ A_1 A_2 \cdots A_n \rightarrow B_m \end{array}$$
+    </blockquote>
+<p>如果关系 $R$ 的每个实例都满足一个确定的函数依赖 $f$，那么称 $R$ 满足 <strong>函数依赖</strong> $f$，即在 $R$ 上声明了一个约束。</p>
+<h4 id="关系的键">关系的键
+</h4><p>若属性集 $\{A_1, A_2, \cdots, A_n\}$ 满足：</p>
+<ol>
+<li>它们决定关系的所有其他属性，即关系 $R$ 不可能存在两个不同的元组具备相同的 $A_1, A_2, \cdots, A_n$ 值。</li>
+<li>在 $\{A_1, A_2, \cdots, A_n\}$ 的所有真子集均不能决定关系 $R$ 的所有其他属性，即键必须是最小的。</li>
+</ol>
+<p>则称 $\{A_1, A_2, \cdots, A_n\}$ 是关系 $R$ 的<strong>键</strong>。</p>
+
+    <blockquote>
+        <p>可以将关系 $R$ 中的键类比为 $n$ 维线性空间的一个 $n$ 元向量组 $[\bm{e}_1, \bm{e}_2, \cdots, \bm{e}_n]$，它可以表示该空间内的所有向量。</p>
+
+    </blockquote>
+<p>有时，一个关系可能会有多个可行的键，这时需指定其中一个为<strong>主键</strong>（Primary key）。</p>
+<p>一个包含键的属性集就称为<strong>超建</strong>。</p>
+
+    <blockquote>
+        <p>容易得出，每个键都是该关系的超键（$A \subseteq A$）</p>
+
+    </blockquote>
+<h3 id="函数依赖的规则">函数依赖的规则
+</h3><p>函数依赖的规则给出了推导函数依赖的一般方法。</p>
+<h4 id="分解结合规则">分解/结合规则
+</h4><p>函数依赖 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 等价于下列函数依赖的集合：
+</p>
+$$\begin{array}{c}  A_1 A_2 \cdots A_n \rightarrow B_1 \\ A_1 A_2 \cdots A_n \rightarrow B_2 \\ \cdots \\ A_1 A_2 \cdots A_n \rightarrow B_m \end{array}$$<p>从左到右称作函数依赖的分解规则，从右到左称作函数依赖的结合规则。</p>
+<h4 id="平凡函数依赖">平凡函数依赖
+</h4><p>对于函数依赖 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$，若满足 </p>
+$$\{B_1 B_2 \cdots B_m\} \subseteq \{A_1 A_2 \cdots A_n\}$$<p> 则称其为 <strong>平凡函数依赖</strong>。</p>
+
+    <blockquote>
+        <p>若 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$，且 $\{B_1, B_2, \cdots, B_m\} - \{A_1, A_2, \cdots, A_n\} = \{C_1, C_2, \cdots, C_k\}$，则有 </p>
+$$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$<p> 这称为平凡依赖规则。如图所示：
+<figure><img src="/passage/cs/database/model/images/%E5%B9%B3%E5%87%A1%E4%BE%9D%E8%B5%96%E8%A7%84%E5%88%99.png" width="700"><figcaption>
+      <h4>平凡依赖规则</h4>
+    </figcaption>
+</figure>
+</p>
+
+    </blockquote>
+<h4 id="属性的闭包">属性的闭包
+</h4><p>设 $\{A_1, A_2, \cdots, A_n\}$ 是属性集合，$S$ 是函数依赖的集合，则 $S$ 下属性集合 $\{A_1, A_2, \cdots, A_n\}$ 的闭包定义为：满足 $S$ 中所有函数依赖关系的属性集合 $B$，记作 $\{A_1, A_2, \cdots, A_n\}^+$</p>
+<p>计算属性闭包的方法：</p>
+<ol>
+<li>设 $X$ 是属性集合 $\{A_1, A_2, \cdots, A_n\}$ 的闭包，首先令 $X = \{A_1, A_2, \cdots, A_n\}$。</li>
+<li>反复寻找函数依赖 $B_1 B_2 \cdots B_n \rightarrow C$ ，使得 $B_1, B_2, \cdots, B_n$ 在 $X$ 中且 $C$ 不再 $X$ 中。然后把 $C$ 加入 $X$。</li>
+<li>重复这个过程，直至无法再添加新的元素到 $X$ 中，计算结束，此时 $\{A_1, A_2, \cdots, A_n\}^+ = X$。</li>
+</ol>
+<h4 id="传递规则">传递规则
+</h4><p>若关系 $R$ 满足 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 和 $B_1 B_2 \cdots B_m \rightarrow C_1 C_2 \cdots C_k$，则有 </p>
+$$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$
+    <blockquote>
+        <p>Armstrong公理</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>公理</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>自反律</td>
+          <td>如果 $\{B_1 B_2 \cdots B_m\} \subseteq \{A_1 A_2 \cdots A_n\}$，那么 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$</td>
+      </tr>
+      <tr>
+          <td>增广律</td>
+          <td>如果 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$，那么 $A_1 A_2 \cdots A_n C_1 C_2 \cdots C_k \rightarrow B_1 B_2 \cdots B_m C_1 C_2 \cdots C_k$</td>
+      </tr>
+      <tr>
+          <td>传递律</td>
+          <td>如果 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 且 $B_1 B_2 \cdots B_m \rightarrow C_1 C_2 \cdots C_k$，那么 $A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    </blockquote>
+<h4 id="函数依赖的投影">函数依赖的投影
+</h4><p>记 $R_1 = \pi_{L} (R)$，函数依赖集合 $S$ 的投影是满足下列条件的函数依赖的集合：</p>
+<ol>
+<li>从 $S$ 推断而来</li>
+<li>只包含 $R_1$ 的属性</li>
+</ol>
+<h3 id="模式设计">模式设计
+</h3><h4 id="关系的分解">关系的分解
+</h4><p>将关系进行分解（decompose）可用来消除异常。</p>
+<p>给定关系 $R(A_1, A_2, \cdots, A_n)$，把它分解为关系 $S(B_1, B_2, \cdots, B_m)$ 和 $T(C_1, C_2, \cdots, C_k)$，需满足：</p>
+<ol>
+<li>$\{A_1, A_2, \cdots, A_n\} = \{B_1, B_2, \cdots, B_m\} \cup \{C_1, C_2, \cdots C_k\}$</li>
+<li>$S = \pi_{B_1, B_2, \cdots, B_m} (R)$</li>
+<li>$T = \pi_{C_1, C_2, \cdots, C_k} (R)$</li>
+</ol>
+<h4 id="bc范式">BC范式
+</h4><p>分解的目的就是将一个关系用多个不存在异常的关系替换，即在一个简单的条件下保证异常不存在，这个条件就称作BC范式（BCNF）。</p>
+<p>定义：当且仅当如果关系 $R$ 中非平凡函数依赖 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 成立，则 $\{A_1, A_2, \cdots, A_n\}$ 是关系 $R$ 的超键。此时称关系 $R$ 为BC范式。</p>
+
+    <blockquote>
+        <p>换言之，就是每个非平凡函数依赖的左侧必须包含该关系的键。</p>
+
+    </blockquote>
+<h4 id="分解为bc范式">分解为BC范式
+</h4><p>目标：将任何一个关系模式分解为带有以下性质的、具有多个属性的子集：</p>
+<ol>
+<li>以这些子集为模式的关系都属于BCNF。</li>
+<li>原始关系中的数据都被正确地反映在分解后的关系上，简单而言就是原始关系应能从分解后的几个关系实例中重构。</li>
+</ol>
+<p>对于任意关系 $R$ 和函数依赖集合 $S$，有BCNF分解算法：</p>
+<ol>
+<li>检验 $R$ 是否为BCNF，若是，直接返回 $R$。</li>
+<li>如果存在违反BCNF的函数依赖，假设为 $X \rightarrow Y$。计算 $X$ 的闭包 $X^+$。选择 $R_1 = X^+$ 作为一个关系模式，并使另一个关系模式 $R_2$ 包含属性 $X$ 以及不在 $X^+$ 的属性。</li>
+<li>计算 $R_1$ 和 $R_2$ 的函数依赖集合，记为 $S_1$ 和 $S_2$，并递归地分解 $R_1$ 和 $R_2$，返回最终分解的集合。</li>
+</ol>
+<h3 id="分解的优劣">分解的优劣
+</h3><p>一个分解应当具有3个性质：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>性质</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>消除异常</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>信息可恢复</td>
+          <td>能够从分解后的各个元组中恢复原始关系。</td>
+      </tr>
+      <tr>
+          <td>依赖的保持</td>
+          <td>如果函数依赖的投影在分解后的关系上成立，能确保对分解后的关系用连接重构获取原始关系仍然满足原来的函数依赖</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>事实上，没有一种分解能同时具备以上3个性质。</p>
+<h4 id="从分解中恢复信息">从分解中恢复信息
+</h4><p>若可以通过分解后的各个关系重构原关系 $R$，则称该分解含有<strong>无损连接</strong>。</p>
+<p>设关系 $R(X,Y,Z)$，且具备函数依赖 $X \rightarrow Y$，则可以依据BCNF分解算法将关系分解为 $R_1(X,Y)$ 和 $R_2(Y,Z)$，且 </p>
+$$R = \pi_{X \cup Y}(R) \bowtie \pi_{Y \cup Z}(R)$$<p> 即该分解包含无损连接。</p>
+<h4 id="无损连接的检验">无损连接的检验
+</h4><p>设关系 $R$ 被分解为若干关系，它们的属性集分别为 $S_1, S_2, \cdots, S_k$，在 $R$ 上成立的函数依赖集合为 $F$。则 $\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R) = R$ 成立当且仅当连接结果中的每个元组都属于 $R$。这称为无损连接的chase检验。</p>
+<h4 id="依赖的保持">依赖的保持
+</h4><p>在某些情况下，把一个关系分解为一系列BCNF关系时，无法同时拥有无损连接和依赖保持两种性质。</p>
+<h3 id="第三范式">第三范式
+</h3><p>定义：如果一个关系 $R$ 满足只要 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 是非平凡函数依赖，那么或者 $\{A_1, A_2 ,\cdots, A_n\}$ 是超键，或者每个属于 $B_1, B_2, \cdots, B_n$ 但不属于 $A$ 的属性都是某个键的成员。</p>
+
+    <blockquote>
+        <p>如果一个属性是某个键的成员，则常被成为“主属性”。因此，3NF的条件等价于：对于每个非平凡FD，或者其左边是超键，或者其右边仅由主属性构成。</p>
+
+    </blockquote>
+<h3 id="多值依赖">多值依赖
+</h3><p>“多值依赖（MVD）”是两个属性或属性集合之间相互独立的断言，是广义的函数依赖。</p>
+<h4 id="定义-1">定义
+</h4><p>在关系 $R$ 中，当给定某个属性集合的值时，存在另外一组属性集合，该组属性的值与关系中所有其他属性的值独立。即若给定 $R$ 中属于 $A$ 的各属性的值，存在一个属性 $B$，其中属性的值独立于 $R$ 中既不属于 $A$ 也不属于 $B$ 的属性集合的值，则称 MVD </p>
+$$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中成立</p>
+
+    <blockquote>
+        <p>更准确的说法：若MVD成立，则对于 $R$ 中每个在所有 $A$ 属性上一致的元组对 $r$ 和 $u$，能在 $R$ 中找到满足下列条件的元组 $v$：</p>
+<ol>
+<li>在 $A$ 属性上的取值与 $t$ 和 $u$ 相同</li>
+<li>在 $B$ 属性上的取值与 $t$ 相同</li>
+<li>在 $R$ 中不属于 $A$ 和 $B$ 的所有其他属性上的取值与 $u$ 相同</li>
+</ol>
+
+    </blockquote>
+<h4 id="推导">推导
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>规则</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>平凡MVD</td>
+          <td>如果 $\{B_1, B_2, \cdots, B_m\} \subseteq \{A_1, A_2, \cdots, A_n\}$，则MVD $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$ 在任何关系中均成立</td>
+      </tr>
+      <tr>
+          <td>传递规则</td>
+          <td>如果关系中存在 $A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$ 和 $B_1 B_2 \cdots B_m \rightarrow \rightarrow C_1 C_2 \cdots C_m$，则有 $$A_1 A_2 \cdots A_n \rightarrow \rightarrow C_1 C_2 \cdots C_m$$ 也成立</td>
+      </tr>
+      <tr>
+          <td>互补规则</td>
+          <td>若关系 $R$ 上存在 MVD：$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$，则 $R$ 上也存在 $A_1 A_2 \cdots A_n \rightarrow \rightarrow C_1 C_2 \cdots C_k$，其中 $C$ 是 $R$ 中不属于 $A$ 和 $B$ 的所有其他属性的集合</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="高级数据库模型">高级数据库模型
+</h2><h3 id="er模型">E/R模型
+</h3><p>在E/R模型中，数据的结构用图形化方式表示，即“实体——联系图”。它包含以下3个主要的元素类型：实体集、属性、联系。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>元素</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>实体集</td>
+          <td>实体是某种抽象对象，相似的实体集合形成实体集</td>
+      </tr>
+      <tr>
+          <td>属性</td>
+          <td>实体集具备相关的属性，属性是这个实体集中的实体所具有的性质</td>
+      </tr>
+      <tr>
+          <td>联系</td>
+          <td>联系是两个或多个实体集的连接</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>考虑电影数据库的设计例子：</p>
+<ol>
+<li>每个电影都是实体，所有电影的集合构成一个实体集。同理，影星的集合、电影公司的集合也构成一个实体集。</li>
+<li>实体集<code>Movies</code>可能有<code>title</code>（电影名）或<code>length</code>（片长）等属性。</li>
+<li><code>Movies</code>和<code>Stars</code>是两个实体集，<code>Stars-in</code>就是连接<code>Movies</code>和<code>Stars</code>的联系。</li>
+</ol>
+
+    </blockquote>
+<h4 id="er图">E/R图
+</h4><p>E/R图是描述实体集、属性和联系的图示。图中每种元素都能用节点表示，并能使用特殊形状的节点来标识特定的类别：</p>
+<ul>
+<li>矩形：实体集</li>
+<li>椭圆：属性</li>
+<li>菱形：联系</li>
+</ul>
+<p>用边来连接实体集与它的属性、联系与它的实体集。</p>
+<p>例如，电影数据库的E/R图如下：</p>
+<p><img alt="电影数据库的E/R图" class="gallery-image" data-flex-basis="348px" data-flex-grow="145" height="887" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E7%94%B5%E5%BD%B1%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E4%BD%93-%E8%81%94%E7%B3%BB%E5%9B%BE.png" srcset="/passage/cs/database/model/images/%E7%94%B5%E5%BD%B1%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E4%BD%93-%E8%81%94%E7%B3%BB%E5%9B%BE_hu_6f9aed13104b8d28.png 800w, /passage/cs/database/model/images/%E7%94%B5%E5%BD%B1%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E4%BD%93-%E8%81%94%E7%B3%BB%E5%9B%BE.png 1287w" width="1287"></p>
+
+    <blockquote>
+        <p>实际上，属性也可以直接与联系相连。但是也可以创建一个新的、包含该属性实体集与联系相连。
+<figure><img src="/passage/cs/database/model/images/%E4%B8%80%E4%B8%AA%E6%9C%89%E5%B1%9E%E6%80%A7%E7%9A%84%E8%81%94%E7%B3%BB.png" width="700"><figcaption>
+      <h4>一个有属性的联系</h4>
+    </figcaption>
+</figure>
+</p>
+
+    </blockquote>
+<p>E/R图是一种描述数据库模式的符号，一个用E/R图描述的数据库包含特定的数据，称为数据库实例。对于每个实体集，数据库实例有一个特定的有限实体集合，实体集中的每个实体对每个属性都有特定的值。</p>
+<p>$R$ 的联系集：$n$ 个实体集 $E_1, E_2 \cdots, E_n$ 的联系 $R$ 的一个实例由元组 $(e_1, e_2, \cdots, e_n)$ 的有限实体构成，其中 $e_i$ 都从实体集 $E_i$ 的当前实例选出。</p>
+<h4 id="二元联系">二元联系
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>联系的分类</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>多对一</td>
+          <td>$E$ 中的任意一个实体可以通过 $R$ 与 $F$ 中的至多一个实体联系。反过来，$F$ 中的每个实体都能与 $E$ 中的许多实体联系</td>
+      </tr>
+      <tr>
+          <td>一对一</td>
+          <td>$R$ 既是从 $E$ 到 $F$ 的多对一联系，又是从 $F$ 到 $E$ 的多对一联系</td>
+      </tr>
+      <tr>
+          <td>多对多</td>
+          <td>$R$ 既不是从 $E$ 到 $F$ 的多对一联系，也不是从 $F$ 到 $E$ 的多对一联系</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>在E/R图中，可以用箭头表示E/R图中的多种联系：若实体集 $E$ 到 $F$ 是多对一联系，则用箭头指向 $F$。</p>
+
+    <blockquote>
+        <p>箭头的含义是“最多一个”，可能并不存在符合条件的联系集。</p>
+
+    </blockquote>
+<h4 id="多路联系">多路联系
+</h4><p>E/R图中的多路联系由联系菱形到它设计的每个实体集的连线表示。</p>
+<p>在多路联系中，指向实体集 $E$ 的箭头表示：如果从该联系的其他每个实体集中选择一个实体，它们至多与 $E$ 中的一个实体联系。</p>
+
+    <blockquote>
+        <p>通俗地，可以认为是右边为 $E$ 和联系中所有其他实体集在左边的函数依赖。</p>
+
+    </blockquote>
+<h4 id="联系中的角色">联系中的角色
+</h4><p>在一个联系集中，一个实体集可能出现两次或多次。此时则需要根据实体集在联系中出现的次数，将联系与实体集通过同样多的连线相连。其中，每一条连向实体集的连线代表实体集在联系中扮演的不同角色。</p>
+<p>角色（role）定义为实体集与联系之间的边的命名。</p>
+<h4 id="子类">子类
+</h4><p>如果一个实体集中包含一些实体，且它们拥有集合中其他实体成员没有的特殊性质，那么就可以定义一些特例实体集或<strong>子类</strong>。每个子类都有它自己特殊的属性和联系。</p>
+<p>用 $\text{isa}$ 连接实体集和它的子类，并使用三角形表示：三角形的一边与子类相连，与此边相对的一角与父类相连。每个 $\text{isa}$ 都是一对一联系。</p>
+<p><img alt="isa联系" class="gallery-image" data-flex-basis="316px" data-flex-grow="131" height="710" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/isa%E8%81%94%E7%B3%BB.png" srcset="/passage/cs/database/model/images/isa%E8%81%94%E7%B3%BB_hu_d0b693adfaa87f42.png 800w, /passage/cs/database/model/images/isa%E8%81%94%E7%B3%BB.png 935w" width="935"></p>
+<h3 id="设计原则">设计原则
+</h3>
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/database/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 数据库系统" height="150" loading="lazy" src="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg" srcset="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg 1x, /passage/cs/database/mysql_hu_9f919c0deea6afa1.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #de8f1380 0%, #1b0514C0 100%);">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/software/sql/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">SQL语言</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/guide/docker/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post Docker" height="150" loading="lazy" src="/passage/guide/docker/docker_hu_fd0c0f7d79f64cbf.png" srcset="/passage/guide/docker/docker_hu_fd0c0f7d79f64cbf.png 1x, /passage/guide/docker/docker_hu_3a309e6aee09cc1c.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0b0a0d80 0%, #f8f9faC0 100%);">
+            <h2 class="article-title">Docker</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/website/cloudflare/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post Cloudflare的使用" height="150" loading="lazy" src="/passage/website/cloudflare/cloudflare_hu_341a2ee6ee8453a4.png" srcset="/passage/website/cloudflare/cloudflare_hu_341a2ee6ee8453a4.png 1x, /passage/website/cloudflare/cloudflare_hu_c50b0e49aa74e818.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #f6932a80 0%, #323332C0 100%);">
+            <h2 class="article-title">Cloudflare的使用</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/software/formal_methods/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>

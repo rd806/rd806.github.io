@@ -1258,7 +1258,7 @@ $$\begin{array}{c} \begin{align*} &[\text{CITY}] \quad \text{the set of cities o
       <tr>
           <td>取值范围（Range）</td>
           <td>获取序列中所有元素</td>
-          <td>$\text{ran } s = \left&lt;s_1, s_2, \cdots, s_n\right&gt;$</td>
+          <td>$\text{ran } s = \{s_1, s_2, \cdots, s_n\}$</td>
       </tr>
       <tr>
           <td>反转（Reversion）</td>
@@ -1267,13 +1267,23 @@ $$\begin{array}{c} \begin{align*} &[\text{CITY}] \quad \text{the set of cities o
       </tr>
       <tr>
           <td>连接（Concatenation）</td>
-          <td>对于两个类型相同的序列 $s = \left&lt;s_1, s_2, \cdots, s_m\right&gt;$ 和 $t = \left&lt;t_1, t_2, \cdots, t_n\right&gt;$，可连接称为一个新序列，它包含两个序列的所有元素。</td>
-          <td>$s \wedge t = \left&lt;s_1, s_2, \cdots, s_m, t_1, t_2, \cdots, t_n\right&gt;$</td>
+          <td>对于两个类型相同的序列 $s = \left&lt;s_1, s_2, \cdots, s_m\right&gt;$ 和 $t = \left&lt;t_1, t_2, \cdots, t_n\right&gt;$，可连接为一个新序列，它包含两个序列的所有元素。</td>
+          <td>$s^{\land} t = \left&lt;s_1, s_2, \cdots, s_m, t_1, t_2, \cdots, t_n\right&gt;$</td>
       </tr>
       <tr>
           <td>过滤（Filtering）</td>
           <td>从一个序列中尝试获取指定的元素，并按照原序列的次序排列</td>
           <td>$s \uparrow t$</td>
+      </tr>
+      <tr>
+          <td>限制（Restriction）</td>
+          <td>与函数的限制类似</td>
+          <td>$1 \cdots n \triangleleft s$</td>
+      </tr>
+      <tr>
+          <td>压缩（Squash）</td>
+          <td>获取特定范围内的序列</td>
+          <td>$m \cdots n \triangleleft s$</td>
       </tr>
   </tbody>
 </table></div>
