@@ -355,6 +355,20 @@
             <li><a href="#查询视图">查询视图</a></li>
           </ol>
         </li>
+        <li><a href="#视图更新">视图更新</a>
+          <ol>
+            <li><a href="#修改视图">修改视图</a></li>
+            <li><a href="#可更新视图">可更新视图</a></li>
+            <li><a href="#视图中的触发器">视图中的触发器</a></li>
+          </ol>
+        </li>
+        <li><a href="#物化视图">物化视图</a></li>
+        <li><a href="#索引">索引</a>
+          <ol>
+            <li><a href="#索引的声明">索引的声明</a></li>
+            <li><a href="#索引的选择">索引的选择</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -566,7 +580,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 6 分钟
+                        阅读时长: 8 分钟
                     </time>
                 
             </div>
@@ -628,6 +642,20 @@
           <ol>
             <li><a href="#定义视图">定义视图</a></li>
             <li><a href="#查询视图">查询视图</a></li>
+          </ol>
+        </li>
+        <li><a href="#视图更新">视图更新</a>
+          <ol>
+            <li><a href="#修改视图">修改视图</a></li>
+            <li><a href="#可更新视图">可更新视图</a></li>
+            <li><a href="#视图中的触发器">视图中的触发器</a></li>
+          </ol>
+        </li>
+        <li><a href="#物化视图">物化视图</a></li>
+        <li><a href="#索引">索引</a>
+          <ol>
+            <li><a href="#索引的声明">索引的声明</a></li>
+            <li><a href="#索引的选择">索引的选择</a></li>
           </ol>
         </li>
       </ol>
@@ -1110,7 +1138,137 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="查询视图">查询视图
-</h4><p>视图可以像一个被真正存储的表一样来查询。</p>
+</h4><p>视图可以像一个被真正存储的表一样来查询，只需要<code>FROM</code>后接上视图名称。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ParamountMovies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1979</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>它与以下的SQL语句等效：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">studioName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Paramount&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1979</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>视图也可以作为查询的子表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">starName</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">ParamountMovies</span><span class="p">,</span><span class="w"> </span><span class="n">StarsIn</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">movieTitle</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">movieYear</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="视图更新">视图更新
+</h3><p>在特定条件下可以对视图进行插入、删除和修改操作。对于一些充分简单的视图，可以将对视图的更新转变为一个等价的对基本表的更新。</p>
+<h4 id="修改视图">修改视图
+</h4><p>删除视图：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">ParamountMovies</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>删除视图不会影响基本关系<code>Movies</code>中的任何信息，但是此后不能在对该视图进行任何查询或修改操作。</p>
+<p>特别地，若直接删除关系<code>Movies</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Movies</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>则表<code>Movies</code>和视图<code>ParamountMovies</code>都将不可使用。</p>
+<h4 id="可更新视图">可更新视图
+</h4><p>SQL仅允许这样的视图更新操作：该视图是由单个关系 $R$ 使用 <code>SELECT</code>关键字选取出的一些属性组成，满足以下要求：</p>
+<ol>
+<li><code>WHERE</code>子句在关系中不能使用关系 $R$。</li>
+<li><code>FROM</code>语句只能包含一个关系 $R$，不能再有其他关系。</li>
+<li><code>SELECT</code>语句中的属性必须足够多，保证插入数据时可以使用<code>NULL</code>或其他默认值填充未指明的属性。</li>
+</ol>
+<p>对可更新视图的修改会被翻译成对基表的修改：</p>
+<ul>
+<li>向视图插入：向基表插入视图中的值，其他属性填<code>NULL</code>或默认值。</li>
+<li>从视图删除：从基表删除满足视图定义条件和删除条件的元组。</li>
+<li>更新视图：更新基表中同时满足视图定义条件和更新条件的元组。</li>
+</ul>
+<h4 id="视图中的触发器">视图中的触发器
+</h4><p>当视图上定义了一个触发器时，可以使用<code>INSTEAD OF</code>代替<code>BEFORE</code>或<code>AFTER</code>。这样，当一个事件激活了触发器后，触发器的操作将会代替事件本身而被执行。</p>
+<p>例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">ParamountInsert</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">INSTEAD</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ParamountMovies</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">REFERENCING</span><span class="w"> </span><span class="k">NEW</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NewRow</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Movies</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">studioName</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">VALUES</span><span class="p">(</span><span class="n">NewRow</span><span class="p">,.</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">NewRow</span><span class="p">.</span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Paramount&#39;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>ParamountMovies</code>视图本来可更新，但插入时可能因为<code>studioName</code>缺失而导致插入后在视图中看不到。因此可以用<code>INSTEAD OF</code>触发器把视图插入转换为对 <code>Movies</code>的正确插入。</p>
+<h3 id="物化视图">物化视图
+</h3><p>如果一个视图经常使用，则可以将其物化。物化视图会把查询结果存储起来，在任何时间都保存它的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="n">MATERIALIZED</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">MovieProd</span><span class="w"> </span><span class="k">AS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="n">Movies</span><span class="p">,</span><span class="w"> </span><span class="n">MovieExec</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">WHERE</span><span class="w"> </span><span class="n">producerC</span><span class="o">#</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cert</span><span class="o">#</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>对物化视图的更改都是增量式的，不需要从定义重新计算和构造整个视图。只需要少量的对基本表的查询和对物化视图的修改。</p>
+<p>然而，使用物化视图后，每次基表变化都可能导致物化视图变化。如果每次都重新构建，成本太高。解决方案是周期性重建，例如每天或每晚统一刷新。</p>
+<h3 id="索引">索引
+</h3><p>索引是一种数据结构，能提高在属性上的查找具有某个特定值的元组的效率。</p>
+<h4 id="索引的声明">索引的声明
+</h4><p>创建索引：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">KeyIndex</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">Movies</span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>删除索引：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">KeyIndex</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="索引的选择">索引的选择
+</h4><p>索引的选择是衡量数据库设计的一个重要因素。如果该属性接近键，索引通常更有用。但索引会增加插入、删除和更新的维护成本。</p>
+<p>通常，关系被存储在很多的磁盘块上，而查询或更新操作的主要代价来自于将所需的磁盘块读入到主存的数目。使用索引后，对关系的更新还需要对索引进行修改。</p>
 
 </section>
 

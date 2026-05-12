@@ -325,7 +325,7 @@
         <li><a href="#选择运算">选择运算</a></li>
         <li><a href="#笛卡尔积">笛卡尔积</a></li>
         <li><a href="#自然连接">自然连接</a></li>
-        <li><a href="#theta-连接">$\theta$-连接</a></li>
+        <li><a href="#θ-连接">θ-连接</a></li>
         <li><a href="#重命名">重命名</a></li>
       </ol>
     </li>
@@ -378,9 +378,23 @@
             <li><a href="#多路联系">多路联系</a></li>
             <li><a href="#联系中的角色">联系中的角色</a></li>
             <li><a href="#子类">子类</a></li>
+            <li><a href="#设计原则">设计原则</a></li>
           </ol>
         </li>
-        <li><a href="#设计原则">设计原则</a></li>
+        <li><a href="#er模型中的约束">E/R模型中的约束</a>
+          <ol>
+            <li><a href="#键">键</a></li>
+            <li><a href="#引用完整性">引用完整性</a></li>
+            <li><a href="#度约束">度约束</a></li>
+          </ol>
+        </li>
+        <li><a href="#弱实体集">弱实体集</a>
+          <ol>
+            <li><a href="#弱实体集的要求">弱实体集的要求</a></li>
+            <li><a href="#弱实体集的符号">弱实体集的符号</a></li>
+          </ol>
+        </li>
+        <li><a href="#从er图到关系设计">从E/R图到关系设计</a></li>
       </ol>
     </li>
   </ol>
@@ -592,7 +606,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 11 分钟
+                        阅读时长: 12 分钟
                     </time>
                 
             </div>
@@ -626,7 +640,7 @@
         <li><a href="#选择运算">选择运算</a></li>
         <li><a href="#笛卡尔积">笛卡尔积</a></li>
         <li><a href="#自然连接">自然连接</a></li>
-        <li><a href="#theta-连接">$\theta$-连接</a></li>
+        <li><a href="#θ-连接">θ-连接</a></li>
         <li><a href="#重命名">重命名</a></li>
       </ol>
     </li>
@@ -679,9 +693,23 @@
             <li><a href="#多路联系">多路联系</a></li>
             <li><a href="#联系中的角色">联系中的角色</a></li>
             <li><a href="#子类">子类</a></li>
+            <li><a href="#设计原则">设计原则</a></li>
           </ol>
         </li>
-        <li><a href="#设计原则">设计原则</a></li>
+        <li><a href="#er模型中的约束">E/R模型中的约束</a>
+          <ol>
+            <li><a href="#键">键</a></li>
+            <li><a href="#引用完整性">引用完整性</a></li>
+            <li><a href="#度约束">度约束</a></li>
+          </ol>
+        </li>
+        <li><a href="#弱实体集">弱实体集</a>
+          <ol>
+            <li><a href="#弱实体集的要求">弱实体集的要求</a></li>
+            <li><a href="#弱实体集的符号">弱实体集的符号</a></li>
+          </ol>
+        </li>
+        <li><a href="#从er图到关系设计">从E/R图到关系设计</a></li>
       </ol>
     </li>
   </ol>
@@ -856,7 +884,7 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="自然连接" class="gallery-image" data-flex-basis="532px" data-flex-grow="221" height="455" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_ebdb88aa32e5a51d.png 800w, /passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png 1010w" width="1010"></p>
-<h3 id="theta-连接">$\theta$-连接
+<h3 id="θ-连接">θ-连接
 </h3><p>关系 $R$ 与 $S$ 先做笛卡尔积，在从中选择满足条件 $C$ 的部分（Theta-Joins）。可表示为 $ R \bowtie_{C} S $</p>
 <p>对应的SQL语言：</p>
 <div class="highlight"><div class="chroma">
@@ -1183,8 +1211,56 @@ $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中
 </h4><p>如果一个实体集中包含一些实体，且它们拥有集合中其他实体成员没有的特殊性质，那么就可以定义一些特例实体集或<strong>子类</strong>。每个子类都有它自己特殊的属性和联系。</p>
 <p>用 $\text{isa}$ 连接实体集和它的子类，并使用三角形表示：三角形的一边与子类相连，与此边相对的一角与父类相连。每个 $\text{isa}$ 都是一对一联系。</p>
 <p><img alt="isa联系" class="gallery-image" data-flex-basis="316px" data-flex-grow="131" height="710" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/isa%E8%81%94%E7%B3%BB.png" srcset="/passage/cs/database/model/images/isa%E8%81%94%E7%B3%BB_hu_d0b693adfaa87f42.png 800w, /passage/cs/database/model/images/isa%E8%81%94%E7%B3%BB.png 935w" width="935"></p>
-<h3 id="设计原则">设计原则
-</h3>
+<h4 id="设计原则">设计原则
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>原则</th>
+          <th>要求</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>忠实性</td>
+          <td>设计应当忠实于应用的具体要求</td>
+      </tr>
+      <tr>
+          <td>避免冗余</td>
+          <td>不要重复表达</td>
+      </tr>
+      <tr>
+          <td>简单性</td>
+          <td>不要在设计中添加更多成分</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="er模型中的约束">E/R模型中的约束
+</h3><h4 id="键">键
+</h4><p>实体集 $E$ 的键是由一个或多个属性的集合 $K$，对于来自 $E$ 的不同实体 $e_1$ 和 $e_2$，它们对键 $K$ 中的属性没有完全相同的值。</p>
+<p>键的特点：</p>
+<ol>
+<li>每个实体集必须有一个键。</li>
+<li>一个实体集可以有多个键。</li>
+<li>当一个实体集有 $\text{isa}$ 联系时，要求根实体集拥有键所需的所有属性，并且每个实体集的键都可以在根实体集中发现它的组成部分。</li>
+</ol>
+<p>在E/R图中，实体集的键用下划线标出。</p>
+<h4 id="引用完整性">引用完整性
+</h4><p>假设 $R$ 是从实体集 $E$ 到实体集 $F$ 的联系，如果用圆箭头指向 $F$ 表示此联系从 $E$ 到 $F$ 不仅是多对一或一对一，而且要求与给定的 $E$ 实体相联系的 $F$ 必须存在。</p>
+<h4 id="度约束">度约束
+</h4><p>在E/R模型中，可以在连接一个联系到一个实体的边上加一个数字，表示相关实体集中任意实体可被联系到的实体数目。</p>
+<h3 id="弱实体集">弱实体集
+</h3><p>若一个实体集键是由另一个实体集的部分或全部属性构成，则这样的实体集称为弱实体集。</p>
+<h4 id="弱实体集的要求">弱实体集的要求
+</h4><p>如果 $E$ 是弱实体集，则它的键组成为：</p>
+<ol>
+<li>零个或多个它自己的属性。</li>
+<li>从 $E$ 到其他实体集的多对一联系连接的键属性。这些多对一联系称为 $E$ 的支持联系，从 $E$ 到达的实体集称为支持实体集。</li>
+</ol>
+<h4 id="弱实体集的符号">弱实体集的符号
+</h4><p>如果一个实体集是弱实体集，则可以表示为双边的矩形，它所支持的多对一联系表示为双边的菱形。</p>
+<h3 id="从er图到关系设计">从E/R图到关系设计
+</h3><p>把每个实体集转换成具有相同属性的关系；把联系转换成关系，关系属性来自参与实体集的键</p>
+
 </section>
 
 
