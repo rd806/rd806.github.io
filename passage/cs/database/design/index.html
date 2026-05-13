@@ -371,6 +371,29 @@
         </li>
       </ol>
     </li>
+    <li><a href="#服务器环境下的sql">服务器环境下的SQL</a>
+      <ol>
+        <li><a href="#三层体系结构">三层体系结构</a></li>
+        <li><a href="#sql环境">SQL环境</a></li>
+        <li><a href="#sql程序接口">SQL程序接口</a></li>
+        <li><a href="#存储过程">存储过程</a>
+          <ol>
+            <li><a href="#创建psm函数和过程">创建PSM函数和过程</a></li>
+            <li><a href="#psm的简单语句">PSM的简单语句</a></li>
+            <li><a href="#分支语句">分支语句</a></li>
+            <li><a href="#循环语句">循环语句</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#sql的安全机制与授权">SQL的安全机制与授权</a>
+      <ol>
+        <li><a href="#权限">权限</a></li>
+        <li><a href="#创建权限">创建权限</a></li>
+        <li><a href="#授予权限">授予权限</a></li>
+        <li><a href="#收回权限">收回权限</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -580,7 +603,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 8 分钟
+                        阅读时长: 12 分钟
                     </time>
                 
             </div>
@@ -658,6 +681,29 @@
             <li><a href="#索引的选择">索引的选择</a></li>
           </ol>
         </li>
+      </ol>
+    </li>
+    <li><a href="#服务器环境下的sql">服务器环境下的SQL</a>
+      <ol>
+        <li><a href="#三层体系结构">三层体系结构</a></li>
+        <li><a href="#sql环境">SQL环境</a></li>
+        <li><a href="#sql程序接口">SQL程序接口</a></li>
+        <li><a href="#存储过程">存储过程</a>
+          <ol>
+            <li><a href="#创建psm函数和过程">创建PSM函数和过程</a></li>
+            <li><a href="#psm的简单语句">PSM的简单语句</a></li>
+            <li><a href="#分支语句">分支语句</a></li>
+            <li><a href="#循环语句">循环语句</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#sql的安全机制与授权">SQL的安全机制与授权</a>
+      <ol>
+        <li><a href="#权限">权限</a></li>
+        <li><a href="#创建权限">创建权限</a></li>
+        <li><a href="#授予权限">授予权限</a></li>
+        <li><a href="#收回权限">收回权限</a></li>
       </ol>
     </li>
   </ol>
@@ -1269,6 +1315,245 @@
 </div><h4 id="索引的选择">索引的选择
 </h4><p>索引的选择是衡量数据库设计的一个重要因素。如果该属性接近键，索引通常更有用。但索引会增加插入、删除和更新的维护成本。</p>
 <p>通常，关系被存储在很多的磁盘块上，而查询或更新操作的主要代价来自于将所需的磁盘块读入到主存的数目。使用索引后，对关系的更新还需要对索引进行修改。</p>
+<h2 id="服务器环境下的sql">服务器环境下的SQL
+</h2><h3 id="三层体系结构">三层体系结构
+</h3><p>大型数据库具有通用的体系结构，称为三层（三阶）结构，区分了三种不同而又相互关联的功能：</p>
+<ol>
+<li>Web服务器：连接客户端与数据库系统的进程。</li>
+<li>应用服务器：执行系统所有操作的进程。</li>
+<li>数据库服务器：运行DBMS并执行应用服务器请求的查询和更新。</li>
+</ol>
+<p><img alt="三层体系结构" class="gallery-image" data-flex-basis="517px" data-flex-grow="215" height="803" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/design/images/%E4%B8%89%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" srcset="/passage/cs/database/design/images/%E4%B8%89%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84_hu_e2421de9925290a6.png 800w, /passage/cs/database/design/images/%E4%B8%89%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84_hu_26da982c859049f4.png 1600w, /passage/cs/database/design/images/%E4%B8%89%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png 1731w" width="1731"></p>
+
+    <blockquote>
+        <p>集中式数据库：数据集中存储，优点是管理简单，但访问速度、扩展性和并发能力可能受限。</p>
+<p>分布式数据库：把数据分散存储在多个通过网络连接的节点上，以获得更大容量、更高访问速度、更强扩展性和更高并发。包括 DDBS（物理上分布，逻辑上集中）和 FDBS（物理上分布，逻辑上也分布）两种架构。</p>
+
+    </blockquote>
+<h3 id="sql环境">SQL环境
+</h3><p>SQL环境可以看作安装并运行在系统上的DBMS，它包含以下几个部分：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>要素</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>模式（schema）</td>
+          <td>表、视图、断言、触发器和其他信息类型的集合，是组织的基本单元</td>
+      </tr>
+      <tr>
+          <td>目录（catalog）</td>
+          <td>模式的集合，是支持唯一的可访问术语的基本单元，目录中的模式名不可重复</td>
+      </tr>
+      <tr>
+          <td>簇（cluster）</td>
+          <td>目录的集合，是被提交的查询的最大范围</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="SQL环境" class="gallery-image" data-flex-basis="291px" data-flex-grow="121" height="682" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/design/images/SQL%E7%8E%AF%E5%A2%83.png" srcset="/passage/cs/database/design/images/SQL%E7%8E%AF%E5%A2%83_hu_aab3a335af0e2435.png 800w, /passage/cs/database/design/images/SQL%E7%8E%AF%E5%A2%83.png 829w" width="829"></p>
+<h3 id="sql程序接口">SQL程序接口
+</h3><ol>
+<li>把专门语言写的代码存储在数据库内部，如<code>PSM</code>、<code>PL/SQL</code>。</li>
+<li>把<code>SQL</code>嵌入宿主语言中，如<code>C</code>。</li>
+<li>使用连接工具让普通语言访问数据库，如<code>CLI</code>、<code>JDBC</code>、<code>PHP/DB</code>。</li>
+</ol>
+<h3 id="存储过程">存储过程
+</h3><p>持久性存储模块PSM是SQL最新标准的一部分，它允许用简单通用的语言编写过程，并将它们存储在数据库中作为模式的一部分。</p>
+<h4 id="创建psm函数和过程">创建PSM函数和过程
+</h4><p>基本过程和函数的声明：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 声明过程
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="k">parameter</span><span class="o">&gt;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="k">local</span><span class="w"> </span><span class="n">declarations</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 声明函数
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="k">parameter</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">RETURNS</span><span class="w"> </span><span class="o">&lt;</span><span class="k">type</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="k">local</span><span class="w"> </span><span class="n">declarations</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>PSM的参数是模式-名字-类型的三元组，不仅要在参数名后添加对应的类型，还需要一个模式的前缀：</p>
+<ul>
+<li><code>IN</code>：参数仅输入，不改变值。默认可省略。</li>
+<li><code>OUT</code>：参数仅输出。</li>
+<li><code>INOUT</code>：参数即可输入又可输出。</li>
+</ul>
+<h4 id="psm的简单语句">PSM的简单语句
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th>格式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>调用语句</td>
+          <td><code>CALL &lt;过程名&gt; (&lt;参数&gt;)</code></td>
+      </tr>
+      <tr>
+          <td>返回语句</td>
+          <td><code>RETURN &lt;表达式&gt;</code></td>
+      </tr>
+      <tr>
+          <td>局部变量声明</td>
+          <td><code>DECLARE &lt;名称&gt; &lt;类型&gt;</code></td>
+      </tr>
+      <tr>
+          <td>赋值语句</td>
+          <td><code>SET &lt;变量&gt; = &lt;表达式&gt;</code></td>
+      </tr>
+      <tr>
+          <td>语句组</td>
+          <td><code>BEGIN...END</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="分支语句">分支语句
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">IF</span><span class="w"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="k">statement</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">ELSEIF</span><span class="w"> </span><span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="k">statement</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">ELSEIF</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">ELSE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="k">statement</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="循环语句">循环语句
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">LOOP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">&lt;</span><span class="k">statement</span><span class="w"> </span><span class="n">list</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="sql的安全机制与授权">SQL的安全机制与授权
+</h2><h3 id="权限">权限
+</h3><p>SQL中定义了九种类型的权限，一些重要权限如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>权限</th>
+          <th>作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SELECT</td>
+          <td>查询关系，可限定只能查询某些属性</td>
+      </tr>
+      <tr>
+          <td>INSERT</td>
+          <td>插入元组，也可以只允许插入某些属性</td>
+      </tr>
+      <tr>
+          <td>DELETE</td>
+          <td>删除元组</td>
+      </tr>
+      <tr>
+          <td>UPDATE</td>
+          <td>更新元组，可限定只能更新某些属性</td>
+      </tr>
+      <tr>
+          <td>REFERENCES</td>
+          <td>允许某关系/属性被外键等约束引用</td>
+      </tr>
+      <tr>
+          <td>USAGE</td>
+          <td>允许在自己的声明中使用某个非关系、非断言的模式元素</td>
+      </tr>
+      <tr>
+          <td>TRIGGER</td>
+          <td>允许在关系上定义触发器</td>
+      </tr>
+      <tr>
+          <td>EXECUTE</td>
+          <td>允许执行 PSM 过程或函数等代码</td>
+      </tr>
+      <tr>
+          <td>UNDER</td>
+          <td>允许创建给定类型的子类型</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>其他未给值的属性使用默认值或<code>NULL</code>。</p>
+<h3 id="创建权限">创建权限
+</h3><p>所有SQL元素都有一个属主，他拥有其所属事务的所有权限。SQL中有三种建立属主身份的情况：</p>
+<ol>
+<li>创建模式时，所创建的模式中的元素的所有权都属于创建者。</li>
+<li>会话通过<code>connect</code>语句初始化时，可使用<code>AUTHORIZATION</code>子句指定用户。</li>
+<li>创建模块时，可使用<code>AUTHORIZATION</code>子句选择它的属主。</li>
+</ol>
+<p>只有当前授权 ID 拥有执行该 SQL 操作所需的全部权限时，操作才可执行。</p>
+
+    <blockquote>
+        <p>权限来源可以是：数据所有者身份、所有者授予、授予给 PUBLIC、通过可执行模块间接获得</p>
+
+    </blockquote>
+<h3 id="授予权限">授予权限
+</h3><p>属主对其创建的对象拥有所有权限。也可以把权限授予其他用户。</p>
+<p>授权语句的格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">GRANT</span><span class="w"> </span><span class="o">&lt;</span><span class="err">权限列表</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="err">数据库元素</span><span class="o">&gt;</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="err">用户列表</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">WITH</span><span class="w"> </span><span class="n">GRAND</span><span class="w"> </span><span class="k">OPTION</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>若使用<code>WITH GRANT OPTION</code>，被授权者还可以继续把该权限授给别人。</p>
+<h3 id="收回权限">收回权限
+</h3><p>被授予的权限可以随时收回，收回权限遵循级联原则。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">REVOKE</span><span class="w"> </span><span class="o">&lt;</span><span class="err">权限列表</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="err">数据库元素</span><span class="o">&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="err">用户列表</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="err">选项</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可选项：</p>
+<ul>
+<li><code>CASCADE</code>：撤销会级联传播，凡是基于该权限继续授出的权限都会失效。</li>
+<li><code>RESTRICT</code>：如果权限已经被继续授权给别人，则撤销失败，用来提醒必须先处理下游授权。</li>
+</ul>
 
 </section>
 
