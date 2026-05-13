@@ -320,13 +320,18 @@
   <ol>
     <li><a href="#关系代数ra">关系代数（RA）</a>
       <ol>
-        <li><a href="#集合运算">集合运算</a></li>
-        <li><a href="#投影运算">投影运算</a></li>
-        <li><a href="#选择运算">选择运算</a></li>
-        <li><a href="#笛卡尔积">笛卡尔积</a></li>
-        <li><a href="#自然连接">自然连接</a></li>
-        <li><a href="#θ-连接">θ-连接</a></li>
-        <li><a href="#重命名">重命名</a></li>
+        <li><a href="#关系表达式">关系表达式</a></li>
+        <li><a href="#关系运算">关系运算</a>
+          <ol>
+            <li><a href="#集合运算">集合运算</a></li>
+            <li><a href="#投影运算">投影运算</a></li>
+            <li><a href="#选择运算">选择运算</a></li>
+            <li><a href="#笛卡尔积">笛卡尔积</a></li>
+            <li><a href="#自然连接">自然连接</a></li>
+            <li><a href="#θ-连接">θ-连接</a></li>
+            <li><a href="#重命名">重命名</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#依赖">依赖</a>
@@ -635,13 +640,18 @@
   <ol>
     <li><a href="#关系代数ra">关系代数（RA）</a>
       <ol>
-        <li><a href="#集合运算">集合运算</a></li>
-        <li><a href="#投影运算">投影运算</a></li>
-        <li><a href="#选择运算">选择运算</a></li>
-        <li><a href="#笛卡尔积">笛卡尔积</a></li>
-        <li><a href="#自然连接">自然连接</a></li>
-        <li><a href="#θ-连接">θ-连接</a></li>
-        <li><a href="#重命名">重命名</a></li>
+        <li><a href="#关系表达式">关系表达式</a></li>
+        <li><a href="#关系运算">关系运算</a>
+          <ol>
+            <li><a href="#集合运算">集合运算</a></li>
+            <li><a href="#投影运算">投影运算</a></li>
+            <li><a href="#选择运算">选择运算</a></li>
+            <li><a href="#笛卡尔积">笛卡尔积</a></li>
+            <li><a href="#自然连接">自然连接</a></li>
+            <li><a href="#θ-连接">θ-连接</a></li>
+            <li><a href="#重命名">重命名</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
     <li><a href="#依赖">依赖</a>
@@ -766,27 +776,20 @@
 <p>SQL语句的核心就是关系代数。</p>
 
     <blockquote>
-        <p>SQL的功能远低于C语言和Java，为什么使用它？</p>
-<ol>
-<li>关系代数的用途十分广泛。</li>
-<li>SQL的编译十分便捷，易于优化。</li>
-</ol>
-
-    </blockquote>
-
-    <blockquote>
         <p><strong>代数</strong>（Algebra）是操作数（Operands）和运算符（Operators）的集合。</p>
 
     </blockquote>
-<p>通过关系代数的运算符和各种关系相连接。可以得到关系表达式。例如：</p>
+<h3 id="关系表达式">关系表达式
+</h3><p>通过关系代数的运算符和各种关系相连接。可以得到关系表达式。例如：</p>
 $$ R(t,y,l,i,s,p) := \sigma_{\mathrm{length} \leqslant 100}(\mathrm{Movies}) $$<p>
 </p>
 $$ S(t,y,l,i,s,p) := \sigma_{\mathrm{studioName='Fox'}}(\mathrm{Movies}) $$<p>
 </p>
 $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式都可以写成<a class="link" href="/p/data-structure-tree" >树</a>的形式。上式即可表达为：</p>
 <p><img alt="关系代数表达式" class="gallery-image" data-flex-basis="236px" data-flex-grow="98" height="397" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" width="391"></p>
-<h3 id="集合运算">集合运算
-</h3><div class="table-wrapper"><table>
+<h3 id="关系运算">关系运算
+</h3><h4 id="集合运算">集合运算
+</h4><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>集合操作</th>
@@ -801,14 +804,19 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
           <td>关系 $R$ 和 $S$ 中所有的内容，相同的只出现一次</td>
       </tr>
       <tr>
-          <td>交（Intersection）</td>
+          <td>交（Intersection</td>
           <td>$R \cap S$</td>
           <td>关系 $R$ 和 $S$ 中共同存在的内容</td>
       </tr>
       <tr>
-          <td>差（Difference）</td>
+          <td>差（Difference</td>
           <td>$R - S$</td>
           <td>关系 $R$ 中存在但不在关系 $S$ 中</td>
+      </tr>
+      <tr>
+          <td>数量</td>
+          <td>$\mid R \mid$</td>
+          <td>关系 $R$ 中所有的元组数目（表的总行数）</td>
       </tr>
   </tbody>
 </table></div>
@@ -831,8 +839,8 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
         <p>集合运算中的关系 $R$ 和 $S$ 的属性必须相同且排列顺序一致，且每个属性在两者中的域（数据类型）必须相同。</p>
 
     </blockquote>
-<h3 id="投影运算">投影运算
-</h3><p>从关系 $R$ 生成一个仅包含 $R$ 部分属性的新关系（Project），可表示为 $\pi_{A_1, A_2, \cdots, A_n}(R)$</p>
+<h4 id="投影运算">投影运算
+</h4><p>从关系 $R$ 生成一个仅包含 $R$ 部分属性的新关系（Project），可表示为 $\pi_{A_1, A_2, \cdots, A_n}(R)$</p>
 <p>对应的SQL语言：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -843,8 +851,8 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="投影运算" class="gallery-image" data-flex-basis="404px" data-flex-grow="168" height="580" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/model/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97_hu_c657c6fbc93547fc.png 800w, /passage/cs/database/model/images/%E6%8A%95%E5%BD%B1%E8%BF%90%E7%AE%97.png 977w" width="977"></p>
-<h3 id="选择运算">选择运算
-</h3><p>生成关系 $R$ 满足条件 $C$ 的元组子集作为一个新关系，结果关系的模式与原关系的相同（SELECTION）。可表示为：$\sigma_{C}(R)$</p>
+<h4 id="选择运算">选择运算
+</h4><p>生成关系 $R$ 满足条件 $C$ 的元组子集作为一个新关系，结果关系的模式与原关系的相同（SELECTION）。可表示为：$\sigma_{C}(R)$</p>
 
     <blockquote>
         <p>用集合表示则可写作：$\sigma_{C}(R) = \{ t | t \in R \land C(t) = \mathrm{true} \}$</p>
@@ -860,8 +868,8 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="选择运算" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="623" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png" srcset="/passage/cs/database/model/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97_hu_391bece7293e33b2.png 800w, /passage/cs/database/model/images/%E9%80%89%E6%8B%A9%E8%BF%90%E7%AE%97.png 977w" width="977"></p>
-<h3 id="笛卡尔积">笛卡尔积
-</h3><p>选择关系 $R$ 的一个元素为有序对的第一个元素，关系 $S$ 的一个元素为第二个元素，以此类推形成的新关系（Cartesian Product）。可表示为：$R \times S$</p>
+<h4 id="笛卡尔积">笛卡尔积
+</h4><p>选择关系 $R$ 的一个元素为有序对的第一个元素，关系 $S$ 的一个元素为第二个元素，以此类推形成的新关系（Cartesian Product）。可表示为：$R \times S$</p>
 <p>对应的SQL语言：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -872,8 +880,8 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="笛卡尔积" class="gallery-image" data-flex-basis="378px" data-flex-grow="157" height="648" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png" srcset="/passage/cs/database/model/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF_hu_e716fede6682bc5b.png 800w, /passage/cs/database/model/images/%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF.png 1022w" width="1022"></p>
-<h3 id="自然连接">自然连接
-</h3><p>设 $A_1, A_2, \cdots, A_n$ 为关系 $R$ 和 $S$ 中所有共同属性，当两者的共同属性的内容完全一致时则合并为一个关系，合并的结果应包含关系 $R$ 和 $S$ 中的所有属性（Natural Joins）。可表示为：$R \bowtie S$</p>
+<h4 id="自然连接">自然连接
+</h4><p>设 $A_1, A_2, \cdots, A_n$ 为关系 $R$ 和 $S$ 中所有共同属性，当两者的共同属性的内容完全一致时则合并为一个关系，合并的结果应包含关系 $R$ 和 $S$ 中的所有属性（Natural Joins）。可表示为：$R \bowtie S$</p>
 <p>对应的SQL语言：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -884,8 +892,8 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="自然连接" class="gallery-image" data-flex-basis="532px" data-flex-grow="221" height="455" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5_hu_ebdb88aa32e5a51d.png 800w, /passage/cs/database/model/images/%E8%87%AA%E7%84%B6%E8%BF%9E%E6%8E%A5.png 1010w" width="1010"></p>
-<h3 id="θ-连接">θ-连接
-</h3><p>关系 $R$ 与 $S$ 先做笛卡尔积，在从中选择满足条件 $C$ 的部分（Theta-Joins）。可表示为 $ R \bowtie_{C} S $</p>
+<h4 id="θ-连接">θ-连接
+</h4><p>关系 $R$ 与 $S$ 先做笛卡尔积，在从中选择满足条件 $C$ 的部分（Theta-Joins）。可表示为 $ R \bowtie_{C} S $</p>
 <p>对应的SQL语言：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -896,8 +904,8 @@ $$ Answer(title, year) := \pi_{t,y}(R \cap S) $$<p>事实上，所有表达式�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="Theta连接" class="gallery-image" data-flex-basis="389px" data-flex-grow="162" height="633" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/database/model/images/Theta%E8%BF%9E%E6%8E%A5.png" srcset="/passage/cs/database/model/images/Theta%E8%BF%9E%E6%8E%A5_hu_97d88d2a566a925c.png 800w, /passage/cs/database/model/images/Theta%E8%BF%9E%E6%8E%A5.png 1027w" width="1027"></p>
-<h3 id="重命名">重命名
-</h3><p>将关系 $R$ 重命名为关系 $S$，$R$ 中对应的属性重命名为 $A_1, A_2, \cdots, A_n$。可表示为 $\rho_{S(A_1, A_2, \cdots, A_n)}(R)$</p>
+<h4 id="重命名">重命名
+</h4><p>将关系 $R$ 重命名为关系 $S$，$R$ 中对应的属性重命名为 $A_1, A_2, \cdots, A_n$。可表示为 $\rho_{S(A_1, A_2, \cdots, A_n)}(R)$</p>
 <p>对应的SQL语言：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1062,7 +1070,8 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$
 <p>设关系 $R(X,Y,Z)$，且具备函数依赖 $X \rightarrow Y$，则可以依据BCNF分解算法将关系分解为 $R_1(X,Y)$ 和 $R_2(Y,Z)$，且 </p>
 $$R = \pi_{X \cup Y}(R) \bowtie \pi_{Y \cup Z}(R)$$<p> 即该分解包含无损连接。</p>
 <h4 id="无损连接的检验">无损连接的检验
-</h4><p>设关系 $R$ 被分解为若干关系，它们的属性集分别为 $S_1, S_2, \cdots, S_k$，在 $R$ 上成立的函数依赖集合为 $F$。则 $\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R) = R$ 成立当且仅当连接结果中的每个元组都属于 $R$。这称为无损连接的chase检验。</p>
+</h4><p>设关系 $R$ 被分解为若干关系，它们的属性集分别为 $S_1, S_2, \cdots, S_k$，在 $R$ 上成立的函数依赖集合为 $F$。则 </p>
+$$\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R) = R$$<p> 成立当且仅当连接结果中的每个元组都属于 $R$。这称为无损连接的chase检验。</p>
 <h4 id="依赖的保持">依赖的保持
 </h4><p>在某些情况下，把一个关系分解为一系列BCNF关系时，无法同时拥有无损连接和依赖保持两种性质。</p>
 <h3 id="第三范式">第三范式
@@ -1345,7 +1354,7 @@ $$A_1 A_2 \cdots A_n \rightarrow \rightarrow B_1 B_2 \cdots B_m$$<p> 在 $R$ 中
             
                 
 <article class="">
-    <a href="/passage/software/sql/">
+    <a href="/passage/cs/database/sql/">
         
 
         <div class="article-details">
