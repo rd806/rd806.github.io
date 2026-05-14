@@ -611,7 +611,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 12 分钟
+                        阅读时长: 13 分钟
                     </time>
                 
             </div>
@@ -1040,30 +1040,80 @@ $$A_1 A_2 \cdots A_n \rightarrow C_1 C_2 \cdots C_k$$
 <li>如果存在违反BCNF的函数依赖，假设为 $X \rightarrow Y$。计算 $X$ 的闭包 $X^+$。选择 $R_1 = X^+$ 作为一个关系模式，并使另一个关系模式 $R_2$ 包含属性 $X$ 以及不在 $X^+$ 的属性。</li>
 <li>计算 $R_1$ 和 $R_2$ 的函数依赖集合，记为 $S_1$ 和 $S_2$，并递归地分解 $R_1$ 和 $R_2$，返回最终分解的集合。</li>
 </ol>
-<h3 id="分解的优劣">分解的优劣
-</h3><p>一个分解应当具有3个性质：</p>
+<p>例如，对于关系 $R(A, B, C, D)$ 和函数依赖集合 $F = \{AB \rightarrow C, C \rightarrow D, D \rightarrow A\}$：</p>
+<ol>
+<li>检查每个函数依赖是否违反 BCNF：</li>
+</ol>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>性质</th>
-          <th>特点</th>
+          <th>函数依赖</th>
+          <th>左侧</th>
+          <th>左侧闭包</th>
+          <th>是否违反BCNF</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>消除异常</td>
-          <td></td>
+          <td>$\{AB \rightarrow C\}$</td>
+          <td>$AB$</td>
+          <td>$ABCD$</td>
+          <td>是超键，不违反BCNF</td>
       </tr>
       <tr>
-          <td>信息可恢复</td>
-          <td>能够从分解后的各个元组中恢复原始关系。</td>
+          <td>$\{C \rightarrow D\}$</td>
+          <td>$C$</td>
+          <td>$CDA \ne ABCD$</td>
+          <td>不是超键，违反BCNF</td>
       </tr>
       <tr>
-          <td>依赖的保持</td>
-          <td>如果函数依赖的投影在分解后的关系上成立，能确保对分解后的关系用连接重构获取原始关系仍然满足原来的函数依赖</td>
+          <td>$\{D \rightarrow A\}$</td>
+          <td>$D$</td>
+          <td>$DA \ne ABCD $</td>
+          <td>不是超键，违反BCNF</td>
       </tr>
   </tbody>
 </table></div>
+<ol start="2">
+<li>选择违反的函数依赖进行分解</li>
+</ol>
+<p>对于 $C \rightarrow D$，左侧闭包为 $\{CDA\}$，则分解为关系 $R_1(A, C, D)$ 和 $R_2(B, C)$。其中 $R_2(B,C)$ 已经是 BCNF，因此只需要再分解 $R_1(A, C, D)$</p>
+<ol start="3">
+<li>再次分解 $R_1(A, C, D)$</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>函数依赖</th>
+          <th>左侧</th>
+          <th>左侧闭包</th>
+          <th>是否违反BCNF</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\{C \rightarrow D\}$</td>
+          <td>$C$</td>
+          <td>$CDA$</td>
+          <td>是超键，不违反BCNF</td>
+      </tr>
+      <tr>
+          <td>$\{D \rightarrow A\}$</td>
+          <td>$D$</td>
+          <td>$DA \ne ACD $</td>
+          <td>不是超键，违反BCNF</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>则可以分解为 $R_3(A, D)$，$R_4(C, D)$</p>
+<p>综上，BCNF分解为 $(A, D)$，$(B, C)$，$(C, D)$</p>
+<h3 id="分解的优劣">分解的优劣
+</h3><p>一个理想的分解应当具有3个性质：</p>
+<ol>
+<li>消除异常</li>
+<li>信息可恢复：能够从分解后的各个元组中恢复原始关系</li>
+<li>依赖的保持：如果函数依赖的投影在分解后的关系上成立，能确保对分解后的关系用连接重构获取原始关系仍然满足原来的函数依赖</li>
+</ol>
 <p>事实上，没有一种分解能同时具备以上3个性质。</p>
 <h4 id="从分解中恢复信息">从分解中恢复信息
 </h4><p>若可以通过分解后的各个关系重构原关系 $R$，则称该分解含有<strong>无损连接</strong>。</p>
@@ -1072,8 +1122,170 @@ $$R = \pi_{X \cup Y}(R) \bowtie \pi_{Y \cup Z}(R)$$<p> 即该分解包含无损�
 <h4 id="无损连接的检验">无损连接的检验
 </h4><p>设关系 $R$ 被分解为若干关系，它们的属性集分别为 $S_1, S_2, \cdots, S_k$，在 $R$ 上成立的函数依赖集合为 $F$。则 </p>
 $$\pi_{S_1}(R) \bowtie \pi_{S_2}(R) \bowtie \cdots \bowtie \pi_{S_k}(R) = R$$<p> 成立当且仅当连接结果中的每个元组都属于 $R$。这称为无损连接的chase检验。</p>
+<p>例如，对于关系 $R(A, B, C, D)$ 可分解为以下关系：$\{A, D\}$，$\{A, C\}$ 和 $\{B, C, D\}$。函数依赖为 $A \rightarrow B$，$B \rightarrow C$ 和 $CD \rightarrow A$。则它的无损连接的检验如下：</p>
+<ol>
+<li>构造关系表，在关系中的属性不带下标，否则带下标。</li>
+</ol>
+
+    <blockquote>
+        <p>不带下标的属性表明受到约束，反之为自由值。</p>
+
+    </blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\{A, D\}$</td>
+          <td>$a$</td>
+          <td>$b_1$</td>
+          <td>$c_1$</td>
+          <td>$d$</td>
+      </tr>
+      <tr>
+          <td>$\{A, C\}$</td>
+          <td>$a$</td>
+          <td>$b_2$</td>
+          <td>$c$</td>
+          <td>$d_2$</td>
+      </tr>
+      <tr>
+          <td>$\{B, C, D}$</td>
+          <td>$a_3$</td>
+          <td>$b$</td>
+          <td>$c$</td>
+          <td>$d$</td>
+      </tr>
+  </tbody>
+</table></div>
+<ol start="2">
+<li>应用函数依赖 $A \rightarrow B$</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\{A, D\}$</td>
+          <td>$\bm{a}$</td>
+          <td>$\bm{b_1}$</td>
+          <td>$c_1$</td>
+          <td>$d$</td>
+      </tr>
+      <tr>
+          <td>$\{A, C\}$</td>
+          <td>$\bm{a}$</td>
+          <td>$\bm{b_1}$</td>
+          <td>$c$</td>
+          <td>$d_2$</td>
+      </tr>
+      <tr>
+          <td>$\{B, C, D}$</td>
+          <td>$a_3$</td>
+          <td>$b$</td>
+          <td>$c$</td>
+          <td>$d$</td>
+      </tr>
+  </tbody>
+</table></div>
+<ol start="3">
+<li>应用函数依赖 $B \rightarrow C$</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\{A, D\}$</td>
+          <td>$a$</td>
+          <td>$\bm{b_1}$</td>
+          <td>$\bm{c}$</td>
+          <td>$d$</td>
+      </tr>
+      <tr>
+          <td>$\{A, C\}$</td>
+          <td>$a$</td>
+          <td>$\bm{b_1}$</td>
+          <td>$\bm{c}$</td>
+          <td>$d_2$</td>
+      </tr>
+      <tr>
+          <td>$\{B, C, D}$</td>
+          <td>$a_3$</td>
+          <td>$b$</td>
+          <td>$c$</td>
+          <td>$d$</td>
+      </tr>
+  </tbody>
+</table></div>
+<ol start="4">
+<li>应用函数依赖 $CD \rightarrow A$</li>
+</ol>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\{A, D\}$</td>
+          <td>$a$</td>
+          <td>$b_1$</td>
+          <td>$\bm{c}$</td>
+          <td>$\bm{d}$</td>
+      </tr>
+      <tr>
+          <td>$\{A, C\}$</td>
+          <td>$a$</td>
+          <td>$b_1$</td>
+          <td>$c$</td>
+          <td>$d_2$</td>
+      </tr>
+      <tr>
+          <td>$\{B, C, D}$</td>
+          <td>$\bm{a}$</td>
+          <td>$b$</td>
+          <td>$\bm{c}$</td>
+          <td>$\bm{d}$</td>
+      </tr>
+  </tbody>
+</table></div>
+<ol start="5">
+<li>查找属性为 $\{a, b, c, d\}$ 的元组。若存在，则证明为无损连接。</li>
+</ol>
 <h4 id="依赖的保持">依赖的保持
 </h4><p>在某些情况下，把一个关系分解为一系列BCNF关系时，无法同时拥有无损连接和依赖保持两种性质。</p>
+
+    <blockquote>
+        <p>BCNF 不保证依赖保持（dependency preservation）。如果关系分解时要求既满足 BCNF 又保持依赖，有时是不可能的（需要在 BCNF 和 3NF 之间做权衡）。</p>
+
+    </blockquote>
 <h3 id="第三范式">第三范式
 </h3><p>定义：如果一个关系 $R$ 满足只要 $A_1 A_2 \cdots A_n \rightarrow B_1 B_2 \cdots B_m$ 是非平凡函数依赖，那么或者 $\{A_1, A_2 ,\cdots, A_n\}$ 是超键，或者每个属于 $B_1, B_2, \cdots, B_n$ 但不属于 $A$ 的属性都是某个键的成员。</p>
 
