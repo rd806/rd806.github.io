@@ -345,6 +345,7 @@
       </ol>
     </li>
     <li><a href="#undoredo日志">undo/redo日志</a></li>
+    <li><a href="#检查点">检查点</a></li>
   </ol>
 </nav>
         </div>
@@ -554,7 +555,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 5 分钟
+                        阅读时长: 6 分钟
                     </time>
                 
             </div>
@@ -608,6 +609,7 @@
       </ol>
     </li>
     <li><a href="#undoredo日志">undo/redo日志</a></li>
+    <li><a href="#检查点">检查点</a></li>
   </ol>
 
             </nav>
@@ -883,6 +885,42 @@
 <ul>
 <li>从前往后，重做已提交的事务</li>
 <li>从后往前，撤销未提交的事务</li>
+</ul>
+<p>三种日志的特点比较：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>纯Undo日志</td>
+          <td>只记录旧值。要求：事务提交前，所有修改必须写盘。恢复时，对于未提交事务执行Undo；已提交事务无需操作。缺点：频繁刷盘，性能差</td>
+      </tr>
+      <tr>
+          <td>纯Redo日志</td>
+          <td>只记录新值。要求：事务提交后，所有修改必须立即写盘。恢复时，只需Redo已提交的事务。缺点：仍可能增加提交延迟</td>
+      </tr>
+      <tr>
+          <td>Undo/Redo日志</td>
+          <td>无以上限制。提交前可刷盘，提交后也可缓存，提供了最大灵活性。因此成为主流选择</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="检查点">检查点
+</h2><p>没有检查点时，恢复需要扫描整个日志文件（可能非常巨大）。检查点定期将内存中的脏页（被修改但未写回磁盘的页）强制写入磁盘，并记录当前所有活动事务。</p>
+<p>作用：</p>
+<ul>
+<li>限制恢复时需要扫描的日志范围（只需从最后一个成功检查点之后开始）。</li>
+<li>加快恢复速度：检查点之前提交的事务，其所有修改已落盘，无需Redo；检查点之前未提交但已回滚的事务，无需Undo。</li>
+</ul>
+<p>工作流程（以常见模糊检查点为例）：</p>
+<ul>
+<li>写入日志记录<code>&lt;CHECKPOINT_START&gt;</code>，记录当前所有活动事务列表。</li>
+<li>强制将所有脏页刷入磁盘（此过程可能持续一段时间）。</li>
+<li>写入日志记录<code>&lt;CHECKPOINT_END&gt;</code>。</li>
 </ul>
 
 </section>
