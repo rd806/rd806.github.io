@@ -54,11 +54,11 @@
                 href="https://rd806.github.io/categories/final_test/"
                 />
   </url><url>
-    <loc>https://rd806.github.io/passage/guide/docker/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <loc>https://rd806.github.io/passage/website/cloudflare/</loc>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/categories/guide/</loc>
-    <lastmod>2026-04-11T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -69,9 +69,6 @@
                 hreflang="zh-cn"
                 href="https://rd806.github.io/categories/guide/"
                 />
-  </url><url>
-    <loc>https://rd806.github.io/passage/website/cloudflare/</loc>
-    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/categories/website/</loc>
     <lastmod>2026-04-09T00:00:00+00:00</lastmod>
@@ -153,6 +150,9 @@
   </url><url>
     <loc>https://rd806.github.io/passage/interesting/math_in_images/</loc>
     <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rd806.github.io/passage/guide/docker/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/passage/cs/cslab/nemu/prepared/</loc>
     <lastmod>2025-09-08T00:00:00+00:00</lastmod>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="应用层">
 <title>计算机网络</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/cs/network/">
+<link rel="canonical" href="https://rd806.github.io/passage/cs/network/application/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="计算机网络">
-<meta property='og:description' content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
-<meta property='og:url' content='https://rd806.github.io/passage/cs/network/'>
+<meta property='og:description' content="应用层">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/network/application/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-31T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="计算机网络">
-<meta name="twitter:description" content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
+<meta name="twitter:description" content="应用层">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -253,7 +253,7 @@
                                         
                                     
                                 
-                                <option value="/passage/cs/network/" selected>简体中文</option>
+                                <option value="/passage/cs/network/application/" selected>简体中文</option>
                             
                                 
                                 
@@ -318,32 +318,29 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#概述">概述</a>
+    <li><a href="#网络应用">网络应用</a></li>
+    <li><a href="#web与http">Web与HTTP</a>
       <ol>
-        <li><a href="#网络边缘">网络边缘</a>
+        <li><a href="#两种连接状态">两种连接状态</a></li>
+        <li><a href="#http流水线">HTTP流水线</a></li>
+        <li><a href="#http信息">HTTP信息</a>
           <ol>
-            <li><a href="#主机">主机</a></li>
-            <li><a href="#接入网">接入网</a></li>
-            <li><a href="#物理介质">物理介质</a></li>
+            <li><a href="#http请求">HTTP请求</a></li>
+            <li><a href="#http响应">HTTP响应</a></li>
           </ol>
         </li>
-        <li><a href="#网络核心">网络核心</a>
-          <ol>
-            <li><a href="#分组交换">分组交换</a></li>
-            <li><a href="#电路交换">电路交换</a></li>
-            <li><a href="#isp与互联网">ISP与互联网</a></li>
-          </ol>
-        </li>
-        <li><a href="#网络协议">网络协议</a></li>
-        <li><a href="#网络评价指标">网络评价指标</a>
-          <ol>
-            <li><a href="#延迟">延迟</a></li>
-            <li><a href="#吞吐量">吞吐量</a></li>
-          </ol>
-        </li>
+        <li><a href="#cookies">Cookies</a></li>
+        <li><a href="#web缓存">Web缓存</a></li>
       </ol>
     </li>
-    <li><a href="#分层结构">分层结构</a></li>
+    <li><a href="#dns系统">DNS系统</a>
+      <ol>
+        <li><a href="#dns服务器">DNS服务器</a></li>
+        <li><a href="#dns查询过程">DNS查询过程</a></li>
+        <li><a href="#dns缓存">DNS缓存</a></li>
+      </ol>
+    </li>
+    <li><a href="#p2p架构">P2P架构</a></li>
   </ol>
 </nav>
         </div>
@@ -503,9 +500,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/cs/network/">计算机网络</a>
+            <a href="/passage/cs/network/application/">计算机网络</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            应用层
+        </h3>
         
     </div>
 
@@ -569,32 +570,29 @@
             <nav class="toc-nav">
                 
   <ol>
-    <li><a href="#概述">概述</a>
+    <li><a href="#网络应用">网络应用</a></li>
+    <li><a href="#web与http">Web与HTTP</a>
       <ol>
-        <li><a href="#网络边缘">网络边缘</a>
+        <li><a href="#两种连接状态">两种连接状态</a></li>
+        <li><a href="#http流水线">HTTP流水线</a></li>
+        <li><a href="#http信息">HTTP信息</a>
           <ol>
-            <li><a href="#主机">主机</a></li>
-            <li><a href="#接入网">接入网</a></li>
-            <li><a href="#物理介质">物理介质</a></li>
+            <li><a href="#http请求">HTTP请求</a></li>
+            <li><a href="#http响应">HTTP响应</a></li>
           </ol>
         </li>
-        <li><a href="#网络核心">网络核心</a>
-          <ol>
-            <li><a href="#分组交换">分组交换</a></li>
-            <li><a href="#电路交换">电路交换</a></li>
-            <li><a href="#isp与互联网">ISP与互联网</a></li>
-          </ol>
-        </li>
-        <li><a href="#网络协议">网络协议</a></li>
-        <li><a href="#网络评价指标">网络评价指标</a>
-          <ol>
-            <li><a href="#延迟">延迟</a></li>
-            <li><a href="#吞吐量">吞吐量</a></li>
-          </ol>
-        </li>
+        <li><a href="#cookies">Cookies</a></li>
+        <li><a href="#web缓存">Web缓存</a></li>
       </ol>
     </li>
-    <li><a href="#分层结构">分层结构</a></li>
+    <li><a href="#dns系统">DNS系统</a>
+      <ol>
+        <li><a href="#dns服务器">DNS服务器</a></li>
+        <li><a href="#dns查询过程">DNS查询过程</a></li>
+        <li><a href="#dns缓存">DNS缓存</a></li>
+      </ol>
+    </li>
+    <li><a href="#p2p架构">P2P架构</a></li>
   </ol>
 
             </nav>
@@ -605,336 +603,264 @@
     <section class="article-content">
     
     
-    <h2 id="概述">概述
-</h2><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>概念</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>网络</td>
-          <td>节点和边之间的无向关系</td>
-      </tr>
-      <tr>
-          <td>计算机网络</td>
-          <td>联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器）</td>
-      </tr>
-      <tr>
-          <td>互联网</td>
-          <td>许多网络通过互联方式联系在一起。</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>互联网是设备和协议的集合体。</p>
-<p>从“组成结构”看互联网：</p>
+    <h2 id="网络应用">网络应用
+</h2><p>基本运行方式：</p>
+<ul>
+<li>运行在端设备上（网络边缘）</li>
+<li>在网络上实现进程间通信</li>
+</ul>
+<p>不需要在网络核心上实现网络应用，因为网络核心并不运行任何用户程序，同时在终端运行意味着更快的更新速度。</p>
+<p>网络架构：</p>
+<ul>
+<li>CS架构：客户端——服务端</li>
+<li>P2P架构：端设备互相直接通信</li>
+</ul>
+<p>网络中，设备间的通信依赖网络协议。我们需要一个句柄或接口，使进程能够通过网络发送/接收消息。当前，网络通信的主流接口是<code>socket</code>。<code>socket</code>就像门牌，发送时将消息发到门外，发送过程依赖于门另一侧的传输基础设施，在接收过程中将消息传递到套接字。<code>socket</code>接口。</p>
+<p>计算机的进程使用端口标识。</p>
+<p>明确服务的传输需求：</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>组成结构</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>网络边缘（Internet edge）</td>
-          <td>包括客户端和服务器，接入网和物理介质</td>
-      </tr>
-      <tr>
-          <td>网络核心（Internet core）</td>
-          <td>互相连接的路由器，也称作“网络之网络”</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>从“提供服务”看互联网：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>组成结构</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>协议（protocol）</td>
-          <td>定义了网络实体之间发送和接收消息的格式、顺序以及在消息传输、接收时采取的动作</td>
-      </tr>
-      <tr>
-          <td>标准（RFC）</td>
-          <td>由IETF制定，定义消息的格式、信息发送的顺序等内容</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="网络边缘">网络边缘
-</h3><h4 id="主机">主机
-</h4><p>包括客户端和服务器，任务是发送数据包</p>
-
-    <blockquote>
-        <p>数据包：将应用程序产生的消息分解成的较小的块称为数据包，长度通常记作 $L$，单位为比特。</p>
-
-    </blockquote>
-<p>记互联网的传输速率为 $R$（也称为链路容量或带宽，单位 $\text{bits/s}$），则可定义数据包传输延迟为将 $L$ 比特数据包传送到链路所需的时间 </p>
-$$D = \frac{L}{R}$$<h4 id="接入网">接入网
-</h4><p>接入网连接主机与边缘路由，包括以下几类：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>类型</th>
+          <th>要求</th>
           <th>特点</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>线缆接入</td>
-          <td>HFC（光纤/同轴电缆混合）连接到DSL。下行40Mbps-1.2Gbps，上行30-100Mbps</td>
+          <td>数据完整性</td>
+          <td>部分应用程序需要100%的数据完整传输，另一些可以容忍部分数据丢失</td>
       </tr>
       <tr>
-          <td>数字接入</td>
-          <td>利用现有的有线电话线路连接到DSL。下行24-52Mbps，上行3.5-16Mbps</td>
+          <td>延迟</td>
+          <td>一些应用程序需要较低的延迟以满足时效性</td>
       </tr>
       <tr>
-          <td>无线接入</td>
-          <td>无线局域网（WLAN），范围不超过一个建筑物，速率在450Mbps <br> 蜂窝网络：由运营商提供，范围在10km数量级，速率在10Mbps</td>
+          <td>吞吐量</td>
+          <td>一些应用程序（如多媒体）需要小吞吐量</td>
+      </tr>
+      <tr>
+          <td>安全性</td>
+          <td>一些应用程序需要加密和数据完整性，</td>
       </tr>
   </tbody>
 </table></div>
-<h4 id="物理介质">物理介质
-</h4><div class="table-wrapper"><table>
+<h2 id="web与http">Web与HTTP
+</h2><p>Web是一个网络应用名，HTTP是它所使用的协议。</p>
+
+    <blockquote>
+        <p>Web页面包含很多对象，分布式地存储在不同的服务器上。其中包括HTML文件，图像，音视频文件等。在这个系统中，文档和其他资源通过 <strong>统一资源标识符</strong>（Uniform Resource Identifiers，或 URI，通常为 URL）进行标识和互相链接。用户可以使用浏览器访问Web上的资源。</p>
+
+    </blockquote>
+<p>HTTP是建立在CS架构上的协议，使用TCP传输。</p>
+<p>HTTP是无状态的。表现为每个请求都是独立的，服务器无法识别是不是同一个用户发送的多个请求。</p>
+<h3 id="两种连接状态">两种连接状态
+</h3><p>定义 $\text{RTT}$ 为往返时间（Round-Trip Time）：一个数据包从客户端发送到服务端再返回客户端所用的时间。</p>
+<p>非持久性连接（Non-persistent HTTP）：</p>
+<ol>
+<li>TCP连接开启。</li>
+<li>每个TCP连接上至多发送一个对象。</li>
+<li>TCP连接关闭。</li>
+</ol>
+<p><img alt="非持久性HTTP" class="gallery-image" data-flex-basis="203px" data-flex-grow="84" height="843" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/%E9%9D%9E%E6%8C%81%E4%B9%85%E6%80%A7HTTP.png" width="715"></p>
+<p>对于请求的每个对象，它的响应时间包括：</p>
+<ul>
+<li>1个 $\text{RTT}$ 用来初始化TCP连接。</li>
+<li>1个 $\text{RTT}$ 用来请求HTTP内容。</li>
+<li>传输请求内容的时间（transmit time）。</li>
+</ul>
+<p>因此，非持久性HTTP的响应时间为 $2 \text{RTT} + \text{transmit time}$</p>
+<p>持久性连接（Persistent HTTP）：</p>
+<ol>
+<li>TCP连接开启。</li>
+<li>每个TCP连接可以发送多个对象。</li>
+<li>TCP连接关闭。</li>
+</ol>
+<h3 id="http流水线">HTTP流水线
+</h3><p>流水线（HTTP Pipelining）：HTTP 客户端在未等待前一个请求的响应的情况下，仍可以连续发送多个 HTTP 请求。</p>
+<p><img alt="HTTP流水线" class="gallery-image" data-flex-basis="199px" data-flex-grow="83" height="827" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/HTTP%E6%B5%81%E6%B0%B4%E7%BA%BF.png" width="688"></p>
+<p>对于请求的每个对象，它的响应时间包括：</p>
+<ul>
+<li>1个 $\text{RTT}$ 用来初始化TCP连接。</li>
+<li>1个 $\text{RTT}$ 用来请求HTTP内容。</li>
+<li>传输请求内容的时间（transmit time）。</li>
+<li>1个 $\text{RTT}$ 用来继续请求和接收对象。</li>
+</ul>
+<p>因此，非持久性HTTP的响应时间为 $3 \text{RTT} + \text{transmit time}$</p>
+<h3 id="http信息">HTTP信息
+</h3><p>HTTP信息包含两部分：请求和回复。</p>
+<h4 id="http请求">HTTP请求
+</h4><p>HTTP请求使用ASCII编码。</p>
+<p><img alt="HTTP请求的结构" class="gallery-image" data-flex-basis="480px" data-flex-grow="200" height="687" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E7%BB%93%E6%9E%84.png" srcset="/passage/cs/network/application/images/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E7%BB%93%E6%9E%84_hu_da54b3f12409588e.png 800w, /passage/cs/network/application/images/HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E7%BB%93%E6%9E%84.png 1376w" width="1376"></p>
+<p>以下是一个典型的HTTP请求头：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">GET /index.html HTTP/1.1\r\n
+</span></span><span class="line"><span class="cl">Host: www-net.cs.umass.edu\r\n
+</span></span><span class="line"><span class="cl">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:80.0) Gecko/20100101 Firefox/80.0 \r\n
+</span></span><span class="line"><span class="cl">Accept: text/html,application/xhtml+xml\r\n
+</span></span><span class="line"><span class="cl">Accept-Language: en-us,en;q=0.5\r\n
+</span></span><span class="line"><span class="cl">Accept-Encoding: gzip,deflate\r\n
+</span></span><span class="line"><span class="cl">Connection: keep-alive\r\n
+</span></span><span class="line"><span class="cl">\r\n
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>常见的HTTP请求：</p>
+<div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>概念</th>
+          <th>请求</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GET</td>
+          <td>请求资源，也可以发送数据给服务器，但没有body</td>
+      </tr>
+      <tr>
+          <td>POST</td>
+          <td>向服务器发送表单数据</td>
+      </tr>
+      <tr>
+          <td>HEAD</td>
+          <td>只返回报文不返回对象</td>
+      </tr>
+      <tr>
+          <td>PUT</td>
+          <td>上传文件到服务器的指定目录</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="http响应">HTTP响应
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">HTTP/1.1 200 OK
+</span></span><span class="line"><span class="cl">Date: Tue, 08 Sep 2020 00:53:20 GMT
+</span></span><span class="line"><span class="cl">Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.4.9 mod_perl/2.0.11 Perl/v5.16.3
+</span></span><span class="line"><span class="cl">Last-Modified: Tue, 01 Mar 2016 18:57:50 GMT
+</span></span><span class="line"><span class="cl">ETag: &#34;a5b-52d015789ee9e&#34;
+</span></span><span class="line"><span class="cl">Accept-Ranges: bytes
+</span></span><span class="line"><span class="cl">Content-Length: 2651
+</span></span><span class="line"><span class="cl">Content-Type: text/html; charset=UTF-8
+</span></span><span class="line"><span class="cl">\r\n
+</span></span><span class="line"><span class="cl">data data data data data ... 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>HTTP响应的返回码标识了此次请求的状态信息。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>状态码</th>
+          <th>信息</th>
           <th>含义</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>物理链路</td>
-          <td>数据发送和接收端之间的物理连接</td>
+          <td>200</td>
+          <td>OK</td>
+          <td>响应成功</td>
       </tr>
       <tr>
-          <td>导向性介质</td>
-          <td>信号在固体介质中传播，如铜、光纤、同轴电缆</td>
+          <td>301</td>
+          <td>Moved Permanently</td>
+          <td>请求内容已转移到别处</td>
       </tr>
       <tr>
-          <td>非导向性介质</td>
-          <td>信号自由传播，如无线电磁波</td>
+          <td>400</td>
+          <td>Bad Request</td>
+          <td>请求有语法错误，无法识别</td>
+      </tr>
+      <tr>
+          <td>404</td>
+          <td>Not Found</td>
+          <td>请求内容不在该服务器上</td>
+      </tr>
+      <tr>
+          <td>505</td>
+          <td>HTTP Version Not Supported</td>
+          <td>HTTP版本不支持</td>
       </tr>
   </tbody>
 </table></div>
-<p>常用的物理介质</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>介质</th>
-          <th>特点</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>双绞线（TP）</td>
-          <td>由两根绝缘铜线组成，五类线可达100Mbps-1Gbps，六类线可达10Gbps</td>
-      </tr>
-      <tr>
-          <td>同轴电缆</td>
-          <td>由两个同心铜导体组成，可双向传输，拥有多个通道，每个通道可达100Mbps</td>
-      </tr>
-      <tr>
-          <td>光纤</td>
-          <td>由玻璃纤维组成，传递光信号，进行高速点对点传输，可达10-100Gbps，不受电磁干扰</td>
-      </tr>
-      <tr>
-          <td>电磁波</td>
-          <td>信号分布在电磁波的各个频段，受反射、遮挡、干扰的影响较大。常见的有WiFi、蜂窝网络、蓝牙、卫星信号等</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="网络核心">网络核心
-</h3><p>网络核心可以看作一系列互相连接的路由器，每个路由器都有多个输入端和输出端。网络核心不运行应用程序，只转发数据包。</p>
-<p>网络核心的两大功能：</p>
+<h3 id="cookies">Cookies
+</h3><p>由于 HTTP 协议是无状态的，每个请求互相独立，服务器默认情况下无法知道两个请求是否来自同一客户端或用户。Cookie 的引入使得服务器能够跨多个请求“识别”和“记住”用户。</p>
+<p>每个cookies包含以下4个部分：</p>
 <ol>
-<li>转发（交换）：将到达的数据包从路由器的输入链路移动到输出链路。</li>
-<li>路由：规划数据包传输所需要经过的路径。</li>
+<li>HTTP响应消息的cookie头。</li>
+<li>下一个HTTP请求消息中的cookie头。</li>
+<li>用户主机保存的cookie文件。</li>
+<li>结束符。</li>
 </ol>
-<h4 id="分组交换">分组交换
-</h4><p>基本原理：</p>
-<ol>
-<li>主机将应用数据拆分成数据包。</li>
-<li>数据包通过源到目标路径的一条链路，从一个路由器转发到下一个路由器。</li>
-<li>每个数据包在链路上的传输互相独立。</li>
-<li>存储转发：整个数据包必须完整到达路由器后才能转发到下一条链路上。</li>
-</ol>
-<p>传输延迟：以 $R$ $\text{bps}$ 在链路上传输 $L$ $\text{bit}$ 需要时间 $\displaystyle \frac{L}{R}$ 秒，这段时间称为传输延迟。一般地，若端到端之间有 $n$ 条链路，每条链路的传输速率为 $R_{i}$ $\text{bps}$，则传输大小为 $L$ $\text{bit}$ 的数据包需要的总延迟为 $\displaystyle \sum_{i=1}^{n} \frac{L}{R_i}$ 秒</p>
-<p>排队与丢包：如果一段时间内到达链路的速率超过链路的传输速率，则数据包将会在路由器上的缓冲区排队。若缓冲区已满，多余的数据包则可能被丢弃，称为丢包。</p>
-
-    <blockquote>
-        <p>发生丢包时，丢失的数据包可能由上一个节点重传、由源重发或完全不进行响应。</p>
-
-    </blockquote>
-<figure><img src="/passage/cs/network/images/%E6%8E%92%E9%98%9F%E4%B8%8E%E4%B8%A2%E5%8C%85.png" width="700"><figcaption>
-      <h4>排队与丢包</h4>
-    </figcaption>
-</figure>
-
-<h4 id="电路交换">电路交换
-</h4><p>为源到目的地的“呼叫”分配并预留端到端的资源，即为收发两端分配专用的、独占的资源。</p>
-
-    <blockquote>
-        <p>电路交换常用于传统的电话中。通话时，两台电话之间分配了专用的通信资源，即使没有数据传输，在挂断之前资源不会被释放。</p>
-
-    </blockquote>
-<p>电路交换中，为了更好地利用资源，出现了FDM（频分）和TDM（时分）技术。</p>
-<div class="table-wrapper"><table>
+<p><img alt="含有cookie的HTTP" class="gallery-image" data-flex-basis="423px" data-flex-grow="176" height="873" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/%E5%90%AB%E6%9C%89cookie%E7%9A%84HTTP.png" srcset="/passage/cs/network/application/images/%E5%90%AB%E6%9C%89cookie%E7%9A%84HTTP_hu_861b0d85b0daa68a.png 800w, /passage/cs/network/application/images/%E5%90%AB%E6%9C%89cookie%E7%9A%84HTTP.png 1540w" width="1540"></p>
+<h3 id="web缓存">Web缓存
+</h3><p>为了提高Web访问效率，可使用Web缓存。用户设置浏览器指向本地的一个区域，每次用户请求HTTP内容时，先在本地Web缓存中查找内容，若命中则直接返回，否则请求源主机的内容。</p>
+<h2 id="dns系统">DNS系统
+</h2><p>DNS是由很多分级的域名服务器组成的分布式数据库。DNS解析过程则是由一系列分布式DNS服务器协作完成的。</p>
+<h3 id="dns服务器">DNS服务器
+</h3><div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>分组方式</th>
-          <th>内容</th>
+          <th>类别</th>
+          <th>作用</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>FDM</td>
-          <td>将电磁频率划分为多个窄频段，为每个呼叫分配专用频段，以该频段的最大速率传输</td>
+          <td>根域名服务器</td>
+          <td>位于 DNS 解析的最顶端。它们不直接回答关于哪个域名映射到哪个 IP 地址的查询，而是告诉查询者下一步应该询问哪个顶级域名服务器</td>
       </tr>
       <tr>
-          <td>TDM</td>
-          <td>将时间划分为多个时段，为每个呼叫周期性地分配时段，在其所属时段以电磁波的最大速率传输</td>
+          <td>顶级域名服务器</td>
+          <td>负责特定的顶级域名（如 <code>.com</code>，<code>.org</code>，<code>.net</code> 等）。它们为下一级的域名（如 <code>example.com</code>）提供有关权威名称服务器的信息</td>
+      </tr>
+      <tr>
+          <td>权威域名服务器</td>
+          <td>这些服务器为特定的域名（如 example.com）提供详细的 DNS 记录信息（例如 A 记录、MX 记录等）。只有权威服务器才能为其负责的域名提供这些信息。大多数组织拥有权威DNS服务器来为他们的域名提供解析服务</td>
+      </tr>
+      <tr>
+          <td>本地域名服务器</td>
+          <td>在本地网络环境中运行的DNS服务器，它为该网络中的设备提供域名解析服务</td>
       </tr>
   </tbody>
 </table></div>
-<p><img alt="FDM" class="gallery-image" data-flex-basis="785px" data-flex-grow="327" height="206" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/FDM.png" width="674"> <img alt="TDM" class="gallery-image" data-flex-basis="723px" data-flex-grow="301" height="227" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/TDM.png" width="684"></p>
-<h4 id="isp与互联网">ISP与互联网
-</h4><p>主机通过接入互联网服务提供商（ISP）连接到互联网，不同的ISP必须互相连接。由此形成复杂的网络结构。</p>
-<figure><img src="/passage/cs/network/images/ISP%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91.png" width="700"><figcaption>
-      <h4>ISP与互联网</h4>
-    </figcaption>
-</figure>
-
-<h3 id="网络协议">网络协议
-</h3>
-    <blockquote>
-        <p>为什么采用分层结构？</p>
-<ol>
-<li>有利于识别系统各组成部分及其相互关系。</li>
-<li>分层结构有利于系统维护和更新。</li>
-</ol>
-
-    </blockquote>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>协议栈</th>
-          <th>概念</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>应用层（application）</td>
-          <td>支持网络应用</td>
-      </tr>
-      <tr>
-          <td>传输层（transport）</td>
-          <td>进程间的数据传输</td>
-      </tr>
-      <tr>
-          <td>网络层（network）</td>
-          <td>规划数据从源到目的地的路线</td>
-      </tr>
-      <tr>
-          <td>链路层（link）</td>
-          <td>相邻网络结点之间的数据传输</td>
-      </tr>
-      <tr>
-          <td>物理层（physical）</td>
-          <td>传输字节信息</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="网络评价指标">网络评价指标
-</h3><h4 id="延迟">延迟
-</h4><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>延迟来源</th>
-          <th>记号</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>处理延迟</td>
-          <td>$d_{\text{proc}}$</td>
-          <td>检查字节错误、确定输出链路带来的延迟</td>
-      </tr>
-      <tr>
-          <td>排队延迟</td>
-          <td>$d_{\text{queue}}$</td>
-          <td>数据包在队列中等待传输带来的延迟</td>
-      </tr>
-      <tr>
-          <td>传输延迟</td>
-          <td>$d_{\text{trans}}$</td>
-          <td>数据包转发带来的延迟，通常为 $\displaystyle \frac{L}{R}$</td>
-      </tr>
-      <tr>
-          <td>传播延迟</td>
-          <td>$d_{\text{prop}}$</td>
-          <td>数据包在链路上传输带来的延迟，通常为 $\displaystyle \frac{d}{s}$</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>总延迟：$d_{\text{nobal}} = d_{\text{proc}} + d_{\text{queue}} + d_{\text{trans}} + d_{\text{prop}}$</p>
-<h4 id="吞吐量">吞吐量
-</h4><p>发送端向接收端发送比特的速率，通常记作 $R$，单位为 $\text{bits/s}$</p>
-<p>若发送端到接收端有多段链路，则称限制吞吐量的链路为瓶颈链路（即吞吐量最小的链路）。</p>
-<h2 id="分层结构">分层结构
-</h2><div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/network/application >应用层</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-
+<h3 id="dns查询过程">DNS查询过程
+</h3><p>迭代查询：请求方会得到一个“指引”，然后自己去问下一层。</p>
+<p><img alt="迭代查询" class="gallery-image" data-flex-basis="358px" data-flex-grow="149" height="750" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2.png" srcset="/passage/cs/network/application/images/%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2_hu_e8a42d88f424f7a7.png 800w, /passage/cs/network/application/images/%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2.png 1120w" width="1120"></p>
+<p>递归查询：本地域名服务器只需向 根域名服务器查询一次，后面的几次查询都是递归地在其他几个域名服务器之间进行的。</p>
+<p><img alt="递归查询" class="gallery-image" data-flex-basis="386px" data-flex-grow="161" height="725" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2.png" srcset="/passage/cs/network/application/images/%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2_hu_1558fd71790b5d3a.png 800w, /passage/cs/network/application/images/%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2.png 1168w" width="1168"></p>
+<h3 id="dns缓存">DNS缓存
+</h3><p>只要任何服务器获得了DNS解析结果，就会将其保存在缓存中。下次查询就可以直接在缓存中寻找结果。</p>
+<p>DNS中存在一个 $\text{TTL}$ 字段，表示DNS缓存的保存时间。一旦超过这个期限，DNS缓存就会失效，下次查询就需要重新进行迭代或递归查询。</p>
+<h2 id="p2p架构">P2P架构
+</h2><p>P2P架构的网络模式不需要一个常驻的服务端，任意端设备之间可以直接通信。每个设备都可以向其他设备请求或提供服务。</p>
+<p><img alt="P2P架构" class="gallery-image" data-flex-basis="568px" data-flex-grow="236" height="580" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application/images/P2P%E6%9E%B6%E6%9E%84.png" srcset="/passage/cs/network/application/images/P2P%E6%9E%B6%E6%9E%84_hu_7f1d516cef4b3858.png 800w, /passage/cs/network/application/images/P2P%E6%9E%B6%E6%9E%84.png 1374w" width="1374"></p>
+<p>考虑一个大小为 $F$ 的文件，现在有 $N$ 个设备需要它。每个设备的上传与下载速率分别为 $u_i$ 和 $d_i$。服务端的上传速率为 $u_s$。</p>
+<p>若采用CS架构，则服务端发送所有文件副本到客户端用时为 $\displaystyle \frac{NF}{u_s}$，客户端下载文件用时为 $\frac{F}{d_{\min}}$，则总用时为 </p>
+$$D_{\text{CS}} \geqslant \max \left\{ \frac{NF}{u_s}, \frac{F}{d_{\min}} \right\}$$<p>若采用P2P架构，上传文件副本用时 $\displaystyle \frac{F}{u_s}$，系统共需要下载 $NF$ 大小的数据，取决于系统的总上传能力 $u_s + \sum u_i$。总用时为 </p>
+$$D_{\text{P2P}} \geqslant \max \left\{ \frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum u_i} \right\}$$
 </section>
 
 
@@ -1061,17 +987,12 @@ $$D = \frac{L}{R}$$<h4 id="接入网">接入网
 </article>
             
                 
-<article class="has-image">
-    <a href="/passage/math/probability/">
-        
-        <div class="article-image">
-            <img alt="Featured image of post 概率论与数理统计" height="150" loading="lazy" src="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a6e74ff3fef8f923.jpg" srcset="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a6e74ff3fef8f923.jpg 1x, /passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a665f413259291c6.jpg 2x" width="250">
-
-        </div>
+<article class="">
+    <a href="/passage/cs/network/">
         
 
-        <div class="article-details"style="background: linear-gradient(0deg, #aeaeae80 0%, #252525C0 100%);">
-            <h2 class="article-title">概率论与数理统计</h2>
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
         </div>
     </a>
 </article>
