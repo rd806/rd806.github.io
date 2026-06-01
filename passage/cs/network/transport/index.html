@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="传输层">
 <title>计算机网络</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/cs/network/">
+<link rel="canonical" href="https://rd806.github.io/passage/cs/network/transport/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="计算机网络">
-<meta property='og:description' content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
-<meta property='og:url' content='https://rd806.github.io/passage/cs/network/'>
+<meta property='og:description' content="传输层">
+<meta property='og:url' content='https://rd806.github.io/passage/cs/network/transport/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-01-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-01-31T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="计算机网络">
-<meta name="twitter:description" content="概述 概念 定义 网络 节点和边之间的无向关系 计算机网络 联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器） 互联网 许多网络通过互联方式联系在一起。 互联网是设备和协议的集合体。\n">
+<meta name="twitter:description" content="传输层">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -253,7 +253,7 @@
                                         
                                     
                                 
-                                <option value="/passage/cs/network/" selected>简体中文</option>
+                                <option value="/passage/cs/network/transport/" selected>简体中文</option>
                             
                                 
                                 
@@ -318,32 +318,34 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#概述">概述</a>
+    <li><a href="#多路复用与解复用">多路复用与解复用</a>
       <ol>
-        <li><a href="#网络边缘">网络边缘</a>
+        <li><a href="#基本定义">基本定义</a></li>
+        <li><a href="#具体实现">具体实现</a></li>
+      </ol>
+    </li>
+    <li><a href="#udp传输协议">UDP传输协议</a>
+      <ol>
+        <li><a href="#报文结构">报文结构</a></li>
+        <li><a href="#udp校验">UDP校验</a>
           <ol>
-            <li><a href="#主机">主机</a></li>
-            <li><a href="#接入网">接入网</a></li>
-            <li><a href="#物理介质">物理介质</a></li>
-          </ol>
-        </li>
-        <li><a href="#网络核心">网络核心</a>
-          <ol>
-            <li><a href="#分组交换">分组交换</a></li>
-            <li><a href="#电路交换">电路交换</a></li>
-            <li><a href="#isp与互联网">ISP与互联网</a></li>
-          </ol>
-        </li>
-        <li><a href="#网络协议">网络协议</a></li>
-        <li><a href="#网络评价指标">网络评价指标</a>
-          <ol>
-            <li><a href="#延迟">延迟</a></li>
-            <li><a href="#吞吐量">吞吐量</a></li>
+            <li><a href="#发送端">发送端</a></li>
+            <li><a href="#接收端">接收端</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#分层结构">分层结构</a></li>
+    <li><a href="#可靠数据传输原理">可靠数据传输原理</a>
+      <ol>
+        <li><a href="#rdt协议的演进">rdt协议的演进</a></li>
+      </ol>
+    </li>
+    <li><a href="#tcp传输协议">TCP传输协议</a>
+      <ol>
+        <li><a href="#报文结构-1">报文结构</a></li>
+        <li></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -503,9 +505,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/cs/network/">计算机网络</a>
+            <a href="/passage/cs/network/transport/">计算机网络</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            传输层
+        </h3>
         
     </div>
 
@@ -569,32 +575,34 @@
             <nav class="toc-nav">
                 
   <ol>
-    <li><a href="#概述">概述</a>
+    <li><a href="#多路复用与解复用">多路复用与解复用</a>
       <ol>
-        <li><a href="#网络边缘">网络边缘</a>
+        <li><a href="#基本定义">基本定义</a></li>
+        <li><a href="#具体实现">具体实现</a></li>
+      </ol>
+    </li>
+    <li><a href="#udp传输协议">UDP传输协议</a>
+      <ol>
+        <li><a href="#报文结构">报文结构</a></li>
+        <li><a href="#udp校验">UDP校验</a>
           <ol>
-            <li><a href="#主机">主机</a></li>
-            <li><a href="#接入网">接入网</a></li>
-            <li><a href="#物理介质">物理介质</a></li>
-          </ol>
-        </li>
-        <li><a href="#网络核心">网络核心</a>
-          <ol>
-            <li><a href="#分组交换">分组交换</a></li>
-            <li><a href="#电路交换">电路交换</a></li>
-            <li><a href="#isp与互联网">ISP与互联网</a></li>
-          </ol>
-        </li>
-        <li><a href="#网络协议">网络协议</a></li>
-        <li><a href="#网络评价指标">网络评价指标</a>
-          <ol>
-            <li><a href="#延迟">延迟</a></li>
-            <li><a href="#吞吐量">吞吐量</a></li>
+            <li><a href="#发送端">发送端</a></li>
+            <li><a href="#接收端">接收端</a></li>
           </ol>
         </li>
       </ol>
     </li>
-    <li><a href="#分层结构">分层结构</a></li>
+    <li><a href="#可靠数据传输原理">可靠数据传输原理</a>
+      <ol>
+        <li><a href="#rdt协议的演进">rdt协议的演进</a></li>
+      </ol>
+    </li>
+    <li><a href="#tcp传输协议">TCP传输协议</a>
+      <ol>
+        <li><a href="#报文结构-1">报文结构</a></li>
+        <li></li>
+      </ol>
+    </li>
   </ol>
 
             </nav>
@@ -605,381 +613,239 @@
     <section class="article-content">
     
     
-    <h2 id="概述">概述
-</h2><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>概念</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>网络</td>
-          <td>节点和边之间的无向关系</td>
-      </tr>
-      <tr>
-          <td>计算机网络</td>
-          <td>联网的计算机构成的系统，包括主机节点（Web应用）和数据交换节点 （路由器）</td>
-      </tr>
-      <tr>
-          <td>互联网</td>
-          <td>许多网络通过互联方式联系在一起。</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>互联网是设备和协议的集合体。</p>
-<p>从“组成结构”看互联网：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>组成结构</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>网络边缘（Internet edge）</td>
-          <td>包括客户端和服务器，接入网和物理介质</td>
-      </tr>
-      <tr>
-          <td>网络核心（Internet core）</td>
-          <td>互相连接的路由器，也称作“网络之网络”</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>从“提供服务”看互联网：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>组成结构</th>
-          <th>定义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>协议（protocol）</td>
-          <td>定义了网络实体之间发送和接收消息的格式、顺序以及在消息传输、接收时采取的动作</td>
-      </tr>
-      <tr>
-          <td>标准（RFC）</td>
-          <td>由IETF制定，定义消息的格式、信息发送的顺序等内容</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="网络边缘">网络边缘
-</h3><h4 id="主机">主机
-</h4><p>包括客户端和服务器，任务是发送数据包</p>
+    <p>传输层为不同主机上的应用进程提供了端到端的逻辑通信，中间系统不涉及传输层的操作。</p>
 
     <blockquote>
-        <p>数据包：将应用程序产生的消息分解成的较小的块称为数据包，长度通常记作 $L$，单位为比特。</p>
+        <p>一般而言，网络层负责主机间的通信，传输层负责进程间的通信。</p>
 
     </blockquote>
-<p>记互联网的传输速率为 $R$（也称为链路容量或带宽，单位 $\text{bits/s}$），则可定义数据包传输延迟为将 $L$ 比特数据包传送到链路所需的时间 </p>
-$$D = \frac{L}{R}$$<h4 id="接入网">接入网
-</h4><p>接入网连接主机与边缘路由，包括以下几类：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>类型</th>
-          <th>特点</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>线缆接入</td>
-          <td>HFC（光纤/同轴电缆混合）连接到DSL。下行40Mbps-1.2Gbps，上行30-100Mbps</td>
-      </tr>
-      <tr>
-          <td>数字接入</td>
-          <td>利用现有的有线电话线路连接到DSL。下行24-52Mbps，上行3.5-16Mbps</td>
-      </tr>
-      <tr>
-          <td>无线接入</td>
-          <td>无线局域网（WLAN），范围不超过一个建筑物，速率在450Mbps <br> 蜂窝网络：由运营商提供，范围在10km数量级，速率在10Mbps</td>
-      </tr>
-  </tbody>
-</table></div>
-<h4 id="物理介质">物理介质
-</h4><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>概念</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>物理链路</td>
-          <td>数据发送和接收端之间的物理连接</td>
-      </tr>
-      <tr>
-          <td>导向性介质</td>
-          <td>信号在固体介质中传播，如铜、光纤、同轴电缆</td>
-      </tr>
-      <tr>
-          <td>非导向性介质</td>
-          <td>信号自由传播，如无线电磁波</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>常用的物理介质</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>介质</th>
-          <th>特点</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>双绞线（TP）</td>
-          <td>由两根绝缘铜线组成，五类线可达100Mbps-1Gbps，六类线可达10Gbps</td>
-      </tr>
-      <tr>
-          <td>同轴电缆</td>
-          <td>由两个同心铜导体组成，可双向传输，拥有多个通道，每个通道可达100Mbps</td>
-      </tr>
-      <tr>
-          <td>光纤</td>
-          <td>由玻璃纤维组成，传递光信号，进行高速点对点传输，可达10-100Gbps，不受电磁干扰</td>
-      </tr>
-      <tr>
-          <td>电磁波</td>
-          <td>信号分布在电磁波的各个频段，受反射、遮挡、干扰的影响较大。常见的有WiFi、蜂窝网络、蓝牙、卫星信号等</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="网络核心">网络核心
-</h3><p>网络核心可以看作一系列互相连接的路由器，每个路由器都有多个输入端和输出端。网络核心不运行应用程序，只转发数据包。</p>
-<p>网络核心的两大功能：</p>
-<ol>
-<li>转发（交换）：将到达的数据包从路由器的输入链路移动到输出链路。</li>
-<li>路由：规划数据包传输所需要经过的路径。</li>
-</ol>
-<h4 id="分组交换">分组交换
-</h4><p>基本原理：</p>
-<ol>
-<li>主机将应用数据拆分成数据包。</li>
-<li>数据包通过源到目标路径的一条链路，从一个路由器转发到下一个路由器。</li>
-<li>每个数据包在链路上的传输互相独立。</li>
-<li>存储转发：整个数据包必须完整到达路由器后才能转发到下一条链路上。</li>
-</ol>
-<p>传输延迟：以 $R$ $\text{bps}$ 在链路上传输 $L$ $\text{bit}$ 需要时间 $\displaystyle \frac{L}{R}$ 秒，这段时间称为传输延迟。一般地，若端到端之间有 $n$ 条链路，每条链路的传输速率为 $R_{i}$ $\text{bps}$，则传输大小为 $L$ $\text{bit}$ 的数据包需要的总延迟为 $\displaystyle \sum_{i=1}^{n} \frac{L}{R_i}$ 秒</p>
-<p>排队与丢包：如果一段时间内到达链路的速率超过链路的传输速率，则数据包将会在路由器上的缓冲区排队。若缓冲区已满，多余的数据包则可能被丢弃，称为丢包。</p>
+<p>互联网应用的两大传输协议：</p>
+<ul>
+<li>TCP：面向连接、可靠按序传输、拥塞/流量控制、连接建立</li>
+<li>UDP：无连接、尽力而为服务、无拥塞控制、头部开销小</li>
+</ul>
+<h2 id="多路复用与解复用">多路复用与解复用
+</h2><h3 id="基本定义">基本定义
+</h3><ul>
+<li>多路复用：发送方收集多个套接字数据，添加传输层头部后发送给网络层。</li>
+<li>解复用：接收方根据头部信息，将数据点分发给正确的套接字。</li>
+</ul>
+<h3 id="具体实现">具体实现
+</h3><p>依靠 源/目的IP地址 + 源/目的端口号 确定进程和套接字，两种协议的需求不尽相同：</p>
+<ul>
+<li>UDP（无连接解复用）：仅通过目的端口号分发，不同源IP/端口可能指向同一个套接字。</li>
+<li>TCP（面向连接解复用）：通过四元组（源 IP、源端口、目的 IP、目的端口）分发，每个连接对应独立套接字。</li>
+</ul>
+<h2 id="udp传输协议">UDP传输协议
+</h2><p>UDP协议的特点：</p>
+<ul>
+<li>极简协议，无连接、无握手、无连接状态。</li>
+<li>尽力而为服务，数据可能丢失、乱序。</li>
+<li>头部仅 8 字节，开销极小</li>
+<li>无拥塞控制，可按应用需求全速发送</li>
+</ul>
+<p>使用UDP协议的应用：DNS，SNMP，实时流媒体，HTTP/3 ……</p>
 
     <blockquote>
-        <p>发生丢包时，丢失的数据包可能由上一个节点重传、由源重发或完全不进行响应。</p>
+        <p>特别地，UDP不保证可靠交付，但这并不意味着应用对数据的要求是不可靠的，所有维护可靠性的工作可由用户在应用层实现。</p>
+<p>例如：HTTP/3 就是基于 QUIC 在应用层实现可靠传输的协议。</p>
 
     </blockquote>
-<figure><img src="/passage/cs/network/images/%E6%8E%92%E9%98%9F%E4%B8%8E%E4%B8%A2%E5%8C%85.png" width="700"><figcaption>
-      <h4>排队与丢包</h4>
-    </figcaption>
-</figure>
-
-<h4 id="电路交换">电路交换
-</h4><p>为源到目的地的“呼叫”分配并预留端到端的资源，即为收发两端分配专用的、独占的资源。</p>
-
-    <blockquote>
-        <p>电路交换常用于传统的电话中。通话时，两台电话之间分配了专用的通信资源，即使没有数据传输，在挂断之前资源不会被释放。</p>
-
-    </blockquote>
-<p>电路交换中，为了更好地利用资源，出现了FDM（频分）和TDM（时分）技术。</p>
+<h3 id="报文结构">报文结构
+</h3><p>包含源端口、目的端口、长度、校验和。</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>分组方式</th>
+          <th>字段</th>
           <th>内容</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>FDM</td>
-          <td>将电磁频率划分为多个窄频段，为每个呼叫分配专用频段，以该频段的最大速率传输</td>
+          <td>源端口</td>
+          <td>占用2个字节（16位），标识发送方应用程序的端口号</td>
       </tr>
       <tr>
-          <td>TDM</td>
-          <td>将时间划分为多个时段，为每个呼叫周期性地分配时段，在其所属时段以电磁波的最大速率传输</td>
+          <td>目的端口</td>
+          <td>占用2个字节（16位），标识接收方应用程序的端口号</td>
+      </tr>
+      <tr>
+          <td>长度</td>
+          <td>占用2个字节（16位），标识UDP数据报的总长度，包括首部和数据。因此，最小长度为8字节</td>
+      </tr>
+      <tr>
+          <td>校验和</td>
+          <td>占用2个字节（16位），用于检测UDP数据报在传输过程中是否受到损坏</td>
       </tr>
   </tbody>
 </table></div>
-<p><img alt="FDM" class="gallery-image" data-flex-basis="785px" data-flex-grow="327" height="206" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/FDM.png" width="674"> <img alt="TDM" class="gallery-image" data-flex-basis="723px" data-flex-grow="301" height="227" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/TDM.png" width="684"></p>
-<h4 id="isp与互联网">ISP与互联网
-</h4><p>主机通过接入互联网服务提供商（ISP）连接到互联网，不同的ISP必须互相连接。由此形成复杂的网络结构。</p>
-<figure><img src="/passage/cs/network/images/ISP%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91.png" width="700"><figcaption>
-      <h4>ISP与互联网</h4>
-    </figcaption>
-</figure>
+<p><img alt="UDP报文结构" class="gallery-image" data-flex-basis="217px" data-flex-grow="90" height="683" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport/images/UDP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84.png" width="619"></p>
+<h3 id="udp校验">UDP校验
+</h3><p>UDP校验和（<code>checksum</code>）可以检测数据在传输过程中是否发生错误。</p>
 
-<h3 id="网络协议">网络协议
+    <blockquote>
+        <p>UDP的校验和的检测能力并不强，但好处是简单、迅速。</p>
+
+    </blockquote>
+<h4 id="发送端">发送端
+</h4><p>UDP的发送方需要计算<code>checksum</code>字段的值并填充进UDP报文。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>构造伪头部</td>
+          <td>伪头部包括：源目的IP地址（32位）、目的IP地址（32位）、协议（8位，UDP为17）、UDP长度（16位，头部+数据总字节数）、填充位（8位，通常为0，确保伪头部的总长度为12字节）</td>
+      </tr>
+      <tr>
+          <td>组合校验数据</td>
+          <td>将以下内容按16位一组分组：伪头部、UDP头部（包括源端口、目的端口、长度、校验和字段，校验和字段初始置 0）、数据部分</td>
+      </tr>
+      <tr>
+          <td>计算16位和</td>
+          <td>将所有16位数逐个相加。如果有进位，将进位取出并加到低16位，称作回卷</td>
+      </tr>
+      <tr>
+          <td>按位取反</td>
+          <td>对最终的16位和按位取反得到校验和，并将该值填入 UDP 头部的校验和字段中</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>回卷操作示例：若两个16位数相加得<code>1 0000 0000 0000 0001</code>，则取低16位<code>0000 0000 0000 0001</code>并加1，得<code>0000 0000 0000 0010</code>。</p>
+<p>UDP 校验和是可选的，若不使用，校验和字段置为全<code>0</code>。</p>
+        </div>
+    </blockquote>
+<h4 id="接收端">接收端
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>提取校验数据</td>
+          <td>接收端同样构造伪头部（使用接收到的 IP 头部信息），并提取伪首部、UDP首部（包括接收到的校验和）、数据部分</td>
+      </tr>
+      <tr>
+          <td>计算16位和</td>
+          <td>将所有16位数（包括接收到的校验和）相加，记录并回卷进位。如果数据无误，和的结果应为<code>1111 1111 1111 1111</code>（全 1）</td>
+      </tr>
+      <tr>
+          <td>验证结果</td>
+          <td>如果最终和为全1，说明数据正确，无错误。如果和不为全 1，说明数据在传输中发生错误，接收端通常丢弃该数据报（UDP 不负责重传）</td>
+      </tr>
+  </tbody>
+</table></div>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>如果接收到校验和为全0，表示发送端禁用了校验和，接收端可直接接受数据（不校验）。</p>
+<p>如果校验和为全1，需按上述步骤验证。</p>
+        </div>
+    </blockquote>
+<h2 id="可靠数据传输原理">可靠数据传输原理
+</h2><p>计算机网络中，底层数据的传输信道往往是不可靠的，可能会出现丢包和乱序。可靠数据传输协议（rdt）的目标就是在不可靠的信道上，为上层应用提供一个可靠的服务，让接收方能完整、按顺序、无差错地收到发送方的数据。</p>
+<p><img alt="rdt协议图示" class="gallery-image" data-flex-basis="370px" data-flex-grow="154" height="595" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA.png" srcset="/passage/cs/network/transport/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA_hu_468735cb00b065c0.png 800w, /passage/cs/network/transport/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA.png 919w" width="919"></p>
+<h3 id="rdt协议的演进">rdt协议的演进
+</h3><p>rdt1.0：完全可靠的信道</p>
+<ul>
+<li>假设信道不会出错、不会丢包。</li>
+<li>发送方只管发，接收方只管收。</li>
+<li>没有 ACK、没有序列号、没有重传（过于理想，现实中不存在）</li>
+</ul>
+<p>rdt2.0：只存在比特位的差错（无丢包）</p>
+<ul>
+<li>引入了 ACK/NAK，标识数据包的确认/否认。</li>
+<li>接收方收到正确地数据包则恢复ACK，反之回复NAK；发送方收到NAK则重传上一个数据包。</li>
+</ul>
+
+    <blockquote>
+        <p>rdt2.0 的问题：</p>
+<p>如果 ACK/NAK 本身在传输中损坏了怎么办？发送方不知道接收方是否收到。</p>
+
+    </blockquote>
+<p>rdt2.1：</p>
+<h2 id="tcp传输协议">TCP传输协议
+</h2><p>TCP传输协议的特点：</p>
+<ul>
+<li>面向连接</li>
+<li>可靠交付</li>
+<li>面向字节流</li>
+<li>全双工</li>
+</ul>
+<h3 id="报文结构-1">报文结构
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>字段</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>源端口号</td>
+          <td>16位，标识发送端的端口号</td>
+      </tr>
+      <tr>
+          <td>目的端口号</td>
+          <td>16位，标识接收端的端口号</td>
+      </tr>
+      <tr>
+          <td>序列号</td>
+          <td>32位，标识TCP报文段中第一个数据字节的序列号，用于实现 TCP 的可靠性机制</td>
+      </tr>
+      <tr>
+          <td>确认号</td>
+          <td>32位，如果设置了 ACK 标志位，该字段包含了期望接收的下一个数据字节的序列号。用于确认已经成功接收的数据</td>
+      </tr>
+      <tr>
+          <td>首部长度</td>
+          <td>4位，标识TCP报文的首部长度，单位为32字</td>
+      </tr>
+      <tr>
+          <td>保留位</td>
+          <td>6位，保留以供之后使用，默认设置为0</td>
+      </tr>
+      <tr>
+          <td>标志位</td>
+          <td>TCP的6个标志位</td>
+      </tr>
+      <tr>
+          <td>窗口大小</td>
+          <td>16位，标识发送端的可用接收窗口的大小；接收端可以根据这个字段的值来告诉发送端可以发送多少数据而不会导致拥塞</td>
+      </tr>
+      <tr>
+          <td>校验和</td>
+          <td>16位，检测TCP首部和数据部分的传输中的错误</td>
+      </tr>
+      <tr>
+          <td>紧急指针</td>
+          <td>16位，标识紧急数据的末尾位置</td>
+      </tr>
+      <tr>
+          <td>可选字段</td>
+          <td>用于包含一些额外的控制信息，如最大报文段长度、时间戳等。长度可变，最长可达 40 字节</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="TCP报文结构" class="gallery-image" data-flex-basis="525px" data-flex-grow="218" height="853" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport/images/TCP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84.png" srcset="/passage/cs/network/transport/images/TCP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84_hu_9250899cc9268fd0.png 800w, /passage/cs/network/transport/images/TCP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84_hu_9434fba969b3ce2c.png 1600w, /passage/cs/network/transport/images/TCP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84.png 1867w" width="1867"></p>
+<h3 id="">
 </h3>
-    <blockquote>
-        <p>为什么采用分层结构？</p>
-<ol>
-<li>有利于识别系统各组成部分及其相互关系。</li>
-<li>分层结构有利于系统维护和更新。</li>
-</ol>
-
-    </blockquote>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>协议栈</th>
-          <th>概念</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>应用层（application）</td>
-          <td>支持网络应用</td>
-      </tr>
-      <tr>
-          <td>传输层（transport）</td>
-          <td>进程间的数据传输</td>
-      </tr>
-      <tr>
-          <td>网络层（network）</td>
-          <td>规划数据从源到目的地的路线</td>
-      </tr>
-      <tr>
-          <td>链路层（link）</td>
-          <td>相邻网络结点之间的数据传输</td>
-      </tr>
-      <tr>
-          <td>物理层（physical）</td>
-          <td>传输字节信息</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="网络评价指标">网络评价指标
-</h3><h4 id="延迟">延迟
-</h4><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>延迟来源</th>
-          <th>记号</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>处理延迟</td>
-          <td>$d_{\text{proc}}$</td>
-          <td>检查字节错误、确定输出链路带来的延迟</td>
-      </tr>
-      <tr>
-          <td>排队延迟</td>
-          <td>$d_{\text{queue}}$</td>
-          <td>数据包在队列中等待传输带来的延迟</td>
-      </tr>
-      <tr>
-          <td>传输延迟</td>
-          <td>$d_{\text{trans}}$</td>
-          <td>数据包转发带来的延迟，通常为 $\displaystyle \frac{L}{R}$</td>
-      </tr>
-      <tr>
-          <td>传播延迟</td>
-          <td>$d_{\text{prop}}$</td>
-          <td>数据包在链路上传输带来的延迟，通常为 $\displaystyle \frac{d}{s}$</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>总延迟：$d_{\text{nobal}} = d_{\text{proc}} + d_{\text{queue}} + d_{\text{trans}} + d_{\text{prop}}$</p>
-<h4 id="吞吐量">吞吐量
-</h4><p>发送端向接收端发送比特的速率，通常记作 $R$，单位为 $\text{bits/s}$</p>
-<p>若发送端到接收端有多段链路，则称限制吞吐量的链路为瓶颈链路（即吞吐量最小的链路）。</p>
-<h2 id="分层结构">分层结构
-</h2><div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/network/application >应用层</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-<div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/network/transport >传输层</a>
-    </div>
-    <div class="description"></div>
-</div>
-
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
-
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
-
-
 </section>
 
 
@@ -1106,17 +972,12 @@ $$D = \frac{L}{R}$$<h4 id="接入网">接入网
 </article>
             
                 
-<article class="has-image">
-    <a href="/passage/math/probability/">
-        
-        <div class="article-image">
-            <img alt="Featured image of post 概率论与数理统计" height="150" loading="lazy" src="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a6e74ff3fef8f923.jpg" srcset="/passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a6e74ff3fef8f923.jpg 1x, /passage/math/probability/rohit-choudhari-JS3RDAnRUB8-unsplash_hu_a665f413259291c6.jpg 2x" width="250">
-
-        </div>
+<article class="">
+    <a href="/passage/cs/network/">
         
 
-        <div class="article-details"style="background: linear-gradient(0deg, #aeaeae80 0%, #252525C0 100%);">
-            <h2 class="article-title">概率论与数理统计</h2>
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
         </div>
     </a>
 </article>
