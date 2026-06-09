@@ -326,7 +326,7 @@
     </li>
     <li><a href="#udp传输协议">UDP传输协议</a>
       <ol>
-        <li><a href="#报文结构">报文结构</a></li>
+        <li><a href="#udp报文结构">UDP报文结构</a></li>
         <li><a href="#udp校验">UDP校验</a>
           <ol>
             <li><a href="#发送端">发送端</a></li>
@@ -335,34 +335,46 @@
         </li>
       </ol>
     </li>
-    <li><a href="#可靠数据传输原理">可靠数据传输原理</a>
-      <ol>
-        <li><a href="#rdt协议的演进">rdt协议的演进</a></li>
-        <li><a href="#rdt30">rdt3.0</a>
-          <ol>
-            <li><a href="#停-等协议与流水线">停-等协议与流水线</a></li>
-            <li><a href="#go-back-n">Go-Back-N</a></li>
-            <li><a href="#选择重传">选择重传</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
     <li><a href="#tcp传输协议">TCP传输协议</a>
       <ol>
-        <li><a href="#报文结构-1">报文结构</a></li>
-        <li><a href="#tcp连接控制">TCP连接控制</a>
+        <li><a href="#tcp报文结构">TCP报文结构</a></li>
+        <li><a href="#连接控制">连接控制</a>
           <ol>
             <li><a href="#三次握手">三次握手</a></li>
             <li><a href="#四次挥手">四次挥手</a></li>
           </ol>
         </li>
-        <li><a href="#tcp可靠传输机制">TCP可靠传输机制</a>
+        <li><a href="#滑动窗口">滑动窗口</a>
+          <ol>
+            <li><a href="#流量控制">流量控制</a></li>
+          </ol>
+        </li>
+        <li><a href="#可靠传输">可靠传输</a>
           <ol>
             <li><a href="#序列号与确认号">序列号与确认号</a></li>
             <li><a href="#超时重传">超时重传</a></li>
           </ol>
         </li>
-        <li><a href="#流量控制">流量控制</a></li>
+        <li><a href="#拥塞控制">拥塞控制</a>
+          <ol>
+            <li><a href="#慢启动">慢启动</a></li>
+            <li><a href="#拥塞避免">拥塞避免</a></li>
+            <li><a href="#快速恢复">快速恢复</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#可靠数据传输原理">可靠数据传输原理</a>
+          <ol>
+            <li><a href="#rdt协议">rdt协议</a></li>
+            <li><a href="#停-等协议与流水线">停-等协议与流水线</a></li>
+            <li><a href="#go-back-n">Go-Back-N</a></li>
+            <li><a href="#选择重传">选择重传</a></li>
+          </ol>
+        </li>
+        <li><a href="#拥塞控制方法">拥塞控制方法</a></li>
       </ol>
     </li>
   </ol>
@@ -572,7 +584,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 12 分钟
                     </time>
                 
             </div>
@@ -607,7 +619,7 @@
     </li>
     <li><a href="#udp传输协议">UDP传输协议</a>
       <ol>
-        <li><a href="#报文结构">报文结构</a></li>
+        <li><a href="#udp报文结构">UDP报文结构</a></li>
         <li><a href="#udp校验">UDP校验</a>
           <ol>
             <li><a href="#发送端">发送端</a></li>
@@ -616,34 +628,46 @@
         </li>
       </ol>
     </li>
-    <li><a href="#可靠数据传输原理">可靠数据传输原理</a>
-      <ol>
-        <li><a href="#rdt协议的演进">rdt协议的演进</a></li>
-        <li><a href="#rdt30">rdt3.0</a>
-          <ol>
-            <li><a href="#停-等协议与流水线">停-等协议与流水线</a></li>
-            <li><a href="#go-back-n">Go-Back-N</a></li>
-            <li><a href="#选择重传">选择重传</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
     <li><a href="#tcp传输协议">TCP传输协议</a>
       <ol>
-        <li><a href="#报文结构-1">报文结构</a></li>
-        <li><a href="#tcp连接控制">TCP连接控制</a>
+        <li><a href="#tcp报文结构">TCP报文结构</a></li>
+        <li><a href="#连接控制">连接控制</a>
           <ol>
             <li><a href="#三次握手">三次握手</a></li>
             <li><a href="#四次挥手">四次挥手</a></li>
           </ol>
         </li>
-        <li><a href="#tcp可靠传输机制">TCP可靠传输机制</a>
+        <li><a href="#滑动窗口">滑动窗口</a>
+          <ol>
+            <li><a href="#流量控制">流量控制</a></li>
+          </ol>
+        </li>
+        <li><a href="#可靠传输">可靠传输</a>
           <ol>
             <li><a href="#序列号与确认号">序列号与确认号</a></li>
             <li><a href="#超时重传">超时重传</a></li>
           </ol>
         </li>
-        <li><a href="#流量控制">流量控制</a></li>
+        <li><a href="#拥塞控制">拥塞控制</a>
+          <ol>
+            <li><a href="#慢启动">慢启动</a></li>
+            <li><a href="#拥塞避免">拥塞避免</a></li>
+            <li><a href="#快速恢复">快速恢复</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ol>
+        <li><a href="#可靠数据传输原理">可靠数据传输原理</a>
+          <ol>
+            <li><a href="#rdt协议">rdt协议</a></li>
+            <li><a href="#停-等协议与流水线">停-等协议与流水线</a></li>
+            <li><a href="#go-back-n">Go-Back-N</a></li>
+            <li><a href="#选择重传">选择重传</a></li>
+          </ol>
+        </li>
+        <li><a href="#拥塞控制方法">拥塞控制方法</a></li>
       </ol>
     </li>
   </ol>
@@ -694,7 +718,7 @@
 <p>例如：HTTP/3 就是基于 QUIC 在应用层实现可靠传输的协议。</p>
 
     </blockquote>
-<h3 id="报文结构">报文结构
+<h3 id="udp报文结构">UDP报文结构
 </h3><p>包含源端口、目的端口、长度、校验和。</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -801,80 +825,6 @@
 <p>如果校验和为全1，需按上述步骤验证。</p>
         </div>
     </blockquote>
-<h2 id="可靠数据传输原理">可靠数据传输原理
-</h2><p>计算机网络中，底层数据的传输信道往往是不可靠的，可能会出现丢包和乱序。可靠数据传输协议（rdt）的目标就是在不可靠的信道上，为上层应用提供一个可靠的服务，让接收方能完整、按顺序、无差错地收到发送方的数据。</p>
-<p><img alt="rdt协议图示" class="gallery-image" data-flex-basis="370px" data-flex-grow="154" height="595" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA.png" srcset="/passage/cs/network/transport-layer/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA_hu_468735cb00b065c0.png 800w, /passage/cs/network/transport-layer/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA.png 919w" width="919"></p>
-<h3 id="rdt协议的演进">rdt协议的演进
-</h3><p>rdt1.0：完全可靠的信道</p>
-<ul>
-<li>假设信道不会出错、不会丢包。</li>
-<li>发送方只管发，接收方只管收。</li>
-<li>没有 ACK、没有序列号、没有重传（过于理想，现实中不存在）</li>
-</ul>
-<p><img alt="rdt1.0的状态机" class="gallery-image" data-flex-basis="1917px" data-flex-grow="799" height="215" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt1.0.png" srcset="/passage/cs/network/transport-layer/images/rdt1.0_hu_591f57a4b00fa7d5.png 800w, /passage/cs/network/transport-layer/images/rdt1.0_hu_285ba525a1a079ad.png 1600w, /passage/cs/network/transport-layer/images/rdt1.0.png 1718w" width="1718"></p>
-<p>rdt2.0：只存在比特位的差错（无丢包）</p>
-<ul>
-<li>引入了 ACK/NAK，标识数据包的确认/否认。</li>
-<li>接收方收到正确地数据包则恢复ACK，反之回复NAK；发送方收到NAK则重传上一个数据包。</li>
-</ul>
-<p><img alt="rdt2.0的状态机" class="gallery-image" data-flex-basis="456px" data-flex-grow="190" height="861" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt2.0.png" srcset="/passage/cs/network/transport-layer/images/rdt2.0_hu_d44ca55169fed64e.png 800w, /passage/cs/network/transport-layer/images/rdt2.0_hu_133b9de2dc5bfc0d.png 1600w, /passage/cs/network/transport-layer/images/rdt2.0.png 1637w" width="1637"></p>
-
-    <blockquote>
-        <p>rdt2.0 的问题：</p>
-<p>如果 ACK/NAK 本身在传输中损坏了怎么办？发送方不知道接收方是否收到。</p>
-
-    </blockquote>
-<p>rdt2.1：解决 ACK/NAK 损坏问题</p>
-<ul>
-<li>为每个数据包加上序列号（0或1）。</li>
-<li>发送方交替发送序列号为0和1的数据包，接收方通过序列号判断是新包还是旧包的重传。</li>
-</ul>
-<p><img alt="rdt2.1的状态机" class="gallery-image" data-flex-basis="386px" data-flex-grow="160" height="757" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt2.1.png" srcset="/passage/cs/network/transport-layer/images/rdt2.1_hu_609a17e9850e6c20.png 800w, /passage/cs/network/transport-layer/images/rdt2.1.png 1218w" width="1218"></p>
-<p>rdt2.2：去掉了 NAK，只用 ACK</p>
-<ul>
-<li>每个 ACK 要指明它确认的是哪个序列号。</li>
-<li>如果接收方收到错包，就重复上一次正确的 ACK，相当于隐式 NAK。</li>
-<li>冗余ACK表明发送端的当前数据出错，需要重发。</li>
-</ul>
-<p><img alt="rdt2.2的状态机" class="gallery-image" data-flex-basis="382px" data-flex-grow="159" height="868" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt2.2.png" srcset="/passage/cs/network/transport-layer/images/rdt2.2_hu_df894290cd2d77df.png 800w, /passage/cs/network/transport-layer/images/rdt2.2.png 1384w" width="1384"></p>
-<h3 id="rdt30">rdt3.0
-</h3><p>rdt3.0 着重解决比特差错和丢包、它在 rdt2.2 的基础上增加超时重传。发送方发送一个包后启动一个定时器：</p>
-<ul>
-<li>如果在超时时间内收到 ACK：正常发送下一个包。</li>
-<li>如果超时未收到 ACK：重传当前包（可能因为包丢了，也可能是ACK丢了）。</li>
-</ul>
-<p><img alt="rdt3.0的状态机" class="gallery-image" data-flex-basis="453px" data-flex-grow="188" height="809" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt3.0.png" srcset="/passage/cs/network/transport-layer/images/rdt3.0_hu_19e37152f46a0a36.png 800w, /passage/cs/network/transport-layer/images/rdt3.0.png 1528w" width="1528"></p>
-<h4 id="停-等协议与流水线">停-等协议与流水线
-</h4><p>rdt3.0 是停-等协议：发送一个包 → 等待ACK → 发下一个。信道利用率很低，协议设计不好会限制信道的性能。</p>
-<p><img alt="停-等协议图示" class="gallery-image" data-flex-basis="595px" data-flex-grow="248" height="539" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E5%81%9C-%E7%AD%89%E5%8D%8F%E8%AE%AE.png" srcset="/passage/cs/network/transport-layer/images/%E5%81%9C-%E7%AD%89%E5%8D%8F%E8%AE%AE_hu_4dd0356beb40b3ce.png 800w, /passage/cs/network/transport-layer/images/%E5%81%9C-%E7%AD%89%E5%8D%8F%E8%AE%AE.png 1338w" width="1338"></p>
-<p>TCP使用流水线机制：允许发送方发送多个“正在进行中”但尚未被确认的数据包。</p>
-<p><img alt="流水线图示" class="gallery-image" data-flex-basis="538px" data-flex-grow="224" height="631" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/Pipeline%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/transport-layer/images/Pipeline%E7%A4%BA%E4%BE%8B_hu_8f36cee0db0c95b9.png 800w, /passage/cs/network/transport-layer/images/Pipeline%E7%A4%BA%E4%BE%8B.png 1417w" width="1417"></p>
-
-    <blockquote>
-        <p>这也意味着必须增加序列号的范围，同时在发送方/接收方之间建立缓冲。</p>
-
-    </blockquote>
-<h4 id="go-back-n">Go-Back-N
-</h4>
-    <blockquote>
-        <p>Go-Back-N（GBN）是计算机网络中一种实现可靠数据传输的流水线协议，用于解决 rdt3.0 信道利用率低的问题。</p>
-
-    </blockquote>
-<p>Go-Back-N 的核心思想：</p>
-<ul>
-<li>发送方可以在未收到确认的情况下，连续发送多个数据包，但接收方只允许按顺序接收；</li>
-<li>一旦某个包丢失或出错，接收方会丢弃所有后续包，发送方则回退（Go-Back）到那个丢失的包，重新发送该包及其之后的所有包（$N$个包）。</li>
-</ul>
-<p><img alt="GBN示例" class="gallery-image" data-flex-basis="388px" data-flex-grow="162" height="879" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/GBN%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/transport-layer/images/GBN%E7%A4%BA%E4%BE%8B_hu_665669d5a553047d.png 800w, /passage/cs/network/transport-layer/images/GBN%E7%A4%BA%E4%BE%8B.png 1424w" width="1424"></p>
-<p>Go-Back-N 的一个主要缺点：当有一个包丢失或损坏时，GBN 会重传从丢失包开始之后的所有包（即使很多包已经被接收方正确收到），从而浪费大量带宽。</p>
-<h4 id="选择重传">选择重传
-</h4>
-    <blockquote>
-        <p>选择重传（Selective Repeat，SR）是另一种流水线可靠数据传输协议，它解决了 Go-Back-N 的上述主要缺点。</p>
-
-    </blockquote>
-<p>SR 的核心思想：只重传真正丢失或出错的个别包，而接收方会缓存所有已正确接收但顺序不连续的包，等待缺失的包到达后再一并排序上交。</p>
-<p><img alt="选择重传示例" class="gallery-image" data-flex-basis="419px" data-flex-grow="174" height="836" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/transport-layer/images/%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E7%A4%BA%E4%BE%8B_hu_5f13bf078b7b11d2.png 800w, /passage/cs/network/transport-layer/images/%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E7%A4%BA%E4%BE%8B.png 1462w" width="1462"></p>
 <h2 id="tcp传输协议">TCP传输协议
 </h2><p>TCP传输协议的特点：</p>
 <ul>
@@ -883,7 +833,7 @@
 <li>面向字节流</li>
 <li>全双工</li>
 </ul>
-<h3 id="报文结构-1">报文结构
+<h3 id="tcp报文结构">TCP报文结构
 </h3><div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -945,11 +895,11 @@
             <span class="alert-title">备注</span>
         </div>
         <div class="alert-body">
-            <p><code>ACK</code>是 TCP 首部中的一个“开关标志位”（0或1），表示本段是否携带确认；<code>ack</code> 是一个&quot;数值字段&quot;，表示期望的下一个字节序号。</p>
-<p>两者需配合使用：<code>ACK=1</code>时<code>ack</code>字段才有效。</p>
+            <p>一般而言，<code>ACK</code>是 TCP 首部中的一个“开关标志位”（0或1），表示本段是否携带确认；<code>ack</code> 是一个&quot;数值字段&quot;，表示期望的下一个字节序号。两者需配合使用：<code>ACK=1</code>时<code>ack</code>字段才有效。</p>
+<p>为了不引起混淆，使用<code>ACKbit</code>表示<code>ACK</code>，<code>ACKnum</code>表示<code>ack</code>。</p>
         </div>
     </blockquote>
-<h3 id="tcp连接控制">TCP连接控制
+<h3 id="连接控制">连接控制
 </h3><p>TCP与UDP协议最大的区别，就是在正式交换数据前需要先建立连接（也称为发送方和接收方的握手）。</p>
 <h4 id="三次握手">三次握手
 </h4><p>第1次握手：客户端 $\rightarrow$ 服务端</p>
@@ -963,25 +913,53 @@
 <li>服务端收到<code>SYN=1</code>的包后，回应一个<code>SYN + ACK</code>的包：
 <ul>
 <li><code>SYN=1</code>：表示服务端也同意建立连接</li>
-<li><code>ACK=1</code>：确认客户端的 SYN</li>
+<li><code>ACKbit=1</code>：确认客户端的 SYN</li>
 <li><code>seq=y</code>：服务端自己的初始序列号</li>
-<li><code>ack=x+1</code>：确认号是客户端序列号 + 1</li>
+<li><code>ACKnum=x+1</code>：确认号是客户端序列号 + 1</li>
 </ul>
 </li>
 </ul>
 <p>第3次握手：客户端 $\rightarrow$ 服务端</p>
 <ul>
-<li>客户端状态变化：<code>SYN-SENT</code> $\rightarrow$ <code>ESTABLISHMENT</code></li>
+<li>客户端状态：<code>SYN-SENT</code> $\rightarrow$ <code>ESTAB</code></li>
 <li>客户端收到服务端的 <code>SYN + ACK</code> 后，回应一个 <code>ACK</code> 包：
 <ul>
-<li><code>ACK=1</code>：确认服务端的 <code>SYN</code></li>
-<li><code>ack=y+1</code>：确认号是服务端序列号 + 1</li>
+<li><code>ACKbit=1</code>：确认服务端的 <code>SYN</code></li>
+<li><code>ACKnum=y+1</code>：确认号是服务端序列号 + 1</li>
 </ul>
 </li>
 </ul>
 <p><img alt="三次握手" class="gallery-image" data-flex-basis="529px" data-flex-grow="220" height="846" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png" srcset="/passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_hu_cab718898890262b.png 800w, /passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_hu_29d31b5061ad7655.png 1600w, /passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png 1866w" width="1866"></p>
 <h4 id="四次挥手">四次挥手
-</h4><h3 id="tcp可靠传输机制">TCP可靠传输机制
+</h4><p>第1次挥手：客户端发起关闭请求</p>
+<ul>
+<li>客户端状态：<code>ESTAB</code> $\rightarrow$ <code>FIN_WAIT_1</code>。</li>
+<li>客户端动作：应用层调用<code>close()</code>，发送<code>FINbit=1</code>，<code>seq=x</code>。表示不再发送数据，但仍可以接受数据。</li>
+</ul>
+<p>第2次挥手：服务端确认关闭请求</p>
+<ul>
+<li>服务端状态：<code>ESTAB</code> $\rightarrow$ <code>CLOSE_WAIT</code>。</li>
+<li>服务端动作：收到<code>FINbit=1</code>后，发送<code>ACKbit=1</code>，<code>ACKnum=x+1</code>表示确认；同时通知上层应用准备关闭。</li>
+<li>客户端状态：<code>FIN_WAIT_1</code> $\rightarrow$ <code>FIN_WAIT_2</code>。</li>
+</ul>
+<p>第3次挥手：服务端发起关闭请求</p>
+<ul>
+<li>服务端动作：应用层处理完毕，发送 <code>FIN=1</code>，<code>ACKbit=1</code>，<code>seq=y</code>，<code>ACKnum=x+1</code>。</li>
+<li>服务端状态： <code>CLOSE_WAIT</code> $\rightarrow$ <code>LAST_ACK</code>。</li>
+<li>客户端动作： 收到该 <code>FIN</code> 报文后，进入 <code>TIME_WAIT</code> 状态。</li>
+</ul>
+<p>第4次挥手：客户端确认服务端关闭</p>
+<ul>
+<li>客户端动作： 发送 <code>ACKbit=1</code>，<code>seq=x+1</code>，<code>ACKnum=y+1</code></li>
+<li>客户端状态： <code>TIME_WAIT</code> $\rightarrow$ 等待 2 个最大报文生存时间（2×MSL）后 $\rightarrow$ <code>CLOSED</code></li>
+<li>服务端状态： 收到 <code>ACK</code> 后 $\rightarrow$ <code>CLOSED</code></li>
+</ul>
+<p><img alt="四次挥手" class="gallery-image" data-flex-basis="417px" data-flex-grow="173" height="803" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png" srcset="/passage/cs/network/transport-layer/images/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B_hu_751673982e8b9f03.png 800w, /passage/cs/network/transport-layer/images/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png 1397w" width="1397"></p>
+<h3 id="滑动窗口">滑动窗口
+</h3><p><img alt="滑动窗口的结构" class="gallery-image" data-flex-basis="210px" data-flex-grow="87" height="1029" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E7%BB%93%E6%9E%84.png" srcset="/passage/cs/network/transport-layer/images/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E7%BB%93%E6%9E%84_hu_17b8eec4e965d7d8.png 800w, /passage/cs/network/transport-layer/images/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E7%BB%93%E6%9E%84.png 901w" width="901"></p>
+<h4 id="流量控制">流量控制
+</h4><p>流量控制（TCP Transmission Control Protocol）是一种端到端的机制，旨在协调发送方和接收方之间的数据传输速率，防止接收方因处理能力或缓冲区限制而被压垮，从而避免数据包的丢失和重传。流量控制的核心目标是保证数据的可靠交付，同时尽可能高效地利用可用的网络带宽。</p>
+<h3 id="可靠传输">可靠传输
 </h3><h4 id="序列号与确认号">序列号与确认号
 </h4><p>序列号与确认号是TCP首部的两个字段。序列号用于记录目前已经发送了哪些数据，确认号记录哪些数据已经被接收方正确接收。</p>
 
@@ -1009,8 +987,153 @@
 $$\text{RTO} = \text{EstimatedRTT} + 4 \times \text{DevRTT}$$<p>其中 </p>
 $$\text{EstimatedRTT} = (1-\alpha) \times \text{EstimatedRTT} + \alpha \times \text{SampleRTT}$$<p> </p>
 $$\text{DevRTT} = (1-\beta) \times \text{DevRTT} + \beta \times \mid \text{SampleRTT} - \text{EstimatedRTT} \mid$$<p>$\text{SampleRTT}$ 是每一次报文往返时间的样本，$\text{EstimatedRTT}$ 是加权平均的往返时间，$\text{DevRTT}$ 是往返时间的偏差。通常 $\alpha=0.125$，$\beta=0.25$</p>
-<h3 id="流量控制">流量控制
-</h3><p>流量控制（TCP Transmission Control Protocol）是一种端到端的机制，旨在协调发送方和接收方之间的数据传输速率，防止接收方因处理能力或缓冲区限制而被压垮，从而避免数据包的丢失和重传。流量控制的核心目标是保证数据的可靠交付，同时尽可能高效地利用可用的网络带宽。</p>
+<h3 id="拥塞控制">拥塞控制
+</h3><p>TCP拥塞控制的核心：发送方在数据包丢失（拥塞）前可以一直提高发送速率，直到丢失时才降低发送速率。</p>
+<p>可以进一步表述为AIMD（加性增加、乘性降低）。</p>
+<ul>
+<li>加性增加：每经过一个 $\text{RTT}$，将发送的最大段数目增加1。</li>
+<li>乘性降低：每次发生丢失时将发送速率减半。</li>
+</ul>
+<h4 id="慢启动">慢启动
+</h4><p>当一个TCP连接开始后，拥塞窗口<code>cwnd</code>设置为一个很小的值（通常为 $1 \text{MSS}$）。之后，对于每个收到的<code>ACK</code>，<code>cwnd</code>都会增加一个 $\text{MSS}$ 。也就是每个 $\text{RTT}$ 后<code>cwnd</code>都会翻倍，呈现指数增长。</p>
+<p>当<code>cwnd</code>达到<code>ssthresh</code>（慢启动阈值）时，TCP 会从慢开始模式转换到拥塞避免模式。</p>
+<p><img alt="慢启动" class="gallery-image" data-flex-basis="155px" data-flex-grow="64" height="851" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E6%85%A2%E5%90%AF%E5%8A%A8.png" width="551"></p>
+<h4 id="拥塞避免">拥塞避免
+</h4><p>当TCP进入拥塞避免阶段后，拥塞窗口<code>cwnd</code>的增长方式从慢启动的指数增长转变为线性增长。</p>
+
+    <blockquote>
+        <p>具体而言，每收到一个<code>ACK</code>，<code>cwnd</code>增加<code>1/cwnd</code>个 $\text{MSS}$（最大报文段长度）。由于在一个往返时间（$\text{RTT}$）内会收到大约<code>cwnd</code>个<code>ACK</code>，这等价于在每个<code>RTT</code>结束时<code>cwnd</code>只增长约 $1 \text{MSS}$。</p>
+<p>这种“每 $\text{RTT}$ 加 $1 \text{MSS}$”的线性增长可以避免窗口迅速膨胀，引起网络拥塞。</p>
+
+    </blockquote>
+<p>TCP检测到网络拥塞后，将慢启动阈值（ssthresh）设置为当前<code>cwnd</code>的一半（ssthresh = cwnd / 2），然后按照以下情况分别处理：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>情况</th>
+          <th>处理</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>收到3个冗余的<code>ACK</code></td>
+          <td>触发快速重传，设置 cwnd = cwnd/2 + 3</td>
+      </tr>
+      <tr>
+          <td>出现超时</td>
+          <td><code>cwnd</code>重新设为 $1 \text{MSS}$，相当于回到最保守的状态</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>快速重传：当发送方连续收到三个冗余的<code>ACK</code>时，说明网络中已经有一个数据段丢失，而后续的<code>ACK</code>只能确认已经成功到达的后续段。此时，TCP就会<strong>立即重传</strong>那个被认定为丢失的段，而不必等到重传计时器超时，这一过程被称为快速重传。</p>
+
+    </blockquote>
+<h4 id="快速恢复">快速恢复
+</h4><p>触发快速重传后，TCP会切换到快速恢复（Fast Recovery）阶段。</p>
+<p>每收到一个重复 ACK，cwnd = cwnd + MSS，这种线性增长相当于“用已经确认的 ACK 为窗口“买票”，使得发送方能够继续发送新数据，而不会因为单个丢包而立刻停滞。</p>
+<p>收到一个新的、非重复的 ACK后，表明丢失的数据段已经被成功重传并得到确认，TCP退出快速恢复阶段。此时，将<code>cwnd</code>设置为<code>ssthresh</code>（即把窗口恢复到新的慢启动阈值）随后进入拥塞避免阶段。</p>
+<p><img alt="TCP拥塞控制全过程" class="gallery-image" data-flex-basis="344px" data-flex-grow="143" height="830" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E5%85%A8%E8%BF%87%E7%A8%8B.png" srcset="/passage/cs/network/transport-layer/images/TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E5%85%A8%E8%BF%87%E7%A8%8B_hu_3386be11fb68054a.png 800w, /passage/cs/network/transport-layer/images/TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E5%85%A8%E8%BF%87%E7%A8%8B.png 1190w" width="1190"></p>
+<p><img alt="TCP传输图" class="gallery-image" data-flex-basis="406px" data-flex-grow="169" height="2172" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/TCP%E4%BC%A0%E8%BE%93%E5%9B%BE.png" srcset="/passage/cs/network/transport-layer/images/TCP%E4%BC%A0%E8%BE%93%E5%9B%BE_hu_c144d7e775e6ab17.png 800w, /passage/cs/network/transport-layer/images/TCP%E4%BC%A0%E8%BE%93%E5%9B%BE_hu_d6d5a2b9135df706.png 1600w, /passage/cs/network/transport-layer/images/TCP%E4%BC%A0%E8%BE%93%E5%9B%BE_hu_5496daf276b117f2.png 2400w, /passage/cs/network/transport-layer/images/TCP%E4%BC%A0%E8%BE%93%E5%9B%BE.png 3680w" width="3680"></p>
+<h2 id="附录">附录
+</h2><h3 id="可靠数据传输原理">可靠数据传输原理
+</h3><p>计算机网络中，底层数据的传输信道往往是不可靠的，可能会出现丢包和乱序。可靠数据传输协议（rdt）的目标就是在不可靠的信道上，为上层应用提供一个可靠的服务，让接收方能完整、按顺序、无差错地收到发送方的数据。</p>
+<p><img alt="rdt协议图示" class="gallery-image" data-flex-basis="370px" data-flex-grow="154" height="595" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA.png" srcset="/passage/cs/network/transport-layer/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA_hu_468735cb00b065c0.png 800w, /passage/cs/network/transport-layer/images/rdt%E5%8D%8F%E8%AE%AE%E5%9B%BE%E7%A4%BA.png 919w" width="919"></p>
+<h4 id="rdt协议">rdt协议
+</h4><p>rdt1.0：完全可靠的信道</p>
+<ul>
+<li>假设信道不会出错、不会丢包。</li>
+<li>发送方只管发，接收方只管收。</li>
+<li>没有 ACK、没有序列号、没有重传（过于理想，现实中不存在）</li>
+</ul>
+<p><img alt="rdt1.0的状态机" class="gallery-image" data-flex-basis="1917px" data-flex-grow="799" height="215" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt1.0.png" srcset="/passage/cs/network/transport-layer/images/rdt1.0_hu_591f57a4b00fa7d5.png 800w, /passage/cs/network/transport-layer/images/rdt1.0_hu_285ba525a1a079ad.png 1600w, /passage/cs/network/transport-layer/images/rdt1.0.png 1718w" width="1718"></p>
+<p>rdt2.0：只存在比特位的差错（无丢包）</p>
+<ul>
+<li>引入了 ACK/NAK，标识数据包的确认/否认。</li>
+<li>接收方收到正确地数据包则恢复ACK，反之回复NAK；发送方收到NAK则重传上一个数据包。</li>
+</ul>
+<p><img alt="rdt2.0的状态机" class="gallery-image" data-flex-basis="456px" data-flex-grow="190" height="861" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt2.0.png" srcset="/passage/cs/network/transport-layer/images/rdt2.0_hu_d44ca55169fed64e.png 800w, /passage/cs/network/transport-layer/images/rdt2.0_hu_133b9de2dc5bfc0d.png 1600w, /passage/cs/network/transport-layer/images/rdt2.0.png 1637w" width="1637"></p>
+
+    <blockquote>
+        <p>rdt2.0 的问题：</p>
+<p>如果 ACK/NAK 本身在传输中损坏了怎么办？发送方不知道接收方是否收到。</p>
+
+    </blockquote>
+<p>rdt2.1：解决 ACK/NAK 损坏问题</p>
+<ul>
+<li>为每个数据包加上序列号（0或1）。</li>
+<li>发送方交替发送序列号为0和1的数据包，接收方通过序列号判断是新包还是旧包的重传。</li>
+</ul>
+<p><img alt="rdt2.1的状态机" class="gallery-image" data-flex-basis="386px" data-flex-grow="160" height="757" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt2.1.png" srcset="/passage/cs/network/transport-layer/images/rdt2.1_hu_609a17e9850e6c20.png 800w, /passage/cs/network/transport-layer/images/rdt2.1.png 1218w" width="1218"></p>
+<p>rdt2.2：去掉了 NAK，只用 ACK</p>
+<ul>
+<li>每个 ACK 要指明它确认的是哪个序列号。</li>
+<li>如果接收方收到错包，就重复上一次正确的 ACK，相当于隐式 NAK。</li>
+<li>冗余ACK表明发送端的当前数据出错，需要重发。</li>
+</ul>
+<p><img alt="rdt2.2的状态机" class="gallery-image" data-flex-basis="382px" data-flex-grow="159" height="868" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt2.2.png" srcset="/passage/cs/network/transport-layer/images/rdt2.2_hu_df894290cd2d77df.png 800w, /passage/cs/network/transport-layer/images/rdt2.2.png 1384w" width="1384"></p>
+<p>rdt3.0：着重解决比特差错和丢包、它在 rdt2.2 的基础上增加超时重传。发送方发送一个包后启动一个定时器：</p>
+<ul>
+<li>如果在超时时间内收到 ACK：正常发送下一个包。</li>
+<li>如果超时未收到 ACK：重传当前包（可能因为包丢了，也可能是ACK丢了）。</li>
+</ul>
+<p><img alt="rdt3.0的状态机" class="gallery-image" data-flex-basis="453px" data-flex-grow="188" height="809" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/rdt3.0.png" srcset="/passage/cs/network/transport-layer/images/rdt3.0_hu_19e37152f46a0a36.png 800w, /passage/cs/network/transport-layer/images/rdt3.0.png 1528w" width="1528"></p>
+<h4 id="停-等协议与流水线">停-等协议与流水线
+</h4><p>rdt3.0 是停-等协议：发送一个包 → 等待ACK → 发下一个。信道利用率很低，协议设计不好会限制信道的性能。</p>
+<p><img alt="停-等协议图示" class="gallery-image" data-flex-basis="595px" data-flex-grow="248" height="539" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E5%81%9C-%E7%AD%89%E5%8D%8F%E8%AE%AE.png" srcset="/passage/cs/network/transport-layer/images/%E5%81%9C-%E7%AD%89%E5%8D%8F%E8%AE%AE_hu_4dd0356beb40b3ce.png 800w, /passage/cs/network/transport-layer/images/%E5%81%9C-%E7%AD%89%E5%8D%8F%E8%AE%AE.png 1338w" width="1338"></p>
+<p>TCP使用流水线机制：允许发送方发送多个“正在进行中”但尚未被确认的数据包。</p>
+<p><img alt="流水线图示" class="gallery-image" data-flex-basis="538px" data-flex-grow="224" height="631" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/Pipeline%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/transport-layer/images/Pipeline%E7%A4%BA%E4%BE%8B_hu_8f36cee0db0c95b9.png 800w, /passage/cs/network/transport-layer/images/Pipeline%E7%A4%BA%E4%BE%8B.png 1417w" width="1417"></p>
+
+    <blockquote>
+        <p>这也意味着必须增加序列号的范围，同时在发送方/接收方之间建立缓冲。</p>
+
+    </blockquote>
+<h4 id="go-back-n">Go-Back-N
+</h4>
+    <blockquote>
+        <p>Go-Back-N（GBN）是计算机网络中一种实现可靠数据传输的流水线协议，用于解决 rdt3.0 信道利用率低的问题。</p>
+
+    </blockquote>
+<p>Go-Back-N 的核心思想：</p>
+<ul>
+<li>发送方可以在未收到确认的情况下，连续发送多个数据包，但接收方只允许按顺序接收；</li>
+<li>一旦某个包丢失或出错，接收方会丢弃所有后续包，发送方则回退（Go-Back）到那个丢失的包，重新发送该包及其之后的所有包（$N$个包）。</li>
+</ul>
+<p><img alt="GBN示例" class="gallery-image" data-flex-basis="388px" data-flex-grow="162" height="879" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/GBN%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/transport-layer/images/GBN%E7%A4%BA%E4%BE%8B_hu_665669d5a553047d.png 800w, /passage/cs/network/transport-layer/images/GBN%E7%A4%BA%E4%BE%8B.png 1424w" width="1424"></p>
+<p>Go-Back-N 的一个主要缺点：当有一个包丢失或损坏时，GBN 会重传从丢失包开始之后的所有包（即使很多包已经被接收方正确收到），从而浪费大量带宽。</p>
+<h4 id="选择重传">选择重传
+</h4>
+    <blockquote>
+        <p>选择重传（Selective Repeat，SR）是另一种流水线可靠数据传输协议，它解决了 Go-Back-N 的上述主要缺点。</p>
+
+    </blockquote>
+<p>SR 的核心思想：只重传真正丢失或出错的个别包，而接收方会缓存所有已正确接收但顺序不连续的包，等待缺失的包到达后再一并排序上交。</p>
+<p><img alt="选择重传示例" class="gallery-image" data-flex-basis="419px" data-flex-grow="174" height="836" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/transport-layer/images/%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E7%A4%BA%E4%BE%8B_hu_5f13bf078b7b11d2.png 800w, /passage/cs/network/transport-layer/images/%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E7%A4%BA%E4%BE%8B.png 1462w" width="1462"></p>
+<h3 id="拥塞控制方法">拥塞控制方法
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>控制方法</th>
+          <th>缺点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>无丢包（无限缓冲区）</td>
+          <td>拥塞仍会导致延迟灾难，说明 “仅靠增大缓冲区无法解决拥塞”</td>
+      </tr>
+      <tr>
+          <td>有限缓冲区+重传</td>
+          <td>暴露 “丢包 - 重传 - 负载增加” 的恶性循环，说明 “重传无法避免拥塞，反而可能加剧问题”</td>
+      </tr>
+      <tr>
+          <td>多跳路径</td>
+          <td>末端链路拥塞会导致上游资源全被浪费，说明 “拥塞的代价会沿路径扩散，影响全局效率”</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>拥塞控制的核心在于控制发送速率，让发送端速率与网络能力动态匹配，减少无效流量。</p>
 
 </section>
 
