@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="分治法">
-<title>算法</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="分治法可以将较大规模的问题分解成若干个与原问题相似的问题，求解后合并到原问题，从而优化复杂度。\n分治算法的要点：\n确定问题模型 确定拆分（合并）性质 确定分治终点的解法 原理 步骤 作用 复杂度 Divide 整个问题划分为多个子问题 $D(n)$ Conquer 求解各个子问题 $\\displaystyle a T \\left( \\frac{n}{b} \\right)$ Combine 合并子问题的解，形成原问题的解 $C(n)$ 据此可建立递归方程：\n">
+<title>算法：分治法</title>
 
 
 <link rel="canonical" href="https://rd806.github.io/passage/cs/algorithm/divide_and_conquer/">
@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="算法">
-<meta property='og:description' content="分治法">
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="算法：分治法">
+<meta property='og:description' content="分治法可以将较大规模的问题分解成若干个与原问题相似的问题，求解后合并到原问题，从而优化复杂度。\n分治算法的要点：\n确定问题模型 确定拆分（合并）性质 确定分治终点的解法 原理 步骤 作用 复杂度 Divide 整个问题划分为多个子问题 $D(n)$ Conquer 求解各个子问题 $\\displaystyle a T \\left( \\frac{n}{b} \\right)$ Combine 合并子问题的解，形成原问题的解 $C(n)$ 据此可建立递归方程：\n">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/algorithm/divide_and_conquer/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-19T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-19T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="分治法">
+<meta name="twitter:title" content="算法：分治法">
+<meta name="twitter:description" content="分治法可以将较大规模的问题分解成若干个与原问题相似的问题，求解后合并到原问题，从而优化复杂度。\n分治算法的要点：\n确定问题模型 确定拆分（合并）性质 确定分治终点的解法 原理 步骤 作用 复杂度 Divide 整个问题划分为多个子问题 $D(n)$ Conquer 求解各个子问题 $\\displaystyle a T \\left( \\frac{n}{b} \\right)$ Combine 合并子问题的解，形成原问题的解 $C(n)$ 据此可建立递归方程：\n">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -496,13 +496,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/cs/algorithm/divide_and_conquer/">算法</a>
+            <a href="/passage/cs/algorithm/divide_and_conquer/">算法：分治法</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            分治法
-        </h3>
         
     </div>
 
@@ -539,7 +535,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 3 分钟
+                        阅读时长: 5 分钟
                     </time>
                 
             </div>
@@ -633,7 +629,7 @@ $$T(n) = aT\left( \frac{n}{b} \right) + D(n) + C(n)$$<h2 id="二分法">二分�
 <p><img alt="归并排序" class="gallery-image" data-flex-basis="805px" data-flex-grow="335" height="307" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/divide_and_conquer/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.png" srcset="/passage/cs/algorithm/divide_and_conquer/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F_hu_c75c2de48a491d23.png 800w, /passage/cs/algorithm/divide_and_conquer/images/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.png 1031w" width="1031"></p>
 <p>归并排序的递归方程：</p>
 $$T(n) = 2T \left(\frac{n}{2}\right) + \mathrm{O} (n) = \mathrm{O} (n \log n)$$<h3 id="快速排序">快速排序
-</h3><p><a class="link" href="/passage/cs/sort#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f" >快速排序</a></p>
+</h3><p>详细内容见此处：<a class="link" href="/passage/cs/sort#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f" >快速排序</a></p>
 <h3 id="折半查找">折半查找
 </h3><p>详细内容见此处：<a class="link" href="/passage/cs/data-structure/search/#%e6%8a%98%e5%8d%8a%e6%9f%a5%e6%89%be" >折半查找</a></p>
 <p>实际上，对于长度为 $n$ 的有序序列（例如<code>[10, 20, 30, 40, 50, 60]</code>），折半查找构建了深度为 $h = \log(n+1)$ 的判定树。</p>
@@ -645,38 +641,112 @@ $$\begin{align*} ASL &= \frac{1}{n} \left(1 \times 2^0 + 2 \times 2^1 + 3 \times
 <p><img alt="大整数乘法" class="gallery-image" data-flex-basis="1460px" data-flex-grow="608" height="138" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/divide_and_conquer/images/%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95.png" srcset="/passage/cs/algorithm/divide_and_conquer/images/%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95_hu_fb9dcdbe59e93f06.png 800w, /passage/cs/algorithm/divide_and_conquer/images/%E5%A4%A7%E6%95%B4%E6%95%B0%E4%B9%98%E6%B3%95.png 840w" width="840"></p>
 <p>此时乘法转化为：
 </p>
-$$\begin{align*} XY &= (A \cdot 2^{\frac{n}{2}} + B) \cdot (C \cdot 2^{\frac{n}{2}} + D) \\ &= AC \cdot 2^n + (AD + BC) \cdot 2^{\frac{n}{2}} + BD \\ &= AC \cdot 2^{n} + ((A+B)(C+D)-AC-BD) \cdot 2^{\frac{n}{2}} + BD \end{align*}$$<h3 id="矩阵乘法">矩阵乘法
-</h3><p>两个 $n \times n$ 的矩阵 $\bm{A}$ 和 $\bm{B}$ 相乘，普通计算方法的时间复杂度为 $\varTheta(n^3)$</p>
-<p>将 $\bm{A}$ 和 $\bm{B}$ 分成 $4$ 个大小为 $\frac{n}{2} \times \frac{n}{2}$ 的子矩阵，则有</p>
+$$\begin{align*} XY &= (A \cdot 2^{\frac{n}{2}} + B) \cdot (C \cdot 2^{\frac{n}{2}} + D) \\ &= AC \cdot 2^n + (AD + BC) \cdot 2^{\frac{n}{2}} + BD \\ &= AC \cdot 2^{n} + ((A+B)(C+D)-AC-BD) \cdot 2^{\frac{n}{2}} + BD \end{align*}$$<p>根据 </p>
+$$XY = AC \cdot 2^{n} + ((A+B)(C+D)-AC-BD) \cdot 2^{\frac{n}{2}} + BD$$<p> 可得递归方程为 </p>
+$$T(n) = 3T \left(\frac{n}{2}\right) + \Theta(n)$$<p> 由主定理可知它的复杂度为 $\Theta(n^{1.59})$</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>中间式 </p>
+$$XY = AC \cdot 2^n + (AD + BC) \cdot 2^{\frac{n}{2}} + BD$$<p> 并不能降低复杂度，因为它的递归方程 </p>
+$$T(n) = 4 \left(\frac{n}{2}\right) + \Theta(n)$$<p> 复杂度为 $\Theta(n^2)$。</p>
+        </div>
+    </blockquote>
+<h3 id="矩阵乘法">矩阵乘法
+</h3><p>两个 $n \times n$ 的矩阵 $\bm{A}$ 和 $\bm{B}$ 相乘，普通计算方法的时间复杂度为 $\Theta(n^3)$</p>
+<p>将 $\bm{A}$ 和 $\bm{B}$ 分成 $4$ 个大小为 $\displaystyle \frac{n}{2} \times \frac{n}{2}$ 的子矩阵，则有</p>
 $$\left[ \begin{matrix} \bm{C}_{11} & \bm{C}_{12} \\ \bm{C}_{21} & \bm{C}_{22} \end{matrix} \right] = \left[ \begin{matrix} \bm{A}_{11} & \bm{A}_{12} \\ \bm{A}_{21} & \bm{A}_{22} \end{matrix} \right] \times \left[ \begin{matrix} \bm{B}_{11} & \bm{B}_{12} \\ \bm{B}_{21} & \bm{B}_{22} \end{matrix} \right] $$<p>令 </p>
 $$\left\{ \begin{array}{c} \begin{align*} \bm{M}_1 &= \bm{A}_{11} (\bm{B}_{12}-\bm{B}_{12}) \\ \bm{M}_2 &= (\bm{A}_{21} + \bm{A}_{12}) \bm{B}_{11} \\ \bm{M}_3 &= (\bm{A}_{21} + \bm{A}_{22}) \bm{B}_{11} \\ \bm{M}_4 &= \bm{A}_{22} (\bm{B}_{21} - \bm{B}_{11}) \\ \bm{M}_5 &= (\bm{A}_{11} + \bm{A}_{22}) (\bm{B}_{11} + \bm{B}_{22}) \\ \bm{M}_6 &= (\bm{A}_{12} - \bm{A}_{22}) (\bm{B}_{21} + \bm{B}_{22}) \\ \bm{M}_7 &= (\bm{A}_{11} - \bm{A}_{21}) (\bm{B}_{11} + \bm{B}_{12}) \end{align*} \end{array} \right.$$<p>则有 </p>
-$$\left\{ \begin{array}{c} \begin{align*} \bm{C}_{11} &= \bm{M}_5 + \bm{M}_4 - \bm{M}_2 + \bm{M}_6 \\ \bm{C}_{12} &= \bm{M}_1 + \bm{M}_2 \\ \bm{C}_{21} &= \bm{M}_3 + \bm{M}_4 \\ \bm{C}_{22} &= \bm{M}_5 + \bm{M}_1 - \bm{M}_3 - \bm{M}_7  \end{align*} \end{array} \right.$$<h3 id="第k小元素">第k小元素
-</h3><p>若 $|S| \leqslant 50$，则采用<a class="link" href="/passage/cs/sort" >堆排序</a></p>
+$$\left\{ \begin{array}{c} \begin{align*} \bm{C}_{11} &= \bm{M}_5 + \bm{M}_4 - \bm{M}_2 + \bm{M}_6 \\ \bm{C}_{12} &= \bm{M}_1 + \bm{M}_2 \\ \bm{C}_{21} &= \bm{M}_3 + \bm{M}_4 \\ \bm{C}_{22} &= \bm{M}_5 + \bm{M}_1 - \bm{M}_3 - \bm{M}_7  \end{align*} \end{array} \right.$$<p>此时它的递归方程为 </p>
+$$T(n) = 7 \left(\frac{n}{2}\right) + \Theta(n^2)$$<p> 复杂度为 $\Theta(n^{\log_{2} 7}) = \Theta(n^{2.81})$</p>
+
+    <blockquote>
+        <p>降低矩阵乘法的复杂度一直是算法设计的重要问题。目前，已有算法可将其复杂度降低为 $\Theta(n^{2.376})$</p>
+
+    </blockquote>
+<h3 id="第k小元素">第k小元素
+</h3><p>第 $k$ 小元素表述为在有 $n$ 个元素的数组 $S$ 中，找到第 $k$ 小的元素。</p>
+<p>若 $\mid S \mid \leqslant 50$，则采用<a class="link" href="/passage/cs/sort" >堆排序</a></p>
 <p>否则：</p>
 <ol>
-<li>将 $n$ 个元素分为 $\lceil \frac{n}{5} \rceil$，每组5个元素，每组排序。</li>
-<li>将每组第三个元素取出，得到大小为 $\lceil \frac{n}{5} \rceil$ 的数组 $M$。若最后一组中的元素可能不足5个，则1个取出、2个取较小、3个取中间、4个取第二小。</li>
-<li>$m = \text{select}(M, \lceil |M|/2 \rceil)$，时间复杂度 $T(\lceil n/5 \rceil)$，此时 $S$ 中至少有 $3\left( \lceil \frac{1}{2} \lceil \frac{n}{5} \rceil \rceil -2 \right) \geqslant \frac{3n}{10} - 6$ 个元素大于等于 $m$；至少有 $\frac{3n}{10}-6$ 个元素小于等于 $m$</li>
-<li>依次扫描整个数组 $S$，当 $s_i &lt; m$ 时放入 $S_1$，$s_i = m$ 时放入 $S_2$；$s_i &gt; m$ 时放入 $S_3$。</li>
-<li>当 $k \leqslant |S_1|$ 时，调用<code>select(S1, k)</code>；当 $|S_1| &lt; k \leqslant |S_1| + |S_2|$ 时，返回<code>m</code>；当 $k &gt; |S_1| + |S_2|$ 时，调用<code>select(S3, k-|S1|-|S_2|)</code></li>
+<li>将 $n$ 个元素分为 $\displaystyle \left\lceil \frac{n}{5} \right\rceil$ 组，每组5个元素，每组排序。复杂度为 $\mathrm{O} (n)$</li>
+<li>将每组第3个元素取出，得到大小为 $\displaystyle \left\lceil \frac{n}{5} \right\rceil$ 的数组 $M$。</li>
 </ol>
-<p>此时时间复杂度 $T(n) = T(\lceil \frac{n}{5} \rceil) + T(\frac{7n}{10} + 6) + O(n) \leqslant O(n)$</p>
-<details>
+
+    <blockquote>
+        <p>若最后一组中的元素可能不足5个，则1个取出、2个取较小、3个取中间、4个取第二小。</p>
+
+    </blockquote>
+<ol start="3">
+<li>从数组 $M$ 中找到第 $\displaystyle \left\lceil \frac{|M|}{2} \right\rceil$ 个元素 $m$，复杂度为 $\displaystyle T\left(\left\lceil \frac{n}{5} \right\rceil\right)$。</li>
+</ol>
+
+    <blockquote>
+        <p>此时 $S$ 中至少有 $\displaystyle 3\left(\left\lceil \frac{1}{2} \left\lceil \frac{n}{5} \right\rceil \right\rceil -2 \right) \geqslant \frac{3n}{10} - 6$ 个元素大于等于 $m$；</p>
+<p>至少有 $\displaystyle \frac{3n}{10}-6$ 个元素小于等于 $m$</p>
+
+    </blockquote>
+<ol start="4">
+<li>依次扫描整个数组 $S$，并构建三个临时数组 $S_1, S_2, S_3$：当 $s_i &lt; m$ 时放入 $S_1$，$s_i = m$ 时放入 $S_2$；$s_i &gt; m$ 时放入 $S_3$。</li>
+</ol>
+
+    <blockquote>
+        <p>$S_1$ 最多有 $\displaystyle n - \left(\frac{3n}{10} - 6\right) = \frac{7}{10} + 6$ 个元素。</p>
+<p>$S_3$ 最多有 $\displaystyle n - \left(\frac{3n}{10} - 6\right) = \frac{7}{10} + 6$ 个元素。</p>
+
+    </blockquote>
+<ol start="5">
+<li>当 $k \leqslant |S_1|$ 时，返回 $S_1$ 的第 $k$ 个元素；当 $|S_1| &lt; k \leqslant |S_1| + |S_2|$ 时，返回 $m$；当 $k &gt; |S_1| + |S_2|$ 时，返回 $S_3$ 的第 $k - |S_1| - |S_2|$ 个元素。</li>
+</ol>
+<p>综上，时间复杂度 </p>
+$$T(n) = T\left(\left\lceil \frac{n}{5} \right\rceil\right) + T\left(\frac{7n}{10} + 6\right) + \mathrm{O}(n) \leqslant \mathrm{O}(n)$$<details>
     <summary>证明</summary>
+<p>使用第二数学归纳法：当 $n &lt; 50$ 时，使用堆排序，显然成立。</p>
+<p>假设 $n \leqslant m$ 时，$T(m) = \mathrm{O}(m)$，$T(m) \leqslant cm$，则当 $n=m+1$ 时，有</p>
+$$\begin{align*} T(m+1) &= T\left(\left\lceil \frac{m+1}{5} \right\rceil\right) + T \left(\frac{7(m+1)}{10} + 6\right) + \mathrm{O}(m+1) \\ & \leqslant c_1 \left\lceil \frac{m+1}{5} \right\rceil + c_2 \left(\frac{7(m+1)}{10} + 6\right) + \mathrm{O}(m+1) \\ & \leqslant c \left(\frac{m+1}{5} + 1\right) + c\left(\frac{7(m+1)}{10} + 6\right) + a(m+1) \\ &= \left(\frac{9c}{10} + a\right)(m+1) + 7c \\ & \leqslant \mathrm{O}(m+1) \end{align*}$$<p>得证。</p>
 </details>
 <h3 id="最近点对">最近点对
-</h3><p>在二维平面上 $n$ 个点中找距离最近的两个点，</p>
-<p>如果 $Q$ 中仅包含一个点，则算法结束；否则，把 $Q$ 中的点按 $x$ 和 $y$ 坐标值排序。</p>
-<p>计算 $Q$ 中各点 $x$ 坐标的中位数 $m$，用垂线 $x=m$ 把 $P$ 划分为两个大小相等的子集和 $L$ 和 $R$。</p>
-<p>递归地在 $L$，$R$ 中找出最近点对 $(p_1, p_2) \in L$，$(q_1, q_2) \in R$ 则 $d = \min \{\text{dis}(p_1, p_2), \text{Dis}(q_1, q_2)\}$</p>
-<p>在临界区查找距离小于 $d$ 的点对 $(p_l, q_r)$，其中 $p_l \in L$，$q_r \in R$；如果找到，则 $(p_l, q_r)$ 是 $Q$ 中的最近点对，否则 $(p_1, p_2)$ 和 $(q_1, q_2)$ 中距离最小者为 $Q$ 中的最接近点对。</p>
-<p>如何查找 $(p_l, q_r)$：</p>
-<p>对于左临界区中任意一点 $P$，在右临界区中找一点 $Q$，若 $|PQ| &lt; d$，则必有 $Q$ 位于右临界区。</p>
-<p>极端情况下，若 $P$ 在中位线上，$Q$ 在绿色半圆中，不妨把 $D$ 扩大为 $d \cdot 2d$ 的矩形区域，这样区域内最多可能存在6个点，使得每两个点之间的距离大于 $d$，即对于任意一点 $P$，最多只需计算6次距离就可以了。</p>
+</h3><p>在二维平面上 $n$ 个点 （$Q = \{p_0, p_1, p_2, \cdots, p_0\}$）中找距离最近的两个点 $(p_r, p_s)$。</p>
+<p>分析过程如下：</p>
+<ul>
+<li>如果 $Q$ 中仅包含一个点，则算法结束；否则，把 $Q$ 中的点按 $x$ 和 $y$ 坐标值排序。</li>
+<li>计算 $Q$ 中各点 $x$ 坐标的中位数 $m$，用垂线 $x=m$ 把 $P$ 划分为两个大小相等的子集和 $L$ 和 $R$。子集 $L$ 中的点在 $x=m$ 左边，$R$ 中的点在 $x=m$ 右边。</li>
+<li>递归地在 $L$，$R$ 中找出最近点对 $(p_1, p_2) \in L$，$(q_1, q_2) \in R$，则
+$$d = \min \{|p_1 p_2|, |q_1 q_2|\}$$据此构建临界区 $[m-d, m+d]$</li>
+</ul>
+<p><img alt="最近点对的划分" class="gallery-image" data-flex-basis="673px" data-flex-grow="280" height="339" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/divide_and_conquer/images/%E6%9C%80%E8%BF%91%E7%82%B9%E5%AF%B9%E7%9A%84%E5%88%92%E5%88%86.png" srcset="/passage/cs/algorithm/divide_and_conquer/images/%E6%9C%80%E8%BF%91%E7%82%B9%E5%AF%B9%E7%9A%84%E5%88%92%E5%88%86_hu_5120ef97927d72b5.png 800w, /passage/cs/algorithm/divide_and_conquer/images/%E6%9C%80%E8%BF%91%E7%82%B9%E5%AF%B9%E7%9A%84%E5%88%92%E5%88%86.png 951w" width="951"></p>
+<ul>
+<li>在临界区查找距离小于 $d$ 的点对 $(p_l, q_r)$，其中 $p_l \in L$，$q_r \in R$。
+<ul>
+<li>如果找到，则 $(p_l, q_r)$ 是 $Q$ 中的最近点对；</li>
+<li>否则 $(p_1, p_2)$ 和 $(q_1, q_2)$ 中距离最小者为 $Q$ 中的最接近点对。</li>
+</ul>
+</li>
+</ul>
+<p>如何在临界区内查找距离小于 $d$ 的点对 $(p_l, q_r)$：</p>
+<ul>
+<li>对于左临界区中任意一点 $p$，在右临界区中找一点 $q$，若 $|pq| &lt; d$，则必有 $q$ 位于绿色区域 $D$ 内。</li>
+</ul>
+<p><img alt="临界区1" class="gallery-image" data-flex-basis="180px" data-flex-grow="75" height="312" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/divide_and_conquer/images/%E4%B8%B4%E7%95%8C%E5%8C%BA1.png" width="235"></p>
+<ul>
+<li>极端情况下，若 $p$ 在中位线上，$q$ 在绿色半圆中，不妨把 $D$ 扩大为 $d \cdot 2d$ 的矩形区域，这样区域内最多可能存在6个点，使得每两个点之间的距离大于 $d$，即对于任意一点 $p$，最多只需计算6次距离就可以了。</li>
+</ul>
+<p><img alt="临界区2" class="gallery-image" data-flex-basis="224px" data-flex-grow="93" height="309" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/divide_and_conquer/images/%E4%B8%B4%E7%95%8C%E5%8C%BA2.png" width="289"></p>
 <p>时间复杂度 </p>
-$$T(n) = \left\{ \begin{matrix} \begin{align*} & O(1) \\ &2T\left(\frac{n}{2}\right) + O(n) \end{align*} \end{matrix} \right.$$<p>则 $T(n) = O(n \log n)$</p>
+$$T(n) = \left\{ \begin{matrix} \begin{align*} & \mathrm{O}(1) & n=2\\ &2T\left(\frac{n}{2}\right) + \mathrm{O}(n) & n \geqslant 3 \end{align*} \end{matrix} \right.$$<p>则 $T(n) = \mathrm{O} (n \log n)$</p>
 <h2 id="平衡">平衡
 </h2><p>平衡与分治法密不可分，使用分治法和递归时要尽量把问题分成规模相等或至少是规模相近的子问题。</p>
+<p>以排序为例：</p>
+<ul>
+<li>冒泡排序：找出最小元素，再对剩下的 $n-1$ 个元素排序，划分规模为 $1$ 和 $n-1$。时间复杂度 $T(n)=T(n-1)+(n-1)$，则
+$$T(n)=\sum_{i=1}^{n-1} i =\Theta(n^2)$$</li>
+<li>归并排序：划分成一个规模为 $\displaystyle \left\lfloor \frac{n}{2} \right\rfloor$ ，另一个规模为 $\displaystyle \left\lceil \frac{n}{2} \right\rceil$ 的子表排序，再以 $\mathrm{O}(n)$ 时间归并。时间复杂度
+$$T(n)=T\left(\left\lfloor\frac{n}{2}\right\rfloor\right)+T\left(\left\lceil\frac{n}{2}\right\rceil\right)+O(n) = 2T\left(\frac{n}{2}\right)+O(n)=\Theta(n\log n)$$</li>
+</ul>
+<p>显然归并排序好。在使用分治法和递归时，要尽量把问题分成规模相等或至少是规模相近的子问题，即做到平衡。</p>
 
 </section>
 
