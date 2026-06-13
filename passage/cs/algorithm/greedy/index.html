@@ -321,8 +321,8 @@
     <li><a href="#优化问题">优化问题</a></li>
     <li><a href="#基本概念">基本概念</a>
       <ol>
+        <li><a href="#贪心算法的特点">贪心算法的特点</a></li>
         <li><a href="#贪心算法的验证">贪心算法的验证</a></li>
-        <li><a href="#贪心算法的性能">贪心算法的性能</a></li>
       </ol>
     </li>
     <li><a href="#案例">案例</a>
@@ -332,12 +332,7 @@
         <li><a href="#哈夫曼编码">哈夫曼编码</a></li>
         <li><a href="#拓扑排序">拓扑排序</a></li>
         <li><a href="#最短路径">最短路径</a></li>
-        <li><a href="#最小生成树">最小生成树</a>
-          <ol>
-            <li><a href="#kruskal算法">Kruskal算法</a></li>
-            <li><a href="#prim算法">Prim算法</a></li>
-          </ol>
-        </li>
+        <li><a href="#最小生成树">最小生成树</a></li>
         <li><a href="#偶图覆盖">偶图覆盖</a></li>
       </ol>
     </li>
@@ -548,7 +543,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 5 分钟
+                        阅读时长: 9 分钟
                     </time>
                 
             </div>
@@ -578,8 +573,8 @@
     <li><a href="#优化问题">优化问题</a></li>
     <li><a href="#基本概念">基本概念</a>
       <ol>
+        <li><a href="#贪心算法的特点">贪心算法的特点</a></li>
         <li><a href="#贪心算法的验证">贪心算法的验证</a></li>
-        <li><a href="#贪心算法的性能">贪心算法的性能</a></li>
       </ol>
     </li>
     <li><a href="#案例">案例</a>
@@ -589,12 +584,7 @@
         <li><a href="#哈夫曼编码">哈夫曼编码</a></li>
         <li><a href="#拓扑排序">拓扑排序</a></li>
         <li><a href="#最短路径">最短路径</a></li>
-        <li><a href="#最小生成树">最小生成树</a>
-          <ol>
-            <li><a href="#kruskal算法">Kruskal算法</a></li>
-            <li><a href="#prim算法">Prim算法</a></li>
-          </ol>
-        </li>
+        <li><a href="#最小生成树">最小生成树</a></li>
         <li><a href="#偶图覆盖">偶图覆盖</a></li>
       </ol>
     </li>
@@ -647,21 +637,50 @@
       </tr>
   </tbody>
 </table></div>
-
+<p>通用的贪心伪代码框架如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greedy</span><span class="p">(</span><span class="n">problem</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 初始化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">solution</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 遍历所有可选项，通常需要按照某种规则排序</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">problem</span><span class="o">.</span><span class="n">items</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">rule</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 贪心选择：如果当前选择满足条件则采纳它</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">isFeasible</span><span class="p">(</span><span class="n">solution</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">solution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回最终构造的解</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">solution</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     <blockquote>
         <p>贪心选择性质关注局部决策的全局有效性，最优子结构关注问题分解的递归性。两者相互独立，需同时满足才能保证贪心算法的正确性。</p>
 
     </blockquote>
-<p>贪心法是一种通过局部最优选择逐步逼近全局最优解的算法，特点：</p>
+<h3 id="贪心算法的特点">贪心算法的特点
+</h3><p>贪心法是一种通过局部最优选择逐步逼近全局最优解的算法：</p>
 <ol>
 <li>不回溯：选定一个分量后，不重试其他可能。</li>
-<li>局部最优：减小计算开销，但可能只能得到近似解。</li>
+<li>局部最优：减小计算开销。</li>
 <li>高效性：通常时间复杂度低。</li>
 <li>实现简单：逻辑清晰易懂。</li>
+<li>贪心算法并不总能求出问题的整体最优解。</li>
 </ol>
 
     <blockquote>
-        <p>存在具有最优子结构，但是不满足贪心选择性的问题</p>
+        <p>存在具有最优子结构，但是不满足贪心选择性的问题。</p>
 <p>贪心法与动态规划的比较：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -704,38 +723,9 @@
 </li>
 <li>再验证贪心选择性</li>
 </ul>
-<h3 id="贪心算法的性能">贪心算法的性能
-</h3><p>贪心算法并不总能求出问题的整体最优解</p>
-<p>通用的贪心伪代码框架如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">def greedy(problem):
-</span></span><span class="line"><span class="cl">    # 初始化
-</span></span><span class="line"><span class="cl">    solution = []
-</span></span><span class="line"><span class="cl">    # 遍历所有可选项，通常需要按照某种规则排序
-</span></span><span class="line"><span class="cl">    for item in sorted(problem.items, key = rule):
-</span></span><span class="line"><span class="cl">        # 贪心选择：如果当前选择满足条件则采纳它
-</span></span><span class="line"><span class="cl">        if isFeasible(solution, item):
-</span></span><span class="line"><span class="cl">            solution.append(item)
-</span></span><span class="line"><span class="cl">    # 返回最终构造的解
-</span></span><span class="line"><span class="cl">    return solution
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="案例">案例
+<h2 id="案例">案例
 </h2><h3 id="货箱装船">货箱装船
-</h3><p>设有 $n$ 个集装箱，集装箱大小一样，第 $i$ 个集装箱的重量为 $w_i$，船的载重量为 $c$，设计一个装船的方法使得装入的集装箱数量最多。</p>
+</h3><p>设有 $n$ 个集装箱，集装箱大小一样，第 $i$ 个集装箱的重量为 $w_i$，船的载重量为 $c$，设计一个装船的方法使得装入的集装箱<strong>数量</strong>最多。</p>
 <p>最优子结构：装载 $k$ 个集装箱后，移除一个集装箱后剩余集装箱的装载问题仍需是最优解。</p>
 <p>令 $(x_1, x_2, \cdots, x_k)$ 是一种装载方法：</p>
 <ul>
@@ -752,7 +742,7 @@
 
     </blockquote>
 <h3 id="01背包问题">0/1背包问题
-</h3><p>设有容量为 $c$ 的背包和 $u$ 件物品，物品 $u_i$ 的重量为 $w_i$，价值为 $p_i$。给出一个装入物品的方法，使得总收益最大。</p>
+</h3><p>设有容量为 $c$ 的背包和 $n$ 件物品，物品 $u_i$ 的重量为 $w_i$，价值为 $p_i$。给出一个装入物品的方法，使得总<strong>收益</strong>最大。</p>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
@@ -760,12 +750,14 @@
         </div>
         <div class="alert-body">
             <p>0/1背包问题是NP难问题，任何多项式复杂度的算法产生的解都是近似解。</p>
+<p>当 $p_i = 1$ 时，0/1背包问题退化为货箱装船问题。</p>
         </div>
     </blockquote>
+<p>0/1背包问题的形式化描述如下：</p>
 <p>使用数组 $(x_1, x_2, \cdots, x_n)$ 表示一个装法，其中 $x_i = 1$ 表示装物品 $i$，否则不装。此时约束条件为：</p>
 $$\sum_{i=1}^{n} w_i x_i \leqslant c$$<p>可用的贪心策略：</p>
 <ol>
-<li>价值优先：从未装入的物品中，选取效益值最大的物品装入背包。</li>
+<li>价值优先：从未装入的物品中，选取价值最大的物品装入背包。</li>
 <li>重量优先：从未装入的物品中，选择重量最小的物品装入背包。</li>
 <li>价值率优先：选择价值率 $\displaystyle \frac{p_i}{w_i}$ 最高的的物品装入背包。</li>
 <li>k-优化算法：先对物品按价值率从大到小排序，现将一些物品装入背包，然后对剩余物品使用贪心法。</li>
@@ -773,33 +765,100 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c$$<p>可用的贪心策略：</p>
 
     <blockquote>
         <p>使用k-优化算法得到的解误差不超过 $\displaystyle \frac{1}{k+1}$</p>
+<ul>
+<li>当 $k=1$ 时为 $50\%$ 以内，即如果优化值为 $100$，贪心法算出的值不低于 $50$；</li>
+<li>当 $k=2$ 时，为 $33.33\%$ 以内。</li>
+</ul>
+<p>算法的时间复杂度随 $k$ 的增大而增加：需要测试的子集数目为 $\mathrm{O}(n^k)$，每一个子集做贪心法需时间 $\mathrm{O} (n)$，因此当 $k&gt;0$ 时总的时间开销为 $\mathrm{O} (n^{k+1})$.</p>
 
     </blockquote>
 <h3 id="哈夫曼编码">哈夫曼编码
 </h3><p>前缀码：一种编码方式，其中任意一个字符的二进制代码都不是另一个字符代码的前缀。</p>
+<p>使平均码长达到最小的前缀码编码方案称为给定编码字符集C的最优前缀码。哈夫曼编码的核心目标正是通过动态分配最短二进制码（0/1组成的字符串）给不同字符，使得高频字符用更短的编码，低频字符用更长的编码，从而实现整体压缩效率的最优。</p>
+
+    <blockquote>
+        <p>平均码长：</p>
+$$B(T) = \sum_{c \in C} f(c) \cdot d_T(c)$$
+    </blockquote>
 <p>使用哈夫曼编码进行压缩和解压时，必须提前有一个字典</p>
-<p><a class="link" href="/passage/cs/data-structure/tree#%e9%9c%8d%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81" >构造哈夫曼编码</a></p>
-<p>局部最优达到全局最优</p>
+<p>具体算法为：</p>
+<ol>
+<li>根据 $n$ 个权值 $\{w_1, w_2, \cdots, w_n\}$ 构成 $n$ 棵二叉树的集合 $F=\{T_1, T_2, \cdots, T_n\}$，其中每棵二叉树 $T_i$ 中只有一个带权为 $w_i$ 的根结点，其左右子树均为空。</li>
+<li>在 $F$ 中选取两棵根结点的权值最小的树作为左右子树来构造一棵新的二叉树，且置新的二叉树的根结点的权值为其左、右子树结点的根结点的权值之和。</li>
+<li>在 $F$ 中删除这两棵树，同时将新得到的二叉树加入 $F$ 中。</li>
+<li>重复2和3，直到 $F$ 中只含一棵树时为止。称这棵树为最优二叉树（或哈夫曼树）。如果约定将每个结点的左分支表示字符“0”，右分支表示字符“1”，则可以把从根结点到某叶子结点的路径上分支字符组成的字符串作为该叶子结点的编码。</li>
+</ol>
+<p>哈夫曼算法以自底向上的方式构造表示最优前缀码的二叉树 $T$。算法以 $|C|$ 个叶结点开始，执行 $|C|-1$ 次的“合并”运算后产生最终所要求的树 $T$。</p>
+<p>参见此处：<a class="link" href="/passage/cs/data-structure/tree#%e9%9c%8d%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81" >构造哈夫曼编码</a></p>
+
+    <blockquote>
+        <p>算法的优先队列 $Q$ 可以用最小堆实现。初始化优先队列需要 $\mathrm{O} (n\log n)$ 计算时间，由于最小堆的插入和删除运算均需 $\mathrm{O} (\log n)$ 时间，$n-1$ 次的合并总共需要 $\mathrm{O} (n\log n)$。因此关于 $n$ 个字符的哈夫曼算法的计算时间为 $\mathrm{O} (n\log n)$。</p>
+
+    </blockquote>
+<p>哈夫曼编码是典型的贪心算法，因为它在每一步选择中只考虑当前局部最优解（合并频率最小的两个节点），通过这种局部最优的累积，最终达到全局最优（平均码长最短）。</p>
 <h3 id="拓扑排序">拓扑排序
-</h3><p><a class="link" href="/passage/cs/data-structure/graph#AOV%e7%bd%91%e7%bb%9c" >拓扑排序</a></p>
+</h3><p>拓扑排序是一种针对有向无环图（DAG）的线性序列排序方法。该序列满足以下条件：</p>
+<ul>
+<li>每个顶点在该序列中仅出现一次。</li>
+<li>若图中存在一条从顶点 $u$ 出发到顶点 $v$ 的边，则在序列中 $u$ 必须出现在 $v$ 之前。</li>
+</ul>
+<p>贪心法从空集开始，每步产生拓扑排序序列中的一个顶点 $w$：从当前尚不在拓扑排序序列的顶点中选择一顶点 $w$，它的所有先行节点 $v$ 都在已产生的拓扑序列中（或无先行顶点）并将其加入到拓扑序列中。</p>
+
+    <blockquote>
+        <p>通过每一步的局部最优选择（即优先处理当前无依赖的顶点）逐步构造全局有效序列。</p>
+
+    </blockquote>
+<p>具体可用减节点入度的方法确定 $w$：即入度变成 $0$ 的顶点为要加到拓扑序列中的新顶点。</p>
+<p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#aov%e7%bd%91%e7%bb%9c" >拓扑排序</a></p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>该算法也可用于判断图中是否存在环。即如果拓扑排序失败，则有向图含有环路。</p>
+<p>设 $V$ 为算法结束时算法输出的节点构成的集合，当失败时 $|V|&lt;n$，且剩下的顶点不能加入已排好的序列 $V$ 中。</p>
+<p>则至少有一节点 $q_1$ 和一条边 $(q_2, q_1)$ 且 $q_1, q_2$ 不在V中，否则 $q_1$ 可加入 $V$ 中。</p>
+<p>同理，有边 $(q_3, q_2)$ 且 $q_3$ 不在 $V$ 中，否则 $q_2$ 可加入 $V$ 中。若 $q_3=q_1$ 则 $q_1 q_2 q_3$ 是有向图中的一个环；若 $q_3 \ne q_1$，则必存在 $q_4$，$(q_4, q_3)$ 是有向图的边且 $q_4$ 不在 $V$中，否则 $q_3$ 应在 $V$ 中。若 $q_4$ 为 $q_1, q_2, q_3$ 中的任何一个，则该有向图含有环。</p>
+<p>因为有向图有有限个节点，重复上述步骤，一定能找到一个环路。</p>
+        </div>
+    </blockquote>
 <h3 id="最短路径">最短路径
-</h3><p><a class="link" href="/passage/cs/data-structure/graph#%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" >Dijkstra算法</a></p>
+</h3><p>单源最短路径问题是图论中的经典问题，其目标是从一个指定的源节点出发，找到到达加权图中所有其他节点的最短路径。这里的“最短”定义为路径上所有边的权重之和最小。</p>
+<p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" >Dijkstra算法</a></p>
 <h3 id="最小生成树">最小生成树
-</h3><h4 id="kruskal算法">Kruskal算法
-</h4><p>贪心策略：每次选择权值 $c(e)$ 最小且与之前选择的边不成环的边 $e$</p>
-<h4 id="prim算法">Prim算法
-</h4><p><a class="link" href="/passage/cs/data-structure/graph#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91" >最小生成树</a></p>
+</h3><p>Kruskal算法</p>
+<p>贪心策略：每次选择权值 $c(e)$ 最小且与之前选择的边不成环的边 $e$。</p>
+<p>Prim算法</p>
+<p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91" >最小生成树</a></p>
 <h3 id="偶图覆盖">偶图覆盖
 </h3><p>偶图是图论中的一个重要概念，也称为二分图。偶图中，所有的顶点可以被分为两个不相交的集合，使得图中的每一条边都连接了这两个集合中的两个顶点。</p>
 <p>形式化定义：一个图 $G=(V,E)$ 是偶图当且仅当它的顶点集 $V$ 可以被划分为两个互不相交的子集 $(V_1, V_2)$，满足：</p>
 <ol>
 <li>$V_1, V_2 \ne \oslash$。</li>
 <li>没有两个在 $V_1$ 中的顶点之间有边相连；没有两个在 $V_2$ 中的顶点之间有边相连。</li>
-<li>$V_1$ 中的每个顶点都至少与 $V_2$ 中的一个顶点右边相连，反之也成立。</li>
+<li>$V_1$ 中的每个顶点都至少与 $V_2$ 中的一个顶点有边相连，反之也成立。</li>
 </ol>
 <p>在偶图中寻找最小覆盖的问题称为偶图覆盖问题。</p>
+
+    <blockquote>
+        <p>偶图覆盖问题的应用：</p>
+<ul>
+<li>在一个教室里，有学生和座位两类资源，每个学生都有自己喜欢的座位。偶图覆盖问题可以用来找到一个最大的座位安排，使得每个学生都坐在自己喜欢的座位上，并且没有座位重复安排。</li>
+<li>在一个电影院里，有电影和观众两类资源，每部电影都有自己的类型。偶图覆盖问题可以用来找到一个最大的观影匹配，使得每个观众都看一部符合他的喜好的电影，并且没有电影重复匹配。</li>
+</ul>
+
+    </blockquote>
 <p>例如，对于如图所示的具有17个顶点的二分图，可划分为子集 $A = \{1, 2, 3, 16, 17\}$ 和 $B = \{4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\}$。其中 $A' = \{1, 16, 17\}$ 是 $B$ 的最小覆盖。</p>
+<p><img alt="偶图覆盖问题" class="gallery-image" data-flex-basis="542px" data-flex-grow="225" height="517" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/greedy/images/%E5%81%B6%E5%9B%BE%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98.png" srcset="/passage/cs/algorithm/greedy/images/%E5%81%B6%E5%9B%BE%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98_hu_d48e55fa87fdbc9.png 800w, /passage/cs/algorithm/greedy/images/%E5%81%B6%E5%9B%BE%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98.png 1168w" width="1168"></p>
 <p>贪心策略：选择覆盖 $B$ 中那些尚未被覆盖的顶点数最多的 $A$ 的节点。</p>
+
+    <blockquote>
+        <p>偶图覆盖等价于集合覆盖问题：$n$ 个集合的族 $F=\{S_1, S_2, \cdots, S_n\}$ 满足 $\displaystyle \bigcup_{i=1}^n S_i = U$，设 $\{S_{i1}, S_{i2}, \cdots, S_{ik}\}$ 为 $F$ 的子族且 $\displaystyle \bigcup_{j=1}^n S_{ij} = U$，则称其为 $U$ 的一个覆盖。集合覆盖问题就是要找出包含的集合数目最小的覆盖。</p>
+<p>令 $F=\{S_1, S_2, \cdots, S_5\}$，$U=\{4, 5, \cdots, 15\}$，各个子集为 $S_1=\{4,6,7,8,9,13\}$，$S_2=\{4,5,6,8\}$，$S_3=\{8,10,12,14,15\}$，$S_4=\{5,6,8,12,14,15\}$，$S_5=\{4,9,10,11\}$。则 $S'= \{S_1,S_4,S_5\}$ 是一个大小为3的覆盖，没有更小的覆盖，$S'$ 即为最小覆盖。</p>
+<p>这个集合覆盖问题可变换为上述的偶图，即用顶点 $1, 2, 3, 16, 17$ 分别表示集合 $S_1, S_2, S_3, S_4, S_5$，顶点 $j$ 表示集合 $U$ 中的元素 $j$ $(4 \leqslant j \leqslant 15)$。两个问题等价，都是NP难问题。</p>
+
+    </blockquote>
 
 </section>
 

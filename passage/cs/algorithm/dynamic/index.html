@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 概念 分阶段 问题可分解为顺序执行的子阶段 状态依赖 每个阶段的决策依赖于当前状态 无后效性 当前决策仅影响未来状态，与过去路径无关 最优子结构 全局最优解包含子问题的最优解 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="利用子问题的解构建全局的最优解">
 <title>算法：动态规划</title>
 
 
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="算法：动态规划">
-<meta property='og:description' content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 概念 分阶段 问题可分解为顺序执行的子阶段 状态依赖 每个阶段的决策依赖于当前状态 无后效性 当前决策仅影响未来状态，与过去路径无关 最优子结构 全局最优解包含子问题的最优解 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
+<meta property='og:description' content="利用子问题的解构建全局的最优解">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/algorithm/dynamic/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-13T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="算法：动态规划">
-<meta name="twitter:description" content="动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。\n特征 概念 分阶段 问题可分解为顺序执行的子阶段 状态依赖 每个阶段的决策依赖于当前状态 无后效性 当前决策仅影响未来状态，与过去路径无关 最优子结构 全局最优解包含子问题的最优解 原理 动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程\n">
+<meta name="twitter:description" content="利用子问题的解构建全局的最优解">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -318,11 +318,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
+    <li><a href="#特征">特征</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#应用">应用</a>
       <ol>
         <li><a href="#多段图">多段图</a></li>
-        <li><a href="#01-背包问题">0/1 背包问题</a></li>
+        <li><a href="#01背包问题">0/1背包问题</a>
+          <ol>
+            <li><a href="#递归实现">递归实现</a></li>
+            <li><a href="#权为整数的迭代实现">权为整数的迭代实现</a></li>
+          </ol>
+        </li>
         <li><a href="#旅行商问题">旅行商问题</a></li>
         <li><a href="#矩阵乘法链">矩阵乘法链</a></li>
         <li><a href="#all-pair最短路径问题">All-Pair最短路径问题</a></li>
@@ -496,6 +502,10 @@
         </h2>
     
         
+        <h3 class="article-subtitle">
+            利用子问题的解构建全局的最优解
+        </h3>
+        
     </div>
 
     
@@ -531,7 +541,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 3 分钟
+                        阅读时长: 6 分钟
                     </time>
                 
             </div>
@@ -558,11 +568,17 @@
             <nav class="toc-nav">
                 
   <ol>
+    <li><a href="#特征">特征</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#应用">应用</a>
       <ol>
         <li><a href="#多段图">多段图</a></li>
-        <li><a href="#01-背包问题">0/1 背包问题</a></li>
+        <li><a href="#01背包问题">0/1背包问题</a>
+          <ol>
+            <li><a href="#递归实现">递归实现</a></li>
+            <li><a href="#权为整数的迭代实现">权为整数的迭代实现</a></li>
+          </ol>
+        </li>
         <li><a href="#旅行商问题">旅行商问题</a></li>
         <li><a href="#矩阵乘法链">矩阵乘法链</a></li>
         <li><a href="#all-pair最短路径问题">All-Pair最短路径问题</a></li>
@@ -579,7 +595,14 @@
     
     
     <p>动态规划是一种解决多阶段决策优化问题的高效算法策略，核心思想是通过将复杂问题分解为相互关联的子问题，利用子问题的解构建全局的最优解。</p>
-<div class="table-wrapper"><table>
+
+    <blockquote>
+        <p>多阶段决策优化问题将复杂问题按时间或空间特征分解为若干相互关联的阶段，每个阶段都需要做出决策，且当前阶段的决策会影响后续阶段的状态和选择，最终通过递推求解整个问题的最优策略。</p>
+<p>它的核心在于通过<strong>分阶段决策</strong>和<strong>状态转移</strong>实现全局最优，而非仅局部最优。</p>
+
+    </blockquote>
+<h2 id="特征">特征
+</h2><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th>特征</th>
@@ -605,8 +628,42 @@
       </tr>
   </tbody>
 </table></div>
+<p>贪心算法与动态规划的对比：</p>
+<p>相同点：</p>
+<ul>
+<li>两者都通过将大问题分解为小问题，然后逐步解决这些小问题来找到大问题的答案。</li>
+<li>两者都依赖问题的最优子结构性质，一个问题的最优解包含其子问题的最优解。</li>
+</ul>
+<p>不同点：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>贪心算法</th>
+          <th>动态规划</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>每一步都做出在当前看来最好的选择也就是局部最优解，希望这样能达到全局最优解</td>
+          <td>考虑到多种可能的解决策略，通过对比各个策略的优劣来找到最优解</td>
+      </tr>
+      <tr>
+          <td>一旦做出选择，就不会改变，也就是它不会回溯</td>
+          <td>保存每一步的结果，如果需要，也可以改变之前的选择</td>
+      </tr>
+      <tr>
+          <td>有些问题例如一些需要回溯的问题，贪心法无法得到最优解</td>
+          <td>动态规划可以解决的问题范围比贪心法要广</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>总的来说，贪心法和动态规划都有各自的适用场景，选择哪一种方法取决于具体的问题特性。</p>
+
+    </blockquote>
 <h2 id="原理">原理
-</h2><p>动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程</p>
+</h2><p>动态规划是一种在各个不同大小的子问题的优化值之间建立递归关系并求解的过程。</p>
 <p>利用优化原理，使用枚举法建立不同长度子问题的优化值之间的递归关系——动态规划方程</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -630,21 +687,151 @@
       </tr>
       <tr>
           <td>计算最优解</td>
-          <td></td>
+          <td>根据状态转移方程和边界条件，自底向上地计算最优解</td>
       </tr>
   </tbody>
 </table></div>
 <h2 id="应用">应用
 </h2><h3 id="多段图">多段图
-</h3><p>最短路径上的子路径也是该两点之间的最短路径。</p>
-<p>节点1到目的节点的最短路长度 $c(1)$ 可从2，3，4到目的节点的最短长度 $c(i)$ 加上 节点1到这些节点的边成本 $\text{cost}(1,i)$ 经过枚举得到：</p>
-$$c(1) = \min_{i \in \{2,3,4\}} \{c(i) + \text{cost}(1,i)\}$$<p>则有状态转移方程 </p>
-$$c(i) = \min_{j \in A(i)} \{c(j) + \text{cost}(i,j)\}$$<h3 id="01-背包问题">0/1 背包问题
+</h3><p>多段图是一种分层有向图，顶点集被划分为 $k$ 个互不相交的段（阶段） $V_1, V_2, \cdots, V_k$，其中：</p>
+<ul>
+<li>源点 $s$ 位于第1段 $V_1$，汇点 $t$ 位于最后一段 $V_k$。</li>
+<li>边仅存在于相邻的段之间（即从 $V_i$ 的顶点到 $V_{i+1}$ 的顶点），不允许跨段或回退（即不存在环）。</li>
+</ul>
+<p>现要寻找从源点 $s$ 到汇点 $t$ 的最短路径。</p>
+<p><img alt="多段图" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="682" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/dynamic/images/%E5%A4%9A%E6%AE%B5%E5%9B%BE.png" srcset="/passage/cs/algorithm/dynamic/images/%E5%A4%9A%E6%AE%B5%E5%9B%BE_hu_4cf58ee502270bee.png 800w, /passage/cs/algorithm/dynamic/images/%E5%A4%9A%E6%AE%B5%E5%9B%BE.png 1070w" width="1070"></p>
+<p>多段图问题满足优化原理：最短路径上的子路径也是该两点之间的最短路径。</p>
+<ul>
+<li>最短路 $(1 \rightarrow 3 \rightarrow 5 \rightarrow 7)$ 上的子路径 $(3 \rightarrow 5 \rightarrow 7)$ 是3到目的节点7在子图上的最短路径。</li>
+<li>无论最短路的下一跳是 $\{2,3,4\}$ 中的哪个节点，其后的路径也应是最短路径。</li>
+<li>节点1到目的节点的最短路长度 $c(1)$ 可从 $\{2,3,4\}$ 到目的节点的最短长度 $c(i)$ 加上 节点1到这些节点的边成本 $\text{cost}(1,i)$ 经过枚举得到：
+$$c(1) = \min_{i \in \{2,3,4\}} \{c(i) + \text{cost}(1,i)\}$$</li>
+</ul>
+<p>一般情形：设 $c(i)$ 为 $i$ 到目的节点的最短路长度，$A(i)$ 为与 $i$ 相邻的结点集合，则有状态转移方程 </p>
+$$c(i) = \min_{j \in A(i)} \{c(j) + \text{cost}(i,j)\}$$<h3 id="01背包问题">0/1背包问题
 </h3><p>虽然不知道优化解是否放物品1，但我们可以利用优化原理，从枚举“放”和“不放”两种情形建立递归式</p>
 <p>设 $f(i,y)$ 为以背包容量 $y$ 放物品 $i,&hellip;,n$ 得到的优化效益值，以下递归关系成立：</p>
-$$f(1,c) = \max \{f(2,c), f(2, c-w_1)+p_1\}$$<p>令 $f(i,y)$ 表示容量为 $y$，物品 $i, i+1, \cdots, n$ 的优化效益值，按优化原理可列递归关系式如下：</p>
-$$f(i,y) = \left\{ \begin{array}{c} \begin{align*} &\max\{f(i+1, y), f(i+1, y-w_i)+p_i\} & y \geqslant w_i \\\\ &f(i+1, y) & 0 \leqslant y < w_i \end{align*} \end{array} \right.$$<p>第2行表示背包容量 $y$ 不足以放下物品 $i$。</p>
-<h3 id="旅行商问题">旅行商问题
+$$f(1,c) = \max \{f(2,c), f(2, c-w_1)+p_1\}$$
+    <blockquote>
+        <p>例如，对于 $n=3$，$w=[100,14,10]$，$p=[20,18,15]$，$c=116$ 的0/1背包问题，</p>
+<ul>
+<li>若放进物品1 $(x_1=1)$，背包容量还剩 $r=16$。此时 $[x_2, x_3]=[1,0]$ 为子问题的优化解，值为18。</li>
+<li>若不放物品1 $(x_1=0)$，则对剩下物品而言，容量限制仍然为116，则子问题的优化解为 $[1,1]$，值为33。</li>
+</ul>
+<p>前者总效益为38，后者为33。所以优化解为 $[1,1,0]$，优化值为38。</p>
+
+    </blockquote>
+<p>令 $f(i,y)$ 表示容量为 $y$，物品 $i, i+1, \cdots, n$ 的优化效益值，按优化原理可列递归关系式如下：</p>
+$$f(i,y) = \left\{ \begin{array}{c} \begin{align*} &\max\{f(i+1, y), f(i+1, y-w_i)+p_i\} & y \geqslant w_i \\ &f(i+1, y) & 0 \leqslant y < w_i \end{align*} \end{array} \right.$$<p>第2行表示背包容量 $y$ 不足以放下物品 $i$。</p>
+<p>0/1背包问题的3种动态规划实现方法：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>实现方法</th>
+          <th>特点</th>
+          <th>评价</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>递归实现</td>
+          <td>将问题分解成更小的子问题。每次递归都会考虑一个物品是否放入背包，然后分别计算放入和不放入这两种情况下的最大价值，最后返回两者中的较大值</td>
+          <td>优点是思路清晰，缺点是会有大量重复计算</td>
+      </tr>
+      <tr>
+          <td>权为整数的迭代实现</td>
+          <td>通过保存并利用之前的计算结果来避免重复计算。这种方法使用一个二维数组保存每个子问题的解，然后通过状态转移方程来计算每个状态</td>
+          <td>优点是避免了重复计算，缺点是需要额外的空间来保存所有的子问题解</td>
+      </tr>
+      <tr>
+          <td>元组法实现</td>
+          <td>尝试通过改变问题的表示方式来简化问题。在这种方法中，每个物品由一个元组表示，元组的第一个元素是物品的重量，第二个元素是物品的价值。然后使用类似于迭代实现的动态规划方法来解决问题</td>
+          <td>优点是代码更简洁，缺点是可能需要更多的时间来理解和实现。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="递归实现">递归实现
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">w</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">knapsack</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 所有物品均已尝试
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 剩余容量不足以装入物品i，跳过该物品
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">return</span> <span class="n">knapsack</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 状态转移方程
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">knapsack</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">knapsack</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>递归方程
+</p>
+$$T(n) = \left\{ \begin{align*} & a, & n=1 \\ & 2T(n-1)+b, & n>1 \end{align*} \right.$$<p>
+其中 $a,b$ 为常数，则有 $T(n) = \Theta(2^n)$。</p>
+<h4 id="权为整数的迭代实现">权为整数的迭代实现
+</h4><p>当物品重量为整数时，可设计一个相当简单的算法求解 $f(1,c)$。该方法用 $\Theta(cn)$ 大小的二维数组 <code>f[i][y]</code> 来保存每个 $f(i,y)$ 的值，并且只计算一次。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">knapsack</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">w</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">f</span><span class="o">**</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">y</span><span class="o">&lt;=</span><span class="n">w</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="n">y</span><span class="o">&lt;=</span><span class="n">c</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">y</span><span class="o">&lt;=</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">y</span><span class="o">&lt;=</span><span class="n">c</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">y</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">+</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">c</span><span class="o">&gt;</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">c</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">c</span><span class="o">-</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">+</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="旅行商问题">旅行商问题
 </h3><p>给定一个图，寻找一条最短的环路，使得每个顶点恰好经过一次，并且最后回到原点。</p>
 <p>求图 $G=(V,E)$ 的最小成本周游路线</p>
 <p>令 $S$ 为 $V$ 的不含节点1的子集，设 $g(i,S)$ 表示从节点 $i$ 出发，经过 $S$ 中所有节点各一次，到达节点1的最短路径长度，则有以下状态转移方程：</p>

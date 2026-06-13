@@ -1081,7 +1081,7 @@ $$G.edge[i][j] = \left\{ \begin{matrix} 1， & \left< i,j \right> \in E \ 或\  
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">EdgeNode</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">new</span> <span class="n">EdgeNode</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">EdgeNode</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EdgeNode</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">-&gt;</span><span class="n">dest</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>                <span class="c1">// 建立边结点
 </span></span></span><span class="line"><span class="cl"><span class="n">p</span><span class="o">-&gt;</span><span class="n">link</span> <span class="o">=</span> <span class="n">G</span><span class="p">.</span><span class="n">VexList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">adj</span><span class="p">;</span> <span class="c1">// 链入顶点 j 的边链表的前端
 </span></span></span><span class="line"><span class="cl"><span class="n">VexList</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">adj</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
