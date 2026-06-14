@@ -547,7 +547,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 5 分钟
+                        阅读时长: 7 分钟
                     </time>
                 
             </div>
@@ -806,9 +806,72 @@ $$\sum_{i=1}^{k} W(i) X(i) + W(k+1) > M$$</li>
 </span></span><span class="line"><span class="cl">// 解存储在 X(1:n) 中
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="问题举例">问题举例
+</div>
+    <blockquote>
+        <p>例如，对于子集和问题，设：</p>
+<ul>
+<li>当前部分和 $\displaystyle s = \sum_{i=1}^{k-1} W(i) X(i)$；</li>
+<li>剩余元素和 $\displaystyle r = \sum_{i=k}^{n} W(i)$</li>
+</ul>
+<p>则算法可表示为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 扩展左子节点
+</span></span><span class="line"><span class="cl">if s+W(k)+W(k+1) &gt; M then
+</span></span><span class="line"><span class="cl">  停止扩展左子树;
+</span></span><span class="line"><span class="cl">  r = r-W(k);
+</span></span><span class="line"><span class="cl">  转向右子树扩展;
+</span></span><span class="line"><span class="cl">else
+</span></span><span class="line"><span class="cl">  X(k) = 1;
+</span></span><span class="line"><span class="cl">  s = s+W(k);
+</span></span><span class="line"><span class="cl">  r = r-W(k);
+</span></span><span class="line"><span class="cl">  将当前节点设为扩展节点;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 扩展右子节点
+</span></span><span class="line"><span class="cl">if s+r-W(k) &lt; M or s+W(k+1) &gt; M then
+</span></span><span class="line"><span class="cl">  停止扩展;
+</span></span><span class="line"><span class="cl">else
+</span></span><span class="line"><span class="cl">  X(k) = 0;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </blockquote>
+<p>回溯算法的本质是系统性枚举，通过递归遍历所有可能解（状态空间树）和剪枝（约束函数和限界函数）动态排除无效路径，避免穷举。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>回溯算法中，问题解空间被抽象为一棵隐式树形结构，树的深度对应决策步骤，宽度对应每一步的候选选择。</p>
+<p>约束与限界函数的双重剪枝：</p>
+<ul>
+<li>约束函数：实时检查路径合法性（如是否重复访问城市），若违反则剪枝。</li>
+<li>限界函数：针对优化问题（如最短路径），若当前路径代价劣于已知最优解，则剪枝。</li>
+</ul>
+        </div>
+    </blockquote>
+<h2 id="问题举例">问题举例
 </h2><h3 id="两船装箱问题">两船装箱问题
-</h3><p>给定两艘容量分别为 $c_1$ 和 $c_2$ 的货船和 $n$ 个集装箱，其重量分别为 $(w_1, w_2, \cdots, w_n)$，满足 </p>
+</h3><p>给定两艘容量分别为 $c_1$ 和 $c_2$ 的货船和 $n$ 个集装箱。货箱重量分别为 $(w_1, w_2, \cdots, w_n)$ 且满足 </p>
 $$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装载方案，使得所有集装箱均可以装入两艘货船并且不超载。</p>
 <p>基本原理</p>
 <ol>
@@ -817,63 +880,206 @@ $$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装�
 </ol>
 <p>问题转化为选择集装箱子集，使其总重量尽可能接近 $c_1$ 的最优化问题：</p>
 $$\max \sum_{i=1}^{n} w_i x_i$$<p>约束条件：</p>
-$$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$，$x_i$ 表示装载第 $i$ 个集装箱，否则记为 $0$。</p>
-<p>状态空间树：</p>
-<p>限界函数：集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层：</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>限界函数</th>
-          <th>表达式</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>已装载的集装箱总重量</td>
-          <td>$\displaystyle cw = \sum_{j=1}^{i-1} x_j w_j$</td>
-      </tr>
-      <tr>
-          <td>未装载集装箱总重量</td>
-          <td>$\displaystyle r = \sum_{j=i}^{n} w_j$</td>
-      </tr>
-      <tr>
-          <td>当前最优总重量</td>
-          <td>$w_{\text{best}}$</td>
-      </tr>
-  </tbody>
-</table></div>
+$$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$，$x_i=1$ 表示装载第 $i$ 个集装箱，否则记为 $0$。</p>
+<p>例如，当 $n=4$，$c_1=12$，$w=[8,6,2,3]$ 时，状态空间树如下：</p>
+<p><img alt="货箱装船问题" class="gallery-image" data-flex-basis="947px" data-flex-grow="394" height="455" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/backtrack/images/%E8%B4%A7%E7%AE%B1%E8%A3%85%E8%88%B9%E9%97%AE%E9%A2%98.png" srcset="/passage/cs/algorithm/backtrack/images/%E8%B4%A7%E7%AE%B1%E8%A3%85%E8%88%B9%E9%97%AE%E9%A2%98_hu_a90b3c5c3898a227.png 800w, /passage/cs/algorithm/backtrack/images/%E8%B4%A7%E7%AE%B1%E8%A3%85%E8%88%B9%E9%97%AE%E9%A2%98_hu_e6b991e258ced7b4.png 1600w, /passage/cs/algorithm/backtrack/images/%E8%B4%A7%E7%AE%B1%E8%A3%85%E8%88%B9%E9%97%AE%E9%A2%98.png 1797w" width="1797"></p>
+<p>将集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层，定义：</p>
+<ul>
+<li>已装载的集装箱总重量：$\displaystyle w_c = \sum_{j=1}^{i-1} x_j w_j$</li>
+<li>未装载集装箱总重量：$\displaystyle r = \sum_{j=i}^{n} w_j$</li>
+<li>当前最优总重量：$w_{\text{best}}$</li>
+</ul>
 <p>限界条件：</p>
 <ol>
-<li>若 $cw + w_i &gt; c_i$，则剪枝（无法装载第 $i$ 个集装箱）</li>
-<li>若 $cw + r \leqslant w_{\text{best}}$，则剪枝（剩余集装箱无法改善当前最优解）</li>
+<li>若 $w_c + w_i &gt; c_i$，表明无法装载第 $i$ 个集装箱，则剪枝。</li>
+<li>若 $w_c + r \leqslant w_{\text{best}}$，表明剩余集装箱无法改善当前最优解，则剪枝。</li>
 </ol>
-<p>例如，当 $n = 4$，$c_1 = 12$，$w = [8, 6, 2 ,3]$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">x</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">w</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">cw</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">bestx</span><span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">bestw</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">maxLoading</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 从第i个货物开始选择
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 已到达叶节点（没有新的可选货物）
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bestx</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bestw</span> <span class="o">=</span> <span class="n">cw</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 准备展开左子树（从剩余货物中去除第i个）
+</span></span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">-=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cw</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 选择第i个货物
+</span></span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cw</span> <span class="o">+=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">maxLoading</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 准备展开右子树
+</span></span></span><span class="line"><span class="cl">    <span class="c1">// 若右子树被剪枝，则回溯到上一层
+</span></span></span><span class="line"><span class="cl">    <span class="n">cw</span> <span class="o">-=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cw</span> <span class="o">+</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">bestw</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 不选第i个货物
+</span></span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">maxLoading</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 当 cw + w[i] &gt; c 时，则剪枝
+</span></span></span><span class="line"><span class="cl">    <span class="c1">// 当 cw + r &lt;= bestw 时，则剪枝
+</span></span></span><span class="line"><span class="cl">    <span class="n">r</span> <span class="o">+=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>例如，当 $n = 4$，$c_1 = 12$，$w = [8, 6, 2 ,3]$，剪枝后的状态树如下：</p>
+<p><img alt="货船装箱的剪枝" class="gallery-image" data-flex-basis="362px" data-flex-grow="151" height="678" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/backtrack/images/%E8%B4%A7%E8%88%B9%E8%A3%85%E7%AE%B1%E7%9A%84%E5%89%AA%E6%9E%9D.png" srcset="/passage/cs/algorithm/backtrack/images/%E8%B4%A7%E8%88%B9%E8%A3%85%E7%AE%B1%E7%9A%84%E5%89%AA%E6%9E%9D_hu_3a4a82a9550d5fe5.png 800w, /passage/cs/algorithm/backtrack/images/%E8%B4%A7%E8%88%B9%E8%A3%85%E7%AE%B1%E7%9A%84%E5%89%AA%E6%9E%9D.png 1024w" width="1024"></p>
+<p>因此最优解 $x=[1,0,0,1]$</p>
 <h3 id="01-背包问题">0/1 背包问题
-</h3><p>假设物品按 $\displaystyle \frac{p}{w}$ 降序排序，节点 $k-1$ 为 $E-$ 节点，定义</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>限界函数</th>
-          <th>表达式</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>当前装包利润</td>
-          <td>$\displaystyle cp = \sum_{j=1}^{k-1} x_j p_j$</td>
-      </tr>
-      <tr>
-          <td>剩余物品总利润</td>
-          <td>$rp = \sum_{j=k}^{n} p_j$</td>
-      </tr>
-      <tr>
-          <td>当前最大利润</td>
-          <td>$p_{\text{best}}$</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>限界条件：若 $cp + rp \leqslant p_{\text{best}}$ 则剪枝。</p>
-<h3 id="最大团问题">最大团问题
+</h3><p>假设物品按 $\displaystyle \frac{p}{w}$ 降序排序，节点 $k-1$ 为 $E-$ 节点，定义限界函数：</p>
+<ul>
+<li>当前装包利润：$\displaystyle p_c = \sum_{j=1}^{k-1} x_j p_j$</li>
+<li>剩余物品总利润（松限界）：$\displaystyle p_r = \sum_{j=k}^{n} p_j$</li>
+<li>部分松弛后的总利润（紧限界）：$\displaystyle p_r = \sum_{j=k}^{m-1} p_j + \frac{p_m}{w_m} \cdot \text{cleft}$</li>
+<li>当前最大利润：$p_{\text{best}}$</li>
+</ul>
+
+    <blockquote>
+        <p>部分松弛后的总利润（紧限界） = 完整放入的物品利润 + 剩余容量按价值密度部分装入第一个装不下的物品所获利润</p>
+
+    </blockquote>
+<p>限界条件：若 $p_c + p_r \leqslant p_{\text{best}}$ 则剪枝。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">knapsack</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 从第i个物品开始选择
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 子节点
+</span></span></span><span class="line"><span class="cl">        <span class="n">bestp</span> <span class="o">=</span> <span class="n">cp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 检查左子树
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cw</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cw</span> <span class="o">+=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cp</span> <span class="o">+=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">knapsack</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cw</span> <span class="o">-=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cp</span> <span class="o">-=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">bound</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">bestp</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 右子树剪枝
+</span></span></span><span class="line"><span class="cl">        <span class="n">knapsack</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 限界函数
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">bound</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 剩余容量
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">cleft</span> <span class="o">=</span> <span class="n">c</span> <span class="o">-</span> <span class="n">cw</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="c1">// 利润限界
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">cp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 可完整放入的物品利润
+</span></span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">cleft</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cleft</span> <span class="o">-=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">+=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 剩余容量按价值密度部分装入
+</span></span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="o">+=</span> <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">cleft</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="最大团问题">最大团问题
 </h3><p>子图 $G' = \left&lt;V', E'\right&gt;$ 是无向图 $G = \left&lt;V, E\right&gt;$ 的完全子图，当 $V' \subset V$ 且对 $\forall u \in V', v \in V'$，$(u,v) \in E' \subset E$</p>
 <div class="table-wrapper"><table>
   <thead>

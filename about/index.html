@@ -2573,7 +2573,7 @@
 </style>
 </p>
 <div class="github-commits-wrapper">
-    <div class="github-commits-container" id="github-commits-1781421727751260200">
+    <div class="github-commits-container" id="github-commits-1781451426685460300">
         <div class="commits-loading">
             <div class="loading-spinner"></div>
             <div>加载提交记录中...</div>
@@ -2705,7 +2705,7 @@
 
 <script>
     (function() {
-        const containerId = 'github-commits-1781421727751260200';
+        const containerId = 'github-commits-1781451426685460300';
         const container = document.getElementById(containerId);
         
         const config = {
@@ -2721,10 +2721,8 @@
             const diffTime = Math.abs(now - date);
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             
-            if (diffDays === 0) {
-                return 'Today ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            } else if (diffDays === 1) {
-                return 'Yesterday ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            if (diffDays < 1) {
+                return `${Math.floor(diffTime / (1000 * 60 * 60))} hours ago`;
             } else if (diffDays < 7) {
                 return `${diffDays} days ago`;
             } else if (diffDays < 30) {
