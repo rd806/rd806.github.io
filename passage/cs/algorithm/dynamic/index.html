@@ -477,6 +477,7 @@
 
 
             <main class="main full-width">
+    
      
     
     <article class="main-article">
@@ -832,15 +833,26 @@ $$T(n) = \left\{ \begin{align*} & a, & n=1 \\ & 2T(n-1)+b, & n>1 \end{align*} \r
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="旅行商问题">旅行商问题
-</h3><p>给定一个图，寻找一条最短的环路，使得每个顶点恰好经过一次，并且最后回到原点。</p>
-<p>求图 $G=(V,E)$ 的最小成本周游路线</p>
-<p>令 $S$ 为 $V$ 的不含节点1的子集，设 $g(i,S)$ 表示从节点 $i$ 出发，经过 $S$ 中所有节点各一次，到达节点1的最短路径长度，则有以下状态转移方程：</p>
-$$g(i,S) = \min_{j \in S}\{c_{i,j} + g(j, S-\{j\})\}$$<p>原问题为：$g(1, V-\{1\})$</p>
-<p>初始：$g(i, \oslash) = c_{i,1}$</p>
-<p>从 $S = \oslash$ 开始，依次对 $|S| = 1,2, \cdots, n-1$ 计算</p>
-<p>考虑有如下邻接矩阵的图：</p>
-$$\left[ \begin{matrix} 0 &10 &15 &20 \\ 5 &0 &9 &10 \\ 6 &13 &0 &12 \\ 8 &8 &9 &0 \end{matrix} \right]$$<p> 计算过程如下：</p>
-<h3 id="矩阵乘法链">矩阵乘法链
+</h3>
+    <blockquote>
+        <p>旅行商问题（Travelling Salesman Problem，简称TSP）是计算数学中的一个经典问题。这个问题描述的是一个旅行商人从某个城市出发，经过一系列的城市，每个城市只能经过一次，最后回到原点，如何才能使得所经过的路程最短。</p>
+
+    </blockquote>
+<p>简化描述：给定一个图，寻找一条最短的环路，使得每个顶点恰好经过一次，并且最后回到原点。即求图 $G=(V,E)$ 的最小成本周游路线。</p>
+<p>令 $S$ 为 $V$ 的不含节点1的子集，设 $g(i,S)$ 表示从节点 $i$ $(i \notin S)$ 出发，经过 $S$ 中所有节点各一次，到达节点1的最短路径长度，则有以下状态转移方程：</p>
+$$g(i,S) = \min_{j \in S}\{c_{i,j} + g(j, S-\{j\})\}$$<ul>
+<li>原问题为：$g(1, V-\{1\})$</li>
+<li>初始状态：$g(i, \oslash) = c_{i,1}$</li>
+<li>从 $S = \oslash$ 开始，依次对 $|S| = 1,2, \cdots, n-1$ 计算</li>
+</ul>
+<p>算法的时间复杂度：</p>
+<ul>
+<li>$|S|=k$ 的子问题个数为 $\mathrm{C}_{n-2}^k$</li>
+<li>在 $|S|=k$ 时，求最小值需做 $k-1$ 次比较</li>
+</ul>
+<p>则算法的时间复杂度（比较次数）为
+</p>
+$$\sum_{k=1}^{n-2} \mathrm{C}_{n-2}^k (n-1)(k-1) = \Theta(n^2 \cdot 2^n)$$<h3 id="矩阵乘法链">矩阵乘法链
 </h3><p>$m \times n$ 矩阵 $\bm{A}$ 与 $n \times p$ 矩阵 $\bm{B}$ 相乘需要元素乘法 $m \cdot n \cdot p$ 次，</p>
 <p>$(\bm{A} \times \bm{B}) \times \bm{C}$ 与 $\bm{A} \times (\bm{B} \times \bm{C})$ 的元素乘法次数不同。例如，假定 $\bm{A} \in \mathbb{R}^{100 \times 1}$，$\bm{B} \in \mathbb{R}^{1 \times 100}$，$\bm{C} \in \mathbb{R}^{100 \times 1}$，则：</p>
 <ul>
@@ -850,8 +862,9 @@ $$\left[ \begin{matrix} 0 &10 &15 &20 \\ 5 &0 &9 &10 \\ 6 &13 &0 &12 \\ 8 &8 &9 
 <p>问题：对任意给定长度 $q$ 的矩阵乘法链 </p>
 $$\bm{M}_1 \times \bm{M_2} \times \cdots \times \bm{M}_q$$<p> 求优化的乘法顺序使得计算该乘法链所用的乘法数最少</p>
 <p>用 $M(i,j)$ 表示链 $M_i \times \cdots \times M_j$ 的乘积，假设优化的矩阵乘法链的顺序最后计算乘积 $M(i,k) \times M(k+1,j)$，则计算 $M(i,j)$ 的优化乘法顺序在计算子链 $M(i,k)$ 和 $M(k+1,j)$ 时也是优化的。</p>
-<h3 id="all-pair最短路径问题">All-Pair最短路径问题
-</h3><p>设 $G$ 为有向图，其中每条边都有一个成本，图中每条有向路径</p>
+<p>设 $c(i,j)$ 为计算 $M(i,j)$ 的优化乘法数（优化值），根据优化原理，优化值之间满足 </p>
+$$c(i,j) = \min_{i \leqslant k < j} \{c(i,k) + c(k+1,j) + r_j r_{k+1} r_{j+1}\} $$<h3 id="all-pair最短路径问题">All-Pair最短路径问题
+</h3><p>设 $G$ 为有向图，其中每条边都有一个成本，图中每条有向路径。</p>
 
 </section>
 

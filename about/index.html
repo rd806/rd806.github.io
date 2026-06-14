@@ -470,6 +470,7 @@
 
 
             <main class="main full-width">
+    
      
     
     <article class="main-article">
@@ -2405,7 +2406,472 @@
         }
     }
 </style>
+
+<div class="timeline__row">
+    <div class="timeline__time">
+        <div class="timeline__time">2026-06-14</div>
+        <div class="timeline__split-line"></div>
+    </div>
+    <div class="timeline__content">
+        <div class="timeline__tags">
+            <span class="timeline__tag">Function</span>
+        </div>
+            <div class="timeline__title">加入GitHub提交信息显示</div>
+        <div class="timeline__description">
+            其实是AI生成的
+        </div>
+    </div>
+</div>
+
+<style>
+    .timeline {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .timeline__row {
+        display: flex;
+        padding-left: 4%;
+    }
+    
+    .timeline__time {
+        flex: 0 0 110px;
+        font-size: 17px;
+        text-transform: uppercase;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    
+    .timeline__time-text {
+        margin: 0;
+    }
+    
+    .timeline__split-line {
+        position: absolute;
+        top: 0.5rem;
+        right: -20px;
+        height: 100%;
+        width: 2px;
+        background-color: #84c4e240;
+        z-index: 0;
+    }
+    
+    .timeline__split-line:before {
+        content: "";
+        position: absolute;
+        top: 24%;
+        right: -4px;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background-color: #c9e5f2;
+        box-shadow: 0 0 0 4px var(--theme);
+        border-radius: 50%;
+        border: 0px solid #84c4e2;
+        z-index: -1;
+    }
+    
+    .timeline__content {
+        flex: 1;
+        margin-left: 4.5rem;
+        padding: 0.5rem 0 1.2rem 0;
+    }
+    
+    .timeline__title {
+        margin: 0;
+        margin-bottom: 2px;
+        padding-top: 3px;
+        margin-left: 0.5rem;
+        color: var(--content);
+        font-family: var(--font-family-teshu);
+        font-size: 20px;
+        font-weight: 600;
+        width: fit-content;
+        display: inline-block;
+        vertical-align: middle;
+         
+    }
+    
+    .timeline__tags {
+        display: inline-block;
+        padding: 0;
+        margin-left: 0.3rem;
+        align-items: center;
+        gap: 0.3rem;
+    }
+    
+    .timeline__tag {
+        display: inline-block;
+        color: var(--secondary);
+        background-color: #84c4e230;
+        border: 1.5px solid #84c4e230;
+        border-radius: 999px;
+        padding: 0rem 0.5rem;
+        font-size: 12px;
+        white-space: nowrap;
+        line-height: 1.4rem;
+        opacity: 0.8;
+        vertical-align: middle;
+         
+    }
+    
+    .timeline__description {
+        line-height: 1.6;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0.5rem 0 0.4rem 1.5rem;
+         
+    }
+     
+    
+    .timeline__tag-style {
+        background-color: #c581da;
+         
+        border-color: #c581da;
+         
+        color: #FFFFFF;
+         
+    }
+     
+    
+    .timeline__tag-article {
+        background-color: #92d392;
+         
+        border-color: #92d392;
+         
+        color: #000000;
+         
+    }
+     
+    
+    .timeline__tag-page {
+        background-color: #707070;
+         
+        border-color: #707070;
+         
+        color: #FFFFFF;
+         
+    }
+    
+    @media screen and (max-width: 768px) {
+        .timeline__time {
+            font-size: 14px;
+             
+        }
+        .timeline__title {
+            font-size: 16px;
+             
+        }
+        .timeline__description {
+            font-size: 14px;
+             
+        }
+    }
+</style>
 </p>
+<div class="github-commits-wrapper">
+    <div class="github-commits-container" id="github-commits-1781421727751260200">
+        <div class="commits-loading">
+            <div class="loading-spinner"></div>
+            <div>加载提交记录中...</div>
+        </div>
+    </div>
+</div>
+
+<style>
+     
+    .github-commits-wrapper {
+        margin: 2rem 0;
+        border: 1px solid var(--body-background);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .commits-header {
+        padding: 1rem 1.5rem;
+        background: var(--body-background);
+        color: var(--content);
+    }
+    
+    .commits-list {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+    
+    .commit-item {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--body-background);
+        transition: background 0.2s;
+    }
+    
+    .commit-item:hover {
+        background: var(--body-background);
+    }
+    
+    .commit-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-bottom: 0.75rem;
+        gap: 0.5rem;
+    }
+    
+    .commit-author {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    .author-name {
+        font-weight: 600;
+        color: var(--content);
+    }
+    
+    .commit-date {
+        color: var(--content);
+    }
+    
+    .commit-message {
+        color: var(--content);
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+    
+    .commit-sha {
+        font-family: 'Courier New', monospace;
+        color: var(--content);
+    }
+    
+    .commit-sha a {
+        color: inherit;
+        text-decoration: none;
+    }
+    
+    .commit-sha a:hover {
+        text-decoration: underline;
+        color: #0366d6;
+    }
+    
+    .commits-loading, .commits-error, .commits-empty {
+        text-align: center;
+        padding: 3rem;
+        color: var(--content);
+    }
+    
+    .loading-spinner {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #0366d6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .commits-error {
+        color: #cb2431;
+    }
+    
+    .commits-footer {
+        background-color: var(--body-background);
+        padding: 0.75rem 1.5rem;
+        text-align: center;
+        color: var(--content);
+        border-top: 1px solid var(--body-background);
+    }
+    
+    .commits-footer a {
+        text-decoration: none;
+    }
+</style>
+
+<script>
+    (function() {
+        const containerId = 'github-commits-1781421727751260200';
+        const container = document.getElementById(containerId);
+        
+        const config = {
+            owner: 'rd806',
+            repo: 'rd806.github.io',
+            token: '',
+        };
+        
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays === 0) {
+                return 'Today ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            } else if (diffDays === 1) {
+                return 'Yesterday ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            } else if (diffDays < 7) {
+                return `${diffDays} days ago`;
+            } else if (diffDays < 30) {
+                return `${Math.floor(diffDays / 7)} weeks ago`;
+            } else {
+                return date.toLocaleDateString();
+            }
+        }
+        
+        
+        function shortenSha(sha) {
+            return sha.substring(0, 7);
+        }
+        
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        
+        function showLoading() {
+            container.innerHTML = `
+                <div class="commits-loading">
+                    <div class="loading-spinner"></div>
+                    <div>正在获取提交记录...</div>
+                </div>
+            `;
+        }
+        
+        
+        function showError(message) {
+            container.innerHTML = `
+                <div class="commits-error">
+                    ❌ ${escapeHtml(message)}
+                </div>
+            `;
+        }
+        
+        
+        function showEmpty() {
+            container.innerHTML = `
+                <div class="commits-empty">
+                    📭 暂无提交记录
+                </div>
+            `;
+        }
+        
+        
+        function renderCommits(commits) {
+            if (!commits || commits.length === 0) {
+                showEmpty();
+                return;
+            }
+            
+            const commitsHtml = commits.map(commit => {
+                const commitData = commit.commit;
+                const author = commitData.author;
+                const committer = commit.committer || {};
+                const avatarHtml = committer.avatar_url 
+                    ? `<img class="author-avatar" src="${committer.avatar_url}" alt="${escapeHtml(author.name)}" loading="lazy">`
+                    : '';
+                
+                return `
+                    <div class="commit-item">
+                        <div class="commit-header">
+                            <div class="commit-author">
+                                ${avatarHtml}
+                                <span class="author-name">${escapeHtml(author.name)}</span>
+                            </div>
+                            <div class="commit-date">📅 ${formatDate(author.date)}</div>
+                        </div>
+                        <div class="commit-message">
+                            ${escapeHtml(commitData.message.split('\n')[0])}
+                        </div>
+                        <div class="commit-sha">
+                            🔑 <a href="https://github.com/${config.owner}/${config.repo}/commit/${commit.sha}" target="_blank" rel="noopener noreferrer">${shortenSha(commit.sha)}</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = `
+                <div class="commits-header">
+                    📊 GitHub 提交记录
+                    <p>${config.owner}/${config.repo} · 最近 ${commits.length} 条提交</p>
+                </div>
+                <div class="commits-list">
+                    ${commitsHtml}
+                </div>
+                <div class="commits-footer">
+                    <a href="https://github.com/${config.owner}/${config.repo}/commits" target="_blank" rel="noopener noreferrer">
+                        查看完整提交历史 →
+                    </a>
+                </div>
+            `;
+        }
+        
+        
+        async function fetchCommits() {
+            showLoading();
+            
+            try {
+                const apiUrl = `https://api.github.com/repos/${config.owner}/${config.repo}/commits?per_page=${config.perPage}`;
+                const headers = {};
+                
+                if (config.token) {
+                    headers['Authorization'] = `token ${config.token}`;
+                }
+                
+                const response = await fetch(apiUrl, { headers });
+                
+                if (response.status === 403 && response.headers.get('X-RateLimit-Remaining') === '0') {
+                    const resetTime = new Date(response.headers.get('X-RateLimit-Reset') * 1000);
+                    showError(`API请求次数已达上限！请在 ${resetTime.toLocaleTimeString()} 后重试。`);
+                    return;
+                }
+                
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        showError(`仓库 "${config.owner}/${config.repo}" 不存在或为私有仓库`);
+                    } else if (response.status === 401) {
+                        showError('认证失败，请检查GitHub Token是否正确');
+                    } else {
+                        showError(`请求失败 (${response.status})，请稍后重试`);
+                    }
+                    return;
+                }
+                
+                const commits = await response.json();
+                renderCommits(commits);
+                
+            } catch (error) {
+                console.error('获取数据失败:', error);
+                showError('网络错误或跨域问题，请检查网络连接后重试');
+            }
+        }
+        
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fetchCommits);
+        } else {
+            fetchCommits();
+        }
+    })();
+</script>
 <h2 id="什么是hugo">什么是Hugo
 </h2><blockquote>
     <p><p>Hugo 是用 Go 编写的一个开源静态站点生成器，可在 [Apache License 2.0] 下使用。证书参见<a class="link" href="https://github.com/gohugoio/hugo/blob/master/LICENSE"  target="_blank" rel="noopener"

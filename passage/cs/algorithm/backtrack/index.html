@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="回溯法">
-<title>算法</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="问题分解和子空间分解">
+<title>算法：回溯法</title>
 
 
 <link rel="canonical" href="https://rd806.github.io/passage/cs/algorithm/backtrack/">
@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="算法">
-<meta property='og:description' content="回溯法">
+<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="算法：回溯法">
+<meta property='og:description' content="问题分解和子空间分解">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/algorithm/backtrack/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-04-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-20T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="回溯法">
+<meta name="twitter:title" content="算法：回溯法">
+<meta name="twitter:description" content="问题分解和子空间分解">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -320,24 +320,20 @@
   <ol>
     <li><a href="#定义">定义</a>
       <ol>
-        <li><a href="#解空间">解空间</a></li>
+        <li><a href="#问题描述">问题描述</a></li>
+        <li><a href="#解空间与状态空间">解空间与状态空间</a></li>
         <li><a href="#搜索策略">搜索策略</a></li>
       </ol>
     </li>
-    <li><a href="#原理">原理</a>
+    <li><a href="#回溯算法原理">回溯算法原理</a>
       <ol>
         <li><a href="#约束与限界函数">约束与限界函数</a></li>
-        <li><a href="#回溯算法的通用框架">回溯算法的通用框架</a></li>
+        <li><a href="#算法的通用框架">算法的通用框架</a></li>
       </ol>
     </li>
     <li><a href="#问题举例">问题举例</a>
       <ol>
-        <li><a href="#两船装箱问题">两船装箱问题</a>
-          <ol>
-            <li><a href="#基本原理">基本原理</a></li>
-            <li><a href="#限界函数">限界函数</a></li>
-          </ol>
-        </li>
+        <li><a href="#两船装箱问题">两船装箱问题</a></li>
         <li><a href="#01-背包问题">0/1 背包问题</a></li>
         <li><a href="#最大团问题">最大团问题</a></li>
         <li><a href="#旅行商问题">旅行商问题</a></li>
@@ -486,6 +482,7 @@
 
 
             <main class="main full-width">
+    
      
     
     <article class="main-article">
@@ -507,12 +504,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/cs/algorithm/backtrack/">算法</a>
+            <a href="/passage/cs/algorithm/backtrack/">算法：回溯法</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            回溯法
+            问题分解和子空间分解
         </h3>
         
     </div>
@@ -579,24 +576,20 @@
   <ol>
     <li><a href="#定义">定义</a>
       <ol>
-        <li><a href="#解空间">解空间</a></li>
+        <li><a href="#问题描述">问题描述</a></li>
+        <li><a href="#解空间与状态空间">解空间与状态空间</a></li>
         <li><a href="#搜索策略">搜索策略</a></li>
       </ol>
     </li>
-    <li><a href="#原理">原理</a>
+    <li><a href="#回溯算法原理">回溯算法原理</a>
       <ol>
         <li><a href="#约束与限界函数">约束与限界函数</a></li>
-        <li><a href="#回溯算法的通用框架">回溯算法的通用框架</a></li>
+        <li><a href="#算法的通用框架">算法的通用框架</a></li>
       </ol>
     </li>
     <li><a href="#问题举例">问题举例</a>
       <ol>
-        <li><a href="#两船装箱问题">两船装箱问题</a>
-          <ol>
-            <li><a href="#基本原理">基本原理</a></li>
-            <li><a href="#限界函数">限界函数</a></li>
-          </ol>
-        </li>
+        <li><a href="#两船装箱问题">两船装箱问题</a></li>
         <li><a href="#01-背包问题">0/1 背包问题</a></li>
         <li><a href="#最大团问题">最大团问题</a></li>
         <li><a href="#旅行商问题">旅行商问题</a></li>
@@ -612,18 +605,19 @@
     <section class="article-content">
     
     
-    <p>问题分解和子空间分解</p>
-<h2 id="定义">定义
-</h2><p>计算问题定义为关系 $R \subseteq I \times S$，其中 $I$ 是输入实例集合，$S$ 是候选解的集合，实例 $x$ 的解是满足 $(x,s) \in R$ 的任意元素 $s \in S(x)$</p>
+    <h2 id="定义">定义
+</h2><h3 id="问题描述">问题描述
+</h3><p>计算问题定义为关系 $R \subseteq I \times S$，其中 $I$ 是输入实例集合，$S$ 是候选解的集合，实例 $x$ 的解是满足 $(x,s) \in R$ 的任意元素 $s \in S(x)$</p>
 <p>对于输入实例 $x \in I$，解空间 $S(x)$ 是满足约束的所有有效解的集合：</p>
 $$S(x) = \{s \in S \mid (x,s) \in R \}$$<p>问题P的全局解空间定义为：</p>
 $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<p>关键特征：</p>
 <ol>
 <li>判定问题：解空间为二元集合（如是、否）</li>
 <li>搜索问题：解空间包含所有有效输出</li>
-<li>最优化问题：解空间包含所有可行解，最优解满足：</li>
+<li>最优化问题：解空间包含所有可行解，最优解满足：
+$$f(s^*) = \min_{s \in S(x)} f(s) \text{ 或者 } f(s^*) = \max_{s \in S(x)} f(s)$$</li>
 </ol>
-<h3 id="解空间">解空间
+<h3 id="解空间与状态空间">解空间与状态空间
 </h3><p>解可表示为 $n$ 维元组 $(x_1, x_2, \cdots, x_n)$，其中 $x_i$ 取自有限集合 $S_i$，根据维度是否固定可分为定长元组（FLT）和变长元组（VLT）。</p>
 
     <blockquote>
@@ -659,14 +653,21 @@ $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<p>关键特征：</p>
       </tr>
   </tbody>
 </table></div>
-<p>问题的状态空间可定义为五元组 $(V, E, v_0, \mathcal{S}, \mathcal{A})$。其中 $V$ 表示问题状态的集合，$E$ 表示状态间的转移关系集合，$v_0 \in V$ 表示初始状态的根节点，$\mathcal{S} \subseteq V$ 表示目标状态集合，$\mathcal{A}$ 表示状态转移函数，生成有效子节点。</p>
+<p>问题的状态空间可定义为五元组 $(V, E, v_0, \mathcal{S}, \mathcal{A})$。其中</p>
+<ul>
+<li>$V$ 表示问题状态的集合，</li>
+<li>$E$ 表示状态间的转移关系集合，</li>
+<li>$v_0 \in V$ 表示初始状态的根节点，</li>
+<li>$\mathcal{S} \subseteq V$ 表示目标状态集合，</li>
+<li>$\mathcal{A}$ 表示状态转移函数，生成有效子节点。</li>
+</ul>
 
     <blockquote>
         <p>每个状态 $v \in V$ 可表示为</p>
 <ol>
-<li>部分解</li>
-<li>完整解</li>
-<li>决策路径</li>
+<li>部分解：如组合问题中的元素子集</li>
+<li>完整解：如排序问题中的有效排列</li>
+<li>决策路径：如回溯算法中的选择序列</li>
 </ol>
 
     </blockquote>
@@ -694,7 +695,11 @@ $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<p>关键特征：</p>
   </tbody>
 </table></div>
 <p>子集和问题：在正整数集合 $S = \{w_1, w_2, \cdots, w_n\}$ 中寻找和为 $M$ 的子集。</p>
-<p>例如，$M = 31$，$n = 4$，$W = (11, 13, 24, 7)$，存在解 $11 + 13 + 7 = 31$ 和 $24 + 7 = 31$</p>
+
+    <blockquote>
+        <p>例如，$M = 31$，$n = 4$，$W = (11, 13, 24, 7)$，存在解 $11 + 13 + 7 = 31$ 和 $24 + 7 = 31$</p>
+
+    </blockquote>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -714,8 +719,7 @@ $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<p>关键特征：</p>
   </tbody>
 </table></div>
 <h3 id="搜索策略">搜索策略
-</h3><p>问题的求解需要遍历状态空间树。</p>
-<p>节点在遍历中有三种状态：</p>
+</h3><p>问题的求解需要遍历状态空间树。节点在遍历中有三种状态：</p>
 <ol>
 <li>活动节点：已到达但未完全展开。</li>
 <li>死亡节点：所有子节点已展开。</li>
@@ -751,23 +755,27 @@ $$SP = \{s \in S(x) \mid x \in I \land (x,s) \in R\}$$<p>关键特征：</p>
       </tr>
   </tbody>
 </table></div>
-<h2 id="原理">原理
+<h2 id="回溯算法原理">回溯算法原理
 </h2><p>回溯算法是一种通过深度优先搜索结合限界函数探索解空间的算法策略。</p>
-<p>回溯算法将问题抽象为一棵隐式的树形结构，其中树的深度对应决策步骤，宽度对应每一步可能的选择。</p>
+<p>算法将问题抽象为一棵隐式的树形结构，其中树的深度对应决策步骤，宽度对应每一步可能的选择。</p>
 <p>通过递归逐步构建解，并评估其成为最优解的可能性。若当前选择导致无效路径（如违反约束条件），或无法产生更优解时则回溯到上一步。</p>
 <h3 id="约束与限界函数">约束与限界函数
 </h3><ol>
 <li>约束函数：在搜索过程中实时检查当前路径是否违反问题约束，若违反则进行剪枝。</li>
 <li>限界函数：针对优化问题，若当前路径的代价已劣于已知的最优解，则提前终止该路径的探索。</li>
 </ol>
-<p>例如，子集和问题的限界函数：</p>
+
+    <blockquote>
+        <p>例如，子集和问题的限界函数：</p>
 <ul>
 <li>基础限界条件：当部分解的总和加上剩余元素的总和仍小于目标值时剪枝。
-$$\sum_{i=1}^{k} W(i) X(i) + \sun_{i=k+1}^{n} W(i) < M$$</li>
+$$\sum_{i=1}^{k} W(i) X(i) + \sum_{i=k+1}^{n} W(i) < M$$</li>
 <li>增强限界条件：元素非递减排序。
 $$\sum_{i=1}^{k} W(i) X(i) + W(k+1) > M$$</li>
 </ul>
-<h3 id="回溯算法的通用框架">回溯算法的通用框架
+
+    </blockquote>
+<h3 id="算法的通用框架">算法的通用框架
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -784,26 +792,26 @@ $$\sum_{i=1}^{k} W(i) X(i) + W(k+1) > M$$</li>
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">k</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">forall</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="n">in</span> <span class="err">可行值集合</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 基于已选值 x[1] ... x[k-1] 生成候选值
-</span></span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="err">约束条件</span> <span class="n">B</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">...,</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">==</span> <span class="nb">false</span> 
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="err">当前路径构成有效解</span> <span class="n">then</span>
-</span></span><span class="line"><span class="cl">                <span class="err">输出解</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">...,</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>    <span class="c1">// 继续扩展至下一层
-</span></span></span><span class="line"><span class="cl">        <span class="k">else</span>
-</span></span><span class="line"><span class="cl">            <span class="n">k</span> <span class="o">=</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>    <span class="c1">// 回溯到上一层
-</span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 解存储在 X(1:n) 中
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">k = 1;
+</span></span><span class="line"><span class="cl">while (k&gt;0) 
+</span></span><span class="line"><span class="cl">    forall x[k] in 可行值集合 do
+</span></span><span class="line"><span class="cl">        // 基于已选值 x[1] ... x[k-1] 生成候选值
+</span></span><span class="line"><span class="cl">        if 约束条件 B(x[1], x[2], ..., x[k]) == false 
+</span></span><span class="line"><span class="cl">            if 当前路径构成有效解 then
+</span></span><span class="line"><span class="cl">                输出解 (x[1], x[2], ..., x[k]);
+</span></span><span class="line"><span class="cl">            k = k+1;    // 继续扩展至下一层
+</span></span><span class="line"><span class="cl">        else
+</span></span><span class="line"><span class="cl">            k = k-1;    // 回溯到上一层
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 解存储在 X(1:n) 中
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="问题举例">问题举例
 </h2><h3 id="两船装箱问题">两船装箱问题
 </h3><p>给定两艘容量分别为 $c_1$ 和 $c_2$ 的货船和 $n$ 个集装箱，其重量分别为 $(w_1, w_2, \cdots, w_n)$，满足 </p>
 $$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装载方案，使得所有集装箱均可以装入两艘货船并且不超载。</p>
-<h4 id="基本原理">基本原理
-</h4><ol>
+<p>基本原理</p>
+<ol>
 <li>第一艘货船尽可能接近其容量装载。</li>
 <li>剩余集装箱装入第二艘货船。</li>
 </ol>
@@ -811,8 +819,7 @@ $$\sum_{i=1}^{n} w_i \leqslant c_1 + c_2$$<p>需要判定是否存在一种装�
 $$\max \sum_{i=1}^{n} w_i x_i$$<p>约束条件：</p>
 $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$，$x_i$ 表示装载第 $i$ 个集装箱，否则记为 $0$。</p>
 <p>状态空间树：</p>
-<h4 id="限界函数">限界函数
-</h4><p>将集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层，定义：</p>
+<p>限界函数：集装箱按重量降序排列，假设当前扩展结点为第 $i-1$ 层：</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
