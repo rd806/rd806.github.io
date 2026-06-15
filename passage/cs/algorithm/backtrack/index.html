@@ -547,7 +547,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 7 分钟
+                        阅读时长: 8 分钟
                     </time>
                 
             </div>
@@ -1080,7 +1080,12 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="最大团问题">最大团问题
-</h3><p>子图 $G' = \left&lt;V', E'\right&gt;$ 是无向图 $G = \left&lt;V, E\right&gt;$ 的完全子图，当 $V' \subset V$ 且对 $\forall u \in V', v \in V'$，$(u,v) \in E' \subset E$</p>
+</h3><p>子图 $G' = \left&lt;V', E'\right&gt;$ 是无向图 $G = \left&lt;V, E\right&gt;$ 的完全子图，当且仅当 $V' \subset V$ 且对 $\forall u \in V', v \in V'$，$(u,v) \in E' \subset E$</p>
+
+    <blockquote>
+        <p>完全子图即任意两点之间都有边相连的子图。</p>
+
+    </blockquote>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -1107,15 +1112,237 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c_1$$<p> 其中 $x=(x_1, x_2, \cdots, x_n)$�
       </tr>
   </tbody>
 </table></div>
-<p>目标：寻找图 $G$ 的最大团。</p>
-<p>使用固定长度元组 $X = x[1&hellip;n]$（$x[i] = 1$ 表示顶点 $i$）表示解空间。状态空间树为子集数。</p>
-<p>限界条件：</p>
+<p>例如，在下列图中：</p>
+<ul>
+<li>$\{1,2\}$ 是完全子图但不是团。</li>
+<li>$\{1,2,5\}$，$\{1,4,5\}$，$\{2,3,5\}$ 是最大团。</li>
+<li>$\{2,4\}$ 是最大独立顶点集。</li>
+</ul>
+<p><img alt="最大团示例" class="gallery-image" data-flex-basis="452px" data-flex-grow="188" height="252" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/backtrack/images/%E6%9C%80%E5%A4%A7%E5%9B%A2%E7%A4%BA%E4%BE%8B.png" width="475"></p>
+<p>问题：寻找图 $G$ 的最大团。</p>
+<p>使用固定长度元组 $X = x[1&hellip;n]$（$x_i = 1$ 表示包含顶点 $i$）表示解空间。状态空间树为子集树。限界条件：</p>
 <ol>
 <li>从根到节点 $i$ 的顶点不能构成完全子图。</li>
-<li>根到节点 $i$ 的顶点数加上剩余顶点数不超过当前最优解。</li>
+<li>根到节点 $i$ 的顶点数加上剩余顶点数不超过当前最优解 $n_{best}$ 。</li>
 </ol>
-<h3 id="旅行商问题">旅行商问题
-</h3>
+<p>代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">MaxClique</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始化
+</span></span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span> <span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bestn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bestx</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">maxClique</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="p">[]</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">bestn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 寻找最大团
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">maxClique</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 更新最大团
+</span></span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bestx</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bestn</span> <span class="o">=</span> <span class="n">cn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 检查节点i是否与其他节点相连
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">OK</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">i</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">NoEdge</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 存在一对不相连的节点对则剪枝
+</span></span></span><span class="line"><span class="cl">            <span class="n">OK</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">OK</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将i添加到集合中
+</span></span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">cn</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">maxClique</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">cn</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">cn</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">bestn</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">maxClique</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="旅行商问题">旅行商问题
+</h3><p>TSP问题的输入可以表示为一个图结构 $G = (V, E)$，其中：</p>
+<ul>
+<li>$V = \{v_1, v_2, \cdots, v_n\}$ 为顶点集合（表示城市）</li>
+<li>$E$ 为边集合（表示城市间的路径）</li>
+<li>每条边 $e = (v_i, v_j)$ 关联一个非负权重 $a_{ij} \in \mathbb{R^+}$</li>
+</ul>
+<p>TSP 的目标是寻找一个哈密尔顿回路（Hamiltonian cycle）$C$，满足：</p>
+<ul>
+<li>$C$ 访问每个顶点恰好一次。</li>
+<li>$C$ 是闭合回路（起点 = 终点）</li>
+<li>回路的总权重（总距离）最小</li>
+</ul>
+<p>定义 $x = x[1\cdots n]$（$x_i$ 为路径中第 $i$ 个节点的序号）表示解，目标函数 </p>
+$$\sum_{i=1}^n a_{x_i, x_{i+1}}$$<p> 其中 $(x_{n+1} = x_1)$，状态空间树为排列树。</p>
+<p>限界条件：</p>
+<ul>
+<li>若不存在连接 $x_i$ 与 $x_{i−1}$ 的边，则限界。</li>
+<li>若从根到 $x_i$ 的路径距离超过当前最优解 $c_{best}$（已知最短路径），则限界。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 全局变量
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">;</span>              <span class="c1">// 城市数量
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="p">[][]</span> <span class="n">dist</span><span class="p">;</span>       <span class="c1">// 距离矩阵（dist[i][j] 表示城市i到j的距离）
+</span></span></span><span class="line"><span class="cl"><span class="n">boolean</span><span class="p">[]</span> <span class="n">visited</span><span class="p">;</span>  <span class="c1">// 访问标记数组
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">bestc</span> <span class="o">=</span> <span class="n">INF</span><span class="p">;</span>    <span class="c1">// 当前最优解（初始化为无穷大）
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="p">[]</span> <span class="n">bestpath</span><span class="p">;</span>     <span class="c1">// 最优路径
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="p">[]</span> <span class="n">current_path</span><span class="p">;</span> <span class="c1">// 当前路径
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//主函数
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">TSP_Backtrack</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">visited</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始化当前路径
+</span></span></span><span class="line"><span class="cl">    <span class="n">current_path</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 初始调用：当前城市0，已访问1个城市，路径长度0
+</span></span></span><span class="line"><span class="cl">    <span class="n">backtrack</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 递归回溯函数
+</span></span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">backtrack</span><span class="p">(</span><span class="kt">int</span> <span class="n">current_city</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">int</span> <span class="n">current_length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="c1">// 所有城市已访问，需返回起点
+</span></span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">total_length</span> <span class="o">=</span> <span class="n">current_length</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">current_city</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">total_length</span> <span class="o">&lt;</span> <span class="n">bestc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">bestc</span> <span class="o">=</span> <span class="n">total_length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 保存当前最优路径
+</span></span></span><span class="line"><span class="cl">            <span class="n">bestpath</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">current_path</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 遍历未访问城市
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 若当前路径+到i的距离已超过最优解，则跳过
+</span></span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">current_length</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">current_city</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">bestc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 选择城市i
+</span></span></span><span class="line"><span class="cl">            <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current_path</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 递归扩展
+</span></span></span><span class="line"><span class="cl">            <span class="n">backtrack</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">current_length</span> <span class="o">+</span> <span class="n">dist</span><span class="p">[</span><span class="n">current_city</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 回溯
+</span></span></span><span class="line"><span class="cl">            <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">            <span class="c1">// 恢复路径
+</span></span></span><span class="line"><span class="cl">            <span class="n">current_path</span><span class="p">.</span><span class="n">remove_last</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
