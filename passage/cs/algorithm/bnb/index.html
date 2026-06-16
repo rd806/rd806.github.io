@@ -539,7 +539,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 4 分钟
+                        阅读时长: 5 分钟
                     </time>
                 
             </div>
@@ -603,7 +603,7 @@
 </h3><p>一个节点成为 $E$ 节点后，它要展开它的所有子节点并将这些子节点放在一个称为活节点表的数据结构中。从活节点表中的节点可以展开所有状态空间树的节点，即广度优先遍历状态空间树.</p>
 
     <blockquote>
-        <p>活节点表可以是FIFO，LIFO和优先级队列。当使用优先级队列时必须对活节点表中的节点赋一个权值.</p>
+        <p>活节点表可以是FIFO，LIFO和优先级队列。当使用优先级队列时必须对活节点表中的节点赋一个权值。</p>
 
     </blockquote>
 <p>按一定的规则从活节点表中取出一个节点作为 $E$ 节点进行展开。</p>
@@ -714,10 +714,43 @@ $$U = \min\{u(x), U\}$$<p> 修改 $U$ 的值。从 $x$ 展开得到的任何一�
 <p><img alt="剪枝后的状态树" class="gallery-image" data-flex-basis="378px" data-flex-grow="157" height="988" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/bnb/images/%E5%89%AA%E6%9E%9D%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%E6%A0%91.png" srcset="/passage/cs/algorithm/bnb/images/%E5%89%AA%E6%9E%9D%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%E6%A0%91_hu_cf48610c596e6dbb.png 800w, /passage/cs/algorithm/bnb/images/%E5%89%AA%E6%9E%9D%E5%90%8E%E7%9A%84%E7%8A%B6%E6%80%81%E6%A0%91.png 1557w" width="1557"></p>
 <p>故优化解为 $\{2,3\}$，此时罚款额为8。</p>
 <h3 id="旅行商问题">旅行商问题
-</h3><p>设 $f=(e_1, e_2 \cdots, e_n)$ 为一条周游路线：$e_i$ 来自邻接矩阵的第 $i$ 行的边，所有 $e$ 不同列。则 $\text{cost}(e_i) = A(i,j_i)$，$r_i = \min\{A(i,j) \mid 1 \leqslant j \leqslant n\}$。则有 $\displaystyle \text{cost}(f) \geqslant \sum_{j=1}^{n} r_j$，称 $\displaystyle \sum_{j=1}^{n} r_j$ 为行归约数。</p>
-<p>设 $\tilde{\bm{A}}(i,j) = \bm{A}(i,j)-r_i$，则称 $\tilde{\bm{A}}$ 为行归约后的矩阵，则 </p>
-$$\text{cost}(f) = 以 \tilde{\bm{A}} 为成本矩阵时 f 的长度 + \sum_{j=1}^{n} r_j$$<p>对 $\tilde{\bm{A}}$ 做列归约得到矩阵 $\bm{R}$ 和归约数 $\displaystyle \sum_{j=1}^{n} c_j$，则 </p>
-$$\text{cost}(f) = f 在 \bm{R} 中的成本 + \sum_{j=1}^{n} r_j + \sum_{j=1}^{n} c_j$$
+</h3><p>设 $f=(e_1, e_2 \cdots, e_n)$ 为一条周游路线：$e_i$ 来自邻接矩阵的第 $i$ 行的边，所有 $e$ 不同列。则 $\text{cost}(e_i) = A(i,j_i)$，$r_i = \min\{A(i,j) \mid 1 \leqslant j \leqslant n\}$。则有 </p>
+$$\text{cost}(f) = \sum_{j=1}^{n} \text{cost}(e_j) \geqslant \sum_{j=1}^{n} r_j$$<p> 称 $\displaystyle \sum_{j=1}^{n} r_j$ 为行归约数。</p>
+
+    <blockquote>
+        <p>从矩阵的每行减去一个常数，不影响最优回路的选择。</p>
+
+    </blockquote>
+<p>设 $\tilde{\bm{A}}(i,j) = \bm{A}(i,j)-r_i$，则称 $\tilde{\bm{A}}$ 为行归约后的矩阵，进一步对 $\tilde{\bm{A}}$ 做列归约得到矩阵 $\bm{R}$ 和归约数 $\displaystyle \sum_{j=1}^{n} c_j$，则 </p>
+$$\text{cost}(f) = f 在 \bm{R} 中的成本 + \sum_{j=1}^{n} r_j + \sum_{j=1}^{n} c_j$$<p>以此为基础，可以得出求解方法：</p>
+<ul>
+<li>令 $j$ 为 $\bm{R}$ 的子节点且不是叶节点，则
+$$\hat{c}(i \rightarrow j) = \hat{c}(i)+A(i,j)+r$$其中 $r$ 为节点 $j$ 矩阵的归约数，$A(i,j)$ 为 归约矩阵 $\bm{R}$ 的边 $(i,j)$ 的权值。然后进行如下操作得到 $j$ 处的矩阵：
+<ul>
+<li>将 $\bm{R}$ 的归约矩阵中 $i$ 行 $j$ 列置为 $\infty$（禁止再选择节点 $i$ 的出边和的 $j$ 入边）。</li>
+<li>将 $A(j,1)$ 置为 $\infty$ （防止立即返回）。</li>
+<li>对其归约得到 $j$ 处的矩阵。</li>
+</ul>
+</li>
+<li>如果 $j$ 为叶节点，$\hat{c}(j)$ 即为根到此叶节点的周游路线成本。</li>
+</ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>每行每列均含有 $0$ 的矩阵称为规约矩阵。假设第 $i$ 行的约数为 $t_i$，第 $j$ 列的约数为 $r_j$ $(1 \leqslant i,j \leqslant n)$。那么各行各列的约数之和 </p>
+$$L = \sum_{i=1}^n t_i + \sum_{j=1}^n r_j$$<p> 称为矩阵约数。</p>
+        </div>
+    </blockquote>
+<p>例如，设邻接矩阵 </p>
+$$C = \left[\begin{matrix} \infty & 20 & 30 & 10 & 11 \\ 15 & \infty & 16 & 4 & 2 \\ 3 & 5 & \infty & 2 & 4 \\ 19 & 6 & 18 & \infty & 3 \\ 16 & 4 & 7 & 16 & \infty \end{matrix}\right]$$<p>上述矩阵的行约数等于 $10+2+2+3+4=21$，行规约后的矩阵为 </p>
+$$C = \left[\begin{matrix} \infty & 10 & 20 & 0 & 1 \\ 13 & \infty & 14 & 2 & 0 \\ 1 & 3 & \infty & 0 & 2 \\ 16 & 3 & 15 & \infty & 0 \\ 12 & 0 & 3 & 12 & \infty \end{matrix}\right]$$<p>对行规约后的矩阵做列归约得约数 $1+0+3+0+0=4$，列规约后的矩阵为 </p>
+$$C = \left[\begin{matrix} \infty & 10 & 17 & 0 & 1 \\ 12 & \infty & 11 & 2 & 0 \\ 0 & 3 & \infty & 0 & 2 \\ 15 & 3 & 12 & \infty & 0 \\ 11 & 0 & 0 & 12 & \infty \end{matrix}\right]$$<p>则根节点的约数 $r=21+4=25$，即 $\hat{c}(1)=25$。</p>
+<p>若接下来的路径为 $(1,2)$，则节点2对应的矩阵为 </p>
+$$C = \left[\begin{matrix} \infty & \infty & \infty & \infty & \infty \\ \infty & \infty & 11 & 2 & 0 \\ 0 & \infty & \infty & 0 & 2 \\ 15 & \infty & 12 & \infty & 0 \\ 11 & \infty & 0 & 12 & \infty \end{matrix}\right]$$<p>已是归约矩阵，则 $\hat{c}(1 \rightarrow 2)=25+10=35$。</p>
+
 </section>
 
 

@@ -355,13 +355,25 @@
     <li><a href="#np问题分析">NP问题分析</a>
       <ol>
         <li><a href="#决策问题与优化问题">决策问题与优化问题</a></li>
-        <li><a href="#np问题">NP问题</a>
+        <li><a href="#问题的难易">问题的难易</a>
           <ol>
             <li><a href="#合理的输入尺寸">合理的输入尺寸</a></li>
             <li><a href="#难解问题的时效性">难解问题的时效性</a></li>
           </ol>
         </li>
-        <li><a href="#输入实例的长度">输入实例的长度</a></li>
+        <li><a href="#问题难的原因">问题难的原因</a>
+          <ol>
+            <li><a href="#输入实例的长度">输入实例的长度</a></li>
+            <li><a href="#非确定性算法">非确定性算法</a></li>
+          </ol>
+        </li>
+        <li><a href="#问题难的等价性">问题难的等价性</a>
+          <ol>
+            <li><a href="#p类问题">P类问题</a></li>
+            <li><a href="#np类问题">NP类问题</a></li>
+            <li><a href="#npc类问题">NPC类问题</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -585,7 +597,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 13 分钟
                     </time>
                 
             </div>
@@ -648,13 +660,25 @@
     <li><a href="#np问题分析">NP问题分析</a>
       <ol>
         <li><a href="#决策问题与优化问题">决策问题与优化问题</a></li>
-        <li><a href="#np问题">NP问题</a>
+        <li><a href="#问题的难易">问题的难易</a>
           <ol>
             <li><a href="#合理的输入尺寸">合理的输入尺寸</a></li>
             <li><a href="#难解问题的时效性">难解问题的时效性</a></li>
           </ol>
         </li>
-        <li><a href="#输入实例的长度">输入实例的长度</a></li>
+        <li><a href="#问题难的原因">问题难的原因</a>
+          <ol>
+            <li><a href="#输入实例的长度">输入实例的长度</a></li>
+            <li><a href="#非确定性算法">非确定性算法</a></li>
+          </ol>
+        </li>
+        <li><a href="#问题难的等价性">问题难的等价性</a>
+          <ol>
+            <li><a href="#p类问题">P类问题</a></li>
+            <li><a href="#np类问题">NP类问题</a></li>
+            <li><a href="#npc类问题">NPC类问题</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -1348,23 +1372,19 @@ $$T_o = \mathrm{O} (T_b \cdot T_d)$$</li>
 <li>二分搜索的时间复杂度 $T_b$ 取决于参数 $k$ 的取值范围（长度）。若 $k$ 的取值上限（长度）是输入实例规模 $n$ 的多项式函数，则 $T_b$ 是 $\mathrm{O} (\log 𝑛)$，即具有多项式对数时间复杂度。此时，整体时间复杂度 $T_o$ 与 $T_d$ 属于同一复杂度量级。</li>
 <li>因而求解决策问题可以近似求解优化问题，这表明优化问题至少与相应的决策问题一样难。</li>
 </ol>
-<h3 id="np问题">NP问题
+<h3 id="问题的难易">问题的难易
 </h3><p>易解问题（Tractable problems）: 如果问题 $Q$ 存在一个多项式界的求解算法，则称问题 $Q$ 为易解（计算）问题（computationally tractable）。</p>
-<p>难解问题（Intractable problems）：不存在多项式界求解算法的问题，即求解该问题算法的复杂性至少是指数级的。</p>
-<p>不可解问题（unsolvable problem）：不能被确定型图灵机求解的计算问题，即不存在任何算法能够求解的计算问题，通常也称为不可判定问题（Undecidable）。</p>
-<h4 id="合理的输入尺寸">合理的输入尺寸
-</h4><p>满足以下两个条件的输入为合理的输入尺寸：</p>
-<ul>
-<li>期望的输出与输入是否密切相关的。</li>
-<li>输入是否可以被确定编码的</li>
-</ul>
-<h4 id="难解问题的时效性">难解问题的时效性
-</h4><p>难解问题不一定永远不能转变为易解问题。</p>
-<p>案例：素数检验问题（给定任意正整数 $n$，检验 $n$ 是否存在大于 $1$ 的整数因子）</p>
-<p>直到 2004 年，AKS（M. Agrawal, N. Kayal, and N. Saxena）在美国数学年报上提出了复杂性是 $n$ 位数的多项式函数的算法。</p>
 
     <blockquote>
-        <p>停机问题的证明</p>
+        <p>易解问题算法的上界是多项式界，例如 $\log n$，$n\log n$，$n^2$ 等。这类问题复杂性的上界约束只适用于合理的输入实例尺寸。</p>
+<p>当前不是易解的问题，将来可能会变为易解问题。</p>
+
+    </blockquote>
+<p>难解问题（Intractable problems）：不存在多项式界求解算法的问题，即求解该问题算法的复杂性至少是指数级的。</p>
+<p>不可解问题（unsolvable problem）：不能被确定型图灵机求解的计算问题，即不存在任何算法能够求解的计算问题，通常也称为不可判定问题（Undecidable）。例如停机问题。</p>
+
+    <blockquote>
+        <p>停机问题可以描述为：是否存在一个程序 $P$，对于任意输入的程序 $w$，能够判断 $w$ 会在有限时间内结束或者死循环。</p>
 <p>假设停机问题有解，则存在算法<code>halt(P,I)</code>可以判断对于输入<code>I</code>时程序<code>P</code>是否停机，即：</p>
 $$\text{halt}(P,I) = \left\{ \begin{matrix} \begin{align*} & \text{Yes} & \text{if输入I, P停机} \\ & \text{No} & \text{if输入I, P进入死循环} \end{align*} \end{matrix} \right.$$<p>构造下面的程序 $Z(P)$，它实现了当程序 $P$ 读入其本身 $P$ 时，如果<code>halt</code>算法判定其停机，则 $Z$ 进入死循环，否则 $Z$ 停机：</p>
 <div class="highlight"><div class="chroma">
@@ -1390,8 +1410,134 @@ $$\text{halt}(P,I) = \left\{ \begin{matrix} \begin{align*} & \text{Yes} & \text{
 <p>因而<code>halt(P,I)</code>不存在，停机问题是不可解（计算）的！</p>
 
     </blockquote>
-<h3 id="输入实例的长度">输入实例的长度
-</h3>
+<h4 id="合理的输入尺寸">合理的输入尺寸
+</h4><p>满足以下两个条件的输入为合理的输入尺寸：</p>
+<ul>
+<li>期望的输出与输入密切相关。</li>
+<li>输入可以被确定编码。</li>
+</ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <ul>
+<li>在《算法》教材里，查找含有“NP 问题” 的段落：合理；</li>
+<li>在整个互联网里，查找含有“NP 问题”的网页：不合理；</li>
+<li>在人类基因组里，查找某个基因：合理；</li>
+<li>在所有物种里，查找某个基因：不合理。</li>
+</ul>
+        </div>
+    </blockquote>
+<h4 id="难解问题的时效性">难解问题的时效性
+</h4><p>难解问题不一定永远不能转变为易解问题。</p>
+<p>案例：素数检验问题（给定任意正整数 $n$，检验 $n$ 是否存在大于 $1$ 的整数因子）</p>
+<p>直到 2004 年，AKS（M. Agrawal, N. Kayal, and N. Saxena）在美国数学年报上提出了复杂性是 $n$ 位数的多项式函数的算法。</p>
+<h3 id="问题难的原因">问题难的原因
+</h3><h4 id="输入实例的长度">输入实例的长度
+</h4><p>在算法复杂性理论中，输入实例的长度是度量一个计算问题规模的基本单位，是分析算法时间复杂度和空间复杂度的基础。</p>
+<p>输入实例长度通常是指描述该输入所需的比特数，即用某种固定编码方式将输入表示为二进制字符串时的长度。</p>
+<p>设有一个计算问题，其输入是一个字符串 $x \in \Sigma$，其中 $\Sigma$ 是某个有限字符集（如 $\{0, 1\}$）。那么输入实例 $x$ 的长度可以形式化地表示为 $|x|$，即表示这个字符串所需字符的个数。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>注意：算法复杂性研究的是输入实例长度与复杂性之间的关系，而非输入特征。当我们用近似符号表示算法复杂性时，需要判断输入特征与输入长度是否满足多项式关系：</p>
+<ul>
+<li>是：可以使用近似符号表示输入特征与复杂性的关系。</li>
+<li>否：不能直接使用，需要推导输入长度与复杂性的关系。</li>
+</ul>
+        </div>
+    </blockquote>
+<p>例如对于0/1背包问题，输入实例 $n$，$c$，$w=(w_1, w_2, \cdots, w_n)$，$p=(p_1, p_2, \cdots, p_n)$。则输入实例长度可表示为
+</p>
+$$\begin{align*} m &= \log n + \log c + \sum \log p_i + \sum\log w_i \\ &< \log n + \log c + n \log c + n \log c \\ &= \log n + \log c + 2n\log c \\ &= \Theta(n \log c)\end{align*}$$<p>
+所以 $T = \Theta(nc) = \Theta(n2^m)$ 是伪多项式界。</p>
+<h4 id="非确定性算法">非确定性算法
+</h4><p>非确定性算法指的是算法多次运行同样的输入实例时，可能表现出不同的行为（例如某个时刻有多个动作可供选择），从而导致不同的运行结果。</p>
+<p>导致不确定的原因:</p>
+<ul>
+<li>概率算法：动作（指令）的执行依赖于随机数的产生。</li>
+<li>并发算法：动作（指令）的执行结果依赖于竞态条件。</li>
+</ul>
+<h3 id="问题难的等价性">问题难的等价性
+</h3><h4 id="p类问题">P类问题
+</h4><p>$\text{P}$ 类问题：能够被确定性图灵机在多项式时间内求解的决策问题集合。</p>
+<p>$\text{P}$ 类问题的性质：</p>
+<ul>
+<li>高效性：多项式时间复杂性意味着算法的运行时间增长率是温和的、可控的，不会随输入规模 $n$ 的增加而呈指数级爆炸。</li>
+<li>多项式时间可解：任何在图灵机上多项式时间可解的问题，在任何合理的计算模型（包括现代计算机）上，也是多项式时间可解的。</li>
+<li>封闭性： $\text{P}$ 类对多项式时间的加法、乘法及复合运算是封闭的。这意味着多个 $\text{P}$ 类算法的组合运算结果仍属于 $\text{P}$ 类。</li>
+</ul>
+<h4 id="np类问题">NP类问题
+</h4><p>当且仅当存在一个验证算法 $V$（Verifier）和一个多项式 $p$，满足：</p>
+<ul>
+<li>多项式时间验证：对于任意输入实例 $w$ 和证书 $c$，验证算法 $V$ 的运行时间是输入规模 $|w|$ 的多项式函数，即
+$$T(V(w,c)) = \mathrm{O}(p(|w| + |c|))$$</li>
+<li>证书存在性：对于任意实例 $w$
+<ul>
+<li>如果 $w$ 是 $Q$ 的一个 $\text{YES}$ 实例（即 $w \in Q$），则存在一个证书 $c$ 使得验证通过，即
+$$V(w, c) = \text{YES}$$</li>
+<li>所有满足条件的证书 $c$ 的长度 $|c|$ 具有关于输入大小的多项式界，即
+$$|c| = \mathrm{O}(p(|w|))$$</li>
+</ul>
+</li>
+</ul>
+<h4 id="npc类问题">NPC类问题
+</h4>
+    <blockquote>
+        <p>当且仅当存在一个多项式界的确定性算法 $T$ 满足：</p>
+<ul>
+<li>对于 $X$ 的每个输入实例 $x$，$T$ 生成一个实例 $T(x)$；</li>
+<li>$x$ 是 $X$ 的一个合法输入实例且对应 $\text{YES}$ 答案当且仅当 $T(x)$ 是 $Y$ 的一个合法输入实例且对应 $\text{YES}$ 答案。</li>
+</ul>
+<p>此时称问题 $X$ 可以<strong>多项式地规约</strong>到问题 $Y$，记做 $X \leqslant_P Y$。</p>
+<p>$X \leqslant_P Y$ 意味着 $X$ 至多与 $Y$ 一样难。</p>
+<p>如果 $X \leqslant_P Y$ 且 $Y$ 属于 $\text{P}$ 类问题，那么 $X$ 也属于 $\text{P}$ 类问题。</p>
+
+    </blockquote>
+<p>如果所有的 $\text{NP}$ 类问题都可以多项式地规约到问题 $Q$，那么称 $Q$ 为 $\text{NP-hard}$ 问题。</p>
+<p>$\text{NP-hard}$ 至少和所有 $\text{NP}$ 问题一样难，但它的解可能无法在多项式时间内被验证。</p>
+
+    <blockquote>
+        <p>常见的 $\text{NP-hard}$ 问题：</p>
+<ul>
+<li>3-SAT（布尔可满足性问题）：最万能的起点。</li>
+<li>旅行商问题（TSP）：常用于路径、网络、图论类问题。</li>
+<li>背包问题：常用于资源分配、调度类问题。</li>
+<li>顶点覆盖/团问题：常用于社交网络、图匹配类问题。</li>
+<li>集合覆盖：常用于选点、选址、广告投放类问题。</li>
+</ul>
+
+    </blockquote>
+<p>如果问题 $Q$ 是 $\text{NP-hard}$ 问题并且也属于 $\text{NP}$ 类问题，那么称 $Q$ 为 NP Complete（$\text{NPC}$）问题。</p>
+<p>$\text{NPC}$ 是 $\text{NP}$ 和 $\text{NP-hard}$ 的交集，即 $\text{NPC} = \text{NP} \cap \text{NP-hard}$。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>问题属于 $\text{NP-hard}$ 但不属于 $\text{NP}$ 的核心特征就是：问题极难求解，且即使给你一个答案，你也几乎无法在多项式时间内验证它是否正确。</p>
+<p>通常，不可解问题（如停机问题）、无法“判定”的最优化问题、需要“找最优解”的搜索问题、非“多项式界限”的验证问题等问题即属于 $\text{NP-hard}$ 但不是 $\text{NP}$ 问题。</p>
+        </div>
+    </blockquote>
+<p>$\text{NPC}$ 问题的性质：</p>
+<ul>
+<li>封闭性：所有的 $\text{NPC}$ 问题关于多项式规约是封闭的；</li>
+<li>自反性：任何问题 $Q$ 可规约到自身；</li>
+<li>传递性：如果 $A$ 规约到 $B$，$B$ 规约到 $C$，则 $A$ 规约到 $C$）。</li>
+</ul>
+
+    <blockquote>
+        <p>如果能够找到一个 $\text{NPC}$ 问题的多项式算法，那么 $\text{P} = \text{NP}$。</p>
+<p>$\text{P} = \text{NP}$ 问题位于七个“千僖年数学难题”之首，迄今无解。</p>
+
+    </blockquote>
+
 </section>
 
 
