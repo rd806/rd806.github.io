@@ -654,7 +654,8 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="插入排序">插入排序
+</div><p>基于比较的排序，其复杂度不会低于 $\mathrm{O}(n\log n)$，这是由判定树的高度不会低于 $n \log n$ 决定的。</p>
+<h2 id="插入排序">插入排序
 </h2><h3 id="直接插入排序">直接插入排序
 </h3><p>核心是将一个待排序的数据插入到已排好序的有序表中，从而完成排序。</p>
 <p><img alt="直接插入排序" class="gallery-image" data-flex-basis="201px" data-flex-grow="83" height="1087" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.png" srcset="/passage/cs/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F_hu_f57424e0c101f0e4.png 800w, /passage/cs/sort/images/%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.png 913w" width="913"></p>
@@ -879,10 +880,29 @@
 </div>
 </div><p>快速排序分析：</p>
 <ol>
-<li>快速排序的平均计算时间为 $O(n\log n)$。实验结果表明：就平均计算时间而言，快速排序是所有内排序方法中最好的一个。</li>
+<li>快速排序的平均计算时间为 $\mathrm{O} (n\log n)$。实验结果表明：就平均计算时间而言，快速排序是所有内排序方法中最好的一个。</li>
+</ol>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>快速排序的时间复杂度分析：</p>
+<ul>
+<li>最好情况：每次的<code>pivot</code>恰好是<strong>中位数</strong>，将数组划分成大小相近的两个子数组。此时递归方程为
+$$T(n) = 2T\left(\frac{n}{2}\right) + \Theta(n)$$时间复杂度为 $\Theta(n \log n)$。</li>
+<li>最坏情况：每次的<code>pivot</code>是<strong>最大或最小</strong>元素，即子数组一边为空，另一边有 $n-1$ 个元素。这通常发生在数组已经有序（或逆序）的情况下。此时递归方程为
+$$T(n) = T(n-1) + \Theta(n)$$时间复杂度为 $\Theta(n^2)$。</li>
+</ul>
+        </div>
+    </blockquote>
+<ol start="2">
 <li>快速排序是一种不稳定的排序方法。</li>
 </ol>
-<p>在C++中，快速排序可使用<code>algorithm</code>库中的<code>sort</code>函数，时间复杂度为 $O(n\log n)$。</p>
+
+    <blockquote>
+        <p>在C++中，快速排序可使用<code>algorithm</code>库中的<code>sort</code>函数，时间复杂度为 $\mathrm{O} (n\log n)$。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -891,9 +911,11 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// sort函数的区间为左闭右开
 </span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 长度为n的数组
 </span></span></span><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
@@ -901,7 +923,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="n">sort</span><span class="p">(</span><span class="n">vector</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">vector</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>基于比较的排序，其复杂度不会低于 $O(n\log n)$</p>
+</div><p>尽管在大多数编程语言中快速排序都可以作为库函数调用，但快速排序的思想和基本步骤仍需熟练掌握。</p>
+
+    </blockquote>
 <h2 id="选择排序">选择排序
 </h2><p>基本思想：进行<code>n–1</code>趟排序，每一趟在<code>n–i+1</code> $(i=1,2,\cdots,n-1)$ 个记录中选取关键字最小的记录作为有序序列中第<code>i</code>个记录。</p>
 <h3 id="直接选择排序">直接选择排序

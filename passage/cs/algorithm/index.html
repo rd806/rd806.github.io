@@ -696,6 +696,8 @@
     <p>计算机科学并不只是关于计算机，就像天文学并不只关于望远镜一样。</p><span class="cite"><span>― </span><span>Edsger Dijkstra</span><cite></cite></span></blockquote>
 <p>参考资料：<a class="link" href="https://www.bilibili.com/video/BV1QV4y1m7oo"  target="_blank" rel="noopener"
     >点击此处</a></p>
+<p>特别感谢由 NoviaMiller 提供的<a class="link" href="https://github.com/NoviaMiller/TJU-algorithm"  target="_blank" rel="noopener"
+    >AI总结</a>！</p>
 <h2 id="算法的基本概念">算法的基本概念
 </h2><p>算法是对特定问题求解的一种描述，是指令的有限序列。</p>
 <h3 id="算法的特点">算法的特点
@@ -783,7 +785,7 @@
 </table></div>
 <h3 id="复杂性函数的阶">复杂性函数的阶
 </h3><h4 id="渐进复杂性">渐进复杂性
-</h4><p>渐进复杂性表达了当输入规模 $n$ 趋近于极限（相当大）时的复杂性。</p>
+</h4><p>渐进复杂性表达了当输入规模 $n$ 趋近于极限（相当大）时的复杂性 $T(n)$ 。</p>
 <h4 id="复杂性阶的三个记号">复杂性阶的三个记号
 </h4><div class="table-wrapper"><table>
   <thead>
@@ -796,17 +798,17 @@
   <tbody>
       <tr>
           <td>最坏时间复杂度</td>
-          <td>$T(n) = \Omega(f(n))$</td>
+          <td>$\Omega(f(n))$</td>
           <td>如果存在 $c&gt;0$ 与正整数 $n_0 \geqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \geqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的高阶，它给出了算法复杂度的下界</td>
       </tr>
       <tr>
           <td>最好时间复杂度</td>
-          <td>$T(n) = \mathrm{O}(f(n))$</td>
+          <td>$\mathrm{O}(f(n))$</td>
           <td>如果存在 $c&gt;0$ 与正整数 $n_0 \geqslant 1$，当 $n \geqslant n_0$ 时，都有 $T(n) \leqslant c \cdot f(n)$ 成立，则称 $T(n)$ 是 $f(n)$ 的低阶，它给出了算法复杂度的上界</td>
       </tr>
       <tr>
           <td>平均时间复杂度</td>
-          <td>$T(n) = \Theta(f(n))$</td>
+          <td>$\Theta(f(n))$</td>
           <td>如果存在 $c_1, c_2 &gt; 0$ 与正整数 $n_0 \geqslant 1$，当 $n \geqslant n_0$ 时，都有 $c_2 f(n) \leqslant T(n) \leqslant c_1 f(n)$ 恒成立，则称 $T(n)$ 与 $f(n)$ 同阶</td>
       </tr>
   </tbody>
@@ -821,15 +823,14 @@
 <p>综上，$T(n) = \Omega(n^3)$</p>
 
     </blockquote>
-<p>定理：对于任意的 $f(n)$ 和 $g(n)$，$f(n) = \Theta(g(n))$ 当且仅当 $f(n) = \mathrm{O}(g(n))$ 且 $f(n) = \Omega(g(n))$</p>
+<p>定理：对于任意的 $f(n)$ 和 $g(n)$，$f(n) = \Theta(g(n))$ 当且仅当 $f(n) = \mathrm{O}(g(n))$ 且 $f(n) = \Omega(g(n))$。</p>
 
     <blockquote>
-        <p>证明：</p>
-<p>先证明必要性：若 $f(n) = \Theta(g(n))$，则存在 $c_1, c_2 &gt; 0$，$n_0 &gt; 0$，使得当 $n \geqslant n_0$ 时都有 $c_1 g(n) \leqslant f(n) \leqslant c_2 g(n)$，则 $f(n) = \mathrm{O}(g(n))$ 且 $f(n) = \Omega(g(n))$</p>
+        <p>证明：先证明必要性：若 $f(n) = \Theta(g(n))$，则存在 $c_1, c_2 &gt; 0$，$n_0 &gt; 0$，使得当 $n \geqslant n_0$ 时都有 $c_1 g(n) \leqslant f(n) \leqslant c_2 g(n)$，则 $f(n) = \mathrm{O}(g(n))$ 且 $f(n) = \Omega(g(n))$</p>
 <p>再证明充分性：若 $f(n) = \mathrm{O}(g(n))$ 且 $f(n) = \Omega(g(n))$，</p>
 <ul>
 <li>由 $f(n) = \mathrm{O}(g(n))$ 可知存在 $c_1, n_1 &gt; 0$，使得当 $n \geqslant n_1$ 时有 $f(n) \leqslant c_1 g(n)$；</li>
-<li>由 $f(n) = \Omega(g(n))$ 可知存在 $c_2, n_2 &gt; 0$，使得当 $n&gt;n_2$ 时有 $f(n) \geqslant c_2 g(n)$。</li>
+<li>由 $f(n) = \Omega(g(n))$ 可知存在 $c_2, n_2 &gt; 0$，使得当 $n \geqslant n_2$ 时有 $f(n) \geqslant c_2 g(n)$。</li>
 </ul>
 <p>令 $n_0 = \max \{n_1, n_2\}$，则当 $n&gt;n_0$时，有 $c_2 g(n) \leqslant f(n) \leqslant c_1 f(n)$，即 $f(n) = \Theta(g(n))$</p>
 
@@ -881,7 +882,7 @@ $$\omega(g(n)) = \{ f(n) \mid \forall c>0，\exist n_0 \in \mathbb{N}^*，使得
 </table></div>
 
     <blockquote>
-        <p>并非所有函数都是可比的，例如 $f(n) = n$ 和 $g(n) = n^{1+\sin n}$</p>
+        <p>并非所有函数都是可比的，例如 $f(n) = n$ 与 $g(n) = n^{1+\sin n}$ 之间就找不到符合要求的 $n_0$ 和 $c$。</p>
 
     </blockquote>
 <p>定义了函数的阶之后，就可以量化程序运行的时间了。例如，对于一台每秒可执行某基本运算 $10^9$ 次的机器，当输入规模为 $60$ 时：</p>
@@ -958,26 +959,26 @@ $$ \sum_{k=1}^{n} \log k \geqslant \int_{2}^{n+1} \log (x-1) \mathrm{d}x \xlonge
     </figcaption>
 </figure>
 
-<p>综合两式可得：$\log n! = \Theta(n\log n)$，该求和公式在快速排序等算法中有重要作用。</p>
+<p>综合两式可得：$\log n! = \Theta(n\log n)$，该求和公式在 <a class="link" href="/passage/cs/sort#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f" >快速排序</a> 等算法中有重要作用。</p>
 
     </blockquote>
 <h3 id="递归方程">递归方程
-</h3><h4 id="逐层展开法">逐层展开法
+</h3><p>递归方程是用递归形式描述算法时间复杂度的有效工具，通过求解递归方程可以快速得知算法的时间复杂度信息。</p>
+<h4 id="逐层展开法">逐层展开法
 </h4><p>案例：归并排序的递归方程</p>
-$$T(n) = \left\{ \begin{matrix} \begin{align*} &\Theta(1), & n=1 \\\\ &2T\displaystyle \left(\frac{n}{2}\right) + \Theta(n), & n \geqslant 1 \end{align*} \end{matrix} \right.$$<p>将其展开可得：</p>
+$$T(n) = \left\{\begin{align*} &\Theta(1), & n=1 \\ &2T\displaystyle \left(\frac{n}{2}\right) + \Theta(n), & n \geqslant 1 \end{align*}\right.$$<p>将其展开可得：</p>
 $$\begin{align*} T(n) &= n + 3T\left(\left\lfloor \frac{n}{4} \right\rfloor\right) \\\\ &= n + 3\left(\left\lfloor \frac{n}{4} \right\rfloor + 3T\left( \left\lfloor \frac{n}{16} \right\rfloor \right)\right) \\\\ &= n + 3\left\lfloor \frac{n}{4} \right\rfloor + 3^2 \left\lfloor \frac{n}{4^2} \right\rfloor + 3^3 \left\lfloor \frac{n}{4^3} \right\rfloor + \cdots + 3^k T \left(\left\lfloor \frac{n}{4^k} \right\rfloor \right) \end{align*}$$<p>深度 $k = \log_{4}n$，最底层有 $3^k = 3^{\log_{4}n} = n^{\log_{4}3}$ 个，则有</p>
-$$T(n) = \sum_{i=0}^{(\log_{4}n) - 1} 3^i \cdot \frac{n}{4^i} + \Theta(n^{\log_{4}3}) \leqslant 4n + \Theta(n^{\log_{4}3}) = O(n)$$<h4 id="变量替换法">变量替换法
+$$T(n) = \sum_{i=0}^{(\log_{4}n) - 1} 3^i \cdot \frac{n}{4^i} + \Theta(n^{\log_{4}3}) \leqslant 4n + \Theta(n^{\log_{4}3}) = \mathrm{O}(n)$$<h4 id="变量替换法">变量替换法
 </h4><p>设递归方程为：</p>
-$$T(n) = 2T(\sqrt{n}) + \log n$$<p>令 $m = \log n$，则 $n = 2^m$，$\displaystyle T(2^m) = 2T\left(2^{\frac{m}{2}}\right) + m$</p>
-<p>令 $S(m) = T(2^m)$，则 $\displaystyle S\left(\frac{m}{2}\right) = T\left(2^{\frac{m}{2}}\right)$</p>
-<p>于是 $\displaystyle S(m) = 2S\left(\frac{m}{2}\right) + m = \Theta(m \log m)$</p>
-<p>回代可得 $T(n) = \Theta(\log n (\log (\log n)))$</p>
+$$T(n) = 2T(\sqrt{n}) + \log n$$<p>令 $m = \log n$，则 $n = 2^m$，$\displaystyle T(2^m) = 2T\left(2^{\frac{m}{2}}\right) + m$。再令 $S(m) = T(2^m)$，则 $\displaystyle S\left(\frac{m}{2}\right) = T\left(2^{\frac{m}{2}}\right)$</p>
+<p>于是 </p>
+$$S(m) = 2S\left(\frac{m}{2}\right) + m = \Theta(m \log m)$$<p>回代可得 $T(n) = \Theta(\log n (\log (\log n)))$</p>
 <h4 id="master定理">Master定理
-</h4><p>求解形如 $\displaystyle T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n)$ 的递归方程（其中 $a \geqslant 1$，$b \geqslant 1$ 是常数，$f(n)$ 是正函数）。</p>
+</h4><p>对于形如 $\displaystyle T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n)$ 的递归方程（其中 $a \geqslant 1$，$b \geqslant 1$ 是常数，$f(n)$ 是正函数）：</p>
 <ol>
 <li>若 $f(n) = \mathrm{O} (n^{(\log_{b} a)-\varepsilon})$，常数 $\varepsilon &gt; 0$，则有 $T(n) = \Theta(n^{\log_{b}a})$</li>
 <li>若 $f(n) = \Theta(n^{\log_{b} a})$，则有 $T(n) = \Theta(n^{\log_b a} \log n)$</li>
-<li>若 $f(n) = \Omega(n^{(\log_{b} a) + \varepsilon})$，常数 $\varepsilon &gt; 0$，且对所有 $n$，都有 $af(\frac{n}{b}) \leqslant c \cdot f(n)$ （$c&lt;1$ 且为常数），则有 $T(n) = \Theta(f(n))$</li>
+<li>若 $f(n) = \Omega(n^{(\log_{b} a) + \varepsilon})$，常数 $\varepsilon &gt; 0$，且对所有 $n$，都有 $\displaystyle af\left(\frac{n}{b}\right) \leqslant c \cdot f(n)$ （$c&gt;1$ 且为常数），则有 $T(n) = \Theta(f(n))$</li>
 </ol>
 
     <blockquote>
@@ -990,7 +991,7 @@ $$T(n) = 2T(\sqrt{n}) + \log n$$<p>令 $m = \log n$，则 $n = 2^m$，$\displays
 
     </blockquote>
 <details>
-    <summary>Master定理证明（点击展开）</summary>
+    <summary>Master定理的证明（点击展开）</summary>
 <p>对 $\displaystyle f(n) = a T\left(\frac{n}{b}\right) + f(n)$ 展开可得 </p>
 $$ T(n) = \Theta(n^{\log_b a}) + \sum_{i=0}^{k-1} a^i \cdot f(\frac{n}{b^i}) $$<p> 其中 $n = b^k$，$k = \log_b n$，$a^k = a^{\log_b n} = n^{\log_b a}$</p>
 <p>令 $\displaystyle g(n) = \sum_{i=0}^{k-1} a^i f\left( \frac{n}{b^i} \right)$， 则有 $T(n) = \Theta(n^{\log_b a}) + g(n)$</p>
@@ -1499,7 +1500,7 @@ $$|c| = \mathrm{O}(p(|w|))$$</li>
 <p>如果 $X \leqslant_P Y$ 且 $Y$ 属于 $\text{P}$ 类问题，那么 $X$ 也属于 $\text{P}$ 类问题。</p>
 
     </blockquote>
-<p>如果所有的 $\text{NP}$ 类问题都可以多项式地规约到问题 $Q$，那么称 $Q$ 为 $\text{NP-hard}$ 问题。</p>
+<p>如果所有的 $\text{NP}$ 类问题都可以多项式地规约到问题 $Q$，那么称 $Q$ 为 $\text{NP-hard}$ 问题（$\text{NPH}$）。</p>
 <p>$\text{NP-hard}$ 至少和所有 $\text{NP}$ 问题一样难，但它的解可能无法在多项式时间内被验证。</p>
 
     <blockquote>
@@ -1515,6 +1516,7 @@ $$|c| = \mathrm{O}(p(|w|))$$</li>
     </blockquote>
 <p>如果问题 $Q$ 是 $\text{NP-hard}$ 问题并且也属于 $\text{NP}$ 类问题，那么称 $Q$ 为 NP Complete（$\text{NPC}$）问题。</p>
 <p>$\text{NPC}$ 是 $\text{NP}$ 和 $\text{NP-hard}$ 的交集，即 $\text{NPC} = \text{NP} \cap \text{NP-hard}$。</p>
+<p><img alt="NP问题之间的关系" class="gallery-image" data-flex-basis="675px" data-flex-grow="281" height="322" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/images/NP%E9%97%AE%E9%A2%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png" srcset="/passage/cs/algorithm/images/NP%E9%97%AE%E9%A2%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB_hu_786bf14e8af47055.png 800w, /passage/cs/algorithm/images/NP%E9%97%AE%E9%A2%98%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png 906w" width="906"></p>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>

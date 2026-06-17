@@ -344,6 +344,12 @@
         <li><a href="#代码-2">代码</a></li>
       </ol>
     </li>
+    <li><a href="#扫描线算法">扫描线算法</a>
+      <ol>
+        <li><a href="#算法思想">算法思想</a></li>
+        <li><a href="#算法步骤">算法步骤</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -548,7 +554,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 7 分钟
+                        阅读时长: 8 分钟
                     </time>
                 
             </div>
@@ -599,6 +605,12 @@
         <li><a href="#基本思路">基本思路</a></li>
         <li><a href="#步骤-1">步骤</a></li>
         <li><a href="#代码-2">代码</a></li>
+      </ol>
+    </li>
+    <li><a href="#扫描线算法">扫描线算法</a>
+      <ol>
+        <li><a href="#算法思想">算法思想</a></li>
+        <li><a href="#算法步骤">算法步骤</a></li>
       </ol>
     </li>
   </ol>
@@ -787,17 +799,13 @@
 <p>参考：<a class="link" href="https://www.cnblogs.com/xbhog/p/14348830.html"  target="_blank" rel="noopener"
     >博客园-Xbhog</a></p>
 <h3 id="前缀和">前缀和
-</h3><ol>
-<li>概念：数组该位置之前的元素之和。</li>
-</ol>
+</h3><p>前缀和：数组该位置之前的元素之和。作用是快速求出元素组中某段区间的和。</p>
 
     <blockquote>
         <p>前缀和类似于求一个数列 $a_n$ 的前 $n$ 项和 $S_n$。</p>
 
     </blockquote>
-<ol start="2">
-<li>运算：进行前缀和运算时，下标从1开始。</li>
-</ol>
+<p>进行前缀和运算时，下标从1开始。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -823,12 +831,7 @@
         <p>为什么下标要从1开始：方便后面的计算，避免下标转换，<code>a[0]</code> 设为零，不影响结果。</p>
 
     </blockquote>
-<ol start="3">
-<li>作用：快速求出元素组中某段区间的和</li>
-</ol>
-<details>
-    <summary>案例：求数组中 $[l,r]$ 区间的和</summary>
-<p>如果使用普通循环，需要执行 $l-r$ 次。</p>
+<p>求数组中 $[l,r]$ 区间的和，如果使用普通循环，需要执行 $l-r$ 次：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -843,7 +846,9 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>使用前缀和的时间复杂度则降为 $O(n)$。定义两个数组，一个为原始数组<code>a[]</code>，一个为前缀和数组<code>prefix[]</code>。</p>
+</div><p>而且如果需要求多个不同区间的和，重复计算将很频繁。</p>
+<p>使用前缀和，只需要花费 $\mathrm{O}(n)$ 的时间构造前缀和数组，再求区间和时复杂度就降为 $\mathrm{O} (1)$。</p>
+<p>定义两个数组，一个为原始数组<code>a[]</code>，一个为前缀和数组<code>prefix[]</code>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -898,13 +903,13 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span> 
 </span></span></code></pre></td></tr></table>
 </div>
-</div></details>
-<h3 id="差分">差分
-</h3><ol>
-<li>概念：差分是前缀和的逆运算。</li>
-<li>作用：<br> （1）快速对一个数组的某个区间内所有元素进行相同的增量或减量操作。<br> （2）在需要对数组的多个区间进行批量操作时，差分方法可以显著降低复杂度。</li>
-</ol>
-<p><strong>重点：构造差分数组<code>diff[]</code>：</strong></p>
+</div><h3 id="差分">差分
+</h3><p>差分是前缀和的逆运算。作用：</p>
+<ul>
+<li>快速对一个数组的某个区间内所有元素进行相同的增量或减量操作。</li>
+<li>在需要对数组的多个区间进行批量操作时，差分方法可以显著降低复杂度。</li>
+</ul>
+<p><strong>重点：构造差分数组<code>diff[]</code></strong>：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1076,7 +1081,74 @@ $$next[j] = \left\{\begin{matrix} 0 & j=1 \\\\ \mathrm{max}\{k | 1 < k < j 且 p
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="扫描线算法">扫描线算法
+</h2><p>设有 $n$ 个活动的集合 $E=\{1,2, \cdots,n\}$，每个活动都要求<strong>互斥地</strong>使用同一资源。每个活动 $i$ 都有一个要求使用该资源的起始时间 $s_i$ 和一个结束时间 $f_i$，且 $s_i &lt;f_i$（即如果选择了活动 $i$，则它在半开时间区间 $[s_i, f_i)$ 内占用资源）。</p>
+<p>现所有活动都必须安排，求出最少需要几个资源。</p>
+<h3 id="算法思想">算法思想
+</h3><p>想象有一根&quot;扫描线&quot;从时间轴的最左边扫到最右边：</p>
+<ul>
+<li>每当扫描线遇到一个活动<strong>开始</strong>，就相当于“又有一个活动要用教室”，当前占用数 +1；</li>
+<li>每当扫描线遇到一个活动<strong>结束</strong>，就相当于“这个活动用完教室了”，当前占用数 -1。</li>
+</ul>
+<p>在扫描过程中，<strong>当前占用数的最大值</strong>就是最少需要的教室数量。因为那一刻有那么多活动同时进行，你不可能把它们塞进比这更少的教室。</p>
+<h3 id="算法步骤">算法步骤
+</h3><ol>
+<li>把每个活动的<strong>开始时间</strong>和<strong>结束时间</strong>各自拆成一个“事件”；</li>
+<li>开始事件记为 <strong>+1</strong>（多一个活动在进行），结束事件记为 <strong>-1</strong>（少一个活动在进行）；</li>
+<li>把所有事件按时间从小到大排序；</li>
+<li>从头扫到尾，维护一个计数器<code>cnt</code>，遇到 +1 就加，遇到 -1 就减；</li>
+<li>扫描过程中 <code>cnt</code> 的最大值就是最少教室数。</li>
+</ol>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>如果同一时刻既有开始又有结束，<strong>结束事件排在开始事件前面</strong>（即先 -1 后 +1）。</p>
+<p>例如，像 $[1,2)$ 在 2:00 结束、$[2,4)$ 在 2:00 开始，这两个活动不重叠：2:00 教室腾出来了，下一场刚好接着用。如果结束不优先，会把不重叠的也误判成重叠。</p>
+        </div>
+    </blockquote>
+<p>例如，对于活动 $[1, 2)$，$[2, 4)$，$[6, 7)$，$[4, 8)$，则可以拆分为8个事件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">活动 A = [1, 2)  →  开始:1 (+1),  结束:2 (-1)
+</span></span><span class="line"><span class="cl">活动 B = [2, 4)  →  开始:2 (+1),  结束:4 (-1)
+</span></span><span class="line"><span class="cl">活动 C = [6, 7)  →  开始:6 (+1),  结束:7 (-1)
+</span></span><span class="line"><span class="cl">活动 D = [4, 8)  →  开始:4 (+1),  结束:8 (-1)
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>把所有事件按时间排序（同一时刻，结束 -1 排在开始 +1 前面），从前到后扫描一遍并维护计数器<code>cnt</code>，它的最大值即为所求的结果。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">时刻 1: +1 (A 开始)      → cnt = 1       ← 最大值目前 = 1
+</span></span><span class="line"><span class="cl">时刻 2: -1 (A 结束)      → cnt = 0
+</span></span><span class="line"><span class="cl">时刻 2: +1 (B 开始)      → cnt = 1
+</span></span><span class="line"><span class="cl">时刻 4: -1 (B 结束)      → cnt = 0
+</span></span><span class="line"><span class="cl">时刻 4: +1 (D 开始)      → cnt = 1
+</span></span><span class="line"><span class="cl">时刻 6: +1 (C 开始)      → cnt = 2       ← 最大值更新为 2！
+</span></span><span class="line"><span class="cl">时刻 7: -1 (C 结束)      → cnt = 1
+</span></span><span class="line"><span class="cl">时刻 8: -1 (D 结束)      → cnt = 0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="扫描线算法" class="gallery-image" data-flex-basis="390px" data-flex-grow="162" height="916" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/other/images/%E6%89%AB%E6%8F%8F%E7%BA%BF%E7%AE%97%E6%B3%95.png" srcset="/passage/cs/algorithm/other/images/%E6%89%AB%E6%8F%8F%E7%BA%BF%E7%AE%97%E6%B3%95_hu_98ffed047243b60f.png 800w, /passage/cs/algorithm/other/images/%E6%89%AB%E6%8F%8F%E7%BA%BF%E7%AE%97%E6%B3%95.png 1492w" width="1492"></p>
+
 </section>
 
 
