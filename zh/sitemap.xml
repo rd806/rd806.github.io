@@ -6,7 +6,7 @@
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/</loc>
-    <lastmod>2026-04-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,7 @@
                 />
   </url><url>
     <loc>https://rd806.github.io/categories/</loc>
-    <lastmod>2026-04-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -32,7 +32,7 @@
                 />
   </url><url>
     <loc>https://rd806.github.io/post/</loc>
-    <lastmod>2026-04-20T00:00:00+00:00</lastmod>
+    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,6 +42,22 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://rd806.github.io/post/"
+                />
+  </url><url>
+    <loc>https://rd806.github.io/passage/cs/data-structure/dsu/</loc>
+    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rd806.github.io/categories/interesting/</loc>
+    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rd806.github.io/en/categories/interesting/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://rd806.github.io/categories/interesting/"
                 />
   </url><url>
     <loc>https://rd806.github.io/categories/exam/</loc>
@@ -97,19 +113,6 @@
   </url><url>
     <loc>https://rd806.github.io/passage/cs/algorithm/</loc>
     <lastmod>2026-03-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://rd806.github.io/categories/interesting/</loc>
-    <lastmod>2026-03-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://rd806.github.io/en/categories/interesting/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://rd806.github.io/categories/interesting/"
-                />
   </url><url>
     <loc>https://rd806.github.io/passage/cs/network/</loc>
     <lastmod>2026-01-31T00:00:00+00:00</lastmod>
@@ -291,9 +294,6 @@
   </url><url>
     <loc>https://rd806.github.io/passage/minecraft/help/</loc>
     <lastmod>2024-08-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://rd806.github.io/passage/interesting/senior_high/</loc>
-    <lastmod>2024-06-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>

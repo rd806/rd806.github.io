@@ -774,12 +774,14 @@ $$\text{ACT} = \frac{1}{n}\sum_{i=1}^{n} c_i$$<p>现要求生成一个任务序�
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 将 t[1..n] 按非递减顺序排序（从小到大）
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">t</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 将 t[1..n] 按非递减顺序排序（从小到大）
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 排序后的序列即为最优执行序列
 </span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// 计算 ACT：
+</span></span><span class="line"><span class="cl"><span class="c1">// 计算 ACT
 </span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">act</span><span class="p">(</span><span class="kt">int</span> <span class="n">t</span><span class="p">[])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">total_completion</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">current_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -788,8 +790,8 @@ $$\text{ACT} = \frac{1}{n}\sum_{i=1}^{n} c_i$$<p>现要求生成一个任务序�
 </span></span></span><span class="line"><span class="cl">        <span class="n">current_sum</span> <span class="o">=</span> <span class="n">current_sum</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="n">total_completion</span> <span class="o">=</span> <span class="n">total_completion</span> <span class="o">+</span> <span class="n">current_sum</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ACT</span> <span class="o">=</span> <span class="n">total_completion</span> <span class="o">/</span> <span class="n">n</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ACT</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ACT</span> <span class="o">=</span> <span class="n">total_completion</span> <span class="o">/</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ACT</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -805,8 +807,7 @@ $$\text{ACT} = \frac{1}{n}\sum_{i=1}^{n} c_i$$<p>现要求生成一个任务序�
 <p>算法：按重量从小到大对集装箱排序，并依次装入直到超过船的载重量。</p>
 
     <blockquote>
-        <p>证明：</p>
-<p>设货箱装船问题的最优解为 $(y_1, y_2, \cdots, y_n)$。如果最优解不含箱子1（$y_1=0$），将箱子1替换优化解中某一个箱子得到一个新的解（必须替换，因为如果箱子1还能继续装入船中，则 $(y_1, y_2, \cdots, y_n)$ 不是优化解），</p>
+        <p>证明：设货箱装船问题的最优解为 $(y_1, y_2, \cdots, y_n)$。如果最优解不含箱子1（$y_1=0$），将箱子1替换优化解中某一个箱子得到一个新的解（必须替换，因为如果箱子1还能继续装入船中，则 $(y_1, y_2, \cdots, y_n)$ 不是优化解）。</p>
 <p>由于箱子1是最轻的，所以替换后的解仍是可行的。替换后装入的箱子数仍然等于优化解的装箱数，所以它仍是优化解。</p>
 <p>经过有限次替换后，新的优化解与设想的贪心解都包含箱子1。反复替换得到一个优化解，它就是设想的贪心解。</p>
 
@@ -842,6 +843,7 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c$$<p>可用的贪心策略：</p>
 <p>算法的时间复杂度随 $k$ 的增大而增加：需要测试的子集数目为 $\mathrm{O}(n^k)$，每一个子集做贪心法需时间 $\mathrm{O} (n)$，因此当 $k&gt;0$ 时总的时间开销为 $\mathrm{O} (n^{k+1})$.</p>
 
     </blockquote>
+<p>特别地，如果允许将物品“部分”放入背包，即每种物品可以只取一部分（比如取 60%），价值也按比例计算，则完全可以按照价值密度排序后再使用贪心法求解。</p>
 <h3 id="活动安排">活动安排
 </h3><p>设有 $n$ 个活动的集合 $E=\{1,2, \cdots,n\}$，每个活动都要求<strong>互斥地</strong>使用同一资源。每个活动 $i$ 都有一个要求使用该资源的起始时间 $s_i$ 和一个结束时间 $f_i$，且 $s_i &lt;f_i$（即如果选择了活动 $i$，则它在半开时间区间 $[s_i, f_i)$ 内占用资源）。</p>
 <p>现要在所给的活动集合中选出最大的相容活动子集。</p>
@@ -885,7 +887,7 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c$$<p>可用的贪心策略：</p>
 </span></span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// s和f按结束时间的非减序排列 
 </span></span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">activity_selector</span><span class="p">(</span><span class="kt">int</span> <span class="p">[]</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="p">[]</span> <span class="n">f</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">a</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">activity_selector</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">f</span><span class="p">[],</span> <span class="kt">bool</span> <span class="n">a</span><span class="p">[])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// a[i]=true 表示第i个活动被选择。
 </span></span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
@@ -908,7 +910,7 @@ $$\sum_{i=1}^{n} w_i x_i \leqslant c$$<p>可用的贪心策略：</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>排序 $\mathrm{O} (n \log n)$，选择 $\mathrm{O} (n)$，则总复杂度：$\mathrm{O} (n \log n)$。</p>
-<p>进一步，如果需要求完成所有活动需要的最少资源数量，则可以使用<a class="link" href="/passage/algorithm/other#%e6%89%ab%e6%8f%8f%e7%ba%bf%e7%ae%97%e6%b3%95" >扫描线算法</a></p>
+<p>进一步，如果需要求完成所有活动需要的最少资源数量，则可以使用<a class="link" href="/passage/cs/algorithm/other/#%e6%89%ab%e6%8f%8f%e7%ba%bf%e7%ae%97%e6%b3%95" >扫描线算法</a></p>
 <h3 id="哈夫曼编码">哈夫曼编码
 </h3><p>前缀码：一种编码方式，其中任意一个字符的二进制代码都不是另一个字符代码的前缀。</p>
 <p>使平均码长达到最小的前缀码编码方案称为给定编码字符集C的最优前缀码。哈夫曼编码的核心目标正是通过动态分配最短二进制码（0/1组成的字符串）给不同字符，使得高频字符用更短的编码，低频字符用更长的编码，从而实现整体压缩效率的最优。</p>
@@ -964,10 +966,10 @@ $$B(T) = \sum_{c \in C} f(c) \cdot d_T(c)$$
 </h3><p>单源最短路径问题是图论中的经典问题，其目标是从一个指定的源节点出发，找到到达加权图中所有其他节点的最短路径。这里的“最短”定义为路径上所有边的权重之和最小。</p>
 <p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" >Dijkstra算法</a></p>
 <h3 id="最小生成树">最小生成树
-</h3><p>Kruskal算法</p>
-<p>贪心策略：每次选择权值 $c(e)$ 最小且与之前选择的边不成环的边 $e$。</p>
-<p>Prim算法</p>
-<p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91" >最小生成树</a></p>
+</h3><p>Kruskal算法：每次选择权值 $c(e)$ 最小且与之前选择的边不成环的边 $e$。</p>
+<p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#kruskal%e7%ae%97%e6%b3%95" >Kruskal算法</a></p>
+<p>Prim算法：从一个顶点开始，然后重复寻找连接已选择顶点和未选择顶点的最小权值的边。</p>
+<p>参见此处：<a class="link" href="/passage/cs/data-structure/graph#prim%e7%ae%97%e6%b3%95" >Prim算法</a></p>
 <h3 id="偶图覆盖">偶图覆盖
 </h3><p>偶图是图论中的一个重要概念，也称为二分图。偶图中，所有的顶点可以被分为两个不相交的集合，使得图中的每一条边都连接了这两个集合中的两个顶点。</p>
 <p>形式化定义：一个图 $G=(V,E)$ 是偶图当且仅当它的顶点集 $V$ 可以被划分为两个互不相交的子集 $(V_1, V_2)$，满足：</p>

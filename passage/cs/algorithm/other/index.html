@@ -576,7 +576,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 8 分钟
+                        阅读时长: 9 分钟
                     </time>
                 
             </div>
@@ -1170,6 +1170,13 @@ $$next[j] = \left\{\begin{matrix} 0 & j=1 \\\\ \mathrm{max}\{k | 1 < k < j 且 p
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img alt="扫描线算法" class="gallery-image" data-flex-basis="390px" data-flex-grow="162" height="916" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/algorithm/other/images/%E6%89%AB%E6%8F%8F%E7%BA%BF%E7%AE%97%E6%B3%95.png" srcset="/passage/cs/algorithm/other/images/%E6%89%AB%E6%8F%8F%E7%BA%BF%E7%AE%97%E6%B3%95_hu_98ffed047243b60f.png 800w, /passage/cs/algorithm/other/images/%E6%89%AB%E6%8F%8F%E7%BA%BF%E7%AE%97%E6%B3%95.png 1492w" width="1492"></p>
+<p>这个算法模型可以轻松适配很多类似场景：</p>
+<ul>
+<li>最多同时在线人数：给定用户的登录登出时间，求峰值在线人数。</li>
+<li>最少站台数：给定火车的到站和离站时间，求车站最少需要多少站台。</li>
+<li>重叠最大数：在数轴上，求被最多区间覆盖的点的覆盖次数（差分数组思想）。</li>
+<li>资源调度：如果有 $K$ 个资源，只需判断扫描过程中的 <code>current</code> 是否曾超过 $K$。</li>
+</ul>
 
 </section>
 
