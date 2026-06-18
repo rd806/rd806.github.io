@@ -131,6 +131,28 @@
                     </a>
                 </li>
             
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
         </ol><ol class="menu" id="main-menu">
         
         
@@ -583,8 +605,19 @@
     
     <h2 id="博客的由来">博客的由来
 </h2><p>时间回到2025年7月，因为不想频繁用搜索引擎或者AI工具查资料，就想着自己搭一个博客网站。</p>
-<p>Hugo 的 stack 主题设计了许多有意思的功能，而且结构十分严密，非常适合我这样的新手入门！</p>
+<p>Hugo 的 <a class="link" href="https://stack.cai.im/"  target="_blank" rel="noopener"
+    >stack主题</a> 设计了许多有意思的功能，而且结构十分严密，非常适合我这样的新手入门！</p>
 <p>本网站用于分享本人在技术实践时的经验总结，如有好的建议，欢迎批评指正！</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>目前网站已转型用于本人的期末速通。如果本站内容对您有所帮助，欢迎在本站的 <a class="link" href="https://github.com/rd806/rd806.github.io"  target="_blank" rel="noopener"
+    >Github仓库</a> 点一个 Star！</p>
+        </div>
+    </blockquote>
 <h2 id="更新大事记">更新大事记
 </h2>
     <blockquote>
@@ -2573,7 +2606,7 @@
 </style>
 </p>
 <div class="github-commits-wrapper">
-    <div class="github-commits-container" id="github-commits-1781707048612777000">
+    <div class="github-commits-container" id="github-commits-1781762290836995100">
         <div class="commits-loading">
             <div class="loading-spinner"></div>
             <div>加载提交记录中...</div>
@@ -2705,7 +2738,7 @@
 
 <script>
     (function() {
-        const containerId = 'github-commits-1781707048612777000';
+        const containerId = 'github-commits-1781762290836995100';
         const container = document.getElementById(containerId);
         
         const config = {
@@ -2794,7 +2827,9 @@
                                 ${avatarHtml}
                                 <span class="author-name">${escapeHtml(author.name)}</span>
                             </div>
-                            <div class="commit-date">📅 ${formatDate(author.date)}</div>
+                            <div class="commit-date">
+                                \u003csvg xmlns=\u0022http:\/\/www.w3.org\/2000\/svg\u0022 class=\u0022icon icon-tabler icon-tabler-clock\u0022 width=\u002224\u0022 height=\u002224\u0022 viewBox=\u00220 0 24 24\u0022 stroke-width=\u00222\u0022 stroke=\u0022currentColor\u0022 fill=\u0022none\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022\u003e\n  \u003cpath stroke=\u0022none\u0022 d=\u0022M0 0h24v24H0z\u0022\/\u003e\n  \u003ccircle cx=\u002212\u0022 cy=\u002212\u0022 r=\u00229\u0022 \/\u003e\n  \u003cpolyline points=\u002212 7 12 12 15 15\u0022 \/\u003e\n\u003c\/svg\u003e\n\n\n ${formatDate(author.date)}
+                            </div>
                         </div>
                         <div class="commit-message">
                             ${escapeHtml(commitData.message.split('\n')[0])}
@@ -2808,7 +2843,7 @@
             
             container.innerHTML = `
                 <div class="commits-header">
-                    📊 GitHub 提交记录
+                    \u003csvg xmlns=\u0022http:\/\/www.w3.org\/2000\/svg\u0022 class=\u0022icon icon-tabler icon-tabler-brand-github\u0022 width=\u002224\u0022 height=\u002224\u0022 viewBox=\u00220 0 24 24\u0022 stroke-width=\u00222\u0022 stroke=\u0022currentColor\u0022 fill=\u0022none\u0022 stroke-linecap=\u0022round\u0022 stroke-linejoin=\u0022round\u0022\u003e\n  \u003cpath stroke=\u0022none\u0022 d=\u0022M0 0h24v24H0z\u0022 fill=\u0022none\u0022\/\u003e\n  \u003cpath d=\u0022M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5\u0022 \/\u003e\n\u003c\/svg\u003e\n\n\n GitHub 提交记录
                     <p>${config.owner}/${config.repo} · 最近 ${commits.length} 条提交</p>
                 </div>
                 <div class="commits-list">
