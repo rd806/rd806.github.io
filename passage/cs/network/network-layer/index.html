@@ -344,6 +344,28 @@
     <li><a href="#路由器模型">路由器模型</a>
       <ol>
         <li><a href="#组成">组成</a></li>
+        <li><a href="#路由表">路由表</a></li>
+        <li><a href="#交换结构">交换结构</a></li>
+        <li><a href="#排队现象">排队现象</a></li>
+      </ol>
+    </li>
+    <li><a href="#ip协议">IP协议</a>
+      <ol>
+        <li><a href="#ipv4分类编址">IPv4分类编址</a></li>
+        <li><a href="#cidr">CIDR</a></li>
+        <li><a href="#dhcp">DHCP</a></li>
+        <li><a href="#nat">NAT</a>
+          <ol>
+            <li><a href="#nat表">NAT表</a></li>
+            <li><a href="#地址转换">地址转换</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#路由算法">路由算法</a>
+      <ol>
+        <li><a href="#链路状态路由">链路状态路由</a></li>
+        <li><a href="#距离向量路由">距离向量路由</a></li>
       </ol>
     </li>
   </ol>
@@ -554,7 +576,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 1 分钟
+                        阅读时长: 9 分钟
                     </time>
                 
             </div>
@@ -585,6 +607,28 @@
     <li><a href="#路由器模型">路由器模型</a>
       <ol>
         <li><a href="#组成">组成</a></li>
+        <li><a href="#路由表">路由表</a></li>
+        <li><a href="#交换结构">交换结构</a></li>
+        <li><a href="#排队现象">排队现象</a></li>
+      </ol>
+    </li>
+    <li><a href="#ip协议">IP协议</a>
+      <ol>
+        <li><a href="#ipv4分类编址">IPv4分类编址</a></li>
+        <li><a href="#cidr">CIDR</a></li>
+        <li><a href="#dhcp">DHCP</a></li>
+        <li><a href="#nat">NAT</a>
+          <ol>
+            <li><a href="#nat表">NAT表</a></li>
+            <li><a href="#地址转换">地址转换</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#路由算法">路由算法</a>
+      <ol>
+        <li><a href="#链路状态路由">链路状态路由</a></li>
+        <li><a href="#距离向量路由">距离向量路由</a></li>
       </ol>
     </li>
   </ol>
@@ -605,8 +649,8 @@
 <h2 id="网络层的组成">网络层的组成
 </h2><p>网络层可分为两个主要部分：</p>
 <ul>
-<li>数据平面：确定如何将到达路由器输入端口的数据报转发到路由器输出端口。</li>
-<li>控制平面：确定数据报文从源主机到目标主机的端到端路径。</li>
+<li>数据平面：确定如何将到达路由器输入端口的数据报转发到路由器输出端口，即负责“转发”。</li>
+<li>控制平面：确定数据报文从源主机到目标主机的端到端路径，即负责“路由”。</li>
 </ul>
 
     <blockquote>
@@ -648,9 +692,399 @@
 </li>
 </ul>
 <p><img alt="路由器的组成" class="gallery-image" data-flex-basis="557px" data-flex-grow="232" height="485" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90.png" srcset="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90_hu_4a30830c6e6f37c2.png 800w, /passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90.png 1126w" width="1126"></p>
-<p>路由器的输入端口可具体分为以下结构：</p>
+<p>路由器的输入和输出端口可具体分为以下结构：</p>
 <p><img alt="路由器的输入端口" class="gallery-image" data-flex-basis="548px" data-flex-grow="228" height="414" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3.png" srcset="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3_hu_70f3c8d64379d229.png 800w, /passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3.png 946w" width="946"></p>
+<p><img alt="路由器的输出端口" class="gallery-image" data-flex-basis="534px" data-flex-grow="222" height="491" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3.png" srcset="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3_hu_73ea3c1e85597975.png 800w, /passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3.png 1093w" width="1093"></p>
+<h3 id="路由表">路由表
+</h3><p>路由表是存储在路由器内的数据结构，包含了有关网络之间如何进行路由的信息。</p>
+<p>路由表包含如下信息：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>字段</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>目标网络</td>
+          <td>表示数据包要传递到的目标网络或主机</td>
+      </tr>
+      <tr>
+          <td>子网掩码</td>
+          <td>确定目标网络的范围，并使用它来匹配数据包的目标地址</td>
+      </tr>
+      <tr>
+          <td>网关</td>
+          <td>数据报转接口的 IP 地址</td>
+      </tr>
+      <tr>
+          <td>接口</td>
+          <td>指明了路由器上哪个物理或逻辑接口将被用来转发数据包</td>
+      </tr>
+      <tr>
+          <td>跳数/度量值</td>
+          <td>路由选择的一个度量标准，用来表示到达目标地址的成本。如果存在多条路由到同一个目的地，路由器通常会选择跃点数最低的路由</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>当路由器收到一个数据包时，它会提取数据包的目的IP地址，并与路由表中的条目进行比较。最长前缀匹配要求选择与目的IP地址前缀匹配最长的路由表项。</p>
 
+    <blockquote>
+        <p>可以理解为更长的前缀表示更具体的路由，因此它的优先级更高。</p>
+
+    </blockquote>
+<p>例如，如下的路由表：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>目标IP地址的范围</th>
+          <th>Link Interface</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>11001000 00010111 00010*** ********</code></td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td><code>11001000 00010111 00011000 ********</code></td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td><code>11001000 00010111 00011*** ********</code></td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>&hellip;</td>
+          <td>&hellip;</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>对于IP地址：</p>
+<ul>
+<li><code>11001000 00010111 00010110 10100001</code>，最长匹配的前缀为<code>11001000 00010111 00010110</code>，应从0口转发。</li>
+<li><code>11001000 00010111 00011000 10101010</code>，最长匹配的前缀为<code>11001000 00010111 00011</code>，应从2口转发。</li>
+</ul>
+
+    <blockquote>
+        <p>实际生产中，最长前缀匹配通常使用三元内容可寻址存储器（TCAM）进行匹配。无论表的大小如何，它都可以在一个时钟周期内检索出正确的地址。</p>
+
+    </blockquote>
+<h3 id="交换结构">交换结构
+</h3><p>路由器的交换结构能将数据包从输入链路传输到适当的输出链路。</p>
+<p>交换速率定义为数据包从输入端传输到输出端的速率，通常以输入/输出线路速率的倍数进行测量。</p>
+<p>交换结构主要有以下三种类型：内存型、总线型、互联网络型。</p>
+<p>内存型主要用于第一代路由器，实际上就是受CPU控制的、包含转发功能的小型计算机。这里数据包需要先复制到系统内存，转发速度受内存带宽限制。</p>
+<p><img alt="内存型交换结构" class="gallery-image" data-flex-basis="750px" data-flex-grow="312" height="240" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E5%86%85%E5%AD%98%E5%9E%8B%E4%BA%A4%E6%8D%A2%E7%BB%93%E6%9E%84.png" width="750"></p>
+<p>总线型结构中，数据包通过共享总线从输入端口转发到输出端口，转发速率仅受到总线带宽的限制，足以为路由器提供足够的速度。</p>
+<p><img alt="总线型交换结构" class="gallery-image" data-flex-basis="585px" data-flex-grow="244" height="250" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E6%80%BB%E7%BA%BF%E5%9E%8B%E4%BA%A4%E6%8D%A2%E7%BB%93%E6%9E%84.png" width="610"></p>
+<p>互联网络型利用了并行性：在入口时将数据包转化为固定长度的片段，通过互联结构在出口处重新组装成完整的数据包。</p>
+<p><img alt="互联网络型交换结构" class="gallery-image" data-flex-basis="282px" data-flex-grow="117" height="271" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E4%BA%92%E8%81%94%E7%BD%91%E7%BB%9C%E5%9E%8B%E4%BA%A4%E6%8D%A2%E7%BB%93%E6%9E%84.png" width="319"></p>
+<h3 id="排队现象">排队现象
+</h3><p>如果交换结构比输入端口组合慢，那么输入队列中可能会出现排队和输入缓冲区溢出，进而导致排队延迟和丢包。</p>
+<p>输入队列中，排在队首的数据包会阻止队列中其它数据包的转发。</p>
+<p><img alt="输入队列的排队" class="gallery-image" data-flex-basis="715px" data-flex-grow="298" height="319" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E8%BE%93%E5%85%A5%E9%98%9F%E5%88%97%E7%9A%84%E6%8E%92%E9%98%9F.png" srcset="/passage/cs/network/network-layer/images/%E8%BE%93%E5%85%A5%E9%98%9F%E5%88%97%E7%9A%84%E6%8E%92%E9%98%9F_hu_17f602a6ca884adb.png 800w, /passage/cs/network/network-layer/images/%E8%BE%93%E5%85%A5%E9%98%9F%E5%88%97%E7%9A%84%E6%8E%92%E9%98%9F.png 951w" width="951"></p>
+<p>输出队列中，当通过交换机的到达率超过输出线速度时会发生排队。同样，由于拥塞、缺少缓冲区等原因，数据包可能会丢失。因此输出端需要进行优先级调度。</p>
+<p>通常，优先级调度方法有以下几类：</p>
+<ul>
+<li>先来先服务（FCFS）</li>
+<li>优先级调度</li>
+<li>时间片轮转</li>
+<li>加权公平队列（WFQ）</li>
+</ul>
+<h2 id="ip协议">IP协议
+</h2><h3 id="ipv4分类编址">IPv4分类编址
+</h3><p>在互联网早期，IP地址采用了分类编址。根据IP地址的前几位将其分为 A、B、C、D、E五类。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>起始二进制</th>
+          <th>起始地址</th>
+          <th>结束地址</th>
+          <th>网络号</th>
+          <th>主机号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>A类</td>
+          <td><code>0xxx</code></td>
+          <td>1.0.0.0</td>
+          <td>126.255.255.255</td>
+          <td>8位</td>
+          <td>24位</td>
+      </tr>
+      <tr>
+          <td>B类</td>
+          <td><code>10xx</code></td>
+          <td>128.0.0.0</td>
+          <td>191.255.255.255</td>
+          <td>16位</td>
+          <td>16位</td>
+      </tr>
+      <tr>
+          <td>C类</td>
+          <td><code>110x</code></td>
+          <td>224.0.0.0</td>
+          <td>139.255.255.255</td>
+          <td>24位</td>
+          <td>8位</td>
+      </tr>
+      <tr>
+          <td>D类</td>
+          <td><code>1110</code></td>
+          <td>224.0.0.0</td>
+          <td>230.255.255.255</td>
+          <td>-</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>E类</td>
+          <td><code>1111</code></td>
+          <td>240.0.0.0</td>
+          <td>255.255.255.255</td>
+          <td>-</td>
+          <td>-</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="IPv4的分类编址" class="gallery-image" data-flex-basis="365px" data-flex-grow="152" height="473" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/IPv4%E7%9A%84%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80.png" width="721"></p>
+<p>然而，这种地址分配方式存在较大的缺陷，具体表现为：</p>
+<ul>
+<li>地址空间浪费
+<ul>
+<li>B 类地址提供 65 534 个主机位。如果一个组织只有几千台主机，其余地址就被闲置。</li>
+<li>C 类地址只能容纳 254 台主机。当组织的需求超过这一规模，却又不想使用一个庞大的 B 类地址块时，就会陷入分配困难。</li>
+</ul>
+</li>
+<li>分配不灵活
+<ul>
+<li>分类寻址的层次结构固定，无法根据实际需求进行细粒度的划分，导致大块地址被“硬切”，小块需求又常常得不到满足。</li>
+</ul>
+</li>
+</ul>
+<p>为突破这些局限，相继提出了几项关键技术：</p>
+<ul>
+<li>CIDR（无类域间路由）：通过可变长度子网掩码（VLSM）取代固定的 A/B/C 类划分，使得地址块可以按需灵活划分，大幅提升了地址利用率，并简化了路由表的汇总。</li>
+<li>NAT（网络地址转换）：在内部网络使用私有地址，通过在出入口的路由器上进行地址映射，多个终端共享同一个公网 IP，从而在一定程度上缓解了 IPv4 地址匮乏的问题。</li>
+<li>IPv6：直接扩展地址长度至 128 位，提供几乎无限的地址空间（约 $3.4 \times 10^{38}$ 个地址）。</li>
+</ul>
+<h3 id="cidr">CIDR
+</h3><p>CIDR引入了子网掩码（subnet mask）：如果一个CIDR网络的前缀长度是 $n$ 位的话，那么其子网掩码的二进制表示就是 <code>1111 ...</code>（$n$ 个 1）<code>... 0000</code>（32- $n$ 个 0）。</p>
+<p>子网掩码的作用是区分网络号和主机号：</p>
+<ul>
+<li>网络号部分：与子网掩码中 <code>1</code> 对应的比特位</li>
+<li>主机号部分：与子网掩码中 <code>0</code> 对应的比特位</li>
+</ul>
+<p>通常，子网掩码记作 <code>/x</code>，例如：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>CIDR</th>
+          <th>子网掩码</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/8</td>
+          <td>255.0.0.0</td>
+      </tr>
+      <tr>
+          <td>/16</td>
+          <td>255.255.0.0</td>
+      </tr>
+      <tr>
+          <td>/24</td>
+          <td>255.255.255.0</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>如果两个设备在同一个子网，它们可以直接通信，不用经过路由器。</p>
+<p><img alt="子网示例" class="gallery-image" data-flex-basis="295px" data-flex-grow="122" height="692" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B_hu_e3cf11492f0ed95e.png 800w, /passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B.png 851w" width="851"></p>
+<p>如何获取IP地址？</p>
+<ul>
+<li>对于网络中的主机，通常通过DHCP动态获取IP地址。</li>
+<li>对于一个接入网，则将从运营商已有的IP空间里分配一部分作为IP地址。</li>
+</ul>
+<h3 id="dhcp">DHCP
+</h3><p>DHCP即动态主机配置协议，用于自动分配IP地址和其他网络配置参数给网络设备。它具备以下特点：</p>
+<ul>
+<li>可以自动续约。</li>
+<li>允许重复使用地址。</li>
+<li>支持有线和无线连接。</li>
+</ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>DHCP 不仅返回IP地址，还会返回主机第一跳路由器的网关、DNS地址和名字、子网掩码等。</p>
+        </div>
+    </blockquote>
+<p>DHCP的流程通常包括以下步骤：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>步骤</th>
+          <th>操作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Discover</td>
+          <td>客户端通过网络广播一个<code>DHCP DISCOVER</code>消息，请求可用的网络配置信息。因为客户端还没有分配到IP地址，所以这个消息的源IP地址是 0.0.0.0，目的IP地址是 255.255.255.255</td>
+      </tr>
+      <tr>
+          <td>Offer</td>
+          <td>网络上的DHCP服务器接收到<code>DHCP DISCOVER</code>消息后，向客户端发送一个<code>DHCP OFFER</code>消息。这个消息包含了一个提供给客户端的IP地址和其他配置信息，如子网掩码、DNS服务器地址和IP地址租用期</td>
+      </tr>
+      <tr>
+          <td>Request</td>
+          <td>客户端可能会从多个DHCP服务器收到多个<code>DHCP OFFER</code>消息。客户端选择其中一个提议，并通过广播一个<code>DHCP REQUEST</code>消息来响应这个提议，通知网络中的所有DHCP服务器它接受了哪个DHCP服务器的提议</td>
+      </tr>
+      <tr>
+          <td>Acknowledgment</td>
+          <td>提供所选IP地址的DHCP服务器收到<code>DHCP REQUEST</code>消息后，会发送一个<code>DHCP ACK</code>给客户端，确认IP地址和配置信息的租约。如果由于某种原因导致该IP地址不再可用或者有其他问题，DHCP服务器可能会发送一个<code>DHCP NAK</code></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>示意图如下：</p>
+<p><img alt="DHCP的过程" class="gallery-image" data-flex-basis="405px" data-flex-grow="168" height="581" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/DHCP%E7%9A%84%E8%BF%87%E7%A8%8B.png" srcset="/passage/cs/network/network-layer/images/DHCP%E7%9A%84%E8%BF%87%E7%A8%8B_hu_3781022f4ef468dc.png 800w, /passage/cs/network/network-layer/images/DHCP%E7%9A%84%E8%BF%87%E7%A8%8B.png 981w" width="981"></p>
+<h3 id="nat">NAT
+</h3><p>NAT全称为Network Address Translation，表示网络地址转换。</p>
+<p>它的核心作用是把一个IP地址空间映射到另一个IP地址空间，常见的情形是把局域网内部的私有IP地址转换为公网IP地址（或将公网地址转换回私有地址），从而实现内部设备与外部网络的互联。</p>
+<p>使用NAT后，一个本地网络内的所有设备就可以共享同一个公网IP地址。</p>
+<p><img alt="NAT示例" class="gallery-image" data-flex-basis="738px" data-flex-grow="307" height="773" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/NAT%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/NAT%E7%A4%BA%E4%BE%8B_hu_a5a8ed5000ae9748.png 800w, /passage/cs/network/network-layer/images/NAT%E7%A4%BA%E4%BE%8B_hu_14cda5fd52f8729e.png 1600w, /passage/cs/network/network-layer/images/NAT%E7%A4%BA%E4%BE%8B.png 2377w" width="2377"></p>
+<h4 id="nat表">NAT表
+</h4><p>NAT表存储在路由器中，每个条目包含如下内容：</p>
+<ul>
+<li>内部私有IP地址：局域网中设备的私有IP地址</li>
+<li>内部端口号：发送数据包的私有网络设备所使用的端口号。</li>
+<li>外部公有IP地址：路由器在广域网（WAN）侧使用的IP地址，通常是单个IP地址，但也可能有多个。</li>
+<li>外部端口号：与内部端口号对应的，由NAT分配用于标识特定会话的公有端口号。</li>
+<li>协议类型：数据包使用的协议（如 TCP、UDP 等）。</li>
+</ul>
+<h4 id="地址转换">地址转换
+</h4><ol>
+<li>内网主机向外网发起通信，数据包首先经过NAT路由器。NAT路由器会把数据包的源IP地址和源端口替换为路由器的公网IP地址和分配的公网端口。</li>
+<li>外部主机向NAT路由器的公网IP和端口发送响应报文，NAT路由器根据之前记录的映射表，将报文的目的IP地址和目的端口改写回对应的私有IP地址和私有端口，随后将报文转发给内网的目标主机。</li>
+</ol>
+<p><img alt="NAT地址转换过程" class="gallery-image" data-flex-basis="417px" data-flex-grow="173" height="729" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/NAT%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B.png" srcset="/passage/cs/network/network-layer/images/NAT%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B_hu_6bb4ed9a6b94b891.png 800w, /passage/cs/network/network-layer/images/NAT%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B.png 1267w" width="1267"></p>
+<p>在如图所示的NAT网络中，内网主机（10.0.0.1:3345）发起通信，目标地址为128.119.40.186:80。地址转换过程如下：</p>
+<ul>
+<li>内网主机首先向NAT路由器发送数据包。
+<ul>
+<li>源地址：<code>10.0.0.1:3345</code></li>
+<li>目的地址：<code>128.119.40.186:80</code></li>
+</ul>
+</li>
+<li>NAT路由器收到数据包后，将源IP地址和源端口替换为路由器的公网IP地址和分配的公网端口，并将该映射关系写入NAT转换表中。
+<ul>
+<li>源地址：<code>138.76.29.7:5001</code></li>
+<li>目的地址：<code>128.119.40.186:80</code></li>
+</ul>
+</li>
+<li>外部主机向NAT路由器返回报文。
+<ul>
+<li>源地址：<code>128.119.40.186:80</code></li>
+<li>目的地址：<code>138.76.29.7:5001</code></li>
+</ul>
+</li>
+<li>NAT路由器将报文的目的IP地址和目的端口改写回对应的私有IP地址和私有端口，并转发给内网的目标主机。
+<ul>
+<li>源地址：<code>128.119.40.186:80</code></li>
+<li>目的地址：<code>10.0.0.1:3345</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="路由算法">路由算法
+</h2><p>路由算法的目标：通过路由器网络，确定从发送主机到接收主机成本最低、速度最快、拥堵最少的“最好”路径。</p>
+<p>路由算法可分为静态与动态、集中式与分布式。</p>
+<h3 id="链路状态路由">链路状态路由
+</h3><p>在链路状态路由（LS）中，每个路由器通过节点状态广播搜集所有节点信息，构建一致的整个网络拓扑结构。</p>
+<p>同时，每个路由器独立运行 <a class="link" href="/passage/cs/data-structure/graph#%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" >Dijkstra 最短路径算法</a> 计算路由各自计算到其它节点的最短路径，形成该节点的路由表。可用以下的伪代码描述：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Initialization: 
+</span></span><span class="line"><span class="cl">    /* 计算u到其他所有节点的最短路径 */
+</span></span><span class="line"><span class="cl">    N&#39; = {u}     
+</span></span><span class="line"><span class="cl">    for all nodes v 
+</span></span><span class="line"><span class="cl">        if v adjacent to u   /* u开始只知道到邻居的距离 */
+</span></span><span class="line"><span class="cl">            D(v) = c[u,v]      /* 不一定是最短路径  */
+</span></span><span class="line"><span class="cl">        else D(v) = ∞ 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Loop 
+</span></span><span class="line"><span class="cl">    find w not in N&#39; such that D(w) is a minimum 
+</span></span><span class="line"><span class="cl">    add w to N&#39; 
+</span></span><span class="line"><span class="cl">    update D(v) for all v adjacent to w and not in N&#39; : 
+</span></span><span class="line"><span class="cl">        D(v) = min(D(v), D(w) + c[w,v]) 
+</span></span><span class="line"><span class="cl">until all nodes in N&#39; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>例如，对于如下的网络拓扑结构：</p>
+<p><img alt="链路状态路由示例" class="gallery-image" data-flex-basis="312px" data-flex-grow="130" height="636" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B_hu_c62864c6dc4fc27f.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B.png 827w" width="827"></p>
+<p>以节点 $u$ 为例，初始时 Dijkstra 表：</p>
+<p><img alt="链路状态路由算法1" class="gallery-image" data-flex-basis="1732px" data-flex-grow="722" height="127" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951_hu_7a06b74f1151f20b.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951.png 917w" width="917"></p>
+<p>此时未加入集合 $N$ 的最近节点为 $x$，将其加入集合并更新距离：</p>
+<p><img alt="链路状态路由算法2" class="gallery-image" data-flex-basis="1417px" data-flex-grow="590" height="168" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%952.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%952_hu_6ce867b579456bc6.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%952.png 992w" width="992"></p>
+<p>接下来未加入集合 $N$ 的最近节点为 $y$，重复操作：</p>
+<p><img alt="链路状态路由算法3" class="gallery-image" data-flex-basis="1072px" data-flex-grow="447" height="221" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%953.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%953_hu_346000435a8c8102.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%953.png 988w" width="988"></p>
+<p>以此类推，可得到最终的 Dijkstra 表：</p>
+<p><img alt="链路状态路由算法4" class="gallery-image" data-flex-basis="688px" data-flex-grow="286" height="365" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%954.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%954_hu_54a38f0551dbe7d8.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%954.png 1047w" width="1047"></p>
+<p>由此可得出一棵生成树：</p>
+<p><img alt="链路状态路由的生成树" class="gallery-image" data-flex-basis="311px" data-flex-grow="129" height="615" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E7%94%9F%E6%88%90%E6%A0%91.png" width="799"></p>
+<p>据此可得转发表如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>目的节点</th>
+          <th>下一跳</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$v$</td>
+          <td>$(u,v)$</td>
+      </tr>
+      <tr>
+          <td>$x$</td>
+          <td>$(u,x)$</td>
+      </tr>
+      <tr>
+          <td>$y$</td>
+          <td>$(u,x)$</td>
+      </tr>
+      <tr>
+          <td>$w$</td>
+          <td>$(u,x)$</td>
+      </tr>
+      <tr>
+          <td>$z$</td>
+          <td>$(u,z)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="距离向量路由">距离向量路由
+</h3>
 </section>
 
 
