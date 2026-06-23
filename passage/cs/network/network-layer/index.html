@@ -365,7 +365,19 @@
     <li><a href="#路由算法">路由算法</a>
       <ol>
         <li><a href="#链路状态路由">链路状态路由</a></li>
-        <li><a href="#距离向量路由">距离向量路由</a></li>
+        <li><a href="#距离向量路由">距离向量路由</a>
+          <ol>
+            <li><a href="#距离向量">距离向量</a></li>
+            <li><a href="#距离向量算法">距离向量算法</a></li>
+            <li><a href="#消息的稳定性">消息的稳定性</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#路由协议">路由协议</a>
+      <ol>
+        <li><a href="#ospf协议">OSPF协议</a></li>
+        <li><a href="#bgp协议">BGP协议</a></li>
       </ol>
     </li>
   </ol>
@@ -576,7 +588,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 13 分钟
                     </time>
                 
             </div>
@@ -628,7 +640,19 @@
     <li><a href="#路由算法">路由算法</a>
       <ol>
         <li><a href="#链路状态路由">链路状态路由</a></li>
-        <li><a href="#距离向量路由">距离向量路由</a></li>
+        <li><a href="#距离向量路由">距离向量路由</a>
+          <ol>
+            <li><a href="#距离向量">距离向量</a></li>
+            <li><a href="#距离向量算法">距离向量算法</a></li>
+            <li><a href="#消息的稳定性">消息的稳定性</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#路由协议">路由协议</a>
+      <ol>
+        <li><a href="#ospf协议">OSPF协议</a></li>
+        <li><a href="#bgp协议">BGP协议</a></li>
       </ol>
     </li>
   </ol>
@@ -1003,6 +1027,7 @@
 <h2 id="路由算法">路由算法
 </h2><p>路由算法的目标：通过路由器网络，确定从发送主机到接收主机成本最低、速度最快、拥堵最少的“最好”路径。</p>
 <p>路由算法可分为静态与动态、集中式与分布式。</p>
+<p><img alt="路由示例" class="gallery-image" data-flex-basis="312px" data-flex-grow="130" height="636" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B_hu_c62864c6dc4fc27f.png 800w, /passage/cs/network/network-layer/images/%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B.png 827w" width="827"></p>
 <h3 id="链路状态路由">链路状态路由
 </h3><p>在链路状态路由（LS）中，每个路由器通过节点状态广播搜集所有节点信息，构建一致的整个网络拓扑结构。</p>
 <p>同时，每个路由器独立运行 <a class="link" href="/passage/cs/data-structure/graph#%e5%8d%95%e6%ba%90%e6%9c%80%e7%9f%ad%e8%b7%af%e5%be%84%e9%97%ae%e9%a2%98" >Dijkstra 最短路径算法</a> 计算路由各自计算到其它节点的最短路径，形成该节点的路由表。可用以下的伪代码描述：</p>
@@ -1040,9 +1065,7 @@
 </span></span><span class="line"><span class="cl">until all nodes in N&#39; 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>例如，对于如下的网络拓扑结构：</p>
-<p><img alt="链路状态路由示例" class="gallery-image" data-flex-basis="312px" data-flex-grow="130" height="636" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B_hu_c62864c6dc4fc27f.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%A4%BA%E4%BE%8B.png 827w" width="827"></p>
-<p>以节点 $u$ 为例，初始时 Dijkstra 表：</p>
+</div><p>例如，对于上述的网络拓扑结构，以节点 $u$ 为例，初始时 Dijkstra 表：</p>
 <p><img alt="链路状态路由算法1" class="gallery-image" data-flex-basis="1732px" data-flex-grow="722" height="127" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951_hu_7a06b74f1151f20b.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951.png 917w" width="917"></p>
 <p>此时未加入集合 $N$ 的最近节点为 $x$，将其加入集合并更新距离：</p>
 <p><img alt="链路状态路由算法2" class="gallery-image" data-flex-basis="1417px" data-flex-grow="590" height="168" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%952.png" srcset="/passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%952_hu_6ce867b579456bc6.png 800w, /passage/cs/network/network-layer/images/%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%952.png 992w" width="992"></p>
@@ -1079,12 +1102,155 @@
       </tr>
       <tr>
           <td>$z$</td>
-          <td>$(u,z)$</td>
+          <td>$(u,x)$</td>
       </tr>
   </tbody>
 </table></div>
 <h3 id="距离向量路由">距离向量路由
-</h3>
+</h3><p>距离向量路由使用 Bellman-Ford 算法，核心思想是动态规划。</p>
+<h4 id="距离向量">距离向量
+</h4><p>距离向量（Distance Vector）可以表示为一个列表，其中每个条目包含以下信息：</p>
+<ul>
+<li>目标网络：目标网络或子网的地址。</li>
+<li>跳数/度量值（常记作<code>Metric</code>）：从当前路由器到达目标网络的代价，通常以跳数、延迟、带宽等度量标准表示。</li>
+<li>下一跳：到达目标网络的下一跳路由器的地址。</li>
+</ul>
+<p>例如，下面就是一个简单的距离向量示例：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>目标网络</th>
+          <th>跳数</th>
+          <th>下一跳</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>192.168.1.0/24</td>
+          <td>0</td>
+          <td>A</td>
+      </tr>
+      <tr>
+          <td>192.168.2.0/24</td>
+          <td>1</td>
+          <td>B</td>
+      </tr>
+      <tr>
+          <td>192.168.3.0/24</td>
+          <td>1</td>
+          <td>C</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="距离向量算法">距离向量算法
+</h4><p>设 $D_x(y)$ 表示 $x$ 到 $y$ 的最短路径，$v$ 为中间节点，则有以下状态转移方程：</p>
+$$D_x(y) = \min\{c_{x,v} + D_v(y)\}$$<p> 即 自己到达目的节点的最短距离 = 所有自己的邻居到达目的节点最短距离和自己与之距离之和的最小值。</p>
+<p>例如，在上述的网络拓扑结构中，$u$ 的邻居有 $v, x, w$，则 $u$ 到 $z$ 的最短路径可表示为 </p>
+$$\begin{align*} D_u(z) &= \min\{c_{u,v} + D_v(z), c_{u,x} + D_x(z), c_{u,w} + D_w(z)\} \\ &= \min\{2+5, 1+3, 5+3\} \\ &= 4 \end{align*}$$<p>路由器在实际工作中，通过周期性地与相邻路由器交换距离向量信息，每个路由器能够逐渐获得整个网络的拓扑信息，并更新其路由表以选择最佳路径。工作流程如下：</p>
+<ul>
+<li>初始化：每个路由器初始化各自的距离向量，只包含自己的邻居，距离（跳数）设为 0。</li>
+<li>周期性更新：每个路由器周期性地（例如每30s）将它的距离向量广播给所有相邻的路由器。</li>
+<li>接收和更新：每个路由器接收到相邻路由器的距离向量后，检查是否有新的或更短的路径。如果有，则更新自己的距离向量和路由表。</li>
+<li>收敛：经过多次交换和更新后，所有路由器的距离向量和路由表最终会收敛到最优路径。</li>
+</ul>
+<p>例如，在如下的网络拓扑中，</p>
+<p><img alt="距离向量路由算法1" class="gallery-image" data-flex-basis="278px" data-flex-grow="115" height="738" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951.png" srcset="/passage/cs/network/network-layer/images/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951_hu_9d785851cf94935.png 800w, /passage/cs/network/network-layer/images/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%951.png 856w" width="856"></p>
+<h4 id="消息的稳定性">消息的稳定性
+</h4><p>在距离向量路由算法中，好消息会很快稳定下来。坏消息稳定需要的时间较长。</p>
+<p>例如，在如图所示的结构中，$x$ 和 $y$ 之间的成本突然从 $4$ 增加到 $60$：</p>
+<p><img alt="坏消息传得慢" class="gallery-image" data-flex-basis="261px" data-flex-grow="108" height="444" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E5%9D%8F%E6%B6%88%E6%81%AF%E4%BC%A0%E5%BE%97%E6%85%A2.png" width="483"></p>
+<p>这将经历如下过程：</p>
+<ul>
+<li>$y$ 发现到 $x$ 的距离变成了 $60$，但是 $z$ 报告 $y$ 它到 $x$ 的距离为 $5$（实际上是经过 $y$ 到 $x$），因此 $y$ 更新到 $x$ 的距离为 $6$。</li>
+<li>$z$ 收到 $y$ 到 $x$ 的距离变成了 $6$，又更新 $z$ 到 $x$ 的距离为 $7$。</li>
+<li>$y$ 只知道 $z$ 到 $x$ 的距离变成了 $7$，又继续更新 $y$ 到 $x$ 的距离为 $8$。</li>
+<li>这个循环将一直重复，直到 $z$ 发现直接从 $z$ 到 $x$ 成本更低才结束。</li>
+</ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>也就是说，$y$ 不知道“我从 $z$ 学到的这条路径，实际上也是绕了一圈又回到我这里”。</p>
+        </div>
+    </blockquote>
+<h2 id="路由协议">路由协议
+</h2><p>确定了路由算法后，还需要确定路由协议。路由协议是一种用于路由器之间交换网络路由信息的通信规则。它的主要作用是让路由器能够自动学习和维护到达各个目的网络的路径，从而实现数据包的正确转发。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>自治系统（AS，Autonomous System）是由一个或多个网络组成的集合，这些网络在统一的管理和策略控制下运行，并对外表现为一个单一的路由实体。</p>
+<p>一个自治系统内可能存在域内路由和域间路由。</p>
+<ul>
+<li>同一个域内的路由器运行相同的路由协议。</li>
+<li>不同域内的路由器有不同的路由协议。</li>
+<li>不同的域之间通过网关路由器连接。</li>
+</ul>
+<p>每个域运行的域间路由必须学习哪些目的地可以通过哪些域是可达的，并且把可达性在本域内进行广播。</p>
+        </div>
+    </blockquote>
+<p>路由协议根据其使用范围的不同，可以分为两大类：</p>
+<ul>
+<li>内部网关协议（IGP，Interior Gateway Protocol）：在单个组织或自治系统（AS）内部使用的路由协议，常见的IGP协议包括RIP和OSPF。这些协议的主要作用是在一个组织的网络内部传播和更新路由信息，以实现高效的网络通信。</li>
+<li>外部网关协议（EGP，Exterior Gateway Protocol）：在不同组织或不同自治系统之间交换路由信息。唯一广泛使用的EGP协议是BGP。BGP的设计初衷是为了控制跨组织网络之间的路由信息传递，从而实现 自治系统之间的互联和路径控制。</li>
+</ul>
+<h3 id="ospf协议">OSPF协议
+</h3><p>OSPF（Open Shortest Path First）是一种基于 <strong>链路状态</strong> 的内部网关协议（IGP），广泛应用于中大型网络中。它具有以下特点：</p>
+<ul>
+<li>每个路由器向整个自治系统中的所有其他路由器发送 OSPF链路状态通告（直接通过IP，而不是使用TCP/UDP）。</li>
+<li>链路的成本指标包括带宽和延迟等。</li>
+<li>每个路由器都有该自治系统完整的拓扑结构，并使用Dijkstra算法（链路状态路由算法）计算转发表。</li>
+</ul>
+<h3 id="bgp协议">BGP协议
+</h3><p>BGP协议中，允许每个域向网络中广播自己的存在以及自己可以达到的目的地。BGP为每个AS提供了以下方法：</p>
+<ul>
+<li>eBGP：从相邻的域获取子网可达性信息</li>
+<li>iBGP：将可达性信息传播到所有AS内部的路由器。</li>
+</ul>
+<p><img alt="BGP示例" class="gallery-image" data-flex-basis="424px" data-flex-grow="176" height="533" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/BGP%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/BGP%E7%A4%BA%E4%BE%8B_hu_5fa4d436d69d2d.png 800w, /passage/cs/network/network-layer/images/BGP%E7%A4%BA%E4%BE%8B.png 943w" width="943"></p>
+<p>每个AS内部可以有多个BGP路由器，但对外通常由一个或多个“BGP 发言人”代表整个AS与其他AS进行路由信息的交换。</p>
+
+    <blockquote>
+        <p>“BGP 发言人” 需要同时运行eBGP和iBGP。</p>
+
+    </blockquote>
+<p>BGP发言人之间通过 <strong>TCP连接</strong> 建立BGP会话，并交换BGP通告路由。该路由信息包含前缀及其路径属性：</p>
+<ul>
+<li>前缀：正在通告的目的地</li>
+<li>两个重要属性：
+<ul>
+<li>AS-PATH：前缀广告通过的AS列表</li>
+<li>NEXT-HOP：表示下一跳AS的特定内部AS路由器</li>
+</ul>
+</li>
+<li>BGP消息：
+<ul>
+<li>OPEN：打开与远程BGP对等端的TCP连接，并对发送BGP对等端进行身份验证</li>
+<li>UPDATE：通告新路径（或撤回旧路径）</li>
+<li>KEEPALIVE：在没有更新的情况下保持连接活力；还确认OPEN请求</li>
+<li>NOTIFICATION：报告之前消息中的错误，也用于关闭连接</li>
+</ul>
+</li>
+</ul>
+<p>每个AS在接收到路径信息后，可以根据自身策略决定：</p>
+<ul>
+<li>是否接受该路由</li>
+<li>是否将其传播给其他邻居</li>
+<li>是否作为本地的最佳路径使用</li>
+</ul>
+<p>例如，在如下的网络中，</p>
+<p><img alt="BGP路径通告示例" class="gallery-image" data-flex-basis="772px" data-flex-grow="321" height="498" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/BGP%E8%B7%AF%E5%BE%84%E9%80%9A%E5%91%8A%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/BGP%E8%B7%AF%E5%BE%84%E9%80%9A%E5%91%8A%E7%A4%BA%E4%BE%8B_hu_b5efa17a74dc718f.png 800w, /passage/cs/network/network-layer/images/BGP%E8%B7%AF%E5%BE%84%E9%80%9A%E5%91%8A%E7%A4%BA%E4%BE%8B_hu_b11be16af49ed664.png 1600w, /passage/cs/network/network-layer/images/BGP%E8%B7%AF%E5%BE%84%E9%80%9A%E5%91%8A%E7%A4%BA%E4%BE%8B.png 1602w" width="1602"></p>
+<p>$AS2$ 的路由器 $2c$ 通过 eBGP 接收到了来自 $AS3$ 中路由器 $3a$ 的通告 $(AS3, X)$。表明 $3a$ 承诺将为 $AS2$ 转发所有发往 $X$ 的数据包。</p>
+<p>同时，基于 $AS2$ 的策略，它的发言人 $2c$ 接受了 $(AS3, X)$，并通过 iBGP 广播到$AS2$ 中所有的路由器。此外，$AS2$ 的另一个发言人 $2a$ 通过 eBGP 将通告 $(AS2,AS3,X)$ 发送到 $AS1$ 的路由器 $1c$。</p>
+<p>实际上，“发言人”可能会收到多个BGP通告。例如图中的路由器 $1c$ 就收到了来自 $2a$ 的 $(AS2, AS3, X)$ 和 $3a$ 的 $(AS3, X)$。此时 $1c$ 将根据所在自治系统的策略选择合适的一个。</p>
+<p>热土豆策略：路由器总是选择域内成本最低的本地网关而不考虑域间成本。</p>
+<p><img alt="热土豆策略" class="gallery-image" data-flex-basis="528px" data-flex-grow="220" height="408" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E7%83%AD%E5%9C%9F%E8%B1%86%E7%AD%96%E7%95%A5.png" srcset="/passage/cs/network/network-layer/images/%E7%83%AD%E5%9C%9F%E8%B1%86%E7%AD%96%E7%95%A5_hu_a08df9b39a145faf.png 800w, /passage/cs/network/network-layer/images/%E7%83%AD%E5%9C%9F%E8%B1%86%E7%AD%96%E7%95%A5.png 899w" width="899"></p>
+<p>例如，上图的 $2d$ 学习到它可以通过 $2a$ 或者 $2c$ 到达 $X$。实际中，$2d$ 选择了 $2a$，因为 $2d$ 和 $2a$ 之间的成本更低。</p>
+
 </section>
 
 
@@ -1281,6 +1447,7 @@
     }
 </script>
 
+    
 
             </main>
         </div>
