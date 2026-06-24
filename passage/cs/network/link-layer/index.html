@@ -344,8 +344,29 @@
       <ol>
         <li><a href="#信道划分">信道划分</a></li>
         <li><a href="#aloha协议">ALOHA协议</a></li>
+        <li><a href="#csma协议">CSMA协议</a>
+          <ol>
+            <li><a href="#csmacd协议">CSMA/CD协议</a></li>
+            <li><a href="#csmaca协议">CSMA/CA协议</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
+    <li><a href="#局域网">局域网</a>
+      <ol>
+        <li><a href="#mac地址">MAC地址</a></li>
+        <li><a href="#arp协议">ARP协议</a></li>
+        <li><a href="#局域网的数据传输">局域网的数据传输</a></li>
+        <li><a href="#以太网">以太网</a></li>
+      </ol>
+    </li>
+    <li><a href="#交换机">交换机</a>
+      <ol>
+        <li><a href="#转发表">转发表</a></li>
+        <li><a href="#交换过程">交换过程</a></li>
+      </ol>
+    </li>
+    <li><a href="#vlan">VLAN</a></li>
   </ol>
 </nav>
         </div>
@@ -554,7 +575,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 1 分钟
+                        阅读时长: 10 分钟
                     </time>
                 
             </div>
@@ -585,8 +606,29 @@
       <ol>
         <li><a href="#信道划分">信道划分</a></li>
         <li><a href="#aloha协议">ALOHA协议</a></li>
+        <li><a href="#csma协议">CSMA协议</a>
+          <ol>
+            <li><a href="#csmacd协议">CSMA/CD协议</a></li>
+            <li><a href="#csmaca协议">CSMA/CA协议</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
+    <li><a href="#局域网">局域网</a>
+      <ol>
+        <li><a href="#mac地址">MAC地址</a></li>
+        <li><a href="#arp协议">ARP协议</a></li>
+        <li><a href="#局域网的数据传输">局域网的数据传输</a></li>
+        <li><a href="#以太网">以太网</a></li>
+      </ol>
+    </li>
+    <li><a href="#交换机">交换机</a>
+      <ol>
+        <li><a href="#转发表">转发表</a></li>
+        <li><a href="#交换过程">交换过程</a></li>
+      </ol>
+    </li>
+    <li><a href="#vlan">VLAN</a></li>
   </ol>
 
             </nav>
@@ -611,7 +653,300 @@
 <h3 id="aloha协议">ALOHA协议
 </h3><p>ALOHA协议是一种早期开发的 <strong>随机访问协议</strong>，用于在共享信道上传输数据。可分为纯 ALOHA 和时隙 ALOHA。</p>
 <p>纯 ALOHA （Pure ALOHA）是一种简单、无同步机制的协议。允许用户在 任意时刻 发送数据包，而无需对时间进行任何同步或分时。</p>
+
+    <blockquote>
+        <p>也就是说，若数据包的接收需要 $1$ 个单位时间，则在 $t_0$ 时刻发送的数据包会与 $[t_0-1,t_0+1]$ 时间段内发送的冲突。</p>
+<p>纯 ALOHA 的效率只有 18%。</p>
+
+    </blockquote>
 <p>时隙 ALOHA（Slotted ALOHA）在纯 ALOHA 的基础上引入了时间同步，将时间划分为一系列等长的时隙。用户只能在时隙的开始发送数据包。</p>
+<p>如果多个用户在同一时隙发送数据包，发生了冲突，相关用户等待随机时间后重传。</p>
+<p><img alt="时隙ALOHA示例" class="gallery-image" data-flex-basis="843px" data-flex-grow="351" height="272" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E6%97%B6%E9%9A%99ALOHA%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/link-layer/images/%E6%97%B6%E9%9A%99ALOHA%E7%A4%BA%E4%BE%8B_hu_e831423d647ddcf8.png 800w, /passage/cs/network/link-layer/images/%E6%97%B6%E9%9A%99ALOHA%E7%A4%BA%E4%BE%8B.png 956w" width="956"></p>
+<p>时隙ALOHA的优势：</p>
+<ul>
+<li>单个数据包可以以信道的全速率连续传输。</li>
+<li>高度去中心化：只有节点中的插槽需要同步。</li>
+<li>简单易实现。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>空闲时隙的数量较多。</li>
+<li>需要时钟同步。</li>
+</ul>
+<h3 id="csma协议">CSMA协议
+</h3><p>CSMA（Carrier Sense Multiple Access）含义为载波监听多路访问，它包含两个方面的内容：</p>
+<ul>
+<li>载波监听（Carrier Sense）：在发送数据前，必须确定当前通信介质中没有其他设备正在发送数据。载波监听就是监听信道当在前位置是否可以传输数据。</li>
+<li>多路访问（Multiple Access）：多个设备可以访问同一个通信介质，意味着在任何给定时间，任何设备都可以尝试发送数据。</li>
+</ul>
+<p>简单的CSMA协议，只实现传输前先监听：</p>
+<ul>
+<li>如果信道检测到空闲：传输整个数据帧。</li>
+<li>如果通道检测到繁忙：延迟传输。</li>
+</ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>这意味着：即使开启载波监听，仍可能发生碰撞。因为<strong>传播延迟</strong>的存在意味着两个节点可能无法听到彼此刚刚开始的传输信息。如果发生碰撞，整个数据包传输的时间将被浪费。</p>
+<p>距离和传播延迟的大小决定了碰撞的频率。</p>
+        </div>
+    </blockquote>
+<p><img alt="CSMA中的碰撞" class="gallery-image" data-flex-basis="199px" data-flex-grow="82" height="898" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/CSMA%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E.png" width="745"></p>
+<h4 id="csmacd协议">CSMA/CD协议
+</h4><p>CSMA/CD比CSMA多出一个CD（Collision Detection，碰撞检测）的功能。</p>
+<p><img alt="CSMA/CD的碰撞检测" class="gallery-image" data-flex-basis="281px" data-flex-grow="117" height="644" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E6%A3%80%E6%B5%8B.png" width="755"></p>
+<p>以太网中，CSMA/CD的工作流程如下：</p>
+<ul>
+<li>准备发送：适配器从网络层获得一个分组，封装成帧，放入网络适配器缓存准备发送。</li>
+<li>检测信道：监听信道是否空闲，若信道空闲，则开始发送该帧；若信道忙，则持续检测直至信道空闲。</li>
+<li>发送过程中，适配器仍然持续检测信道。这里只有如下两种可能：
+<ul>
+<li>发送成功：在争用期内一直未检测到冲突，该帧肯定能发送成功。</li>
+<li>发送失败：在争用期内检测到冲突，此时立即停止发送，并且广播碰撞通知信号。接着适配器执行 <strong>指数退避算法</strong>，等待一段随机时间后返回到步骤 2。若重传 16 次仍不能成功，则停止重传并向上报错。</li>
+</ul>
+</li>
+</ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>指数退避算法通过动态调整等待时间，减少连续冲突的概率，提高网络效率。</p>
+<p>它的核心思想是当冲突发生时，设备随机选择一个等待时间，并在每次冲突后成倍增加等待时间范围，以降低后续冲突的可能性。</p>
+<p>如果是第 $k$ 次重传，则从 </p>
+$$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时间槽的长度为一个基本单位（在以太网中为 51.2 微妙），之后网络适配器将等待 $k$ 倍的基本单位时间再尝试重传。</p>
+        </div>
+    </blockquote>
+<p>CSMA/CD在早期以太网类型的LAN（局域网）中被广泛应用。随着交换机技术的发展，目前已很少被使用。</p>
+<h4 id="csmaca协议">CSMA/CA协议
+</h4><p>在无线局域网中，不能使用 CSMA/CD 协议，因为：</p>
+<ul>
+<li>无线设备不能同时“听”和“说”：无线收发器在发送数据时，无法同时监听信道来判断是否发生碰撞。</li>
+<li>信道干扰和损失：无线信号受环境干扰更大，误判空闲或碰撞的概率更高，信号极易损失。</li>
+<li>碰撞检测复杂：存在“隐藏节点”现象。</li>
+</ul>
+
+    <blockquote>
+        <p>隐藏节点现象：</p>
+<p>假设 $A$ 和 $C$ 两台无线设备都想给 $B$ 发送数据，但 $A$ 和 $C$ 彼此“看不到”，只看到 $B$ 是空闲的。结果就是 $A$ 和 $C$ 同时给 $B$ 发送，发生碰撞，但它们却以为没事。</p>
+
+    </blockquote>
+<p>为此，无线局域网使用 CSMA/CA 协议，它对 CSMA/CD 协议进行修改，将冲突检测改为冲突避免（Collision Avoidance，CA）。</p>
+
+    <blockquote>
+        <p>“冲突避免” 并不是指协议可以完全避免冲突，而是指协议的设计要尽量降低冲突发生的概率。</p>
+
+    </blockquote>
+<p>CSMA/CA 的流程如下：</p>
+<ul>
+<li>对于发送方：
+<ul>
+<li>若信道空闲超过特定时间（DIFS，分布式帧间间隔），设备可发送 RTS 帧，通知其他设备其传输意图及所需时间。</li>
+<li>若信道忙则触发随机退避：在侦听到信道空闲后开始倒计时，倒计时结束传输数据。若仍未收到ACK，则增加退避窗口，重新进入退避监听状态。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="随机退避" class="gallery-image" data-flex-basis="1287px" data-flex-grow="536" height="339" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF.png" srcset="/passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF_hu_955ad3680382cae5.png 800w, /passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF_hu_1545d069ada6a3bf.png 1600w, /passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF.png 1818w" width="1818"></p>
+<ul>
+<li>对于接收方：
+<ul>
+<li>接收设备在确认信道空闲后（等待 SIFS，短帧间间隔），回复 CTS 帧，确认传输许可并通知附近设备保持沉默。</li>
+<li>接收设备成功接收数据后（等待 SIFS），发送 ACK 帧确认。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="一次CSMA/CA的过程" class="gallery-image" data-flex-basis="383px" data-flex-grow="159" height="672" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D.png" srcset="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D_hu_1d1da1bbb49c2f51.png 800w, /passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D.png 1073w" width="1073"></p>
+<h2 id="局域网">局域网
+</h2><h3 id="mac地址">MAC地址
+</h3><p>MAC地址，也称 LAN地址、物理地址或以太网地址，用于在本地将帧从一个接口传输到另一个物理连接的接口（即 IP 寻址意义上的同一子网）。</p>
+<p>它是一个48位的地址（适用于大多数局域网），一般直接刻录在网络适配器中，有时也可通过软件设置。例如 <code>1A-2F-BB-76-09-AD</code>。</p>
+<p><img alt="一个局域网" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="608" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91.png" srcset="/passage/cs/network/link-layer/images/%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91_hu_ffe48fa50b8b22ac.png 800w, /passage/cs/network/link-layer/images/%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91.png 953w" width="953"></p>
+
+    <blockquote>
+        <p>在一个局域网中，每个设备既有48位的MAC地址，也有32位的IP地址。</p>
+<p>MAC 地址可以在不同的局域网中使用。IP地址则要受到网络的约束，并且不同的网络中不能有相同的公网IP地址。</p>
+
+    </blockquote>
+<h3 id="arp协议">ARP协议
+</h3><p>ARP（Address Resolution Protocol，地址解析协议） 是一种在 TCP/IP 网络 中使用的协议，用于将 IP 地址转换为物理硬件地址（例如 MAC 地址）。</p>
+<p>ARP 的主要目的是确定要通过网络传输数据的目标设备的物理硬件地址，以便将数据帧正确地传送到目标设备。</p>
+<p>在计算机中存储一个ARP表，包含以下条目：</p>
+<ul>
+<li>IP地址和MAC地址的映射关系。</li>
+<li>TTL：地址映射的缓存时间。</li>
+</ul>
+<p>ARP 请求构建了 IP地址 与 MAC地址的映射关系，它主要包括以下步骤：</p>
+<ol>
+<li>广播 ARP 请求：当一台设备（主机 $A$）需要发送数据包到同一局域网内的另一台设备（主机 $B$），但它只知道目标设备的 IP 地址时，它会在本地网络上广播一个 ARP 请求。</li>
+</ol>
+
+    <blockquote>
+        <p>该 ARP 请求的目的 MAC 地址 为 <code>ff-ff-ff-ff-ff-ff-ff-ff</code>，源 MAC 地址为自己的 MAC 地址。</p>
+<p>每一台设备都会收到这个请求，但只有 IP 地址匹配请求中 IP 地址的设备会回应这个请求。</p>
+
+    </blockquote>
+<ol start="2">
+<li>
+<p>ARP 响应：当主机 $B$ 收到这个 ARP 请求 后，它会识别出请求中的 IP 地址与自己的 IP 地址 相匹配，然后向主机 $A$ 发送一个 ARP 响应。这个响应包含了主机 $B$ 的 MAC 地址，并且响应<strong>直接发送</strong>给主机 $A$ 。</p>
+</li>
+<li>
+<p>更新 ARP 缓存：主机 $A$ 收到 ARP 响应后，它会在自己的 ARP 缓存表中更新映射信息，将主机 $B$ 的 IP 地址 与其 MAC 地址关联起来。</p>
+</li>
+</ol>
+<p>主机 $A$ 现在知道了主机 $B$ 的 MAC 地址，它可以构建一个以太网帧，将数据包含在其中，并使用 $B$ 的 MAC 地址 作为目的地址发送出去。</p>
+<h3 id="局域网的数据传输">局域网的数据传输
+</h3><p>局域网的数据传输过程综合利用了IP和MAC地址。</p>
+<p><img alt="局域网的数据传输" class="gallery-image" data-flex-basis="784px" data-flex-grow="326" height="422" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93.png" srcset="/passage/cs/network/link-layer/images/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93_hu_1251609614f1eb1c.png 800w, /passage/cs/network/link-layer/images/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93.png 1379w" width="1379"></p>
+<p>考虑在如图所示的局域网中，$A$ 知道 $B$ 的 IP地址，$R$ 的 IP 与 MAC 地址。</p>
+<ul>
+<li>从 $A$ 到 $R$：
+<ul>
+<li>源MAC地址：$A$ 的MAC地址（<code>74-29-9C-E8-FF-55</code>）</li>
+<li>目标MAC地址：$R$ 的左端口MAC地址（<code>E6-E9-00-17-BB-4B</code>）</li>
+<li>源IP地址：$A$ 的IP地址（<code>111.111.111.111</code>）</li>
+<li>目的IP地址：$B$ 的IP地址（<code>222.222.222.222</code>）</li>
+</ul>
+</li>
+<li>从 $R$ 到 $B$
+<ul>
+<li>源MAC地址：$R$ 的右端口MAC地址（<code>1A-23-F9-CD-06-9B</code>）</li>
+<li>目的MAC地址：$B$ 的MAC地址（<code>49-BD-D2-C7-56-2A</code>）</li>
+<li>源IP地址：$A$ 的IP地址（<code>111.111.111.111</code>）</li>
+<li>目的IP地址：$B$ 的IP地址（<code>222.222.222.222</code>）</li>
+</ul>
+</li>
+</ul>
+
+    <blockquote>
+        <p>在局域网传输的过程中，IP地址始终不变。</p>
+
+    </blockquote>
+<h3 id="以太网">以太网
+</h3><blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>在实际的局域网应用中，几乎都是以太网形式，因此以太网基本成为了局域网的代名词。</p>
+        </div>
+    </blockquote>
+<p>以太网有集线器型和交换机型两种架构。</p>
+<ul>
+<li>集线器型：
+<ul>
+<li>内部连接所有线缆，逻辑上等同于单根总线的经典以太网。</li>
+<li>所有站都位于同一个冲突域，必须使用 CSMA/CD 协议。</li>
+</ul>
+</li>
+<li>交换机型：
+<ul>
+<li>内部通过高速背板连接所有端口。</li>
+<li>每个端口都有独立的冲突域，在全双工模式下端口可以同时收发，不需要CSMA/CD。</li>
+<li>可以实现并行传输。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="集线器与交换机型" class="gallery-image" data-flex-basis="664px" data-flex-grow="276" height="573" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9E%8B.png" srcset="/passage/cs/network/link-layer/images/%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9E%8B_hu_a63c4a50d5b57b2f.png 800w, /passage/cs/network/link-layer/images/%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9E%8B.png 1587w" width="1587"></p>
+<p>以太网帧的格式：</p>
+<p><img alt="以太网帧的格式" class="gallery-image" data-flex-basis="1404px" data-flex-grow="585" height="223" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E6%A0%BC%E5%BC%8F.png" srcset="/passage/cs/network/link-layer/images/%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E6%A0%BC%E5%BC%8F_hu_34793973bf48dd4.png 800w, /passage/cs/network/link-layer/images/%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E6%A0%BC%E5%BC%8F.png 1305w" width="1305"></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>字段</th>
+          <th>大小</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>前导码（Preamble）</td>
+          <td>7字节</td>
+          <td>由7字节交替的 <code>1</code> 和 <code>0</code> 位组成，用于同步接收方的时钟</td>
+      </tr>
+      <tr>
+          <td>帧开始分隔符（Start of Frame Delimiter, SFD）</td>
+          <td>1字节</td>
+          <td>通常为 <code>10101011</code>，标志帧的开始</td>
+      </tr>
+      <tr>
+          <td>目的地址（Destination Address）</td>
+          <td>6字节</td>
+          <td>指定帧的接收者的物理 MAC 地址</td>
+      </tr>
+      <tr>
+          <td>源地址（Source Address）</td>
+          <td>6字节</td>
+          <td>指定帧发送者的物理 MAC 地址</td>
+      </tr>
+      <tr>
+          <td>类型/长度字段（Type/Length）</td>
+          <td>2字节</td>
+          <td>如果值大于或等于 <code>0x0600</code>（1536），则表示帧携带的数据的类型（例如 IPv4、IPv6、ARP 等）；如果值小于或等于 <code>0x05DC</code>（1500），则表示数据字段的长度</td>
+      </tr>
+      <tr>
+          <td>数据和填充（Data and Padding）</td>
+          <td>46-1500字节</td>
+          <td>携带帧的有效载荷，即要传输的数据。如果数据少于 46 字节，则需要填充，确保数据字段的最小长度为 46 字节</td>
+      </tr>
+      <tr>
+          <td>帧校验序列（Frame Check Sequence, FCS）</td>
+          <td>4字节</td>
+          <td>一个循环冗余校验（CRC）值，用于错误检测。接收方计算帧的 CRC，并与这个字段进行比较，以确定帧是否在传输过程中被损坏</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>以太网连接的特点：</p>
+<ul>
+<li>无连接：发送和接收的网络适配器之间没有握手</li>
+<li>不可靠：接收方不会向发送方发送ACK或NAK</li>
+</ul>
+
+    <blockquote>
+        <p>只有当初始发送方使用更高层rdt（如TCP）时，丢弃帧中的数据才能恢复，否则丢弃的数据会丢失</p>
+
+    </blockquote>
+<ul>
+<li>以太网的MAC协议：带二进制退避的无槽CSMA/CD</li>
+</ul>
+<h2 id="交换机">交换机
+</h2><p>交换机（Switch）是局域网中用于连接设备并转发数据帧的设备。它通过分析数据帧中的 MAC 地址，将数据帧从接收端口准确转发到目标设备所在的端口。</p>
+<p>相比集线器，交换机只将数据帧发送到必要端口，避免广播到整个网络，显著降低碰撞域，提升带宽利用率和传输速度。</p>
+<p>使用交换机时，每个主机通过专用链路直连到交换机，每一个接口是一个独立冲突域。</p>
+<h3 id="转发表">转发表
+</h3><p>转发表（也称 MAC 地址表）是交换机内部维护的一张记录表，存储了网络设备的 MAC 地址 与交换机端口的对应关系，与路由表相似。每条记录通常包含以下信息：</p>
+<ul>
+<li>MAC 地址：网络设备的唯一标识。</li>
+<li>端口号：设备连接的交换机端口。</li>
+<li>有效时间等附加信息。</li>
+</ul>
+<h3 id="交换过程">交换过程
+</h3><p>交换机的交换过程依靠交换机的自主学习机制，即每收到一个帧就学习发送者到达的接口信息。一次交换过程如下：</p>
+<ul>
+<li>检查目标 MAC 地址：从数据帧的头部提取目标 MAC 地址。</li>
+<li>查询转发表：
+<ul>
+<li>命中（已学习）：如果表中有该 MAC 地址，则将帧转发到对应端口（单播）。</li>
+<li>未命中（未知 MAC）：如果表中没有记录，则交换机将帧泛洪（Flooding），即复制该帧并发送到除接收端口以外的所有端口。</li>
+</ul>
+</li>
+<li>转发数据帧：目标设备收到帧后应答，交换机会根据源 MAC 地址学习到该设备所在端口，并更新转发表。</li>
+</ul>
+<p>交换机与路由器的比较</p>
+<ul>
+<li>路由器是网络层设备，记录的是IP地址的映射关系，通过路由算法构建转发表。</li>
+<li>交换机是链路层设备，记录的是MAC地址的映射关系，通过学习和泛洪构建转发表。</li>
+</ul>
+<h2 id="vlan">VLAN
+</h2><p>VLAN（Virtual Local Area Network）指虚拟局域网。它通过逻辑划分的方式，把一个物理局域网拆分成多个独立的子网。</p>
+<p><img alt="VLAN示例" class="gallery-image" data-flex-basis="279px" data-flex-grow="116" height="585" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/VLAN%E7%A4%BA%E4%BE%8B.png" width="681"></p>
+<p>使用VLAN后，将在以太网帧中插入一个 4 字节 的标识符（插在源地址字段和类型字段之间），称为 VLAN 标签，用来指明发送该帧的计算机属于哪个虚拟局域网。插入 VLAN 标签的帧称为 802.1Q 帧。</p>
+<p><img alt="VLAN帧" class="gallery-image" data-flex-basis="559px" data-flex-grow="233" height="747" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/VLAN%E5%B8%A7.png" srcset="/passage/cs/network/link-layer/images/VLAN%E5%B8%A7_hu_6f1114f251a9bcdb.png 800w, /passage/cs/network/link-layer/images/VLAN%E5%B8%A7_hu_c553463a2f914d67.png 1600w, /passage/cs/network/link-layer/images/VLAN%E5%B8%A7.png 1742w" width="1742"></p>
+<p>两个VLAN之间的转发需要路由器连接。</p>
 
 </section>
 
