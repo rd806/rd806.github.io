@@ -709,16 +709,16 @@
 </ul>
 </li>
 </ul>
+<p>指数退避算法通过动态调整等待时间，减少连续冲突的概率，提高网络效率。它的核心思想是当冲突发生时，设备随机选择一个等待时间，并在每次冲突后成倍增加等待时间范围，以降低后续冲突的可能性。</p>
+<p>如果是第 $k$ 次重传，则节点会从 </p>
+$$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时间槽的长度为一个基本单位（在以太网中为 51.2 微妙），之后网络适配器将等待 $k$ 倍的基本单位时间再尝试重传。</p>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
             <span class="alert-title">备注</span>
         </div>
         <div class="alert-body">
-            <p>指数退避算法通过动态调整等待时间，减少连续冲突的概率，提高网络效率。</p>
-<p>它的核心思想是当冲突发生时，设备随机选择一个等待时间，并在每次冲突后成倍增加等待时间范围，以降低后续冲突的可能性。</p>
-<p>如果是第 $k$ 次重传，则从 </p>
-$$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时间槽的长度为一个基本单位（在以太网中为 51.2 微妙），之后网络适配器将等待 $k$ 倍的基本单位时间再尝试重传。</p>
+            <p>在随机选择的前提下，两个发生冲突的站点再次选择同一个延迟时间的概率极低。利用指数级扩大的随机窗口，确保总有一个站点能抢先占据信道。同时在高负载时自动降低发送频率，避免网络瘫痪。</p>
         </div>
     </blockquote>
 <p>CSMA/CD在早期以太网类型的LAN（局域网）中被广泛应用。随着交换机技术的发展，目前已很少被使用。</p>
@@ -762,7 +762,7 @@ $$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时�
 <p><img alt="一次CSMA/CA的过程" class="gallery-image" data-flex-basis="383px" data-flex-grow="159" height="672" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D.png" srcset="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D_hu_1d1da1bbb49c2f51.png 800w, /passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D.png 1073w" width="1073"></p>
 <h2 id="局域网">局域网
 </h2><h3 id="mac地址">MAC地址
-</h3><p>MAC地址，也称 LAN地址、物理地址或以太网地址，用于在本地将帧从一个接口传输到另一个物理连接的接口（即 IP 寻址意义上的同一子网）。</p>
+</h3><p>MAC地址，也称LAN地址、物理地址或以太网地址，用于在本地将帧从一个接口传输到另一个物理连接的接口（即 IP 寻址意义上的同一子网）。</p>
 <p>它是一个48位的地址（适用于大多数局域网），一般直接刻录在网络适配器中，有时也可通过软件设置。例如 <code>1A-2F-BB-76-09-AD</code>。</p>
 <p><img alt="一个局域网" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="608" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91.png" srcset="/passage/cs/network/link-layer/images/%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91_hu_ffe48fa50b8b22ac.png 800w, /passage/cs/network/link-layer/images/%E4%B8%80%E4%B8%AA%E5%B1%80%E5%9F%9F%E7%BD%91.png 953w" width="953"></p>
 
@@ -801,7 +801,7 @@ $$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时�
 <h3 id="局域网的数据传输">局域网的数据传输
 </h3><p>局域网的数据传输过程综合利用了IP和MAC地址。</p>
 <p><img alt="局域网的数据传输" class="gallery-image" data-flex-basis="784px" data-flex-grow="326" height="422" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93.png" srcset="/passage/cs/network/link-layer/images/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93_hu_1251609614f1eb1c.png 800w, /passage/cs/network/link-layer/images/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93.png 1379w" width="1379"></p>
-<p>考虑在如图所示的局域网中，$A$ 知道 $B$ 的 IP地址，$R$ 的 IP 与 MAC 地址。</p>
+<p>考虑在如图所示的局域网中，$A$ 知道 $B$ 的 IP地址、$R$ 的 IP 与 MAC 地址。</p>
 <ul>
 <li>从 $A$ 到 $R$：
 <ul>
