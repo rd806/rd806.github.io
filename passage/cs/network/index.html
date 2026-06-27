@@ -572,7 +572,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 10 分钟
                     </time>
                 
             </div>
@@ -872,28 +872,34 @@ $$1 - P\left(X \leqslant 50\right) = 1 - \varPhi\left(\frac{X - \mu}{\sigma} \le
       <tr>
           <th>协议栈</th>
           <th>概念</th>
+          <th>协议数据单元（PDU）</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>应用层（application）</td>
           <td>支持网络应用</td>
+          <td>消息</td>
       </tr>
       <tr>
           <td>传输层（transport）</td>
           <td>进程间的数据传输</td>
+          <td>TCP 段 / UDP 数据报</td>
       </tr>
       <tr>
           <td>网络层（network）</td>
           <td>规划数据从源到目的地的路线</td>
+          <td>分组</td>
       </tr>
       <tr>
           <td>链路层（link）</td>
           <td>相邻网络结点之间的数据传输</td>
+          <td>帧</td>
       </tr>
       <tr>
           <td>物理层（physical）</td>
           <td>传输字节信息</td>
+          <td>比特</td>
       </tr>
   </tbody>
 </table></div>
@@ -970,6 +976,19 @@ $$d_{\text{nobal}} = d_{\text{proc}} + d_{\text{queue}} + d_{\text{trans}} + d_{
     </blockquote>
 <p>延迟带宽积（Bandwidth-Delay Product，BDP）：发送端发送的第一个比特即将到达终点时，发送端已经发出的字节数量，因此又称以比特为单位的链路长度，即</p>
 $$\text{BDP} = \text{传播延迟} \times \text{信道带宽}$$<p>考虑一个代表链路的圆柱形管道，其长度表示链路的传播时延，横截面积表示链路带宽，则 延迟带宽积表示该管道可以容纳的比特数量。</p>
+<p>例如，下图中两段链路的数据传输速率均为 $100\text{Mbps}$，延迟带宽积均为 $1000\text{bit}$，路由器 $R$ 需要进行存储转发。若 $H_1$ 向 $H_2$ 发送一个大小为 $1 \text{MB}$、分组长度为 $1000\text{B}$ 的文件，则从 $H_1$ 开始发送时刻起到 $H_2$ 收到文件全部数据时刻止，所需的时间可以这样考虑：</p>
+<p><img alt="文件传输示例" class="gallery-image" data-flex-basis="884px" data-flex-grow="368" height="283" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/images/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%A4%BA%E4%BE%8B_hu_35203c9f9589ac56.png 800w, /passage/cs/network/images/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%A4%BA%E4%BE%8B.png 1043w" width="1043"></p>
+<p>以该文件的最后一个 $\text{bit}$ 为参照点。当这个比特到达 $B$ 时，则可认为文件发送完毕。</p>
+<ul>
+<li>$H_1$ 推送一个比特用时（传输延迟）：
+$$t_{\text{trans}} = \frac{L}{R} = \frac{1000 \text{B}}{100 \text{Mbps}} = 0.08 \text{ms}$$将所有数据推向链路的时间：
+$$t = \frac{1 \times 8\text{Mb}}{100 \text{Mbps}} = 80 \text{ms}$$因此最后一个 $\text{bit}$ 在 $80 \text{ms}$ 时离开 $H_1$。</li>
+<li>由延迟带宽积为 $1000\text{bit}$ 可知传播延迟
+$$t_{\text{proc}} = \frac{1000 \text{bit}}{100 \text{Mbps}} = 0.01 \text{ms}$$因此最后一个 $\text{bit}$ 经过了 $0.01 \text{ms}$ 到达 $R$，即用时 $80.01 \text{ms}$。</li>
+<li>$R$ 对该文件进行存储转发，需要用时 $t_{\text{trans}}$，故最后一个 $\text{bit}$ 在 $80.09 \text{ms}$ 离开 $R$。</li>
+<li>最后从 $R$ 到 $H_2$ 仍需要一个 $t_{\text{proc}}$。因此最后一个 $\text{bit}$ 在 $80.10 \text{ms}$ 到达 $B$，文件传输完成。</li>
+</ul>
+<p>综上，文件传输用时 $80.10 \text{ms}$。</p>
 <h4 id="吞吐量">吞吐量
 </h4><p>发送端向接收端发送比特的速率，通常记作 $R$，单位为 $\text{bits/s}$</p>
 <p>若发送端到接收端有多段链路，则称限制吞吐量的链路为瓶颈链路（即吞吐量最小的链路）。</p>

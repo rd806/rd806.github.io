@@ -588,7 +588,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 13 分钟
+                        阅读时长: 14 分钟
                     </time>
                 
             </div>
@@ -908,29 +908,42 @@
       <tr>
           <th>CIDR</th>
           <th>子网掩码</th>
+          <th>支持设备数</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>/8</td>
           <td>255.0.0.0</td>
+          <td>$2^{24} - 2$</td>
       </tr>
       <tr>
           <td>/16</td>
           <td>255.255.0.0</td>
+          <td>$2^{16} - 2$</td>
       </tr>
       <tr>
           <td>/24</td>
           <td>255.255.255.0</td>
+          <td>$2^{8} - 2$</td>
       </tr>
   </tbody>
 </table></div>
-<p>如果两个设备在同一个子网，它们可以直接通信，不用经过路由器。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>对于每个子网，主机号全 <code>0</code> 的 IP 为网络地址，全 <code>1</code> 的 IP 为广播地址，不用于设备上网。</p>
+        </div>
+    </blockquote>
+<p>如果两个设备在同一个子网，它们可以直接通信，不用经过路由器转发，只需要使用 <a class="link" href="/passage/cs/network/link-layer#%e5%b1%80%e5%9f%9f%e7%bd%91%e7%9a%84%e6%95%b0%e6%8d%ae%e4%bc%a0%e8%be%93" >MAC地址</a>。</p>
 <p><img alt="子网示例" class="gallery-image" data-flex-basis="295px" data-flex-grow="122" height="692" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B_hu_e3cf11492f0ed95e.png 800w, /passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B.png 851w" width="851"></p>
 <p>如何获取IP地址？</p>
 <ul>
-<li>对于网络中的主机，通常通过DHCP动态获取IP地址。</li>
-<li>对于一个接入网，则将从运营商已有的IP空间里分配一部分作为IP地址。</li>
+<li>对于网络中的主机，通常通过 <a class="link" href="#dhcp" >DHCP</a> 动态获取 IP地址。</li>
+<li>对于一个接入网，则将从运营商已有的 IP 空间里分配一部分作为 IP地址。</li>
 </ul>
 <h3 id="dhcp">DHCP
 </h3><p>DHCP即动态主机配置协议，用于自动分配IP地址和其他网络配置参数给网络设备。它具备以下特点：</p>
@@ -959,7 +972,7 @@
   <tbody>
       <tr>
           <td>Discover</td>
-          <td>客户端通过网络广播一个<code>DHCP DISCOVER</code>消息，请求可用的网络配置信息。因为客户端还没有分配到IP地址，所以这个消息的源IP地址是 0.0.0.0，目的IP地址是 255.255.255.255</td>
+          <td>客户端通过网络广播一个<code>DHCP DISCOVER</code>消息，请求可用的网络配置信息。因为客户端还没有分配到IP地址，所以这个消息的源IP地址是 <code>0.0.0.0</code>，目的IP地址是 <code>255.255.255.255</code></td>
       </tr>
       <tr>
           <td>Offer</td>
@@ -1024,6 +1037,7 @@
 </ul>
 </li>
 </ul>
+<p>数据报经过 NAT 路由器后，如果 NAT 修改了源 IP 地址或源端口号，可能导致报文段的内容发生变化，因此校验和字段可能会被修改。</p>
 <h2 id="路由算法">路由算法
 </h2><p>路由算法的目标：通过路由器网络，确定从发送主机到接收主机成本最低、速度最快、拥堵最少的“最好”路径。</p>
 <p>路由算法可分为静态与动态、集中式与分布式。</p>

@@ -607,7 +607,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 13 分钟
+                        阅读时长: 14 分钟
                     </time>
                 
             </div>
@@ -770,6 +770,7 @@
   </tbody>
 </table></div>
 <p><img alt="UDP报文结构" class="gallery-image" data-flex-basis="217px" data-flex-grow="90" height="683" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/UDP%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84.png" width="619"></p>
+<p>使用 UDP 请求服务至少需要一个往返时间 $\text{RTT}$。</p>
 <h3 id="udp校验">UDP校验
 </h3><p>UDP校验和（<code>checksum</code>）可以检测数据在传输过程中是否发生错误。</p>
 
@@ -953,6 +954,7 @@
 </li>
 </ul>
 <p><img alt="三次握手" class="gallery-image" data-flex-basis="529px" data-flex-grow="220" height="846" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png" srcset="/passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_hu_cab718898890262b.png 800w, /passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B_hu_29d31b5061ad7655.png 1600w, /passage/cs/network/transport-layer/images/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png 1866w" width="1866"></p>
+<p>使用 TCP 请求服务至少需要2个往返时间 $2\text{RTT}$。</p>
 <h4 id="四次挥手">四次挥手
 </h4><p>第1次挥手：客户端发起关闭请求</p>
 <ul>
@@ -974,10 +976,23 @@
 <p>第4次挥手：客户端确认服务端关闭</p>
 <ul>
 <li>客户端动作： 发送 <code>ACKbit=1</code>，<code>seq=x+1</code>，<code>ACKnum=y+1</code></li>
-<li>客户端状态： <code>TIME_WAIT</code> $\rightarrow$ 等待 2 个最大报文生存时间（2×MSL）后 $\rightarrow$ <code>CLOSED</code></li>
+<li>客户端状态： <code>TIME_WAIT</code> $\rightarrow$ 等待 2 个最大报文生存时间（$2\text{MSL}$）后 $\rightarrow$ <code>CLOSED</code></li>
 <li>服务端状态： 收到 <code>ACK</code> 后 $\rightarrow$ <code>CLOSED</code></li>
 </ul>
 <p><img alt="四次挥手" class="gallery-image" data-flex-basis="417px" data-flex-grow="173" height="803" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/transport-layer/images/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png" srcset="/passage/cs/network/transport-layer/images/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B_hu_751673982e8b9f03.png 800w, /passage/cs/network/transport-layer/images/%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B.png 1397w" width="1397"></p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>第4次挥手后，主动关闭方（A）要等待 $2 \text{MSL}$ 才关闭，原因：</p>
+<ul>
+<li>保证最后的 <code>ACK</code> 能到达B：如果A直接关闭，而最后一个 <code>ACK</code> 丢失了，B会超时重传 <code>FIN</code>，但A已经关闭无法响应，导致B永远无法正常关闭。</li>
+<li>让旧报文“消亡”：防止上一次连接中的“迷路”数据包，在新建立的相同端口的连接中突然出现，造成数据错乱。</li>
+</ul>
+        </div>
+    </blockquote>
 <h3 id="滑动窗口">滑动窗口
 </h3><p>滑动窗口本质上是接收方剩余可用缓存的大小（即还能装下多少数据）。发送方必须根据接收方通告的窗口值来决定自己能发多少“未被确认”的数据。</p>
 <ul>
@@ -1010,8 +1025,8 @@ $$\text{swnd} = \min\{\text{cwnd}, \text{rwnd}\}$$<ul>
 </h4><p>序列号与确认号是TCP首部的两个字段。序列号用于记录目前已经发送了哪些数据，确认号记录哪些数据已经被接收方正确接收。</p>
 
     <blockquote>
-        <p>确认号数值上等于接收方期待的序号，即本地按照正确接收流程收到的最大数据报文序号+1。</p>
-
+        <p>确认号数值上等于接收方期待的序号，即本地按照正确接收流程收到的 </p>
+$$\text{最大数据报文序号} + 1$$
     </blockquote>
 <p>发送方与接收方的序列号与确认号交互过程：</p>
 <ul>

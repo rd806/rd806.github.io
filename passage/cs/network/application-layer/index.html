@@ -363,6 +363,12 @@
       </ol>
     </li>
     <li><a href="#p2p架构">P2P架构</a></li>
+    <li><a href="#socket编程模型">Socket编程模型</a>
+      <ol>
+        <li><a href="#udp连接">UDP连接</a></li>
+        <li><a href="#tcp连接">TCP连接</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -571,7 +577,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 5 分钟
+                        阅读时长: 6 分钟
                     </time>
                 
             </div>
@@ -621,6 +627,12 @@
       </ol>
     </li>
     <li><a href="#p2p架构">P2P架构</a></li>
+    <li><a href="#socket编程模型">Socket编程模型</a>
+      <ol>
+        <li><a href="#udp连接">UDP连接</a></li>
+        <li><a href="#tcp连接">TCP连接</a></li>
+      </ol>
+    </li>
   </ol>
 
             </nav>
@@ -631,7 +643,8 @@
     <section class="article-content">
     
     
-    <h2 id="网络应用">网络应用
+    <p>应用层处理具体的应用协议，是互联网协议最多的一层。</p>
+<h2 id="网络应用">网络应用
 </h2><p>基本运行方式：</p>
 <ul>
 <li>运行在端设备上（网络边缘）</li>
@@ -888,7 +901,67 @@
 <p>考虑一个大小为 $F$ 的文件，现在有 $N$ 个设备需要它。每个设备的上传与下载速率分别为 $u_i$ 和 $d_i$。服务端的上传速率为 $u_s$。</p>
 <p>若采用CS架构，则服务端发送所有文件副本到客户端用时为 $\displaystyle \frac{NF}{u_s}$，客户端下载文件用时为 $\frac{F}{d_{\min}}$，则总用时为 </p>
 $$D_{\text{CS}} \geqslant \max \left\{ \frac{NF}{u_s}, \frac{F}{d_{\min}} \right\}$$<p>若采用P2P架构，上传文件副本用时 $\displaystyle \frac{F}{u_s}$，系统共需要下载 $NF$ 大小的数据，取决于系统的总上传能力 $u_s + \sum u_i$。总用时为 </p>
-$$D_{\text{P2P}} \geqslant \max \left\{ \frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum u_i} \right\}$$
+$$D_{\text{P2P}} \geqslant \max \left\{ \frac{F}{u_s}, \frac{F}{d_{\min}}, \frac{NF}{u_s + \sum u_i} \right\}$$<h2 id="socket编程模型">Socket编程模型
+</h2><h3 id="udp连接">UDP连接
+</h3><p>UDP 的创建非常简单，服务端和客户端一样，只需 <code>socket()</code>。服务器若需要接收数据，则调用 <code>bind()</code> 绑定一个固定端口。</p>
+<p><img alt="UDP的socket交互过程" class="gallery-image" data-flex-basis="463px" data-flex-grow="193" height="801" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application-layer/images/UDP%E7%9A%84socket%E4%BA%A4%E4%BA%92%E8%BF%87%E7%A8%8B.png" srcset="/passage/cs/network/application-layer/images/UDP%E7%9A%84socket%E4%BA%A4%E4%BA%92%E8%BF%87%E7%A8%8B_hu_a3809fed71defcff.png 800w, /passage/cs/network/application-layer/images/UDP%E7%9A%84socket%E4%BA%A4%E4%BA%92%E8%BF%87%E7%A8%8B.png 1546w" width="1546"></p>
+<h3 id="tcp连接">TCP连接
+</h3><p>服务端：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>过程</th>
+          <th>函数</th>
+          <th>备注</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>建立连接</td>
+          <td><code>socket() -&gt; bind() -&gt; listen() -&gt; accept()</code></td>
+          <td>其中 <code>accept()</code> 会为每个新客户端生成一个专用的 <code>socket</code> 用于后续通信</td>
+      </tr>
+      <tr>
+          <td>读写数据</td>
+          <td><code>send()</code> 和 <code>recv()</code></td>
+          <td>由于 TCP 是流式协议，可能需要循环调用 <code>recv()</code> 才能读取完整消息</td>
+      </tr>
+      <tr>
+          <td>关闭连接</td>
+          <td><code>close()</code> 或 <code>shutdown()</code></td>
+          <td>断开连接</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>客户端：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>过程</th>
+          <th>函数</th>
+          <th>备注</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>建立连接</td>
+          <td><code>socket() -&gt; connect()</code></td>
+          <td>其中 <code>connect()</code> 会发起三次握手来建立 <a class="link" href="/passage/cs/network/transport-layer#tcp%e4%bc%a0%e8%be%93%e5%8d%8f%e8%ae%ae" >TCP连接</a></td>
+      </tr>
+      <tr>
+          <td>读写数据</td>
+          <td><code>send()</code> 和 <code>recv()</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>关闭连接</td>
+          <td><code>close()</code> 或 <code>shutdown()</code></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="TCP的socket交互过程" class="gallery-image" data-flex-basis="370px" data-flex-grow="154" height="855" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/application-layer/images/TCP%E7%9A%84socket%E4%BA%A4%E4%BA%92%E8%BF%87%E7%A8%8B.png" srcset="/passage/cs/network/application-layer/images/TCP%E7%9A%84socket%E4%BA%A4%E4%BA%92%E8%BF%87%E7%A8%8B_hu_9befb66244311d37.png 800w, /passage/cs/network/application-layer/images/TCP%E7%9A%84socket%E4%BA%A4%E4%BA%92%E8%BF%87%E7%A8%8B.png 1320w" width="1320"></p>
+
 </section>
 
 

@@ -575,7 +575,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 10 分钟
+                        阅读时长: 11 分钟
                     </time>
                 
             </div>
@@ -711,7 +711,12 @@
 </ul>
 <p>指数退避算法通过动态调整等待时间，减少连续冲突的概率，提高网络效率。它的核心思想是当冲突发生时，设备随机选择一个等待时间，并在每次冲突后成倍增加等待时间范围，以降低后续冲突的可能性。</p>
 <p>如果是第 $k$ 次重传，则节点会从 </p>
-$$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时间槽的长度为一个基本单位（在以太网中为 51.2 微妙），之后网络适配器将等待 $k$ 倍的基本单位时间再尝试重传。</p>
+$$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时间槽的长度为一个基本单位（在 $10 \text{BaseT}$ 以太网中为 51.2 微妙），之后网络适配器将等待 $k$ 倍的基本单位时间再尝试重传。</p>
+
+    <blockquote>
+        <p>当 $n \geqslant 10$ 或更大时，退避范围的上限固定为 1023（即 $2^{10}-1$ ）。</p>
+
+    </blockquote>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
@@ -743,21 +748,21 @@ $$[0, 2^k-1]$$<p> 的范围内随机选择等待时间槽的个数，每个时�
     </blockquote>
 <p>CSMA/CA 的流程如下：</p>
 <ul>
-<li>对于发送方：
-<ul>
-<li>若信道空闲超过特定时间（DIFS，分布式帧间间隔），设备可发送 RTS 帧，通知其他设备其传输意图及所需时间。</li>
-<li>若信道忙则触发随机退避：在侦听到信道空闲后开始倒计时，倒计时结束传输数据。若仍未收到ACK，则增加退避窗口，重新进入退避监听状态。</li>
-</ul>
-</li>
+<li>侦听信道（Carrier Sense）：设备在发送数据前侦听，判断信道是否空闲。若信道忙碌，设备进入随机退避机制，等待随机时间后再次侦听，以降低碰撞风险。</li>
 </ul>
 <p><img alt="随机退避" class="gallery-image" data-flex-basis="1287px" data-flex-grow="536" height="339" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF.png" srcset="/passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF_hu_955ad3680382cae5.png 800w, /passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF_hu_1545d069ada6a3bf.png 1600w, /passage/cs/network/link-layer/images/%E9%9A%8F%E6%9C%BA%E9%80%80%E9%81%BF.png 1818w" width="1818"></p>
 <ul>
-<li>对于接收方：
-<ul>
-<li>接收设备在确认信道空闲后（等待 SIFS，短帧间间隔），回复 CTS 帧，确认传输许可并通知附近设备保持沉默。</li>
-<li>接收设备成功接收数据后（等待 SIFS），发送 ACK 帧确认。</li>
+<li>发送请求（RTS，Request to Send）：若信道空闲超过特定时间（$\text{DIFS}$，分布式帧间间隔），发送方可发送 <code>RTS</code> 帧，通知其他设备其传输意图及所需时间。</li>
+<li>清除发送请求（CTS，Clear to Send）：接收方在确认信道空闲后（等待 $\text{SIFS}$，短帧间间隔），回复 <code>CTS</code> 帧，确认传输许可并通知附近设备保持沉默。</li>
 </ul>
-</li>
+
+    <blockquote>
+        <p><code>CTS</code> 帧增强了信道保护，有助于减少隐藏节点问题。</p>
+
+    </blockquote>
+<ul>
+<li>数据传输：发送设备收到 <code>CTS</code> 帧后，等待 $\text{SIFS}$，开始传输数据帧。其他设备通过 NAV 设置避免干扰，确保信道专用于当前传输。</li>
+<li>确认帧（ACK，Acknowledgment）：接收设备成功接收数据后，等待 $\text{SIFS}$，发送 <code>ACK</code> 帧确认。若发送端未收到 <code>ACK</code>（可能因碰撞或干扰），启动重传机制，重新执行上述步骤。</li>
 </ul>
 <p><img alt="一次CSMA/CA的过程" class="gallery-image" data-flex-basis="383px" data-flex-grow="159" height="672" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D.png" srcset="/passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D_hu_1d1da1bbb49c2f51.png 800w, /passage/cs/network/link-layer/images/%E7%A2%B0%E6%92%9E%E9%81%BF%E5%85%8D.png 1073w" width="1073"></p>
 <h2 id="局域网">局域网
