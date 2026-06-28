@@ -877,13 +877,13 @@
 <p><img alt="IPv4的分类编址" class="gallery-image" data-flex-basis="365px" data-flex-grow="152" height="473" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/IPv4%E7%9A%84%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80.png" width="721"></p>
 <p>然而，这种地址分配方式存在较大的缺陷，具体表现为：</p>
 <ul>
-<li>地址空间浪费
+<li>地址空间浪费：
 <ul>
-<li>B 类地址提供 65 534 个主机位。如果一个组织只有几千台主机，其余地址就被闲置。</li>
-<li>C 类地址只能容纳 254 台主机。当组织的需求超过这一规模，却又不想使用一个庞大的 B 类地址块时，就会陷入分配困难。</li>
+<li>B 类地址提供 <code>65534</code> 个主机位。如果一个组织只有几千台主机，其余地址就被闲置。</li>
+<li>C 类地址只能容纳 <code>254</code> 台主机。当组织的需求超过这一规模，却又不想使用一个庞大的 B 类地址块时，就会陷入分配困难。</li>
 </ul>
 </li>
-<li>分配不灵活
+<li>分配不灵活：
 <ul>
 <li>分类寻址的层次结构固定，无法根据实际需求进行细粒度的划分，导致大块地址被“硬切”，小块需求又常常得不到满足。</li>
 </ul>
@@ -891,7 +891,7 @@
 </ul>
 <p>为突破这些局限，相继提出了几项关键技术：</p>
 <ul>
-<li>CIDR（无类域间路由）：通过可变长度子网掩码（VLSM）取代固定的 A/B/C 类划分，使得地址块可以按需灵活划分，大幅提升了地址利用率，并简化了路由表的汇总。</li>
+<li>CIDR（无类域间路由）：通过可变长度子网掩码（VLSM）取代固定的分类划分，使得地址块可以按需灵活划分，大幅提升了地址利用率，并简化了路由表的汇总。</li>
 <li>NAT（网络地址转换）：在内部网络使用私有地址，通过在出入口的路由器上进行地址映射，多个终端共享同一个公网 IP，从而在一定程度上缓解了 IPv4 地址匮乏的问题。</li>
 <li>IPv6：直接扩展地址长度至 128 位，提供几乎无限的地址空间（约 $3.4 \times 10^{38}$ 个地址）。</li>
 </ul>
@@ -908,23 +908,27 @@
       <tr>
           <th>CIDR</th>
           <th>子网掩码</th>
+          <th>支持 IP 数</th>
           <th>支持设备数</th>
       </tr>
   </thead>
   <tbody>
       <tr>
           <td>/8</td>
-          <td>255.0.0.0</td>
+          <td><code>255.0.0.0</code></td>
+          <td>$2^{24}$</td>
           <td>$2^{24} - 2$</td>
       </tr>
       <tr>
           <td>/16</td>
-          <td>255.255.0.0</td>
-          <td>$2^{16} - 2$</td>
+          <td><code>255.255.0.0</code></td>
+          <td>$2^{16}$</td>
+          <td>$2^{24} - 2$</td>
       </tr>
       <tr>
           <td>/24</td>
-          <td>255.255.255.0</td>
+          <td><code>255.255.255.0</code></td>
+          <td>$2^{8}$</td>
           <td>$2^{8} - 2$</td>
       </tr>
   </tbody>
@@ -938,6 +942,7 @@
             <p>对于每个子网，主机号全 <code>0</code> 的 IP 为网络地址，全 <code>1</code> 的 IP 为广播地址，不用于设备上网。</p>
         </div>
     </blockquote>
+<p>例如，将 IP 网络 <code>123.4.4.0/22</code> 划分为规模均衡的 32 个子网：容易得知此时网络中可支持的 IP 总数为 $2^{10}$。若需要划分为规模均衡的 $32 = 2^5$ 个子网，则每个子网支持的 IP 数量应为 $\displaystyle \frac{2^{10}}{2^5} = 2^5$ 个，即每个子网的主机号应有 $5$ 位。即子网的形式为 <code>123.4.x.x/27</code>。</p>
 <p>如果两个设备在同一个子网，它们可以直接通信，不用经过路由器转发，只需要使用 <a class="link" href="/passage/cs/network/link-layer#%e5%b1%80%e5%9f%9f%e7%bd%91%e7%9a%84%e6%95%b0%e6%8d%ae%e4%bc%a0%e8%be%93" >MAC地址</a>。</p>
 <p><img alt="子网示例" class="gallery-image" data-flex-basis="295px" data-flex-grow="122" height="692" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B_hu_e3cf11492f0ed95e.png 800w, /passage/cs/network/network-layer/images/%E5%AD%90%E7%BD%91%E7%A4%BA%E4%BE%8B.png 851w" width="851"></p>
 <p>如何获取IP地址？</p>
@@ -1250,7 +1255,7 @@ $$\begin{align*} D_u(z) &= \min\{c_{u,v} + D_v(z), c_{u,x} + D_x(z), c_{u,w} + D
 </ul>
 </li>
 </ul>
-<p>每个AS在接收到路径信息后，可以根据自身策略决定：</p>
+<p>每个 AS 在接收到路径信息后，可以根据自身策略决定：</p>
 <ul>
 <li>是否接受该路由</li>
 <li>是否将其传播给其他邻居</li>
@@ -1261,7 +1266,7 @@ $$\begin{align*} D_u(z) &= \min\{c_{u,v} + D_v(z), c_{u,x} + D_x(z), c_{u,w} + D
 <p>$AS2$ 的路由器 $2c$ 通过 eBGP 接收到了来自 $AS3$ 中路由器 $3a$ 的通告 $(AS3, X)$。表明 $3a$ 承诺将为 $AS2$ 转发所有发往 $X$ 的数据包。</p>
 <p>同时，基于 $AS2$ 的策略，它的发言人 $2c$ 接受了 $(AS3, X)$，并通过 iBGP 广播到$AS2$ 中所有的路由器。此外，$AS2$ 的另一个发言人 $2a$ 通过 eBGP 将通告 $(AS2,AS3,X)$ 发送到 $AS1$ 的路由器 $1c$。</p>
 <p>实际上，“发言人”可能会收到多个BGP通告。例如图中的路由器 $1c$ 就收到了来自 $2a$ 的 $(AS2, AS3, X)$ 和 $3a$ 的 $(AS3, X)$。此时 $1c$ 将根据所在自治系统的策略选择合适的一个。</p>
-<p>热土豆策略：路由器总是选择域内成本最低的本地网关而不考虑域间成本。</p>
+<p><strong>热土豆策略</strong>：路由器总是选择域内成本最低的本地网关而不考虑域间成本。</p>
 <p><img alt="热土豆策略" class="gallery-image" data-flex-basis="528px" data-flex-grow="220" height="408" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/network-layer/images/%E7%83%AD%E5%9C%9F%E8%B1%86%E7%AD%96%E7%95%A5.png" srcset="/passage/cs/network/network-layer/images/%E7%83%AD%E5%9C%9F%E8%B1%86%E7%AD%96%E7%95%A5_hu_a08df9b39a145faf.png 800w, /passage/cs/network/network-layer/images/%E7%83%AD%E5%9C%9F%E8%B1%86%E7%AD%96%E7%95%A5.png 899w" width="899"></p>
 <p>例如，上图的 $2d$ 学习到它可以通过 $2a$ 或者 $2c$ 到达 $X$。实际中，$2d$ 选择了 $2a$，因为 $2d$ 和 $2a$ 之间的成本更低。</p>
 

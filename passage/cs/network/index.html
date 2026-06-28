@@ -351,8 +351,9 @@
         </li>
         <li><a href="#网络核心">网络核心</a>
           <ol>
-            <li><a href="#分组交换">分组交换</a></li>
             <li><a href="#电路交换">电路交换</a></li>
+            <li><a href="#报文交换">报文交换</a></li>
+            <li><a href="#分组交换">分组交换</a></li>
             <li><a href="#isp与互联网">ISP与互联网</a></li>
           </ol>
         </li>
@@ -610,8 +611,9 @@
         </li>
         <li><a href="#网络核心">网络核心</a>
           <ol>
-            <li><a href="#分组交换">分组交换</a></li>
             <li><a href="#电路交换">电路交换</a></li>
+            <li><a href="#报文交换">报文交换</a></li>
+            <li><a href="#分组交换">分组交换</a></li>
             <li><a href="#isp与互联网">ISP与互联网</a></li>
           </ol>
         </li>
@@ -800,8 +802,30 @@ $$D = \frac{L}{R}$$<h4 id="接入网">接入网
 <li>路由：规划数据包传输所需要经过的路径。</li>
 </ul>
 <p><img alt="路由器工作的基本过程" class="gallery-image" data-flex-basis="485px" data-flex-grow="202" height="326" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/%E8%B7%AF%E7%94%B1%E5%99%A8%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%87%E7%A8%8B.png" width="660"></p>
+<h4 id="电路交换">电路交换
+</h4><p>电路交换为源到目的地的“呼叫”分配并预留端到端的资源，即为收发两端分配专用的、独占的资源。</p>
+<p><img alt="电路交换" class="gallery-image" data-flex-basis="260px" data-flex-grow="108" height="713" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2.png" width="773"></p>
+
+    <blockquote>
+        <p>电路交换常用于传统的电话中。通话时，两台电话之间分配了专用的通信资源，即使没有数据传输，在挂断之前资源不会被释放。</p>
+
+    </blockquote>
+<p>电路交换中，为了更好地利用资源，出现了FDM（频分）和TDM（时分）技术。</p>
+<ul>
+<li>FDM：将电磁频率划分为多个窄频段，并为每个呼叫分配专用频段，交换时以该频段的最大速率传输。</li>
+<li>TDM：将时间划分为多个时段，并为每个呼叫周期性地分配时段，在其所属时段可以电磁波的最大速率传输。</li>
+</ul>
+<p><img alt="FDM" class="gallery-image" data-flex-basis="785px" data-flex-grow="327" height="206" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/FDM.png" width="674"> <img alt="TDM" class="gallery-image" data-flex-basis="723px" data-flex-grow="301" height="227" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/TDM.png" width="684"></p>
+<h4 id="报文交换">报文交换
+</h4><p>报文交换与分组交换类似，只不过把整个报文作为一个单元传输，节点存储并转发整个报文：</p>
+<ul>
+<li>报文发送：发送方将完整的数据消息（大小可变，可能包含文本、文件等）发送到网络中的第一个节点（通常是交换机或路由器）。</li>
+<li>存储转发：每个节点接收整个报文，存储在缓冲区，检查目标地址后，选择下一跳节点转发。报文在网络中逐跳传输，直到到达接收方。</li>
+<li>接收与处理：接收方收到完整报文后，进行处理或存储。</li>
+</ul>
+<p>报文交换主要用于早期的电报和一些数据网络中。</p>
 <h4 id="分组交换">分组交换
-</h4><p>基本原理和过程：</p>
+</h4><p>分组交换是对电路交换的改进，它的基本原理和过程如下：</p>
 <ol>
 <li>数据分割：主机将应用数据拆分成数据包。</li>
 <li>路由转发：数据包通过源到目标路径的一条链路，从一个路由器转发到下一个路由器。</li>
@@ -825,20 +849,6 @@ $$D = \frac{L}{R}$$<h4 id="接入网">接入网
     </figcaption>
 </figure>
 
-<h4 id="电路交换">电路交换
-</h4><p>为源到目的地的“呼叫”分配并预留端到端的资源，即为收发两端分配专用的、独占的资源。</p>
-<p><img alt="电路交换" class="gallery-image" data-flex-basis="260px" data-flex-grow="108" height="713" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2.png" width="773"></p>
-
-    <blockquote>
-        <p>电路交换常用于传统的电话中。通话时，两台电话之间分配了专用的通信资源，即使没有数据传输，在挂断之前资源不会被释放。</p>
-
-    </blockquote>
-<p>电路交换中，为了更好地利用资源，出现了FDM（频分）和TDM（时分）技术。</p>
-<ul>
-<li>FDM：将电磁频率划分为多个窄频段，并为每个呼叫分配专用频段，交换时以该频段的最大速率传输。</li>
-<li>TDM：将时间划分为多个时段，并为每个呼叫周期性地分配时段，在其所属时段可以电磁波的最大速率传输。</li>
-</ul>
-<p><img alt="FDM" class="gallery-image" data-flex-basis="785px" data-flex-grow="327" height="206" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/FDM.png" width="674"> <img alt="TDM" class="gallery-image" data-flex-basis="723px" data-flex-grow="301" height="227" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/network/images/TDM.png" width="684"></p>
 <p>假设 $n$ 名用户共享一条带宽为 $10 \text{Mbps}$ 的链路，每一名用户需要 $200 \text{kbps}$ 的带宽传输数据，并且每个用户仅有 $10\%$ 的时间用于传输数据，其他时间空闲。</p>
 <ul>
 <li>若使用电路交换，最多同时支持的用户数为
@@ -849,7 +859,7 @@ $$1- \sum_{i=0}^n \mathrm{C}_m^i p^i (1-p)^{m-i}$$当 $n$ 足够大时，二项�
 $$X \sim N(np, np(1-p))$$在上例中，若 $n = 120$，则 $np = 120 \times 0.1 = 12$，$np(1-p) = 10.8$，则有 50 名及以上用户同时转发数据的概率为
 $$1 - P\left(X \leqslant 50\right) = 1 - \varPhi\left(\frac{X - \mu}{\sigma} \leqslant \frac{50 - 12}{\sqrt{10.8}}\right) = 1 - \varPhi(11.87) \approx 0$$</li>
 </ul>
-<p>因此使用分组交换，最多支持的用户数可远大于 50。因为用户数峰值比50更多的情况几乎不存在。分组交换能够在容纳更多用户的同时达到和电路交换差不多的性能。</p>
+<p>因此使用分组交换，最多支持的用户数可远大于 $50$。因为用户数峰值比 $50$ 更多的情况几乎不存在。分组交换能够在容纳更多用户的同时达到和电路交换差不多的性能。</p>
 <h4 id="isp与互联网">ISP与互联网
 </h4><p>主机通过接入互联网服务提供商（ISP）连接到互联网，不同的ISP必须互相连接。由此形成复杂的网络结构。</p>
 <figure><img src="/passage/cs/network/images/ISP%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91.png" width="700"><figcaption>
@@ -907,10 +917,15 @@ $$1 - P\left(X \leqslant 50\right) = 1 - \varPhi\left(\frac{X - \mu}{\sigma} \le
 </h3><h4 id="速率与带宽">速率与带宽
 </h4><p>速率（Rate）：连接到计算机网络上的节点在数字信道上传送数据的速率，也称数据传输速率、数据率或比特率，单位为 $\text{b/s}$ 或 $\text{bit/s}$（有时也写为 $\text{bps}$ ）。</p>
 <p>当数据率较高时，可用 $\text{kb/s}$、$\text{Mb/s}$ 或 $\text{Gb/s}$ 表示。</p>
-
-    <blockquote>
-        <p>通常 $1 \text{Gbps} = 10^{3} \text{Mbps} = 10^{6} \text{kbps} = 10^{9} \text{bps}$。</p>
-
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>通常 $1 \text{Gbps} = 10^{3} \text{Mbps} = 10^{6} \text{kbps} = 10^{9} \text{bps}$。</p>
+<p>同时需要特别注意 “比特（$\text{bit}$）” 和 “字节（$\text{B}$）”的区别。$1 \text{B} = 8 \text{bit}$，常出现在文件大小和传输速率的单位换算中。</p>
+        </div>
     </blockquote>
 <p>通常把最高数据传输速率称为带宽。</p>
 
@@ -970,8 +985,7 @@ $$d_{\text{nobal}} = d_{\text{proc}} + d_{\text{queue}} + d_{\text{trans}} + d_{
             <span class="alert-title">备注</span>
         </div>
         <div class="alert-body">
-            <p>对于传输延迟，每两个节点之间都需要 $\displaystyle \frac{L}{R}$ 的时间。</p>
-<p>若中间节点不存储而直接转发，则只需要考虑首尾节点即可。</p>
+            <p>对于传输延迟，每两个节点之间都需要 $\displaystyle \frac{L}{R}$ 的时间。若中间节点不存储而直接转发，则只需要考虑首尾节点即可。</p>
         </div>
     </blockquote>
 <p>延迟带宽积（Bandwidth-Delay Product，BDP）：发送端发送的第一个比特即将到达终点时，发送端已经发出的字节数量，因此又称以比特为单位的链路长度，即</p>
@@ -990,7 +1004,7 @@ $$t_{\text{proc}} = \frac{1000 \text{bit}}{100 \text{Mbps}} = 0.01 \text{ms}$$�
 </ul>
 <p>综上，文件传输用时 $80.10 \text{ms}$。</p>
 <h4 id="吞吐量">吞吐量
-</h4><p>发送端向接收端发送比特的速率，通常记作 $R$，单位为 $\text{bits/s}$</p>
+</h4><p>发送端向接收端发送比特的速率，通常记作 $R$，单位为 $\text{bit/s}$</p>
 <p>若发送端到接收端有多段链路，则称限制吞吐量的链路为瓶颈链路（即吞吐量最小的链路）。</p>
 <h2 id="分层结构">分层结构
 </h2><p>在 ISO/OSI 参考模型中，网络一共分为7层，自下而上依次为：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层：</p>
