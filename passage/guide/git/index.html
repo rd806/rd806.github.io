@@ -341,16 +341,31 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#git简介">git简介</a>
+    <li><a href="#git简介">git简介</a></li>
+    <li><a href="#基本操作">基本操作</a>
       <ol>
-        <li><a href="#git基本概念">git基本概念</a></li>
-        <li><a href="#git基本操作">git基本操作</a></li>
+        <li><a href="#创建新仓库">创建新仓库</a></li>
+        <li><a href="#获取已有仓库">获取已有仓库</a></li>
+        <li><a href="#撤销提交记录">撤销提交记录</a>
+          <ol>
+            <li><a href="#撤销最后一次提交">撤销最后一次提交</a></li>
+            <li><a href="#已经推送到远程仓库">已经推送到远程仓库</a></li>
+            <li><a href="#撤销中间的某次提交">撤销中间的某次提交</a></li>
+          </ol>
+        </li>
         <li><a href="#变更分支">变更分支</a></li>
       </ol>
     </li>
-    <li><a href="#github使用教程">Github使用教程</a>
+    <li><a href="#github的使用">Github的使用</a>
       <ol>
         <li><a href="#添加-ssh-密钥">添加 SSH 密钥</a></li>
+        <li><a href="#链接到远程仓库">链接到远程仓库</a></li>
+        <li><a href="#更改提交邮箱">更改提交邮箱</a>
+          <ol>
+            <li><a href="#修改未来的提交">修改未来的提交</a></li>
+            <li><a href="#修改最近一次提交尚未推送">修改最近一次提交（尚未推送）</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -567,7 +582,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 3 分钟
+                        阅读时长: 4 分钟
                     </time>
                 
             </div>
@@ -594,16 +609,31 @@
             <nav class="toc-nav">
                 
   <ol>
-    <li><a href="#git简介">git简介</a>
+    <li><a href="#git简介">git简介</a></li>
+    <li><a href="#基本操作">基本操作</a>
       <ol>
-        <li><a href="#git基本概念">git基本概念</a></li>
-        <li><a href="#git基本操作">git基本操作</a></li>
+        <li><a href="#创建新仓库">创建新仓库</a></li>
+        <li><a href="#获取已有仓库">获取已有仓库</a></li>
+        <li><a href="#撤销提交记录">撤销提交记录</a>
+          <ol>
+            <li><a href="#撤销最后一次提交">撤销最后一次提交</a></li>
+            <li><a href="#已经推送到远程仓库">已经推送到远程仓库</a></li>
+            <li><a href="#撤销中间的某次提交">撤销中间的某次提交</a></li>
+          </ol>
+        </li>
         <li><a href="#变更分支">变更分支</a></li>
       </ol>
     </li>
-    <li><a href="#github使用教程">Github使用教程</a>
+    <li><a href="#github的使用">Github的使用</a>
       <ol>
         <li><a href="#添加-ssh-密钥">添加 SSH 密钥</a></li>
+        <li><a href="#链接到远程仓库">链接到远程仓库</a></li>
+        <li><a href="#更改提交邮箱">更改提交邮箱</a>
+          <ol>
+            <li><a href="#修改未来的提交">修改未来的提交</a></li>
+            <li><a href="#修改最近一次提交尚未推送">修改最近一次提交（尚未推送）</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -618,11 +648,10 @@
     
     <h2 id="git简介">git简介
 </h2><p>git 是一个开源的分布式版本控制系统（VCS），用于高效、快速地处理从小型到大型项目的所有内容管理。它由 Linus Torvalds（Linux 之父）于 2005 年创建，最初是为了更好地管理 Linux 内核开发。</p>
-<h3 id="git基本概念">git基本概念
-</h3><div class="table-wrapper"><table>
+<div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>术语</th>
+          <th>基本概念</th>
           <th>含义</th>
       </tr>
   </thead>
@@ -657,64 +686,86 @@
       </tr>
   </tbody>
 </table></div>
-<h3 id="git基本操作">git基本操作
-</h3><ol>
-<li>克隆（clone） 远程仓库到本地</li>
-</ol>
+<h2 id="基本操作">基本操作
+</h2><h3 id="创建新仓库">创建新仓库
+</h3><p>在项目目录下执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/user/repo.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>
-<p>在工作区中修改文件。</p>
-</li>
-<li>
-<p>暂存（add） 更改到暂存区</p>
-</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add .
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
-<li>提交（commit） 更改到本地仓库</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span> 
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 进入项目目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> your-project-folder
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 若提交时无文件更改</span>
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span> --allow-empty
+</span></span><span class="line"><span class="cl"><span class="c1"># 初始化Git仓库</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加所有文件到暂存区</span>
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建第一次提交</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initial commit&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="5">
-<li>推送（push） 到远程仓库</li>
-</ol>
+</div><h3 id="获取已有仓库">获取已有仓库
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 克隆远程仓库到本地 </span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/user/repo.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 暂存更改到暂存区  </span>
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提交更改到本地仓库  </span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 推送到远程仓库  </span>
+</span></span><span class="line"><span class="cl">git push 分支名
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>若提交时无文件更改，则输入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push 分支名
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git commit -m <span class="s2">&#34;描述信息&#34;</span> --allow-empty
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="6">
-<li>拉取（pull） 获取他人更新</li>
+</div>
+        </div>
+    </blockquote>
+<ol start="6">
+<li>拉取获取他人更新</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -724,11 +775,106 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull origin main
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="撤销提交记录">撤销提交记录
+</h3><p>在 Git 中撤销已提交的文件，主要看想要撤销到什么程度。以下是几种常见场景和对应的命令：</p>
+<h4 id="撤销最后一次提交">撤销最后一次提交
+</h4><p>保留修改：撤销提交，但修改的文件会保留在暂存区。适合想重新修改提交信息或补充文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset --soft HEAD~1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不保留修改:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset --hard HEAD~1
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>注意：这将会完全撤销提交，所有修改都会丢失</p>
+
+    </blockquote>
+<p>若要撤销特定文件的提交，则输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset HEAD^ -- &lt;文件路径&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>例如撤销 <code>src/main.js</code> 的最后一次提交：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset HEAD^ -- src/main.js
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </blockquote>
+<h4 id="已经推送到远程仓库">已经推送到远程仓库
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 先本地撤销</span>
+</span></span><span class="line"><span class="cl">git reset --soft HEAD~1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 强制推送（需要权限，团队协作慎用）</span>
+</span></span><span class="line"><span class="cl">git push --force origin &lt;分支名&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>更安全的方式：使用 <code>git revert</code> 保留历史记录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git revert HEAD
+</span></span><span class="line"><span class="cl">git push origin &lt;分支名&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </blockquote>
+<h4 id="撤销中间的某次提交">撤销中间的某次提交
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看提交历史找到要撤销的 commit ID</span>
+</span></span><span class="line"><span class="cl">git log --oneline
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 撤销指定提交（会生成新的撤销提交）</span>
+</span></span><span class="line"><span class="cl">git revert &lt;commit-id&gt;
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h3 id="变更分支">变更分支
 </h3><p>若更改未push到远程仓库中，默认保存在本地工作文件夹的<code>.git</code>文件夹中，此时可以对分支进行任意的修改操作。</p>
-<ol>
-<li>进入工程文件夹，在终端中输入</li>
-</ol>
+<p>进入工程文件夹，在终端中输入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -737,15 +883,12 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git log
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
-<ol start="2">
-<li>
-<p>选择需要更改的提交，复制它的ID。</p>
-</li>
-<li>
-<p>退出log，在终端中输入</p>
-</li>
-</ol>
+</div>
+    <blockquote>
+        <p>此命令可以查看当前所有提交的具体信息，包括提交时间、作者、提交ID等。可以使用键盘的“↑”、“↓”键滚动，按q键退出。</p>
+
+    </blockquote>
+<p>选择需要更改的提交，复制它的ID。然后退出log，在终端中输入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -754,11 +897,14 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git rebase -i 复制的提交ID
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这样会打开一个Nano编辑器（Linux环境下），在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。</p>
-<ol start="4">
-<li>继续提交新的更改，变更完成。</li>
-</ol>
-<p>若要更改的提交已经push到远程仓库，则只需在最后push时输入</p>
+</div><p>这样会打开一个Nano编辑器，在要删除的提交前加上<code>#</code>，然后<code>Ctrl+O</code>写入、回车、<code>Ctrl+X</code>保存。系统会自动变更分支结构。继续提交新的更改，变更完成。</p>
+<blockquote class="alert alert-warning">
+        <div class="alert-header">
+            <span class="alert-icon">⚠️</span>
+            <span class="alert-title">警告</span>
+        </div>
+        <div class="alert-body">
+            <p>若要更改的提交已经推送到远程仓库，则需要在最后push时强制变更，输入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -767,62 +913,123 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull &lt;分支名&gt; --force
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>强制变更。</p>
-
-    <blockquote>
-        <p>注意：强制变更时应保证此时没有其他人员的提交，否则会导致分支出错。</p>
-
+</div><p>注意：强制变更时应保证此时没有其他人员的提交，否则会导致分支出错。</p>
+        </div>
     </blockquote>
-<h2 id="github使用教程">Github使用教程
+<h2 id="github的使用">Github的使用
 </h2><p>Github是当前世界最大的开源网站库，使用git操作管理所有文件。</p>
 <p>注册一个Github账号后即可在Github上免费创建和使用仓库，也可以加入其他开源项目的开发。</p>
 <h3 id="添加-ssh-密钥">添加 SSH 密钥
 </h3><p>一些情况下，使用<code>git push</code>时会提示网络连接超时。这时可以尝试使用SSH协议，为你的Github账户添加 SSH 密钥。</p>
-<p>以下操作均在Linux系统下进行。</p>
-<ol>
-<li>生成SSH密钥（如果尚未生成）：</li>
-</ol>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>以下操作均在Linux系统下进行。</p>
+<p>如果是Windows系统，则需要首先安装 Git Bash，然后在 Git Bash 中执行上述操作。</p>
+        </div>
+    </blockquote>
+<p>首先生成SSH密钥（如果尚未生成）：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 引号中填写注册Github时的邮箱地址。</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 引号中填写注册Github时的邮箱地址。</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 复制公钥内容</span>
+</span></span><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
 </span></span></code></pre></td></tr></table>
 </div>
-</div><ol start="2">
-<li>将公钥添加到GitHub账户：</li>
-</ol>
-<p>复制公钥内容：</p>
+</div><p>然后将公钥添加到GitHub账户：登录GitHub，进入Settings → SSH and GPG keys → New SSH key，粘贴公钥并保存。</p>
+<h3 id="链接到远程仓库">链接到远程仓库
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 添加远程仓库</span>
+</span></span><span class="line"><span class="cl">git remote add origin &lt;repository-url&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 推送到远程</span>
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span><span class="line"><span class="cl"><span class="c1"># 或</span>
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>远程仓库链接建议使用 SSH 格式，需要更改可以使用以下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat ~/.ssh/id_rsa.pub
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 更改为 SSH 格式</span>
+</span></span><span class="line"><span class="cl">git remote set-url origin git@github.com:<span class="o">{</span>USERNAME<span class="o">}</span>/<span class="o">{</span>REPOSITORY<span class="o">}</span>.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 更改为 HTTP 格式</span>
+</span></span><span class="line"><span class="cl">git remote set-url origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/<span class="o">{</span>repository<span class="o">}</span>.git
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>登录GitHub，进入Settings → SSH and GPG keys → New SSH key，粘贴公钥并保存。</p>
-<ol start="3">
-<li>更新Git远程仓库地址为SSH格式：</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
-</span></span></code></pre></td></tr></table>
 </div>
-</div><p>替换<code>USERNAME</code>和<code>REPOSITORY</code>为你的GitHub用户名和仓库名。</p>
-
     <blockquote>
-        <p>如果是Windows系统，则需要首先安装Git Bash，然后在Git Bash中执行上述操作。</p>
+        <p>替换 <code>USERNAME</code> 和 <code>REPOSITORY</code> 为你的GitHub用户名和仓库名。</p>
 
     </blockquote>
+<h3 id="更改提交邮箱">更改提交邮箱
+</h3><p>GitHub 记录提交信息主要依据邮箱信息，必须提前在本地设置完成，提交才能被记录。</p>
+<h4 id="修改未来的提交">修改未来的提交
+</h4><p>如果只是想更改从现在开始的提交邮箱，之前的提交保持不变，那么只需修改配置：</p>
+<p>仅当前仓库：在项目目录下执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config user.email <span class="s2">&#34;你的新邮箱@example.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>全局生效：加上 <code>--global</code> 参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;你的新邮箱@example.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>验证：执行 <code>git config user.email</code> 检查是否设置成功。</p>
 
+    </blockquote>
+<h4 id="修改最近一次提交尚未推送">修改最近一次提交（尚未推送）
+</h4><p>如果刚提交完，发现邮箱错了，且还没有 push 到远程仓库，则执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit --amend --author<span class="o">=</span><span class="s2">&#34;你的新用户名 &lt;你的新邮箱@example.com&gt;&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
