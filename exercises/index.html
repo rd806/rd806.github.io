@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="壹题">
+<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="壹题">
 <meta property='og:description' content="每日一题">
 <meta property='og:url' content='https://rd806.github.io/exercises/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -473,195 +473,162 @@
 
     
 
-<!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>问答</title>
-        <style>
-             
-            .ExercisesBox {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 10px;
-                box-shadow: var(--shadow-l1);
-                box-shadow: inset 0 20px 20px var(--body-background);
-            }
-            .QuestionBox {
-                color: var(--card-text-color-main);
-                font-size: 20px;
-                font-weight: bold;
-                margin-top: 20px;
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
-            }
-            .AnswerBox {
-                color: var(--card-text-color-main);
-                margin-top: 20px; 
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
-                display: none;
-            }
 
-            .AnswerToggle {
-                display: flex;
-            }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
-            #ShowAnswer {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #HideAnswer {
-                background-color: #470808ff;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #Change {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: auto;
-                border-radius: 5px;
-                cursor: pointer;
-            }
+<section class="widget exercises" id="exercise-card">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17h6" /><path d="M9 13h6" /></svg>
+    </div>
+    <h2 class="widget-title section-title">每日一题</h2>
 
-            #Next, #Pre {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-left: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        </style>
-    </head>
+    <div class="exercise-box">
+        <div class="exercise-question" aria-live="polite"></div>
 
-    
-    <section class="widget exercises"> 
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-description"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17h6" /><path d="M9 13h6" /></svg>
+        <div class="exercise-answer">
+            <button id="answer-toggle" class="exercise-btn exercise-btn--toggle" type="button"
+                aria-expanded="false" aria-controls="exercise-answer-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+
+                <span data-show="显示解答" data-hide="隐藏解答">显示解答</span>
+            </button>
+            <div id="exercise-answer-content" class="exercise-answer-content"></div>
         </div>
-        <h2 class="widget-title section-title">每日一题</h2>
-        <div class="ExercisesBox article-content">
-            <div class="QuestionBox"><h2>Question</h2></div>
-            <div class="AnswerBox"><p>Answer</p></div>
-            <div class="AnswerToggle">
-                <button id="ShowAnswer">显示解答</button>
-                <button id="HideAnswer">隐藏解答</button>
-                <button id="Change">换一个</button>
-                <button id="Pre">上一个</button>
-                <button id="Next">下一个</button>
+
+        <div class="exercise-actions">
+            <button id="exercise-random" class="exercise-btn exercise-btn--primary" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-refresh"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /></svg>
+
+                <span>换一个</span>
+            </button>
+
+            <div class="exercise-nav">
+                <button id="exercise-pre" class="exercise-btn exercise-btn--icon" type="button" aria-label="上一个">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+                </button>
+                <span id="exercise-counter" class="exercise-counter">– / –</span>
+                <button id="exercise-next" class="exercise-btn exercise-btn--icon" type="button" aria-label="下一个">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+        ],
+        ignoredClasses: ['exercise-answer-content']
+    }); if (window.renderExerciseMath) window.renderExerciseMath();">
+</script>
+
+<script>
+(function () {
+    const root = document.getElementById("exercise-card");
+    const questionEl = root.querySelector(".exercise-question");
+    const answerEl = root.querySelector(".exercise-answer");
+    const answerContentEl = root.querySelector("#exercise-answer-content");
+    const toggleBtn = root.querySelector("#answer-toggle");
+    const toggleLabel = toggleBtn.querySelector("span");
+    const counterEl = root.querySelector("#exercise-counter");
+
+    const DELIMITERS = [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+    ];
+
+    let exercises = [];
+    let index = 0;
 
     
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
-
-    <script>
-        let exercises = [];
-        let num = 0;    
-
-        
-        async function loadQuestion() {
-            const res = await fetch('/resources/json/exercises.json');    
+    async function loadExercises() {
+        try {
+            const res = await fetch("/resources/json/exercises.json");
+            if (!res.ok) throw new Error(res.status);
             exercises = await res.json();
-            RandomQuestion();
+        } catch (e) {
+            exercises = [{ question: "加载失败，请刷新页面重试。", answer: "" }];
         }
+        render();
+    }
+
+    
+    function render() {
+        if (!exercises.length) return;
+        const exercise = exercises[index];
 
         
-        function showQuestion() {
-            const exercise = exercises[num];
-            
-            const textElement = document.querySelector(".QuestionBox");
-            const authorElement = document.querySelector(".AnswerBox");
+        questionEl.classList.remove("is-updated");
+        void questionEl.offsetWidth;
 
-            textElement.innerHTML = exercise.question;
-            authorElement.innerHTML = exercise.answer;
+        questionEl.innerHTML = exercise.question;
+        counterEl.innerText = `${index + 1} / ${exercises.length}`;
+        questionEl.classList.add("is-updated");
 
-            hideAnswer();
+        answerContentEl.innerHTML = exercise.answer;
+        setAnswerVisible(false);
+        renderMath();
+    }
+
+    
+    function setAnswerVisible(visible) {
+        answerEl.classList.toggle("is-visible", visible);
+        toggleBtn.classList.toggle("is-open", visible);
+        toggleBtn.setAttribute("aria-expanded", String(visible));
+        toggleLabel.innerText = visible ? toggleLabel.dataset.hide : toggleLabel.dataset.show;
+
+        if (visible) renderMath();
+    }
+
+    
+    
+    function renderMath() {
+        if (typeof renderMathInElement !== "function") return;
+        renderMathInElement(questionEl, { delimiters: DELIMITERS });
+        if (answerEl.classList.contains("is-visible")) {
+            renderMathInElement(answerContentEl, { delimiters: DELIMITERS });
         }
+    }
 
-        
-        function showPreQuestion() {
-            num --;
-            if(num < 0 ) {
-                num = exercises.length-1;
-            }
-            showQuestion();
-        }
+    
+    window.renderExerciseMath = renderMath;
 
-        
-        function showNextQuestion() {
-            num ++;
-            if(num >= exercises.length) {
-                num = 0;
-            }
-            showQuestion();
-        }
+    toggleBtn.addEventListener("click", () => {
+        setAnswerVisible(!answerEl.classList.contains("is-visible"));
+    });
 
-        
-        function RandomQuestion() {
-            num = Math.floor(Math.random() * exercises.length);
-            showQuestion();
-        }
+    
+    document.querySelector("#exercise-random").addEventListener("click", () => {
+        if (exercises.length < 2) return;
+        index = (index + 1 + Math.floor(Math.random() * (exercises.length - 1))) % exercises.length;
+        render();
+    });
 
-        
-        function showAnswer() {
-            document.querySelector(".AnswerBox").style.display = "block";
-            document.querySelector("#ShowAnswer").style.backgroundColor = "#470808ff";
-            document.querySelector("#HideAnswer").style.backgroundColor = "#4caf50";
-        }
+    document.querySelector("#exercise-pre").addEventListener("click", () => {
+        if (!exercises.length) return;
+        index = (index - 1 + exercises.length) % exercises.length;
+        render();
+    });
 
-        
-        function hideAnswer() {
-            document.querySelector(".AnswerBox").style.display = "none";
-            document.querySelector("#HideAnswer").style.backgroundColor = "#470808ff";
-            document.querySelector("#ShowAnswer").style.backgroundColor = "#4caf50";
-        }
+    document.querySelector("#exercise-next").addEventListener("click", () => {
+        if (!exercises.length) return;
+        index = (index + 1) % exercises.length;
+        render();
+    });
 
+    loadExercises();
+})();
+</script>
 
-        document.querySelector("#Change").addEventListener("click", RandomQuestion);
-        document.querySelector("#Pre").addEventListener("click", showPreQuestion);
-        document.querySelector("#Next").addEventListener("click", showNextQuestion);
-        document.querySelector("#ShowAnswer").addEventListener("click", showAnswer);
-        document.querySelector("#HideAnswer").addEventListener("click", hideAnswer);
-        
-        loadQuestion();
-
-    </script>
-</html>
     
 
     

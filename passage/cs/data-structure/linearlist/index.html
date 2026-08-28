@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="数据结构：线性表">
+<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="数据结构：线性表">
 <meta property='og:description' content="顺序表 顺序表是用一段物理地址连续的存储单元依次存储数据元素的线性结构。\n它具有随机存储的特点：每个元素都与一个序号存在唯一对应关系。\n定义与初始化 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #define MAXSIZE 100 typedef int ElemType; struct SeqList { ElemType *data; // 定义首元素地址 int length; // 顺序表容量 }; /* ----- 初始化顺序表 ----- */ void InitList(SeqList &amp;L) { L.data = (ElemType*)malloc(MAXSIZE * sizeof(ElemType)); // 分配内存空间 if (L.data == NULL) { // 初始化失败 return; } L.length = 0; } 在函数参数中使用取指（&amp;）是 C++ 的用法，C 语言只能传递指针。\n">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/data-structure/linearlist/'>
 <meta property='og:site_name' content='RunicDolphin806'>

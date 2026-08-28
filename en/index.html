@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.a2855f765cf2424410598f2c017125535d57725447e08d615803d7f57f0022e1.css"><meta property='og:title' content="RunicDolphin806">
+<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="RunicDolphin806">
 <meta property='og:description' content="RunicDolphin806's blog">
 <meta property='og:url' content='https://rd806.github.io/en/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -436,204 +436,127 @@
         
 
 
-<!DOCTYPE html>
-<html lang="zh_cn">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>文字生成器</title>
-        <style>
-             
-            .quote-box {
-                background-color: var(--card-background);
-                width: 100%;
-                margin: var(--card-margin) 0;
-                padding: var(--card-padding);
-                border-radius: 10px;
-                box-shadow: var(--shadow-l1);
-                box-shadow: inset 0 20px 20px var(--body-background);
-                 
-                max-height: 35vh;
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
-             
-            .quote-text {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                font-style: normal;
-                margin-top: 20px;
-                line-height: var(--article-line-height);
-                margin-bottom: 20px;
-            }
-            .quote-author {
-                color: var(--card-text-color-main);
-                font-size: 16px;
-                text-align: right;
-            }
+<section class="widget quote-card" id="quote-card">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
+    </div>
+    <h2 class="widget-title section-title">Quote</h2>
 
-             
-            .row {
-                display: flex;           
-            }
-
-            #new-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-right: auto;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            #next-quote, #pre-quote {
-                background-color: #4caf50;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                margin-top: 20px;
-                margin-left: 8px;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-             
-            .widget-icon {
-                color: var(--body-text-color);
-            }
-        </style>
-    </head>
-
-    
-    <section class="widget quote">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-shuffle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 4l3 3l-3 3" /><path d="M18 20l3 -3l-3 -3" /><path d="M3 7h3a5 5 0 0 1 5 5a5 5 0 0 0 5 5h5" /><path d="M21 7h-5a4.978 4.978 0 0 0 -3 1m-4 8a4.984 4.984 0 0 1 -3 1h-3" /></svg>
+    <div class="quote-box">
+        <div class="quote-scroll">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="quote-text" aria-live="polite"></p>
+            <div class="quote-author"></div>
         </div>
-        <h2 class="widget-title section-title">quote</h2>
-        <div class="quote-box">
-            <div class="quote-text">Text</div>
-            <div class="quote-author">——Author</div>
-            <div class="row">
-                <button id="new-quote">Random</button>
-                <button id="pre-quote">Pre</button>
-                <button id="next-quote">Next</button>
+
+        <div class="quote-actions">
+            <button id="new-quote" class="quote-btn quote-btn--primary" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-refresh"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /></svg>
+
+                <span>Random</span>
+            </button>
+
+            <div class="quote-nav">
+                <button id="pre-quote" class="quote-btn quote-btn--icon" type="button" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+                </button>
+                <span id="quote-counter" class="quote-counter">– / –</span>
+                <button id="next-quote" class="quote-btn quote-btn--icon" type="button" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                </button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+        ]
+    });">
+</script>
+
+<script>
+(function () {
+    const root = document.getElementById("quote-card");
+    const textEl = root.querySelector(".quote-text");
+    const authorEl = root.querySelector(".quote-author");
+    const counterEl = root.querySelector("#quote-counter");
+
+    const DELIMITERS = [
+        {left: "$$", right: "$$", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "\\(", right: "\\)", display: false}
+    ];
+
+    let quotes = [];
+    let index = 0;
 
     
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\[', right: '\\]', display: true},
-                {left: '\\(', right: '\\)', display: false}
-            ]
-        });">
-    </script>
-
-    <script>
-        
-        let quotes = [];
-        let index = 0;
-
-        
-        async function loadQuotes() {
-            const res = await fetch('/resources/json/quotes.json');    
+    async function loadQuotes() {
+        try {
+            const res = await fetch("/resources/json/quotes.json");
+            if (!res.ok) throw new Error(res.status);
             quotes = await res.json();
-            showQuotes();                               
+        } catch (e) {
+            quotes = [{ quote: "加载失败，请刷新页面重试。", author: "Quote Card" }];
         }
+        render();
+    }
+
+    
+    function render() {
+        if (!quotes.length) return;
+        const quote = quotes[index];
 
         
-        
-        function showQuotes() {
-            
-            index = Math.floor(Math.random() * quotes.length);
-            const quote = quotes[index];
-             
-            
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
+        textEl.classList.remove("is-updated");
+        void textEl.offsetWidth;
 
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
+        textEl.innerText = quote.quote;
+        authorEl.innerText = `—— ${quote.author}`;
+        counterEl.innerText = `${index + 1} / ${quotes.length}`;
 
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
-
-        function showNextQuote() {
-            index ++;
-            if(index >= quotes.length) {
-                index = 0;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });  
-        };
-
-        function showPreQuote() {
-            index --;
-            if(index < 0 ) {
-                index = quotes.length-1;
-            }
-
-            const quote = quotes[index];
-            const textElement = document.querySelector(".quote-text");
-            const authorElement = document.querySelector(".quote-author");
-
-            textElement.innerText = quote.quote;
-            authorElement.innerText = `—— ${quote.author}`;
-
-            
-            renderMathInElement(textElement, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\[', right: '\\]', display: true},
-                    {left: '\\(', right: '\\)', display: false}
-                ]
-            });
-        };
+        textEl.classList.add("is-updated");
 
         
-        document.querySelector("#new-quote").addEventListener("click", showQuotes);
-        document.querySelector("#pre-quote").addEventListener("click", showPreQuote);
-        document.querySelector("#next-quote").addEventListener("click", showNextQuote);
+        if (typeof renderMathInElement === "function") {
+            renderMathInElement(textEl, { delimiters: DELIMITERS });
+        }
+    }
 
-        loadQuotes();
-        showQuotes();
+    
+    document.querySelector("#new-quote").addEventListener("click", () => {
+        if (quotes.length < 2) return;
+        index = (index + 1 + Math.floor(Math.random() * (quotes.length - 1))) % quotes.length;
+        render();
+    });
 
-    </script>
-</html>
+    document.querySelector("#pre-quote").addEventListener("click", () => {
+        if (!quotes.length) return;
+        index = (index - 1 + quotes.length) % quotes.length;
+        render();
+    });
+
+    document.querySelector("#next-quote").addEventListener("click", () => {
+        if (!quotes.length) return;
+        index = (index + 1) % quotes.length;
+        render();
+    });
+
+    loadQuotes();
+})();
+</script>
+
         
             
 <article class="has-image">
