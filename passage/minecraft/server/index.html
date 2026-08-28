@@ -362,17 +362,26 @@
             <li><a href="#启动文件">启动文件</a></li>
             <li><a href="#serverproperties"><code>server.properties</code></a></li>
             <li><a href="#bukkityml"><code>bukkit.yml</code></a></li>
-            <li><a href="#spiogtyml"><code>spiogt.yml</code></a></li>
+            <li><a href="#spigotyml"><code>spigot.yml</code></a></li>
           </ol>
         </li>
         <li><a href="#安装插件和模组">安装插件和模组</a></li>
         <li><a href="#服务器引入mysql">服务器引入MySQL</a></li>
-        <li><a href="#使用nginx反向代理">使用Nginx反向代理</a></li>
+        <li><a href="#使用nginx反向代理">使用Nginx反向代理</a>
+          <ol>
+            <li><a href="#代理-minecraft-服务端tcp">代理 Minecraft 服务端（TCP）</a></li>
+            <li><a href="#代理-web-服务http">代理 Web 服务（HTTP）</a></li>
+          </ol>
+        </li>
+        <li><a href="#定时备份与自动重启">定时备份与自动重启</a></li>
       </ol>
     </li>
     <li><a href="#常见问题">常见问题</a>
       <ol>
         <li><a href="#服务端加载长时间停顿">服务端加载长时间停顿</a></li>
+        <li><a href="#无法连接服务器">无法连接服务器</a></li>
+        <li><a href="#服务器卡顿tps过低">服务器卡顿（TPS过低）</a></li>
+        <li><a href="#正版离线玩家无法加入">正版/离线玩家无法加入</a></li>
       </ol>
     </li>
   </ol>
@@ -589,7 +598,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 8 分钟
+                        阅读时长: 14 分钟
                     </time>
                 
             </div>
@@ -637,17 +646,26 @@
             <li><a href="#启动文件">启动文件</a></li>
             <li><a href="#serverproperties"><code>server.properties</code></a></li>
             <li><a href="#bukkityml"><code>bukkit.yml</code></a></li>
-            <li><a href="#spiogtyml"><code>spiogt.yml</code></a></li>
+            <li><a href="#spigotyml"><code>spigot.yml</code></a></li>
           </ol>
         </li>
         <li><a href="#安装插件和模组">安装插件和模组</a></li>
         <li><a href="#服务器引入mysql">服务器引入MySQL</a></li>
-        <li><a href="#使用nginx反向代理">使用Nginx反向代理</a></li>
+        <li><a href="#使用nginx反向代理">使用Nginx反向代理</a>
+          <ol>
+            <li><a href="#代理-minecraft-服务端tcp">代理 Minecraft 服务端（TCP）</a></li>
+            <li><a href="#代理-web-服务http">代理 Web 服务（HTTP）</a></li>
+          </ol>
+        </li>
+        <li><a href="#定时备份与自动重启">定时备份与自动重启</a></li>
       </ol>
     </li>
     <li><a href="#常见问题">常见问题</a>
       <ol>
         <li><a href="#服务端加载长时间停顿">服务端加载长时间停顿</a></li>
+        <li><a href="#无法连接服务器">无法连接服务器</a></li>
+        <li><a href="#服务器卡顿tps过低">服务器卡顿（TPS过低）</a></li>
+        <li><a href="#正版离线玩家无法加入">正版/离线玩家无法加入</a></li>
       </ol>
     </li>
   </ol>
@@ -783,6 +801,7 @@
 
     <blockquote>
         <p>若为Linux系统，则需要将启动文件改为<code>.sh</code>文件，同时使用<code>chmod +x xxx.sh</code>赋予执行权限。</p>
+<p>若启动后弹出服务器GUI窗口，可在启动命令末尾添加<code>nogui</code>参数，以纯命令行模式运行，更节省资源。</p>
 
     </blockquote>
 <h2 id="网络配置">网络配置
@@ -1043,8 +1062,194 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="bukkityml"><code>bukkit.yml</code>
-</h4><h4 id="spiogtyml"><code>spiogt.yml</code>
-</h4><h3 id="安装插件和模组">安装插件和模组
+</h4><p><code>bukkit.yml</code> 是 Bukkit 接口（插件端与混合端共有）的配置文件，首次启动时自动生成，主要控制<strong>生物生成上限、区块回收与自动保存</strong>等底层行为。以下是常用的配置项：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">settings</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">allow-end</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                  </span><span class="c"># 是否允许进入末地</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">connection-throttle</span><span class="p">:</span><span class="w"> </span><span class="m">4000</span><span class="w">        </span><span class="c"># 同一IP两次连接的最小间隔（毫秒），防止连接轰炸</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">warn-on-overload</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">           </span><span class="c"># 主线程过载时在控制台输出警告</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">update-folder</span><span class="p">:</span><span class="w"> </span><span class="l">update           </span><span class="w"> </span><span class="c"># 插件更新暂存文件夹</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">query-plugins</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">              </span><span class="c"># 是否允许通过查询端口查看插件列表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">permissions-file</span><span class="p">:</span><span class="w"> </span><span class="l">permissions.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spawn-limits</span><span class="p">:</span><span class="w">                      </span><span class="c"># 每类生物的生成上限（全世界的总量）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">monsters</span><span class="p">:</span><span class="w"> </span><span class="m">70</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">animals</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">water-animals</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">water-ambient</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">water-underground-creature</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">axolotls</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ambient</span><span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">chunk-gc</span><span class="p">:</span><span class="w">                          </span><span class="c"># 区块垃圾回收</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">period-in-ticks</span><span class="p">:</span><span class="w"> </span><span class="m">600</span><span class="w">             </span><span class="c"># 回收周期（tick），600tick=30秒</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">load-threshold</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">                </span><span class="c"># 触发回收所需的已加载区块数量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">ticks-per</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">autosave</span><span class="p">:</span><span class="w"> </span><span class="m">6000</span><span class="w">                   </span><span class="c"># 自动保存间隔，6000tick=5分钟</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">animal-spawns</span><span class="p">:</span><span class="w"> </span><span class="m">400</span><span class="w">               </span><span class="c"># 动物生成间隔</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">monster-spawns</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                </span><span class="c"># 怪物生成间隔</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p><code>spawn-limits</code> 和 <code>ticks-per</code> 是影响生物负载的关键参数。如果服务器因生物过多而卡顿，可以调低生成上限、调大生成间隔。</p>
+<p>所有修改都需要重启服务器才会生效。</p>
+
+    </blockquote>
+<h4 id="spigotyml"><code>spigot.yml</code>
+</h4><p><code>spigot.yml</code> 是 Spigot 系服务端（Spigot、Paper、Mohist 等）独有的配置文件，比 <code>server.properties</code> 更贴近“运行性能”的调优，例如实体激活范围、刷怪距离、追踪距离等。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">settings</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">debug</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">                     </span><span class="c"># 调试模式，平时保持关闭</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">bungeecord</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">                </span><span class="c"># 是否作为 BungeeCord 代理的子服</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">velocity-support</span><span class="p">:</span><span class="w">                </span><span class="c"># 是否支持 Velocity 代理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">online-mode</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">                     </span><span class="c"># 与 velocity.toml 中的密钥保持一致</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart-on-crash</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">           </span><span class="c"># 崩溃后自动运行重启脚本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart-script</span><span class="p">:</span><span class="w"> </span><span class="l">./start.sh      </span><span class="w"> </span><span class="c"># 重启脚本路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">timeout-time</span><span class="p">:</span><span class="w"> </span><span class="m">60</span><span class="w">                 </span><span class="c"># 客户端多久无响应后踢出（秒）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">user-cache-size</span><span class="p">:</span><span class="w"> </span><span class="m">1000</span><span class="w">            </span><span class="c"># 玩家UUID缓存大小</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sample-count</span><span class="p">:</span><span class="w"> </span><span class="m">12</span><span class="w">                 </span><span class="c"># 计算TPS时的取样次数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">netty-threads</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">                 </span><span class="c"># 网络处理线程数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">messages</span><span class="p">:</span><span class="w">                          </span><span class="c"># 服务器消息文案，可自定义为中文</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">whitelist</span><span class="p">:</span><span class="w"> </span><span class="l">You are not whitelisted on this server!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">unknown-command</span><span class="p">:</span><span class="w"> </span><span class="l">Unknown command. Type &#34;/help&#34; for help.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">server-full</span><span class="p">:</span><span class="w"> </span><span class="l">The server is full!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">outdated-client</span><span class="p">:</span><span class="w"> </span><span class="l">Outdated client! Please use {0}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">outdated-server</span><span class="p">:</span><span class="w"> </span><span class="l">Outdated server! I&#39;m still on {0}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">commands</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">silent-commandblock-console</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">   </span><span class="c"># 是否屏蔽命令方块在控制台的输出</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">log</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">                            </span><span class="c"># 是否记录玩家命令日志</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tab-complete</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">                      </span><span class="c"># 指令补全范围：0=关闭，1=仅命令名，2=全部</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">spam-exclusions</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">                  </span><span class="c"># 不需要计入防刷屏日志的命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">world-settings</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">                 </span><span class="c"># 加载世界时是否输出详细信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">merge-radius</span><span class="p">:</span><span class="w">                  </span><span class="c"># 掉落物/经验球合并半径，调大可减少实体数量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">item</span><span class="p">:</span><span class="w"> </span><span class="m">2.5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">exp</span><span class="p">:</span><span class="w"> </span><span class="m">3.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mob-spawn-range</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">             </span><span class="c"># 生物在玩家周围多远范围内刷新</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">entity-activation-range</span><span class="p">:</span><span class="w">       </span><span class="c"># 实体激活范围，超出后暂停AI，调小可显著降低CPU占用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">animals</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">monsters</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">raiders</span><span class="p">:</span><span class="w"> </span><span class="m">48</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">misc</span><span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">water</span><span class="p">:</span><span class="w"> </span><span class="m">16</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">villagers</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">flying-monsters</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">entity-tracking-range</span><span class="p">:</span><span class="w">         </span><span class="c"># 实体向客户端同步的范围</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">players</span><span class="p">:</span><span class="w"> </span><span class="m">48</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">animals</span><span class="p">:</span><span class="w"> </span><span class="m">48</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">monsters</span><span class="p">:</span><span class="w"> </span><span class="m">48</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">misc</span><span class="p">:</span><span class="w"> </span><span class="m">32</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">other</span><span class="p">:</span><span class="w"> </span><span class="m">64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ticks-per</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">animal-spawns</span><span class="p">:</span><span class="w"> </span><span class="m">400</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">monster-spawns</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">autosave</span><span class="p">:</span><span class="w"> </span><span class="m">6000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hopper-transfer</span><span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">             </span><span class="c"># 漏斗每tick最多转移的物品数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hopper-check</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                </span><span class="c"># 漏斗检测容器状态的间隔（tick）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hopper-amount</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">               </span><span class="c"># 漏斗每tick最多吸取的物品数</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p><code>entity-activation-range</code> 是性能优化的核心：调小后远处的生物会暂时“休眠”，大幅降低CPU占用，代价是游戏体验稍有下降，建议结合机器性能逐步调整。</p>
+<p>Mohist 等混合端同样会生成并使用这两个文件，配置方法与插件端一致；混合端还会额外生成自己专属的配置文件（如 Mohist 的 <code>mohist.yml</code>），一般无需改动。</p>
+
+    </blockquote>
+<h3 id="安装插件和模组">安装插件和模组
 </h3><p>插件放至<code>plugins</code>文件夹</p>
 <p>模组放至<code>mods</code>文件夹</p>
 <h3 id="服务器引入mysql">服务器引入MySQL
@@ -1098,7 +1303,104 @@
         </div>
     </blockquote>
 <h3 id="使用nginx反向代理">使用Nginx反向代理
-</h3><h2 id="常见问题">常见问题
+</h3><p>反向代理（Reverse Proxy）可以理解为服务器的“前台接待”：所有流量先抵达 Nginx，再由它决定转发给哪一台后端服务。在 MC 服务器中的应用场景主要有：</p>
+<ul>
+<li>用固定端口对外提供服务，隐藏真实端口号；</li>
+<li>一台机器上运行多个服务端时，按端口把流量分发到不同的后端；</li>
+<li>为网页地图（BlueMap/Dynmap）、管理面板（MCSManager）等 Web 服务配置域名与 HTTPS；</li>
+<li>多节点负载均衡。</li>
+</ul>
+<h4 id="代理-minecraft-服务端tcp">代理 Minecraft 服务端（TCP）
+</h4><p>Minecraft 连接走 TCP 协议，因此需要使用 Nginx 的 <code>stream</code> 模块。以下配置把公网 <code>25565</code> 端口转发到本机 Mohist 服务器的 <code>30067</code> 端口：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="c1"># stream 与 http 是同级的顶层配置块，需添加在 /etc/nginx/nginx.conf 的顶层
+</span></span></span><span class="line"><span class="cl"><span class="k">stream</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">upstream</span> <span class="s">mc_backend</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">server</span> <span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">30067</span><span class="p">;</span>    <span class="c1"># 后端真实服务端地址
+</span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">listen</span> <span class="mi">25565</span><span class="p">;</span>              <span class="c1"># 对外监听的端口
+</span></span></span><span class="line"><span class="cl">        <span class="kn">proxy_pass</span> <span class="s">mc_backend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>并非所有 Nginx 都自带 <code>stream</code> 模块。Ubuntu/Debian 建议安装 <code>nginx-full</code>（<code>sudo apt install nginx-full</code>），可通过 <code>nginx -V 2&gt;&amp;1 | grep with-stream</code> 验证。</p>
+
+    </blockquote>
+<p>保存后先执行 <code>sudo nginx -t</code> 检查配置，无误后再 <code>sudo systemctl reload nginx</code> 重载。之后玩家连接 <code>mc.yourdomain.com:25565</code> 即可进入服务器。</p>
+<h4 id="代理-web-服务http">代理 Web 服务（HTTP）
+</h4><p>以 BlueMap 网页地图为例，后端服务监听在 <code>127.0.0.1:8080</code>，希望通过 <code>map.yourdomain.com</code> 访问：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">map.yourdomain.com</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:8080</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置好域名解析后，可用 Certbot 一键签发 HTTPS 证书：<code>sudo certbot --nginx</code>。</p>
+
+    <blockquote>
+        <p>反向代理只负责“转发”，玩家仍需能够访问到 Nginx 所在主机的网络，因此它通常要与公网 IPv6 或端口映射配合使用。</p>
+
+    </blockquote>
+<h3 id="定时备份与自动重启">定时备份与自动重启
+</h3><p>服务器数据无价，定期备份很有必要。最朴素也最可靠的做法是使用系统自带的定时任务。</p>
+<p>Linux 下使用 <code>crontab -e</code> 编辑定时任务，例如每天凌晨 3 点把世界存档（此处对应 <code>server.properties</code> 中 <code>level-name</code> 的 <code>play</code> 文件夹）压缩到备份目录：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="m">0</span> <span class="m">3</span> * * * tar -czf /backup/mc-<span class="k">$(</span>date +<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz -C /home/mc play
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>注意：在 crontab 中 <code>%</code> 需要转义为 <code>\%</code>，否则会被当作换行符。</p>
+
+    </blockquote>
+<p>Windows 下可以通过“任务计划程序”定时执行压缩命令，也可以安装支持对应 MC 版本的备份插件/模组（需注意版本兼容性），在游戏内即可配置备份周期与保留份数。</p>
+<p>如果追求自动化，可以配合上文的 <code>while true</code> 重启脚本：在每日低峰时段定时执行 <code>stop</code> 命令正常关服，待脚本退出后由定时任务完成备份，再重新启动服务器。</p>
+<h2 id="常见问题">常见问题
 </h2><h3 id="服务端加载长时间停顿">服务端加载长时间停顿
 </h3><p>服务端在<strong>加载阶段</strong>出现长时间停顿（即日志没有输出且未出现<code>Preparing level &quot;world&quot;</code>）时，可能是出现网络访问超时。</p>
 <p>例如，在落幕曲1.6.2服务端中，当服务端加载至</p>
@@ -1300,6 +1602,41 @@
 
     </blockquote>
 <p>保存文件后，重新启动服务器即可。</p>
+<h3 id="无法连接服务器">无法连接服务器
+</h3><p>“无法连接”的原因通常集中在端口、防火墙和正版验证上，可按下述顺序排查：</p>
+<ol>
+<li>确认服务端已成功启动，控制台出现 <code>Done</code> 字样；</li>
+<li>在服务器所在机器上执行 <code>ss -tlnp | grep 端口号</code>（Linux）或 <code>netstat -ano | findstr 端口号</code>（Windows），确认端口正在监听；</li>
+<li>确认对方使用的 IP/端口 与 <code>server.properties</code> 中的 <code>server-port</code> 一致；</li>
+<li>检查系统防火墙是否放行了该端口；若使用云服务器，还需在安全组中放行；</li>
+<li>若 <code>online-mode=true</code>，离线（非正版）玩家会提示 <code>Failed to verify username</code>。</li>
+</ol>
+
+    <blockquote>
+        <p>常见误区：<code>server-ip</code> 应保持为空。它表示服务器绑定的监听地址，若填入公网 IP，反而可能导致连接失败。</p>
+
+    </blockquote>
+<h3 id="服务器卡顿tps过低">服务器卡顿（TPS过低）
+</h3><p><code>TPS</code>（Tick Per Second，每秒游戏刻数）是衡量服务器负载的核心指标，正常为 20，低于 15 时玩家会明显感到卡顿。可通过以下方式查看：</p>
+<ul>
+<li>使用 <a class="link" href="https://spark.lucko.me/"  target="_blank" rel="noopener"
+    >Spark</a>：<code>/spark profiler</code> 生成性能报告；</li>
+<li>或安装 EssentialsX 等插件后执行 <code>/tps</code>。</li>
+</ul>
+<p>常用优化手段：</p>
+<ul>
+<li>降低 <code>server.properties</code> 中的 <code>view-distance</code>、<code>simulation-distance</code>（建议 4~6）；</li>
+<li>调低 <code>spigot.yml</code> 中的 <code>entity-activation-range</code>；</li>
+<li>适当调大 <code>merge-radius</code>，减少掉落物实体；</li>
+<li>控制红石机器等高频更新的方块数量；</li>
+<li>清理长期不用的区块或世界，必要时定期重启服务器。</li>
+</ul>
+<h3 id="正版离线玩家无法加入">正版/离线玩家无法加入
+</h3><ul>
+<li><code>online-mode=true</code> 时，只有微软正版账号可以加入，离线玩家会提示 <code>Failed to verify username</code>，此时要么让玩家使用正版，要么关闭该选项；</li>
+<li>关闭正版验证（离线模式）后，玩家用户名可以被冒充，建议开启白名单（<code>white-list=true</code>）并配合权限插件使用；</li>
+<li>网易版（中国版）与 Java 版生态相互独立，网易版玩家无法直接加入 Java 版服务器。</li>
+</ul>
 
 </section>
 
