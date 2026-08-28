@@ -632,230 +632,207 @@
             <p>当前已更新索引，原内容拆分为五个部分</p>
         </div>
     </blockquote>
-<p><div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/linearlist >数据结构：线性表</a>
-    </div>
-    <div class="description"></div>
+<p>
+<div class="catalogue">
+    
+    <a class="catalogue-link" href="/passage/cs/data-structure/linearlist">
+        <span class="catalogue-text">
+            <span class="catalogue-name">数据结构：线性表</span></span>
+        
+        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </a>
 </div>
 
+
+
+
 <style>
+     
     .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
-
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
         position: relative;
+        margin-bottom: 1rem;
+        border: 1px solid var(--card-separator-color);
+        border-radius: var(--card-border-radius);
+        background: var(--card-background);
+        box-shadow: var(--shadow-l1);
+        overflow: hidden;
+
+         
+        --catalogue-accent: #07639c;
+        --catalogue-accent-strong: #055b8a;
+        --catalogue-accent-border: rgba(7, 99, 156, 0.35);
+
+        transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
     }
 
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
+     
+    .catalogue::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--catalogue-accent);
+        transition: width 0.3s;
+    }
+
+     
+    .catalogue:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-l2);
+        border-color: var(--catalogue-accent-border);
+    }
+
+    .catalogue:hover::before {
+        width: 6px;
+    }
+
+     
+    .catalogue-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.8rem 1.2rem 0.8rem 1.6rem;
+        text-decoration: none;
+    }
+
+     
+    .catalogue-link:focus-visible {
+        outline: 2px solid var(--catalogue-accent);
+        outline-offset: -2px;
+        border-radius: var(--card-border-radius);
+    }
+
+     
+    .catalogue-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        min-width: 0;
+    }
+
+    .catalogue-name {
+        font-weight: 600;
+        color: var(--catalogue-accent);
+        word-break: break-word;
+        transition: color 0.3s;
+    }
+
+    .catalogue:hover .catalogue-name {
+        color: var(--catalogue-accent-strong);
+    }
+
+    .catalogue-description {
+        font-size: 85%;
+        line-height: 1.6;
+        color: var(--card-text-color-secondary);
         text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
     }
 
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
+     
+    .catalogue-arrow {
+        flex-shrink: 0;
+        width: 1rem;
+        height: 1rem;
+        color: var(--card-text-color-tertiary);
+        transition: transform 0.3s, color 0.3s;
     }
 
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
+    .catalogue:hover .catalogue-arrow {
+        transform: translateX(4px);
+        color: var(--catalogue-accent);
+    }
+
+     
+    :root[data-scheme="dark"] .catalogue {
+        --catalogue-accent: #cebef4;
+        --catalogue-accent-strong: #e2d8f9;
+        --catalogue-accent-border: rgba(206, 190, 244, 0.35);
+    }
+
+     
+    @media (prefers-reduced-motion: reduce) {
+        .catalogue,
+        .catalogue::before,
+        .catalogue-name,
+        .catalogue-arrow {
+            transition: none;
+        }
+
+        .catalogue:hover {
+            transform: none;
         }
     }
 </style>
+
+
 
 <div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/tree >数据结构：树与二叉树</a>
-    </div>
-    <div class="description"></div>
+    
+    <a class="catalogue-link" href="/passage/cs/data-structure/tree">
+        <span class="catalogue-text">
+            <span class="catalogue-name">数据结构：树与二叉树</span></span>
+        
+        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </a>
 </div>
 
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
 
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
 
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
 
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
 
 <div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/graph >数据结构：图</a>
-    </div>
-    <div class="description"></div>
+    
+    <a class="catalogue-link" href="/passage/cs/data-structure/graph">
+        <span class="catalogue-text">
+            <span class="catalogue-name">数据结构：图</span></span>
+        
+        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </a>
 </div>
 
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
 
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
 
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
 
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
 
 <div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/data-structure/search >查找</a>
-    </div>
-    <div class="description"></div>
+    
+    <a class="catalogue-link" href="/passage/cs/data-structure/search">
+        <span class="catalogue-text">
+            <span class="catalogue-name">查找</span></span>
+        
+        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </a>
 </div>
 
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
 
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
 
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
 
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
 
 <div class="catalogue">
-    <div class="logo">
-        <a class="name" href=/passage/cs/sort >排序</a>
-    </div>
-    <div class="description"></div>
+    
+    <a class="catalogue-link" href="/passage/cs/sort">
+        <span class="catalogue-text">
+            <span class="catalogue-name">排序</span></span>
+        
+        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </a>
 </div>
 
-<style>
-    .catalogue {
-        border: 1px solid var(--card-text-color-main);
-        border-radius: var(--card-border-radius);
-        margin: 0 auto;
-        margin-bottom: 1em;
-        padding: 1em;
-    }
 
-    .name {
-        font-weight: bold;
-        margin-left: 0.5em;
-        position: relative;
-    }
 
-    .description {
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        color: var(--card-text-color-main);
-        text-align: justify;
-        font-size: 90%;
-        transition: all 0.5s;
-    }
-
-    
-    :root[data-scheme="light"] {
-        .name {
-            color: #07639c;
-        }   
-    }
-
-    :root[data-scheme="dark"] {
-        .name {
-            color: #cebef4;
-        }
-    }
-</style>
 </p>
 <h2 id="c语言补充知识">C语言补充知识
 </h2><h3 id="typedef">typedef
@@ -1162,16 +1139,11 @@
 </article>
             
                 
-<article class="has-image">
+<article class="">
     <a href="/passage/cs/database/">
         
-        <div class="article-image">
-            <img alt="Featured image of post 数据库系统" height="150" loading="lazy" src="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg" srcset="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg 1x, /passage/cs/database/mysql_hu_9f919c0deea6afa1.jpg 2x" width="250">
 
-        </div>
-        
-
-        <div class="article-details"style="background: linear-gradient(0deg, #de8f1380 0%, #1b0514C0 100%);">
+        <div class="article-details">
             <h2 class="article-title">数据库系统</h2>
         </div>
     </a>

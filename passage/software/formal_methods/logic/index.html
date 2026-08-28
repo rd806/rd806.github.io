@@ -397,6 +397,7 @@
           <ol>
             <li><a href="#跳过skip">跳过（Skip）</a></li>
             <li><a href="#赋值assignment">赋值（Assignment）</a></li>
+            <li><a href="#序列sequence">序列（Sequence）</a></li>
             <li><a href="#分支branching">分支（Branching）</a></li>
           </ol>
         </li>
@@ -694,6 +695,7 @@
           <ol>
             <li><a href="#跳过skip">跳过（Skip）</a></li>
             <li><a href="#赋值assignment">赋值（Assignment）</a></li>
+            <li><a href="#序列sequence">序列（Sequence）</a></li>
             <li><a href="#分支branching">分支（Branching）</a></li>
           </ol>
         </li>
@@ -1129,8 +1131,8 @@ $$\begin{matrix} P \qquad & x > 0 \\ S \qquad & \text{skip} \\ Q \qquad & x > 0 
 $$\text{wp}(x=E,Q) = Q[x\leftarrow E] = P$$<p>例如，对于如下语句：</p>
 $$\begin{matrix} P \qquad & y > 2 \\ S \qquad & x=y+5 \\ Q \qquad & x > 7  \end{matrix}$$<p> 则有 $\text{wp}(x=y+5, x&gt;7) = y+5&gt;7 = y&gt;2$</p>
 <p>后置条件可以有许多前置条件。对于上述示例，$y&gt;2$、$y&gt;34$、$y&gt;100$ 都可以确保后置条件 $x&gt;7$。其中 $y&gt;2$ 是约束条件最小的，因此是最弱前置条件。</p>
-<h5 id="序列sequence">序列（Sequence）
-</h5><p>序列表示一组语句，一个序列通常会导致状态发生多次变化。即 </p>
+<h4 id="序列sequence">序列（Sequence）
+</h4><p>序列表示一组语句，一个序列通常会导致状态发生多次变化。即 </p>
 $$\text{wp}(S_1;S_2, R) = \text{wp}(S_1, \text{wp}(S_2,R)) = \text{wp}(y=E_1, Q) = Q[y \leftarrow E_1] = P $$
     <blockquote>
         <p>其实这是两个语句的结合：
@@ -1239,16 +1241,11 @@ $$\begin{align*} & \text{wp}(\text{if} \ y<0\ \text{then}\ x=y+1\ \text{else}\ x
 </article>
             
                 
-<article class="has-image">
+<article class="">
     <a href="/passage/cs/database/">
         
-        <div class="article-image">
-            <img alt="Featured image of post 数据库系统" height="150" loading="lazy" src="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg" srcset="/passage/cs/database/mysql_hu_1b2838d9a3c87c0.jpg 1x, /passage/cs/database/mysql_hu_9f919c0deea6afa1.jpg 2x" width="250">
 
-        </div>
-        
-
-        <div class="article-details"style="background: linear-gradient(0deg, #de8f1380 0%, #1b0514C0 100%);">
+        <div class="article-details">
             <h2 class="article-title">数据库系统</h2>
         </div>
     </a>
