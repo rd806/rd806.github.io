@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="动态系统">
-<title>形式化方法</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="软件及其特点 软件 软件是指在计算机系统的支持下，能够完成特定功能与性能的程序、数据和相关文档。\n文档 文档是记录软件开发活动和阶段性成果、软件配置及变更的阐述性资料。它的功能包括：\n">
+<title>软件工程</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/software/formal_methods/system/">
+<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="形式化方法">
-<meta property='og:description' content="动态系统">
-<meta property='og:url' content='https://rd806.github.io/passage/software/formal_methods/system/'>
+<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="软件工程">
+<meta property='og:description' content="软件及其特点 软件 软件是指在计算机系统的支持下，能够完成特定功能与性能的程序、数据和相关文档。\n文档 文档是记录软件开发活动和阶段性成果、软件配置及变更的阐述性资料。它的功能包括：\n">
+<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-15T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="形式化方法">
-<meta name="twitter:description" content="动态系统">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-09-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-09-20T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="软件工程">
+<meta name="twitter:description" content="软件及其特点 软件 软件是指在计算机系统的支持下，能够完成特定功能与性能的程序、数据和相关文档。\n文档 文档是记录软件开发活动和阶段性成果、软件配置及变更的阐述性资料。它的功能包括：\n">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -275,7 +275,7 @@
                                         
                                     
                                 
-                                <option value="/passage/software/formal_methods/system/" selected>简体中文</option>
+                                <option value="/passage/software/engineering/" selected>简体中文</option>
                             
                                 
                                 
@@ -340,44 +340,27 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#petri网">Petri网</a>
+    <li><a href="#软件及其特点">软件及其特点</a>
       <ol>
-        <li><a href="#基本概念">基本概念</a></li>
-        <li><a href="#行为特性">行为特性</a>
+        <li><a href="#软件">软件</a>
           <ol>
-            <li><a href="#可达性">可达性</a></li>
-            <li><a href="#活性">活性</a></li>
-            <li><a href="#有界性">有界性</a></li>
-            <li><a href="#安全性">安全性</a></li>
-            <li><a href="#可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）</a></li>
-            <li><a href="#守恒性">守恒性</a></li>
+            <li><a href="#文档">文档</a></li>
+            <li><a href="#数据">数据</a></li>
+            <li><a href="#软件的生命周期">软件的生命周期</a></li>
+            <li><a href="#软件的特点与分类">软件的特点与分类</a></li>
           </ol>
         </li>
-        <li><a href="#petri网的应用">Petri网的应用</a>
+        <li><a href="#开源软件">开源软件</a>
           <ol>
-            <li><a href="#描述系统">描述系统</a></li>
-            <li><a href="#分析系统故障">分析系统故障</a></li>
+            <li><a href="#闭源与开源">闭源与开源</a></li>
+            <li><a href="#开源平台">开源平台</a></li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#动态系统">动态系统</a>
-      <ol>
-        <li><a href="#系统结构">系统结构</a>
+        <li><a href="#软件质量">软件质量</a></li>
+        <li><a href="#软件的发展变化">软件的发展变化</a>
           <ol>
-            <li><a href="#前驱和后继">前驱和后继</a></li>
-            <li><a href="#终止条件">终止条件</a></li>
-            <li><a href="#确定性变迁">确定性变迁</a></li>
-            <li><a href="#动作执行">动作执行</a></li>
-            <li><a href="#可达状态">可达状态</a></li>
-          </ol>
-        </li>
-        <li><a href="#几种系统">几种系统</a>
-          <ol>
-            <li><a href="#程序图">程序图</a></li>
-            <li><a href="#并发系统">并发系统</a></li>
-            <li><a href="#联络">联络</a></li>
-            <li><a href="#同步">同步</a></li>
+            <li><a href="#软件的地位和作用">软件的地位和作用</a></li>
+            <li><a href="#软件形态">软件形态</a></li>
           </ol>
         </li>
       </ol>
@@ -547,13 +530,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/software/formal_methods/system/">形式化方法</a>
+            <a href="/passage/software/engineering/">软件工程</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            动态系统
-        </h3>
         
     </div>
 
@@ -577,7 +556,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                    <time class="article-time--published" datetime='2026-03-15T00:00:00Z'>2026年3月15日星期日</time>
+                    <time class="article-time--published" datetime='2026-09-20T00:00:00Z'>2026年9月20日星期日</time>
                 
 
                 
@@ -590,7 +569,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 5 分钟
                     </time>
                 
             </div>
@@ -617,44 +596,27 @@
             <nav class="toc-nav">
                 
   <ol>
-    <li><a href="#petri网">Petri网</a>
+    <li><a href="#软件及其特点">软件及其特点</a>
       <ol>
-        <li><a href="#基本概念">基本概念</a></li>
-        <li><a href="#行为特性">行为特性</a>
+        <li><a href="#软件">软件</a>
           <ol>
-            <li><a href="#可达性">可达性</a></li>
-            <li><a href="#活性">活性</a></li>
-            <li><a href="#有界性">有界性</a></li>
-            <li><a href="#安全性">安全性</a></li>
-            <li><a href="#可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）</a></li>
-            <li><a href="#守恒性">守恒性</a></li>
+            <li><a href="#文档">文档</a></li>
+            <li><a href="#数据">数据</a></li>
+            <li><a href="#软件的生命周期">软件的生命周期</a></li>
+            <li><a href="#软件的特点与分类">软件的特点与分类</a></li>
           </ol>
         </li>
-        <li><a href="#petri网的应用">Petri网的应用</a>
+        <li><a href="#开源软件">开源软件</a>
           <ol>
-            <li><a href="#描述系统">描述系统</a></li>
-            <li><a href="#分析系统故障">分析系统故障</a></li>
+            <li><a href="#闭源与开源">闭源与开源</a></li>
+            <li><a href="#开源平台">开源平台</a></li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#动态系统">动态系统</a>
-      <ol>
-        <li><a href="#系统结构">系统结构</a>
+        <li><a href="#软件质量">软件质量</a></li>
+        <li><a href="#软件的发展变化">软件的发展变化</a>
           <ol>
-            <li><a href="#前驱和后继">前驱和后继</a></li>
-            <li><a href="#终止条件">终止条件</a></li>
-            <li><a href="#确定性变迁">确定性变迁</a></li>
-            <li><a href="#动作执行">动作执行</a></li>
-            <li><a href="#可达状态">可达状态</a></li>
-          </ol>
-        </li>
-        <li><a href="#几种系统">几种系统</a>
-          <ol>
-            <li><a href="#程序图">程序图</a></li>
-            <li><a href="#并发系统">并发系统</a></li>
-            <li><a href="#联络">联络</a></li>
-            <li><a href="#同步">同步</a></li>
+            <li><a href="#软件的地位和作用">软件的地位和作用</a></li>
+            <li><a href="#软件形态">软件形态</a></li>
           </ol>
         </li>
       </ol>
@@ -669,280 +631,156 @@
     <section class="article-content">
     
     
-    <h2 id="petri网">Petri网
-</h2><p>Petri网使用简单的图形较好地表示并发、同步、因果等关系，以网图的形式简洁、直观地模拟离散事件系统。</p>
-<h3 id="基本概念">基本概念
-</h3><p>Petri网是一种网状信息流模型，包括条件和事件两类节点，在条件和事件为节点的有向二分图基础上添加表示状态信息的token分布，并按引发规则使得事件驱动状态演变，从而反映系统动态运行过程。</p>
-<div class="table-wrapper"><table>
+    <h2 id="软件及其特点">软件及其特点
+</h2><h3 id="软件">软件
+</h3><p>软件是指在计算机系统的支持下，能够完成特定功能与性能的程序、数据和相关文档。</p>
+<h4 id="文档">文档
+</h4><p>文档是记录软件开发活动和阶段性成果、软件配置及变更的阐述性资料。它的功能包括：</p>
+<ul>
+<li>定义和理解软件。</li>
+<li>记录软件开发成果。</li>
+<li>辅助不同人员间的交流。</li>
+</ul>
+<p>需要文档的原因：软件开发牵涉编程之外的多方面工作，编写文档可以：</p>
+<ul>
+<li>阐述清楚：内容、逻辑性、条理性。</li>
+<li>发现问题：完整、一致、矛盾。</li>
+<li>开展交流：便于各种人员的交流。</li>
+<li>促进管理: 管理软件开发成果。</li>
+</ul>
+<h4 id="数据">数据
+</h4><p>数据是程序的加工处理对象和结果，进行软件开发时，需要关注数据的以下方面：</p>
+<ul>
+<li>需要处理哪些数据（数字、图表、多媒体……）</li>
+<li>如何来获得这些数据（网页、API、文件……）</li>
+<li>如何来表示这些数据（表格、卡片……）</li>
+<li>如何来存储和检索数据（JSON、sqlite、远程数据库……）</li>
+<li>如何来传输数据（TCP协议、UDP协议、自定义协议……）</li>
+</ul>
+<h4 id="软件的生命周期">软件的生命周期
+</h4><p>软件从提出开发开始到最终灭亡所经历的时期，它的不同阶段具有不同的特征。</p>
+<h4 id="软件的特点与分类">软件的特点与分类
+</h4><div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>元素</th>
-          <th>表示</th>
+          <th>特点</th>
+          <th>描述</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>小矩形</td>
-          <td>事件（变迁）结点</td>
+          <td>逻辑性</td>
+          <td>软件是逻辑产品，思维活动的结果、不会磨损和老化</td>
       </tr>
       <tr>
-          <td>小圆形</td>
-          <td>条件（位置）结点</td>
+          <td>复杂性</td>
+          <td>规模大（代码行、模块、接入人员、进程、数据等数量非常大），运行复杂（状态很难追踪和复现）</td>
       </tr>
       <tr>
-          <td>有向弧</td>
-          <td>变迁结点之间、位置结点之间不能有有向弧，变迁结点与位置节点之间连接有向弧</td>
+          <td>设计开发</td>
+          <td>软件是设计开发而成的，不是生产制造而成的</td>
       </tr>
       <tr>
-          <td>若干黑点</td>
-          <td>网的某些位置结点中标上的token</td>
+          <td>易变性</td>
+          <td>需求经常变、难以把控，影响软件的制品即开发过程</td>
+      </tr>
+      <tr>
+          <td>缺陷的隐蔽性</td>
+          <td>缺陷隐藏在逻辑代码中，不像硬件系统那样直观显现，很难被人们所发现和排除</td>
       </tr>
   </tbody>
 </table></div>
-<p>由此构成的有向二分图称作网，从而构成Petri网。</p>
-<p><img alt="Petri网示例" class="gallery-image" data-flex-basis="235px" data-flex-grow="98" height="674" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/Petri%E7%BD%91%E7%A4%BA%E4%BE%8B.png" width="661"></p>
+<p>根据软件应用场景的不同，可以对软件作出如下的分类：</p>
+<ul>
+<li>应用软件：面向特定应用领域的专用软件。它们针对相关行业和领域的特定问题，为其提供基于计算的新颖解决方案。如 淘宝、12306、携程、微信、QQ等。</li>
+<li>系统软件：对计算机资源进行管理，为应用软件的运行提供基础设施和服务的一类软
+件。从计算服务的视角，系统软件介于计算机硬件和应用软件之间。如 操作系统、数据库管理系统、编译软件、软件中间件等</li>
+<li>支撑软件：辅助软件开发和运维，帮助开发人员完成软件开发和维护工作的一类软件。任如 SonarQube、Visual Studio、Eclipse等</li>
+</ul>
+<h3 id="开源软件">开源软件
+</h3><h4 id="闭源与开源">闭源与开源
+</h4><p>闭源软件：软件代码不对用户开放的一类软件，购买软件时只提供可运行软件或服务，没有提供源代码，通常以许可证（License）的方式授权用户使用。如 微软的Windows、Office软件。</p>
+
+    <blockquote>
+        <p>闭源无法掌握软件内部实现情况（如是否存在安全漏洞和恶意代码），也无法对软件进行修改和完善。</p>
+
+    </blockquote>
+<p>开源软件：源代码可以自由获取和传播的计算机软件，其拥有者通过开源许可证赋予被许可人对软件进行使用、修改和传播。</p>
+
+    <blockquote>
+        <p>开源软件的好处：</p>
+<ul>
+<li>源代码可自由传播</li>
+<li>激发创作者的热情</li>
+<li>免费使用降低成本</li>
+</ul>
+
+    </blockquote>
+<h4 id="开源平台">开源平台
+</h4><ul>
+<li>全球最有影响力的开源软件托管平台：Github（<a class="link" href="https://github.com"  target="_blank" rel="noopener"
+    >github.com</a>）</li>
+<li>一个有影响力的开源软件开发平台和仓库，为开源软件提供存储、协作和发布的支持：SourceForge（<a class="link" href="https://sourceforge.net"  target="_blank" rel="noopener"
+    >sourceforge.net</a>）</li>
+<li>全球最大的软件开发知识分享平台，支持开发者交流和讨论软件开发问题、分享软件开发经验和知识，进而促进相关开发问题的解决，推动开源软件的开发：StackOverflow（<a class="link" href="https://stackoverflow.com"  target="_blank" rel="noopener"
+    >stackoverflow.com</a>）</li>
+</ul>
+<h3 id="软件质量">软件质量
+</h3><p>软件质量是指软件满足给定需求的程度，是产品的生命线。它包括以下维度的内容：</p>
+<ul>
+<li>运行性：正确性、易用性、效率性、可靠性、完整性</li>
+<li>转移性：可移植性、可重用性、互操作性</li>
+<li>修正性：可维护性、可测试性、灵活性</li>
+</ul>
+
+    <blockquote>
+        <p>2019年，提出了可信软件的发展目标。它的基本要求包括：</p>
+<ul>
+<li>安全性：以抗击攻击，保护业务和数据的机密性、完整性和可用性</li>
+<li>韧性（Resilience）以确保系统受攻击时仍能保持良好的运行状态，具有快速恢复的能力。</li>
+<li>隐私性（Privacy）以保护用户的数据及其隐私</li>
+<li>可靠性和可用性以确保软件产品长期无故障运行，具备快速恢复和自我管理的能力，提供可预期的、一致的服务。</li>
+</ul>
+
+    </blockquote>
+<h3 id="软件的发展变化">软件的发展变化
+</h3><h4 id="软件的地位和作用">软件的地位和作用
+</h4><p>当前，软件已经深入到社会、经济、生活的方方面面，无处不在，并作为一种创新的工具，深刻地改变各个行业和领域，创新问题解决模式和方式，影响人们日常学习、生活和工作</p>
+<p>软件是实现行业和领域进行信息化融合和改造，实现创新性发展的使能技术和重要利器，成为人类社会的关键性基础设施。</p>
+<p>软件逐步从前端的PC终端、可穿戴设备、智能手机到后端的云中心、高性能计算中心，从孤立、独立、局域和可控的计算环境到分布、开放、动态、难控、无处不在计算环境。</p>
+<h4 id="软件形态">软件形态
+</h4><p>软件已经不是单一系统，而是<strong>系统之系统</strong>；不仅是<strong>社会技术系统</strong>，还是一种<strong>生态系统</strong>；不是同构系统，而是<strong>异构、多样的系统联盟</strong>；不在封闭环境，而在<strong>开放环境</strong>中；不是封闭系统，而是<strong>动态适应系统</strong>。</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>组成</th>
-          <th>概念</th>
+          <th>软件形态</th>
+          <th>特点</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>资源</td>
-          <td>与系统状态变化有关的因素，如原料、产品、工具、设备等</td>
+          <td>社会技术系统</td>
+          <td>由人、社会组织、物理设备、过程等要素共同组成和相互作用的人机物共生系统。软件系统无法单独存在，需与物理、社会系统交互作用</td>
       </tr>
       <tr>
-          <td>状态元素</td>
-          <td>资源归类后的抽象</td>
+          <td>系统子系统</td>
+          <td>由一组面向任务、服务于不同对象的子系统构成；每个子系统可独立运作并能提供相对独立功能；整个系统通过各独立系统间交互来实现全局任务</td>
       </tr>
       <tr>
-          <td>库所</td>
-          <td>一个场所，存放状态元素</td>
+          <td>分布式异构系统</td>
+          <td>拥有大量形式多样、地理或者逻辑上是分布的，分散部署在互联网上的软件实体</td>
       </tr>
       <tr>
-          <td>变迁</td>
-          <td>资源状态变化</td>
+          <td>动态演化系统</td>
+          <td>系统的边界和需求的不确定性和持续演变性</td>
       </tr>
       <tr>
-          <td>事件</td>
-          <td>引起条件的变迁称为事件</td>
-      </tr>
-      <tr>
-          <td>容量</td>
-          <td>库所的最大资源数量</td>
+          <td>生态系统</td>
+          <td>“运行”生态、“演化”生态，“人员”生态等</td>
       </tr>
   </tbody>
 </table></div>
-<p>一个Petri网是一个三元组 $N = (P, T, F)$，其中：</p>
-<ol>
-<li>$P = \{p_1, p_2, \cdots, p_m\}$ 为库所的集合</li>
-<li>$T = \{t_1, t_2, \cdots, t_n\}$ 为变迁的集合</li>
-<li>$F = (P \times T) \cup (T \times P)$ 为输入函数和输出函数集，称为流关系。</li>
-</ol>
 
-    <blockquote>
-        <p>约束：</p>
-<ol>
-<li>$P \cap T = \oslash$，规定了库所和变迁是两类不同的元素</li>
-<li>$P \cup T \ne \oslash$，表示网中至少有一个元素</li>
-<li>$F = (P \times T) \cup (T \times P)$ 建立了从库所到变迁、从变迁到库所的<strong>单方向</strong>联系，并且规定同类元素之间不能直接联系</li>
-</ol>
-
-    </blockquote>
-<p>在有向图 $N = (P, T, F)$ 中，</p>
-<ol>
-<li>设 $K: P \rightarrow \{1, 2, 3, \cdots \}$ 表示 $N$ 上 $P$ 的容量，用库所中的黑点表示（无黑点表示无穷大）；</li>
-<li>设 $W: F \rightarrow \{1, 2, 3, \cdots \}$ 表示 $N$ 上 $F$ 的权重，用有向弧上的数字表示（无数字表示权重是1）</li>
-</ol>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>分类</th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>基本Petri网</td>
-          <td>每个库所容量为1，这时库所可称为条件，变迁可称为事件。故又称为条件/事件系统（C/E）</td>
-      </tr>
-      <tr>
-          <td>低级Petri网</td>
-          <td>库所容量和权重为&gt;=1的任意整数，称为库所/变迁网（P/T）</td>
-      </tr>
-      <tr>
-          <td>定时Petri网</td>
-          <td>将各事件的持续时长标在库所旁边，库所中新产生的标记经过一须时间后才加入到网中，或是标在变迁上，经过时间延迟后发生</td>
-      </tr>
-      <tr>
-          <td>高级Petri网</td>
-          <td>谓词/事件网、染色网、随机网等</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="行为特性">行为特性
-</h3><p>Petri网具有一些专门的分析手段，对系统活性和死锁进行分析。分析系统中的顺序、并发及冲突等复杂事件的关系。</p>
-<h4 id="可达性">可达性
-</h4><p>可达性是研究任何系统动态特性的基础，决定系统能否到达一个指定的状态。</p>
-<p>系统按照一定的流程运行，系统是否能够实现一定的状态；或者不期望的状态不出现。或者要求到达一定的状态，如何确定系统的运行轨迹（流程）</p>
-<h4 id="活性">活性
-</h4><p>在系统中用于检测是否存在死锁。一个系统存在的一个潜在问题是死锁，为了避免死锁， 系统的Petri网模型必须具有活性。</p>
-<p>解决死锁的方法：</p>
-<ol>
-<li>互斥：同时争夺唯一资源</li>
-<li>占用且等待</li>
-<li>无抢占</li>
-<li>循环等待</li>
-</ol>
-<h4 id="有界性">有界性
-</h4><p>有界性是一个非常重要的特性，它保证系统在运行过程中不会需要无限的资源</p>
-<p>有界性反映一个库所在系统运行过程中能够获得的最大的令牌数，即所能获得的最大资源数，它与系统的初始令牌有关.</p>
-<p>在实际系统设计中，必须使网络中的每个库所在任何状态下的令牌数小于库所的容量，这样才能保证系统的正常运行。</p>
-<h4 id="安全性">安全性
-</h4><p>安全性决定系统中正在执行的操作不会发出请求。若Petri网为1有界，则称此Petri网是安全的。这种网的每一个库所要么有一个令牌，要么没有令牌。</p>
-<p>安全性是有界性的一种特殊情况 。</p>
-<h4 id="可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）
-</h4><p>在制造业系统和过程控制系统中存在着一个重要的问题：错误复原，即系统能否重新回到原来状态（保证系统的循环特性）。</p>
-<p>可逆：系统可自生初始化</p>
-<p>主宿（回家）：系统经过有限步骤将回到期望状态</p>
-<h4 id="守恒性">守恒性
-</h4><p>在一个Petri网系统中，令牌被用来描述系统资源。对这类Petri网，守恒性是一个重要性质，要使代表资源的令牌在Petri网运行中既不会增加也不会减少，最简单的方法就是网中总令牌数保持恒定。</p>
-<h3 id="petri网的应用">Petri网的应用
-</h3><h4 id="描述系统">描述系统
-</h4><p>Petri网描述系统的最基本概念是库所和变迁</p>
-<p>库所表示系统的状态。变迁表示资源的消耗、使用及使系统状态产生的变化。</p>
-<p>变迁的发生受到系统状态的控制，即变迁发生的前置条件必须满足；变迁发生后，某些前置条件不再满足，而某些后置条件则得到满足。</p>
-<p><img alt="形式化定义的Petri网" class="gallery-image" data-flex-basis="639px" data-flex-grow="266" height="272" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89%E7%9A%84Petri%E7%BD%91.png" width="725"></p>
-
-    <blockquote>
-        <p>用圆圈表示为库所，粗实线表示变迁，联结库所与变迁之间的有向弧表示输入输出函数，用令牌（token）表示库所中拥有的资源数量（黑点或数字表示）</p>
-
-    </blockquote>
-<h4 id="分析系统故障">分析系统故障
-</h4><p>Petri网是一种图形演绎方法，应用Petri网分析系统故障就是将系统所不希望发生的事件作为顶库所，逐步找出导致这一事件的所有可能因素作为中间库所和底库所。</p>
-<p>故障树可以看作是系统中故障传播的逻辑关系，一般的单调关联故障树只含有与门和或门。故障树可以很方便地用Petri网表示，如与门采用多输入变迁代替，或门采用两个变迁代替。</p>
-<p><img alt="故障树的Petri网表示" class="gallery-image" data-flex-basis="282px" data-flex-grow="117" height="615" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E6%95%85%E9%9A%9C%E6%A0%91%E7%9A%84Petri%E7%BD%91%E8%A1%A8%E7%A4%BA.png" width="724"></p>
-<p>在故障树分析中，当一些底事件同时发生时，顶事件必然发生，能使顶事件发生的这些底事件的集合就称为割集。如果割集中的任一底事件不发生时，顶事件也不发生，则这样的割集称为最小割集。</p>
-<p><strong>关联矩阵</strong>是Petri网的主要分析方法之一:</p>
-<ol>
-<li>若从库所 $P$ 到变迁 $t$ 的输入函数取值为非负整数 $w$，记为 $I(P,t)=w$，用从 $P$ 到 $t$ 的一有向弧并旁注 $w$ 表示</li>
-<li>若从变迁 $t$ 到库所 $P$ 的输出函数取值为非负整数 $w$，记为 $O(P,t)=w$，用从 $t$ 到 $P$ 的一有向弧并旁注 $w$ 表示</li>
-<li>$O$ 与 $I$ 之差 $A^T=O-I$ 称为关联矩阵。这里我们探讨规范网，所以 $w=1$。</li>
-</ol>
-
-    <blockquote>
-        <p>特别地，若 $w=1$，则不必标注；若 $I(P,t)=0$ 或 $O(P,t)=0$，则不必画弧。$I$ 与 $O$ 均可表示为 $n \times m$ 非负整数矩阵。</p>
-
-    </blockquote>
-<p>例如，对于如下的Petri网：</p>
-<p><img alt="求关联矩阵" class="gallery-image" data-flex-basis="189px" data-flex-grow="78" height="518" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E6%B1%82%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5.png" width="408"></p>
-<p>有 </p>
-$$ \bm{I} = \left[ \begin{matrix} 1 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{matrix} \right]，\bm{O} = \left[ \begin{matrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{matrix} \right]$$<p>则 </p>
-$$\bm{A}^T = \bm{O}-\bm{I} = \left[ \begin{matrix} -1 & 0 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{matrix} \right]$$<p>割集求解步骤</p>
-<ol>
-<li>找出关联矩阵中只有 $1$ 和 $0$，没有 $-1$ 的行，则该行对应的为顶库所（只有输入库所，没有输出库所），由此库所开始寻找（在此关联矩阵中为最后一行）。</li>
-<li>由顶库所对应行的 $1$ 出发按列寻找到 $-1$，此 $-1$ 所对应行代表的库所为顶库所的一个输入库所，如果该列有多个 $-1$，则说明对应同一变迁有多个输入库所，并且输入的库所为“与”关系。</li>
-<li>由步骤2中找到的 $-1$ 按行寻找 $1$，如有 $1$ 则说明该库所为中间库所，继续按步骤2所述循环查找，直到所在行没有 $1$ 为止。没有 $1$，则说明该库所是一个底库所即基本事件。如果该行有多个 $1$，则说明由这些1对应的库所对应多个变迁，应为“或”关系。</li>
-<li>按步骤2、步骤3继续查找，直到查找到最底层的库所</li>
-<li>按照上面的“与”“或”关系将底库所展开，则得到所有割集。</li>
-<li>按照布尔吸收律、等幂率或素数法可求得最小割集</li>
-</ol>
-<h2 id="动态系统">动态系统
-</h2><p>转换系统是描述硬件/软件系统中计算/通信的常用语义模型。</p>
-<h3 id="系统结构">系统结构
-</h3><p>一个动态系统的形式化定义为一个元组 $\left&lt;S, \text{Act}, \rightarrow, I, \text{AP}, L\right&gt;$，其中：</p>
-<ol>
-<li>$S$ 是一系列状态。</li>
-<li>$\text{Act}$ 是一系列行为。</li>
-<li>$\rightarrow \subseteq S \times \text{Act} \times S$ 是一个转换关系。</li>
-<li>$I \subseteq S$ 是一系列初始状态。</li>
-<li>$\text{AP}$ 是一系列原子命题。</li>
-<li>$L: S \rightarrow 2^{AP}$ 是一个函数。</li>
-</ol>
-<h4 id="前驱和后继">前驱和后继
-</h4>$$\text{Pre}(s, \alpha) = \{s' = S \mid s' \xrightarrow{\alpha} s\}, \qquad \text{Pre}(s) = \bigcup_{\alpha \in \text{Act}} \text{Pre}(s, \alpha)$$$$\text{Post}(s, \alpha) = \{s' = S \mid s \xrightarrow{\alpha} s'\}, \qquad \text{Post}(s) = \bigcup_{\alpha \in \text{Act}} \text{Post}(s, \alpha)$$$$\text{Pre}(C, \alpha) = \bigcup_{s \in C} \text{Pre}(s, \alpha), \qquad \text{Pre}(C) = \bigcup_{s \in C} \text{Pre}(s) \text{ for } C \subseteq S$$$$\text{Post}(C, \alpha) = \bigcup_{s \in C} \text{Post}(s, \alpha), \qquad \text{Post}(C) = \bigcup_{s \in C} \text{Post}(s) \text{ for } C \subseteq S$$<h4 id="终止条件">终止条件
-</h4><p>状态 $s$ 终止当且仅当 $\text{Post}(s)=\oslash$</p>
-<p><img alt="自动售货机系统" class="gallery-image" data-flex-basis="478px" data-flex-grow="199" height="537" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E8%BD%AC%E6%8D%A2%E7%B3%BB%E7%BB%9F%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/formal_methods/system/images/%E8%BD%AC%E6%8D%A2%E7%B3%BB%E7%BB%9F%E7%A4%BA%E4%BE%8B_hu_2a79c9a3c80cb54d.png 800w, /passage/software/formal_methods/system/images/%E8%BD%AC%E6%8D%A2%E7%B3%BB%E7%BB%9F%E7%A4%BA%E4%BE%8B.png 1070w" width="1070"></p>
-<p>在如图所示的自动售货机系统中，有</p>
-<ul>
-<li>$S = \{\text{pay}, \text{select}, \text{soda}, \text{beer}\}$</li>
-<li>$\text{Act} = \{\text{insert\_coin}, \text{get\_soda}, \text{get\_beer}, \tau\}$</li>
-<li>$I = \{\text{pay}\}$</li>
-<li>$\text{AP} = \{\text{paid}, \text{drink}\}$</li>
-<li>$L(\text{pay}) = \oslash$，$L(\text{select}) = \{\text{paid}\}$，$L(\text{soda}) = L(\text{beer}) = \{\text{paid}, \text{drink}\}$</li>
-</ul>
-<p>它的前驱和后继分别有：</p>
-<ul>
-<li>$\text{Post}(\text{pay}, \text{insert\_coin}) = \{\text{select}\}$</li>
-<li>$\text{Pre}(\text{pay}, \text{get\_soda}) = \{\text{soda}\}$</li>
-<li>$\text{Pre}(\text{pay}) = \{\text{soda}, \text{beer}\}$</li>
-</ul>
-<h4 id="确定性变迁">确定性变迁
-</h4><p>记 $\text{TS} = (S, \text{Act}, \rightarrow, I, \text{AP}, L)$：</p>
-<p>若 $\forall s,\alpha$，都有 $|I| &lt; 1$ 且 $|\text{Post}(s, \alpha)| \leqslant 1$，则称 $TS$ 为动作确定性的系统</p>
-
-    <blockquote>
-        <p>即对于同一行动，不超过2个后继。</p>
-
-    </blockquote>
-<p>若 $\forall s, A \in 2^{\text{AP}}$，都有 $|I| \leqslant 1$ 且 $|\text{Post}(s) \cap \{s' \in S \mid L(s') = A\}| \leqslant 1$</p>
-
-    <blockquote>
-        <p>即同一标签的后继不超过2个。</p>
-
-    </blockquote>
-<h4 id="动作执行">动作执行
-</h4><p>执行（运行）是状态转换的线性序列，用于描述系统的动态行为。</p>
-<p>动态系统 $\text{TS}$ 的有限执行片段 $\rho$ 是以状态结尾的、状态和动作交替的序列：</p>
-$$\rho = s_o \alpha_1 s_1 \alpha_2 \cdots \alpha_n s_n$$<p> 其中 $\forall\ 0 \leqslant i &lt; n$，有 $s_i \xrightarrow{\alpha_{i+1}} s_{i+1}$</p>
-<p>相应的，动态系统 $\text{TS}$ 的无限执行片段 $\rho$ 可表示为 </p>
-$$\rho = s_o \alpha_1 s_1 \alpha_2 s_2 \alpha_3 \cdots$$<p> 其中 $\forall\ i \geqslant 0$，有 $s_i \xrightarrow{\alpha_{i+1}} s_{i+1}$</p>
-<p>如果 $s_0 \in I$，则称该执行为初始执行。</p>
-<p>最大执行片段可以是有限的，以终端状态结束；也可以是无限的</p>
-<h4 id="可达状态">可达状态
-</h4><p>如果存在初始的有限执行片段，则状态 $s \in S$ 在 $\text{TS}$ 中称为可达 </p>
-$$s_0 \xrightarrow{\alpha_1} s_1 \xrightarrow{\alpha_2} s_2 \cdots \xrightarrow{\alpha_n} s_n = s$$<p> 记 $\text{Reach}(\text{TS})$ 表示 $\text{TS}$ 中所有可到达状态的集合。</p>
-<h3 id="几种系统">几种系统
-</h3><h4 id="程序图">程序图
-</h4><p>定义在类型变量集<code>Var</code>上的程序图 $\text{PG}$ 可表示为一个元组 </p>
-$$\left<\text{Loc}, \text{Act}, \text{Effect}, \hookrightarrow, \text{Loc}_0, g_0\right>$$<p> 其中：</p>
-<ul>
-<li>$\text{Loc}$ 是一组位置，初始位置记为 $\text{Loc}_0 \subseteq \text{Loc}$。</li>
-<li>$\text{Act}$ 是一系列行为。</li>
-<li>$\text{Effect}: \text{Act} \times \text{Eval(Var)} \rightarrow \text{Eval(Var)}$ 是结果函数。</li>
-<li>$\hookrightarrow \subseteq \text{Loc} \times \text{Cond(Var)} \times \text{Act} \times \text{Loc}$ 是转换关系。</li>
-<li>$g_0 \in \text{Cond(Var)}$ 是初始条件。</li>
-</ul>
-<p>程序图 $\text{PG} = (\text{Loc}, \text{Act}, \text{Effect}, \hookrightarrow, \text{Loc}_0, g_0)$ 的转换可以表示为 </p>
-$$(S, \text{Act}, \rightarrow, I, \text{AP}, L)$$<p> 其中：</p>
-<ul>
-<li>$S = \text{Loc} \times \text{Eval(Var)}$</li>
-<li>$\rightarrow \subseteq S \times \text{Act} \times S$ 定义为
-$$\frac{l \xhookrightarrow{g: \alpha} l' \land \eta \vDash g}{\left< l, \eta \right> \xrightarrow{\alpha} \left< l', \text{Effect}(\alpha, \eta) \right>}$$</li>
-<li>$I = \{\left&lt; l, \eta \right&gt; \mid l \in \text{Loc}_0, \eta \vDash g_0\}$</li>
-<li>$L(\left&lt; l, \eta \right&gt;) = \{l\} \cup \{g \in \text{Cond(Var)} \mid \eta \vDash g\}$</li>
-</ul>
-<p>对于一个给定的程序图，它的可能状态数有 </p>
-$$|\text{Loc} | \cdot \prod_{x \in \text{Var}} |\text{dom}(x)|$$<h4 id="并发系统">并发系统
-</h4><p>交错执行是解决并发系统冲突的有效方法。</p>
-<p>设 $\text{TS}_i = (S_i, \text{Act}_i, \rightarrow_i, I_i, \text{AP}_i, L_i)$，其中 $i=1,2$ 为两个转换系统，则它们的并发表示为 </p>
-$$\text{TS}_1 ||| \text{TS}_2 = (S_1 \times S_2, \text{Act}_1 \cup \text{Act}_2, \rightarrow, I_1 \times I_2, \text{AP}_1 \cup \text{AP}_2, L)$$<p> 其中 $L(\left&lt; s_1, s_2\right&gt;) = L_1(s_1) \cup L_2(s_2)$，$\rightarrow$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s'_1, s_2 \right>} \qquad \frac{s_2 \xrightarrow{\alpha}_2 s'_2}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s_1, s'_2 \right>}$$<p>假设 $\text{TS}_1$ 和 $\text{TS}_2$ 是独立的，即没有共享的动作或变量。</p>
-<p>同时执行的独立动作 $\alpha$ 和 $\beta$ 的效果等于 $\alpha$ 和 $\beta$ 以任意顺序连续执行时的效果</p>
-<p>访问共享变量的操作是关键的，否则它们是非关键的。非关键操作可以与任何其他操作并行执行。并发关键操作的执行顺序会影响全局状态</p>
-<p>记 $\text{TS} = \text{TS}_1 \parallel \text{TS}_2 \cdots \parallel \text{TS}_n$。它的可能状态数有 </p>
-$$|S_1| \cdot |S_2| \cdots \cdot |S_n|$$<h4 id="联络">联络
-</h4><p>设 $\text{TS}_i = (S_i, \text{Act}_i, \rightarrow_i, I_i, \text{AP}_i, L_i)$，其中 $i=1,2$，$H \subseteq \text{Act}_1 \cap \text{Act}_2$，则有 </p>
-$$\text{TS}_1 \parallel_H \text{TS}_2 = (S_1 \times S_2, \text{Act}_1 \cup \text{Act}_2, \rightarrow, I_1 \times I_2, \text{AP}_1 \cup \text{AP}_2, L)$$<p> 其中 $L(\left&lt; s_1, s_2\right&gt;) = L_1(s_1) \cup L_2(s_2)$，</p>
-<p>$\rightarrow$ 对 $\alpha \notin H$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s'_1, s_2 \right>} \qquad \frac{s_2 \xrightarrow{\alpha}_2 s'_2}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s_1, s'_2 \right>}$$<p>
-对 $\alpha \in H$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\alpha}_2 s'_2}{\left< s_1, s_2 \right> \xrightarrow{\alpha} \left< s'_1, s'_2\right>}$$<h4 id="同步">同步
-</h4><p>设 $\text{TS}_i = (S_i, \text{Act}_i, \rightarrow_i, I_i, \text{AP}_i, L_i)$，其中 $i=1,2$，定义 </p>
-$$\text{TS}_1 \otimes \text{TS}_2 = (S_1 \times S_2, \text{Act}_1 \times \text{Act}_2, \rightarrow, I_1 \times I_2, \text{AP}_1 \cup \text{AP}_2, L)$$<p> 其中 $L(\left&lt; s_1, s_2\right&gt;) = L_1(s_1) \cup L_2(s_2)$，$\rightarrow$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\beta}_2 s'_2}{\left< s_1, s_2\right> \xrightarrow{(\alpha, \beta)} \left< s'_1, s_2 \right>}$$
 </section>
 
 
@@ -1010,17 +848,6 @@ $$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\beta}_2 s'_2}{\l
         <div class="article-list--tile">
             
                 
-<article class="">
-    <a href="/passage/software/engineering/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">软件工程</h2>
-        </div>
-    </a>
-</article>
-            
-                
 <article class="has-image">
     <a href="/passage/software/formal_methods/">
         
@@ -1070,6 +897,17 @@ $$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\beta}_2 s'_2}{\l
 
         <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
             <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/network/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">计算机网络</h2>
         </div>
     </a>
 </article>

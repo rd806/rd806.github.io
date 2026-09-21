@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://rd806.github.io/</loc>
-    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://rd806.github.io/categories/</loc>
-    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://rd806.github.io/post/</loc>
-    <lastmod>2026-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -40,6 +40,38 @@
                 hreflang="zh-cn"
                 href="https://rd806.github.io/post/"
                 />
+  </url><url>
+    <loc>https://rd806.github.io/categories/exam/</loc>
+    <lastmod>2026-09-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rd806.github.io/en/categories/exam/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://rd806.github.io/categories/exam/"
+                />
+  </url><url>
+    <loc>https://rd806.github.io/passage/software/engineering/</loc>
+    <lastmod>2026-09-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rd806.github.io/categories/guide/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://rd806.github.io/en/categories/guide/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://rd806.github.io/categories/guide/"
+                />
+  </url><url>
+    <loc>https://rd806.github.io/passage/media/fonts/</loc>
+    <lastmod>2026-09-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/passage/cs/data-structure/dsu/</loc>
     <lastmod>2026-06-18T00:00:00+00:00</lastmod>
@@ -57,34 +89,8 @@
                 href="https://rd806.github.io/categories/interesting/"
                 />
   </url><url>
-    <loc>https://rd806.github.io/categories/exam/</loc>
-    <lastmod>2026-04-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://rd806.github.io/en/categories/exam/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://rd806.github.io/categories/exam/"
-                />
-  </url><url>
     <loc>https://rd806.github.io/passage/website/cloudflare/</loc>
     <lastmod>2026-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://rd806.github.io/categories/guide/</loc>
-    <lastmod>2026-04-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://rd806.github.io/en/categories/guide/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://rd806.github.io/categories/guide/"
-                />
   </url><url>
     <loc>https://rd806.github.io/categories/website/</loc>
     <lastmod>2026-04-09T00:00:00+00:00</lastmod>

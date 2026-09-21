@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="动态系统">
-<title>形式化方法</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="下载的字体文件可能包含多种风格，实际上可能只需要其中一部分，如果直接打包进工程会让整个项目体积膨胀。提取字体文件中的单一风格（如 Thin 或 Medium），也称为字体格式转换或子集化。\n">
+<title>提取单一风格的字体</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/software/formal_methods/system/">
+<link rel="canonical" href="https://rd806.github.io/passage/media/fonts/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="形式化方法">
-<meta property='og:description' content="动态系统">
-<meta property='og:url' content='https://rd806.github.io/passage/software/formal_methods/system/'>
+<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="提取单一风格的字体">
+<meta property='og:description' content="下载的字体文件可能包含多种风格，实际上可能只需要其中一部分，如果直接打包进工程会让整个项目体积膨胀。提取字体文件中的单一风格（如 Thin 或 Medium），也称为字体格式转换或子集化。\n">
+<meta property='og:url' content='https://rd806.github.io/passage/media/fonts/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-03-15T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="形式化方法">
-<meta name="twitter:description" content="动态系统">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-09-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-09-15T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="提取单一风格的字体">
+<meta name="twitter:description" content="下载的字体文件可能包含多种风格，实际上可能只需要其中一部分，如果直接打包进工程会让整个项目体积膨胀。提取字体文件中的单一风格（如 Thin 或 Medium），也称为字体格式转换或子集化。\n">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -275,7 +275,7 @@
                                         
                                     
                                 
-                                <option value="/passage/software/formal_methods/system/" selected>简体中文</option>
+                                <option value="/passage/media/fonts/" selected>简体中文</option>
                             
                                 
                                 
@@ -340,48 +340,9 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#petri网">Petri网</a>
-      <ol>
-        <li><a href="#基本概念">基本概念</a></li>
-        <li><a href="#行为特性">行为特性</a>
-          <ol>
-            <li><a href="#可达性">可达性</a></li>
-            <li><a href="#活性">活性</a></li>
-            <li><a href="#有界性">有界性</a></li>
-            <li><a href="#安全性">安全性</a></li>
-            <li><a href="#可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）</a></li>
-            <li><a href="#守恒性">守恒性</a></li>
-          </ol>
-        </li>
-        <li><a href="#petri网的应用">Petri网的应用</a>
-          <ol>
-            <li><a href="#描述系统">描述系统</a></li>
-            <li><a href="#分析系统故障">分析系统故障</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#动态系统">动态系统</a>
-      <ol>
-        <li><a href="#系统结构">系统结构</a>
-          <ol>
-            <li><a href="#前驱和后继">前驱和后继</a></li>
-            <li><a href="#终止条件">终止条件</a></li>
-            <li><a href="#确定性变迁">确定性变迁</a></li>
-            <li><a href="#动作执行">动作执行</a></li>
-            <li><a href="#可达状态">可达状态</a></li>
-          </ol>
-        </li>
-        <li><a href="#几种系统">几种系统</a>
-          <ol>
-            <li><a href="#程序图">程序图</a></li>
-            <li><a href="#并发系统">并发系统</a></li>
-            <li><a href="#联络">联络</a></li>
-            <li><a href="#同步">同步</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
+    <li><a href="#准备文件">准备文件</a></li>
+    <li><a href="#下载工具包">下载工具包</a></li>
+    <li><a href="#提取字体">提取字体</a></li>
   </ol>
 </nav>
         </div>
@@ -538,8 +499,8 @@
             
             
             
-            <a href="/categories/exam/" style="background-color: #2a9d8f; color: #fff;">
-                期末速通
+            <a href="/categories/guide/" style="background-color: #1117d0ff; color: #fff;">
+                教程
             </a>
         
     </header>
@@ -547,13 +508,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/software/formal_methods/system/">形式化方法</a>
+            <a href="/passage/media/fonts/">提取单一风格的字体</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            动态系统
-        </h3>
         
     </div>
 
@@ -577,7 +534,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                    <time class="article-time--published" datetime='2026-03-15T00:00:00Z'>2026年3月15日星期日</time>
+                    <time class="article-time--published" datetime='2026-09-15T00:00:00Z'>2026年9月15日星期二</time>
                 
 
                 
@@ -590,7 +547,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 1 分钟
                     </time>
                 
             </div>
@@ -617,48 +574,9 @@
             <nav class="toc-nav">
                 
   <ol>
-    <li><a href="#petri网">Petri网</a>
-      <ol>
-        <li><a href="#基本概念">基本概念</a></li>
-        <li><a href="#行为特性">行为特性</a>
-          <ol>
-            <li><a href="#可达性">可达性</a></li>
-            <li><a href="#活性">活性</a></li>
-            <li><a href="#有界性">有界性</a></li>
-            <li><a href="#安全性">安全性</a></li>
-            <li><a href="#可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）</a></li>
-            <li><a href="#守恒性">守恒性</a></li>
-          </ol>
-        </li>
-        <li><a href="#petri网的应用">Petri网的应用</a>
-          <ol>
-            <li><a href="#描述系统">描述系统</a></li>
-            <li><a href="#分析系统故障">分析系统故障</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#动态系统">动态系统</a>
-      <ol>
-        <li><a href="#系统结构">系统结构</a>
-          <ol>
-            <li><a href="#前驱和后继">前驱和后继</a></li>
-            <li><a href="#终止条件">终止条件</a></li>
-            <li><a href="#确定性变迁">确定性变迁</a></li>
-            <li><a href="#动作执行">动作执行</a></li>
-            <li><a href="#可达状态">可达状态</a></li>
-          </ol>
-        </li>
-        <li><a href="#几种系统">几种系统</a>
-          <ol>
-            <li><a href="#程序图">程序图</a></li>
-            <li><a href="#并发系统">并发系统</a></li>
-            <li><a href="#联络">联络</a></li>
-            <li><a href="#同步">同步</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
+    <li><a href="#准备文件">准备文件</a></li>
+    <li><a href="#下载工具包">下载工具包</a></li>
+    <li><a href="#提取字体">提取字体</a></li>
   </ol>
 
             </nav>
@@ -669,280 +587,61 @@
     <section class="article-content">
     
     
-    <h2 id="petri网">Petri网
-</h2><p>Petri网使用简单的图形较好地表示并发、同步、因果等关系，以网图的形式简洁、直观地模拟离散事件系统。</p>
-<h3 id="基本概念">基本概念
-</h3><p>Petri网是一种网状信息流模型，包括条件和事件两类节点，在条件和事件为节点的有向二分图基础上添加表示状态信息的token分布，并按引发规则使得事件驱动状态演变，从而反映系统动态运行过程。</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>元素</th>
-          <th>表示</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>小矩形</td>
-          <td>事件（变迁）结点</td>
-      </tr>
-      <tr>
-          <td>小圆形</td>
-          <td>条件（位置）结点</td>
-      </tr>
-      <tr>
-          <td>有向弧</td>
-          <td>变迁结点之间、位置结点之间不能有有向弧，变迁结点与位置节点之间连接有向弧</td>
-      </tr>
-      <tr>
-          <td>若干黑点</td>
-          <td>网的某些位置结点中标上的token</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>由此构成的有向二分图称作网，从而构成Petri网。</p>
-<p><img alt="Petri网示例" class="gallery-image" data-flex-basis="235px" data-flex-grow="98" height="674" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/Petri%E7%BD%91%E7%A4%BA%E4%BE%8B.png" width="661"></p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>组成</th>
-          <th>概念</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>资源</td>
-          <td>与系统状态变化有关的因素，如原料、产品、工具、设备等</td>
-      </tr>
-      <tr>
-          <td>状态元素</td>
-          <td>资源归类后的抽象</td>
-      </tr>
-      <tr>
-          <td>库所</td>
-          <td>一个场所，存放状态元素</td>
-      </tr>
-      <tr>
-          <td>变迁</td>
-          <td>资源状态变化</td>
-      </tr>
-      <tr>
-          <td>事件</td>
-          <td>引起条件的变迁称为事件</td>
-      </tr>
-      <tr>
-          <td>容量</td>
-          <td>库所的最大资源数量</td>
-      </tr>
-  </tbody>
-</table></div>
-<p>一个Petri网是一个三元组 $N = (P, T, F)$，其中：</p>
-<ol>
-<li>$P = \{p_1, p_2, \cdots, p_m\}$ 为库所的集合</li>
-<li>$T = \{t_1, t_2, \cdots, t_n\}$ 为变迁的集合</li>
-<li>$F = (P \times T) \cup (T \times P)$ 为输入函数和输出函数集，称为流关系。</li>
-</ol>
-
-    <blockquote>
-        <p>约束：</p>
-<ol>
-<li>$P \cap T = \oslash$，规定了库所和变迁是两类不同的元素</li>
-<li>$P \cup T \ne \oslash$，表示网中至少有一个元素</li>
-<li>$F = (P \times T) \cup (T \times P)$ 建立了从库所到变迁、从变迁到库所的<strong>单方向</strong>联系，并且规定同类元素之间不能直接联系</li>
-</ol>
-
-    </blockquote>
-<p>在有向图 $N = (P, T, F)$ 中，</p>
-<ol>
-<li>设 $K: P \rightarrow \{1, 2, 3, \cdots \}$ 表示 $N$ 上 $P$ 的容量，用库所中的黑点表示（无黑点表示无穷大）；</li>
-<li>设 $W: F \rightarrow \{1, 2, 3, \cdots \}$ 表示 $N$ 上 $F$ 的权重，用有向弧上的数字表示（无数字表示权重是1）</li>
-</ol>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>分类</th>
-          <th></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>基本Petri网</td>
-          <td>每个库所容量为1，这时库所可称为条件，变迁可称为事件。故又称为条件/事件系统（C/E）</td>
-      </tr>
-      <tr>
-          <td>低级Petri网</td>
-          <td>库所容量和权重为&gt;=1的任意整数，称为库所/变迁网（P/T）</td>
-      </tr>
-      <tr>
-          <td>定时Petri网</td>
-          <td>将各事件的持续时长标在库所旁边，库所中新产生的标记经过一须时间后才加入到网中，或是标在变迁上，经过时间延迟后发生</td>
-      </tr>
-      <tr>
-          <td>高级Petri网</td>
-          <td>谓词/事件网、染色网、随机网等</td>
-      </tr>
-  </tbody>
-</table></div>
-<h3 id="行为特性">行为特性
-</h3><p>Petri网具有一些专门的分析手段，对系统活性和死锁进行分析。分析系统中的顺序、并发及冲突等复杂事件的关系。</p>
-<h4 id="可达性">可达性
-</h4><p>可达性是研究任何系统动态特性的基础，决定系统能否到达一个指定的状态。</p>
-<p>系统按照一定的流程运行，系统是否能够实现一定的状态；或者不期望的状态不出现。或者要求到达一定的状态，如何确定系统的运行轨迹（流程）</p>
-<h4 id="活性">活性
-</h4><p>在系统中用于检测是否存在死锁。一个系统存在的一个潜在问题是死锁，为了避免死锁， 系统的Petri网模型必须具有活性。</p>
-<p>解决死锁的方法：</p>
-<ol>
-<li>互斥：同时争夺唯一资源</li>
-<li>占用且等待</li>
-<li>无抢占</li>
-<li>循环等待</li>
-</ol>
-<h4 id="有界性">有界性
-</h4><p>有界性是一个非常重要的特性，它保证系统在运行过程中不会需要无限的资源</p>
-<p>有界性反映一个库所在系统运行过程中能够获得的最大的令牌数，即所能获得的最大资源数，它与系统的初始令牌有关.</p>
-<p>在实际系统设计中，必须使网络中的每个库所在任何状态下的令牌数小于库所的容量，这样才能保证系统的正常运行。</p>
-<h4 id="安全性">安全性
-</h4><p>安全性决定系统中正在执行的操作不会发出请求。若Petri网为1有界，则称此Petri网是安全的。这种网的每一个库所要么有一个令牌，要么没有令牌。</p>
-<p>安全性是有界性的一种特殊情况 。</p>
-<h4 id="可逆性和回家状态主宿状态">可逆性和回家状态（主宿状态）
-</h4><p>在制造业系统和过程控制系统中存在着一个重要的问题：错误复原，即系统能否重新回到原来状态（保证系统的循环特性）。</p>
-<p>可逆：系统可自生初始化</p>
-<p>主宿（回家）：系统经过有限步骤将回到期望状态</p>
-<h4 id="守恒性">守恒性
-</h4><p>在一个Petri网系统中，令牌被用来描述系统资源。对这类Petri网，守恒性是一个重要性质，要使代表资源的令牌在Petri网运行中既不会增加也不会减少，最简单的方法就是网中总令牌数保持恒定。</p>
-<h3 id="petri网的应用">Petri网的应用
-</h3><h4 id="描述系统">描述系统
-</h4><p>Petri网描述系统的最基本概念是库所和变迁</p>
-<p>库所表示系统的状态。变迁表示资源的消耗、使用及使系统状态产生的变化。</p>
-<p>变迁的发生受到系统状态的控制，即变迁发生的前置条件必须满足；变迁发生后，某些前置条件不再满足，而某些后置条件则得到满足。</p>
-<p><img alt="形式化定义的Petri网" class="gallery-image" data-flex-basis="639px" data-flex-grow="266" height="272" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89%E7%9A%84Petri%E7%BD%91.png" width="725"></p>
-
-    <blockquote>
-        <p>用圆圈表示为库所，粗实线表示变迁，联结库所与变迁之间的有向弧表示输入输出函数，用令牌（token）表示库所中拥有的资源数量（黑点或数字表示）</p>
-
-    </blockquote>
-<h4 id="分析系统故障">分析系统故障
-</h4><p>Petri网是一种图形演绎方法，应用Petri网分析系统故障就是将系统所不希望发生的事件作为顶库所，逐步找出导致这一事件的所有可能因素作为中间库所和底库所。</p>
-<p>故障树可以看作是系统中故障传播的逻辑关系，一般的单调关联故障树只含有与门和或门。故障树可以很方便地用Petri网表示，如与门采用多输入变迁代替，或门采用两个变迁代替。</p>
-<p><img alt="故障树的Petri网表示" class="gallery-image" data-flex-basis="282px" data-flex-grow="117" height="615" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E6%95%85%E9%9A%9C%E6%A0%91%E7%9A%84Petri%E7%BD%91%E8%A1%A8%E7%A4%BA.png" width="724"></p>
-<p>在故障树分析中，当一些底事件同时发生时，顶事件必然发生，能使顶事件发生的这些底事件的集合就称为割集。如果割集中的任一底事件不发生时，顶事件也不发生，则这样的割集称为最小割集。</p>
-<p><strong>关联矩阵</strong>是Petri网的主要分析方法之一:</p>
-<ol>
-<li>若从库所 $P$ 到变迁 $t$ 的输入函数取值为非负整数 $w$，记为 $I(P,t)=w$，用从 $P$ 到 $t$ 的一有向弧并旁注 $w$ 表示</li>
-<li>若从变迁 $t$ 到库所 $P$ 的输出函数取值为非负整数 $w$，记为 $O(P,t)=w$，用从 $t$ 到 $P$ 的一有向弧并旁注 $w$ 表示</li>
-<li>$O$ 与 $I$ 之差 $A^T=O-I$ 称为关联矩阵。这里我们探讨规范网，所以 $w=1$。</li>
-</ol>
-
-    <blockquote>
-        <p>特别地，若 $w=1$，则不必标注；若 $I(P,t)=0$ 或 $O(P,t)=0$，则不必画弧。$I$ 与 $O$ 均可表示为 $n \times m$ 非负整数矩阵。</p>
-
-    </blockquote>
-<p>例如，对于如下的Petri网：</p>
-<p><img alt="求关联矩阵" class="gallery-image" data-flex-basis="189px" data-flex-grow="78" height="518" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E6%B1%82%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5.png" width="408"></p>
-<p>有 </p>
-$$ \bm{I} = \left[ \begin{matrix} 1 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{matrix} \right]，\bm{O} = \left[ \begin{matrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 1 \end{matrix} \right]$$<p>则 </p>
-$$\bm{A}^T = \bm{O}-\bm{I} = \left[ \begin{matrix} -1 & 0 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & 1 \end{matrix} \right]$$<p>割集求解步骤</p>
-<ol>
-<li>找出关联矩阵中只有 $1$ 和 $0$，没有 $-1$ 的行，则该行对应的为顶库所（只有输入库所，没有输出库所），由此库所开始寻找（在此关联矩阵中为最后一行）。</li>
-<li>由顶库所对应行的 $1$ 出发按列寻找到 $-1$，此 $-1$ 所对应行代表的库所为顶库所的一个输入库所，如果该列有多个 $-1$，则说明对应同一变迁有多个输入库所，并且输入的库所为“与”关系。</li>
-<li>由步骤2中找到的 $-1$ 按行寻找 $1$，如有 $1$ 则说明该库所为中间库所，继续按步骤2所述循环查找，直到所在行没有 $1$ 为止。没有 $1$，则说明该库所是一个底库所即基本事件。如果该行有多个 $1$，则说明由这些1对应的库所对应多个变迁，应为“或”关系。</li>
-<li>按步骤2、步骤3继续查找，直到查找到最底层的库所</li>
-<li>按照上面的“与”“或”关系将底库所展开，则得到所有割集。</li>
-<li>按照布尔吸收律、等幂率或素数法可求得最小割集</li>
-</ol>
-<h2 id="动态系统">动态系统
-</h2><p>转换系统是描述硬件/软件系统中计算/通信的常用语义模型。</p>
-<h3 id="系统结构">系统结构
-</h3><p>一个动态系统的形式化定义为一个元组 $\left&lt;S, \text{Act}, \rightarrow, I, \text{AP}, L\right&gt;$，其中：</p>
-<ol>
-<li>$S$ 是一系列状态。</li>
-<li>$\text{Act}$ 是一系列行为。</li>
-<li>$\rightarrow \subseteq S \times \text{Act} \times S$ 是一个转换关系。</li>
-<li>$I \subseteq S$ 是一系列初始状态。</li>
-<li>$\text{AP}$ 是一系列原子命题。</li>
-<li>$L: S \rightarrow 2^{AP}$ 是一个函数。</li>
-</ol>
-<h4 id="前驱和后继">前驱和后继
-</h4>$$\text{Pre}(s, \alpha) = \{s' = S \mid s' \xrightarrow{\alpha} s\}, \qquad \text{Pre}(s) = \bigcup_{\alpha \in \text{Act}} \text{Pre}(s, \alpha)$$$$\text{Post}(s, \alpha) = \{s' = S \mid s \xrightarrow{\alpha} s'\}, \qquad \text{Post}(s) = \bigcup_{\alpha \in \text{Act}} \text{Post}(s, \alpha)$$$$\text{Pre}(C, \alpha) = \bigcup_{s \in C} \text{Pre}(s, \alpha), \qquad \text{Pre}(C) = \bigcup_{s \in C} \text{Pre}(s) \text{ for } C \subseteq S$$$$\text{Post}(C, \alpha) = \bigcup_{s \in C} \text{Post}(s, \alpha), \qquad \text{Post}(C) = \bigcup_{s \in C} \text{Post}(s) \text{ for } C \subseteq S$$<h4 id="终止条件">终止条件
-</h4><p>状态 $s$ 终止当且仅当 $\text{Post}(s)=\oslash$</p>
-<p><img alt="自动售货机系统" class="gallery-image" data-flex-basis="478px" data-flex-grow="199" height="537" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/formal_methods/system/images/%E8%BD%AC%E6%8D%A2%E7%B3%BB%E7%BB%9F%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/formal_methods/system/images/%E8%BD%AC%E6%8D%A2%E7%B3%BB%E7%BB%9F%E7%A4%BA%E4%BE%8B_hu_2a79c9a3c80cb54d.png 800w, /passage/software/formal_methods/system/images/%E8%BD%AC%E6%8D%A2%E7%B3%BB%E7%BB%9F%E7%A4%BA%E4%BE%8B.png 1070w" width="1070"></p>
-<p>在如图所示的自动售货机系统中，有</p>
-<ul>
-<li>$S = \{\text{pay}, \text{select}, \text{soda}, \text{beer}\}$</li>
-<li>$\text{Act} = \{\text{insert\_coin}, \text{get\_soda}, \text{get\_beer}, \tau\}$</li>
-<li>$I = \{\text{pay}\}$</li>
-<li>$\text{AP} = \{\text{paid}, \text{drink}\}$</li>
-<li>$L(\text{pay}) = \oslash$，$L(\text{select}) = \{\text{paid}\}$，$L(\text{soda}) = L(\text{beer}) = \{\text{paid}, \text{drink}\}$</li>
-</ul>
-<p>它的前驱和后继分别有：</p>
-<ul>
-<li>$\text{Post}(\text{pay}, \text{insert\_coin}) = \{\text{select}\}$</li>
-<li>$\text{Pre}(\text{pay}, \text{get\_soda}) = \{\text{soda}\}$</li>
-<li>$\text{Pre}(\text{pay}) = \{\text{soda}, \text{beer}\}$</li>
-</ul>
-<h4 id="确定性变迁">确定性变迁
-</h4><p>记 $\text{TS} = (S, \text{Act}, \rightarrow, I, \text{AP}, L)$：</p>
-<p>若 $\forall s,\alpha$，都有 $|I| &lt; 1$ 且 $|\text{Post}(s, \alpha)| \leqslant 1$，则称 $TS$ 为动作确定性的系统</p>
-
-    <blockquote>
-        <p>即对于同一行动，不超过2个后继。</p>
-
-    </blockquote>
-<p>若 $\forall s, A \in 2^{\text{AP}}$，都有 $|I| \leqslant 1$ 且 $|\text{Post}(s) \cap \{s' \in S \mid L(s') = A\}| \leqslant 1$</p>
-
-    <blockquote>
-        <p>即同一标签的后继不超过2个。</p>
-
-    </blockquote>
-<h4 id="动作执行">动作执行
-</h4><p>执行（运行）是状态转换的线性序列，用于描述系统的动态行为。</p>
-<p>动态系统 $\text{TS}$ 的有限执行片段 $\rho$ 是以状态结尾的、状态和动作交替的序列：</p>
-$$\rho = s_o \alpha_1 s_1 \alpha_2 \cdots \alpha_n s_n$$<p> 其中 $\forall\ 0 \leqslant i &lt; n$，有 $s_i \xrightarrow{\alpha_{i+1}} s_{i+1}$</p>
-<p>相应的，动态系统 $\text{TS}$ 的无限执行片段 $\rho$ 可表示为 </p>
-$$\rho = s_o \alpha_1 s_1 \alpha_2 s_2 \alpha_3 \cdots$$<p> 其中 $\forall\ i \geqslant 0$，有 $s_i \xrightarrow{\alpha_{i+1}} s_{i+1}$</p>
-<p>如果 $s_0 \in I$，则称该执行为初始执行。</p>
-<p>最大执行片段可以是有限的，以终端状态结束；也可以是无限的</p>
-<h4 id="可达状态">可达状态
-</h4><p>如果存在初始的有限执行片段，则状态 $s \in S$ 在 $\text{TS}$ 中称为可达 </p>
-$$s_0 \xrightarrow{\alpha_1} s_1 \xrightarrow{\alpha_2} s_2 \cdots \xrightarrow{\alpha_n} s_n = s$$<p> 记 $\text{Reach}(\text{TS})$ 表示 $\text{TS}$ 中所有可到达状态的集合。</p>
-<h3 id="几种系统">几种系统
-</h3><h4 id="程序图">程序图
-</h4><p>定义在类型变量集<code>Var</code>上的程序图 $\text{PG}$ 可表示为一个元组 </p>
-$$\left<\text{Loc}, \text{Act}, \text{Effect}, \hookrightarrow, \text{Loc}_0, g_0\right>$$<p> 其中：</p>
-<ul>
-<li>$\text{Loc}$ 是一组位置，初始位置记为 $\text{Loc}_0 \subseteq \text{Loc}$。</li>
-<li>$\text{Act}$ 是一系列行为。</li>
-<li>$\text{Effect}: \text{Act} \times \text{Eval(Var)} \rightarrow \text{Eval(Var)}$ 是结果函数。</li>
-<li>$\hookrightarrow \subseteq \text{Loc} \times \text{Cond(Var)} \times \text{Act} \times \text{Loc}$ 是转换关系。</li>
-<li>$g_0 \in \text{Cond(Var)}$ 是初始条件。</li>
-</ul>
-<p>程序图 $\text{PG} = (\text{Loc}, \text{Act}, \text{Effect}, \hookrightarrow, \text{Loc}_0, g_0)$ 的转换可以表示为 </p>
-$$(S, \text{Act}, \rightarrow, I, \text{AP}, L)$$<p> 其中：</p>
-<ul>
-<li>$S = \text{Loc} \times \text{Eval(Var)}$</li>
-<li>$\rightarrow \subseteq S \times \text{Act} \times S$ 定义为
-$$\frac{l \xhookrightarrow{g: \alpha} l' \land \eta \vDash g}{\left< l, \eta \right> \xrightarrow{\alpha} \left< l', \text{Effect}(\alpha, \eta) \right>}$$</li>
-<li>$I = \{\left&lt; l, \eta \right&gt; \mid l \in \text{Loc}_0, \eta \vDash g_0\}$</li>
-<li>$L(\left&lt; l, \eta \right&gt;) = \{l\} \cup \{g \in \text{Cond(Var)} \mid \eta \vDash g\}$</li>
-</ul>
-<p>对于一个给定的程序图，它的可能状态数有 </p>
-$$|\text{Loc} | \cdot \prod_{x \in \text{Var}} |\text{dom}(x)|$$<h4 id="并发系统">并发系统
-</h4><p>交错执行是解决并发系统冲突的有效方法。</p>
-<p>设 $\text{TS}_i = (S_i, \text{Act}_i, \rightarrow_i, I_i, \text{AP}_i, L_i)$，其中 $i=1,2$ 为两个转换系统，则它们的并发表示为 </p>
-$$\text{TS}_1 ||| \text{TS}_2 = (S_1 \times S_2, \text{Act}_1 \cup \text{Act}_2, \rightarrow, I_1 \times I_2, \text{AP}_1 \cup \text{AP}_2, L)$$<p> 其中 $L(\left&lt; s_1, s_2\right&gt;) = L_1(s_1) \cup L_2(s_2)$，$\rightarrow$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s'_1, s_2 \right>} \qquad \frac{s_2 \xrightarrow{\alpha}_2 s'_2}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s_1, s'_2 \right>}$$<p>假设 $\text{TS}_1$ 和 $\text{TS}_2$ 是独立的，即没有共享的动作或变量。</p>
-<p>同时执行的独立动作 $\alpha$ 和 $\beta$ 的效果等于 $\alpha$ 和 $\beta$ 以任意顺序连续执行时的效果</p>
-<p>访问共享变量的操作是关键的，否则它们是非关键的。非关键操作可以与任何其他操作并行执行。并发关键操作的执行顺序会影响全局状态</p>
-<p>记 $\text{TS} = \text{TS}_1 \parallel \text{TS}_2 \cdots \parallel \text{TS}_n$。它的可能状态数有 </p>
-$$|S_1| \cdot |S_2| \cdots \cdot |S_n|$$<h4 id="联络">联络
-</h4><p>设 $\text{TS}_i = (S_i, \text{Act}_i, \rightarrow_i, I_i, \text{AP}_i, L_i)$，其中 $i=1,2$，$H \subseteq \text{Act}_1 \cap \text{Act}_2$，则有 </p>
-$$\text{TS}_1 \parallel_H \text{TS}_2 = (S_1 \times S_2, \text{Act}_1 \cup \text{Act}_2, \rightarrow, I_1 \times I_2, \text{AP}_1 \cup \text{AP}_2, L)$$<p> 其中 $L(\left&lt; s_1, s_2\right&gt;) = L_1(s_1) \cup L_2(s_2)$，</p>
-<p>$\rightarrow$ 对 $\alpha \notin H$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s'_1, s_2 \right>} \qquad \frac{s_2 \xrightarrow{\alpha}_2 s'_2}{\left< s_1, s_2\right> \xrightarrow{\alpha} \left< s_1, s'_2 \right>}$$<p>
-对 $\alpha \in H$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\alpha}_2 s'_2}{\left< s_1, s_2 \right> \xrightarrow{\alpha} \left< s'_1, s'_2\right>}$$<h4 id="同步">同步
-</h4><p>设 $\text{TS}_i = (S_i, \text{Act}_i, \rightarrow_i, I_i, \text{AP}_i, L_i)$，其中 $i=1,2$，定义 </p>
-$$\text{TS}_1 \otimes \text{TS}_2 = (S_1 \times S_2, \text{Act}_1 \times \text{Act}_2, \rightarrow, I_1 \times I_2, \text{AP}_1 \cup \text{AP}_2, L)$$<p> 其中 $L(\left&lt; s_1, s_2\right&gt;) = L_1(s_1) \cup L_2(s_2)$，$\rightarrow$ 定义为 </p>
-$$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\beta}_2 s'_2}{\left< s_1, s_2\right> \xrightarrow{(\alpha, \beta)} \left< s'_1, s_2 \right>}$$
+    <p>下载的字体文件可能包含多种风格，实际上可能只需要其中一部分，如果直接打包进工程会让整个项目体积膨胀。提取字体文件中的单一风格（如 Thin 或 Medium），也称为字体格式转换或子集化。</p>
+<p>具体方法取决于字体文件格式（TTF/OTF、TTC 集合、或可变字体）。下面以 ttf 文件为例说明。</p>
+<h2 id="准备文件">准备文件
+</h2><p>从网络下载含有多个风格的字体包，这里以 HarmonyOS_Sans 为例。</p>
+<h2 id="下载工具包">下载工具包
+</h2><p>首先确认已存在 python 环境，安装 <code>pip install fonttools</code></p>
+<p>安装时可能出现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Defaulting to user installation because normal site-packages is not writeable
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个提示不是错误，而是 <code>pip</code> 的安装位置警告：系统级的 Python 包目录（<code>site-packages</code>）当前用户没有写入权限，所以 <code>pip</code> 自动改为安装到你的用户目录下。</p>
+<p>该警告通常没有影响，可通过以下命令确认：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python3 -m pip show fonttools
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果能看到版本信息，说明提取工具安装完成。</p>
+<h2 id="提取字体">提取字体
+</h2><p>假设待提取的字体文件名为 <code>MyFont-VF.ttf</code>，使用 <code>instancer</code> 命令提取特定权重：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fonttools varLib.instancer MyFont-VF.ttf <span class="nv">wght</span><span class="o">=</span><span class="m">100</span> -o MyFont-Thin.ttf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样在当前目录下将会生成仅包含 <code>Thin</code> 风格（即 <code>wght=100</code> ）的字体文件 <code>MyFont-Thin.ttf</code>。</p>
+<p>如果提示 <code>Command not found</code>，说明 <code>~/.local/bin</code> 不在 <code>PATH</code> 里。可以采用以下方法解决：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 临时加入</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 直接用模块方式调用</span>
+</span></span><span class="line"><span class="cl">python3 -m fontTools.varLib.instancer MyFont-VF.ttf <span class="nv">wght</span><span class="o">=</span><span class="m">100</span> -o MyFont-Thin.ttf
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -1011,65 +710,65 @@ $$\frac{s_1 \xrightarrow{\alpha}_1 s'_1 \land s_2 \xrightarrow{\beta}_2 s'_2}{\l
             
                 
 <article class="">
-    <a href="/passage/software/engineering/">
+    <a href="/passage/media/passage/">
         
 
         <div class="article-details">
-            <h2 class="article-title">软件工程</h2>
+            <h2 class="article-title">推送制作技巧</h2>
         </div>
     </a>
 </article>
             
                 
 <article class="has-image">
-    <a href="/passage/software/formal_methods/">
+    <a href="/passage/guide/texstudio/">
         
         <div class="article-image">
-            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+            <img alt="Featured image of post Tex排版" height="150" loading="lazy" src="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_9e344216cbf6d5fa.jpg" srcset="/passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_9e344216cbf6d5fa.jpg 1x, /passage/guide/texstudio/bozhin-karaivanov-R5dKk1oXPAM-unsplash_hu_a39a48036aba6e1c.jpg 2x" width="250">
 
         </div>
         
 
-        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
-            <h2 class="article-title">形式化方法</h2>
-        </div>
-    </a>
-</article>
-            
-                
-<article class="">
-    <a href="/passage/cs/database/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">数据库系统</h2>
+        <div class="article-details"style="background: linear-gradient(0deg, #36363680 0%, #f3f3f3C0 100%);">
+            <h2 class="article-title">Tex排版</h2>
         </div>
     </a>
 </article>
             
                 
 <article class="">
-    <a href="/passage/cs/parallel_computing/">
+    <a href="/passage/cs/cslab/nemu/prepared/">
         
 
         <div class="article-details">
-            <h2 class="article-title">并行计算</h2>
+            <h2 class="article-title">NEMU</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/regular_expression/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">正则表达式</h2>
         </div>
     </a>
 </article>
             
                 
 <article class="has-image">
-    <a href="/passage/cs/algorithm/">
+    <a href="/passage/guide/markdown/">
         
         <div class="article-image">
-            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+            <img alt="Featured image of post Markdown语法" height="150" loading="lazy" src="/passage/guide/markdown/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu_cd6a07a0d3af7b3e.jpg" srcset="/passage/guide/markdown/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu_cd6a07a0d3af7b3e.jpg 1x, /passage/guide/markdown/pawel-czerwinski-8uZPynIu-rQ-unsplash_hu_7eb399306de34336.jpg 2x" width="250">
 
         </div>
         
 
-        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
-            <h2 class="article-title">算法设计与分析</h2>
+        <div class="article-details"style="background: linear-gradient(0deg, #679ddc80 0%, #bbbadcC0 100%);">
+            <h2 class="article-title">Markdown语法</h2>
         </div>
     </a>
 </article>
