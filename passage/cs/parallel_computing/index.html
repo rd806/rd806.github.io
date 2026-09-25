@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="并行计算">
+<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="并行计算">
 <meta property='og:description' content="谁不想急头白脸地参加并行计算考试呢">
 <meta property='og:url' content='https://rd806.github.io/passage/cs/parallel_computing/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -1036,6 +1036,7 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
 </h2><p>以下提供一些并行计算的程序设计方法。请注意，这些方法通常不会单一出现，而是综合使用。</p>
 <p>并行设计方法大体上分为两类：共享内存型（Pthread、OpenMP，CUDA）和分布式计算型（MPI、MapReduce）。</p>
 
+
 <div class="catalogue">
     
     <a class="catalogue-link" href="/passage/cs/parallel_computing/thread">
@@ -1047,130 +1048,6 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
         </svg>
     </a>
 </div>
-
-
-
-
-<style>
-     
-    .catalogue {
-        position: relative;
-        margin-bottom: 1rem;
-        border: 1px solid var(--card-separator-color);
-        border-radius: var(--card-border-radius);
-        background: var(--card-background);
-        box-shadow: var(--shadow-l1);
-        overflow: hidden;
-
-         
-        --catalogue-accent: #07639c;
-        --catalogue-accent-strong: #055b8a;
-        --catalogue-accent-border: rgba(7, 99, 156, 0.35);
-
-        transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
-    }
-
-     
-    .catalogue::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--catalogue-accent);
-        transition: width 0.3s;
-    }
-
-     
-    .catalogue:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-l2);
-        border-color: var(--catalogue-accent-border);
-    }
-
-    .catalogue:hover::before {
-        width: 6px;
-    }
-
-     
-    .catalogue-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 0.8rem 1.2rem 0.8rem 1.6rem;
-        text-decoration: none;
-    }
-
-     
-    .catalogue-link:focus-visible {
-        outline: 2px solid var(--catalogue-accent);
-        outline-offset: -2px;
-        border-radius: var(--card-border-radius);
-    }
-
-     
-    .catalogue-text {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        min-width: 0;
-    }
-
-    .catalogue-name {
-        font-weight: 600;
-        color: var(--catalogue-accent);
-        word-break: break-word;
-        transition: color 0.3s;
-    }
-
-    .catalogue:hover .catalogue-name {
-        color: var(--catalogue-accent-strong);
-    }
-
-    .catalogue-description {
-        font-size: 85%;
-        line-height: 1.6;
-        color: var(--card-text-color-secondary);
-        text-align: justify;
-    }
-
-     
-    .catalogue-arrow {
-        flex-shrink: 0;
-        width: 1rem;
-        height: 1rem;
-        color: var(--card-text-color-tertiary);
-        transition: transform 0.3s, color 0.3s;
-    }
-
-    .catalogue:hover .catalogue-arrow {
-        transform: translateX(4px);
-        color: var(--catalogue-accent);
-    }
-
-     
-    :root[data-scheme="dark"] .catalogue {
-        --catalogue-accent: #cebef4;
-        --catalogue-accent-strong: #e2d8f9;
-        --catalogue-accent-border: rgba(206, 190, 244, 0.35);
-    }
-
-     
-    @media (prefers-reduced-motion: reduce) {
-        .catalogue,
-        .catalogue::before,
-        .catalogue-name,
-        .catalogue-arrow {
-            transition: none;
-        }
-
-        .catalogue:hover {
-            transform: none;
-        }
-    }
-</style>
 
 
 
@@ -1188,8 +1065,6 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
 
 
 
-
-
 <div class="catalogue">
     
     <a class="catalogue-link" href="/passage/cs/parallel_computing/mpi">
@@ -1201,8 +1076,6 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
         </svg>
     </a>
 </div>
-
-
 
 
 
@@ -1220,8 +1093,6 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
 
 
 
-
-
 <div class="catalogue">
     
     <a class="catalogue-link" href="/passage/cs/parallel_computing/multiple">
@@ -1236,8 +1107,6 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
 
 
 
-
-
 <div class="catalogue">
     
     <a class="catalogue-link" href="/passage/cs/parallel_computing/mapreduce">
@@ -1249,9 +1118,6 @@ $$S = \frac{f W + (1-f) \cdot G(p) \cdot W}{fW + (1-f) \cdot G(p) \cdot \display
         </svg>
     </a>
 </div>
-
-
-
 
 <h2 id="并行算法设计">并行算法设计
 </h2><p>算法：计算指令序列（逻辑）</p>

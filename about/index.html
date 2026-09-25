@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.1ad60f2db556067abd03c8da708e2e2d74f04992f3d6e51e51eabaf2d8fd5364.css"><meta property='og:title' content="关于">
+<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="关于">
 <meta property='og:description' content="Hugo——现代化网站搭建解决方案">
 <meta property='og:url' content='https://rd806.github.io/about/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -2771,7 +2771,7 @@
 </p>
 
 <div class="github-commits-wrapper">
-    <div class="github-commits-container" id="github-commits-1790267138642501100">
+    <div class="github-commits-container" id="github-commits-1790325066441757500">
         
         <div class="commits-loading">
             <div class="loading-spinner"></div>
@@ -2780,244 +2780,10 @@
     </div>
 </div>
 
-
-
-
-<style>
-     
-    .github-commits-wrapper {
-        margin: 2rem 0;
-        border: 1px solid var(--card-separator-color);
-        border-radius: var(--card-border-radius);
-        background: var(--card-background);
-        box-shadow: var(--shadow-l1);
-        overflow: hidden;
-
-         
-        --gh-accent: #0366d6;
-        --gh-accent-soft: rgba(3, 102, 214, 0.08);
-        --gh-error: #d73a49;
-    }
-
-     
-    .commits-header {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem 1.25rem;
-        background: var(--gh-accent-soft);
-        border-bottom: 1px solid var(--card-separator-color);
-    }
-
-    .commits-header-icon {
-        display: flex;
-        flex-shrink: 0;
-        color: var(--gh-accent);
-    }
-
-    .commits-header-icon svg {
-        width: 1.5em;
-        height: 1.5em;
-    }
-
-    .commits-header-text {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        min-width: 0;
-    }
-
-    .commits-header-name {
-        font-weight: 700;
-        color: var(--card-text-color-main);
-    }
-
-    .commits-header-meta {
-        font-size: 85%;
-        color: var(--card-text-color-secondary);
-    }
-
-     
-    .commits-list {
-        max-height: 480px;
-        overflow-y: auto;
-        scrollbar-width: thin;
-    }
-
-    .commits-list::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .commits-list::-webkit-scrollbar-thumb {
-        background: var(--card-text-color-tertiary);
-        border-radius: 4px;
-    }
-
-    .commits-list::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-     
-    .commit-item {
-        padding: 1rem 1.25rem;
-        border-bottom: 1px solid var(--card-separator-color);
-        transition: background 0.2s;
-    }
-
-    .commit-item:last-child {
-        border-bottom: none;
-    }
-
-    .commit-item:hover {
-        background: var(--card-background-selected);
-    }
-
-     
-    .commit-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.6rem;
-    }
-
-    .commit-author {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
-    .author-avatar {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 1px solid var(--card-separator-color);
-        background: var(--card-background-selected);
-        object-fit: cover;
-    }
-
-    .author-name {
-        font-weight: 600;
-        color: var(--card-text-color-main);
-    }
-
-    .commit-date {
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 85%;
-        color: var(--card-text-color-secondary);
-    }
-
-    .commit-date svg {
-        width: 1em;
-        height: 1em;
-    }
-
-    .commit-message {
-        color: var(--card-text-color-main);
-        line-height: 1.5;
-        margin-bottom: 0.5rem;
-        word-break: break-word;
-    }
-
-     
-    .commit-sha {
-        display: inline-block;
-        font-family: var(--code-font-family);
-        font-size: 85%;
-        padding: 0.15rem 0.5rem;
-        border-radius: 6px;
-        background: var(--card-background-selected);
-        color: var(--card-text-color-secondary);
-        transition: color 0.2s;
-    }
-
-    .commit-sha a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .commit-sha a:hover {
-        color: var(--gh-accent);
-        text-decoration: underline;
-    }
-
-     
-    .commits-loading,
-    .commits-empty {
-        text-align: center;
-        padding: 3rem 1rem;
-        color: var(--card-text-color-secondary);
-    }
-
-    .commits-error {
-        text-align: center;
-        padding: 3rem 1rem;
-        color: var(--gh-error);
-    }
-
-    .loading-spinner {
-        display: inline-block;
-        width: 36px;
-        height: 36px;
-        border: 3px solid var(--card-separator-color);
-        border-top-color: var(--gh-accent);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 0.75rem;
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-     
-    .commits-footer {
-        border-top: 1px solid var(--card-separator-color);
-        background: var(--card-background-selected);
-        padding: 0.75rem 1.25rem;
-        text-align: center;
-    }
-
-    .commits-footer a {
-        color: var(--card-text-color-secondary);
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    .commits-footer a:hover {
-        color: var(--gh-accent);
-    }
-
-    .commits-footer a:focus-visible {
-        outline: 2px solid var(--gh-accent);
-        outline-offset: 2px;
-        border-radius: 4px;
-    }
-
-     
-    :root[data-scheme="dark"] .github-commits-wrapper {
-        --gh-accent: #58a6ff;
-        --gh-accent-soft: rgba(88, 166, 255, 0.12);
-        --gh-error: #f85149;
-    }
-
-     
-    @media (prefers-reduced-motion: reduce) {
-        .loading-spinner {
-            animation: none;
-        }
-    }
-</style>
-
-
 <script>
     (function() {
         
-        const containerId = 'github-commits-1790267138642501100';
+        const containerId = 'github-commits-1790325066441757500';
         const container = document.getElementById(containerId);
 
         
