@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
-<title>RunicDolphin806</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="多元函数积分学">
+<title>微积分</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/">
+<link rel="canonical" href="https://rd806.github.io/passage/math/calculus/integral_calculus_for_multiple/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="RunicDolphin806">
-<meta property='og:description' content="">
-<meta property='og:url' content='https://rd806.github.io/passage/'>
+<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="微积分">
+<meta property='og:description' content="多元函数积分学">
+<meta property='og:url' content='https://rd806.github.io/passage/math/calculus/integral_calculus_for_multiple/'>
 <meta property='og:site_name' content='RunicDolphin806'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' />
-<meta name="twitter:title" content="RunicDolphin806">
-<meta name="twitter:description" content="">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-12T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="微积分">
+<meta name="twitter:description" content="多元函数积分学">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -275,7 +275,7 @@
                                         
                                     
                                 
-                                <option value="/passage/" selected>简体中文</option>
+                                <option value="/passage/math/calculus/integral_calculus_for_multiple/" selected>简体中文</option>
                             
                                 
                                 
@@ -313,7 +313,215 @@
     </ol>
 </aside>
 
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
     
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#重积分">重积分</a>
+      <ol>
+        <li><a href="#二重积分">二重积分</a>
+          <ol>
+            <li><a href="#积分换序">积分换序</a></li>
+            <li><a href="#坐标变换">坐标变换</a></li>
+            <li><a href="#轮换对称性">轮换对称性</a></li>
+          </ol>
+        </li>
+        <li><a href="#三重积分">三重积分</a></li>
+        <li><a href="#重积分的应用">重积分的应用</a>
+          <ol>
+            <li><a href="#物体的质心">物体的质心</a></li>
+            <li><a href="#物体的转动惯量">物体的转动惯量</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#线面积分">线面积分</a>
+      <ol>
+        <li><a href="#曲线积分">曲线积分</a>
+          <ol>
+            <li><a href="#第一类曲线积分">第一类曲线积分</a></li>
+            <li><a href="#第二类曲线积分">第二类曲线积分</a></li>
+          </ol>
+        </li>
+        <li><a href="#曲面积分">曲面积分</a>
+          <ol>
+            <li><a href="#第一类曲面积分一投二代三根号">第一类曲面积分（一投二代三根号）</a></li>
+            <li><a href="#第二类曲面积分一投二代三符号">第二类曲面积分（一投二代三符号）</a></li>
+          </ol>
+        </li>
+        <li><a href="#三大公式">三大公式</a>
+          <ol>
+            <li><a href="#格林公式">格林公式</a></li>
+            <li><a href="#高斯公式">高斯公式</a></li>
+            <li><a href="#斯托克斯公式">斯托克斯公式</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     
@@ -324,12 +532,27 @@
 
     <div class="article-details">
     
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
+    </header>
+    
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/"></a>
+            <a href="/passage/math/calculus/integral_calculus_for_multiple/">微积分</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            多元函数积分学
+        </h3>
         
     </div>
 
@@ -344,6 +567,17 @@
         
             <div class="inline-meta">
                 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-08-12T00:00:00Z'>2025年8月12日星期二</time>
+                
 
                 
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -355,7 +589,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 0 分钟
+                        阅读时长: 3 分钟
                     </time>
                 
             </div>
@@ -371,11 +605,139 @@
 </header>
 
     
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#重积分">重积分</a>
+      <ol>
+        <li><a href="#二重积分">二重积分</a>
+          <ol>
+            <li><a href="#积分换序">积分换序</a></li>
+            <li><a href="#坐标变换">坐标变换</a></li>
+            <li><a href="#轮换对称性">轮换对称性</a></li>
+          </ol>
+        </li>
+        <li><a href="#三重积分">三重积分</a></li>
+        <li><a href="#重积分的应用">重积分的应用</a>
+          <ol>
+            <li><a href="#物体的质心">物体的质心</a></li>
+            <li><a href="#物体的转动惯量">物体的转动惯量</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#线面积分">线面积分</a>
+      <ol>
+        <li><a href="#曲线积分">曲线积分</a>
+          <ol>
+            <li><a href="#第一类曲线积分">第一类曲线积分</a></li>
+            <li><a href="#第二类曲线积分">第二类曲线积分</a></li>
+          </ol>
+        </li>
+        <li><a href="#曲面积分">曲面积分</a>
+          <ol>
+            <li><a href="#第一类曲面积分一投二代三根号">第一类曲面积分（一投二代三根号）</a></li>
+            <li><a href="#第二类曲面积分一投二代三符号">第二类曲面积分（一投二代三符号）</a></li>
+          </ol>
+        </li>
+        <li><a href="#三大公式">三大公式</a>
+          <ol>
+            <li><a href="#格林公式">格林公式</a></li>
+            <li><a href="#高斯公式">高斯公式</a></li>
+            <li><a href="#斯托克斯公式">斯托克斯公式</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
     
-    
+    <h2 id="重积分">重积分
+</h2><h3 id="二重积分">二重积分
+</h3><h4 id="积分换序">积分换序
+</h4><h4 id="坐标变换">坐标变换
+</h4><p>一般坐标变换：令 $x = x(u,v)$，$y = y(u,v)$，则
+</p>
+$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \iint\limits_D f(x(u,v),y(u,v)) \left| \frac{\partial(x,y)}{\partial(u,v)} \right| \mathrm{d}u \mathrm{d}v $$<p>
+其中 </p>
+$$\frac{\partial(x,y)}{\partial(u,v)} = \left| \begin{matrix} \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v}  \\ \\ \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v} \\ \end{matrix}  \right|$$<p> <br></p>
+<p>特别的，有极坐标变换：令 $x = \rho \cos \theta$，$y = \rho \sin \theta$，则
+</p>
+$$\iint\limits_D f(x,y) \mathrm{d}x\mathrm{d}y = \iint\limits_D f(\rho \cos \theta,\rho \sin \theta) \rho \mathrm{d}\rho \mathrm{d}\theta$$<h4 id="轮换对称性">轮换对称性
+</h4><p>若积分区域关于原点对称，则 $x$ 与 $y$ 交换位置后，积分值不变. 即 </p>
+$$\iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y = \frac{1}{2} \left( \iint\limits_D f(x,y) \mathrm{d}x \mathrm{d}y + \iint\limits_D f(y,x) \mathrm{d}y \mathrm{d}x \right)$$<h3 id="三重积分">三重积分
+</h3><ol>
+<li>
+<p>先一后二： $\displaystyle \iiint\limits_\varOmega f(x,y,z) \mathrm{d}V = \iint\limits_{D_{xy}} \mathrm{d}x\mathrm{d}y \int_{z_1(x,y)}^{z_2(x,y)} f(x,y,z) \mathrm{d}z $</p>
+</li>
+<li>
+<p>先二后一：$\displaystyle \iiint\limits_\varOmega f(x,y,z) \mathrm{d}V = \int_{c}^{d} \mathrm{d}z \iint\limits_{D_{xy}} f(x,y,z) \mathrm{d}\sigma $</p>
+</li>
+<li>
+<p>球坐标变换 <br>
+令 </p>
+$$\left\{ \begin{array}{c} \begin{align*} x &= \rho \cos \theta \sin \varphi \\ y &= \rho \sin \theta \sin \varphi \\ z &= \rho \cos \varphi \end{align*} \end{array}\right.$$<p> 则雅可比行列式的绝对值为 $\rho^{2} \sin \theta$</p>
+</li>
+</ol>
+<h3 id="重积分的应用">重积分的应用
+</h3><h4 id="物体的质心">物体的质心
+</h4><p>设物体的密度函数为 $\mu(x,y,z)$，则物体质心坐标为 </p>
+$$\begin{array}{c} \displaystyle \overline{x} = \frac{1}{m}\iiint\limits_\varOmega x \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{y} = \frac{1}{m}\iiint\limits_\varOmega y \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle \overline{z} = \frac{1}{m}\iiint\limits_\varOmega z \mu(x,y,z) \mathrm{d}V \end{array}$$
+    <blockquote>
+        <p>特别地，若物体质量均匀，即 $\mu(x,y,z) = C$，则物体的质心即为物体的形心。</p>
+$$\begin{array}{c} \displaystyle \overline{x} = \iiint\limits_\varOmega x \mathrm{d}V ，\displaystyle \overline{y} = \iiint\limits_\varOmega y \mathrm{d}V ，\displaystyle \overline{z} = \iiint\limits_\varOmega z \mathrm{d}V \end{array}$$
+    </blockquote>
+<h4 id="物体的转动惯量">物体的转动惯量
+</h4><p>设物体的密度函数为 $\mu(x,y,z)$，则物体对 $x,y,z$ 轴的转动惯量分别为 </p>
+$$\begin{array}{c} \displaystyle I_x = \iiint\limits_\varOmega (y^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_y = \iiint\limits_\varOmega (x^{2}+z^{2}) \mu(x,y,z) \mathrm{d}V \\ \\ \displaystyle I_z =  \iiint\limits_\varOmega (x^{2}+y^{2}) \mu(x,y,z) \mathrm{d}V \end{array}  $$<h2 id="线面积分">线面积分
+</h2><h3 id="曲线积分">曲线积分
+</h3><h4 id="第一类曲线积分">第一类曲线积分
+</h4><p>对于由参数方程 </p>
+$$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$<p> 确定的曲线，有 </p>
+$$\int_{L} f(x,y,z) \mathrm{d}s = \int_{a}^{b} f(x(t),y(t),z(t))\sqrt{x'^{\ 2}(t) + y'^{\ 2}(t) + z'^{\ 2}(t)} \mathrm{d}t$$
+    <blockquote>
+        <p>利用第一类曲线积分求柱体侧面积</p>
+<p>母线平行于 $z$ 轴的柱面 $S: f(x,y) = 0$ 上介于两曲线弧 </p>
+$$l_1: \left\{ \begin{array}{c} z=z_1(x,y) \\ \\ f(x,y) = 0 \end{array} \right.，l_2: \left\{ \begin{array}{c} z=z_2(x,y) \\ \\ f(x,y) = 0 \end{array} \right.，z_1(x,y) \geqslant z_2(x,y)$$<p> 之间的曲面面积为
+</p>
+$$S = \int_L [z_1(x,y)-z_2(x,y)] \mathrm{d}l $$
+    </blockquote>
+<h4 id="第二类曲线积分">第二类曲线积分
+</h4><p>对于由参数方程 </p>
+$$\left\{ \begin{array}{c} x=x(t) \\ y=y(t) \\ z=z(t) \\ \end{array} \right. t \in [a,b] $$<p> 确定的曲线，向量值函数 $\bm{A} = P(x,y,z)\bm{i} + Q(x,y,z)\bm{j} + R(x,y,z)\bm{k} $， 有 </p>
+$$\begin{align*} \int_{L} \bm{A} \cdot \mathrm{d} \bm{r} &= \int_{L} P(x,y,z) \mathrm{d}x + \int_{L} Q(x,y,z) \mathrm{d}y + \int_{L} R(x,y,z) \mathrm{d}z \\ &= \int_{a}^{b} [P(x(t),y(t),z(t))x'(t) + Q(x(t),y(t),z(t))y'(t) \\ & \qquad + R(x(t),y(t),z(t))z'(t)] \mathrm{d}t \end{align*}$$
+    <blockquote>
+        <p>两类曲线积分之间的联系
+</p>
+$$\int_{L} P \mathrm{d}x + Q \mathrm{d}y + R \mathrm{d}z = \int_{L} [P\cos \alpha + Q\cos \beta + R\cos \gamma] \mathrm{d}s $$
+    </blockquote>
+<h3 id="曲面积分">曲面积分
+</h3><h4 id="第一类曲面积分一投二代三根号">第一类曲面积分（一投二代三根号）
+</h4><p>对于曲面 $z=z(x,y)$，有 </p>
+$$\iint\limits_{\varSigma} f(x,y,z) \mathrm{d}S = \iint\limits_{D_{xy}} f(x,y,z(x,y)) \sqrt{1+z_x^{'\ 2}(x,y) + z_y^{'\ 2}(x,y)} \mathrm{d}\sigma $$<h4 id="第二类曲面积分一投二代三符号">第二类曲面积分（一投二代三符号）
+</h4><p>对于曲面 $z=z(x,y)$，有 </p>
+$$\begin{array}{c} \displaystyle \iint\limits_{\varSigma} R(x,y,z) \mathrm{d}x\mathrm{d}y = \pm \iint\limits_{D_{xy}} R(x,y,z(x,y)) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} P(x,y,z) \mathrm{d}y\mathrm{d}z = \pm \iint\limits_{D_{yz}} P(x(y,z),y,z) \mathrm{d}\sigma \\ \\ \displaystyle \iint\limits_{\varSigma} Q(x,y,z) \mathrm{d}x\mathrm{d}z = \pm \iint\limits_{D_{xz}} Q(x,y(x,z),z) \mathrm{d}\sigma \end{array}$$<p>
+其中正负号由积分曲面的方向决定.</p>
+<h3 id="三大公式">三大公式
+</h3><h4 id="格林公式">格林公式
+</h4>$$\oint_{L} P \mathrm{d}x + Q \mathrm{d}y = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathrm{d}\sigma $$<h4 id="高斯公式">高斯公式
+</h4>$$\oiint\limits_{\varSigma} P \mathrm{d}y\mathrm{d}z + Q \mathrm{d}x\mathrm{d}z + R \mathrm{d}x\mathrm{d}y = \iiint\limits_{\varOmega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \mathrm{d}V $$<h4 id="斯托克斯公式">斯托克斯公式
+</h4>$$\begin{align*} \oint_{\varGamma} (P \mathrm{d}x + Q \mathrm{d}y + R \mathrm{d}z) &= \iint\limits_{\varSigma} \left[ \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) \mathrm{d}y\mathrm{d}z + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) \mathrm{d}z\mathrm{d}x + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathrm{d}x\mathrm{d}y \right] \\ &= \iint\limits_{\varSigma} \left| \begin{matrix} \mathrm{d}y\mathrm{d}z & \mathrm{d}z\mathrm{d}x & \mathrm{d}x\mathrm{d}y \\\\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\\\ P & Q & R \end{matrix} \right| \end{align*}$$
 </section>
 
 
@@ -436,6 +798,75 @@
     
 
     
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/passage/cs/data-structure/dsu/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构：并查集</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/proxy/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Proxy实验</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/csapp/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/malloc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Malloc实验</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
 
      
     

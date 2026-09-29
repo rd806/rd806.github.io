@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一元函数微分学">
+<title>微积分</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/math/calculus/differential_calculus_for_one/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="微积分">
+<meta property='og:description' content="一元函数微分学">
+<meta property='og:url' content='https://rd806.github.io/passage/math/calculus/differential_calculus_for_one/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-12T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="微积分">
+<meta name="twitter:description" content="一元函数微分学">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/math/calculus/differential_calculus_for_one/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#求导方法">求导方法</a></li>
+    <li><a href="#微分中值定理">微分中值定理</a>
+      <ol>
+        <li><a href="#费马定理">费马定理</a></li>
+        <li><a href="#罗尔中值定理">罗尔中值定理</a></li>
+        <li><a href="#拉格朗日中值定理">拉格朗日中值定理</a></li>
+        <li><a href="#柯西中值定理">柯西中值定理</a></li>
+        <li><a href="#泰勒中值定理">泰勒中值定理</a></li>
+      </ol>
+    </li>
+    <li><a href="#导数的应用">导数的应用</a>
+      <ol>
+        <li><a href="#曲线的切线与法线">曲线的切线与法线</a></li>
+        <li><a href="#函数的单调性与极值">函数的单调性与极值</a></li>
+        <li><a href="#曲线的凹凸性与拐点">曲线的凹凸性与拐点</a></li>
+        <li><a href="#曲线的渐近线">曲线的渐近线</a></li>
+        <li><a href="#曲率与曲率中心">曲率与曲率中心</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/math/calculus/differential_calculus_for_one/">微积分</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            一元函数微分学
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-08-12T00:00:00Z'>2025年8月12日星期二</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 4 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#求导方法">求导方法</a></li>
+    <li><a href="#微分中值定理">微分中值定理</a>
+      <ol>
+        <li><a href="#费马定理">费马定理</a></li>
+        <li><a href="#罗尔中值定理">罗尔中值定理</a></li>
+        <li><a href="#拉格朗日中值定理">拉格朗日中值定理</a></li>
+        <li><a href="#柯西中值定理">柯西中值定理</a></li>
+        <li><a href="#泰勒中值定理">泰勒中值定理</a></li>
+      </ol>
+    </li>
+    <li><a href="#导数的应用">导数的应用</a>
+      <ol>
+        <li><a href="#曲线的切线与法线">曲线的切线与法线</a></li>
+        <li><a href="#函数的单调性与极值">函数的单调性与极值</a></li>
+        <li><a href="#曲线的凹凸性与拐点">曲线的凹凸性与拐点</a></li>
+        <li><a href="#曲线的渐近线">曲线的渐近线</a></li>
+        <li><a href="#曲率与曲率中心">曲率与曲率中心</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="求导方法">求导方法
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>公式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>利用导数定义</td>
+          <td>$$\displaystyle f'(x_{0}) = \lim_{x \to x_{0}} \frac{f(x)-f(x_{0})}{x-x_{0}}$$</td>
+      </tr>
+      <tr>
+          <td>隐函数求导</td>
+          <td>$$\left[ f^{-1}(x) \right]' = \frac{1}{f'(y)} \quad 或 \quad \frac{\mathrm{d}y}{\mathrm{d}x}= \frac{1}{\dfrac{\mathrm{d}x}{\mathrm{d}y}}$$</td>
+      </tr>
+      <tr>
+          <td>莱布尼茨公式</td>
+          <td>对于函数$u=u(x)$和$v=v(x)$的乘积，有：$$(uv)^{(n)} = \mathrm{C}_{n}^{0}u^{(n)}v + \mathrm{C}_{n}^{1}u^{(n-1)}v'+\cdots + \mathrm{C}_{n}^{n-1}u'v^{(n-1)} + \mathrm{C}_{n}^{n}uv^{(n)}.$$</td>
+      </tr>
+      <tr>
+          <td>泰勒公式</td>
+          <td>由泰勒公式可知：$$f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!} x^{k} + o(x^{n}).$$ 比较同次幂系数可得 $f^{(k)}(0) = k!a_{k}, k=0,1,2,\cdots,n$.</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>常用求导公式：</p>
+<ul>
+<li>
+<p>$(\mathrm{e}^x) ^ {(n)} = \mathrm{e}^x$；</p>
+</li>
+<li>
+<p>$\displaystyle (\sin x) ^ {(n)} = \sin (x+n\cdot\frac{\pi}{2})，(\cos x) ^ {(n)} = \cos (x+n\cdot\frac{\pi}{2})$；</p>
+</li>
+<li>
+<p>$\displaystyle (\arcsin x)' = \frac{1}{\sqrt{1-x^{2}}}，(\arccos x)' = -\frac{1}{\sqrt{1-x^{2}}}，\\ (\arctan x)' = \frac{1}{1+x^{2}}，(\mathrm{arccot} x)' = -\frac{1}{1+x^{2}}$</p>
+</li>
+<li>
+<p>$\displaystyle [\ln (1+x) ^ {(n)}] = (-1)^{(n-1)} \frac{(n-1)!}{(1+x)^{n}}$；</p>
+</li>
+<li>
+<p>$(x^{\alpha})^{(n)} = \alpha (\alpha-1) \cdots (\alpha-n+1)x^{\alpha - n}$，（$\alpha$是任意常数）</p>
+</li>
+</ul>
+<h2 id="微分中值定理">微分中值定理
+</h2><h3 id="费马定理">费马定理
+</h3><p>如果 $f(x)$ 在点 $x_{0}$ 处取极值，且 $f'(x_{0})$ 存在，那么 $f'(x_{0})=0$.</p>
+<h3 id="罗尔中值定理">罗尔中值定理
+</h3><p>如果 $f(x)$ 在$[a,b]$上连续，在 $(a,b)$ 内可导，且$f(a)=f(b)$，那么至少存在一点$\xi \in(a,b)$，使得$f'(\xi) = 0$.</p>
+<h3 id="拉格朗日中值定理">拉格朗日中值定理
+</h3><p>如果 $f(x)$ 在$[a,b]$上连续，在$(a,b)$内可导，那么至少存在一点$\xi \in(a,b)$，使得$f(b)-f(a)=f'(\xi)(b-a)$.</p>
+<p>建立原函数与导函数的关系，关键在于构造辅助函数：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>辅助函数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$ f(x) = 0 $</td>
+          <td>$ F(x) $</td>
+      </tr>
+      <tr>
+          <td>$ u'(x)v(x) + u(x)v'(x) = 0 $</td>
+          <td>$F(x) = u(x)v(x) $</td>
+      </tr>
+      <tr>
+          <td>$ u'(x)v(x) - u(x)v'(x) = 0 $</td>
+          <td>$\displaystyle F(x) = \frac{u(x)}{v(x)}，$ $v(x) \ne 0 $</td>
+      </tr>
+      <tr>
+          <td>$ ku(x) + xu'(x) = 0 $</td>
+          <td>$ F(x) = x^{k}u(x) $</td>
+      </tr>
+      <tr>
+          <td>$ u'(x) + \lambda u(x) = 0 $</td>
+          <td>$ F(x) = u(x)\mathrm{e}^{\lambda x} $</td>
+      </tr>
+      <tr>
+          <td>$ u'(x) + u(x)v'(x)  = 0 $</td>
+          <td>$ F(x) = u(x)\mathrm{e}^{v(x)} $</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="柯西中值定理">柯西中值定理
+</h3><p>如果$f(x)$和$g(x)$在$[a,b]$上连续，在 $(a,b)$ 内可导，且$g(x)\ne 0$，那么至少存在一点 $\xi \in(a,b)$，使得 $\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f'(\xi)}{g'(\xi)} $.</p>
+
+    <blockquote>
+        <p>把 $x$ 当作参数，则 $\displaystyle \left\{ \begin{array}{c} u=f(x) \\ v=g(x) \\ \end{array} \right. $ 可以看作一个参数方程. 其中：</p>
+<ol>
+<li>$\displaystyle \frac{f(b)-f(a)}{g(b)-g(a)} $ 表示连接参数两端点弦的斜率.</li>
+<li>$\displaystyle \frac{f'(\xi)}{g'(\xi)}$ 表示曲线上某点切线的斜率.</li>
+</ol>
+<p>柯西中值定理可理解为：用参数方程表示的曲线上至少有一点，在这一点处的切线平行于连接两个端点的弦.</p>
+
+    </blockquote>
+<h3 id="泰勒中值定理">泰勒中值定理
+</h3><p>如果函数 $f(x)$ 在含有 $x_0$ 的某个开区间 $(a,b)$ 内具有直到 $n+1$ 阶的导数，则当 $x \in (a,b)$ 时，$f(x)$ 可表示为：
+</p>
+$$f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2!} f''(x_0)(x-x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n + R_n(x)$$<p>
+其中 $\displaystyle R_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$，$\xi$ 介于 $x_0$ 和 $x$ 之间.</p>
+
+    <blockquote>
+        <p>出现二阶及以上导数时可考虑使用泰勒中值定理.</p>
+
+    </blockquote>
+<h2 id="导数的应用">导数的应用
+</h2><h3 id="曲线的切线与法线">曲线的切线与法线
+</h3><p>（在$x_{0}$处）</p>
+<p>切线方程：$y-f(x_{0}) = f'(x_{0})(x-x_{0})$； <br>
+法线方程：$\displaystyle y-f(x_{0}) = -\frac{1}{f'(x_{0})}(x-x_{0})$.</p>
+<h3 id="函数的单调性与极值">函数的单调性与极值
+</h3><p>充分必要条件：设$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，那么</p>
+<ol>
+<li>$\forall x \in (a,b)$，$f'(x)&gt;0$，则$y=f(x)$在$[a,b]$上单调递增.</li>
+<li>$\forall x \in (a,b)$，$f'(x)&lt;0$，则$y=f(x)$在$[a,b]$上单调递减.</li>
+</ol>
+<p>判定方法：若 $f(x)$ 在 $x_{0}$ 处二阶可导，且$f'(x)=0$，$f''(x) \ne 0$. 则当 $f''(x)&gt;0$ 时，$f(x)$在$x_{0}$处取得极小值；当 $f''(x)&lt;0$ 时，$f(x)$在$x_{0}$处取得极大值.</p>
+<h3 id="曲线的凹凸性与拐点">曲线的凹凸性与拐点
+</h3><p>设$f(x)$在$[a,b]$上连续，在$(a,b)$内二阶可导，那么</p>
+<ol>
+<li>若在$(a,b)$内$f''(x)&gt;0$，则曲线$y=f(x)$在$[a,b]$上是凹函数；</li>
+<li>若在$(a,b)$内$f''(x)&lt;0$，则曲线$y=f(x)$在$[a,b]$上是凸函数.</li>
+</ol>
+<h3 id="曲线的渐近线">曲线的渐近线
+</h3><ol>
+<li>若 $\displaystyle \lim_{x \to x_{0}} f(x) = \infty$，则直线$x=x_{0}$是曲线的垂直渐近线；</li>
+<li>若 $\displaystyle \lim_{x \to \infty} f(x) = A$，则直线$y=A$是曲线的水平渐近线；</li>
+<li>若 $\displaystyle \lim_{x \to \infty} \frac{f(x)}{x} = k$，$\displaystyle \lim_{x \to \infty} [f(x)-kx] = b$，则直线$y=kx+b$是曲线的斜渐近线.</li>
+</ol>
+<h3 id="曲率与曲率中心">曲率与曲率中心
+</h3><p>参数方程 $\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \ \end{array} \right. t \in [a,b]$ 确定的平面曲线的曲率 </p>
+$$ K = \frac{\left| \varphi'(t) \psi''(t) - \varphi''(t) \psi'(t) \right|}{[\varphi'^{\ 2}(t)+\psi'^{\ 2}(t)]^{\frac{3}{2}}} $$<p>曲线 $y=y(x)$ 的曲率中心 </p>
+$$\left\{ \begin{array}{c} \begin{align*} \xi &= x - \dfrac{y'(1+y'^{\ 2})}{y''} \\ \eta &= y + \dfrac{1+y'^{\ 2}}{y''} \end{align*} \end{array} \right.$$
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/passage/cs/data-structure/dsu/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构：并查集</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/proxy/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Proxy实验</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/csapp/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/malloc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Malloc实验</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>

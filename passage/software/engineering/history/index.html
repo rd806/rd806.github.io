@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="软件工程的发展脉络">
+<title>软件工程</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/history/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="软件工程">
+<meta property='og:description' content="软件工程的发展脉络">
+<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/history/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-09-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-09-20T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="软件工程">
+<meta name="twitter:description" content="软件工程的发展脉络">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/software/engineering/history/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#产生背景">产生背景</a></li>
+    <li><a href="#基本内涵">基本内涵</a>
+      <ol>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#三要素">三要素</a></li>
+        <li><a href="#软件开发的本质">软件开发的本质</a></li>
+        <li><a href="#软件工程的目标">软件工程的目标</a></li>
+        <li><a href="#软件工程的原则">软件工程的原则</a></li>
+      </ol>
+    </li>
+    <li><a href="#发展历程">发展历程</a>
+      <ol>
+        <li><a href="#历史演进">历史演进</a></li>
+        <li><a href="#发展特点">发展特点</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/exam/" style="background-color: #2a9d8f; color: #fff;">
+                期末速通
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/software/engineering/history/">软件工程</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            软件工程的发展脉络
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-09-20T00:00:00Z'>2026年9月20日星期日</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 8 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#产生背景">产生背景</a></li>
+    <li><a href="#基本内涵">基本内涵</a>
+      <ol>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#三要素">三要素</a></li>
+        <li><a href="#软件开发的本质">软件开发的本质</a></li>
+        <li><a href="#软件工程的目标">软件工程的目标</a></li>
+        <li><a href="#软件工程的原则">软件工程的原则</a></li>
+      </ol>
+    </li>
+    <li><a href="#发展历程">发展历程</a>
+      <ol>
+        <li><a href="#历史演进">历史演进</a></li>
+        <li><a href="#发展特点">发展特点</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="产生背景">产生背景
+</h2><p>在开发软件的过程中，我们难免会在工作中犯错误。这样，在软件产品中就会隐藏着许多错误和缺陷，特别是对于规模大、复杂性高的软件。在这些错误中，有些是致命性的错误，如果不排除，就会导致重大损失。</p>
+<p>软件危机的出现：作坊式的个体编程与大批量、大规模软件开发之间产生了矛盾。</p>
+<ul>
+<li>开发成本较高：软件成本高，软硬件投资比发生急剧变化。</li>
+<li>进度难以控制：项目延期比比皆是。</li>
+<li>质量难以保证：有些软件错误可能是致命的。</li>
+<li>软件维护困难：读懂程序比较困难，尤其是他人程序；程序非常脆弱，牵一发而动全身；改了以后易引入错误；有了错误后难以发现。</li>
+<li>失败风险很大。</li>
+</ul>
+<p>软件危机的产生根源：</p>
+<ul>
+<li>对软件这样一类复杂和特殊系统的认识不清：软件是新生事物，对其特点、规律性和复杂性认识不够。</li>
+<li>没有找到支持软件系统开发的有效方法：例如基础理论、关键技术、开发过程、支撑工具等。</li>
+<li>缺乏成功软件开发实践以及相应的开发经验：缺乏系统总结、认真分析、充分借鉴、吸取教训。</li>
+</ul>
+<h2 id="基本内涵">基本内涵
+</h2><p>软件工程的诞生：1968年在西德南部小城，来自 11 个国家的 50 位代表参加了 NATO科技委出资召开的会议，商讨如何解决软件危机。会议提出了软件工程的概念及思想，标志着软件工程的诞生。</p>
+<h3 id="概念">概念
+</h3><p>IEEE 93 指出，软件工程是将系统的、规范的、可量化的方法应用于软件的开发、运行和维护的过程；以及上述方法的研究</p>
+<ul>
+<li>系统化：提供完整和全面的解决方法，包括目标、原则、过程模型、开发活动、开发方法和技术等。</li>
+<li>规范化：支持各类软件系统的开发，包括语言标准、质量标准、编程标准、方法标准、能力极其改进标准等。</li>
+<li>可量化：工作量、成本、进度、质量等要素可以量化。</li>
+</ul>
+<p>在软件工程的指导下，对软件开发有了新的认识：</p>
+<ul>
+<li>软件是产品，面向用户，存在质量、成本、利润等特征。</li>
+<li>软件开发是一项工程，存在约束，需要质量保证，进行组织管理……</li>
+<li>要按工程化方法来组织软件生产：
+<ul>
+<li>分阶段分步骤来实施</li>
+<li>按计划开展开发活动</li>
+<li>进行各种形式质量保证</li>
+<li>采用行之有效的方法</li>
+<li>借助各种工具的支持</li>
+</ul>
+</li>
+</ul>
+<p>从此，软件开发从个体作坊式行为转变为基于团队的协同开发方式。</p>
+<h3 id="三要素">三要素
+</h3><p><img alt="软件工程三要素" class="gallery-image" data-flex-basis="388px" data-flex-grow="161" height="733" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%89%E8%A6%81%E7%B4%A0.png" srcset="/passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%89%E8%A6%81%E7%B4%A0_hu_3a78483947ac8522.png 800w, /passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%89%E8%A6%81%E7%B4%A0.png 1187w" width="1187"></p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>要素</th>
+          <th>内涵</th>
+          <th>典型成果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>过程</td>
+          <td>从管理的视角，回答软件开发、运行和维护需要开展哪些工作、按照什么样的步骤和次序来开展工作；对软件开发过程所涉及的人、制品、质量、成本、计划等进行有效和可量化的管理</td>
+          <td>过程模型，方法，管理等</td>
+      </tr>
+      <tr>
+          <td>方法学</td>
+          <td>从技术的视角，回答软件开发、运行和维护如何做的问题；为软件开发过程中的各项开发和维护活动提供系统性、规范性的技术支持</td>
+          <td>结构化软件开发方法学、面向对象软件开发方法学、基于构件的软件开发方法学</td>
+      </tr>
+      <tr>
+          <td>工具</td>
+          <td>从工具辅助的视角，主要回答如何借助工具来辅助软件开发、运行和维护的问题；帮助软件开发人员更为高效地运用软件开发方法学来完成软件开发过程中的各项工作，提高软件开发效率和质量，加快软件交付进度</td>
+          <td>SonarQube、 Eclipse、 Visual Studio等</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="软件开发的本质">软件开发的本质
+</h3><p>软件开发 = 软件创作 + 软件生产</p>
+<p><img alt="软件开发的本质" class="gallery-image" data-flex-basis="547px" data-flex-grow="228" height="677" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8.png" srcset="/passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8_hu_d5fc955c865e879d.png 800w, /passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8.png 1545w" width="1545"></p>
+<h3 id="软件工程的目标">软件工程的目标
+</h3><p>在成本、进度等约束下，指导软件开发和运维，开发出满足用户要求的足够好软件。</p>
+<p><img alt="软件工程的目标" class="gallery-image" data-flex-basis="441px" data-flex-grow="184" height="569" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%9B%AE%E6%A0%87.png" srcset="/passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%9B%AE%E6%A0%87_hu_f1dceda4f37c2938.png 800w, /passage/software/engineering/history/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%9B%AE%E6%A0%87.png 1047w" width="1047"></p>
+<h3 id="软件工程的原则">软件工程的原则
+</h3><ul>
+<li>抽象和建模：
+<ul>
+<li>抽象：将与相关开发活动所关注的要素提取出来，不关心的要素扔掉，形成与该开发活动相关的软件要素。</li>
+<li>建模：基于特定的抽象，借助于建模语言（如数据流图、 UML等），建立起基于这些抽象的软件模型，进而促进对软件系统的准确理解。</li>
+</ul>
+</li>
+<li>模块化：
+<ul>
+<li>将软件系统的功能分解和实现为若干个模块，每个模块具有独立的功能，模块之间通过接口进行调用和访问。</li>
+<li>模块内部高内聚， 模块间松耦合。</li>
+</ul>
+</li>
+<li>软件重用：
+<ul>
+<li>在软件开发过程中尽可能利用已有的软件资源和资产（如函数库、类库、构件库、开源软件、代码片段等）来实现软件系统。</li>
+<li>努力开发出可被再次重用的软件资源（如函数、类、构件等）。</li>
+<li>有助于提高软件开发效率，降低软件开发成本，满足开发工程约束，得到高质量的软件产品。</li>
+</ul>
+</li>
+<li>信息隐藏：
+<ul>
+<li>模块内部信息（如内部的语句、变量等）对外不可见或不可访问，模块间仅仅交换那些为完成系统功能所必需交换的信息（如接口）。</li>
+<li>模块设计时只对外提供可见的接口，不提供内部实现细节。信息隐藏原则可提升模块的独立性，减少错误向外传播，支持模块的并行开发。</li>
+</ul>
+</li>
+<li>关注点分离：
+<ul>
+<li>在软件开发过程中，将若干性质不同的关注点分离开来，以便在不同的开发活动中针对不同的关注点，随后将这些关注点的开发结果整合起来，形成关于软件系统的完整视图。</li>
+<li>软件系统具有多面性的特点，既有结构特征，如软件的体系结构，也有行为特征，如软件要完成的动作及输出的结果；既有高层的需求模型，描述了软件需要做什么，也有低层的实现模型，描述了这些需求是如何实现的。</li>
+<li>使得开发者在每一项开发活动中聚焦于某个关注点，有助于简化开发任务；同时通过整合多个不同视点的开发结果，可获得关于软件系统的更为清晰、系统和深入地认识。</li>
+</ul>
+</li>
+<li>分而治之：
+<ul>
+<li>在软件开发和维护过程中，软件开发人员可对复杂软件系统进行分解，形成一组子系统。</li>
+<li>如果子系统仍很复杂，还可以继续进行分解，及至通过分解所得到的子系统易于处理；然后通过整合子系统的问题解决得到整个系统的问题解决。</li>
+<li>有助于简化复杂软件系统的开发，降低软件开发复杂性，从而提高软件开发效率，确保复杂软件系统的质量。</li>
+</ul>
+</li>
+<li>双向追踪：
+<ul>
+<li>当某个软件制品发生变化时，一方面要追踪这种变化会对那些软件制品产生影响，进而指导相关的开发和维护工作，此为正向追踪；另一方面要追踪产生这种变化的来源，或者说是什么因素导致了该软件制品的变化，明确软件制品发生变化的原因及其合理性，此为反向追踪。</li>
+<li>有助于确保软件制品间的一致性，发现无意义的变化，并基于变化指导软件的开发和维护，确保软件质量。</li>
+</ul>
+</li>
+<li>工具辅助：
+<ul>
+<li>利用软件工具来辅助软件开发和维护工作是一项行之有效的方法。</li>
+<li>尽可能地借助计算机工具来辅助软件开发和维护，以降低开发者和维护者的工作负担，提高软件开发和维护效率，提升软件开发及软件制品的质量。</li>
+</ul>
+</li>
+</ul>
+<h2 id="发展历程">发展历程
+</h2><h3 id="历史演进">历史演进
+</h3><p>20世纪50-60年代</p>
+<ul>
+<li>软件系统较为简单，计算机软件与硬件结合的非常紧密</li>
+<li>“精雕细琢”程序代码，以充分利用宝贵的计算资源</li>
+<li>出现了黑客文化，倡导自由</li>
+<li>成功的案例：IBM OS/360软件系统的成功研制并投入商业使用</li>
+<li>出现了高级程序设计语言，如Fortran、 COBOL、 LISP、 ALGOR等</li>
+<li>这一时期的软件开发手段落后，开发效率低，质量无法保证，进而引发了软件危机</li>
+</ul>
+<p>20世纪70年代</p>
+<ul>
+<li>计算机主机的计算能力得到了很大提升</li>
+<li>计算机软件朝着商业应用拓展，需要处理繁杂的事务流程</li>
+<li>程序设计语言和程序设计方法学成为研究热点，出现了诸如PASCAL、 C、 Prolog、 ML等高级语言</li>
+<li>产生了软件工程新技术：提出了瀑布软件开发过程模型，结构化软件开发方法学；形式化方法的研究非常活跃</li>
+<li>研制了一些支持结构化软件开发方法学、形式化方法的CASE工具和环境</li>
+<li>开始采用定量方法来指导软件开发、管理和质量保证</li>
+</ul>
+<p>20世纪80年代</p>
+<ul>
+<li>计算机软件的应用领域和范围不断扩大，软件数量、系统规模和复杂性不断增长</li>
+<li>产生了面向对象程序设计技术，如Smalltalk、 C++等</li>
+<li>提出了SW-CMM， 即软件能力成熟度模型</li>
+<li>软件重用被视为是解决软件危机的一条现实可行途径</li>
+<li>CASE工具和环境的研制和使用成为热点</li>
+<li>软件工程标准化工作非常活跃，成果丰硕</li>
+</ul>
+<p>20世纪90年代</p>
+<ul>
+<li>局域计算环境开始流行，互联网应用开始出现</li>
+<li>OOP技术趋于成熟， 面向对象分析和设计方法学的研究非常活跃，逐步形成系统化的面向对象软件工程：制定面向对象建模语言UML，产生了统一软件开发过程RUP</li>
+<li>软构件技术得到了快速发展，萌生了软件体系结构和软件设计模式的研究与实践</li>
+<li>开源软件及技术开始出现</li>
+<li>人机交互技术取得长足进步</li>
+</ul>
+<p>21世纪前十年</p>
+<ul>
+<li>互联网技术日趋成熟，信息技术快速发展，软件数量不断增长，越来越多的软件部署在互联网上运行并提供服务</li>
+<li>产生了网构软件技术、自适应软件工程、可信软件技术、面向主体软件工程等</li>
+<li>群体化软件开发技术在开源软件开发实践中广泛应用</li>
+<li>面向服务软件工程的研究与实践</li>
+<li>敏捷开发方法的在软件开发中的应用</li>
+<li>模型驱动软件开发技术的研究与应用</li>
+<li>软件可信技术的研究与实践非常活跃</li>
+</ul>
+<p>近十年</p>
+<ul>
+<li>移动互联网得到了快速发展，应用软件需求激增，信息系统的人机物融合趋势日趋突出</li>
+<li>人类正进入到软件定义一切的时代，从而对软件开发和运维提出了严峻的挑战</li>
+<li>越来越多的企业和个人参与开源软件实践，涌现形成了规模极为庞大的开源软件生态</li>
+<li>DevOps方法（集成软件开发Dev和IT运营Ops功能的综合策略）在软件产业界和软件开发实践中的广泛应用</li>
+<li>智能化软件开发技术研究活跃</li>
+</ul>
+<h3 id="发展特点">发展特点
+</h3><p>时代特点：</p>
+<ul>
+<li>与时代的计算技术和信息技术的发展有着紧密的联系</li>
+<li>从20世纪60年代到80年代中后期，部署和运行在单机或主机上</li>
+<li>从20世纪80中后期到90年代，个人计算机和局域网的出现</li>
+<li>进入21世纪，随着互联网应用的不断普及，更多的软件系统部署和运行在动态、难控和不确定的互联网环境上</li>
+<li>2010年以来，随着泛在计算环境和移动互联网应用的不断普及，信息系统的人机物融合特征日益突出</li>
+</ul>
+<p>技术特点</p>
+<ul>
+<li>软件抽象的层次越来越高：二进制编码、结构化编程、结构化开发方法学、面向对象编程、面向对象开发方法学……</li>
+<li>软件重用的粒度越来越大：函数和过程，类，构件，开源软件……</li>
+<li>软件开发理念的不断变化：以文档为中心与以代码为中心；从个体、团队到群体的开发组织；从还原论到演化论。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/passage/math/numerical_analysis/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数值计算方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/digital/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数字设计与计算机体系结构</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/software/engineering/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件工程</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/software/formal_methods/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/database/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>

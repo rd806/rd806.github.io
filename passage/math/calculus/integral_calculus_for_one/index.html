@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一元函数积分学">
+<title>微积分</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/math/calculus/integral_calculus_for_one/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="微积分">
+<meta property='og:description' content="一元函数积分学">
+<meta property='og:url' content='https://rd806.github.io/passage/math/calculus/integral_calculus_for_one/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-12T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-12T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="微积分">
+<meta name="twitter:description" content="一元函数积分学">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/math/calculus/integral_calculus_for_one/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#常规积分方法">常规积分方法</a>
+      <ol>
+        <li><a href="#凑微分法">凑微分法</a></li>
+        <li><a href="#换元积分法">换元积分法</a>
+          <ol>
+            <li><a href="#三角代换">三角代换</a></li>
+            <li><a href="#根式代换">根式代换</a></li>
+            <li><a href="#倒代换">倒代换</a></li>
+          </ol>
+        </li>
+        <li><a href="#分部积分法">分部积分法</a></li>
+      </ol>
+    </li>
+    <li><a href="#特殊积分方法">特殊积分方法</a>
+      <ol>
+        <li><a href="#区域可加性">区域可加性</a></li>
+        <li><a href="#区间再现法">区间再现法</a></li>
+        <li><a href="#组合积分法">组合积分法</a></li>
+        <li><a href="#反函数积分法">反函数积分法</a></li>
+      </ol>
+    </li>
+    <li><a href="#常用积分">常用积分</a>
+      <ol>
+        <li><a href="#线性换元法">线性换元法</a></li>
+        <li><a href="#沃利斯公式">沃利斯公式</a></li>
+        <li><a href="#高斯积分">高斯积分</a></li>
+        <li><a href="#傅汝兰尼积分公式">傅汝兰尼积分公式</a></li>
+        <li><a href="#柯西积分不等式">柯西积分不等式</a></li>
+      </ol>
+    </li>
+    <li><a href="#定积分的应用">定积分的应用</a>
+      <ol>
+        <li><a href="#曲线的弧长">曲线的弧长</a></li>
+        <li><a href="#旋转体的体积">旋转体的体积</a></li>
+        <li><a href="#旋转曲面的面积">旋转曲面的面积</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/interesting/" style="background-color: #2a9d8f; color: #fff;">
+                小乐趣
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/math/calculus/integral_calculus_for_one/">微积分</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            一元函数积分学
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2025-08-12T00:00:00Z'>2025年8月12日星期二</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 4 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#常规积分方法">常规积分方法</a>
+      <ol>
+        <li><a href="#凑微分法">凑微分法</a></li>
+        <li><a href="#换元积分法">换元积分法</a>
+          <ol>
+            <li><a href="#三角代换">三角代换</a></li>
+            <li><a href="#根式代换">根式代换</a></li>
+            <li><a href="#倒代换">倒代换</a></li>
+          </ol>
+        </li>
+        <li><a href="#分部积分法">分部积分法</a></li>
+      </ol>
+    </li>
+    <li><a href="#特殊积分方法">特殊积分方法</a>
+      <ol>
+        <li><a href="#区域可加性">区域可加性</a></li>
+        <li><a href="#区间再现法">区间再现法</a></li>
+        <li><a href="#组合积分法">组合积分法</a></li>
+        <li><a href="#反函数积分法">反函数积分法</a></li>
+      </ol>
+    </li>
+    <li><a href="#常用积分">常用积分</a>
+      <ol>
+        <li><a href="#线性换元法">线性换元法</a></li>
+        <li><a href="#沃利斯公式">沃利斯公式</a></li>
+        <li><a href="#高斯积分">高斯积分</a></li>
+        <li><a href="#傅汝兰尼积分公式">傅汝兰尼积分公式</a></li>
+        <li><a href="#柯西积分不等式">柯西积分不等式</a></li>
+      </ol>
+    </li>
+    <li><a href="#定积分的应用">定积分的应用</a>
+      <ol>
+        <li><a href="#曲线的弧长">曲线的弧长</a></li>
+        <li><a href="#旋转体的体积">旋转体的体积</a></li>
+        <li><a href="#旋转曲面的面积">旋转曲面的面积</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="常规积分方法">常规积分方法
+</h2><h3 id="凑微分法">凑微分法
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>基本凑微分法</th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\displaystyle \mathrm{e}^{x} \mathrm{d}x = \mathrm{d} (\mathrm{e}^{x})$</td>
+          <td>$\displaystyle x^{n-1} \mathrm{d}x = \frac{1}{na} \mathrm{d} (ax^{n}+b)$</td>
+          <td>$\displaystyle \frac{\mathrm{d}x}{x} = \mathrm{d}(\ln x)$</td>
+          <td>$\displaystyle \frac{\mathrm{d}x}{1+x^{2}} = \mathrm{d} (\arctan x)$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \frac{\mathrm{d}x}{\cos ^{2}x} = \mathrm{d} (\tan x)$</td>
+          <td>$\displaystyle \sin x \mathrm{d}x = - \mathrm{d}(\cos x)$</td>
+          <td>$\displaystyle \cos x \mathrm{d}x = \mathrm{d}(\sin x)$</td>
+          <td>$\displaystyle \frac{\mathrm{d}x}{\sqrt{1-x^{2}}} = \mathrm{d}(\arcsin x)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>特殊凑微分法</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\displaystyle \frac{1}{(1+x^2)^{\frac{3}{2}}} \mathrm{d}x = \mathrm{d}\left(\frac{x}{\sqrt{1+x^2}}\right)$</td>
+          <td>$\displaystyle \frac{1}{\sqrt{1+x^2}} = \mathrm{d} \ln \left( x+\sqrt{1+x^2} \right)$</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle x\mathrm{d}x + y\mathrm{d}y = \frac{1}{2} \mathrm{d}\left(x^2+y^2\right)$</td>
+          <td>$\displaystyle y\mathrm{d}x - x\mathrm{d}y = y^2 \mathrm{d} \left(\frac{x}{y} \right)$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="换元积分法">换元积分法
+</h3><h4 id="三角代换">三角代换
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>形式</th>
+          <th>代换</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>含有 $\sqrt{a^2-x^2}$</td>
+          <td>设$x = a\sin t$，$\displaystyle t \in \left[-\frac{\pi}{2},\frac{\pi}{2} \right]$</td>
+      </tr>
+      <tr>
+          <td>含有 $\sqrt{a^2+x^2}$</td>
+          <td>设$x = a\tan t$，$\displaystyle t \in \left[-\frac{\pi}{2}，\frac{\pi}{2} \right]$</td>
+      </tr>
+      <tr>
+          <td>含有 $\sqrt{x^2-a^2}$</td>
+          <td>设$x = a\sec t$，$\displaystyle t \in \left[0,\frac{\pi}{2} \right]$</td>
+      </tr>
+      <tr>
+          <td>含有 $\sqrt{ax^{2}+bx+c}$</td>
+          <td>可先配方再设</td>
+      </tr>
+      <tr>
+          <td>$\displaystyle \int f(\sin x, \cos x) \mathrm{d}x$，其中 $f(u,v)$是有理函数</td>
+          <td>利用代换 $\displaystyle t = \tan \frac{x}{2}$ 可化为有理函数积分</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="根式代换">根式代换
+</h4><ol>
+<li>含两个一次平方根式 $\sqrt{x+\alpha}$与$\sqrt{x+\beta}$  $(\alpha &lt; \beta)$，可设
+
+\[ \sqrt{x+\beta} = \lambda \left(t+\frac{1}{t}\right)， \sqrt{x+\alpha} = \lambda \left(t-\frac{1}{t}\right) \]
+以上两式平方后相减，有$4\lambda^{2} = \beta - \alpha$.</li>
+<li>含两个一次根式 $\sqrt[m]{x+a}$与$\sqrt[n]{x+a}$的积分，可设 $t = \sqrt[k]{x+a}$，这里$k$是$m$，$n$的最小公倍数. <br></li>
+<li>对于根式 $\displaystyle \sqrt[m]{\frac{x+a}{x-a}}$，直接设 $\displaystyle t = \sqrt[m]{\frac{x+a}{x-a}}$ <br></li>
+</ol>
+<h4 id="倒代换">倒代换
+</h4><p>令 $\displaystyle t = \frac{1}{x+a}$，当被积函数为$x$的有理式或无理式、分母次数较高时，往往可利用倒代换消去分母中所含的因子 $x + a$ 或 $(x + a)^{n}$。</p>
+<h3 id="分部积分法">分部积分法
+</h3><p>设 $u(x)$，$v(x)$ 具有连续导数，则有分部积分公式</p>
+$$ \int u(x)v'(x) \mathrm{d}x = u(x)v(x) - \int u'(x)v(x) \mathrm{d}x $$<p>或简记为：$\displaystyle \int u \mathrm{d}v = uv - \int v \mathrm{d}u$</p>
+
+    <blockquote>
+        <p>分部积分法适用情境：</p>
+<ol>
+<li>函数乘积的积分。</li>
+<li>含有对数、反三角函数的积分。</li>
+<li>含有 $\mathrm{e}^x \sin x$ 函数的积分。</li>
+<li>证明递推关系式。</li>
+</ol>
+
+    </blockquote>
+<h2 id="特殊积分方法">特殊积分方法
+</h2><h3 id="区域可加性">区域可加性
+</h3><p>对于部分函数，尤其是含有绝对值函数的定积分，适合拆分成多个定积分，分别计算最后求和.</p>
+<p>例如：$\displaystyle \int_{0}^{x} |\cos t| \mathrm{d}t = \sum_{k=1}^{n} \int_{(k-1)\pi}^{k\pi} |\cos t| \mathrm{d}t + \int_{n\pi}^{x} |\cos t| \mathrm{d}t $，其中 $ n\pi \leqslant x &lt; (n+1)\pi $</p>
+<h3 id="区间再现法">区间再现法
+</h3><p>对于周期函数，若知道其周期，可使用区间再现法求定积分。</p>
+<p>例如，若 $f(x+T)=f(x)$，则有</p>
+$$\int_{a}^{a+T} f(x) \mathrm{d}x = \int_{0}^{T} f(x) \mathrm{d}x$$$$\int_{0}^{nT} f(x) \mathrm{d}x = n\int_{0}^{T} f(x) \mathrm{d}x$$<h3 id="组合积分法">组合积分法
+</h3><p>如果积分式具有单对称性，可考虑构造另一个积分式，使两者的线性运算所得的积分容易求出，最后通过解方程求得原式的结果。</p>
+<h3 id="反函数积分法">反函数积分法
+</h3><p>对于一些定积分，若被积函数较复杂，而其反函数较简单，可利用定积分的几何意义：用积分区间的面积减去被积函数反函数的定积分。</p>
+<h2 id="常用积分">常用积分
+</h2><h3 id="线性换元法">线性换元法
+</h3><p>对于连续函数 $f(x)$：
+</p>
+$$\int_{a}^{b} f(x) \mathrm{d}x = \int_{a}^{b} f(a+b-x) \mathrm{d}x = \frac{1}{2} \int_{a}^{b} [f(x) + f(a+b-x)] \mathrm{d}x $$<p>
+进一步，若 $f(x)$ 关于 $\displaystyle x = \frac{a+b}{2}$ 对称，则有： <br>
+</p>
+$$\int_{a}^{b} xf(x) \mathrm{d}x = \frac{a+b}{2} \int_{a}^{b} f(x) \mathrm{d}x = (a+b) \int_{a}^{\frac{a+b}{2}} f(x) \mathrm{d}x $$<p>
+特别地，有：<br>
+</p>
+$$\int_{0}^{\pi} xf(\sin x) \mathrm{d}x = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x) \mathrm{d}x $$<h3 id="沃利斯公式">沃利斯公式
+</h3>$$I_n = \int_{0}^{\frac{\pi}{2}} \sin^{n}x \mathrm{d}x = \int_{0}^{\frac{\pi}{2}} \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c}  \begin{align*} & \displaystyle \frac{(n-1)!!}{n!!} & n &= 2k+1 \\ \\ & \displaystyle \frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2} & n&=2k \\ \end{align*} \end{array} \right.$$<p>进一步：</p>
+$$I(m,n) = \int_{0}^{\frac{\pi}{2}} \sin^{m}x \cos^{n}x \mathrm{d}x = \left\{ \begin{array}{c} \begin{align*} & \displaystyle \frac{(m-1)!! (n-1)!!}{(m+n)!!} & m,n 不全为偶 \\ \\ & \displaystyle \frac{(m-1)!! (n-1)!!}{(m+n)!!} \cdot \frac{\pi}{2}  & m,n 全偶 \\ \end{align*} \end{array} \right.$$<h3 id="高斯积分">高斯积分
+</h3>$$\int_{0}^{+\infty} \mathrm{e}^{-x^{2}} \mathrm{d}x = \frac{\sqrt{\pi}}{2} $$<h3 id="傅汝兰尼积分公式">傅汝兰尼积分公式
+</h3><p>设 $f(x)$ 在 $[0,+\infty)$ 上连续，且 $\displaystyle \int_{A}^{+\infty} \frac{f(x)}{x} \mathrm{d}x$ 收敛，其中常数 $A &gt; 0$，则有 </p>
+$$\int_{0}^{+\infty} \frac{f(ax)-f(bx)}{x} \mathrm{d}x = f(0) \ln \frac{b}{a} \quad (a < b < c) $$<h3 id="柯西积分不等式">柯西积分不等式
+</h3>$$\left[ \int_{a}^{b} f(x)g(x) \mathrm{d}x \right]^{2} \leqslant \int_{a}^{b} f^{2}(x) \mathrm{d}x \int_{a}^{b} g^{2}(x) \mathrm{d}x $$<p>
+其中 $f(x)$，$g(x)$ 均为 $[a,b]$ 上的连续函数.</p>
+<p><a class="link" href="/passage/math/calculus/quiz/#%e8%af%81%e6%98%8e%e6%9f%af%e8%a5%bf%e7%a7%af%e5%88%86%e4%b8%8d%e7%ad%89%e5%bc%8f" >证明过程</a></p>
+<h2 id="定积分的应用">定积分的应用
+</h2><h3 id="曲线的弧长">曲线的弧长
+</h3><p>参数方程 </p>
+$$\left\{ \begin{array}{c} x = \varphi(t) \\ y = \psi(t) \\ \end{array} \right. t \in [a,b]$$<p> 确定的平面曲线的弧长 $\displaystyle s = \int_{a}^{b} \sqrt{\varphi'^{\ 2}(t) + \psi'^{\ 2}(t)} \mathrm{d}t $</p>
+<p>极坐标方程 </p>
+$$\rho = \rho(\theta) \quad \theta \in (\alpha,\beta) $$<p> 确定的平面曲线的弧长 $\displaystyle s = \int_{\alpha}^{\beta} \sqrt{\rho^{2}(\theta) + \rho'^{\ 2}(\theta)} \mathrm{d}\theta $</p>
+<h3 id="旋转体的体积">旋转体的体积
+</h3><ol>
+<li>
+<p>截面法：曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $x$ 轴旋转一周所围立体的体积 $\displaystyle V = \pi \int_{c}^{d} f^{2}(x) \mathrm{d}x $</p>
+</li>
+<li>
+<p>柱壳法：曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $y$ 轴旋转一周所围立体的体积 $\displaystyle V = 2\pi \int_{c}^{d} xf(x) \mathrm{d}x $</p>
+</li>
+</ol>
+<h3 id="旋转曲面的面积">旋转曲面的面积
+</h3><p>曲线 $y=f(x)$ 在 $[c,d]$ 上的部分绕 $x$ 轴旋转一周所得曲面的面积 $\displaystyle S = 2\pi \int_{c}^{d} f(x)\sqrt{1+f'^{\ 2}(x)} \mathrm{d}x $</p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="">
+    <a href="/passage/cs/data-structure/dsu/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据结构：并查集</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/cs/algorithm/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 算法设计与分析" height="150" loading="lazy" src="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg" srcset="/passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_ba3fc573bb224669.jpg 1x, /passage/cs/algorithm/daniil-komov-7lzjMwexxnU-unsplash_hu_10dbe54f06bad844.jpg 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #c5c7c580 0%, #323b46C0 100%);">
+            <h2 class="article-title">算法设计与分析</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/proxy/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Proxy实验</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/csapp/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">运行《深入理解计算机系统》的代码</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/cslab/malloc/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Malloc实验</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>

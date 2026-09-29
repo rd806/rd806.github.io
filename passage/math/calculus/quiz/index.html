@@ -5,7 +5,7 @@
 <title>微积分：题目</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/math/quiz/">
+<link rel="canonical" href="https://rd806.github.io/passage/math/calculus/quiz/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="微积分：题目">
 <meta property='og:description' content="回顾知识点 →\n📝 备注 题目编号依据红宝书2023年版\n极限与函数 【例1.9】求 $\\displaystyle I=\\lim_{x \\to 1^-} \\frac{\\ln (1-x) + \\tan\\dfrac{\\pi}{2}x}{\\mathrm{cot}\\pi x}$\n点击展开解答 解：将原极限拆分成两项极限之和，则可得：\n">
-<meta property='og:url' content='https://rd806.github.io/passage/math/quiz/'>
+<meta property='og:url' content='https://rd806.github.io/passage/math/calculus/quiz/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-08-07T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="微积分：题目">
@@ -275,7 +275,7 @@
                                         
                                     
                                 
-                                <option value="/passage/math/quiz/" selected>简体中文</option>
+                                <option value="/passage/math/calculus/quiz/" selected>简体中文</option>
                             
                                 
                                 
@@ -515,7 +515,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/math/quiz/">微积分：题目</a>
+            <a href="/passage/math/calculus/quiz/">微积分：题目</a>
         </h2>
     
         
@@ -601,7 +601,7 @@
     <section class="article-content">
     
     
-    <p><a class="link" href="/passage/math/tips" ><div style="text-align: right;">回顾知识点 →</div></a></p>
+    <p><a class="link" href="/passage/math/calculus" ><div style="text-align: right;">回顾知识点 →</div></a></p>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
@@ -813,7 +813,7 @@ $$I_3 = \int_{\pi}^{2\pi} \mathrm{d}\varphi \int_{0}^{1} \left(r^3 - r^2 \sin \v
 <hr>
 <p>方法2：由题意，$\displaystyle f(x,y) = \frac{x+y}{2}-x^2-y^2 = \frac{1}{4}-\left( x-\frac{1}{2\sqrt{2}} \right)^2-\left( y-\frac{1}{2\sqrt{2}} \right)^2$.</p>
 <p>故单位圆 $D: x^2+y^2 \leqslant 1$ 被分成两部分：$D_1=\{(x,y)| f(x,y) \geqslant 0 \}, D_2=D-D_1$，因此</p>
-<figure><img src="/passage/math/quiz/%E4%BE%8B7.30.png" width="400">
+<figure><img src="/passage/math/calculus/quiz/%E4%BE%8B7.30.png" width="400">
 </figure>
 
 $$\begin{align*} I &=\iint\limits_{D} \left| f(x,y) \right| \mathrm{d}x\mathrm{d}y = \iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y - \iint\limits_{D_2} f(x,y) \mathrm{d}x\mathrm{d}y \\ &= 2\iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y -\iint\limits_{D_1+D_2} f(x,y) \mathrm{d}x\mathrm{d}y = 2 \iint\limits_{D_1} f(x,y) \mathrm{d}x\mathrm{d}y - \iint\limits_{D} f(x,y) \mathrm{d}x\mathrm{d}y \\ &= 2 \iint\limits_{D_1} \left[ \frac{1}{4}-\left( x-\frac{1}{2\sqrt{2}} \right)^2-\left( y-\frac{1}{2\sqrt{2}} \right)^2 \right] \mathrm{d}x\mathrm{d}y - \iint\limits_{D} \left( \frac{x+y}{2}-x^2-y^2 \right) \mathrm{d}x\mathrm{d}y \\ &= 2 \int_{0}^{2\pi} \mathrm{d}\theta \int_{0}^{\frac{1}{2}} \left( \frac{1}{4} - \rho^2 \right) \rho \mathrm{d}\rho + \int_{0}^{2\pi} \mathrm{d} \theta \int_{0}^{1} \rho^3 \mathrm{d}\rho = 4\pi \left( \frac{1}{32}-\frac{1}{64} \right) + \frac{\pi}{2} = \frac{9\pi}{16} \end{align*}$$</details>
