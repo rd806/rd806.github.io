@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="目录 数值分析与科学计算导论 插值方法 ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数值分析与科学计算导论">
 <title>数值计算方法</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/math/numerical_analysis/">
+<link rel="canonical" href="https://rd806.github.io/passage/math/numerical_analysis/general/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="数值计算方法">
-<meta property='og:description' content="目录 数值分析与科学计算导论 插值方法 ">
-<meta property='og:url' content='https://rd806.github.io/passage/math/numerical_analysis/'>
+<meta property='og:description' content="数值分析与科学计算导论">
+<meta property='og:url' content='https://rd806.github.io/passage/math/numerical_analysis/general/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-09-29T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-09-29T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="数值计算方法">
-<meta name="twitter:description" content="目录 数值分析与科学计算导论 插值方法 ">
+<meta name="twitter:description" content="数值分析与科学计算导论">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -275,7 +275,7 @@
                                         
                                     
                                 
-                                <option value="/passage/math/numerical_analysis/" selected>简体中文</option>
+                                <option value="/passage/math/numerical_analysis/general/" selected>简体中文</option>
                             
                                 
                                 
@@ -313,7 +313,206 @@
     </ol>
 </aside>
 
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
     
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a>
+      <ol>
+        <li><a href="#数学科学与数值分析">数学科学与数值分析</a></li>
+        <li><a href="#数值问题与算法">数值问题与算法</a></li>
+      </ol>
+    </li>
+    <li><a href="#数值计算的误差">数值计算的误差</a>
+      <ol>
+        <li><a href="#误差的来源与分类">误差的来源与分类</a></li>
+        <li><a href="#误差与有效数字">误差与有效数字</a>
+          <ol>
+            <li><a href="#绝对误差">绝对误差</a></li>
+            <li><a href="#相对误差">相对误差</a></li>
+            <li><a href="#有效数字">有效数字</a></li>
+          </ol>
+        </li>
+        <li><a href="#数值运算的误差估计">数值运算的误差估计</a></li>
+      </ol>
+    </li>
+    <li><a href="#误差的分析与避免">误差的分析与避免</a>
+      <ol>
+        <li><a href="#算法的数值稳定性">算法的数值稳定性</a></li>
+        <li><a href="#病态问题与条件数">病态问题与条件数</a></li>
+      </ol>
+    </li>
+    <li><a href="#数值计算的算法设计">数值计算的算法设计</a>
+      <ol>
+        <li><a href="#秦九韶算法">秦九韶算法</a></li>
+        <li><a href="#迭代法与开方求值">迭代法与开方求值</a></li>
+        <li><a href="#以直代曲与化整为零">以直代曲与化整为“零”</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     
@@ -338,9 +537,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/math/numerical_analysis/">数值计算方法</a>
+            <a href="/passage/math/numerical_analysis/general/">数值计算方法</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            数值分析与科学计算导论
+        </h3>
         
     </div>
 
@@ -377,7 +580,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 1 分钟
+                        阅读时长: 5 分钟
                     </time>
                 
             </div>
@@ -393,39 +596,171 @@
 </header>
 
     
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#引言">引言</a>
+      <ol>
+        <li><a href="#数学科学与数值分析">数学科学与数值分析</a></li>
+        <li><a href="#数值问题与算法">数值问题与算法</a></li>
+      </ol>
+    </li>
+    <li><a href="#数值计算的误差">数值计算的误差</a>
+      <ol>
+        <li><a href="#误差的来源与分类">误差的来源与分类</a></li>
+        <li><a href="#误差与有效数字">误差与有效数字</a>
+          <ol>
+            <li><a href="#绝对误差">绝对误差</a></li>
+            <li><a href="#相对误差">相对误差</a></li>
+            <li><a href="#有效数字">有效数字</a></li>
+          </ol>
+        </li>
+        <li><a href="#数值运算的误差估计">数值运算的误差估计</a></li>
+      </ol>
+    </li>
+    <li><a href="#误差的分析与避免">误差的分析与避免</a>
+      <ol>
+        <li><a href="#算法的数值稳定性">算法的数值稳定性</a></li>
+        <li><a href="#病态问题与条件数">病态问题与条件数</a></li>
+      </ol>
+    </li>
+    <li><a href="#数值计算的算法设计">数值计算的算法设计</a>
+      <ol>
+        <li><a href="#秦九韶算法">秦九韶算法</a></li>
+        <li><a href="#迭代法与开方求值">迭代法与开方求值</a></li>
+        <li><a href="#以直代曲与化整为零">以直代曲与化整为“零”</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
 
     <section class="article-content">
     
     
-    <h2 id="目录">目录
-</h2>
+    <h2 id="引言">引言
+</h2><h3 id="数学科学与数值分析">数学科学与数值分析
+</h3><p>数值分析（ numerical analysis）也称计算科学，是数学的一个分支，研究用计算机求解各种数学问题的数值计算方法及其理论与软件实现。</p>
+<p>用计算机求解科学计算问题的基本流程：</p>
+<ol>
+<li>根据实际问题建立数学模型。</li>
+<li>由数学模型给出数值计算方法。</li>
+<li>根据计算方法编制算法程序。</li>
+</ol>
+<p>数值分析的特点：既有数学的高度抽象性与严密科学性，又有应用广泛性与实验试验高度技术性。</p>
+<h3 id="数值问题与算法">数值问题与算法
+</h3><p>能用计算机计算的<strong>数值问题</strong>是指输入数据与输出数据之间函数关系的一个确定而无歧义的描述，输入输出数据可用有限维向量表示。</p>
+<p>计算方法就是研究各种“数值问题”的算法。它应具备以下特点：</p>
+<ol>
+<li>面向计算机，要根据计算机的特点提供切实可行的有效算法</li>
+<li>有可靠的理论分析</li>
+<li>有好的计算复杂性</li>
+<li>要有数值实验</li>
+</ol>
+<h2 id="数值计算的误差">数值计算的误差
+</h2><h3 id="误差的来源与分类">误差的来源与分类
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>误差</th>
+          <th>来源</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>模型误差</td>
+          <td>数学模型与实际问题之间的误差</td>
+      </tr>
+      <tr>
+          <td>观测误差</td>
+          <td>由观测产生的误差，如温度、长度、电压</td>
+      </tr>
+      <tr>
+          <td>截断误差</td>
+          <td>数学模型不能得到精确解时，其近似解与精确解之间的误差，如可微函数用泰勒展开式表示时，截断误差为 $\displaystyle R_n(x) = \frac{f^{n+1}(\xi)}{(n+1)!} x^{n+1}$</td>
+      </tr>
+      <tr>
+          <td>舍入误差</td>
+          <td>由于计算机字长有限，原始数据在计算机上表示时产生的误差，如用 $3.14159$ 表示 $\pi$，舍入的误差为 $R = \pi − 3.14159 = 0.0000026 \cdots$</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="误差与有效数字">误差与有效数字
+</h3><h4 id="绝对误差">绝对误差
+</h4><p>设 $x$ 为准确值，$x^∗$ 为 $x$ 的一个近似值，称 $e^* = x^* − x$ 为近似值的<strong>绝对误差</strong>，简称误差。</p>
+<p>由于无法知道 $x^*$ 准确值，因此无法计算 $e^*$ 的准确值，只能根据测量工具或计算情况估计出误差的绝对值不超过某正数 $\varepsilon^*$，也就是误差绝对值的一个上界。</p>
+<p>$\varepsilon^*$ 叫做近似值的<strong>误差限</strong>。</p>
+$$|\varepsilon^∗ − x| \leqslant \varepsilon^*$$
+    <blockquote>
+        <p>误差限的大小并不能完全表示近似值的好坏。</p>
 
-<div class="catalogue">
-    
-    <a class="catalogue-link" href="/passage/math/numerical_analysis/general">
-        <span class="catalogue-text">
-            <span class="catalogue-name">数值分析与科学计算导论</span></span>
-        
-        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-    </a>
-</div>
+    </blockquote>
+<h4 id="相对误差">相对误差
+</h4><p>近似值的误差 $e∗$ 与准确值 $x$ 的比值，</p>
+$$\frac{e^x}{x} = \frac{x^*-x}{x}$$<p> 称为近似值 $x^∗$ 的相对误差，记作 $e^{∗}_r$</p>
+<p>实际计算中，由于真值 $x$ 总是未知的，通常取 </p>
+$$e^*_r = \frac{e^*}{x^*} = \frac{x^*-x}{x^*}，|e^{*}_r| \leqslant \varepsilon^{*}_r$$<p>相对误差也可正可负，它的绝对值上界叫做相对误差限，记作 $𝜀^{∗}_r$，即 </p>
+$$\varepsilon^{∗}_r = \frac{\varepsilon^*}{|x^*|}$$<h4 id="有效数字">有效数字
+</h4><p>若近似值 $x^*$ 的误差限是某一位的半个单位，该位到 $x^∗$ 的第一位非零数字共有 $n$ 位，则 $x^∗$ 有 $n$ 位有效数字。</p>
+<p>若设近似数 $x^*$ 表示为 </p>
+$$x^* = \pm 10^m \times \left(a_1 + a_2 \times 10^{-1} + \cdots + a_l \times 10^{-(l-1)} \right)$$<p>其中 $a_i (i=1,2,\cdots,l)$ 为 $0$ 到 $9$ 中的一个数字，$a_1 \ne 0$ 且 $m$ 为整数，若 $x^*$ 具有 $n$ 位有效数字，则其相对误差限 </p>
+$$\varepsilon^{*}_r \leqslant \frac{1}{2a_1} \times 10^{-(n-1)}$$<p>反之，若 $x^*$ 的相对误差限 $\displaystyle \varepsilon^{*}_r \leqslant \frac{1}{2(a_1+1)} \times 10^{-(n-1)}$，则 $x^*$ 至少具有 $n$ 位有效数字。</p>
+<p>这说明，有效位数越多，相对误差限越小。</p>
+<h3 id="数值运算的误差估计">数值运算的误差估计
+</h3><p>设两个近似数 $x^∗_1$ 与 $x^∗_2$ 的误差限分别为 $\varepsilon(x^∗_1)$ 及 $\varepsilon(x^∗_2)$，则它们进行加、减、乘、除运算得到的误差限分别满足：</p>
+$$\varepsilon(x^*_1 \pm x^*_2) \approx \varepsilon(x^*_1) + \varepsilon(x^*_2)$$<p>
+</p>
+$$\varepsilon(x^*_1 x^*_2) \approx |x^*_1| \varepsilon(x^*_2) + |x^*_2|\varepsilon(x^*_1)$$<p>
+</p>
+$$\varepsilon \left(\frac{x^*_1}{x^*_2} \right) \approx \frac{|x^*_1| \varepsilon(x^*_2) + |x^*_2|\varepsilon(x^*_1)}{|x^*_2|^2}，(x^*_2 \ne 0)$$<p>更一般的情形：</p>
+$$\varepsilon(f(x^*)) \approx |f'(x^*)| \varepsilon(x^*)$$<h2 id="误差的分析与避免">误差的分析与避免
+</h2><h3 id="算法的数值稳定性">算法的数值稳定性
+</h3><p>用一个算法计算，由于初始数据误差在计算中传播使计算结果误差快速增长，就是数值不稳定的。</p>
+<p>一个算法如果输入数据有误差，而在计算过程中舍入误差不增长，则称此算法是数值稳定的，否则称此算法为不稳定的。</p>
+<h3 id="病态问题与条件数">病态问题与条件数
+</h3><p>对一个数值问题本身，如果输入数据有微小扰动（即误差），引起输出数据（即问题解）相对误差很大，这就是病态问题。</p>
+<p>例如计算函数值 $f(x)$ 时，若 $x$ 有扰动 $\Delta x = x^∗ − x$，其相对误差为 $\displaystyle \frac{\Delta x}{x}$，函数值 $\displaystyle \frac{f(x^*)-f(x)}{f(x)}$。相对误差比值 </p>
+$$\left| \frac{f(x^*) - f(x)}{f(x)} \right| \big/ \left|\frac{\Delta x}{x} \right| \approx \left| \frac{xf'(x)}{f(x)} \right| = C_p$$<p>$C_p$ 称为计算函数值问题的条件数。自变量相对误差一般不会很大，如果条件数很大，将引起函数值相对误差很大，出现这种情况的问题就是病态问题。</p>
 
+    <blockquote>
+        <p>病态问题不是计算方法引起的，是数值问题自身固有的。</p>
 
+    </blockquote>
+<h2 id="数值计算的算法设计">数值计算的算法设计
+</h2><h3 id="秦九韶算法">秦九韶算法
+</h3><p>已知 $p(x) = a_0 x^n + a_1 x^{n-1} + \cdots + a_{n-1} x + a_n$，$(a_0 \ne 0)$，求 $x^*$ 处的值 $p(x^*)$。</p>
 
-<div class="catalogue">
-    
-    <a class="catalogue-link" href="/passage/math/numerical_analysis/interpolation">
-        <span class="catalogue-text">
-            <span class="catalogue-name">插值方法</span></span>
-        
-        <svg class="catalogue-arrow" viewBox="0 0 16 16" aria-hidden="true">
-            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-    </a>
-</div>
+    <blockquote>
+        <p>若直接计算每一项 $a_i x^{n−i}$ 再相加，共需求 </p>
+$$\sum_{i=0}^n (n-i) = \frac{n(n+1)}{2} = \mathrm{O}(n^2)$$<p> 次乘法，$n$ 次加法。</p>
 
+    </blockquote>
+<p>若采用 </p>
+$$p(x) = (\cdots (a_0 x + a_1) + \cdots + a_{n-1})x + a_n$$<p> 它可表示为 </p>
+$$\left\{\begin{array}{c}\begin{align*} & b_0 = a_0 \\ & b_i = b_{i-1} x^* + a_i，i=1,2,\cdots,n \end{align*}\end{array} \right.$$<p>则 $b_n = p(x^*)$ 即为所求。此算法称为秦九韶算法。</p>
+<h3 id="迭代法与开方求值">迭代法与开方求值
+</h3><p>设 $a&gt;0$，求 $\sqrt{a}$ 等价于求方程 $x^2-a=0$。给定初始值 $x_0 \geqslant 0$。</p>
+
+    <blockquote>
+        <p>令 $x = x_0+\Delta x$，于是有 $(x_0 + \Delta x)^2 = a$，略去高阶小量项 $(\Delta x)^2$，则有 $x^2_0 + 2x_0\Delta x \approx a$，即 $\displaystyle \Delta x \approx \frac{1}{2} \left(\frac{a}{x_0} -x_0\right)$，于是 $\displaystyle x=x_0+\Delta x \approx \frac{1}{2} \left(x_0+\frac{a}{x_0}\right) = x_1$</p>
+
+    </blockquote>
+<p>重复以上过程，得到迭代公式 </p>
+$$x_{k+1} = \frac{1}{2} \left(x_k + \frac{a}{x_k}\right)，k=0,1,2,\cdots$$<p> 若 $\displaystyle \lim_{k \to \infty} x_k = x^*$，则 $x^* = \sqrt{a}$。</p>
+<h3 id="以直代曲与化整为零">以直代曲与化整为“零”
+</h3><p>在微积分中计算定积分的 $\displaystyle I(f) = \int_{a}^{b} f(x) \mathrm{d}x$ 梯形公式 </p>
+$$I(f) \approx \frac{b-a}{2} [f(a) + f(b)] = T_1$$<p> 是用通过曲线 $y = f(x)$ 上两点 $A(a, f(𝑎))$ 以及 $B(b, f(b))$ 的直线（弦）近似曲线的弧，用梯形面积近似曲边梯形的面积，也是以直代曲。</p>
 
 </section>
 
@@ -495,6 +830,17 @@
             
                 
 <article class="">
+    <a href="/passage/math/numerical_analysis/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数值计算方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
     <a href="/passage/cs/digital/">
         
 
@@ -538,17 +884,6 @@
 
         <div class="article-details">
             <h2 class="article-title">数据库系统</h2>
-        </div>
-    </a>
-</article>
-            
-                
-<article class="">
-    <a href="/passage/cs/parallel_computing/">
-        
-
-        <div class="article-details">
-            <h2 class="article-title">并行计算</h2>
         </div>
     </a>
 </article>
