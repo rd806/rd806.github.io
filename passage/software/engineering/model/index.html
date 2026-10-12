@@ -344,8 +344,13 @@
     <li><a href="#常见的软件过程模型">常见的软件过程模型</a>
       <ol>
         <li><a href="#瀑布模型">瀑布模型</a></li>
+        <li><a href="#增量模型">增量模型</a></li>
+        <li><a href="#迭代模型">迭代模型</a></li>
+        <li><a href="#原型模型">原型模型</a></li>
+        <li><a href="#螺旋模型">螺旋模型</a></li>
       </ol>
     </li>
+    <li><a href="#软件过程模型的选择">软件过程模型的选择</a></li>
   </ol>
 </nav>
         </div>
@@ -554,7 +559,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 1 分钟
+                        阅读时长: 5 分钟
                     </time>
                 
             </div>
@@ -585,8 +590,13 @@
     <li><a href="#常见的软件过程模型">常见的软件过程模型</a>
       <ol>
         <li><a href="#瀑布模型">瀑布模型</a></li>
+        <li><a href="#增量模型">增量模型</a></li>
+        <li><a href="#迭代模型">迭代模型</a></li>
+        <li><a href="#原型模型">原型模型</a></li>
+        <li><a href="#螺旋模型">螺旋模型</a></li>
       </ol>
     </li>
+    <li><a href="#软件过程模型的选择">软件过程模型的选择</a></li>
   </ol>
 
             </nav>
@@ -621,6 +631,160 @@
 <p>优点是简单，一目了然，易理解、掌握、应用和管理。</p>
 <p><img alt="瀑布模型" class="gallery-image" data-flex-basis="286px" data-flex-grow="119" height="882" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/model/images/%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/model/images/%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B_hu_b05bb4d6b364419a.png 800w, /passage/software/engineering/model/images/%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B.png 1054w" width="1054"></p>
 <p>瀑布模型各阶段的任务：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>阶段</th>
+          <th>活动</th>
+          <th>方法</th>
+          <th>产出</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>需求分析</td>
+          <td>定义软件需求，包括功能、非功能需求。关注要做什么。从用户角度，仅描述问题和需求</td>
+          <td>依据用户的期望和要求，不断与用户进行交流和商讨，需要抽象、问题分解、多视点等技术</td>
+          <td>软件需求模型、软件需求文档、软件确认测试计划，文档类的软件制品等</td>
+      </tr>
+      <tr>
+          <td>概要设计</td>
+          <td>建立软件总体架构、制定集成测试计划，关注软件高层设计，需要宏观、全局、整体、战略性的视角</td>
+          <td>依据软件需求文档，自顶向下，逐步求精</td>
+          <td>软件概要设计模型、软件概要设计文档、软件集成测试计划，文档类的软件制品等</td>
+      </tr>
+      <tr>
+          <td>详细设计</td>
+          <td>设计模块内部细节（算法、数据结构），制订单元测试计划；关注详细设计；需要微观、局部、细节性的视角</td>
+          <td>依据概要设计文档、软件需求文档；高质量的软件设计原则，如单入口单出口</td>
+          <td>软件详细设计模型、软件详细设计文档、单元测试计划，文档类的软件制品</td>
+      </tr>
+      <tr>
+          <td>编程实现</td>
+          <td>编写程序代码并进行单元测试和调试；关注如何最终做出这个东西；需要最终的实现代码</td>
+          <td>依据软件概要和详细设计文档、单元测试计划；采用某种程序设计语言</td>
+          <td>经过单元测试的源程序代码，程序类的软件制品</td>
+      </tr>
+      <tr>
+          <td>集成测试</td>
+          <td>组装软件模块并进行测试以发现问题，关注集成后软件中的缺陷，需要自底向上组装、全局的视角</td>
+          <td>依据软件概要设计文档、软件集成测试计划。软件集成测试工具</td>
+          <td>经过集成测试、修复缺陷的源程序代码，集成测试报告；数据、文档和代码类的软件制品</td>
+      </tr>
+      <tr>
+          <td>确认测试</td>
+          <td>测试软件是否满足用户需求，关注软件在满足用户需求方面是否存在缺陷，需要从用户角度，聚焦需求是否得以正确实现</td>
+          <td>依据软件确认测试计划、软件需求文档，软件测试支撑工具</td>
+          <td>经过确认测试、修复缺陷后的代码，软件确认测试报告，数据、文档和代码类的软件制品</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>因为软件需求具有易变、多变的特点，因此瀑布模型的不足：</p>
+<ul>
+<li>需求确定，过于理想化</li>
+<li>缺乏变通，难应对变化</li>
+</ul>
+<p>因此可以对瀑布模型加以改进，添加反馈和回溯过程：后期活动发现有问题后，可返回到前面活动加以解决，提高了过程模型的灵活性。</p>
+<p><img alt="改进的瀑布模型" class="gallery-image" data-flex-basis="288px" data-flex-grow="120" height="775" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/model/images/%E6%94%B9%E8%BF%9B%E7%9A%84%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/model/images/%E6%94%B9%E8%BF%9B%E7%9A%84%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B_hu_407dcf4ba3fb813e.png 800w, /passage/software/engineering/model/images/%E6%94%B9%E8%BF%9B%E7%9A%84%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B.png 931w" width="931"></p>
+<h3 id="增量模型">增量模型
+</h3><p>渐进式、增量式地实现软件功能。</p>
+<p><img alt="增量模型" class="gallery-image" data-flex-basis="449px" data-flex-grow="187" height="783" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/model/images/%E5%A2%9E%E9%87%8F%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/model/images/%E5%A2%9E%E9%87%8F%E6%A8%A1%E5%9E%8B_hu_62e93414a0d2d2ce.png 800w, /passage/software/engineering/model/images/%E5%A2%9E%E9%87%8F%E6%A8%A1%E5%9E%8B.png 1466w" width="1466"></p>
+<ul>
+<li>优点：渐进快速交付，并行开发，提高效率。</li>
+<li>缺点：软件需求可确定且不易于变化。</li>
+</ul>
+<h3 id="迭代模型">迭代模型
+</h3><p>每次迭代完成部分可确定的软件需求：</p>
+<ul>
+<li>每次迭代是一完整过程</li>
+<li>体现了小步快跑的开发理念</li>
+<li>适合需求难导出、不易确定且持续变动的软件</li>
+</ul>
+<p><img alt="迭代模型" class="gallery-image" data-flex-basis="534px" data-flex-grow="222" height="698" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/model/images/%E8%BF%AD%E4%BB%A3%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/model/images/%E8%BF%AD%E4%BB%A3%E6%A8%A1%E5%9E%8B_hu_ce3c2cdc58a9ca3f.png 800w, /passage/software/engineering/model/images/%E8%BF%AD%E4%BB%A3%E6%A8%A1%E5%9E%8B.png 1555w" width="1555"></p>
+<p>不足：迭代多少次不确定，管理较为复杂。</p>
+<h3 id="原型模型">原型模型
+</h3><p>适合于需求难导出、 不易确定且持续变动的软件</p>
+<p><img alt="原型模型" class="gallery-image" data-flex-basis="252px" data-flex-grow="105" height="771" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/model/images/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/model/images/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B_hu_9f42863a46c49c48.png 800w, /passage/software/engineering/model/images/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B.png 812w" width="812"></p>
+<p>特点</p>
+<ul>
+<li>软件原型作为交流载体和媒介</li>
+<li>支持用户参与到软件开发中</li>
+<li>持续、渐进地导出用户要求</li>
+</ul>
+<p>缺点：对于分析人员要求高，既需要懂客户，也需要懂技术，还要懂管理，把握软件开发的约束性条件。</p>
+<h3 id="螺旋模型">螺旋模型
+</h3><p>集成迭代模型和原型模型，引入风险分析， 风险驱动的过程模型。每个迭代四个阶段，若干活动。</p>
+<p>适合于需求不明确、开发风险高、开发过程中需求变更大的软件项目。</p>
+<p><img alt="螺旋模型" class="gallery-image" data-flex-basis="270px" data-flex-grow="112" height="590" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/model/images/%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B.png" width="664"></p>
+<p>不足：管理复杂。</p>
+<p>不同软件过程模型的特点：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>模型名称</th>
+          <th>指导思想</th>
+          <th>关注点</th>
+          <th>适合软件</th>
+          <th>管理难度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>瀑布模型</td>
+          <td>提供系统性指导</td>
+          <td>与软件生命周期相一致</td>
+          <td>需求变动不大、较为明确、可预先定义的应用</td>
+          <td>易</td>
+      </tr>
+      <tr>
+          <td>原型模型</td>
+          <td>以原型为媒介指导用户的需求导出和评价</td>
+          <td>需求获取、导出和确认</td>
+          <td>理解需求难以表述清楚、不易导出和获取的应用</td>
+          <td>易</td>
+      </tr>
+      <tr>
+          <td>增量模型</td>
+          <td>快速交付和并行开发</td>
+          <td>软件详细设计、编码和测试的增量式完成</td>
+          <td>需求变动不大、较为明确、可预先定义的应用</td>
+          <td>易</td>
+      </tr>
+      <tr>
+          <td>迭代模型</td>
+          <td>多次迭代，每次仅针对部分明确软件需求</td>
+          <td>分多次迭代来开发软件，每次仅关注部分需求</td>
+          <td>需求变动大、难以一次性说清楚的应用</td>
+          <td>中等</td>
+      </tr>
+      <tr>
+          <td>螺旋模型</td>
+          <td>集成迭代模型和原型模型，引入风险分析</td>
+          <td>软件计划制定和实施，软件风险管理，基于原型的迭代式开发</td>
+          <td>开发风险大，需求难以确定的应用</td>
+          <td>难</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="软件过程模型的选择">软件过程模型的选择
+</h2><ul>
+<li>考虑软件项目的特点：尤其是所开发软件的业务特点，如业务领域是否明确、软件需求是否易于确定、用户需求是否会经常性变化等等；是否可以预估到潜在的软件开发风险</li>
+<li>软件开发团队的水平：需要结合软件开发团队的能力和水平来选择过程模型，以防开发团队和管理人员无法掌控和驾驭过程模型</li>
+<li>分析软件过程模型特点：优缺点以及适合的场所</li>
+</ul>
+<p>传统软件过程模型的特点和不足：</p>
+<ul>
+<li>软件开发和运维的大量工作用于撰写软件文档，而非去编写程序代码</li>
+<li>软件开发过程中会花费大量时间和精力用于软件文档的评审，以确保软件质量</li>
+<li>一旦软件需求发生变化，开发人员需要修改软件需求文档，并据此来调整其他的一系列文档，最后再修改程序代码</li>
+<li>等较长时间才能得到可运行软件系统</li>
+</ul>
+
+    <blockquote>
+        <p>敏捷软件开发方法介绍</p>
+<p>重视人和交互、重视可运行软件系统、重视客户合作、重视响应用户需求变化。少写软件文档，以代码为中心，快速响应变化。</p>
+
+    </blockquote>
 
 </section>
 

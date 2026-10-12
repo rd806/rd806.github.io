@@ -344,6 +344,24 @@
       <ol>
         <li><a href="#基本构成">基本构成</a></li>
         <li><a href="#从逻辑到门">从逻辑到门</a></li>
+        <li><a href="#x-和-z">X 和 Z</a>
+          <ol>
+            <li><a href="#非法值">非法值</a></li>
+            <li><a href="#无关项">无关项</a></li>
+            <li><a href="#浮空值">浮空值</a></li>
+            <li><a href="#三态缓冲器">三态缓冲器</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#电路的化简">电路的化简</a>
+      <ol>
+        <li><a href="#代数法">代数法</a></li>
+        <li><a href="#卡诺图法">卡诺图法</a>
+          <ol>
+            <li><a href="#基本概念">基本概念</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -554,7 +572,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 1 分钟
+                        阅读时长: 3 分钟
                     </time>
                 
             </div>
@@ -585,6 +603,24 @@
       <ol>
         <li><a href="#基本构成">基本构成</a></li>
         <li><a href="#从逻辑到门">从逻辑到门</a></li>
+        <li><a href="#x-和-z">X 和 Z</a>
+          <ol>
+            <li><a href="#非法值">非法值</a></li>
+            <li><a href="#无关项">无关项</a></li>
+            <li><a href="#浮空值">浮空值</a></li>
+            <li><a href="#三态缓冲器">三态缓冲器</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#电路的化简">电路的化简</a>
+      <ol>
+        <li><a href="#代数法">代数法</a></li>
+        <li><a href="#卡诺图法">卡诺图法</a>
+          <ol>
+            <li><a href="#基本概念">基本概念</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -629,6 +665,80 @@
 </ul>
 <p>例如，对于组合逻辑 $Y = \overline{A} \overline{B} \overline{C} + A \overline{B} \overline{C} + A \overline{B} C$，可以绘制出如下的逻辑电路原理图：</p>
 <p><img alt="原理图示例" class="gallery-image" data-flex-basis="337px" data-flex-grow="140" height="703" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/digital/combinational_circuit/images/%E5%8E%9F%E7%90%86%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/cs/digital/combinational_circuit/images/%E5%8E%9F%E7%90%86%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_1d17ede6be67dbd3.png 800w, /passage/cs/digital/combinational_circuit/images/%E5%8E%9F%E7%90%86%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 989w" width="989"></p>
+<p>所有的逻辑表达式都可以转化为与或式。理论上，与或式可以使用两级门电路来实现，使用二级逻辑可能带来更高的成本，受工艺、 成本等方面的制约，工程中门电路的扇入数不可能无限制的增加。</p>
+<p>采用多级组合逻辑电路：可以减少门电路的数量，减少扇入数。</p>
+
+    <blockquote>
+        <p>扇入数（fan-in）：单个逻辑门能够接受的数字信号最大输入数。</p>
+<figure><img src="/passage/cs/digital/combinational_circuit/images/%E6%89%87%E5%85%A5%E6%95%B0.png" width="400"><figcaption>
+      <h4>扇入数</h4>
+    </figcaption>
+</figure>
+
+
+    </blockquote>
+<h3 id="x-和-z">X 和 Z
+</h3><h4 id="非法值">非法值
+</h4><p>竞争（Contention）：电路结点同时被0和1驱动，电压值可能介于0 ~ VDD之间（可能是0，可能是1，也可能处于禁止区域），致使电路的功耗变大、电路发热，并导致损坏。出现竞争时的值表示为 $X$。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>竞争通常是由于电路设计缺陷引起的</p>
+        </div>
+    </blockquote>
+<p><img alt="竞争现象" class="gallery-image" data-flex-basis="389px" data-flex-grow="162" height="425" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/digital/combinational_circuit/images/%E7%AB%9E%E4%BA%89%E7%8E%B0%E8%B1%A1.png" width="689"></p>
+<h4 id="无关项">无关项
+</h4><p>在优先级电路中：用符号 $X$ 表示输出不需要考虑的输入。</p>
+<p>例如，对于如下的真值表：</p>
+<p><img alt="无关项的真值表1" class="gallery-image" data-flex-basis="208px" data-flex-grow="86" height="857" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/digital/combinational_circuit/images/%E6%97%A0%E5%85%B3%E9%A1%B9%E7%9A%84%E7%9C%9F%E5%80%BC%E8%A1%A81.png" width="744"></p>
+<p>它可以总结为：如果 $A_3$ 输入为 $\text{TRUE}$，则输出不用考虑其他的输入量。因此可以简化为如下的真值表：</p>
+<p><img alt="无关项的真值表1" class="gallery-image" data-flex-basis="373px" data-flex-grow="155" height="488" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/digital/combinational_circuit/images/%E6%97%A0%E5%85%B3%E9%A1%B9%E7%9A%84%E7%9C%9F%E5%80%BC%E8%A1%A82.png" width="759"></p>
+<h4 id="浮空值">浮空值
+</h4><p>浮空也称为悬空、高阻态（High impedance）、高Z态、开路、断路。</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>浮空不等于逻辑0：</p>
+<ul>
+<li>使用电压表并不能判断哪个电路结点处于浮空状态</li>
+<li>测量断路结点的电压和接地点的电压，在电压表上的读数都为0</li>
+</ul>
+        </div>
+    </blockquote>
+<p>当电路的输入结点浮空时，输出不确定，可能为 $0$，可能为 $1$，也可能为某个中间电压（处于禁止区）。产生浮空结点常见的原因是忘记将电压连接到输入端，但浮空结点并不意味着电路一定出错。</p>
+<h4 id="三态缓冲器">三态缓冲器
+</h4><p>浮空可以用来防止结点处于竞争状态。</p>
+<p>当一个结点同时连接 $n$ 个输出时，若其中 $n-1$ 个输出处于浮空状态，则当前结点的值等于驱动正常电平输出端的值。</p>
+<p>三态缓冲器：有3种可能输出状态（高电平、低电平和浮空），3个输入端口：输入端 $A$、输出端 $Y$、使能端 $E$。</p>
+<p>三态缓冲器常在连接多个设备的总线上使用，在某一个时刻只允许一个设备的使能信号有效， 并向总线输出数据。其它设备的输出必须浮空， 以防止总线竞争。任何设备在任何时刻都可以通过总线读取信息。</p>
+<h2 id="电路的化简">电路的化简
+</h2><h3 id="代数法">代数法
+</h3><h3 id="卡诺图法">卡诺图法
+</h3><p>将逻辑函数用“卡诺图”来表示，并在图上进行函数化简的方法。它的核心原理为 </p>
+$$PA + P\overline{A} = P$$<h4 id="基本概念">基本概念
+</h4><p>卡诺图是一种包含一些小方块的几何图形，图中每个小方块称为一个单元，每个单元对应一个最小项。</p>
+<p>两个相邻的最小项在卡诺图中也必须是相邻的：</p>
+<ul>
+<li>几何相邻：卡诺图中左右紧挨着或者上下相接</li>
+<li>对称相邻：卡诺图中对称位置的单元是相邻的</li>
+</ul>
+
+    <blockquote>
+        <p>常见的卡诺图：</p>
+<ul>
+<li>三变量卡诺图：任何两组相邻，只有1位变量取值不同。即符合格雷码排列规则。如 $BC$ 的取值排列为 $00$，$01$，$11$，$10$。
+<img alt="三变量卡诺图" class="gallery-image" data-flex-basis="398px" data-flex-grow="165" height="653" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/cs/digital/combinational_circuit/images/%E4%B8%89%E5%8F%98%E9%87%8F%E5%8D%A1%E8%AF%BA%E5%9B%BE.png" srcset="/passage/cs/digital/combinational_circuit/images/%E4%B8%89%E5%8F%98%E9%87%8F%E5%8D%A1%E8%AF%BA%E5%9B%BE_hu_2dd434d58254dd6b.png 800w, /passage/cs/digital/combinational_circuit/images/%E4%B8%89%E5%8F%98%E9%87%8F%E5%8D%A1%E8%AF%BA%E5%9B%BE.png 1083w" width="1083"></li>
+<li>二变量、四变量卡诺图</li>
+<li>五变量卡诺图</li>
+</ul>
+
+    </blockquote>
 
 </section>
 
