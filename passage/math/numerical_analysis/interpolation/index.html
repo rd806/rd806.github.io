@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.0e8e6c78bc1e7ed7aa4e0a96d05626ce07c3a1358af141839d20d1a86c11ee1a.css"><meta property='og:title' content="数值计算方法">
+<link rel="stylesheet" href="/scss/style.min.40a8275e621bc79c0373aeb753f3d8c8c72a620b6f2d8d5ee923e571f870ecc3.css"><meta property='og:title' content="数值计算方法">
 <meta property='og:description' content="插值方法">
 <meta property='og:url' content='https://rd806.github.io/passage/math/numerical_analysis/interpolation/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -731,6 +731,25 @@ $$L_n(x) = \sum_{k=0}^{n} y_k \frac{\omega_{n+1}(x)}{(x-x_k)\omega'_{n+1}(x_k)}$
             <p>$n$ 次插值多项式 $L_n(x)$ 通常是次数为 $n$ 的多项式，特殊情况下次数可能小于 $n$。</p>
         </div>
     </blockquote>
+<div class="geogebra-card">
+    <a class="geogebra-card-link" href="/geogebra/?id=dwp6m42f&amp;name=%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E6%B3%95" target="_blank" rel="noopener">
+        <span class="geogebra-card-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-geogebra" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4v16h16" />
+  <path d="M6.5 16.5q5.5 -9 11 0" />
+</svg>
+</span>
+        <span class="geogebra-card-text">
+            <span class="geogebra-card-name">拉格朗日插值法</span>
+            <span class="geogebra-card-meta">观察插值多项式的变化</span>
+        </span>
+        
+        <svg class="geogebra-card-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M5 11L11 5M6 5h5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+    </a>
+</div>
+
 <h3 id="插值余项与误差估计">插值余项与误差估计
 </h3><p>若在 $[a,b]$ 上用 $L_n(x)$ 近似 $f(x)$，则其截断误差为 $R_n(x) = f(x) − L_n(x)$ 也称为插值多项式的余项。</p>
 <p><strong>多项式插值余项定理</strong>：设 $f_n(x)$ 在 $[a,b]$ 上连续，$f^{𝑛+1}(𝑥)$ 在 $(a,b)$ 内存在，节点 $a \leqslant x_0 &lt; x_1 &lt; \cdots &lt; x_n \leqslant b$，$L_n(x)$ 是满足上述的插值多项式，则对任何 $x \in [a,b]$，插值余项 </p>
@@ -813,7 +832,26 @@ $$f[x_k,\cdots,x_{k+m}] = \frac{1}{m!} \frac{1}{h^m} \Delta^m f_k，(m=1,2,\cdot
 </p>
 $$\Delta^n f_k = h^n f^{(n)}(\xi)，\xi \in (x_k, x_{k+n})$$<p>在牛顿插值公式中，用差分代替均差，并令 $x = x_0+th$，则可得<strong>牛顿前插公式</strong> </p>
 $$p_n(x_0+th) = f_0 + t \Delta f_0 + \frac{t(t-1)}{2!} \Delta^2 f_0 + \cdots + \frac{t(t-1)\cdots(t-n+1)}{n!} \Delta^n f_0$$<p>，其余项为 </p>
-$$R_n(x) = \frac{t(t-1)\cdots(t-n)}{(n+1)!} h^{n+1}f^{(n+1)}(\xi)，\xi \in (x_0,x_n)$$<h2 id="埃尔米特插值">埃尔米特插值
+$$R_n(x) = \frac{t(t-1)\cdots(t-n)}{(n+1)!} h^{n+1}f^{(n+1)}(\xi)，\xi \in (x_0,x_n)$$<div class="geogebra-card">
+    <a class="geogebra-card-link" href="/geogebra/?id=jc9ueejb&amp;name=%E7%89%9B%E9%A1%BF%E6%8F%92%E5%80%BC%E6%B3%95" target="_blank" rel="noopener">
+        <span class="geogebra-card-icon"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-geogebra" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 4v16h16" />
+  <path d="M6.5 16.5q5.5 -9 11 0" />
+</svg>
+</span>
+        <span class="geogebra-card-text">
+            <span class="geogebra-card-name">牛顿插值法</span>
+            <span class="geogebra-card-meta">观察插值多项式的变化</span>
+        </span>
+        
+        <svg class="geogebra-card-arrow" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M5 11L11 5M6 5h5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+    </a>
+</div>
+
+<h2 id="埃尔米特插值">埃尔米特插值
 </h2><h3 id="重节点均差">重节点均差
 </h3><p>有些实际的插值问题不但要求在节点上函数值相等，而且还要求对应的导数值也相等，甚至要求高阶导数也相等。满足这种要求的插值多项式就是埃尔米特（Hermite）插值多项式。</p>
 <p>设 $f \in \textbf{C}^n[a,b], x_0,x_1,\cdots,x_n$ 为 $[a,b]$ 上的相异节点，则 $f[x_0, x_1, \cdots, x_n]$ 是其变量的连续函数。如何 $[a,b]$ 上的节点互异，根据差商定义，则有 </p>
