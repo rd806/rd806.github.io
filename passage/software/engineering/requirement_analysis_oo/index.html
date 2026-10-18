@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.e7203345a4fa643bb374480cc577b4402e1a42356893c6553f2bb4915459c63d.css"><meta property='og:title' content="软件工程">
+<link rel="stylesheet" href="/scss/style.min.3732f0cc513ca111f2740dd428dae620c5597ea4478cdec4a7e539ae7795105f.css"><meta property='og:title' content="软件工程">
 <meta property='og:description' content="需求分析基础（面向对象）">
 <meta property='og:url' content='https://rd806.github.io/passage/software/engineering/requirement_analysis_oo/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -364,8 +364,24 @@
             <li><a href="#封装">封装</a></li>
             <li><a href="#继承">继承</a></li>
             <li><a href="#多态">多态</a></li>
+            <li><a href="#覆盖与重载">覆盖与重载</a></li>
           </ol>
         </li>
+        <li><a href="#描述初步软件需求">描述初步软件需求</a>
+          <ol>
+            <li><a href="#自然语言描述">自然语言描述</a></li>
+            <li><a href="#软件原型描述">软件原型描述</a></li>
+            <li><a href="#uml建模语言描述">UML建模语言描述</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#需求分析过程">需求分析过程</a>
+      <ol>
+        <li><a href="#软件需求优先级">软件需求优先级</a></li>
+        <li><a href="#建立软件需求模型">建立软件需求模型</a></li>
+        <li><a href="#软件需求制品">软件需求制品</a></li>
+        <li><a href="#软件需求评审">软件需求评审</a></li>
       </ol>
     </li>
   </ol>
@@ -576,7 +592,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 9 分钟
+                        阅读时长: 17 分钟
                     </time>
                 
             </div>
@@ -627,8 +643,24 @@
             <li><a href="#封装">封装</a></li>
             <li><a href="#继承">继承</a></li>
             <li><a href="#多态">多态</a></li>
+            <li><a href="#覆盖与重载">覆盖与重载</a></li>
           </ol>
         </li>
+        <li><a href="#描述初步软件需求">描述初步软件需求</a>
+          <ol>
+            <li><a href="#自然语言描述">自然语言描述</a></li>
+            <li><a href="#软件原型描述">软件原型描述</a></li>
+            <li><a href="#uml建模语言描述">UML建模语言描述</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#需求分析过程">需求分析过程</a>
+      <ol>
+        <li><a href="#软件需求优先级">软件需求优先级</a></li>
+        <li><a href="#建立软件需求模型">建立软件需求模型</a></li>
+        <li><a href="#软件需求制品">软件需求制品</a></li>
+        <li><a href="#软件需求评审">软件需求评审</a></li>
       </ol>
     </li>
   </ol>
@@ -839,7 +871,7 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 <li>异步消息：请求者发出消息后继续工作，无需等待。</li>
 </ul>
 <h4 id="封装">封装
-</h4><p>面向对象的程序中把数据和实现操作的代码集中起来放在对象内部。使用一个对象的时候， 只需知道它向外界提供的接口形式， 而无需知道它的数据结构细节和实现操作的算法。</p>
+</h4><p>面向对象的程序中把数据和实现操作的代码集中起来放在对象内部。使用一个对象的时候，只需知道它向外界提供的接口形式，而无需知道它的数据结构细节和实现操作的算法。</p>
 <p>具有封装性的条件：</p>
 <ol>
 <li>有一个清晰的边界；</li>
@@ -853,6 +885,12 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 <h4 id="多态">多态
 </h4><p>操作的外部接口定义形式相同，但是内部实现方式不一样。一个父类包含了一个被子类覆盖的方法，通过一个父类的引用值来引用其不同的子类对象，父类引用在调用被覆盖方法时，不同子类对象的方法将会执行。</p>
 <p>多态的执行方式：从具体子类开始，沿继承结构向上找，直至发现为止。</p>
+<p>多态性的三个特征:</p>
+<ol>
+<li>一个父类包含了一个被子类覆盖的方法，</li>
+<li>一个父类的引用值来引用其不同的子类对象，</li>
+<li>父类引用在调用被覆盖方法时，不同子类对象的方法将会执行。</li>
+</ol>
 <p>多态增加了面向对象软件系统的灵活性， 进一步减少了数据冗余， 而且显著提高了软件的可重用性和可扩充性。</p>
 <p>例如，在如下的Java程序中，定义了3个类：</p>
 <div class="highlight"><div class="chroma">
@@ -951,7 +989,310 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 </span></span><span class="line"><span class="cl">Inside C&#39;s m1 method
 </span></span></code></pre></td></tr></table>
 </div>
+</div><p>对象声明是为对象的引用创建一个空间，而对象生成则是创建一个类的实例，即为对象分配空间，并将对象空间的地址赋给其引用。例如，在程序中对类的定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;A--&gt;public void fun1(){}&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">fun1</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;B--&gt;public void fun1(){}&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;B--&gt;public void fun3(){}&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div><p>执行以下函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JavaExample</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">A</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">B</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="na">fun1</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="na">fun2</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">B--&gt;public void fun1(){}
+</span></span><span class="line"><span class="cl">B--&gt;public void fun1(){}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>“引用”所能够调用的“方法”取决于“引用”的类型，而该“方法”如何具体实现取决于“对象”的类型。例如，在如下的程序中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JavaExample1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">A</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">B</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 一次强制类型转换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">fun1</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">fun2</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">fun3</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JavaExample2</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">A</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">A</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">fun1</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">fun2</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="na">fun3</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>JavaExample1</code>中，<code>B</code>为<code>A</code>的子类，上面的<code>a</code>首先被声明为一个<code>A</code>类型的引用，并指向一个<code>B</code>类型的对象， 接下来把<code>A</code>类引用通过向下转型变成一个<code>B</code>类引用， 从而有权利去调用<code>B</code>类中非共有的方法。</li>
+<li><code>JavaExample2</code>中， A类型引用指向的是一个A类对象，把<code>A</code>类引用转换成<code>B</code>类引用，此时就可以发送调用<code>B</code>类方法的命令给指向的对象。但是，<code>A</code>类对象却并不包含B类中<code>fun3()</code>方法，因此就会出错。</li>
+</ul>
+<h4 id="覆盖与重载">覆盖与重载
+</h4><p>覆盖：子类增加或重新定义所继承的属性或方法，从而用新定义的属性和方法来覆盖所继承的、来自父类中的属性或方法。</p>
+<p>重载：一个类中有多个同名操作，但它们在操作数或操作数类型上有区别，系统根据实参引用不同方法。</p>
+<h3 id="描述初步软件需求">描述初步软件需求
+</h3><p>初步的软件需求之所以称之为是初步的，是因为这些软件需求还很粗略，只是一个初步的需求轮廓，不够具体和详尽，可能有遗漏，会存在不一致和相冲突等问题，后续还需要对其开展进一步的精化和分析</p>
+<p>描述需求：记录下来、描述清楚，形成相关的软件文档，以便于不同人员（如需求工程师、用户、客户等）之间的交流和讨论，及时发现需求理解上存在的偏差，支持后续的需求分析工作。</p>
+<h4 id="自然语言描述">自然语言描述
+</h4><p>自然语言是最为常用的需求描述手段：</p>
+<ul>
+<li>描述软件的功能性需求、质量需求和开发约束需求等</li>
+<li>详细刻画需求的具体内容和细节</li>
+<li>可为各方所理解，便于交流和讨论</li>
+</ul>
+<p>不足：</p>
+<ul>
+<li>不具体</li>
+<li>不准确</li>
+<li>有二义，不同的人看完描述后可能会有不同的理解</li>
+<li>不直观，很难从中厘清软件系统到底有哪些功能性需求和非功能性需求，这些需求之间存在什么样的关系</li>
+</ul>
+<h4 id="软件原型描述">软件原型描述
+</h4><p>优势：</p>
+<ul>
+<li>直观、可展示和可操作</li>
+<li>有助于需求工程师与用户或客户之间的交流和沟通，便于在操作和使用软件原型的过程中帮助用户和客户确认和导出软件需求</li>
+</ul>
+<p>不足：主要以操作界面的形式展示软件需求的梗概，主要是软件与用户之间的输入和输出，业务的大致流程，无法描述软件需求的具体细节。</p>
+<h4 id="uml建模语言描述">UML建模语言描述
+</h4><blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <ul>
+<li>Unified（统一）：提取不同方法中最好建模技术，如OMT(James Rumbaugh)，Boochmethod(Grady Booch)和OOSE(Ivar Jacobson)；采用统一、标准化的表示方式，支持不同人员之间的交流；</li>
+<li>Modeling（建模）：基于面向对象的概念和抽象，对现实系统和软件系统进行可视化建模；</li>
+<li>Language（语言）：提供图形化的图符，用来表示软件系统的一种语言。</li>
+</ul>
+        </div>
+    </blockquote>
+<p>下面以用例图为例：</p>
+<ul>
+<li>用例：文本形式的情节描述，用以说明某参与者使用系统以实现某一特定目标的情形， 描述的是外部行为者所理解的系统功能。</li>
+<li>用例建模：用于描述一个系统应该做什么（功能需求），用用例图来描述</li>
+<li>用例图：把系统看做黑盒子，给出了用户所感受到的系统行为，但不描述系统如何实现该功能，驱动了需求分析之后各阶段的开发工作。</li>
+</ul>
+<p>在UML中，用例图的主要元素是系统、用例、行为者以及用例之间的关系：</p>
+<ul>
+<li>系统
+<ul>
+<li>系统被看做是一个提供用例的黑盒子</li>
+<li>代表系统的方框的边线表示系统的边界， 用于划定系统的功能范围、定义了系统所具有的功能</li>
+<li>描述该系统功能的用例置于方框内，代表外部实体的行为都置于方框外</li>
+</ul>
+</li>
+</ul>
+<p><img alt="用例图-系统" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="404" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E7%94%A8%E4%BE%8B%E5%9B%BE-%E7%B3%BB%E7%BB%9F.png" width="634"></p>
+<ul>
+<li>执行者（参与者）：
+<ul>
+<li>行为者指与系统交互的人或其他系统，它代表外部实体。行为者代表一种角色，而不是某个具体的人或物，一个具体的人可以充当多种不同的角色</li>
+<li>在用例图中，连接行为者和用例的直线，表示两者之间交换信息，称为通信联系</li>
+<li>单个行为者可与多个用例联系， 一个用例也可与多个行为者联系</li>
+<li>行为者对确定用例非常有用， 可以先列出行为者清单，再针对每个行为者列出它的用例</li>
+</ul>
+</li>
+</ul>
+<p><img alt="用例图-执行者" class="gallery-image" data-flex-basis="171px" data-flex-grow="71" height="327" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E7%94%A8%E4%BE%8B%E5%9B%BE-%E6%89%A7%E8%A1%8C%E8%80%85.png" width="234"></p>
+<ul>
+<li>
+<p>用例</p>
+<ul>
+<li>用例具有下述特征
+<ul>
+<li>用例代表某些用户可见的功能，实现一个具体的用户目标；</li>
+<li>用例总是被行为者启动的，并向行为者提供可识别的值；</li>
+<li>用例必须是完整的</li>
+</ul>
+</li>
+<li>用例是一个类， 它代表一类功能而不是使用该功能的某个具体实例</li>
+<li>用例的实例是系统的一种实际使用方法，通常把用例的实例称为脚本</li>
+</ul>
+</li>
+<li>
+<p>模型元素间关系：</p>
+<ul>
+<li>扩展关系向一个用例中添加一些动作后构成了另一个用例，后者继承前者的一些行为，通常把后者称为扩展用例， 用例之间的扩展关系图示为带构造型<code>&lt;&lt;extend&gt;&gt;</code>的关系</li>
+<li>包含关系：当一个用例包含另一个用例的全部步骤时，这两个用例之间就构成了包含关系，用带构造型 <code>&lt;&lt;include&gt;&gt;</code> 的关系表示</li>
+<li>泛化关系：一个一般用况与一个更特殊的用况之间的关系，特殊用况可继承一般用况的特征，用 <code>-----&gt;</code> 表示</li>
+</ul>
+</li>
+</ul>
+<h2 id="需求分析过程">需求分析过程
+</h2><p><img alt="需求分析过程" class="gallery-image" data-flex-basis="1006px" data-flex-grow="419" height="406" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B_hu_3ceedf9466a28e36.png 800w, /passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B_hu_10b2e5a4e90f8437.png 1600w, /passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B.png 1703w" width="1703"></p>
+<h3 id="软件需求优先级">软件需求优先级
+</h3><p>从用户和客户的视角，软件需求的重要性是不一样的。</p>
+<ul>
+<li>核心软件需求：在解决问题方面起到举足轻重的作用，提供了软件系统所特有的功能和服务，体现了软件系统的特色和优势</li>
+<li>外围软件需求：提供了次要、辅助性的功能和服务</li>
+</ul>
+<p>用户对实现这些软件需求的优先级要求也不一样：有些软件需求需要优先实现， 尽早交付给用户使用，以发挥其价值；有些软件需求可以滞后实现，晚点交付使用</p>
+<p>优先级的考虑因素：</p>
+<ul>
+<li>结合软件项目开发的具体约束，考虑不同软件需求的重要性，确定软件需求的实现优先级，确保在整个迭代开发中有计划、有重点地实现软件需求</li>
+<li>按照软件需求的重要性来确定其优先级</li>
+<li>按照用户的实际需要来确定软件需求的优先级</li>
+</ul>
+<h3 id="建立软件需求模型">建立软件需求模型
+</h3><p>不论采用那种软件开发方法，分析的过程都是提取系统需求的过程。 分析工作主要包括三项内容：理解、表达和验证。</p>
+<ul>
+<li>理解：系统分析员、用户、领域专家，交流，理解用户需求，关键知识背景；</li>
+<li>表达：形成文档资料（由对象， 动态和功能模型组成）。</li>
+<li>验证：问题复杂，人与人的交流随意性和非形式化特点，一次理解不理想，须进一步验证需求的正确性，完整性和有效性。</li>
+</ul>
+<h3 id="软件需求制品">软件需求制品
+</h3><ul>
+<li>软件原型：以可运行软件的形式，直观地展示了软件的业务工作流程、操作界面、用户的输入和输出等方面的功能性需求信息</li>
+<li>软件需求模型：以可视化的图形方式，从多个不同的视角，直观地描述了软件的功能性需求，包括用例模型、用例的交互模型、分析类模型、状态模型等</li>
+<li>软件需求文档：以图文并茂的方式，结合需求模型以及需求的自然语言描述，详尽刻画了软件需求，包括功能性和非功能性软件需求，软件需求的优先级列表等</li>
+</ul>
+<p>撰写软件需求文档的注意事项：</p>
+<ul>
+<li>遵循规范，按照规范来撰写软件需求文档</li>
+<li>图文并茂，将软件需求模型以及自然语言描述二者结合在一起，给出软件需求的清晰、准确和详实的表述</li>
+<li>完整表述，要给出软件功能性需求和非功能性需求的描述</li>
+<li>共同参与，需求工程师要与用户、客户等一起参与软件需求规格说明书的撰写</li>
+<li>语言简练，软件需求规格说明书的语言表述要简练，便于阅读和理解</li>
+<li>前后一致，在软件需求文档中，对同一个软件需求的表述前后要一致，不要产生相互矛盾或不一致的需求表达</li>
+</ul>
+<h3 id="软件需求评审">软件需求评审
+</h3><p>步骤：</p>
+<ul>
+<li>阅读和汇报软件需求制品</li>
+<li>收集和整理问题</li>
+<li>讨论和达成一致</li>
+<li>纳入配置</li>
+</ul>
+<p>软件需求缺陷</p>
+<ul>
+<li>需求缺失，即漏掉了一些重要的软件需求</li>
+<li>需求描述不正确，对软件需求的理解存在偏差</li>
+<li>需求描述不准确，软件需求的表述与用户的要求不一致</li>
+<li>软件需求有冲突、不一致</li>
+<li>软件需求不可行，存在可行性问题</li>
+<li>软件需求不详尽，没有提供足够详细的信息</li>
+</ul>
+<p>评审软件需求</p>
+<ul>
+<li>内容完整性，是否包含了用户和客户的所有软件需求</li>
+<li>内容正确性，软件需求是否客观、正确地反映了用户和客户的实际期望和要求</li>
+<li>内容准确性，是否准确地反映了用户和客户的期望和要求</li>
+<li>内容一致性，所描述的软件需求是否存在不一致问题</li>
+<li>内容多余性，所描述的软件需求是否都是用户所期望的</li>
+<li>内容可追踪性，每一项软件需求是否可追踪的</li>
+<li>文档规范性，软件需求规格说明书书写是否遵循文档规范</li>
+<li>图符规范性，软件需求模型是否正确地使用了UML的图符</li>
+<li>表述可读性，软件需求文档文字表述是否简洁、可读性好</li>
+<li>图表一致性，软件需求制品中的图表引用是否正确</li>
+</ul>
+<p>需求确认和验证：</p>
+<ul>
+<li>技术可行性：需要哪些技术，相关的技术是否成熟，现有技术能否支撑软件需求的实现，软件项目团队是否已经掌握了某些关键技术等</li>
+<li>设备可行性：基于软件的解决方案需要哪些设备或系统，软件项目团队是否已经具备这些设备和系统</li>
+<li>进度可行性：软件用户或客户对软件提出什么样的进度要求，针对开发团队的人力资源及技术水平，能否遵循进度约束开发出满足这些需求的软件产品</li>
+<li>成本可行性：基于软件项目成本约束，软件项目团队能够开发出满足软件需求的产品出来</li>
+<li>商业可行性：软件需求是否有商业价值，能否获得用户的青睐以及市场的认可，针对这些软件需求的投入能否获得预期的收益</li>
+<li>社会可行性：当前软件系统已经成为国家和社会的重要组成成分，需要从社会的角度，评估软件的各项需求是否违背社会道德、文化伦理、法律法规、行业标准等，或者与它们是否存在冲突</li>
+</ul>
+<p>需求变更管理</p>
+<ul>
+<li>软件需求的变更管理：多变性和易变性引起的， 明确哪些方面的需求发生了变化、反应在软件需求模型和文档的哪些部分、导致软件需求模型和文档的版本发生了什么样变化等</li>
+<li>软件需求的追溯管理：开展溯源追踪，掌握清楚是谁提出需求变更、为什么要进行变更等内容，以判别需求变更的合法性； 评估需求变更的影响域，基于对需求变更的理解，分析需求变更会对哪些软件制品会产生什么样的影响； 评估需求变更对软件项目开发带来的影响</li>
+<li>软件需求的配置管理：形成软件需求基线</li>
+</ul>
+
 </section>
 
 
@@ -1019,11 +1360,16 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
         <div class="article-list--tile">
             
                 
-<article class="">
+<article class="has-image">
     <a href="/passage/math/numerical_analysis/">
         
+        <div class="article-image">
+            <img alt="Featured image of post 数值计算方法" height="150" loading="lazy" src="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png" srcset="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png 1x, /passage/math/numerical_analysis/cover_hu_e98b268206c1b5c8.png 2x" width="250">
 
-        <div class="article-details">
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #112c5e80 0%, #fdfdfcC0 100%);">
             <h2 class="article-title">数值计算方法</h2>
         </div>
     </a>
