@@ -659,9 +659,17 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">L(x) = Sum(ys(i) * Product(If(j == i, 1, (x - xs(j)) / (xs(i) - xs(j))), j, 1, n+1), i, 1, n+1)
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">L(x) = Sum(
+</span></span><span class="line"><span class="cl">  ys(i) * Product(
+</span></span><span class="line"><span class="cl">    If(j == i, 1, (x - xs(j)) / (xs(i) - xs(j))), j, 1, n+1
+</span></span><span class="line"><span class="cl">  ), i, 1, n+1
+</span></span><span class="line"><span class="cl">)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这就是拉格朗日插值函数 </p>
