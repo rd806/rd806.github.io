@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://rd806.github.io/</loc>
-    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://rd806.github.io/categories/</loc>
-    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,14 +28,8 @@
                 href="https://rd806.github.io/categories/"
                 />
   </url><url>
-    <loc>https://rd806.github.io/categories/geogebra/</loc>
-    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://rd806.github.io/passage/math/geogebra/</loc>
-    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://rd806.github.io/post/</loc>
-    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -48,7 +42,7 @@
                 />
   </url><url>
     <loc>https://rd806.github.io/categories/exam/</loc>
-    <lastmod>2026-10-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-21T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -59,6 +53,12 @@
                 hreflang="zh-cn"
                 href="https://rd806.github.io/categories/exam/"
                 />
+  </url><url>
+    <loc>https://rd806.github.io/categories/geogebra/</loc>
+    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://rd806.github.io/passage/math/geogebra/</loc>
+    <lastmod>2026-10-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://rd806.github.io/passage/math/numerical_analysis/</loc>
     <lastmod>2026-09-29T00:00:00+00:00</lastmod>
