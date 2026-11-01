@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="软件分析">
+<title>软件工程</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/software_analysis/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.6af4815cf1fc3233dd5b02cc206b351ee2b5b46d92fefb3040d394d743242b30.css"><meta property='og:title' content="软件工程">
+<meta property='og:description' content="软件分析">
+<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/software_analysis/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-10-28T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="软件工程">
+<meta name="twitter:description" content="软件分析">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/software/engineering/software_analysis/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概述">概述</a>
+      <ol>
+        <li><a href="#软件分析的原因">软件分析的原因</a></li>
+        <li><a href="#软件分析的视角">软件分析的视角</a>
+          <ol>
+            <li><a href="#类图">类图</a></li>
+            <li><a href="#对象图">对象图</a></li>
+            <li><a href="#包图">包图</a></li>
+            <li><a href="#状态图">状态图</a></li>
+            <li><a href="#活动图">活动图</a></li>
+            <li><a href="#顺序图">顺序图</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/exam/" style="background-color: #2a9d8f; color: #fff;">
+                期末速通
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/software/engineering/software_analysis/">软件工程</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            软件分析
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-10-28T00:00:00Z'>2026年10月28日星期三</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 6 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#概述">概述</a>
+      <ol>
+        <li><a href="#软件分析的原因">软件分析的原因</a></li>
+        <li><a href="#软件分析的视角">软件分析的视角</a>
+          <ol>
+            <li><a href="#类图">类图</a></li>
+            <li><a href="#对象图">对象图</a></li>
+            <li><a href="#包图">包图</a></li>
+            <li><a href="#状态图">状态图</a></li>
+            <li><a href="#活动图">活动图</a></li>
+            <li><a href="#顺序图">顺序图</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="概述">概述
+</h2><h3 id="软件分析的原因">软件分析的原因
+</h3><p>初步软件需求存在的问题</p>
+<ul>
+<li>不具体，没有提供软件需求的细节性内容</li>
+<li>不清晰，对软件需求的描述仍然不够清晰、直观和详实</li>
+<li>关系不明朗，未深入分析不同软件需求项之间的关系</li>
+<li>存在潜在缺陷，潜在的需求缺陷难以被发现</li>
+<li>没有区分不同软件需求，有必要鉴别不同软件需求项的重要性差别，区分不同软件需求的开发优先级</li>
+</ul>
+<p>软件分析的任务：基于初步软件需求，进一步精化和分析软件需求，确定软件需求优先级，建立软件需求模型，发现和解决软件需求缺陷，形成高质量的软件需求模型和软件需求规格说明书。</p>
+<h3 id="软件分析的视角">软件分析的视角
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>视角</th>
+          <th>内容</th>
+          <th>UML</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>用例视角</td>
+          <td>具有哪些功能、功能间有何关系、功能与利益相关方有何关系</td>
+          <td>UML提供了<strong>用例图</strong>来分析和描述用例视角的软件需求模型</td>
+      </tr>
+      <tr>
+          <td>行为视角</td>
+          <td>用例是如何通过业务领域中一组对象以及它们间的交互来达成的</td>
+          <td>UML提供了<strong>交互图</strong>、<strong>状态图</strong>来描述行为视角的软件需求模型</td>
+      </tr>
+      <tr>
+          <td>结构视角</td>
+          <td>业务领域有哪些重要的领域概念以及它们之间具有什么样的关系</td>
+          <td>UML提供了<strong>类图</strong>来描述和分析业务领域的概念模型</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="类图">类图
+</h4><ul>
+<li>功能：描述系统的类构成，刻画系统的静态组成结构</li>
+<li>构成
+<ul>
+<li>结点：表示系统中的类（或接口） 及其属性和操作</li>
+<li>边：类之间的关系</li>
+</ul>
+</li>
+</ul>
+<p><img alt="类图" class="gallery-image" data-flex-basis="257px" data-flex-grow="107" height="777" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%B1%BB%E5%9B%BE.png" srcset="/passage/software/engineering/software_analysis/images/%E7%B1%BB%E5%9B%BE_hu_18d4144394fa348c.png 800w, /passage/software/engineering/software_analysis/images/%E7%B1%BB%E5%9B%BE.png 833w" width="833"></p>
+<p>在UML类图中，常见的有以下几种关系：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>含义</th>
+          <th>符号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>泛化</td>
+          <td>一般与特殊关系</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 实线 -->
+    <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" />
+    <!-- 空心三角形 -->
+    <polygon points="240,25 290,50 240,75" fill="none" stroke="currentColor" stroke-width="3" />
+</svg></span></td>
+      </tr>
+      <tr>
+          <td>实现</td>
+          <td>规约与它的实现之间的关系</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 虚线 -->
+    <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" stroke-dasharray="12,8" />
+    <!-- 空心三角形 -->
+    <polygon points="240,25 290,50 240,75" fill="none" stroke="currentColor" stroke-width="3" />
+</svg></span></td>
+      </tr>
+      <tr>
+          <td>聚集</td>
+          <td>整体与部分之间的关联关系</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 实线 (延伸至右侧) -->
+    <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" />
+    <!-- 空心菱形 (位于直线右侧，完整显示在画布内) -->
+    <polygon points="240,50 260,25 280,50 260,75" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+</svg></span></td>
+      </tr>
+      <tr>
+          <td>组合</td>
+          <td>更强的一种整体与部分间的拥有关系，整体负责部分的创建和删除</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 实线 (延伸至右侧) -->
+    <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" />
+    <!-- 实心菱形 (位于直线右侧，完整显示在画布内) -->
+    <polygon points="240,50 260,25 280,50 260,75" fill="currentColor" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+</svg></span></td>
+      </tr>
+      <tr>
+          <td>依赖</td>
+          <td>两个元素之间的依赖关系</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 虚线 -->
+    <line x1="20" y1="50" x2="280" y2="50" stroke="currentColor" stroke-width="3" stroke-dasharray="12,8" />
+    <!-- 尖头箭头 (由两根线条组成的折线) -->
+    <polyline points="260,30 290,50 260,70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+</svg></span></td>
+      </tr>
+      <tr>
+          <td>关联</td>
+          <td>两个元素之间的关联关系</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 实线 -->
+    <line x1="20" y1="50" x2="280" y2="50" stroke="currentColor" stroke-width="3" />
+</svg></span></td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>各种关系的强弱顺序：泛化 = 实现 &gt; 组合 &gt; 聚合 &gt; 关联 &gt; 依赖</p>
+
+    </blockquote>
+<ul>
+<li>泛化关系：一种继承关系，表示一般与特殊的关系，它指定了子类如何继承父类的所有特征和行为。
+<ul>
+<li>例如：老虎是动物的一种，即有老虎的特性也有动物的共性。</li>
+</ul>
+</li>
+<li>实现关系：一种类与接口的关系，表示类是接口所有特征和行为的实现。</li>
+<li>聚集关系：整体与部分的关系，<strong>且部分可以离开整体而单独存在</strong>。
+<ul>
+<li>如车和轮胎是整体和部分的关系，轮胎离开车仍然可以存在。聚合关系是关联关系的一种，是强的关联关系；</li>
+<li>关联和聚合在语法上无法区分，必须考察具体的逻辑关系。在代码上体现为成员变量。</li>
+</ul>
+</li>
+<li>组合关系：整体与部分的关系，<strong>但部分不能离开整体而单独存在</strong>。
+<ul>
+<li>如公司和部门是整体和部分的关系，没有公司就不存在部门。</li>
+<li>组合关系是关联关系的一种，是比聚合关系还要强的关系，它要求普通的聚合关系中代表整体的对象负责代表部分的对象的生命周期。</li>
+<li>使用带实心菱形的实线，菱形指向整体。</li>
+</ul>
+</li>
+<li>依赖关系：一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖。
+<ul>
+<li>代码表现为局部变量、方法的参数或者对静态方法的调用。在类图中为带箭头的虚线，指向被使用者。</li>
+</ul>
+</li>
+<li>关联关系：一种拥有的关系，它使一个类知道另一个类的属性和方法；
+<ul>
+<li>如：老师与学生，丈夫与妻子关联可以是双向的，也可以是单向的。</li>
+<li>双向的关联可以有两个箭头或者没有箭头，单向的关联有一个箭头。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="类图示例" class="gallery-image" data-flex-basis="335px" data-flex-grow="139" height="894" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%B1%BB%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E7%B1%BB%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_cfddb9f305e8bbca.png 800w, /passage/software/engineering/software_analysis/images/%E7%B1%BB%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1249w" width="1249"></p>
+<h4 id="对象图">对象图
+</h4><p>对象图可以看做是类图的实例，能帮助理解一个比较复杂的类图。在UML中，对象图与类图具有几乎完全相同的表示形式，主要差别是对象的名字下面要加一条下划线。</p>
+<p>对象图通常只有名称和属性。对象名称的开头字母用小写。</p>
+<p><img alt="对象图示例" class="gallery-image" data-flex-basis="706px" data-flex-grow="294" height="460" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_2d87e18d3135db97.png 800w, /passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1355w" width="1355"></p>
+<h4 id="包图">包图
+</h4><ul>
+<li>包模型：刻画包间的构成和依赖关系。包可以包含一组具有逻辑关联的UML模型元素</li>
+<li>包间关系：构成关系、 依赖关系</li>
+</ul>
+<p>包图可描述软件系统的高层结构，以结构化、层次化方式组织、管理大型的软件模型，使得分别处理不同包的开发团队之间的相互干扰程度降至最低。</p>
+<p><img alt="包图示例" class="gallery-image" data-flex-basis="236px" data-flex-grow="98" height="856" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%8C%85%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E5%8C%85%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_de04102c005a4393.png 800w, /passage/software/engineering/software_analysis/images/%E5%8C%85%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 845w" width="845"></p>
+<h4 id="状态图">状态图
+</h4><p>状态图是一种由状态、变迁、事件和活动组成的状态机，用来描述类的对象所有可能的状态以及时间发生时状态的转移条件。</p>
+<ul>
+<li>状态变量：状态机图所显示的类的属性，也可以是临时变量。</li>
+<li>活动：列出了处于该状态时要执行的事件和动作。</li>
+<li>事件：某时刻点发生、需要关注的瞬时刺激或触动。活动区中事件的语法： <code>event-name (argument list) [guard-condition] /activity-expression</code>
+<ul>
+<li>事件名可以是包括三个标准事件在内的任何事件</li>
+<li>参数表表示该动作所需的参数</li>
+<li>警戒条件是布尔表达式</li>
+<li>动作表达式将执行的动作</li>
+</ul>
+</li>
+</ul>
+<p><img alt="状态图的基本符号" class="gallery-image" data-flex-basis="579px" data-flex-grow="241" height="567" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png" srcset="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7_hu_f2ef5414bf143390.png 800w, /passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png 1369w" width="1369"></p>
+<p>活动区中标准事件：</p>
+<ul>
+<li>entry事件：进入该状态时的特定动作</li>
+<li>exit事件：退出该状态时的特定动作</li>
+<li>do事件：处于该状态中时执行的动作</li>
+</ul>
+<p>活动区中事件类型：</p>
+<ul>
+<li>消息型事件（同步）：其他对象发来消息</li>
+<li>信号型事件（异步）：其他对象传来异步信号</li>
+<li>时间型事件：到达特定时间点</li>
+<li>条件型事件：对象属性取值满足特定条件</li>
+</ul>
+<p>以下是电梯升降活动的状态图示例：</p>
+<p><img alt="状态图示例" class="gallery-image" data-flex-basis="346px" data-flex-grow="144" height="833" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_add61ab00e2b5a44.png 800w, /passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1204w" width="1204"></p>
+<h4 id="活动图">活动图
+</h4><p>活动图是状态图的一种特殊情况，这些状态大都处于活动状态。本质是一种流程图，它描述了活动到活动的控制流。交互图强调的是对象到对象的控制流，而活动图则强调的是从活动到活动的控制流。</p>
+<p>活动图是一种表述过程基理、业务过程以及工作流的技术。它可以用来对业务过程、工作流建模，也可以对用例实现甚至是程序实现来建模。</p>
+<p>带泳道的活动图：泳道表明每个活动是由哪些人或哪些部门负责完成。</p>
+<p><img alt="带泳道的活动图" class="gallery-image" data-flex-basis="251px" data-flex-grow="104" height="786" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%B8%A6%E6%B3%B3%E9%81%93%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE.png" srcset="/passage/software/engineering/software_analysis/images/%E5%B8%A6%E6%B3%B3%E9%81%93%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE_hu_c53f2ad901c35d52.png 800w, /passage/software/engineering/software_analysis/images/%E5%B8%A6%E6%B3%B3%E9%81%93%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE.png 825w" width="825"></p>
+<p>用活动图描述某个对象时，可以把涉及到的对象放置在活动图中，并用一个依赖将其连接到进行创建、修改和撤销的动作状态或者活动状态上，对象的这种使用方法就构成了对象流。对象流用带有箭头的虚线表示。</p>
+<p><img alt="带对象流的活动图" class="gallery-image" data-flex-basis="277px" data-flex-grow="115" height="709" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%B8%A6%E5%AF%B9%E8%B1%A1%E6%B5%81%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE.png" srcset="/passage/software/engineering/software_analysis/images/%E5%B8%A6%E5%AF%B9%E8%B1%A1%E6%B5%81%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE_hu_bdec413438b39d6c.png 800w, /passage/software/engineering/software_analysis/images/%E5%B8%A6%E5%AF%B9%E8%B1%A1%E6%B5%81%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE.png 821w" width="821"></p>
+<h4 id="顺序图">顺序图
+</h4><p>顺序图是交互图的一种，描述了对象之间消息发送的先后顺序，强调时间顺序。序列图的主要用途是把用例表达的需求，转化为进一步、更加正式层次的精细表达。用例常常被细化为一个或者更多的序列图。同时序列图更有效地描述如何分配各个类的职责以及各类具有相应职责的原因。</p>
+<p>描述对象间的消息交互序列：</p>
+<ul>
+<li>纵向：时间轴，对象及其生命线（虚线），活跃期（长条矩形）</li>
+<li>横向：对象间的消息传递，用一个矩形框表示，框内标有对象名。名称可带下划线，意味着序列图中的生命线代表一个类的特定实例。</li>
+<li>对象间的通信用对象生命线之间的水平消息线来表示，消息箭头的形状表明消息的类型。箭头以时间顺序在图中从上到下排列。</li>
+</ul>
+<p>对象间的消息传递：</p>
+<ul>
+<li>同步消息：发送者等待接收者将消息处理完后再继续</li>
+</ul>
+<p><img alt="同步消息" class="gallery-image" data-flex-basis="397px" data-flex-grow="165" height="301" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%90%8C%E6%AD%A5%E6%B6%88%E6%81%AF.png" width="498"></p>
+<ul>
+<li>异步消息：发送者在发送完消息后不等待接收方即继续自己的处理</li>
+</ul>
+<p><img alt="异步消息" class="gallery-image" data-flex-basis="352px" data-flex-grow="146" height="358" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%BC%82%E6%AD%A5%E6%B6%88%E6%81%AF.png" width="526"></p>
+<ul>
+<li>自消息：一个对象发送给自身的消息</li>
+<li>返回消息：某条消息处理已经完成，处理结果沿返回消息传回</li>
+</ul>
+<p><img alt="返回消息" class="gallery-image" data-flex-basis="298px" data-flex-grow="124" height="353" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E8%BF%94%E5%9B%9E%E6%B6%88%E6%81%AF.png" width="439"></p>
+<ul>
+<li>创建消息和销毁消息：消息传递目标对象的创建和删除</li>
+</ul>
+<p>带选项的序列图：组合片段用来解决交互执行的条件及方式。它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。常用的组合片段有：抉择、选项、循环、并行。</p>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/math/numerical_analysis/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 数值计算方法" height="150" loading="lazy" src="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png" srcset="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png 1x, /passage/math/numerical_analysis/cover_hu_e98b268206c1b5c8.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #112c5e80 0%, #fdfdfcC0 100%);">
+            <h2 class="article-title">数值计算方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/digital/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数字设计与计算机体系结构</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/software/engineering/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件工程</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/software/formal_methods/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/database/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>
