@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.6af4815cf1fc3233dd5b02cc206b351ee2b5b46d92fefb3040d394d743242b30.css"><meta property='og:title' content="数值计算方法">
+<link rel="stylesheet" href="/scss/style.min.67c627cd73f6e1901e9e015254fa12819d138e93c4dbde906603159bd5c756fe.css"><meta property='og:title' content="数值计算方法">
 <meta property='og:description' content="解线性方程组的直接法">
 <meta property='og:url' content='https://rd806.github.io/passage/math/numerical_analysis/linear_equations_direct/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -366,7 +366,13 @@
     <li><a href="#三角分解法">三角分解法</a>
       <ol>
         <li><a href="#直接三角分解法">直接三角分解法</a></li>
-        <li><a href="#平方根法">平方根法</a></li>
+        <li><a href="#平方根法">平方根法</a>
+          <ol>
+            <li><a href="#一般的平方根法">一般的平方根法</a></li>
+            <li><a href="#改进的平方根法">改进的平方根法</a></li>
+          </ol>
+        </li>
+        <li><a href="#追赶法">追赶法</a></li>
       </ol>
     </li>
   </ol>
@@ -577,7 +583,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 7 分钟
+                        阅读时长: 9 分钟
                     </time>
                 
             </div>
@@ -630,7 +636,13 @@
     <li><a href="#三角分解法">三角分解法</a>
       <ol>
         <li><a href="#直接三角分解法">直接三角分解法</a></li>
-        <li><a href="#平方根法">平方根法</a></li>
+        <li><a href="#平方根法">平方根法</a>
+          <ol>
+            <li><a href="#一般的平方根法">一般的平方根法</a></li>
+            <li><a href="#改进的平方根法">改进的平方根法</a></li>
+          </ol>
+        </li>
+        <li><a href="#追赶法">追赶法</a></li>
       </ol>
     </li>
   </ol>
@@ -833,6 +845,32 @@ $$x_i = \frac{1}{u_{ii}}\left(y_i - \sum_{k=i+1}^n u_{ik}x_k\right)，i=n,n-1,\c
 <p>三角分解法的适用条件与高斯消元法相同，要求 $\bm{A}$ 的顺序主子式均不为 $0$。</p>
 <h3 id="平方根法">平方根法
 </h3><p>平方根法是利用对称正定矩阵的三角分解而得到的求解对称正定方程组的一种有效方法。</p>
+<h4 id="一般的平方根法">一般的平方根法
+</h4><p>如果 $\bm{A}$ 为 $n$ 阶对称正定矩阵，则存在一个实的非奇异下三角矩阵 $\bm{L}$ 使得 $\bm{A} = \bm{L}\bm{L}^T$。当 $\bm{L}$ 的对角线元素为正时，这种分解是唯一的。</p>
+$$\left[ \begin{matrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{matrix} \right] = \left[\begin{matrix} l_{11} & & & \\ l_{21} & l_{22} & & \\ \vdots & \vdots & \ddots & \\ l_{n1} & l_{n2} & \cdots & l_{nn} \end{matrix}\right] \left[\begin{matrix} l_{11} & l_{21} & \cdots & l_{n1} \\ & l_{22} & \cdots & l_{n2} \\ & & \ddots & \vdots \\ & & & l_{nn} \end{matrix}\right]$$<p>由此可得分解公式：对于 $j=1,2,\cdots,n$
+</p>
+$$\begin{align*} l_{jj} &= \left( a_{jj} - \sum_{k=1}^{j-1} l_{jk}l_{jk} \right)^{\frac{1}{2}} \\ l_{ij} &= \frac{a_{ij} - \displaystyle \sum_{k=1}^{j-1} l_{ik} l_{jk}}{l_{jj}}，i=j+1,\cdots,n \end{align*}$$<h4 id="改进的平方根法">改进的平方根法
+</h4><p>设 $\bm{A}$ 为对称矩阵，且 $\bm{A}$ 的所有顺序主子式均不为零。则 $A$ 可唯一分解为 </p>
+$$\bm{A} = \bm{L} \bm{D} \bm{L}^T$$<p> 其中 $\bm{L}$ 为单位下三角矩阵，$\bm{D}$ 为对角矩阵。即为 </p>
+$$\bm{A} = \left[\begin{matrix} 1 & & & \\ l_{21} & 1 & \\ \vdots & \vdots & \ddots & \\ l_{n1} & l_{n2} & \cdots & 1 \end{matrix}\right] \left[\begin{matrix} d_1 & & & \\ & d_2 & & \\ & & \ddots & \\ & & & d_n \end{matrix}\right] \left[\begin{matrix} 1 & l_{21} & \cdots & l_{n1} \\ & 1 & \cdots & l_{n2} \\ & & \ddots & \vdots \\ & & & 1 \end{matrix}\right]$$<p>由此可得分解公式：对于 $i=1,2,\cdots,n$
+</p>
+$$\begin{align*} l_{ij} &= \frac{a_{ij} - \displaystyle \sum_{k=1}^{j-1}l_{ik}d_k l_{jk}}{d_j}，i=1,2,\cdots,i-1 \\  d_i &= a_{ii} - \sum_{k=1}^{i-1} l_{ik}^2 d_k \end{align*}$$
+    <blockquote>
+        <p>两种平方根法都只适用于对称正定阵，引入辅助量后，计算量差不多，但改进的平方根法不需要开方运算。</p>
+
+    </blockquote>
+<h3 id="追赶法">追赶法
+</h3><p>把三对角方程组的解用递推公式表示出来的方法，被形象地叫做追赶法、Tomas算法或 TDMA（TriDiagnal Matrix Algorithm）算法。</p>
+$$\begin{align*} \bm{A} &= \left[\begin{matrix} b_1 & c_1 & & & & \\ a_2 & b_2 & c_2 & & & \\ & a_3 & b_3 & c_3 & & \\\\ & & \ddots & \ddots & \ddots & \\ & & & a_{n-1} & b_{n-1} & c_{n-1} \\ & & & & a_n & b_n \end{matrix}\right] \\ &= \left[\begin{matrix} \alpha_1 & & & & \\ r_2 & \alpha_2 & & & \\ & r_3 & \alpha_3 & & \\\\ & & \ddots & \ddots & \\ & & & r_n & \alpha_n \end{matrix}\right] \left[\begin{matrix} 1 & \beta_1 & & & \\ & 1 & \beta_2 & & \\\\ & & \ddots & \ddots & \\ & & & 1 & \beta_{n-1} \\ & & & & 1 \end{matrix}\right]\end{align*}$$<p>它的系数可由以下公式确定：</p>
+$$\left\{\begin{align*} \alpha_1 &= b_1 \\ \beta_1 &= \frac{c_1}{b_1} \\ \alpha_i &= b_i - r_i \beta_{i-1}，i=2,\cdots,n \\ \beta_i &= \frac{c_i}{b_i - r_i \beta_{i-1}}，i=2,\cdots,n-1 \\ r_i &= \alpha_i，i=2,\cdots,n \end{align*}\right.$$<p>追赶法求解 $\bm{Ax} = \bm{f}$ 的步骤：</p>
+<ol>
+<li>计算 $\beta_i$ 的递推公式：
+$$\begin{align*} \beta_1 &= \frac{c_1}{b_1} \\ \beta_i &= \frac{c_i}{b_i - a_i \beta_{i-1}}，i=2,\cdots,n-1 \end{align*}$$</li>
+<li>求解 $\bm{Ly} = \bm{f}$：
+$$\begin{align*} y_1 &= \frac{f_1}{b_1} \\ y_i &= \frac{f_i - a_i y_{i-1}}{b_i - a_i \beta_{i-1}}，i=2,\cdots,n \end{align*}$$</li>
+<li>求解 $\bm{Ux} = \bm{y}$：
+$$\begin{align*} x_n &= y_n \\ x_i &= y_i - \beta_i x_{i+1}，i=n-1,\cdots,1 \end{align*}$$</li>
+</ol>
 
 </section>
 

@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="软件设计基础">
+<title>软件工程</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/software_design/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.67c627cd73f6e1901e9e015254fa12819d138e93c4dbde906603159bd5c756fe.css"><meta property='og:title' content="软件工程">
+<meta property='og:description' content="软件设计基础">
+<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/software_design/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-11-03T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-11-03T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="软件工程">
+<meta name="twitter:description" content="软件设计基础">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/software/engineering/software_design/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#软件设计概述">软件设计概述</a>
+      <ol>
+        <li><a href="#软件设计的定义">软件设计的定义</a></li>
+        <li><a href="#软件设计的质量">软件设计的质量</a></li>
+        <li><a href="#软件设计的过程">软件设计的过程</a>
+          <ol>
+            <li><a href="#软件体系结构设计">软件体系结构设计</a></li>
+            <li><a href="#用户界面设计">用户界面设计</a></li>
+            <li><a href="#软件详细设计">软件详细设计</a></li>
+            <li><a href="#其他工作">其他工作</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#软件设计原则">软件设计原则</a>
+      <ol>
+        <li><a href="#抽象原则">抽象原则</a></li>
+        <li><a href="#模块化高内聚和低耦合原则">模块化、高内聚和低耦合原则</a>
+          <ol>
+            <li><a href="#内聚">内聚</a></li>
+            <li><a href="#耦合">耦合</a></li>
+            <li><a href="#数据耦合">数据耦合</a></li>
+          </ol>
+        </li>
+        <li><a href="#信息隐藏原则">信息隐藏原则</a></li>
+        <li><a href="#关注点分离原则">关注点分离原则</a></li>
+        <li><a href="#软件重用原则">软件重用原则</a></li>
+        <li><a href="#其它原则">其它原则</a></li>
+      </ol>
+    </li>
+    <li><a href="#面向对象软件设计方法学">面向对象软件设计方法学</a>
+      <ol>
+        <li><a href="#设计过程">设计过程</a>
+          <ol>
+            <li><a href="#系统设计">系统设计</a></li>
+            <li><a href="#设计问题域子系统">设计问题域子系统</a></li>
+          </ol>
+        </li>
+        <li><a href="#设计优势">设计优势</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件设计输出及评审">软件设计输出及评审</a>
+      <ol>
+        <li><a href="#软件设计的输出">软件设计的输出</a></li>
+        <li><a href="#软件设计文档的规范">软件设计文档的规范</a></li>
+        <li><a href="#软件设计中的缺陷">软件设计中的缺陷</a></li>
+        <li><a href="#软件设计的评审">软件设计的评审</a></li>
+        <li><a href="#软件设计的管理">软件设计的管理</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/exam/" style="background-color: #2a9d8f; color: #fff;">
+                期末速通
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/software/engineering/software_design/">软件工程</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            软件设计基础
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-11-03T00:00:00Z'>2026年11月3日星期二</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 9 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#软件设计概述">软件设计概述</a>
+      <ol>
+        <li><a href="#软件设计的定义">软件设计的定义</a></li>
+        <li><a href="#软件设计的质量">软件设计的质量</a></li>
+        <li><a href="#软件设计的过程">软件设计的过程</a>
+          <ol>
+            <li><a href="#软件体系结构设计">软件体系结构设计</a></li>
+            <li><a href="#用户界面设计">用户界面设计</a></li>
+            <li><a href="#软件详细设计">软件详细设计</a></li>
+            <li><a href="#其他工作">其他工作</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#软件设计原则">软件设计原则</a>
+      <ol>
+        <li><a href="#抽象原则">抽象原则</a></li>
+        <li><a href="#模块化高内聚和低耦合原则">模块化、高内聚和低耦合原则</a>
+          <ol>
+            <li><a href="#内聚">内聚</a></li>
+            <li><a href="#耦合">耦合</a></li>
+            <li><a href="#数据耦合">数据耦合</a></li>
+          </ol>
+        </li>
+        <li><a href="#信息隐藏原则">信息隐藏原则</a></li>
+        <li><a href="#关注点分离原则">关注点分离原则</a></li>
+        <li><a href="#软件重用原则">软件重用原则</a></li>
+        <li><a href="#其它原则">其它原则</a></li>
+      </ol>
+    </li>
+    <li><a href="#面向对象软件设计方法学">面向对象软件设计方法学</a>
+      <ol>
+        <li><a href="#设计过程">设计过程</a>
+          <ol>
+            <li><a href="#系统设计">系统设计</a></li>
+            <li><a href="#设计问题域子系统">设计问题域子系统</a></li>
+          </ol>
+        </li>
+        <li><a href="#设计优势">设计优势</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件设计输出及评审">软件设计输出及评审</a>
+      <ol>
+        <li><a href="#软件设计的输出">软件设计的输出</a></li>
+        <li><a href="#软件设计文档的规范">软件设计文档的规范</a></li>
+        <li><a href="#软件设计中的缺陷">软件设计中的缺陷</a></li>
+        <li><a href="#软件设计的评审">软件设计的评审</a></li>
+        <li><a href="#软件设计的管理">软件设计的管理</a></li>
+      </ol>
+    </li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="软件设计概述">软件设计概述
+</h2><h3 id="软件设计的定义">软件设计的定义
+</h3><p>软件设计：针对软件需求，综合考虑各种制约因素，探究软件实现的解决方案</p>
+<p>前提：软件需求，定义了要做什么样的软件</p>
+<p>设计考虑：制约因素</p>
+<ul>
+<li>资源：时间、人力、财力、开发辅助工具</li>
+<li>技术：技术平台，如DBMS还是文件系统</li>
+</ul>
+<p>软件设计要给出软件需求实现的解决方案，处于承上启下的作用，是需求分析和软件实现间的桥梁。</p>
+<h3 id="软件设计的质量">软件设计的质量
+</h3><p>软件设计是一个创作的过程，一个软件需求会有多种软件设计方案。</p>
+<p>设计不仅要满足需求，还要有好的质量！要从多个利益相关者的角度来理解设计的“质量”，如用户、开发者、维护人员等</p>
+<p>设计要内外兼修，兼顾内在质量和外在质量。</p>
+<h3 id="软件设计的过程">软件设计的过程
+</h3><p><img alt="软件设计的过程" class="gallery-image" data-flex-basis="768px" data-flex-grow="320" height="537" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B_hu_d83a8d96d134b32f.png 800w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B_hu_9e41be1e42df0bfb.png 1600w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B.png 1719w" width="1719"></p>
+<h4 id="软件体系结构设计">软件体系结构设计
+</h4><p>从全局和宏观视角、站在最高抽象层次来设计软件系统</p>
+<ul>
+<li>构成要素及其关系</li>
+<li>职责分派、 接口定义</li>
+<li>相互交互及协作行为</li>
+</ul>
+<p>每个模块为“黑盒子”。</p>
+<p>设计关注的质量要素：可扩展、可维护、可重用、可移植、可互操作等。</p>
+<h4 id="用户界面设计">用户界面设计
+</h4><p>设计软件对外展示以及与用户进行交互的界面，关注软件如何与用户进行交互</p>
+<ul>
+<li>输出：告诉给用户的信息</li>
+<li>输入：需要用户提供的信息</li>
+</ul>
+<p>设计关注的质量要素：直观、友好、易于操作和理解等。</p>
+<h4 id="软件详细设计">软件详细设计
+</h4><p>对体系结构设计和人机交互设计成果进行细化和精化，获得高质量的、充分细化的软件设计模型</p>
+<ul>
+<li>数据设计：信息描述 → 计算机可以处理的数据描述</li>
+<li>接口设计：构件提供的交互接口</li>
+<li>类设计：细化各个类设计，包括属性、操作、状态等</li>
+<li>算法设计：实现特定功能的具体执行流程和算法</li>
+</ul>
+<p>设计关注的质量要素：有效、高效、可靠、易于维护等。</p>
+<h4 id="其他工作">其他工作
+</h4><ul>
+<li>撰写设计文档：基于软件设计及其成果，按照软件设计规格说明书的规范和要求， 撰写软件设计文档，详细记录软件设计的具体信息。</li>
+<li>评审软件设计：对软件设计制品（包括设计模型和文档）进行评审， 验证软件设计是否实现了软件需求，分析软件设计的质量，发现软件设计中存在的缺陷和问题，并与多方人员一起协商加以解决。</li>
+<li>软件设计管理：对软件设计变化以及相应的软件设计制品进行有效的管理，包括追踪软件设计变化、分析和评估软件设计变化所产生的影响、对变化后的软件设计制品进行配置管理等。</li>
+</ul>
+<h2 id="软件设计原则">软件设计原则
+</h2><p>软件设计考虑的因素：</p>
+<ul>
+<li>满足需求：正确、一致、可行、完整、无冗余</li>
+<li>权衡抉择：多种设计方案，明确优缺点，综合考虑多方因素；关注质量要求</li>
+<li>应对变化：易于理解、扩展、高效</li>
+</ul>
+<h3 id="抽象原则">抽象原则
+</h3><p>抽象：在认识事物、分析和解决问题的过程中，忽略那些与当前研究目标不相关的部分, 以便将注意力集中于与当前目标相关的方面</p>
+<ul>
+<li>不要过早地考虑细节</li>
+<li>抽象是管理和控制复杂性的基本策略</li>
+</ul>
+<p>抽象在软件设计中的应用</p>
+<ul>
+<li>软件开发就是一个从高层抽象到低层抽象逐步过渡过程</li>
+<li>高层设计 ➔ 底层设计 “逐步求精”</li>
+</ul>
+<h3 id="模块化高内聚和低耦合原则">模块化、高内聚和低耦合原则
+</h3><p>将软件系统的整体结构分解为一组相关模块</p>
+<ul>
+<li>模块：包、子系统、构件、类、方法等等</li>
+<li>每个模块实现单一的功能</li>
+<li>通过模块之间的交互来组装模块，形成整体框架</li>
+<li>体现了“分而治之”思想</li>
+</ul>
+<p>如何达成模块化：模块内部强内聚，模块之间低耦合</p>
+<p><img alt="软件工程基本定理" class="gallery-image" data-flex-basis="401px" data-flex-grow="167" height="875" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86.png" srcset="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86_hu_3a07971f671268b3.png 800w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86.png 1465w" width="1465"></p>
+<p>模块的独立性：软件系统中每个模块只涉及软件要求的具体的子功能，而和软件系统中其他模块的接口是简单的。这种类型的模块可以并行开发，减少错误的影响，使模块容易组合、修改及测试。</p>
+<h4 id="内聚">内聚
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>级别</th>
+          <th>概念</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>偶然性内聚</td>
+          <td>模块内各部之间没有联系，或者即使有联系，这种联系也很松散</td>
+      </tr>
+      <tr>
+          <td>逻辑性内聚</td>
+          <td>模块完成的诸任务逻辑上相关。这种模块是把几种功能组合在一起，每次调用时，则由传递给模块的判定参数来确定该模块应执行哪一种功能</td>
+      </tr>
+      <tr>
+          <td>时间内聚</td>
+          <td>如果一个模块完成的功能必须在同一时间内执行（系统初始化），但这些功能只是因为时间因素关联在一起</td>
+      </tr>
+      <tr>
+          <td>过程内聚</td>
+          <td>模块内各成分相关且必须按特定次序执行。使用流程图作为工具设计程序的时候，常常通过流程图来确定模块划分。把流程图中的某一部分划分出组成模块，就得到过程内聚模块</td>
+      </tr>
+      <tr>
+          <td>通信性内聚</td>
+          <td>模块内各成分对数据结构的同一区域操作。如果一个模块内各功能部分都使用了相同的输入数据，或产生了相同的输出数据。通常，通信内聚模块时通过数据流图来定义的</td>
+      </tr>
+      <tr>
+          <td>功能性内聚</td>
+          <td>如果一个模块内所有成分都完成一个功能，则称这样的模块为功能模块</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="内聚程度" class="gallery-image" data-flex-basis="623px" data-flex-grow="259" height="560" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%86%85%E8%81%9A%E7%A8%8B%E5%BA%A6.png" srcset="/passage/software/engineering/software_design/images/%E5%86%85%E8%81%9A%E7%A8%8B%E5%BA%A6_hu_5a8bf28d8910c0a8.png 800w, /passage/software/engineering/software_design/images/%E5%86%85%E8%81%9A%E7%A8%8B%E5%BA%A6.png 1455w" width="1455"></p>
+<h4 id="耦合">耦合
+</h4><p>耦合性是程序结构中各个模块之间相互关联的度量。它取决于各个模块之间接口的复杂程度、调用模块的方式以及哪些信息通过接口。</p>
+<p><img alt="耦合程度" class="gallery-image" data-flex-basis="845px" data-flex-grow="352" height="384" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%80%A6%E5%90%88%E7%A8%8B%E5%BA%A6.png" srcset="/passage/software/engineering/software_design/images/%E8%80%A6%E5%90%88%E7%A8%8B%E5%BA%A6_hu_2ac25051f8fd1974.png 800w, /passage/software/engineering/software_design/images/%E8%80%A6%E5%90%88%E7%A8%8B%E5%BA%A6.png 1353w" width="1353"></p>
+<p>以下面的案例为例：<code>m1</code>和 <code>m2</code>是两个独立的模块，其中<code>m2</code>中会显示<code>m1</code>的输入，<code>m1</code>会显示<code>m2</code>的输入。</p>
+<h5 id="内容耦合">内容耦合
+</h5><p>内容耦合是最紧的耦合程度，一个模块使用另一模块内的数据和控制信息，或者直接转移到另一模块内执行。</p>
+<p>在案例中，则体现为将<code>m1</code>的输入放到<code>m2.m1input</code>上，将<code>m2</code>的输入放到<code>m1.m2input</code>上：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">m2</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m2.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">m1</span><span class="p">.</span><span class="nx">m2input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m1</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="内容耦合" class="gallery-image" data-flex-basis="811px" data-flex-grow="338" height="252" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88.png" srcset="/passage/software/engineering/software_design/images/%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88_hu_f780d6a28d5df7a.png 800w, /passage/software/engineering/software_design/images/%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88.png 852w" width="852"></p>
+<h5 id="公共耦合">公共耦合
+</h5><p>模块间通过全局数据环境相互作用，称为公共耦合。</p>
+<p>在案例中，则体现为<code>m1</code>和<code>m2</code>将自己的输入放到全局的<code>data</code>上：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m2.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">m2input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m1</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="公共耦合" class="gallery-image" data-flex-basis="500px" data-flex-grow="208" height="377" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%85%AC%E5%85%B1%E8%80%A6%E5%90%88.png" width="786"></p>
+<h5 id="外部耦合">外部耦合
+</h5><p>一组模块都访问同一全局简单变量，而且不通过参数表传递该全局变量的信息，则称之为外部耦合。它和公共耦合很像，区别就是一个是简单变量，一个是复杂数据结构。</p>
+<p>在案例中，则体现为<code>m1</code>和<code>m2</code>都将自己的输入放在全局上。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m2.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">m2input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m1</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="外部耦合" class="gallery-image" data-flex-basis="576px" data-flex-grow="240" height="290" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%A4%96%E9%83%A8%E8%80%A6%E5%90%88.png" width="696"></p>
+<h5 id="控制耦合">控制耦合
+</h5><p>模块之间传递的不是数据信息，而是控制信息例如标志、开关量等，一个模块控制了另一个模块的功能。从控制耦合开始，模块的数据就放在自己内部了，不同模块之间通过接口互相调用。</p>
+<p>在案例中，则体现为当<code>m1</code>的输入为空时，隐藏<code>m2</code>的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">root</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">toogle</span><span class="p">(</span><span class="o">!!</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>    <span class="c1">// 传递flag
+</span></span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="控制耦合" class="gallery-image" data-flex-basis="482px" data-flex-grow="201" height="330" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E6%8E%A7%E5%88%B6%E8%80%A6%E5%90%88.png" width="664"></p>
+<h5 id="标记耦合">标记耦合
+</h5><p>调用模块和被调用模块之间传递数据结构而不是简单数据，也称作特征耦合。</p>
+<p>在案例中，体现为<code>m1</code>传递给<code>m2</code>一个对象：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">me</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">me</span><span class="p">);</span>  <span class="c1">// 传递引用
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m2.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">me</span><span class="p">.</span><span class="nx">m2input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">me</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="标记耦合" class="gallery-image" data-flex-basis="603px" data-flex-grow="251" height="302" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E6%A0%87%E8%AE%B0%E8%80%A6%E5%90%88.png" width="760"></p>
+<h4 id="数据耦合">数据耦合
+</h4><p>调用模块和被调用模块之间只传递简单的数据项参数，相当于高级语言中的值传递。</p>
+<p>在案例中，体现为<code>m1</code>传递给<code>m2</code>一个简单数据结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">me</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="nx">m1input</span><span class="p">);</span>  <span class="c1">// 传递引用
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m2.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">me</span><span class="p">.</span><span class="nx">m2input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="nx">m2input</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="数据耦合" class="gallery-image" data-flex-basis="572px" data-flex-grow="238" height="328" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E6%95%B0%E6%8D%AE%E8%80%A6%E5%90%88.png" width="783"></p>
+<h5 id="非直接耦合">非直接耦合
+</h5><p>两个模块之间没有直接关系，它们之间的联系完全是通过主模块的控制和调用来实现的。耦合度最弱，模块独立性最强。子模块无需知道对方的存在，子模块之间的联系，全部变成子模块和主模块之间的联系</p>
+<p>在案例中，体现为再增加一个 <code>index.js</code> 作为主模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// index.js
+</span></span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">m1</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">m1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">m2</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">m2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">m1</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">str</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m2</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">m2</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">str</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">m1</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m1.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">me</span><span class="p">.</span><span class="nx">m1input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">inputcb</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="nx">m1input</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// m2.js
+</span></span></span><span class="line"><span class="cl"><span class="nx">me</span><span class="p">.</span><span class="nx">m2input</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">inputcb</span><span class="p">(</span><span class="nx">me</span><span class="p">.</span><span class="nx">m2input</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="非直接耦合" class="gallery-image" data-flex-basis="253px" data-flex-grow="105" height="577" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E8%80%A6%E5%90%88.png" width="610"></p>
+<h3 id="信息隐藏原则">信息隐藏原则
+</h3><p>模块应该设计得使其所含的信息对那些不需要这信息的模块不可访问；模块间仅仅交换那些为完成系统功能所必需交换的信息。</p>
+<p>例如，模块只提供对外接口，不提供内部实现细节；某些方法或属性设计为<code>private</code></p>
+<p>优点：</p>
+<ul>
+<li>模块的独立性更好</li>
+<li>支持模块的并行开发（设计和编码）</li>
+<li>便于测试和维护，减少错误向外传播</li>
+<li>便于增加新的功能</li>
+</ul>
+<h3 id="关注点分离原则">关注点分离原则
+</h3><p>关注点</p>
+<ul>
+<li>针对概念、任务和目标的某个部分或者侧面的聚焦</li>
+<li>关注点：结构、行为等</li>
+</ul>
+<p>关注点分离：设计师将若干性质不同的关注点分离开来，以便在适当的时间处理不同的关注点，随后将这些关注点整合起来，形成局部或者全局性的设计结果，防止“胡子眉毛一把抓”。</p>
+<h3 id="软件重用原则">软件重用原则
+</h3><p>尽可能地重用已有的软件资产来实现软件系统的功能，同时要确保所开发的软件系统易于为其他软件系统所重用。</p>
+<p>支持软件重用的技术手段：封装、 接口、 继承、多态等</p>
+<p>软件重用的对象</p>
+<ul>
+<li>过程和函数、类、软构件、开源软件。</li>
+<li>软件设计模式、软件开发知识。</li>
+</ul>
+<h3 id="其它原则">其它原则
+</h3><ul>
+<li>设计可追溯到分析模型</li>
+<li>经常关注待建系统的架构</li>
+<li>数据设计和功能设计同样重要</li>
+<li>必须设计接口</li>
+<li>用户界面设计必须符合最终用户要求</li>
+<li>设计表述要尽可能易于理解</li>
+<li>设计应该迭代进行</li>
+</ul>
+<h2 id="面向对象软件设计方法学">面向对象软件设计方法学
+</h2><p>针对面向对象需求分析所得到的软件需求模型（如用例图、交互图、分析类图），对其进行不断精化（而非转换），获得软件系统的各类软件设计元素，如子系统、构件、设计类等，产生不同视角、不同抽象层次的软件设计模型，如软件体系结构图、用例设计交互图、设计类图、活动图等，形成软件系统完整和详尽的设计方案。</p>
+<h3 id="设计过程">设计过程
+</h3><p><img alt="面向对象的软件设计过程" class="gallery-image" data-flex-basis="472px" data-flex-grow="196" height="841" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B_hu_58e61c52802181c4.png 800w, /passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B_hu_ecfafb1fb7aadee0.png 1600w, /passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B.png 1655w" width="1655"></p>
+<h4 id="系统设计">系统设计
+</h4><p>软件体系结构也称软件架构，从高层抽象角度刻画组成软件系统的设计元素及它们之间的逻辑关联</p>
+<p><img alt="面向对象设计模型" class="gallery-image" data-flex-basis="433px" data-flex-grow="180" height="462" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B_hu_8e558cfdabdf072b.png 800w, /passage/software/engineering/software_design/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B.png 835w" width="835"></p>
+<p>软件设计模式</p>
+<ul>
+<li>借用以往的经验来解决问题</li>
+<li>以设计重用为目的，采用一种良定义的、正规的、一致的方式记录的软件设计经验</li>
+<li>关注在一般或特定设计环境中可能重复出现的设计问题，并给出经过充分实践考验的软件解决方案</li>
+</ul>
+<h4 id="设计问题域子系统">设计问题域子系统
+</h4><ul>
+<li>调整需求</li>
+<li>重用已有的类</li>
+<li>把问题域类组合在一起</li>
+<li>增添一般化类以建立协议</li>
+</ul>
+<h3 id="设计优势">设计优势
+</h3><ul>
+<li>高层抽象和自然过渡：
+<ul>
+<li>面向对象概念更加贴近于现实世界，有助于对应用问题以及软件系统的直观理解和建模。</li>
+<li>面向对象模型更易于为人们所接受，可减少软件工程师与用户之间的交流鸿沟，有助于支持大型复杂软件系统的开发</li>
+</ul>
+</li>
+<li>多种形式和粗粒度的软件重用：提供了多种方式来支持软件重用，进而有助于提高软件开发的效率和质量。</li>
+<li>系统化的软件设计：系统地支持软件设计阶段的所有工作，包括体系结构设计、用户界面设计、数据设计、软构件设计、子系统设计、用例设计、类设计等等</li>
+<li>支持软件的扩展和变更：提供了接口、抽象类、继承、实现等多种机制，可以设计出易于扩展和变更的软件设计模型</li>
+</ul>
+<h2 id="软件设计输出及评审">软件设计输出及评审
+</h2><h3 id="软件设计的输出">软件设计的输出
+</h3><p>软件设计模型：它从多个不同的视角、不同的抽象层次描述了软件的设计信息，并采用诸如UML、模块图、层次图等图形化的方式来加以刻画。</p>
+<p>软件设计文档：它采用自然语言的形式，结合软件设计模型，详细描述软件系统的各项设计，包括体系结构设计、子系统和构件设计、用户界面设计、用例设计、数据设计等。</p>
+<h3 id="软件设计文档的规范">软件设计文档的规范
+</h3><ul>
+<li>文档概述</li>
+<li>系统概述</li>
+<li>设计目标和原则</li>
+<li>设计约束和现实限制</li>
+<li>体系结构设计</li>
+<li>用户界面设计</li>
+<li>子系统/构件设计</li>
+<li>用例设计</li>
+<li>类设计</li>
+<li>数据设计</li>
+<li>接口设计</li>
+</ul>
+<h3 id="软件设计中的缺陷">软件设计中的缺陷
+</h3><ul>
+<li>设计未能满足需求：对软件需求的理解存在偏差，未能正确地理解用户的软件需求，导致所设计的软件无法满足用户的需要</li>
+<li>设计质量低下：设计过程中未能遵循设计原则、缺乏设计经验，导致软件设计质量低下，如设计的软件不易于维护和扩展</li>
+<li>设计存在不一致：不同软件设计制品对同一个设计有不同的描述，或者存在不一致甚至相冲突的设计内容；多个不同软件设计要素之间存在不一致</li>
+<li>设计不够详尽：未能提供设计细节性信息，导致程序员无法根据设计来开展编码工作</li>
+</ul>
+<h3 id="软件设计的评审">软件设计的评审
+</h3><p>谁参与评审：程序员、软件测试工程师、用户、质量保证人员、 设计工程师等</p>
+<p>评审内容</p>
+<ul>
+<li>文档规范性，软件设计文档是否符合软件设计规格说明书</li>
+<li>设计制品的可理解性，是否简洁、易于理解</li>
+<li>设计内容的合法性，设计结果是否符合相关的标准、法律和法规</li>
+<li>设计的质量水平，软件设计是否遵循设计原则，质量如何</li>
+<li>设计是否满足需求，设计是否完整和正确地实现了软件需求</li>
+<li>设计优化性，软件设计是否还有待优化的内容</li>
+</ul>
+<h3 id="软件设计的管理">软件设计的管理
+</h3><ul>
+<li>软件设计的变更管理：明确哪些方面发生了变更、这些变化反应在软件设计模型和文档的哪些部分、导致软件设计模型和文档的版本发生了什么样变化</li>
+<li>软件设计的追溯管理：搞清楚是什么原因导致了软件设计的变更， 评估设计变更的影响域，评估设计变更对软件项目开发带来的影响</li>
+<li>软件设计的基线管理：一旦软件设计模型和文档通过了评审， 纳入到基线库中</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/math/numerical_analysis/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 数值计算方法" height="150" loading="lazy" src="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png" srcset="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png 1x, /passage/math/numerical_analysis/cover_hu_e98b268206c1b5c8.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #112c5e80 0%, #fdfdfcC0 100%);">
+            <h2 class="article-title">数值计算方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/digital/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数字设计与计算机体系结构</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/software/engineering/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件工程</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/software/formal_methods/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/database/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>

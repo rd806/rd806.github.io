@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>GeoGebra</title>
+    <style>
+        /* 本文件运行在同源 iframe 里，与站点样式完全隔离：
+           站点任何 table/tr/td、字体、颜色规则都进不来。
+           页面只负责铺满 iframe，其余交给 GeoGebra 自己。 */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        /* applet 按 iframe 的实际像素尺寸渲染（不做 CSS 缩放）。
+           实测发现对 canvas 做非整数倍 transform 缩放时图形区会整块空白，
+           所以这里走 GeoGebra 自身的响应式布局，宽度变化时用 setSize 重排。 */
+        #stage {
+            position: absolute;
+            inset: 0;
+        }
+
+        /* 加载占位 */
+        #loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            color: #747474;
+        }
+
+        #loading .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #e0e0e0;
+            border-top-color: #2d70b3;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        #loading.error {
+            padding: 16px;
+            text-align: center;
+            color: #d73a49;
+        }
+
+        #loading.error .spinner {
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #loading .spinner {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="stage"><div id="slot"></div></div>
+    <div id="loading">
+        <div class="spinner"></div>
+        <span>正在加载 GeoGebra…</span>
+    </div>
+
+    <script>
+        (function () {
+            var query = new URLSearchParams(window.location.search);
+
+            var id = query.get('id') || '';
+            var src = query.get('src') || '';
+            var app = query.get('app') || '';
+            var view = query.get('view') || '';
+
+            // w / h 只作为取不到 iframe 尺寸时的兜底
+            var fallbackWidth = parseInt(query.get('w'), 10) || 700;
+            var fallbackHeight = parseInt(query.get('h'), 10) || 600;
+
+            function viewportWidth() {
+                return window.innerWidth || fallbackWidth;
+            }
+
+            function viewportHeight() {
+                return window.innerHeight || fallbackHeight;
+            }
+
+            var stage = document.getElementById('stage');
+            var loading = document.getElementById('loading');
+
+            function fail(message) {
+                if (!loading) {
+                    return;
+                }
+                loading.className = 'error';
+                while (loading.firstChild) {
+                    loading.removeChild(loading.firstChild);
+                }
+                loading.appendChild(document.createTextNode(message));
+            }
+
+            if (!id && !src) {
+                fail('缺少 id 或 src 参数');
+                return;
+            }
+
+            var ggbApi = null;
+
+            var params = {
+                width: viewportWidth(),
+                height: viewportHeight(),
+                errorDialogsActive: false,
+                useBrowserForJS: false,
+                appletOnLoad: function (api) {
+                    ggbApi = api;
+                    if (loading && loading.parentNode) {
+                        loading.parentNode.removeChild(loading);
+                    }
+                }
+            };
+
+            if (id) {
+                params.material_id = id;
+            } else {
+                params.filename = src;
+            }
+            if (app) {
+                params.appName = app;
+            }
+            if (view) {
+                params.perspective = view;
+            }
+
+            // 界面开关：只有短代码显式写了才会出现在 query 里
+            var boolParams = {
+                toolbar: 'showToolBar',
+                input: 'showAlgebraInput',
+                menubar: 'showMenuBar',
+                reset: 'showResetIcon',
+                zoom: 'enableShiftDragZoom',
+                rightclick: 'enableRightClick'
+            };
+
+            Object.keys(boolParams).forEach(function (key) {
+                var value = query.get(key);
+                if (value === 'true' || value === 'false') {
+                    params[boolParams[key]] = value === 'true';
+                }
+            });
+
+            // 界面语言跟随浏览器
+            var lang = (navigator.language || '').toLowerCase();
+            if (lang.indexOf('zh') === 0) {
+                params.language = (lang.indexOf('tw') !== -1 || lang.indexOf('hk') !== -1) ? 'zh_TW' : 'zh_CN';
+            } else if (lang) {
+                params.language = lang.split('-')[0];
+            } else {
+                params.language = 'zh_CN';
+            }
+
+            var script = document.createElement('script');
+            script.src = 'https://www.geogebra.org/apps/deployggb.js';
+
+            script.onload = function () {
+                // 注入到 slot；stage 外层保留，避免 GeoGebra 改写它的定位
+                new GGBApplet(params, true).inject('slot');
+
+                /* iframe 的尺寸可能在 GeoGebra 初始化之后才最终确定（父页面布局、
+                   字体加载等），此时画布不会自动重绘，图形区会一片空白。
+                   这里监听本文档尺寸变化，用 setSize 把 applet 重排到当前像素尺寸。 */
+                if (typeof ResizeObserver === 'function') {
+                    var lastWidth = 0;
+                    var lastHeight = 0;
+                    var timer = null;
+
+                    new ResizeObserver(function () {
+                        var width = viewportWidth();
+                        var height = viewportHeight();
+
+                        if (width === lastWidth && height === lastHeight) {
+                            return;
+                        }
+                        lastWidth = width;
+                        lastHeight = height;
+
+                        if (!ggbApi || width <= 0 || height <= 0) {
+                            return;
+                        }
+
+                        clearTimeout(timer);
+                        timer = setTimeout(function () {
+                            ggbApi.setSize(width, height);
+                        }, 120);
+                    }).observe(document.documentElement);
+                }
+            };
+
+            script.onerror = function () {
+                fail('GeoGebra 加载失败，请检查网络连接后刷新页面。');
+            };
+
+            document.head.appendChild(script);
+        })();
+    </script>
+</body>
+</html>

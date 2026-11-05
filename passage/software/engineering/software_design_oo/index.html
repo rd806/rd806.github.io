@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="面向对象的软件设计">
+<title>软件工程</title>
+
+
+<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/software_design_oo/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.67c627cd73f6e1901e9e015254fa12819d138e93c4dbde906603159bd5c756fe.css"><meta property='og:title' content="软件工程">
+<meta property='og:description' content="面向对象的软件设计">
+<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/software_design_oo/'>
+<meta property='og:site_name' content='RunicDolphin806'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-11-03T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-11-03T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="软件工程">
+<meta name="twitter:description" content="面向对象的软件设计">
+    <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
+<style>
+     
+    @media print {
+         
+        body {
+            width: 100%;
+            max-width: 1200px;  
+            margin: 0 auto;
+        }
+
+         
+        .menu, .footer, .sidebar.right-sidebar {
+            display: none !important;
+        }
+
+         
+        .main-container {
+            display: block !important;
+            width: 100% !important;
+        }
+    }
+</style>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/RunicDolphin806.png" 
+                        width="1080"
+                        height="1080"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+                    <span class="emoji">🤔</span>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">RunicDolphin806</a></h1>
+            <h2 class="site-description">技术备忘录</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1102225810'
+                        
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/rd806'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://rd806.github.io/index.xml'
+                        
+                        title="rss"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/exercises/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-text-scan-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8v-2a2 2 0 0 1 2 -2h2" /><path d="M4 16v2a2 2 0 0 0 2 2h2" /><path d="M16 4h2a2 2 0 0 1 2 2v2" /><path d="M16 20h2a2 2 0 0 0 2 -2v-2" /><path d="M8 12h8" /><path d="M8 9h6" /><path d="M8 15h4" /></svg>
+                
+                <span>壹题</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    <li id="i18n-switch">  
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                        <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                            
+                                
+                                
+                                    
+                                        
+                                    
+                                
+                                <option value="/passage/software/engineering/software_design_oo/" selected>简体中文</option>
+                            
+                                
+                                
+                                    
+                                
+                                <option value="/en/" >English</option>
+                            
+                        </select>
+                    </li>
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    
+    <button id="toggle-toc" class="mobile-only">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list-letters"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M11 6h9" /><path d="M11 12h9" /><path d="M11 18h9" /><path d="M4 10v-4.5a1.5 1.5 0 0 1 3 0v4.5" /><path d="M4 8h3" /><path d="M4 20h1.5a1.5 1.5 0 0 0 0 -3h-1.5h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6" /></svg>
+    </button>
+
+    <section class="widget archives" id="toc-container">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#软件体系结构设计">软件体系结构设计</a>
+      <ol>
+        <li><a href="#分层体系结构">分层体系结构</a>
+          <ol>
+            <li><a href="#管道与过滤器风格">管道与过滤器风格</a></li>
+            <li><a href="#黑板风格">黑板风格</a></li>
+            <li><a href="#mvc风格">MVC风格</a></li>
+            <li><a href="#soa风格">SOA风格</a></li>
+            <li><a href="#消息总线风格">消息总线风格</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#用户界面设计">用户界面设计</a>
+      <ol>
+        <li><a href="#人机交互的常见方式">人机交互的常见方式</a></li>
+        <li><a href="#人机交互的关键">人机交互的关键</a></li>
+        <li><a href="#用户界面元素及实现方式">用户界面元素及实现方式</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件详细设计">软件详细设计</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+
+<style>
+    .container {
+        .right-sidebar {
+             
+            display: flex;
+        }
+    }
+
+     
+    .mobile-only {
+        display: none !important;
+    }
+
+    #toc-container {
+         
+         
+        position: fixed;
+         
+        bottom: 21%;
+         
+        right: 60px;
+         
+        background-color: var(--card-background);
+         
+        padding: 10px;
+         
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+         
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         
+        z-index: 9998 !important;
+         
+        max-height: 75vh;
+        overflow-y: auto;
+         
+        width: auto;
+        max-width: 290px;
+    }
+
+    #toggle-toc {
+        position: fixed;
+        bottom: 22%;
+        right: 20px;
+        padding: 10px 10px;
+        z-index: 9998 !important;
+        border: 1px solid #96979a50;
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        background-color: #00640010;
+        color: var(--card-text-color-main);
+         
+        display: none;       
+        margin-bottom: -20px;
+        cursor: pointer;
+    }
+
+    #toggle-toc svg {
+         
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-only {
+            display: block !important;  
+        }
+
+        #toc-container {
+            display: none;  
+        }
+
+        #toggle-toc {
+            display: block;  
+            bottom: 100px;  
+        }
+    }
+
+     
+    @media screen and (min-width: 769px) {
+        #toc-container {
+            display: block !important;  
+            position: static;  
+            border: none;  
+            box-shadow: none;  
+            max-height: none;  
+            overflow-y: visible;  
+            margin-top: 20px;  
+            right: auto;  
+            bottom: auto;  
+            width: auto;  
+            max-width: 100%;  
+            background-color: transparent;  
+            padding: 0;  
+        }
+        #toggle-toc {
+            display: none !important;  
+        }
+    }
+</style>
+
+<script>
+    var toggleButton = document.getElementById('toggle-toc');
+    var tocContainer = document.getElementById('toc-container');
+
+    
+    toggleButton.addEventListener('click', function() {
+        if (tocContainer.style.display === 'none' || tocContainer.style.display === '') {
+            tocContainer.style.display = 'block';
+        } else {
+            tocContainer.style.display = 'none';
+        }
+    });
+
+    
+    toggleButton.addEventListener('mouseover', function() {
+        
+            tocContainer.style.display = 'block';
+        
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) { 
+            
+            if (!tocContainer.contains(event.target) && event.target !== toggleButton) {
+                
+                tocContainer.style.display = 'none';
+            }
+        }
+    });
+</script>
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+     
+    
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/exam/" style="background-color: #2a9d8f; color: #fff;">
+                期末速通
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/passage/software/engineering/software_design_oo/">软件工程</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            面向对象的软件设计
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-11-03T00:00:00Z'>2026年11月3日星期二</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 6 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#软件体系结构设计">软件体系结构设计</a>
+      <ol>
+        <li><a href="#分层体系结构">分层体系结构</a>
+          <ol>
+            <li><a href="#管道与过滤器风格">管道与过滤器风格</a></li>
+            <li><a href="#黑板风格">黑板风格</a></li>
+            <li><a href="#mvc风格">MVC风格</a></li>
+            <li><a href="#soa风格">SOA风格</a></li>
+            <li><a href="#消息总线风格">消息总线风格</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#用户界面设计">用户界面设计</a>
+      <ol>
+        <li><a href="#人机交互的常见方式">人机交互的常见方式</a></li>
+        <li><a href="#人机交互的关键">人机交互的关键</a></li>
+        <li><a href="#用户界面元素及实现方式">用户界面元素及实现方式</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件详细设计">软件详细设计</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <h2 id="软件体系结构设计">软件体系结构设计
+</h2><p>常用软件体系结构风格</p>
+<ul>
+<li>分层风格</li>
+<li>管道与过滤器风格</li>
+<li>黑板风格</li>
+<li>MVC风格</li>
+<li>SOA风格</li>
+<li>总线风格</li>
+</ul>
+<h3 id="分层体系结构">分层体系结构
+</h3><p>模式思想：将软件系统按照抽象级别逐次递增或递减的顺序，组织为若干层次，每层由一些抽象级别相同构件组成</p>
+<p>典型层次示例</p>
+<ul>
+<li>顶层：直接面向用户提供软件系统的交互界面</li>
+<li>底层：负责提供基础性、公共性的技术服务，它比较接近于硬件计算环境、操作系统或数据库管理系统</li>
+<li>中间层：介于二者之间，负责具体的业务处理</li>
+</ul>
+<p><img alt="分层体系结构" class="gallery-image" data-flex-basis="466px" data-flex-grow="194" height="848" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E5%88%86%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" srcset="/passage/software/engineering/software_design_oo/images/%E5%88%86%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84_hu_1f53021c3c2c8aa3.png 800w, /passage/software/engineering/software_design_oo/images/%E5%88%86%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84_hu_cb50da8a080cfae9.png 1600w, /passage/software/engineering/software_design_oo/images/%E5%88%86%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png 1649w" width="1649"></p>
+<p>客户端/服务器模型（Client/Server）：C/S结构是一种分布式模型，采用发请求、得结果的模式：</p>
+<ul>
+<li>客户端：向服务器发出请求（数据请求、网页请求、文件传输请求）</li>
+<li>服务器：响应请求，进行相应的操作，将结果回传给客户机，客户机再将格式化后的结果呈现给用户。</li>
+</ul>
+<h4 id="管道与过滤器风格">管道与过滤器风格
+</h4><ul>
+<li>构件：将软件功能实现为一系列处理步骤，每个步骤封装在一个过滤器构件中</li>
+<li>连接子：相邻过滤器间以管道连接，一个过滤器的输出数据借助管道流向后续过滤器，作为其输入数据。</li>
+<li>数据
+<ul>
+<li>软件系统的输入由数据源（data source）提供</li>
+<li>软件最终输出由源自某个过滤器的管道流向数据汇（data sink）</li>
+<li>典型数据源和数据汇包括数据库、文件、其他软件系统、物理设备等</li>
+</ul>
+</li>
+</ul>
+<p>约束</p>
+<ul>
+<li>过滤器与管道之间的协作方式
+<ul>
+<li>过滤器以循环的方式不断地从管道提取输入数据，并将其输出数据压入管道，称为主动过滤器</li>
+<li>管道将输入数据压入到位于其目标端过滤器，过滤器被动地等待数据，称为被动过滤器</li>
+<li>管道负责提取位于其源端过滤器的输出数据</li>
+</ul>
+</li>
+</ul>
+<p>设计考虑</p>
+<ul>
+<li>如果管道连接的两端均为主动过滤器，那么管道必须负责它们之间的同步，典型的同步方法是先进先出缓冲器</li>
+<li>如果管道的一端为主动过滤器，另一端为被动过滤器，那么管道的数据流转功能可通过前者直接调用后者来实现</li>
+</ul>
+<p>特点</p>
+<ul>
+<li>自然地解决具有数据流特征的软件需求</li>
+<li>可独立地更新、升级过滤器来实现软件系统的扩展和进化</li>
+</ul>
+<h4 id="黑板风格">黑板风格
+</h4><p>将软件系统划分为黑板、知识源和控制器三类构件</p>
+<ul>
+<li>黑板：负责保存问题求解过程中的状态数据，并提供这些数据的读写服务</li>
+<li>知识源：负责根据黑板中存储的问题求解状态评价其自身的可应用性，进行部分问题求解工作，并将此工作的结果数据写入黑板</li>
+<li>控制器：负责监视黑板中不断更新的状态数据，安排（多个）知识源的活动。</li>
+</ul>
+<p>约束</p>
+<ul>
+<li>控制构件通过观察黑板中的状态数据来决定哪些知识源对后续的问题求解可能有所贡献，然后调用这些知识源的评价功能以选取参与下一步求解活动的知识源</li>
+<li>被选中的知识源基于黑板中的状态数据将问题求解工作向前推进，并根据结果更新黑板中的状态数据</li>
+<li>控制构件不断重复上述控制过程，及至问题求解获得满意的结果</li>
+</ul>
+<p>黑板风格的特点</p>
+<ul>
+<li>优点：
+<ul>
+<li>可灵活升级和更换知识源和控制构件</li>
+<li>知识源的独立性和可重用性好。知识源之间没有交互。</li>
+<li>软件系统具有较好的容错性和健壮性。 知识源的问题求解动作是探索性的，允许失败和纠错。</li>
+</ul>
+</li>
+<li>缺陷：
+<ul>
+<li>为了共享数据 ,各子系统必须有一致的数据视图 ，不可避免地会影响了整个系统的性能。</li>
+<li>子系统的改变，使产生的数据结构也可能发生改变。</li>
+<li>统一的数据库结构（备份、安全、访问控制和恢复的策），将影响子系统的效率。</li>
+</ul>
+</li>
+</ul>
+<h4 id="mvc风格">MVC风格
+</h4><ul>
+<li>模型构件：负责存储业务数据并提供业务逻辑处理功能</li>
+<li>视图构件：负责向用户呈现模型中的数据</li>
+<li>控制器：在接获模型的业务逻辑处理结果后，负责选择适当的视图作为软件系统对用户的界面动作的响应。</li>
+</ul>
+<p>约束</p>
+<ul>
+<li>创建视图，视图对象从模型中获取数据并呈现用户界面
+<ul>
+<li>视图接受界面动作，将其转换为内部事件传递给控制器</li>
+<li>所有视图在接获来自模型的业务数据变化通知后向模型查询新的数据，并据此更新视图</li>
+</ul>
+</li>
+<li>控制器将用户界面事件转换为业务逻辑处理功能的调用；控制器根据模型的处理结果创建新的视图、选择其他视图或维持原有视图</li>
+<li>模型进行业务逻辑处理，将处理结果回送给控制器，必要时还需将业务数据变化事件通知给所有视图。</li>
+</ul>
+<h4 id="soa风格">SOA风格
+</h4><p>将软件系统的软构件抽象为一个个的服务（Service），每个服务封装了特定的功能并提供了对外可访问的接口</p>
+<p>任何一个服务既可以充当服务的提供方，接受其他服务的访问请求；也可充当服务的请求方，请求其他服务为其提供功能</p>
+<p>任何服务需要向服务注册中心进行注册登记，描述其可提供的服务以及访问方式，才可对外提供服务。</p>
+<p>特点</p>
+<ul>
+<li>将服务提供方和服务请求方独立开来，因而支持服务间的松耦合定义</li>
+<li>允许任何一个服务在运行过程中所扮演角色的动态调整，支持服务集合在运行过程中的动态变化，因而具有非常强的灵活性</li>
+<li>提供了诸如UDDI、 SOAP、 WSDL等协议来支持服务的注册、描述和绑定等，因而可有效支持异构服务间的交互</li>
+</ul>
+<h4 id="消息总线风格">消息总线风格
+</h4><p>包含了一组软构件和一条称为“消息总线”的连接件来连接各个软构件</p>
+<ul>
+<li>消息总线成为软构件之间的通信桥梁，实现各个软构件之间的消息发送、接收、转发、处理等功能</li>
+<li>每一个软构件通过接入总线，实现消息的发送和接收功能</li>
+</ul>
+<h2 id="用户界面设计">用户界面设计
+</h2><p>人机交互部分的设计结果， 将对用户情绪和工作效率产生重要影响。</p>
+<ul>
+<li>设计人机交互界面的准则：一致性、减少步骤、及时提供反馈信息、提供撤消命令、 无须记忆、易学、富有吸引力</li>
+<li>设计人机交互子系统的策略：
+<ul>
+<li>分类用户：按技能水平分类（初级／中级／高级）， 按职务分类（总经理／部门经理／职员）， 按工作性质分类（行政人员／技术人员），按专业知识分类（外专业／专业／系统员）</li>
+<li>描述用户： 应该仔细了解将来使用系统的每类用户的情况，把获得的下列各项信息记录下来：用户类型，特征（年龄、性别、受教育程度、限制因素等），关键的成功因素（需求，爱好，习惯等），技能水平，完成本职工作的脚本。</li>
+</ul>
+</li>
+<li>设计命令层次：
+<ul>
+<li>研究现有的人机交互含义和准则</li>
+<li>确定初始的命令层次</li>
+<li>精化命令层次</li>
+<li>设计人机交互类</li>
+</ul>
+</li>
+</ul>
+<h3 id="人机交互的常见方式">人机交互的常见方式
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>方式</th>
+          <th>描述</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>文本</td>
+          <td>通过文本方式进行输入和输出，如DOS、 Linux下的文本命令</td>
+          <td>须记忆命令、不友好</td>
+      </tr>
+      <tr>
+          <td>图形化界面</td>
+          <td>通过图形化界面进行输入和输出，如窗口、按钮、对话框</td>
+          <td>直观、简洁、友好</td>
+      </tr>
+      <tr>
+          <td>语音</td>
+          <td>通过语音来进行输入和输出，如与机器人的交互、Siri、手机导航软件等</td>
+          <td>将双手解放出来</td>
+      </tr>
+      <tr>
+          <td>手势</td>
+          <td>通过姿势来进行交互，如与无人机交互等</td>
+          <td>准确性不高，需要视频传感器</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="人机交互的关键">人机交互的关键
+</h3><ul>
+<li>用户的满意度：用户通常将用户界面视为软件本身，用户界面是用户接触软件的主体要素。用户界面设计的质量直接决定了用户对软件系统的评价，影响用户对软件系统的满意度</li>
+<li>方便输入：快速、便捷、准确、友好的输入；鼠标、点击、选择等</li>
+<li>直观输出：直观、显式、可理解、简洁的输出；所见即所得、图形展示等</li>
+</ul>
+<p>以用户为中心设计用户界面</p>
+<ul>
+<li>将用户特征作为用户界面设计决策的依据：识别用户及其特征；用户是谁，有何特点如操作习惯、文化背景、教育程度；分析用户与计算机系统之间的交互信息及合适的手段</li>
+<li>尽可能获得用户反馈并以此来改进和优化设计：如何来获得用户反馈？软件原型；从用户立场出发、便于用户理解和操作</li>
+<li>以用户体验感受和满意度为依据评审交互设计</li>
+</ul>
+<h3 id="用户界面元素及实现方式">用户界面元素及实现方式
+</h3><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>元素</th>
+          <th>定义</th>
+          <th>举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>静态元素</td>
+          <td>与软件系统的运行状态无关，没有变化</td>
+          <td>文本、图标、图形、图像</td>
+      </tr>
+      <tr>
+          <td>动态元素</td>
+          <td>与软件运行状态和业务逻辑相关，不允许用户修改</td>
+          <td>不可编辑文本、表格、图标、图形等</td>
+      </tr>
+      <tr>
+          <td>用户输入元素</td>
+          <td>由用户填写或者选择</td>
+          <td>编辑文本、单选按钮、多选框等</td>
+      </tr>
+      <tr>
+          <td>用户命令元素</td>
+          <td>点击后激活后端的业务处理或者刷新界面</td>
+          <td>按钮、菜单、超链接等</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="软件详细设计">软件详细设计
+</h2>
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under <a class="link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"  target="_blank" rel="noopener"
+    >CC BY-NC-SA 4.0</a></span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside>
+    <h2 class="section-title">相关文章</h2>
+    <div class="subsection-list">
+        <div class="article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/passage/math/numerical_analysis/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 数值计算方法" height="150" loading="lazy" src="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png" srcset="/passage/math/numerical_analysis/cover_hu_3242d19e0ff63c93.png 1x, /passage/math/numerical_analysis/cover_hu_e98b268206c1b5c8.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #112c5e80 0%, #fdfdfcC0 100%);">
+            <h2 class="article-title">数值计算方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/digital/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数字设计与计算机体系结构</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/software/engineering/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">软件工程</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="has-image">
+    <a href="/passage/software/formal_methods/">
+        
+        <div class="article-image">
+            <img alt="Featured image of post 形式化方法" height="150" loading="lazy" src="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png" srcset="/passage/software/formal_methods/cover_hu_356b75804aa8488b.png 1x, /passage/software/formal_methods/cover_hu_a6debf7f00279ce7.png 2x" width="250">
+
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #0c222480 0%, #d7e0e1C0 100%);">
+            <h2 class="article-title">形式化方法</h2>
+        </div>
+    </a>
+</article>
+            
+                
+<article class="">
+    <a href="/passage/cs/database/">
+        
+
+        <div class="article-details">
+            <h2 class="article-title">数据库系统</h2>
+        </div>
+    </a>
+</article>
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 RunicDolphin806
+    </section>
+    
+    <section class="powerby">
+        
+            网站总访客数：<span id='vercount_value_site_uv'>Loading</span> <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+<script>
+    async function renderKaTeX() {
+        
+        let katex = document.querySelector(".math-katex");
+        if (!katex) {
+            return;
+        }
+        
+        while (typeof renderMathInElement !== 'function') {
+            await delay(500);
+        }        
+        
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });
+    }
+    
+    
+
+    function delay(time) {
+        return new Promise(resolve => {
+            setTimeout(resolve, time)
+        })
+    }
+
+    document.addEventListener('pjax:complete', () => {
+        renderKaTeX();
+    })
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+
+    initTocHide(); 
+</script>
+
+
+<script>
+    
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {     
+        
+        topbar.hide();
+    })
+</script>
+
+<div id="particles-js"></div>
+
+<script src="https://rd806.github.io/background/particles.min.js" ></script>
+<script>
+    particlesJS.load('particles-js', 'https:\/\/rd806.github.io\/background\/particlesjs-config.json', function() {
+        console.log('particles.js loaded - callback');
+    });
+</script>
+
+<style>
+    #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+</style>
+
+<script defer src="https://cn.vercount.one/js"></script>
+
+    </body>
+</html>

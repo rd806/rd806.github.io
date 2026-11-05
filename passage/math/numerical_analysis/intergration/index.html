@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
 
 
-<link rel="stylesheet" href="/scss/style.min.6af4815cf1fc3233dd5b02cc206b351ee2b5b46d92fefb3040d394d743242b30.css"><meta property='og:title' content="数值计算方法">
+<link rel="stylesheet" href="/scss/style.min.67c627cd73f6e1901e9e015254fa12819d138e93c4dbde906603159bd5c756fe.css"><meta property='og:title' content="数值计算方法">
 <meta property='og:description' content="数值积分">
 <meta property='og:url' content='https://rd806.github.io/passage/math/numerical_analysis/intergration/'>
 <meta property='og:site_name' content='RunicDolphin806'>
@@ -685,10 +685,7 @@ $$\int_a^b f(x) \mathrm{d}x = (b-a) f(\xi)，\xi \in [a,b]$$<p> 即：所求的�
 $$\int_a^b f(x) \mathrm{d}x \approx (b-a) f\left(\frac{a+b}{2}\right)$$<p>梯形公式：将 $f(a)$，$f(b)$ 的加权平均值 $\displaystyle \frac{1}{2}[f(a) + f(b)]$ 作为平均高度。</p>
 $$\int_a^b f(x) \mathrm{d}x \approx \frac{1}{2}(b-a)[f(a)+f(b)] $$<figure class="geogebra-figure">
     
-    <div class="geogebra-card"
-         id="ggb-d1300529-0"
-         data-width="700"
-         data-height="600">
+    <div class="geogebra-card" style="max-width: 700px;">
         <div class="geogebra-header">
             
             <span class="geogebra-brand" role="img" aria-label="GeoGebra">
@@ -706,23 +703,22 @@ $$\int_a^b f(x) \mathrm{d}x \approx \frac{1}{2}(b-a)[f(a)+f(b)] $$<figure class=
             </a>
         </div>
 
-        <div class="geogebra-applet">
-            
-            <div class="geogebra-stage" id="ggb-d1300529-0-stage">
-                <div class="geogebra-slot" id="ggb-d1300529-0-slot"></div>
-            </div>
-            <div class="geogebra-placeholder">
-                <div class="geogebra-spinner"></div>
-                <span>正在加载 GeoGebra…</span>
-            </div>
+        
+        <div class="geogebra-viewport" style="aspect-ratio: 1.1666666666666667;">
+            <iframe class="geogebra-frame"
+                    src="/geogebra/?id=xfvksx5b&amp;w=700&amp;h=600"
+                    data-design-width="700"
+                    style="width: 700px; height: 600px;"
+                    title="GeoGebra · 梯形公式和中矩形公式"
+                    allowfullscreen></iframe>
         </div>
     </div>
     <figcaption>梯形公式和中矩形公式</figcaption>
 </figure>
 
-<script src="/js/geogebra.min.js"></script>
-<script>
-    window.initGeogebraApplet({"container":"ggb-d1300529-0","params":{"errorDialogsActive":false,"material_id":"xfvksx5b","useBrowserForJS":false},"slot":"ggb-d1300529-0-slot","stage":"ggb-d1300529-0-stage"});
+<script type="module">
+    import { initGeogebraScaler } from '\/ts\/geogebra.js';
+    initGeogebraScaler();
 </script>
 
 <p>更一般地，我们可以在区间 $[a,b]$ 上适当选取某些节点 $x_k$，然后用 $f(x_k)$ 的加权平均得到平均高度 $f(\xi)$ 的近似值，这样构造出的求积公式具有下列性质：</p>
@@ -796,10 +792,7 @@ $$C = \frac{b-a}{90}[7f(x_0) + 32f(x_1) + 12f(x_2) + 32f(x_3) + 7f(x_4)]$$其中
 $$R[f] = -\frac{b-a}{180}\left(\frac{b-a}{2}\right)^4 f^{(4)}(\eta)，\eta \in (a,b)$$<p>对 $n=4$ 的柯特斯公式，其代数精度为 $5$，可得它的的余项为 </p>
 $$r[f] = -\frac{2(b-a)}{945}\left(\frac{b-a}{4}\right)^6 f^{(4)}(\eta)，\eta \in (a,b)$$<figure class="geogebra-figure">
     
-    <div class="geogebra-card"
-         id="ggb-d1300529-1"
-         data-width="700"
-         data-height="600">
+    <div class="geogebra-card" style="max-width: 700px;">
         <div class="geogebra-header">
             
             <span class="geogebra-brand" role="img" aria-label="GeoGebra">
@@ -817,23 +810,22 @@ $$r[f] = -\frac{2(b-a)}{945}\left(\frac{b-a}{4}\right)^6 f^{(4)}(\eta)，\eta \i
             </a>
         </div>
 
-        <div class="geogebra-applet">
-            
-            <div class="geogebra-stage" id="ggb-d1300529-1-stage">
-                <div class="geogebra-slot" id="ggb-d1300529-1-slot"></div>
-            </div>
-            <div class="geogebra-placeholder">
-                <div class="geogebra-spinner"></div>
-                <span>正在加载 GeoGebra…</span>
-            </div>
+        
+        <div class="geogebra-viewport" style="aspect-ratio: 1.1666666666666667;">
+            <iframe class="geogebra-frame"
+                    src="/geogebra/?id=xncz4myd&amp;w=700&amp;h=600"
+                    data-design-width="700"
+                    style="width: 700px; height: 600px;"
+                    title="GeoGebra · 牛顿-柯特斯公式"
+                    allowfullscreen></iframe>
         </div>
     </div>
     <figcaption>牛顿-柯特斯公式</figcaption>
 </figure>
 
-<script src="/js/geogebra.min.js"></script>
-<script>
-    window.initGeogebraApplet({"container":"ggb-d1300529-1","params":{"errorDialogsActive":false,"material_id":"xncz4myd","useBrowserForJS":false},"slot":"ggb-d1300529-1-slot","stage":"ggb-d1300529-1-stage"});
+<script type="module">
+    import { initGeogebraScaler } from '\/ts\/geogebra.js';
+    initGeogebraScaler();
 </script>
 
 <h2 id="复合求积公式">复合求积公式
@@ -942,10 +934,7 @@ $$|T_k^{(0)} - T_{k-1}^{(0)}| \leqslant \varepsilon$$（$\varepsilon &gt; 0$ 为
 </ol>
 <figure class="geogebra-figure">
     
-    <div class="geogebra-card"
-         id="ggb-d1300529-2"
-         data-width="700"
-         data-height="600">
+    <div class="geogebra-card" style="max-width: 700px;">
         <div class="geogebra-header">
             
             <span class="geogebra-brand" role="img" aria-label="GeoGebra">
@@ -963,23 +952,22 @@ $$|T_k^{(0)} - T_{k-1}^{(0)}| \leqslant \varepsilon$$（$\varepsilon &gt; 0$ 为
             </a>
         </div>
 
-        <div class="geogebra-applet">
-            
-            <div class="geogebra-stage" id="ggb-d1300529-2-stage">
-                <div class="geogebra-slot" id="ggb-d1300529-2-slot"></div>
-            </div>
-            <div class="geogebra-placeholder">
-                <div class="geogebra-spinner"></div>
-                <span>正在加载 GeoGebra…</span>
-            </div>
+        
+        <div class="geogebra-viewport" style="aspect-ratio: 1.1666666666666667;">
+            <iframe class="geogebra-frame"
+                    src="/geogebra/?id=yqby8dyn&amp;w=700&amp;h=600"
+                    data-design-width="700"
+                    style="width: 700px; height: 600px;"
+                    title="GeoGebra · 龙贝格积分法"
+                    allowfullscreen></iframe>
         </div>
     </div>
     <figcaption>龙贝格积分法</figcaption>
 </figure>
 
-<script src="/js/geogebra.min.js"></script>
-<script>
-    window.initGeogebraApplet({"container":"ggb-d1300529-2","params":{"errorDialogsActive":false,"material_id":"yqby8dyn","useBrowserForJS":false},"slot":"ggb-d1300529-2-slot","stage":"ggb-d1300529-2-stage"});
+<script type="module">
+    import { initGeogebraScaler } from '\/ts\/geogebra.js';
+    initGeogebraScaler();
 </script>
 
 <h2 id="高斯求积公式">高斯求积公式
