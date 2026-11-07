@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="需求分析基础（面向对象）">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="面向对象的需求分析">
 <title>软件工程</title>
 
 
-<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/requirement_analysis_oo/">
+<link rel="canonical" href="https://rd806.github.io/passage/software/engineering/requirement_analysis/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
@@ -13,12 +13,12 @@
 
 
 <link rel="stylesheet" href="/scss/style.min.67c627cd73f6e1901e9e015254fa12819d138e93c4dbde906603159bd5c756fe.css"><meta property='og:title' content="软件工程">
-<meta property='og:description' content="需求分析基础（面向对象）">
-<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/requirement_analysis_oo/'>
+<meta property='og:description' content="面向对象的需求分析">
+<meta property='og:url' content='https://rd806.github.io/passage/software/engineering/requirement_analysis/'>
 <meta property='og:site_name' content='RunicDolphin806'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-10-15T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="软件工程">
-<meta name="twitter:description" content="需求分析基础（面向对象）">
+<meta name="twitter:description" content="面向对象的需求分析">
     <link rel="shortcut icon" href="/img/RunicDolphin806.png" />
 <style>
      
@@ -275,7 +275,7 @@
                                         
                                     
                                 
-                                <option value="/passage/software/engineering/requirement_analysis_oo/" selected>简体中文</option>
+                                <option value="/passage/software/engineering/requirement_analysis/" selected>简体中文</option>
                             
                                 
                                 
@@ -357,7 +357,8 @@
             <li><a href="#分析">分析</a></li>
           </ol>
         </li>
-        <li><a href="#建模思想">建模思想</a>
+        <li><a href="#建模思想">建模思想</a></li>
+        <li><a href="#核心概念">核心概念</a>
           <ol>
             <li><a href="#对象与类">对象与类</a></li>
             <li><a href="#消息">消息</a></li>
@@ -378,7 +379,12 @@
     </li>
     <li><a href="#需求分析过程">需求分析过程</a>
       <ol>
-        <li><a href="#软件需求优先级">软件需求优先级</a></li>
+        <li><a href="#软件需求优先级">软件需求优先级</a>
+          <ol>
+            <li><a href="#重要性">重要性</a></li>
+            <li><a href="#分析过程">分析过程</a></li>
+          </ol>
+        </li>
         <li><a href="#建立软件需求模型">建立软件需求模型</a></li>
         <li><a href="#软件需求制品">软件需求制品</a></li>
         <li><a href="#软件需求评审">软件需求评审</a></li>
@@ -549,12 +555,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/passage/software/engineering/requirement_analysis_oo/">软件工程</a>
+            <a href="/passage/software/engineering/requirement_analysis/">软件工程</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            需求分析基础（面向对象）
+            面向对象的需求分析
         </h3>
         
     </div>
@@ -636,7 +642,8 @@
             <li><a href="#分析">分析</a></li>
           </ol>
         </li>
-        <li><a href="#建模思想">建模思想</a>
+        <li><a href="#建模思想">建模思想</a></li>
+        <li><a href="#核心概念">核心概念</a>
           <ol>
             <li><a href="#对象与类">对象与类</a></li>
             <li><a href="#消息">消息</a></li>
@@ -657,7 +664,12 @@
     </li>
     <li><a href="#需求分析过程">需求分析过程</a>
       <ol>
-        <li><a href="#软件需求优先级">软件需求优先级</a></li>
+        <li><a href="#软件需求优先级">软件需求优先级</a>
+          <ol>
+            <li><a href="#重要性">重要性</a></li>
+            <li><a href="#分析过程">分析过程</a></li>
+          </ol>
+        </li>
         <li><a href="#建立软件需求模型">建立软件需求模型</a></li>
         <li><a href="#软件需求制品">软件需求制品</a></li>
         <li><a href="#软件需求评审">软件需求评审</a></li>
@@ -675,6 +687,7 @@
     
     <h2 id="软件需求和需求工程">软件需求和需求工程
 </h2><p>开发软件系统的前提是要明确用户的期望和要求，即软件需求。</p>
+<p><img alt="软件开发的本质" class="gallery-image" data-flex-basis="516px" data-flex-grow="215" height="700" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8.png" srcset="/passage/software/engineering/requirement_analysis/images/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8_hu_5e2e83b98a90a23e.png 800w, /passage/software/engineering/requirement_analysis/images/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%9C%AC%E8%B4%A8.png 1505w" width="1505"></p>
 <p>软件需求的重要性：</p>
 <ul>
 <li>软件的价值所在</li>
@@ -688,28 +701,85 @@
 <li>软件需求刻画了软件系统能做什么（What to do），应表现出怎样的行为，需满足哪些方面的条件和约束等要求。</li>
 </ul>
 <p>软件需求的要求：</p>
-<ul>
-<li>有价值（Valuable）：基于计算机软件的解决方案，有效提高问题解决的效率和质量，促进相关领域的业务创新</li>
-<li>正确（Right）：反映利益相关方的期望，不能曲解或误解他们的要求</li>
-<li>完整（Complete）：不能有遗漏或丢失</li>
-<li>无二义（Unambiguous）：软件需求的描述应该是清晰和准确的</li>
-<li>可行（Feasible）：在技术、经济等方面应该是可行的</li>
-<li>一致（Consistent）：不应存在冲突</li>
-<li>可追踪（Traceable）：可追踪到其源头</li>
-<li>可验证（Verifiable）：可找到某种方式来检验软件需求是否在软件系统中得到实现</li>
-</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>要求</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>有价值（Valuable）</td>
+          <td>基于计算机软件的解决方案，有效提高问题解决的效率和质量，促进相关领域的业务创新</td>
+      </tr>
+      <tr>
+          <td>正确（Right）</td>
+          <td>反映利益相关方的期望，不能曲解或误解他们的要求</td>
+      </tr>
+      <tr>
+          <td>完整（Complete）</td>
+          <td>不能有遗漏或丢失</td>
+      </tr>
+      <tr>
+          <td>无二义（Unambiguous）</td>
+          <td>软件需求的描述应该是清晰和准确的</td>
+      </tr>
+      <tr>
+          <td>可行（Feasible）</td>
+          <td>在技术、经济等方面应该是可行的</td>
+      </tr>
+      <tr>
+          <td>一致（Consistent）</td>
+          <td>不应存在冲突</td>
+      </tr>
+      <tr>
+          <td>可追踪（Traceable）</td>
+          <td>可追踪到其源头</td>
+      </tr>
+      <tr>
+          <td>可验证（Verifiable）</td>
+          <td>可找到某种方式来检验软件需求是否在软件系统中得到实现</td>
+      </tr>
+  </tbody>
+</table></div>
 <p>软件需求的特点：</p>
-<ul>
-<li>隐式性：来自于利益相关方，它隐式存在；很难辨别，甚至会遗漏掉</li>
-<li>隐晦性：在利益相关方的潜意识之中， 不易于表达出来，难以获取；所表达的软件需求存在模糊性、歧义性、二义性</li>
-<li>多源性：存在多个的利益相关方；存在相冲突和不一致的软件需求</li>
-<li>易变性：用户对软件的期望和要求也会经常性地发生变化；在整个生命周期都会发生变化</li>
-<li>领域知识的相关性：软件需求的内涵与软件所在领域的知识息息相关</li>
-<li>价值不均性：不同的软件需求对于客户或用户而言所体现的价值是不一样的；主要和次要、核心和外围需求</li>
-</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>特点</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>隐式性</td>
+          <td>来自于利益相关方，它隐式存在；很难辨别，甚至会遗漏掉</td>
+      </tr>
+      <tr>
+          <td>隐晦性</td>
+          <td>在利益相关方的潜意识之中， 不易于表达出来，难以获取；所表达的软件需求存在模糊性、歧义性、二义性</td>
+      </tr>
+      <tr>
+          <td>多源性</td>
+          <td>存在多个的利益相关方；存在相冲突和不一致的软件需求</td>
+      </tr>
+      <tr>
+          <td>易变性</td>
+          <td>用户对软件的期望和要求也会经常性地发生变化；在整个生命周期都会发生变化</td>
+      </tr>
+      <tr>
+          <td>领域知识的相关性</td>
+          <td>软件需求的内涵与软件所在领域的知识息息相关</td>
+      </tr>
+      <tr>
+          <td>价值不均性</td>
+          <td>不同的软件需求对于客户或用户而言所体现的价值是不一样的；主要和次要、核心和外围需求</td>
+      </tr>
+  </tbody>
+</table></div>
 <h3 id="软件利益相关方">软件利益相关方
-</h3><p>从软件系统中受益或与软件系统相关的人、组织或者系统，受益：他们对软件使用、获益、盈利，与软件发生操作和交互、存在关联性。</p>
-<p>表现形式：</p>
+</h3><p>从软件系统中受益或与软件系统相关的人、组织或者系统，受益：他们对软件使用、获益、盈利，与软件发生操作和交互、存在关联性。存在以下表现形式：</p>
 <ul>
 <li>用户：最终使用软件的人</li>
 <li>客户：从中获取利益的组织</li>
@@ -732,7 +802,7 @@
 </li>
 <li>软件开发约束性需求（Constraint）：开发成本、交付进度、技术选型、遵循标准等方面提出的要求</li>
 </ul>
-<p>常见的功能需求：</p>
+<p>常见的功能性需求：</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
@@ -755,7 +825,7 @@
       <tr>
           <td>3</td>
           <td>指针对特定业务领域、需要重新做业务流程规范和需求规格定义的软件产品</td>
-          <td>实质上不算一种真正意义的软件产品，只算一种行业应用软件框架或行业应用软件解决方案。 例如分行业的管理信息系统MIS、分行业的企业资源规划系统ERP等。随着技术的成熟化，一些小型ERP突出供销存与财务功能，淡化其他功能，开始转为第二类产品。</td>
+          <td>实质上不算一种真正意义的软件产品，只算一种行业应用软件框架或行业应用软件解决方案。例如：分行业的管理信息系统MIS、分行业的企业资源规划系统ERP等。随着技术的成熟化，一些小型ERP突出供销存与财务功能，淡化其他功能，开始转为第二类产品。</td>
       </tr>
       <tr>
           <td>4</td>
@@ -765,7 +835,7 @@
   </tbody>
 </table></div>
 <p>一些非功能性需求：</p>
-<p><img alt="非功能性需求" class="gallery-image" data-flex-basis="424px" data-flex-grow="176" height="590" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82.png" srcset="/passage/software/engineering/requirement_analysis_oo/images/%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82_hu_b47b5d435f03472d.png 800w, /passage/software/engineering/requirement_analysis_oo/images/%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82.png 1044w" width="1044"></p>
+<p><img alt="非功能性需求" class="gallery-image" data-flex-basis="424px" data-flex-grow="176" height="590" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82.png" srcset="/passage/software/engineering/requirement_analysis/images/%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82_hu_b47b5d435f03472d.png 800w, /passage/software/engineering/requirement_analysis/images/%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82.png 1044w" width="1044"></p>
 <h3 id="如何获取软件需求">如何获取软件需求
 </h3><ul>
 <li>访谈和会议</li>
@@ -780,13 +850,12 @@
             <span class="alert-title">备注</span>
         </div>
         <div class="alert-body">
-            <p>软件原型：</p>
-<p>需求工程师根据用户初步需求描述，快速构造出一个可运行的软件原型：</p>
+            <p>软件原型：需求工程师根据用户初步需求描述，快速构造出一个可运行的软件原型：</p>
 <ul>
 <li>展示业务操作流程以及每一个步骤用户与软件之间的交互</li>
 <li>用户可以通过操作和使用该软件，分析需求工程师是否正确地理解了他们所提出的软件需求，发现软件原型所展示的软件需求中存在的问题，导出尚未发现、新的软件需求。</li>
 </ul>
-<p>软件原型作为需求工程师和用户之间的交流媒介，有助于直观地展示软件需求，激发用户投入到需求讨论和导出之中，因而是一项极为有效的需求获取和分析方法</p>
+<p>软件原型作为需求工程师和用户之间的交流媒介，有助于直观地展示软件需求，激发用户投入到需求讨论和导出之中，因而是一项极为有效的需求获取和分析方法。</p>
         </div>
     </blockquote>
 <ul>
@@ -795,19 +864,19 @@
 <p>让互联网上的海量和开放群体参与到获取软件需求的工作中来，提出他们对软件需求的想法，并通过组织、汇聚和筛选，从中遴选出有价值的软件需求。集思广益，吸纳更多的人参与到需求创作和构思之中，有助于获得超出开发团队和用户常规想定的软件需求。</p>
 <h2 id="面向对象需求分析方法学">面向对象需求分析方法学
 </h2><p>需求工程：用工程的理念和方法来指导软件需求实践，它提供了一系列的过程、策略、方法学和工具，帮助需求工程师加强对业务或领域问题及其环境的理解， 获取和分析软件需求，指导软件需求的文档化和评审，以尽可能获得准确、一致和完整的软件需求，产生软件需求的相关软件制品。</p>
-<p><img alt="需求工程" class="gallery-image" data-flex-basis="865px" data-flex-grow="360" height="347" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B.png" srcset="/passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B_hu_ec34bedee29331a2.png 800w, /passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B.png 1252w" width="1252"></p>
+<p><img alt="需求工程" class="gallery-image" data-flex-basis="865px" data-flex-grow="360" height="347" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B.png" srcset="/passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B_hu_ec34bedee29331a2.png 800w, /passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%B7%A5%E7%A8%8B.png 1252w" width="1252"></p>
 <h3 id="基本方法">基本方法
 </h3><h4 id="抽象">抽象
 </h4><p>理解和抽象软件需求：软件需求本质是什么？应采用什么样的抽象来刻画软件需求？</p>
 <p>两种抽象方法：</p>
 <ul>
-<li>20世纪70年代结构化数据和数据流抽象：
+<li>20世纪70年代——结构化数据和数据流抽象：
 <ul>
 <li>功能表现为数据处理，要理解软件功能需求，就要知道软件具有哪些数据以及要对这些数据进行什么样处理。</li>
 <li>提出了一组抽象来表征软件的功能性需求，包括数据流、数据字典、数据加工或处理、数据源等，设计了数据流图建模语言。</li>
 </ul>
 </li>
-<li>20世纪90年代面向对象抽象：
+<li>20世纪90年代——面向对象抽象：
 <ul>
 <li>软件功能表现为系统中的对象所展示的行为，要理解软件功能需求，就要知道软件有哪些对象、有什么样行为、交互和协作。</li>
 <li>设计面向对象建模语言UML，产生了面向对象需求分析方法学。</li>
@@ -815,11 +884,28 @@
 </li>
 </ul>
 <h4 id="建模">建模
-</h4><p>刻画和建立软件需求模型：清晰地表达软件需求，目的是理解和交流：</p>
-<ul>
-<li>初级阶段：采用自然语言或结构化自然语言——存在描述不直观、 二义性和模糊性等问题。</li>
-<li>高级阶段：图形化的需求建模语言——直观、易于理解，如数据流图、 UML图。</li>
-</ul>
+</h4><p>刻画和建立软件需求模型：清晰地表达软件需求，目的是理解和交流。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>阶段</th>
+          <th>方法</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>初级阶段</td>
+          <td>采用自然语言或结构化自然语言</td>
+          <td>存在描述不直观、 二义性和模糊性等问题</td>
+      </tr>
+      <tr>
+          <td>高级阶段</td>
+          <td>图形化的需求建模语言</td>
+          <td>直观、易于理解，如数据流图、 UML图</td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="分析">分析
 </h4><p>精化和分析软件需求：循序渐进地获得软件需求细节，进而逐步得到详细的软件需求</p>
 <p>策略和手段</p>
@@ -834,34 +920,42 @@
 <p>要点：</p>
 <ol>
 <li>认为客观世界是由各种对象组成的，任何事物都是对象，复杂的对象可以由比较简单的对象以某种方式组合而成。</li>
-<li>把所有对象都划分成各种对象类（类CLASS），每个对象类都定义了一组数据和一组方法。</li>
+<li>把所有对象都划分成各种对象类，每个对象类都定义了一组数据和一组方法。</li>
 <li>按照子类（派生类）和父类（基类）的继承关系，把若干个对象类组成一个层次结构的系统（类等级） 。</li>
 <li>对象彼此之间仅能通过传递消息互相联系。</li>
 </ol>
-<p>核心概念</p>
-$$\text{OO=Objects + Classes + Inheritance + Communication with message}$$<p>即</p>
-$$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
-<li>如果仅使用对象和消息的方法：基于对象的方法。</li>
-<li>如果进一步要求把所有对象划分为类：基于类的方法。</li>
-<li>同时使用对象，类，继承，消息的方法：真正面向对象的方法。</li>
+$$\text{OO=Objects + Classes + Inheritance + Communication with message}$$$$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <ul>
+<li>基于对象的方法：仅使用对象和消息。</li>
+<li>基于类的方法：进一步要求把所有对象划分为类。</li>
+<li>真正面向对象的方法：同时使用对象，类，继承，消息。</li>
 </ul>
-<h4 id="对象与类">对象与类
+        </div>
+    </blockquote>
+<h3 id="核心概念">核心概念
+</h3><h4 id="对象与类">对象与类
 </h4><p>对象是具体、有意义的、存在的实体，是个体或者事物抽象表示，它具备两个要素：</p>
 <ul>
-<li>属性（(Attribute)：对象的性质，其值定义了对象状态。</li>
-<li>操作（Operation）：也称方法，对象行为，表示对象提供的服务。</li>
+<li>属性（Attribute）：对象的性质，其值定义了对象状态。</li>
+<li>操作（Operation）：也称方法、对象行为，表示对象提供的服务。</li>
 </ul>
 
     <blockquote>
         <p>面向对象方法学中的对象是由描述该对象属性的数据，以及可以对这些数据施加的所有操作封装在一起构成的统一体。 对象可以做的操作表示对象的动态行为。</p>
 <p>对象如同一个黑盒，只能通过对象与外界的界面来操作它，实现对象操作的代码和数据是隐藏在对象内部的。使用对象时只需知道它向外界提供的接口形式， 而无须知道内部的具体算法，不仅使对象变得非常简单、方便，而且具有很高的安全性和可靠性。</p>
+<p><img alt="对象的形象表示" class="gallery-image" data-flex-basis="783px" data-flex-grow="326" height="314" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BD%A2%E8%B1%A1%E8%A1%A8%E7%A4%BA.png" srcset="/passage/software/engineering/requirement_analysis/images/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BD%A2%E8%B1%A1%E8%A1%A8%E7%A4%BA_hu_9829819c474e4b81.png 800w, /passage/software/engineering/requirement_analysis/images/%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BD%A2%E8%B1%A1%E8%A1%A8%E7%A4%BA.png 1025w" width="1025"></p>
 
     </blockquote>
 <p>类是对一组具有相同特征对象的抽象，将具有相同特征的对象组织为一类，封装了属性和操作。</p>
 <p>对象与类的关系：</p>
 <ul>
 <li>对象是类的实例，类是创建对象的模板</li>
-<li>类是静态的抽象；对象是动态、可运行的实体</li>
+<li>类是静态的抽象，对象是动态、可运行的实体</li>
 </ul>
 <h4 id="消息">消息
 </h4><p>消息传递是实现对象间通讯和协作的基本手段，一个对象通过向另一个对象发送消息来请求其服务。消息具备接收对象名、操作名和参数。</p>
@@ -870,6 +964,30 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 <li>同步消息：请求者需要等待响应者的处理结果。</li>
 <li>异步消息：请求者发出消息后继续工作，无需等待。</li>
 </ul>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>例如：<code>MyCircle</code>是一个半径为 $4$，圆心位于 $(100, 200)$ 的<code>Circle</code>对象（也就是<code>Circle</code>类的一个实例）。当要求它以绿色显示时，在 C++ 中应发出以下消息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">MyCircle</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">Green</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中：</p>
+<ul>
+<li><code>MyCircle</code>是接受消息的对象的名字；</li>
+<li><code>Show</code>是消息选择符（消息名）；</li>
+<li><code>Green</code>是消息的变元；</li>
+</ul>
+<p>当<code>MyCircle</code>接受到这个消息后，将执行在<code>Circle</code>类中定义的<code>Show</code>操作。</p>
+        </div>
+    </blockquote>
 <h4 id="封装">封装
 </h4><p>面向对象的程序中把数据和实现操作的代码集中起来放在对象内部。使用一个对象的时候，只需知道它向外界提供的接口形式，而无需知道它的数据结构细节和实现操作的算法。</p>
 <p>具有封装性的条件：</p>
@@ -881,17 +999,19 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 <h4 id="继承">继承
 </h4><p>继承表示类与类间的一般与特殊关系，子（特殊）类可共享父（一般）类的属性和操作。继承刻画了类间的内在联系以及对属性和操作的共享，子类也可以有自己的独特属性和操作。</p>
 <p>借助继承可形成系统的层次化类结构。</p>
-<p>继承具有传递性，如果类 $C$ 继承类 $B$，类 $B$ 继承类 $A$，则类 $C$ 继承类 $A$</p>
+<p>继承具有传递性：如果类 $C$ 继承类 $B$，类 $B$ 继承类 $A$，则类 $C$ 继承类 $A$</p>
+<p><img alt="继承的传递性" class="gallery-image" data-flex-basis="448px" data-flex-grow="186" height="667" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%A0%E9%80%92%E6%80%A7.png" srcset="/passage/software/engineering/requirement_analysis/images/%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%A0%E9%80%92%E6%80%A7_hu_a431af1efa06e7b0.png 800w, /passage/software/engineering/requirement_analysis/images/%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%A0%E9%80%92%E6%80%A7.png 1246w" width="1246"></p>
+<p>子类也可以同时继承多个父类。</p>
 <h4 id="多态">多态
 </h4><p>操作的外部接口定义形式相同，但是内部实现方式不一样。一个父类包含了一个被子类覆盖的方法，通过一个父类的引用值来引用其不同的子类对象，父类引用在调用被覆盖方法时，不同子类对象的方法将会执行。</p>
-<p>多态的执行方式：从具体子类开始，沿继承结构向上找，直至发现为止。</p>
-<p>多态性的三个特征:</p>
+<p>多态的执行方式：从具体子类开始，沿继承结构向上找，直至发现为止。也就是说，同一个消息发送给不同的对象时，每个类对象将根据自己定义的具体操作去执行，从而产生不同的结果。</p>
+<p>多态性的三个特征：</p>
 <ol>
 <li>一个父类包含了一个被子类覆盖的方法，</li>
 <li>一个父类的引用值来引用其不同的子类对象，</li>
 <li>父类引用在调用被覆盖方法时，不同子类对象的方法将会执行。</li>
 </ol>
-<p>多态增加了面向对象软件系统的灵活性， 进一步减少了数据冗余， 而且显著提高了软件的可重用性和可扩充性。</p>
+<p>多态增加了面向对象软件系统的灵活性，进一步减少了数据冗余，而且显著提高了软件的可重用性和可扩充性。</p>
 <p>例如，在如下的Java程序中，定义了3个类：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1114,13 +1234,77 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li><code>JavaExample1</code>中，<code>B</code>为<code>A</code>的子类，上面的<code>a</code>首先被声明为一个<code>A</code>类型的引用，并指向一个<code>B</code>类型的对象， 接下来把<code>A</code>类引用通过向下转型变成一个<code>B</code>类引用， 从而有权利去调用<code>B</code>类中非共有的方法。</li>
-<li><code>JavaExample2</code>中， A类型引用指向的是一个A类对象，把<code>A</code>类引用转换成<code>B</code>类引用，此时就可以发送调用<code>B</code>类方法的命令给指向的对象。但是，<code>A</code>类对象却并不包含B类中<code>fun3()</code>方法，因此就会出错。</li>
+<li><code>JavaExample1</code>中，<code>B</code>为<code>A</code>的子类，上面的<code>a</code>首先被声明为一个<code>A</code>类型的引用，并指向一个<code>B</code>类型的对象，接下来把<code>A</code>类引用通过向下转型变成一个<code>B</code>类引用，从而有权利去调用<code>B</code>类中非共有的方法。</li>
+<li><code>JavaExample2</code>中，<code>A</code>类型引用指向的是一个<code>A</code>类对象，把<code>A</code>类引用转换成<code>B</code>类引用，此时就可以发送调用<code>B</code>类方法的命令给指向的对象。但是，<code>A</code>类对象却并不包含<code>B</code>类中<code>fun3()</code>方法，因此就会出错。</li>
 </ul>
 <h4 id="覆盖与重载">覆盖与重载
 </h4><p>覆盖：子类增加或重新定义所继承的属性或方法，从而用新定义的属性和方法来覆盖所继承的、来自父类中的属性或方法。</p>
-<p>重载：一个类中有多个同名操作，但它们在操作数或操作数类型上有区别，系统根据实参引用不同方法。</p>
-<h3 id="描述初步软件需求">描述初步软件需求
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Value is:&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">address</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 子类B重新定义所继承的方法 getValue</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Value is:&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">address</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>重载：一个类中有多个同名操作，但它们在操作数或操作数类型上有区别，系统根据实参引用不同方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setValue</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">agePara</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agePara</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setValue</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">namePara</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">namePara</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="描述初步软件需求">描述初步软件需求
 </h3><p>初步的软件需求之所以称之为是初步的，是因为这些软件需求还很粗略，只是一个初步的需求轮廓，不够具体和详尽，可能有遗漏，会存在不一致和相冲突等问题，后续还需要对其开展进一步的精化和分析</p>
 <p>描述需求：记录下来、描述清楚，形成相关的软件文档，以便于不同人员（如需求工程师、用户、客户等）之间的交流和讨论，及时发现需求理解上存在的偏差，支持后续的需求分析工作。</p>
 <h4 id="自然语言描述">自然语言描述
@@ -1151,7 +1335,8 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
             <span class="alert-title">备注</span>
         </div>
         <div class="alert-body">
-            <ul>
+            <p>UML 的含义：</p>
+<ul>
 <li>Unified（统一）：提取不同方法中最好建模技术，如OMT(James Rumbaugh)，Boochmethod(Grady Booch)和OOSE(Ivar Jacobson)；采用统一、标准化的表示方式，支持不同人员之间的交流；</li>
 <li>Modeling（建模）：基于面向对象的概念和抽象，对现实系统和软件系统进行可视化建模；</li>
 <li>Language（语言）：提供图形化的图符，用来表示软件系统的一种语言。</li>
@@ -1174,7 +1359,7 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 </ul>
 </li>
 </ul>
-<p><img alt="用例图-系统" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="404" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E7%94%A8%E4%BE%8B%E5%9B%BE-%E7%B3%BB%E7%BB%9F.png" width="634"></p>
+<p><img alt="用例图-系统" class="gallery-image" data-flex-basis="376px" data-flex-grow="156" height="404" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E7%94%A8%E4%BE%8B%E5%9B%BE-%E7%B3%BB%E7%BB%9F.png" width="634"></p>
 <ul>
 <li>执行者（参与者）：
 <ul>
@@ -1185,7 +1370,7 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 </ul>
 </li>
 </ul>
-<p><img alt="用例图-执行者" class="gallery-image" data-flex-basis="171px" data-flex-grow="71" height="327" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E7%94%A8%E4%BE%8B%E5%9B%BE-%E6%89%A7%E8%A1%8C%E8%80%85.png" width="234"></p>
+<p><img alt="用例图-执行者" class="gallery-image" data-flex-basis="171px" data-flex-grow="71" height="327" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E7%94%A8%E4%BE%8B%E5%9B%BE-%E6%89%A7%E8%A1%8C%E8%80%85.png" width="234"></p>
 <ul>
 <li>
 <p>用例</p>
@@ -1203,22 +1388,51 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 </li>
 <li>
 <p>模型元素间关系：</p>
-<ul>
-<li>扩展关系向一个用例中添加一些动作后构成了另一个用例，后者继承前者的一些行为，通常把后者称为扩展用例， 用例之间的扩展关系图示为带构造型<code>&lt;&lt;extend&gt;&gt;</code>的关系</li>
-<li>包含关系：当一个用例包含另一个用例的全部步骤时，这两个用例之间就构成了包含关系，用带构造型 <code>&lt;&lt;include&gt;&gt;</code> 的关系表示</li>
-<li>泛化关系：一个一般用况与一个更特殊的用况之间的关系，特殊用况可继承一般用况的特征，用 <code>-----&gt;</code> 表示</li>
-</ul>
 </li>
 </ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>关系</th>
+          <th>描述</th>
+          <th>符号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>扩展关系</td>
+          <td>向一个用例中添加一些动作后构成了另一个用例，后者继承前者的一些行为，通常把后者称为扩展用例</td>
+          <td><code>&lt;&lt;extend&gt;&gt;</code></td>
+      </tr>
+      <tr>
+          <td>包含关系</td>
+          <td>当一个用例包含另一个用例的全部步骤时，这两个用例之间就构成了包含关系</td>
+          <td><code>&lt;&lt;include&gt;&gt;</code></td>
+      </tr>
+      <tr>
+          <td>泛化关系</td>
+          <td>一个一般用况与一个更特殊的用况之间的关系，特殊用况可继承一般用况的特征</td>
+          <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- 实线 -->
+    <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" />
+    <!-- 空心三角形 -->
+    <polygon points="240,25 290,50 240,75" fill="none" stroke="currentColor" stroke-width="3" />
+</svg></span></td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img alt="用例图的案例" class="gallery-image" data-flex-basis="388px" data-flex-grow="161" height="622" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E7%94%A8%E4%BE%8B%E5%9B%BE%E7%9A%84%E6%A1%88%E4%BE%8B.png" srcset="/passage/software/engineering/requirement_analysis/images/%E7%94%A8%E4%BE%8B%E5%9B%BE%E7%9A%84%E6%A1%88%E4%BE%8B_hu_b8570f76ad261b3e.png 800w, /passage/software/engineering/requirement_analysis/images/%E7%94%A8%E4%BE%8B%E5%9B%BE%E7%9A%84%E6%A1%88%E4%BE%8B.png 1006w" width="1006"></p>
 <h2 id="需求分析过程">需求分析过程
-</h2><p><img alt="需求分析过程" class="gallery-image" data-flex-basis="1006px" data-flex-grow="419" height="406" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B_hu_3ceedf9466a28e36.png 800w, /passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B_hu_10b2e5a4e90f8437.png 1600w, /passage/software/engineering/requirement_analysis_oo/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B.png 1703w" width="1703"></p>
+</h2><p><img alt="需求分析过程" class="gallery-image" data-flex-basis="1006px" data-flex-grow="419" height="406" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B_hu_3ceedf9466a28e36.png 800w, /passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B_hu_10b2e5a4e90f8437.png 1600w, /passage/software/engineering/requirement_analysis/images/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B.png 1703w" width="1703"></p>
 <h3 id="软件需求优先级">软件需求优先级
-</h3><p>从用户和客户的视角，软件需求的重要性是不一样的。</p>
+</h3><h4 id="重要性">重要性
+</h4><p>从用户和客户的视角，软件需求的重要性是不一样的。</p>
 <ul>
 <li>核心软件需求：在解决问题方面起到举足轻重的作用，提供了软件系统所特有的功能和服务，体现了软件系统的特色和优势</li>
 <li>外围软件需求：提供了次要、辅助性的功能和服务</li>
 </ul>
-<p>用户对实现这些软件需求的优先级要求也不一样：有些软件需求需要优先实现， 尽早交付给用户使用，以发挥其价值；有些软件需求可以滞后实现，晚点交付使用</p>
+<h4 id="分析过程">分析过程
+</h4><p>用户对实现这些软件需求的优先级要求也不一样：有些软件需求需要优先实现， 尽早交付给用户使用，以发挥其价值；有些软件需求可以滞后实现，晚点交付使用</p>
 <p>优先级的考虑因素：</p>
 <ul>
 <li>结合软件项目开发的具体约束，考虑不同软件需求的重要性，确定软件需求的实现优先级，确保在整个迭代开发中有计划、有重点地实现软件需求</li>
@@ -1387,11 +1601,16 @@ $$\text{面向对象 = 对象 + 类 + 继承 + 传递消息}$$<ul>
 </article>
             
                 
-<article class="">
+<article class="has-image">
     <a href="/passage/software/engineering/">
         
+        <div class="article-image">
+            <img alt="Featured image of post 软件工程" height="150" loading="lazy" src="/passage/software/engineering/vectorelements-lyKf9UWWrdg-unsplash_hu_9fde3a3faea8c704.jpg" srcset="/passage/software/engineering/vectorelements-lyKf9UWWrdg-unsplash_hu_9fde3a3faea8c704.jpg 1x, /passage/software/engineering/vectorelements-lyKf9UWWrdg-unsplash_hu_6afc0357a983478.jpg 2x" width="250">
 
-        <div class="article-details">
+        </div>
+        
+
+        <div class="article-details"style="background: linear-gradient(0deg, #10a5d880 0%, #f7f8fbC0 100%);">
             <h2 class="article-title">软件工程</h2>
         </div>
     </a>
