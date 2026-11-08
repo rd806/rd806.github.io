@@ -342,15 +342,12 @@
   <ol>
     <li><a href="#软件体系结构设计">软件体系结构设计</a>
       <ol>
-        <li><a href="#分层体系结构">分层体系结构</a>
-          <ol>
-            <li><a href="#管道与过滤器风格">管道与过滤器风格</a></li>
-            <li><a href="#黑板风格">黑板风格</a></li>
-            <li><a href="#mvc风格">MVC风格</a></li>
-            <li><a href="#soa风格">SOA风格</a></li>
-            <li><a href="#消息总线风格">消息总线风格</a></li>
-          </ol>
-        </li>
+        <li><a href="#分层体系结构">分层体系结构</a></li>
+        <li><a href="#管道与过滤器风格">管道与过滤器风格</a></li>
+        <li><a href="#黑板风格">黑板风格</a></li>
+        <li><a href="#mvc风格">MVC风格</a></li>
+        <li><a href="#soa风格">SOA风格</a></li>
+        <li><a href="#消息总线风格">消息总线风格</a></li>
       </ol>
     </li>
     <li><a href="#用户界面设计">用户界面设计</a>
@@ -360,7 +357,13 @@
         <li><a href="#用户界面元素及实现方式">用户界面元素及实现方式</a></li>
       </ol>
     </li>
-    <li><a href="#软件详细设计">软件详细设计</a></li>
+    <li><a href="#软件详细设计">软件详细设计</a>
+      <ol>
+        <li><a href="#结构化流程图">结构化流程图</a></li>
+        <li><a href="#pad图">PAD图</a></li>
+        <li><a href="#设计模式类型">设计模式类型</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -569,7 +572,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 6 分钟
+                        阅读时长: 7 分钟
                     </time>
                 
             </div>
@@ -598,15 +601,12 @@
   <ol>
     <li><a href="#软件体系结构设计">软件体系结构设计</a>
       <ol>
-        <li><a href="#分层体系结构">分层体系结构</a>
-          <ol>
-            <li><a href="#管道与过滤器风格">管道与过滤器风格</a></li>
-            <li><a href="#黑板风格">黑板风格</a></li>
-            <li><a href="#mvc风格">MVC风格</a></li>
-            <li><a href="#soa风格">SOA风格</a></li>
-            <li><a href="#消息总线风格">消息总线风格</a></li>
-          </ol>
-        </li>
+        <li><a href="#分层体系结构">分层体系结构</a></li>
+        <li><a href="#管道与过滤器风格">管道与过滤器风格</a></li>
+        <li><a href="#黑板风格">黑板风格</a></li>
+        <li><a href="#mvc风格">MVC风格</a></li>
+        <li><a href="#soa风格">SOA风格</a></li>
+        <li><a href="#消息总线风格">消息总线风格</a></li>
       </ol>
     </li>
     <li><a href="#用户界面设计">用户界面设计</a>
@@ -616,7 +616,13 @@
         <li><a href="#用户界面元素及实现方式">用户界面元素及实现方式</a></li>
       </ol>
     </li>
-    <li><a href="#软件详细设计">软件详细设计</a></li>
+    <li><a href="#软件详细设计">软件详细设计</a>
+      <ol>
+        <li><a href="#结构化流程图">结构化流程图</a></li>
+        <li><a href="#pad图">PAD图</a></li>
+        <li><a href="#设计模式类型">设计模式类型</a></li>
+      </ol>
+    </li>
   </ol>
 
             </nav>
@@ -651,8 +657,20 @@
 <li>客户端：向服务器发出请求（数据请求、网页请求、文件传输请求）</li>
 <li>服务器：响应请求，进行相应的操作，将结果回传给客户机，客户机再将格式化后的结果呈现给用户。</li>
 </ul>
-<h4 id="管道与过滤器风格">管道与过滤器风格
-</h4><ul>
+<p>三级/多级应用模型</p>
+<ul>
+<li>第一级：数据库管理结点。</li>
+<li>第二级（中间级）：“商业逻辑结点”，指具体应用中实施的程序逻辑和法则。中间层会用到应用服务，包括事务服务、消息服务等等。常见的事务服务器有MicrosoftTransaction Server，消息服务器有 Microsoft Message Queue。</li>
+<li>第三级：客户端。</li>
+</ul>
+<h3 id="管道与过滤器风格">管道与过滤器风格
+</h3><p>特点</p>
+<ul>
+<li>自然地解决具有数据流特征的软件需求</li>
+<li>可独立地更新、升级过滤器来实现软件系统的扩展和进化</li>
+</ul>
+<p>要素：</p>
+<ul>
 <li>构件：将软件功能实现为一系列处理步骤，每个步骤封装在一个过滤器构件中</li>
 <li>连接子：相邻过滤器间以管道连接，一个过滤器的输出数据借助管道流向后续过滤器，作为其输入数据。</li>
 <li>数据
@@ -663,7 +681,7 @@
 </ul>
 </li>
 </ul>
-<p>约束</p>
+<p>约束：</p>
 <ul>
 <li>过滤器与管道之间的协作方式
 <ul>
@@ -672,24 +690,21 @@
 <li>管道负责提取位于其源端过滤器的输出数据</li>
 </ul>
 </li>
-</ul>
-<p>设计考虑</p>
+<li>设计考虑
 <ul>
 <li>如果管道连接的两端均为主动过滤器，那么管道必须负责它们之间的同步，典型的同步方法是先进先出缓冲器</li>
 <li>如果管道的一端为主动过滤器，另一端为被动过滤器，那么管道的数据流转功能可通过前者直接调用后者来实现</li>
 </ul>
-<p>特点</p>
-<ul>
-<li>自然地解决具有数据流特征的软件需求</li>
-<li>可独立地更新、升级过滤器来实现软件系统的扩展和进化</li>
+</li>
 </ul>
-<h4 id="黑板风格">黑板风格
-</h4><p>将软件系统划分为黑板、知识源和控制器三类构件</p>
+<h3 id="黑板风格">黑板风格
+</h3><p>将软件系统划分为黑板、知识源和控制器三类构件：</p>
 <ul>
 <li>黑板：负责保存问题求解过程中的状态数据，并提供这些数据的读写服务</li>
 <li>知识源：负责根据黑板中存储的问题求解状态评价其自身的可应用性，进行部分问题求解工作，并将此工作的结果数据写入黑板</li>
 <li>控制器：负责监视黑板中不断更新的状态数据，安排（多个）知识源的活动。</li>
 </ul>
+<p><img alt="黑板风格" class="gallery-image" data-flex-basis="451px" data-flex-grow="188" height="814" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E9%BB%91%E6%9D%BF%E9%A3%8E%E6%A0%BC.png" srcset="/passage/software/engineering/software_design_oo/images/%E9%BB%91%E6%9D%BF%E9%A3%8E%E6%A0%BC_hu_c855f42b619cc91f.png 800w, /passage/software/engineering/software_design_oo/images/%E9%BB%91%E6%9D%BF%E9%A3%8E%E6%A0%BC.png 1533w" width="1533"></p>
 <p>约束</p>
 <ul>
 <li>控制构件通过观察黑板中的状态数据来决定哪些知识源对后续的问题求解可能有所贡献，然后调用这些知识源的评价功能以选取参与下一步求解活动的知识源</li>
@@ -707,19 +722,20 @@
 </li>
 <li>缺陷：
 <ul>
-<li>为了共享数据 ,各子系统必须有一致的数据视图 ，不可避免地会影响了整个系统的性能。</li>
+<li>为了共享数据，各子系统必须有一致的数据视图，不可避免地会影响了整个系统的性能。</li>
 <li>子系统的改变，使产生的数据结构也可能发生改变。</li>
 <li>统一的数据库结构（备份、安全、访问控制和恢复的策），将影响子系统的效率。</li>
 </ul>
 </li>
 </ul>
-<h4 id="mvc风格">MVC风格
-</h4><ul>
+<h3 id="mvc风格">MVC风格
+</h3><p>要素：</p>
+<ul>
 <li>模型构件：负责存储业务数据并提供业务逻辑处理功能</li>
 <li>视图构件：负责向用户呈现模型中的数据</li>
 <li>控制器：在接获模型的业务逻辑处理结果后，负责选择适当的视图作为软件系统对用户的界面动作的响应。</li>
 </ul>
-<p>约束</p>
+<p>约束：</p>
 <ul>
 <li>创建视图，视图对象从模型中获取数据并呈现用户界面
 <ul>
@@ -730,8 +746,8 @@
 <li>控制器将用户界面事件转换为业务逻辑处理功能的调用；控制器根据模型的处理结果创建新的视图、选择其他视图或维持原有视图</li>
 <li>模型进行业务逻辑处理，将处理结果回送给控制器，必要时还需将业务数据变化事件通知给所有视图。</li>
 </ul>
-<h4 id="soa风格">SOA风格
-</h4><p>将软件系统的软构件抽象为一个个的服务（Service），每个服务封装了特定的功能并提供了对外可访问的接口</p>
+<h3 id="soa风格">SOA风格
+</h3><p>将软件系统的软构件抽象为一个个的服务（Service），每个服务封装了特定的功能并提供了对外可访问的接口</p>
 <p>任何一个服务既可以充当服务的提供方，接受其他服务的访问请求；也可充当服务的请求方，请求其他服务为其提供功能</p>
 <p>任何服务需要向服务注册中心进行注册登记，描述其可提供的服务以及访问方式，才可对外提供服务。</p>
 <p>特点</p>
@@ -740,30 +756,55 @@
 <li>允许任何一个服务在运行过程中所扮演角色的动态调整，支持服务集合在运行过程中的动态变化，因而具有非常强的灵活性</li>
 <li>提供了诸如UDDI、 SOAP、 WSDL等协议来支持服务的注册、描述和绑定等，因而可有效支持异构服务间的交互</li>
 </ul>
-<h4 id="消息总线风格">消息总线风格
-</h4><p>包含了一组软构件和一条称为“消息总线”的连接件来连接各个软构件</p>
+<h3 id="消息总线风格">消息总线风格
+</h3><p>包含了一组软构件和一条称为“消息总线”的连接件来连接各个软构件</p>
 <ul>
 <li>消息总线成为软构件之间的通信桥梁，实现各个软构件之间的消息发送、接收、转发、处理等功能</li>
 <li>每一个软构件通过接入总线，实现消息的发送和接收功能</li>
 </ul>
+<p><img alt="消息总线风格" class="gallery-image" data-flex-basis="707px" data-flex-grow="294" height="467" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF%E9%A3%8E%E6%A0%BC.png" srcset="/passage/software/engineering/software_design_oo/images/%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF%E9%A3%8E%E6%A0%BC_hu_b2dafd4ac16a4de7.png 800w, /passage/software/engineering/software_design_oo/images/%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF%E9%A3%8E%E6%A0%BC.png 1376w" width="1376"></p>
+<p>不同体系结构风格适合的应用</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>特点</th>
+          <th>典型应用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>管道/过滤器风格</td>
+          <td>数据驱动的分级处理，处理流程可灵活重组，过滤器可重用数据驱动的事务处理软件</td>
+          <td>编译器、Web服务请求等</td>
+      </tr>
+      <tr>
+          <td>层次风格</td>
+          <td>分层抽象、层次间耦合度低、层次的功能可重用和可替换</td>
+          <td>绝大部分的应用软件</td>
+      </tr>
+      <tr>
+          <td>MVC风格</td>
+          <td>模型、处理和显示的职责明确，构件间的关系局部化，各个软构件可重用</td>
+          <td>单机软件系统，Web应用软件系统</td>
+      </tr>
+      <tr>
+          <td>SOA风格</td>
+          <td>以服务作为基本的构件，支持异构构件之间的互操作，服务的灵活重用和组装</td>
+          <td>部署和运行在云平台上的软件系统</td>
+      </tr>
+      <tr>
+          <td>消息总线风格</td>
+          <td>提供统一的消息总线，支持异构构件之间的消息传递和处理</td>
+          <td>异构构件之间消息通信密集型的软件系统</td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="用户界面设计">用户界面设计
-</h2><p>人机交互部分的设计结果， 将对用户情绪和工作效率产生重要影响。</p>
+</h2><p>计算机软件与外界的交互方式：</p>
 <ul>
-<li>设计人机交互界面的准则：一致性、减少步骤、及时提供反馈信息、提供撤消命令、 无须记忆、易学、富有吸引力</li>
-<li>设计人机交互子系统的策略：
-<ul>
-<li>分类用户：按技能水平分类（初级／中级／高级）， 按职务分类（总经理／部门经理／职员）， 按工作性质分类（行政人员／技术人员），按专业知识分类（外专业／专业／系统员）</li>
-<li>描述用户： 应该仔细了解将来使用系统的每类用户的情况，把获得的下列各项信息记录下来：用户类型，特征（年龄、性别、受教育程度、限制因素等），关键的成功因素（需求，爱好，习惯等），技能水平，完成本职工作的脚本。</li>
-</ul>
-</li>
-<li>设计命令层次：
-<ul>
-<li>研究现有的人机交互含义和准则</li>
-<li>确定初始的命令层次</li>
-<li>精化命令层次</li>
-<li>设计人机交互类</li>
-</ul>
-</li>
+<li>通过软件接口与其他的软件系统进行交互</li>
+<li>通过人机交互与软件用户进行输入和输出</li>
 </ul>
 <h3 id="人机交互的常见方式">人机交互的常见方式
 </h3><div class="table-wrapper"><table>
@@ -803,7 +844,7 @@
 <li>方便输入：快速、便捷、准确、友好的输入；鼠标、点击、选择等</li>
 <li>直观输出：直观、显式、可理解、简洁的输出；所见即所得、图形展示等</li>
 </ul>
-<p>以用户为中心设计用户界面</p>
+<p>以用户为中心设计用户界面：</p>
 <ul>
 <li>将用户特征作为用户界面设计决策的依据：识别用户及其特征；用户是谁，有何特点如操作习惯、文化背景、教育程度；分析用户与计算机系统之间的交互信息及合适的手段</li>
 <li>尽可能获得用户反馈并以此来改进和优化设计：如何来获得用户反馈？软件原型；从用户立场出发、便于用户理解和操作</li>
@@ -842,7 +883,29 @@
   </tbody>
 </table></div>
 <h2 id="软件详细设计">软件详细设计
-</h2>
+</h2><p>详细设计阶段的任务是开发一个可以直接转换为程序的软件表示，即对系统中每个模块的内部过程进行设计和描述。</p>
+<p>常用的描述方法工具</p>
+<ul>
+<li>流程图</li>
+<li>结构化流程图（N-S图）</li>
+<li>PAD图：问题分析图</li>
+<li>PDL 语言</li>
+</ul>
+<h3 id="结构化流程图">结构化流程图
+</h3><p>由顺序、选择、循环三种基本结构组成。</p>
+<p><img alt="N-S图" class="gallery-image" data-flex-basis="379px" data-flex-grow="158" height="726" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/N-S%E5%9B%BE.png" srcset="/passage/software/engineering/software_design_oo/images/N-S%E5%9B%BE_hu_8faac82f9fb2bfe6.png 800w, /passage/software/engineering/software_design_oo/images/N-S%E5%9B%BE.png 1149w" width="1149"></p>
+<h3 id="pad图">PAD图
+</h3><p>PAD图即问题分析图（problem Analysis Diagram）</p>
+<p><img alt="PAD图" class="gallery-image" data-flex-basis="408px" data-flex-grow="170" height="777" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/PAD%E5%9B%BE.png" srcset="/passage/software/engineering/software_design_oo/images/PAD%E5%9B%BE_hu_cf55a97a08025afc.png 800w, /passage/software/engineering/software_design_oo/images/PAD%E5%9B%BE.png 1323w" width="1323"></p>
+<h3 id="设计模式类型">设计模式类型
+</h3><p>23 种设计模式可以分为三大类：</p>
+<ul>
+<li>创建型模式：对象实例化的模式，用于解耦对象的实例化过程。</li>
+<li>结构型模式：把类或对象结合在一起形成一个更大的结构。</li>
+<li>行为型模式：类和对象如何交互，及划分责任和算法。</li>
+</ul>
+<p><img alt="设计模式" class="gallery-image" data-flex-basis="555px" data-flex-grow="231" height="656" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.png" srcset="/passage/software/engineering/software_design_oo/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_hu_aa33728a77cf3454.png 800w, /passage/software/engineering/software_design_oo/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.png 1519w" width="1519"></p>
+
 </section>
 
 
