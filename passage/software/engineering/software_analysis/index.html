@@ -729,7 +729,7 @@
   <tbody>
       <tr>
           <td>泛化</td>
-          <td>一种继承关系，表示一般与特殊的关系，它指定了子类如何继承父类的所有特征和行为</td>
+          <td>继承关系，表示一般与特殊的关系，它指定了子类如何继承父类的所有特征和行为</td>
           <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
     <!-- 实线 -->
     <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" />
@@ -739,7 +739,7 @@
       </tr>
       <tr>
           <td>实现</td>
-          <td>一种类与接口的关系，表示类是接口所有特征和行为的实现</td>
+          <td>类与接口的关系，表示类是接口所有特征和行为的实现</td>
           <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
     <!-- 虚线 -->
     <line x1="20" y1="50" x2="240" y2="50" stroke="currentColor" stroke-width="3" stroke-dasharray="12,8" />
@@ -769,7 +769,7 @@
       </tr>
       <tr>
           <td>依赖</td>
-          <td>一种使用的关系，即一个类的实现需要另一个类的协助，尽量不使用双向的互相依赖。代码体现为局部变量、方法的参数或者对静态方法的调用</td>
+          <td>使用的关系，即一个类的实现需要另一个类的协助，尽量不使用双向的互相依赖。代码体现为局部变量、方法的参数或者对静态方法的调用</td>
           <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
     <!-- 虚线 -->
     <line x1="20" y1="50" x2="280" y2="50" stroke="currentColor" stroke-width="3" stroke-dasharray="12,8" />
@@ -779,7 +779,7 @@
       </tr>
       <tr>
           <td>关联</td>
-          <td>一种拥有的关系，它使一个类知道另一个类的属性和方法。代码体现为成员变量</td>
+          <td>拥有的关系，它使一个类知道另一个类的属性和方法。双向的关联可以有两个箭头或者没有箭头，单向的关联只有一个箭头。代码体现为成员变量</td>
           <td><span class="inline-icon"><svg width="150" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
     <!-- 实线 -->
     <line x1="20" y1="50" x2="280" y2="50" stroke="currentColor" stroke-width="3" />
@@ -798,10 +798,7 @@
 <p>对象图通常只有名称和属性。对象名称的开头字母用小写。</p>
 <p><img alt="对象图示例" class="gallery-image" data-flex-basis="706px" data-flex-grow="294" height="460" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_2d87e18d3135db97.png 800w, /passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1355w" width="1355"></p>
 <h3 id="包图">包图
-</h3><ul>
-<li>包模型：刻画包间的构成和依赖关系。包可以包含一组具有逻辑关联的UML模型元素</li>
-<li>包间关系：构成关系、 依赖关系</li>
-</ul>
+</h3><p>包模型：刻画包间的构成和依赖关系。包可以包含一组具有逻辑关联的UML模型元素。</p>
 <p>包图可描述软件系统的高层结构，以结构化、层次化方式组织、管理大型的软件模型，使得分别处理不同包的开发团队之间的相互干扰程度降至最低。</p>
 <p><img alt="包图示例" class="gallery-image" data-flex-basis="236px" data-flex-grow="98" height="856" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%8C%85%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E5%8C%85%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_de04102c005a4393.png 800w, /passage/software/engineering/software_analysis/images/%E5%8C%85%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 845w" width="845"></p>
 <h3 id="状态图">状态图
@@ -811,24 +808,20 @@
 <li>活动：列出了处于该状态时要执行的事件和动作。</li>
 <li>事件：某时刻点发生、需要关注的瞬时刺激或触动。
 <ul>
-<li>事件名可以是包括三个标准事件在内的任何事件</li>
-<li>参数表表示该动作所需的参数</li>
-<li>警戒条件是布尔表达式</li>
-<li>动作表达式将执行的动作</li>
+<li>事件名：可以是包括三个标准事件在内的任何事件</li>
+<li>参数：表示该动作所需的参数</li>
+<li>警戒条件：布尔表达式</li>
+<li>动作表达式：将执行的动作</li>
 </ul>
 </li>
 </ul>
-<p><img alt="状态图的基本符号" class="gallery-image" data-flex-basis="579px" data-flex-grow="241" height="567" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png" srcset="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7_hu_f2ef5414bf143390.png 800w, /passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png 1369w" width="1369"></p>
-<p>活动区中事件的语法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">event-name (argument list) [guard-condition] /activity-expression
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>活动区中标准事件：</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>活动区中标准事件：</p>
 <ul>
 <li>entry事件：进入该状态时的特定动作</li>
 <li>exit事件：退出该状态时的特定动作</li>
@@ -841,7 +834,19 @@
 <li>时间型事件：到达特定时间点</li>
 <li>条件型事件：对象属性取值满足特定条件</li>
 </ul>
-<p>以下是电梯升降活动的状态图示例：</p>
+        </div>
+    </blockquote>
+<p><img alt="状态图的基本符号" class="gallery-image" data-flex-basis="579px" data-flex-grow="241" height="567" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png" srcset="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7_hu_f2ef5414bf143390.png 800w, /passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%AC%A6%E5%8F%B7.png 1369w" width="1369"></p>
+<p>活动区中事件的语法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">event-name (argument list) [guard-condition] /activity-expression
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以下是电梯升降活动的状态图示例：</p>
 <p><img alt="状态图示例" class="gallery-image" data-flex-basis="346px" data-flex-grow="144" height="833" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_add61ab00e2b5a44.png 800w, /passage/software/engineering/software_analysis/images/%E7%8A%B6%E6%80%81%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1204w" width="1204"></p>
 <h3 id="活动图">活动图
 </h3><p>活动图是状态图的一种特殊情况，这些状态大都处于活动状态。本质是一种流程图，它描述了活动到活动的控制流。交互图强调的是对象到对象的控制流，而活动图则强调的是从活动到活动的控制流。</p>
@@ -853,6 +858,7 @@
 <p><img alt="带对象流的活动图" class="gallery-image" data-flex-basis="277px" data-flex-grow="115" height="709" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%B8%A6%E5%AF%B9%E8%B1%A1%E6%B5%81%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE.png" srcset="/passage/software/engineering/software_analysis/images/%E5%B8%A6%E5%AF%B9%E8%B1%A1%E6%B5%81%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE_hu_bdec413438b39d6c.png 800w, /passage/software/engineering/software_analysis/images/%E5%B8%A6%E5%AF%B9%E8%B1%A1%E6%B5%81%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%9B%BE.png 821w" width="821"></p>
 <h3 id="顺序图">顺序图
 </h3><p>顺序图是交互图的一种，描述了对象之间消息发送的先后顺序，强调时间顺序。它的主要用途是把用例表达的需求，转化为进一步、更加正式层次的精细表达。用例常常被细化为一个或者更多的序列图。同时序列图更有效地描述如何分配各个类的职责以及各类具有相应职责的原因。</p>
+<p><img alt="顺序图示例" class="gallery-image" data-flex-basis="427px" data-flex-grow="177" height="567" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_38b7e951dd68d20e.png 800w, /passage/software/engineering/software_analysis/images/%E9%A1%BA%E5%BA%8F%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1009w" width="1009"></p>
 <p>顺序图的要素：</p>
 <ul>
 <li>描述对象间的消息交互序列：
@@ -871,7 +877,7 @@
 <li>异步消息：发送者在发送完消息后不等待接收方即继续自己的处理</li>
 <li>自消息：一个对象发送给自身的消息</li>
 <li>返回消息：某条消息处理已经完成，处理结果沿返回消息传回</li>
-<li>创建消息和销毁消息：消息传递目标对象的创建和删除</li>
+<li>创建和销毁消息：消息传递目标对象的创建和删除</li>
 </ul>
 </li>
 </ul>
@@ -883,11 +889,20 @@
 </h3><p>协作图是交互图的一种，描述了收发消息的对象的组织关系，强调对象之间的合作关系。协作图按照空间结构布图。</p>
 <p>通过在对象间的链接上标注带有消息标签的消息，来表示对象间的消息传递。书写消息标签的语法规则如下：</p>
 $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<p><img alt="协作图" class="gallery-image" data-flex-basis="552px" data-flex-grow="230" height="507" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%8D%8F%E4%BD%9C%E5%9B%BE.png" srcset="/passage/software/engineering/software_analysis/images/%E5%8D%8F%E4%BD%9C%E5%9B%BE_hu_8d9fc424f3716059.png 800w, /passage/software/engineering/software_analysis/images/%E5%8D%8F%E4%BD%9C%E5%9B%BE.png 1168w" width="1168"></p>
-<p>顺序图与协作图之间的关系</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>顺序图与协作图之间的关系</p>
 <ul>
 <li>共同点：二者都是用对象间的交互来描述用例的。</li>
-<li>不同点：时序图强调交互的时间次序。协作图强调交互的空间结构。</li>
+<li>不同点：时序图强调交互的时间次序，协作图强调交互的空间结构。</li>
 </ul>
+<p><img alt="顺序图与协作图的转换" class="gallery-image" data-flex-basis="937px" data-flex-grow="390" height="390" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E9%A1%BA%E5%BA%8F%E5%9B%BE%E4%B8%8E%E5%8D%8F%E4%BD%9C%E5%9B%BE%E7%9A%84%E8%BD%AC%E6%8D%A2.png" srcset="/passage/software/engineering/software_analysis/images/%E9%A1%BA%E5%BA%8F%E5%9B%BE%E4%B8%8E%E5%8D%8F%E4%BD%9C%E5%9B%BE%E7%9A%84%E8%BD%AC%E6%8D%A2_hu_ebadaa3afa5eaa4f.png 800w, /passage/software/engineering/software_analysis/images/%E9%A1%BA%E5%BA%8F%E5%9B%BE%E4%B8%8E%E5%8D%8F%E4%BD%9C%E5%9B%BE%E7%9A%84%E8%BD%AC%E6%8D%A2.png 1523w" width="1523"></p>
+        </div>
+    </blockquote>
 <h3 id="构件图">构件图
 </h3><p>构件图是用来表示系统中构件与构件之间，类或接口与构件之间的关系图。其中，构件图之间的关系表现为依赖关系，定义的类或接口与类之间的关系表现为依赖关系或实现关系。</p>
 <p><img alt="构建图" class="gallery-image" data-flex-basis="366px" data-flex-grow="152" height="824" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E6%9E%84%E5%BB%BA%E5%9B%BE.png" srcset="/passage/software/engineering/software_analysis/images/%E6%9E%84%E5%BB%BA%E5%9B%BE_hu_942489c760181cba.png 800w, /passage/software/engineering/software_analysis/images/%E6%9E%84%E5%BB%BA%E5%9B%BE.png 1259w" width="1259"></p>
@@ -906,16 +921,16 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
 <ul>
 <li>节点和连接
 <ul>
-<li>节点代表一个物理设备及在其上运行的软件系统， 用一个立方体来表示；</li>
+<li>节点代表一个物理设备及在其上运行的软件系统，用一个立方体来表示；</li>
 <li>节点间的连线表示系统之间进行交互的通信线路，在UML中称为连接。</li>
-<li>典型交互方式： 过程调用、远程过程调用（Remote Procedure Call， RPC）、消息传递、事件通知和广播、主题订阅等等</li>
+<li>典型交互方式： 过程调用、远程过程调用（Remote Procedure Call，RPC）、消息传递、事件通知和广播、主题订阅等等</li>
 <li>通信类型用构造型表示，写在表示连接的线旁，以指定所用的通信协议或网络类型</li>
 </ul>
 </li>
 <li>构件和接口
 <ul>
 <li>在部署图中，构件代表可执行的物理代码模块， 在逻辑上它可以与类图中的包或类对应；</li>
-<li>类、构件等元素对外提供的可见操作和属性称为接口， 接口用一端是小圆圈的直线来表示</li>
+<li>类、构件等元素对外提供的可见操作和属性称为接口，接口用一端是小圆圈的直线来表示</li>
 </ul>
 </li>
 </ul>
@@ -928,9 +943,10 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
 <li>通过连接描述组织的硬件网络结构；</li>
 <li>具有多种硬件和软件相关的系统运行模型</li>
 </ul>
+<p><img alt="部署图示例" class="gallery-image" data-flex-basis="471px" data-flex-grow="196" height="842" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E9%83%A8%E7%BD%B2%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E9%83%A8%E7%BD%B2%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_954ca7c3a9ea34f9.png 800w, /passage/software/engineering/software_analysis/images/%E9%83%A8%E7%BD%B2%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_fc27706c39fbc775.png 1600w, /passage/software/engineering/software_analysis/images/%E9%83%A8%E7%BD%B2%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1653w" width="1653"></p>
 <h2 id="软件分析的过程">软件分析的过程
 </h2><h3 id="面向对象的分析">面向对象的分析
-</h3><p>面向对象分析，就是抽取和整理用户需求， 并建立问题域精确模型的过程。</p>
+</h3><p>面向对象分析，就是抽取和整理用户需求，并建立问题域精确模型的过程。</p>
 <p>信息来源：需求陈述、应用领域的专业知识、关于客观世界的常识。</p>
 <p>面向对象建模得到的模型包含对象的三个要素（子模型）：</p>
 <div class="table-wrapper"><table>
@@ -959,8 +975,17 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
       </tr>
   </tbody>
 </table></div>
-<p>三种模型从三个不同的侧面描述了所要开发的系统。三种模型互相补充、互相配合，使我们对系统开发的认识更全面。</p>
+<p><img alt="面向对象分析的模型" class="gallery-image" data-flex-basis="599px" data-flex-grow="249" height="486" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E7%9A%84%E6%A8%A1%E5%9E%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E7%9A%84%E6%A8%A1%E5%9E%8B_hu_6dc1dd598cc520dc.png 800w, /passage/software/engineering/software_analysis/images/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E7%9A%84%E6%A8%A1%E5%9E%8B.png 1213w" width="1213"></p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>三种模型从三个不同的侧面描述了所要开发的系统。三种模型互相补充、互相配合，使我们对系统开发的认识更全面。</p>
 <p>用面向对象方法开发软件，在任何情况下，对象模型始终都是最重要、最基本、最核心的，描述了现实世界中的“类&amp;对象” 以及它们之间的关系，表示了目标系统的静态数据结构。</p>
+        </div>
+    </blockquote>
 <h3 id="构建对象模型">构建对象模型
 </h3><p>复杂问题（大型系统）的对象模型由下述五个层次组成：</p>
 <div class="table-wrapper"><table>
@@ -976,14 +1001,6 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
           <td>找出类&amp;对象</td>
       </tr>
       <tr>
-          <td>结构层</td>
-          <td>识别结构</td>
-      </tr>
-      <tr>
-          <td>主题层（范畴层）</td>
-          <td>识别主题</td>
-      </tr>
-      <tr>
           <td>属性层</td>
           <td>定义属性</td>
       </tr>
@@ -991,8 +1008,17 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
           <td>服务层</td>
           <td>定义服务</td>
       </tr>
+      <tr>
+          <td>结构层</td>
+          <td>识别结构</td>
+      </tr>
+      <tr>
+          <td>主题层（范畴层）</td>
+          <td>识别主题</td>
+      </tr>
   </tbody>
 </table></div>
+<p><img alt="对象模型的层次" class="gallery-image" data-flex-basis="253px" data-flex-grow="105" height="628" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B1%82%E6%AC%A1.png" width="663"></p>
 
     <blockquote>
         <p>此外，还包括反复修改。</p>
@@ -1063,7 +1089,7 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
 <li>是否需要增设属性来区别对象的不同状态；</li>
 <li>用什么属性来表示对象的整体—部分联系和实例连接。</li>
 </ul>
-<p>定义服务：服务是描述对象动态特征（行为）的一个操作序列。服务有名字和参数表，有可见性和返回类型。其中可见性的取值为+(公有的)、 #(受保护的)或-(私有的)。它包含以下两类：</p>
+<p>定义服务：服务是描述对象动态特征（行为）的一个操作序列。服务有名字和参数表，有可见性和返回类型。其中可见性的取值为<code>+</code>（公有的）、 <code>#</code>（受保护的）或<code>-</code>（私有的）。它包含以下两类：</p>
 <ul>
 <li>“做”型：自己完成某件任务，触发其他对象执行动作，控制和协调其他对象内的活动。</li>
 <li>“知道”型：知道自己的属性，知道与自己相关联的对象的信息，知道自己派生或计算出来的事物。</li>
@@ -1151,13 +1177,13 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
     </blockquote>
 <h4 id="画状态图">画状态图
 </h4><p>状态图描述一个对象在其生命期内响应事件所经历的状态序列， 以及对这些事件所做出的反应。</p>
-<p>状态用圆形框或椭圆表示，框内可标上状态名，行为在框内用关键字DO：表明。</p>
-<p>状态图即可以表示循环运行过程， 也可以表示单程生命周期。</p>
+<p>状态用圆形框或椭圆表示，框内可标上状态名，行为在框内用关键字<code>DO：</code>表明（参见<a class="link" href="#%e7%8a%b6%e6%80%81%e5%9b%be" >此处</a>）。</p>
 <ul>
 <li>事件：引起对象状态转换的控制信息， 是现实世界中的事件的抽象。</li>
 <li>状态：对象在其生命周期中的某个特定阶段所处的某种情形。</li>
 <li>行为：行为是指对象达到某种状态时所做的一系列处理操作。</li>
 </ul>
+<p>状态图既可以表示循环运行过程，也可以表示单程生命周期。</p>
 <h4 id="从事件导出服务">从事件导出服务
 </h4><p>在分析阶段可以认为，类中定义的每个属性都是可以访问的，也就是说，假设在每个类中都定义了读、写该类每个属性的操作。</p>
 <p>状态图中发往对象的事件也就是该对象接收到的消息，因此该对象必须有由消息选择符指定的操作，这个操作修改对象状态（即属性值）并启动相应的服务。</p>
@@ -1167,6 +1193,7 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
 <h4 id="基本系统模型">基本系统模型
 </h4><p>功能模型表明了系统中数据之间的依赖关系，以及有关的数据处理功能，它由一组数据流图组成。</p>
 <p>基本系统模型由若干个数据源点/终点及一个处理框组成，这个处理框代表了系统加工、变换数据的整体功能。基本系统模型指明了目标系统的边界。</p>
+<p><img alt="基本系统模型示例" class="gallery-image" data-flex-basis="667px" data-flex-grow="278" height="424" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B%E7%A4%BA%E4%BE%8B_hu_8635a07bcd94e7ad.png 800w, /passage/software/engineering/software_analysis/images/%E5%9F%BA%E6%9C%AC%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B%E7%A4%BA%E4%BE%8B.png 1179w" width="1179"></p>
 <h4 id="功能级数据流图">功能级数据流图
 </h4><p>把基本系统模型中单一的处理框分解成若干个处理框，以描述系统加工、变换数据的基本功能，就得到功能级数据流图。</p>
 <p>细化定义服务</p>
@@ -1174,6 +1201,7 @@ $$\text{前缀〔守卫条件〕 序列表达式 [返回值 ： =] 消息名}$$<
 <li>与数据流图中处理框对应的操作：数据流图中的每个处理框都与一个对象（也可能是若干个对象）上的操作相对应。应该仔细对照状态图和数据流图，以便更正确地确定对象应该提供的服务。</li>
 <li>利用继承减少冗余操作：应该尽量利用继承机制以减少所需定义的服务数目。只要不违背领域知识和常识，就尽量抽取出相似类的公共属性和操作，以建立这些类的新父类，并在类等级的不同层次中正确地定义各个服务</li>
 </ul>
+<p><img alt="功能级数据流图示例" class="gallery-image" data-flex-basis="330px" data-flex-grow="137" height="878" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_analysis/images/%E5%8A%9F%E8%83%BD%E7%BA%A7%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/software_analysis/images/%E5%8A%9F%E8%83%BD%E7%BA%A7%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%A4%BA%E4%BE%8B_hu_28c453f8b904f6cc.png 800w, /passage/software/engineering/software_analysis/images/%E5%8A%9F%E8%83%BD%E7%BA%A7%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%A4%BA%E4%BE%8B.png 1209w" width="1209"></p>
 
 </section>
 

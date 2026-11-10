@@ -699,10 +699,18 @@
 <li>技术：技术平台，如DBMS还是文件系统</li>
 </ul>
 <p>软件设计要给出软件需求实现的解决方案，处于承上启下的作用，是需求分析和软件实现间的桥梁。</p>
+
+    <blockquote>
+        <p>软件系统的解决方案</p>
+<ul>
+<li>描述了如何来构造和实现软件系统。如模块及其功能和接口、模块的组织、模块之间的交互、模块内部的算法、人机交互的界面和方式、数据结构设计、数据库的设计和组织等。</li>
+<li>软件系统的解决方案类似于软件实现图纸。</li>
+</ul>
+
+    </blockquote>
 <h3 id="软件设计的质量">软件设计的质量
 </h3><p>软件设计是一个创作的过程，一个软件需求会有多种软件设计方案。</p>
-<p>设计不仅要满足需求，还要有好的质量！要从多个利益相关者的角度来理解设计的“质量”，如用户、开发者、维护人员等</p>
-<p>设计要内外兼修，兼顾内在质量和外在质量。</p>
+<p>设计不仅要满足需求，还要有好的质量！要从多个利益相关者的角度来理解设计的“质量”，如用户、开发者、维护人员等；内外兼修，兼顾内在质量和外在质量。</p>
 <h3 id="软件设计的过程">软件设计的过程
 </h3><p><img alt="软件设计的过程" class="gallery-image" data-flex-basis="768px" data-flex-grow="320" height="537" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B_hu_d83a8d96d134b32f.png 800w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B_hu_9e41be1e42df0bfb.png 1600w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B.png 1719w" width="1719"></p>
 <h4 id="软件体系结构设计">软件体系结构设计
@@ -757,29 +765,42 @@
 </h3><p>抽象：在认识事物、分析和解决问题的过程中，忽略那些与当前研究目标不相关的部分，以便将注意力集中于与当前目标相关的方面，不要过早地考虑细节。</p>
 
     <blockquote>
-        <p>抽象是管理和控制复杂性的基本策略</p>
-
-    </blockquote>
+        <p>抽象是管理和控制复杂性的基本策略：</p>
 <ul>
 <li>软件开发就是一个从高层抽象到低层抽象逐步过渡过程。</li>
 <li>从高层设计到底层设计就是一个“逐步求精”的过程。</li>
 </ul>
+
+    </blockquote>
 <p><img alt="软件设计的抽象层次" class="gallery-image" data-flex-basis="583px" data-flex-grow="243" height="602" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B1%82%E6%AC%A1.png" srcset="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B1%82%E6%AC%A1_hu_179a32b3774370d.png 800w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B1%82%E6%AC%A1.png 1464w" width="1464"></p>
 <h3 id="模块化高内聚和低耦合原则">模块化、高内聚和低耦合原则
-</h3><p>将软件系统的整体结构分解为一组相关模块：模块：包、子系统、构件、类、方法等。每个模块实现单一的功能，通过模块之间的交互来组装模块，形成整体框架。</p>
+</h3><p>将软件系统的整体结构分解为一组相关模块：包、子系统、构件、类、方法等。每个模块实现单一的功能，通过模块之间的交互来组装模块，形成整体框架。</p>
 
     <blockquote>
-        <p>模块化设计体现了“分而治之”思想</p>
+        <p>模块化设计体现了“分而治之”思想。</p>
 
     </blockquote>
 <p>如何达成模块化：模块内部高内聚，模块之间低耦合</p>
+<blockquote class="alert alert-note">
+        <div class="alert-header">
+            <span class="alert-icon">📝</span>
+            <span class="alert-title">备注</span>
+        </div>
+        <div class="alert-body">
+            <p>软件工程基本定理</p>
 <p>设 $C(x)$ 表示复杂程度，$E(x)$ 为决定解决问题 $x$ 所需的工作量，$P_i$ 为使用的模块数，则有：</p>
 <ul>
 <li>$C(P_1) &gt; C(P_2)$，$E(P_1) &gt; E(P_2)$</li>
 <li>$C(P_1 + P_2) &gt; C(P_1) + C(P_2)$，$E(P_1 + P_2) &gt; E(P_1) + E(P_2)$</li>
 </ul>
 <p><img alt="软件工程基本定理" class="gallery-image" data-flex-basis="401px" data-flex-grow="167" height="875" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86.png" srcset="/passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86_hu_3a07971f671268b3.png 800w, /passage/software/engineering/software_design/images/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86.png 1465w" width="1465"></p>
+        </div>
+    </blockquote>
 <p>模块的独立性：软件系统中每个模块只涉及软件要求的具体的子功能，而和软件系统中其他模块的接口是简单的。这种类型的模块可以并行开发，减少错误的影响，使模块容易组合、修改及测试。</p>
+<ul>
+<li>内聚：用于描述模块内部联系的紧密程度。</li>
+<li>耦合：用于描述模块之间联系的紧密程度。</li>
+</ul>
 <h4 id="内聚">内聚
 </h4><div class="table-wrapper"><table>
   <thead>
@@ -810,6 +831,10 @@
           <td>模块内各成分对数据结构的同一区域操作。如果一个模块内各功能部分都使用了相同的输入数据，或产生了相同的输出数据。通常，通信内聚模块是通过数据流图来定义的</td>
       </tr>
       <tr>
+          <td>顺序内聚</td>
+          <td>模块内各成分与同一功能相关且顺序执行</td>
+      </tr>
+      <tr>
           <td>功能性内聚</td>
           <td>如果一个模块内所有成分都完成一个功能，则称这样的模块为功能模块</td>
       </tr>
@@ -823,7 +848,7 @@
 <p><img alt="耦合案例" class="gallery-image" data-flex-basis="321px" data-flex-grow="133" height="530" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E8%80%A6%E5%90%88%E6%A1%88%E4%BE%8B.png" width="710"></p>
 <h5 id="内容耦合">内容耦合
 </h5><p>内容耦合是最紧的耦合程度，一个模块使用另一模块内的数据和控制信息，或者直接转移到另一模块内执行。</p>
-<p>在案例中，则体现为将<code>m1</code>的输入放到<code>m2.m1input</code>上，将<code>m2</code>的输入放到<code>m1.m2input</code>上：</p>
+<p>在案例中体现为将<code>m1</code>的输入放到<code>m2.m1input</code>上，将<code>m2</code>的输入放到<code>m1.m2input</code>上：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -847,7 +872,7 @@
 </div><p><img alt="内容耦合" class="gallery-image" data-flex-basis="811px" data-flex-grow="338" height="252" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88.png" srcset="/passage/software/engineering/software_design/images/%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88_hu_f780d6a28d5df7a.png 800w, /passage/software/engineering/software_design/images/%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88.png 852w" width="852"></p>
 <h5 id="公共耦合">公共耦合
 </h5><p>模块间通过全局数据环境相互作用，称为公共耦合。</p>
-<p>在案例中，则体现为<code>m1</code>和<code>m2</code>将自己的输入放到全局的<code>data</code>上：</p>
+<p>在案例中体现为<code>m1</code>和<code>m2</code>将自己的输入放到全局的<code>data</code>上：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -870,8 +895,8 @@
 </div>
 </div><p><img alt="公共耦合" class="gallery-image" data-flex-basis="500px" data-flex-grow="208" height="377" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%85%AC%E5%85%B1%E8%80%A6%E5%90%88.png" width="786"></p>
 <h5 id="外部耦合">外部耦合
-</h5><p>一组模块都访问同一全局简单变量，而且不通过参数表传递该全局变量的信息，则称之为外部耦合。它和公共耦合很像，区别就是一个是简单变量，一个是复杂数据结构。</p>
-<p>在案例中，则体现为<code>m1</code>和<code>m2</code>都将自己的输入放在全局上。</p>
+</h5><p>一组模块都访问同一全局简单变量，而且不通过参数表传递该全局变量的信息，则称之为外部耦合。它和公共耦合很像，区别在于前者是简单变量，后者是复杂数据结构。</p>
+<p>在案例中体现为<code>m1</code>和<code>m2</code>都将自己的输入放在全局上：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -894,8 +919,8 @@
 </div>
 </div><p><img alt="外部耦合" class="gallery-image" data-flex-basis="576px" data-flex-grow="240" height="290" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E5%A4%96%E9%83%A8%E8%80%A6%E5%90%88.png" width="696"></p>
 <h5 id="控制耦合">控制耦合
-</h5><p>模块之间传递的不是数据信息，而是控制信息例如标志、开关量等，一个模块控制了另一个模块的功能。从控制耦合开始，模块的数据就放在自己内部了，不同模块之间通过接口互相调用。</p>
-<p>在案例中，则体现为当<code>m1</code>的输入为空时，隐藏<code>m2</code>的信息：</p>
+</h5><p>模块之间传递的不是数据信息，而是控制信息（标志、开关量等），一个模块控制了另一个模块的功能。从控制耦合开始，模块的数据就放在自己内部了，不同模块之间通过接口互相调用。</p>
+<p>在案例中体现为当<code>m1</code>的输入为空时，隐藏<code>m2</code>的信息：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -919,7 +944,7 @@
 </div><p><img alt="控制耦合" class="gallery-image" data-flex-basis="482px" data-flex-grow="201" height="330" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E6%8E%A7%E5%88%B6%E8%80%A6%E5%90%88.png" width="664"></p>
 <h5 id="标记耦合">标记耦合
 </h5><p>调用模块和被调用模块之间传递数据结构而不是简单数据，也称作特征耦合。</p>
-<p>在案例中，体现为<code>m1</code>传递给<code>m2</code>一个对象：</p>
+<p>在案例中体现为<code>m1</code>传递给<code>m2</code>一个对象：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -943,7 +968,7 @@
 </div><p><img alt="标记耦合" class="gallery-image" data-flex-basis="603px" data-flex-grow="251" height="302" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E6%A0%87%E8%AE%B0%E8%80%A6%E5%90%88.png" width="760"></p>
 <h5 id="数据耦合">数据耦合
 </h5><p>调用模块和被调用模块之间只传递简单的数据项参数，相当于高级语言中的值传递。</p>
-<p>在案例中，体现为<code>m1</code>传递给<code>m2</code>一个简单数据结构：</p>
+<p>在案例中体现为<code>m1</code>传递给<code>m2</code>一个简单数据结构：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1015,7 +1040,11 @@
 </div><p><img alt="非直接耦合" class="gallery-image" data-flex-basis="253px" data-flex-grow="105" height="577" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design/images/%E9%9D%9E%E7%9B%B4%E6%8E%A5%E8%80%A6%E5%90%88.png" width="610"></p>
 <h3 id="信息隐藏原则">信息隐藏原则
 </h3><p>模块应该设计得使其所含的信息对那些不需要这信息的模块不可访问；模块间仅仅交换那些为完成系统功能所必需交换的信息。</p>
-<p>例如，模块只提供对外接口，不提供内部实现细节；某些方法或属性设计为<code>private</code></p>
+
+    <blockquote>
+        <p>例如，模块只提供对外接口，不提供内部实现细节；某些方法或属性设计为<code>private</code>。</p>
+
+    </blockquote>
 <p>优点：</p>
 <ul>
 <li>模块的独立性更好</li>
@@ -1028,7 +1057,7 @@
 <p>关注点分离：设计师将若干性质不同的关注点分离开来，以便在适当的时间处理不同的关注点，随后将这些关注点整合起来，形成局部或者全局性的设计结果，防止“胡子眉毛一把抓”。</p>
 <h3 id="软件重用原则">软件重用原则
 </h3><p>尽可能地重用已有的软件资产来实现软件系统的功能，同时要确保所开发的软件系统易于为其他软件系统所重用。</p>
-<p>支持软件重用的技术手段：封装、 接口、 继承、多态等</p>
+<p>支持软件重用的技术手段：封装、接口、继承、多态等。</p>
 <p>软件重用的对象</p>
 <ul>
 <li>过程和函数、类、软构件、开源软件。</li>
@@ -1077,7 +1106,7 @@
 </li>
 </ul>
 <h4 id="设计任务管理子系统">设计任务管理子系统
-</h4><p>分析并发性：通过面向对象分析建立起来的动态模型，是分析并发性的主要依据。如果两个对象彼此之间不存在交互， 或它们同时接受事件， 则这两个对象在本质上是并发的。</p>
+</h4><p>分析并发性：通过面向对象分析建立起来的动态模型，是分析并发性的主要依据。如果两个对象彼此之间不存在交互，或它们同时接受事件，则这两个对象在本质上是并发的。</p>
 <p>如何设计：</p>
 <ul>
 <li>确定事件驱动型任务</li>
@@ -1139,7 +1168,7 @@
 <li>设计不够详尽：未能提供设计细节性信息，导致程序员无法根据设计来开展编码工作</li>
 </ul>
 <h3 id="软件设计的评审">软件设计的评审
-</h3><p>谁参与评审：程序员、软件测试工程师、用户、质量保证人员、 设计工程师等</p>
+</h3><p>谁参与评审：程序员、软件测试工程师、用户、质量保证人员、设计工程师等</p>
 <p>评审内容：</p>
 <ul>
 <li>文档规范性，软件设计文档是否符合软件设计规格说明书</li>

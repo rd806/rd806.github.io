@@ -572,7 +572,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 7 分钟
+                        阅读时长: 8 分钟
                     </time>
                 
             </div>
@@ -664,12 +664,7 @@
 <li>第三级：客户端。</li>
 </ul>
 <h3 id="管道与过滤器风格">管道与过滤器风格
-</h3><p>特点</p>
-<ul>
-<li>自然地解决具有数据流特征的软件需求</li>
-<li>可独立地更新、升级过滤器来实现软件系统的扩展和进化</li>
-</ul>
-<p>要素：</p>
+</h3><p>要素：</p>
 <ul>
 <li>构件：将软件功能实现为一系列处理步骤，每个步骤封装在一个过滤器构件中</li>
 <li>连接子：相邻过滤器间以管道连接，一个过滤器的输出数据借助管道流向后续过滤器，作为其输入数据。</li>
@@ -681,29 +676,53 @@
 </ul>
 </li>
 </ul>
-<p>约束：</p>
+<p><img alt="管道与过滤器风格" class="gallery-image" data-flex-basis="464px" data-flex-grow="193" height="860" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E7%AE%A1%E9%81%93%E4%B8%8E%E8%BF%87%E6%BB%A4%E5%99%A8%E9%A3%8E%E6%A0%BC.png" srcset="/passage/software/engineering/software_design_oo/images/%E7%AE%A1%E9%81%93%E4%B8%8E%E8%BF%87%E6%BB%A4%E5%99%A8%E9%A3%8E%E6%A0%BC_hu_7cfa2b9abf51ad81.png 800w, /passage/software/engineering/software_design_oo/images/%E7%AE%A1%E9%81%93%E4%B8%8E%E8%BF%87%E6%BB%A4%E5%99%A8%E9%A3%8E%E6%A0%BC_hu_16a6cb1cf7f62ec7.png 1600w, /passage/software/engineering/software_design_oo/images/%E7%AE%A1%E9%81%93%E4%B8%8E%E8%BF%87%E6%BB%A4%E5%99%A8%E9%A3%8E%E6%A0%BC.png 1666w" width="1666"></p>
+<p>约束：过滤器与管道之间的协作方式</p>
 <ul>
-<li>过滤器与管道之间的协作方式
-<ul>
-<li>过滤器以循环的方式不断地从管道提取输入数据，并将其输出数据压入管道，称为主动过滤器</li>
-<li>管道将输入数据压入到位于其目标端过滤器，过滤器被动地等待数据，称为被动过滤器</li>
+<li>主动过滤器：过滤器以循环的方式不断地从管道提取输入数据，并将其输出数据压入管道</li>
+<li>被动过滤器：管道将输入数据压入到位于其目标端过滤器，过滤器被动地等待数据</li>
 <li>管道负责提取位于其源端过滤器的输出数据</li>
 </ul>
-</li>
-<li>设计考虑
+
+    <blockquote>
+        <p>设计考虑</p>
 <ul>
 <li>如果管道连接的两端均为主动过滤器，那么管道必须负责它们之间的同步，典型的同步方法是先进先出缓冲器</li>
 <li>如果管道的一端为主动过滤器，另一端为被动过滤器，那么管道的数据流转功能可通过前者直接调用后者来实现</li>
 </ul>
-</li>
+
+    </blockquote>
+<p>编译器采用的就是一个典型的管道/过滤器风格：</p>
+<p><img alt="编译器的体系结构" class="gallery-image" data-flex-basis="1005px" data-flex-grow="419" height="362" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" srcset="/passage/software/engineering/software_design_oo/images/%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84_hu_d579ccf4818d308c.png 800w, /passage/software/engineering/software_design_oo/images/%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png 1517w" width="1517"></p>
+<p>特点</p>
+<ul>
+<li>自然地解决具有数据流特征的软件需求</li>
+<li>可独立地更新、升级过滤器来实现软件系统的扩展和进化</li>
 </ul>
 <h3 id="黑板风格">黑板风格
 </h3><p>将软件系统划分为黑板、知识源和控制器三类构件：</p>
-<ul>
-<li>黑板：负责保存问题求解过程中的状态数据，并提供这些数据的读写服务</li>
-<li>知识源：负责根据黑板中存储的问题求解状态评价其自身的可应用性，进行部分问题求解工作，并将此工作的结果数据写入黑板</li>
-<li>控制器：负责监视黑板中不断更新的状态数据，安排（多个）知识源的活动。</li>
-</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>构件</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>黑板</td>
+          <td>负责保存问题求解过程中的状态数据，并提供这些数据的读写服务</td>
+      </tr>
+      <tr>
+          <td>知识源</td>
+          <td>负责根据黑板中存储的问题求解状态评价其自身的可应用性，进行部分问题求解工作，并将此工作的结果数据写入黑板</td>
+      </tr>
+      <tr>
+          <td>控制器</td>
+          <td>负责监视黑板中不断更新的状态数据，安排（多个）知识源的活动</td>
+      </tr>
+  </tbody>
+</table></div>
 <p><img alt="黑板风格" class="gallery-image" data-flex-basis="451px" data-flex-grow="188" height="814" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E9%BB%91%E6%9D%BF%E9%A3%8E%E6%A0%BC.png" srcset="/passage/software/engineering/software_design_oo/images/%E9%BB%91%E6%9D%BF%E9%A3%8E%E6%A0%BC_hu_c855f42b619cc91f.png 800w, /passage/software/engineering/software_design_oo/images/%E9%BB%91%E6%9D%BF%E9%A3%8E%E6%A0%BC.png 1533w" width="1533"></p>
 <p>约束</p>
 <ul>
@@ -735,6 +754,7 @@
 <li>视图构件：负责向用户呈现模型中的数据</li>
 <li>控制器：在接获模型的业务逻辑处理结果后，负责选择适当的视图作为软件系统对用户的界面动作的响应。</li>
 </ul>
+<p><img alt="MVC风格" class="gallery-image" data-flex-basis="415px" data-flex-grow="173" height="796" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/MVC%E9%A3%8E%E6%A0%BC.png" srcset="/passage/software/engineering/software_design_oo/images/MVC%E9%A3%8E%E6%A0%BC_hu_b20db2b785317f9.png 800w, /passage/software/engineering/software_design_oo/images/MVC%E9%A3%8E%E6%A0%BC.png 1378w" width="1378"></p>
 <p>约束：</p>
 <ul>
 <li>创建视图，视图对象从模型中获取数据并呈现用户界面
@@ -750,6 +770,7 @@
 </h3><p>将软件系统的软构件抽象为一个个的服务（Service），每个服务封装了特定的功能并提供了对外可访问的接口</p>
 <p>任何一个服务既可以充当服务的提供方，接受其他服务的访问请求；也可充当服务的请求方，请求其他服务为其提供功能</p>
 <p>任何服务需要向服务注册中心进行注册登记，描述其可提供的服务以及访问方式，才可对外提供服务。</p>
+<p><img alt="SOA风格" class="gallery-image" data-flex-basis="460px" data-flex-grow="191" height="580" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/SOA%E9%A3%8E%E6%A0%BC.png" srcset="/passage/software/engineering/software_design_oo/images/SOA%E9%A3%8E%E6%A0%BC_hu_607ee80ddfab4df8.png 800w, /passage/software/engineering/software_design_oo/images/SOA%E9%A3%8E%E6%A0%BC.png 1112w" width="1112"></p>
 <p>特点</p>
 <ul>
 <li>将服务提供方和服务请求方独立开来，因而支持服务间的松耦合定义</li>
@@ -897,6 +918,8 @@
 <h3 id="pad图">PAD图
 </h3><p>PAD图即问题分析图（problem Analysis Diagram）</p>
 <p><img alt="PAD图" class="gallery-image" data-flex-basis="408px" data-flex-grow="170" height="777" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/PAD%E5%9B%BE.png" srcset="/passage/software/engineering/software_design_oo/images/PAD%E5%9B%BE_hu_cf55a97a08025afc.png 800w, /passage/software/engineering/software_design_oo/images/PAD%E5%9B%BE.png 1323w" width="1323"></p>
+<p>案例：对数组<code>X</code>进行排序。</p>
+<p><img alt="PAD案例" class="gallery-image" data-flex-basis="320px" data-flex-grow="133" height="731" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/PAD%E6%A1%88%E4%BE%8B.png" srcset="/passage/software/engineering/software_design_oo/images/PAD%E6%A1%88%E4%BE%8B_hu_ae6a824f9a93d5b7.png 800w, /passage/software/engineering/software_design_oo/images/PAD%E6%A1%88%E4%BE%8B.png 977w" width="977"></p>
 <h3 id="设计模式类型">设计模式类型
 </h3><p>23 种设计模式可以分为三大类：</p>
 <ul>
@@ -905,7 +928,144 @@
 <li>行为型模式：类和对象如何交互，及划分责任和算法。</li>
 </ul>
 <p><img alt="设计模式" class="gallery-image" data-flex-basis="555px" data-flex-grow="231" height="656" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/software_design_oo/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.png" srcset="/passage/software/engineering/software_design_oo/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F_hu_aa33728a77cf3454.png 800w, /passage/software/engineering/software_design_oo/images/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.png 1519w" width="1519"></p>
-
+<p>简单工厂模式不属于以上23种设计模式，简单工厂一般分为：普通简单工厂、多方法简单工厂、静态方法简单工厂。</p>
+<ul>
+<li>普通简单工厂：建立一个工厂类，对实现了同一接口的一些类进行实例的创建。</li>
+<li>多方法简单工厂：对普通工厂方法模式的改进（在普通工厂方法模式中，如果传递的字符串出错，则不能正确创建对象）。多方法简单工厂提供多个工厂方法，分别创建对象。</li>
+<li>静态方法简单工厂：将上面的多个工厂方法模式里的方法置为静态的，不需要创建实例，直接调用即可。</li>
+</ul>
+<p>首先创建公共接口：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">Sender</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Send</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>其次创建实现类：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 发送邮件类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MailSender</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Send</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;This is the mail sender!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 发送短信类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SmsSender</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Send</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;This is the sms sender!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后建工厂类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SendFactory</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="nf">produce</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;mail&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MailSender</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">type</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;sms&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SmsSender</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Please type in the correct type!&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>多个工厂模式则只需要更改工厂类为如下格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SendFactory</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="nf">produceMail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MailSender</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="nf">produceSms</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SmsSender</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>静态方法工厂则需要将上面的多个工厂方法模式里的方法置为静态的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SendFactory</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="nf">produceMail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MailSender</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Sender</span><span class="w"> </span><span class="nf">produceSms</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SmsSender</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
