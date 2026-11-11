@@ -593,7 +593,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 11 分钟
+                        阅读时长: 13 分钟
                     </time>
                 
             </div>
@@ -756,23 +756,34 @@
 <li>软件测试的开销大（经济成本）：按照Boehm的统计，软件测试的开销大约占总成本的30%-50%。</li>
 <li>不能进行“穷举”测试（时间成本）：只有将所有可能的情况都测试到，才有可能检查出所有的错误，但这是不可能的。</li>
 </ul>
-<p>既然不能进行“穷举”测试，又要查出尽可能多的错误，软件测试工作的难度大。只有选择：“高效的测试用例” 才能实现时间短，成本低，发现多。</p>
+<p>既然不能进行“穷举”测试，又要查出尽可能多的错误，软件测试工作的难度大。只有选择“高效的测试用例”才能实现时间短，成本低，发现多。</p>
 <h2 id="软件测试的过程和策略">软件测试的过程和策略
 </h2><h3 id="软件测试过程">软件测试过程
 </h3><p><img alt="软件测试过程" class="gallery-image" data-flex-basis="364px" data-flex-grow="151" height="863" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/test/images/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B.png" srcset="/passage/software/engineering/test/images/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B_hu_5a8427dda9bd546e.png 800w, /passage/software/engineering/test/images/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B.png 1311w" width="1311"></p>
 <h4 id="单元测试">单元测试
-</h4><p>测试对象：对软件基本模块单元进行测试，包括过程、函数、方法、类</p>
-<p>测试方法：大多采用白盒测试技术</p>
-<p>测试内容</p>
-<ul>
-<li>模块接口测试</li>
-<li>模块局部数据结构测试</li>
-<li>模块独立执行路径测试</li>
-<li>模块错误处理通道测试</li>
-<li>模块边界条件测试</li>
-</ul>
-<p>程序单元是构成软件系统的基本要素，必须对其进行测试以发现缺陷。</p>
-<p>程序单元测试</p>
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>元素</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>测试对象</td>
+          <td>对软件基本模块单元进行测试</td>
+      </tr>
+      <tr>
+          <td>测试方法</td>
+          <td>大多采用白盒测试技术</td>
+      </tr>
+      <tr>
+          <td>测试内容</td>
+          <td>模块接口测试、模块局部数据结构测试、模块独立执行路径测试、模块错误处理通道测试、模块边界条件测试</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>程序单元是构成软件系统的基本要素，必须对其进行测试以发现缺陷：</p>
 <ul>
 <li>测试对象：程序单元（基本模块单元，基本类方法、函数和过程）</li>
 <li>测试内容：执行路径、错误处理、模块接口、边界条件</li>
@@ -792,19 +803,30 @@
 <li>循环问题：循环终止条件不合适或不可能出现，迭代发散时不能退出，错误地修改了循环变量。</li>
 </ul>
 <h4 id="集成测试">集成测试
-</h4><p>测试对象：对软件模块之间的接口进行测试，包括过程调用、函数调用、消息传递、远程过程调用。</p>
-<p>测试技术：采用黑盒测试技术</p>
-<p>集成测试的内容</p>
-<ul>
-<li>过程调用</li>
-<li>函数调用</li>
-<li>消息传递</li>
-<li>远程过程调用</li>
-<li>网络消息</li>
-</ul>
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>元素</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>测试对象</td>
+          <td>对软件模块之间的接口进行测试</td>
+      </tr>
+      <tr>
+          <td>测试技术</td>
+          <td>黑盒测试技术</td>
+      </tr>
+      <tr>
+          <td>测试内容</td>
+          <td>过程调用、函数调用、消息传递、远程过程调用、网络消息</td>
+      </tr>
+  </tbody>
+</table></div>
 <h5 id="自顶向下集成">自顶向下集成
-</h5><p>深度优先或者广度优先的策略把各个模块进行组装和测试。</p>
-<p>过程：</p>
+</h5><p>深度优先或者广度优先的策略把各个模块进行组装和测试。过程：</p>
 <ul>
 <li>以软件主控模块作为测试驱动模块，把对主控模块进行单元测试时引入的所有桩模块用实际模块替代</li>
 <li>依据集成策略（深度优先或广度优先），每次只替代一个桩模块
@@ -819,8 +841,7 @@
 <p>优点：能尽早地对程序的主要控制和决策机制进行检验，因此较早地发现错误。</p>
 <p>缺点：测试较高层模块时，低层处理采用桩模块替代，不能反映真实情况，重要数据不能及时回送到上层模块，因此测试并不充分。</p>
 <h5 id="自底向上集成">自底向上集成
-</h5><p>自底向上进行组装和测试。</p>
-<p>过程：</p>
+</h5><p>自底向上进行组装和测试。过程：</p>
 <ul>
 <li>把低层模块集成起来形成实现某个子功能的模块群</li>
 <li>开发一个测试用驱动模块，控制测试数据的输入和测试结果的输出
@@ -834,9 +855,28 @@
 <p>自底向上集成方法不用桩模块，测试用例的设计亦相对简单，但缺点是程序最后一个模块加入时才具有整体形象。</p>
 <p>因此，在测试软件系统时，应根据软件的特点及工程的进度，选用适当的测试策略，有时混合使用两种策略更为有效，上层模块用自顶向下的方法，下层模块用自底向上的方法。</p>
 <h4 id="确认测试">确认测试
-</h4><p>测试对象：对软件的功能和性能进行测试，判断目标软件系统是否满足用户需求</p>
-<p>依据和标准：软件需求规格说明书</p>
-<p>测试技术：采用黑盒测试技术</p>
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>元素</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>测试对象</td>
+          <td>对软件的功能和性能进行测试，判断目标软件系统是否满足用户需求</td>
+      </tr>
+      <tr>
+          <td>依据和标准</td>
+          <td>软件需求规格说明书</td>
+      </tr>
+      <tr>
+          <td>测试技术</td>
+          <td>黑盒测试技术</td>
+      </tr>
+  </tbody>
+</table></div>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
@@ -875,7 +915,8 @@
 </ul>
 <h3 id="软件测试原则">软件测试原则
 </h3><ul>
-<li>测试应该有计划：在开发初期就应制定测试计划，测试计划应该在测试之前就应该制定。所有的测试都应该追溯到用户需求</li>
+<li>测试应该有计划：在开发初期就应制定测试计划，测试计划应该在测试之前就应该制定。</li>
+<li>所有的测试都应该追溯到用户需求</li>
 <li>将Pareto原则应用于软件测试：80%的错误都可以在大概20%的模块中找到根源</li>
 <li>测试应该从“微观”开始，逐步转向“宏观”</li>
 <li>穷举测试是不可能的</li>
@@ -936,8 +977,298 @@
       </tr>
   </tbody>
 </table></div>
+<p>现在根据以下示例程序展示以上标准（输入<code>A B X</code>，输出<code>A B X</code>）：</p>
+<p><img alt="测试示例" class="gallery-image" data-flex-basis="254px" data-flex-grow="106" height="788" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/test/images/%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/test/images/%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B_hu_d63cf7cc055d21aa.png 800w, /passage/software/engineering/test/images/%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B.png 837w" width="837"></p>
+<h5 id="语句覆盖">语句覆盖
+</h5><p>从程序流程图可知，该程序共有4条语句。因此满足语句覆盖的执行路径应为 $a \rightarrow c \rightarrow e$，一种可能的测试用例为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入: 2 0 4
+</span></span><span class="line"><span class="cl">输出: 2 0 3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="判定覆盖">判定覆盖
+</h5><p>从程序流程图可知，该程序有两个判定，需要覆盖全部4条分支。为了方便，可以选取全真分支 $a \rightarrow c \rightarrow e$ 和全假分支 $a \rightarrow b \rightarrow d$ 分别测试。一种可能的测试用例为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用例1（全真分支）
+</span></span><span class="line"><span class="cl">输入: 2 0 4
+</span></span><span class="line"><span class="cl">输出: 2 0 3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">用例2（全假分支）
+</span></span><span class="line"><span class="cl">输入: 1 1 1
+</span></span><span class="line"><span class="cl">输出: 1 1 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>同理，也可以取真假分支 $a \rightarrow b \rightarrow e$ 和 $a \rightarrow c \rightarrow d$。一种可能的测试用例为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用例1（a -&gt; b -&gt; e）
+</span></span><span class="line"><span class="cl">输入: 2 1 1
+</span></span><span class="line"><span class="cl">输出: 2 1 2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">用例2（a -&gt; c -&gt; d）
+</span></span><span class="line"><span class="cl">输入: 3 0 3
+</span></span><span class="line"><span class="cl">输出: 3 0 1
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </blockquote>
+<h5 id="条件覆盖">条件覆盖
+</h5><p>从程序流程图可知，该程序有2个判断，4个条件，需覆盖全部真假的可能取值：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>判断</th>
+          <th>条件</th>
+          <th>真值</th>
+          <th>假值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>$A &gt; 1$</td>
+          <td>$T_1$</td>
+          <td>$\overline{T}_1$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$B = 0$</td>
+          <td>$T_2$</td>
+          <td>$\overline{T}_2$</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>$A = 2$</td>
+          <td>$T_3$</td>
+          <td>$\overline{T}_3$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$X &gt; 1$</td>
+          <td>$T_4$</td>
+          <td>$\overline{T}_4$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>一种可能的测试用例为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>测试用例</th>
+          <th>条件取值</th>
+          <th>路径</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>(1 0 3) -&gt; (1 0 4)</code></td>
+          <td>$\overline{T}_1, T_2, \overline{T}_3, T_4$</td>
+          <td>$a \rightarrow b \rightarrow e$</td>
+      </tr>
+      <tr>
+          <td><code>(2 1 1) -&gt; (2 1 2)</code></td>
+          <td>$T_1, \overline{T}_2, T_3, \overline{T}_4$</td>
+          <td>$a \rightarrow b \rightarrow e$</td>
+      </tr>
+  </tbody>
+</table></div>
+
+    <blockquote>
+        <p>条件覆盖不一定覆盖所有路径。</p>
+
+    </blockquote>
+<h5 id="判定条件覆盖">判定/条件覆盖
+</h5><p>一种可能的测试用例为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>测试用例</th>
+          <th>条件取值</th>
+          <th>路径</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>(2 0 4) -&gt; (2 0 3)</code></td>
+          <td>$T_1, T_2, T_3, T_4$</td>
+          <td>$a \rightarrow c \rightarrow e$</td>
+      </tr>
+      <tr>
+          <td><code>(1 1 1) -&gt; (1 1 1)</code></td>
+          <td>$\overline{T}_1, \overline{T}_2, \overline{T}_3, \overline{T}_4$</td>
+          <td>$a \rightarrow b \rightarrow d$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>既覆盖了所有分支，也取到了所有可能条件。</p>
+<h5 id="条件组合覆盖">条件组合覆盖
+</h5><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>判断</th>
+          <th>条件</th>
+          <th>标记</th>
+          <th>分支</th>
+          <th>组合号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>$A &gt; 1 \land B = 0$</td>
+          <td>$T_1, T_2$</td>
+          <td>真</td>
+          <td>①</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$A &gt; 1 \land B \ne 0$</td>
+          <td>$T_1, \overline{T}_2$</td>
+          <td>假</td>
+          <td>②</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$A \ngtr 1 \land B = 0$</td>
+          <td>$\overline{T}_1, T_2$</td>
+          <td>假</td>
+          <td>③</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$A \ngtr 1 \land B \ne 0$</td>
+          <td>$\overline{T}_1, \overline{T}_2$</td>
+          <td>假</td>
+          <td>④</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>$A = 2 \lor X &gt; 1$</td>
+          <td>$T_3, T_4$</td>
+          <td>真</td>
+          <td>⑤</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$A = 2 \lor X \ngtr 1$</td>
+          <td>$T_3, \overline{T}_4$</td>
+          <td>真</td>
+          <td>⑥</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$A \ne 2 \lor X &gt; 1$</td>
+          <td>$\overline{T}_3, T_4$</td>
+          <td>真</td>
+          <td>⑦</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$A \ne 2 \lor X \ngtr 1$</td>
+          <td>$\overline{T}_3, \overline{T}_4$</td>
+          <td>假</td>
+          <td>⑧</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>一种可能的测试用例为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>测试用例</th>
+          <th>条件取值</th>
+          <th>覆盖组合号</th>
+          <th>通过路径</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>(2,0,4) -&gt; (2,0,3)</code></td>
+          <td>$T_1, T_2, T_3, T_4$</td>
+          <td>①⑤</td>
+          <td>$a \rightarrow c \rightarrow e$</td>
+      </tr>
+      <tr>
+          <td><code>(2,1,1) -&gt; (2,1,2)</code></td>
+          <td>$T_1, \overline{T}_2, T_3, \overline{T}_4$</td>
+          <td>②⑥</td>
+          <td>$a \rightarrow b \rightarrow e$</td>
+      </tr>
+      <tr>
+          <td><code>(1,0,3) -&gt; (1,0,4)</code></td>
+          <td>$\overline{T}_1, T_2, \overline{T}_3, T_4$</td>
+          <td>③⑦</td>
+          <td>$a \rightarrow b \rightarrow e$</td>
+      </tr>
+      <tr>
+          <td><code>(1,1,1) -&gt; (1,1,1)</code></td>
+          <td>$\overline{T}_1, \overline{T}_2, \overline{T}_3, \overline{T}_4$</td>
+          <td>④⑧</td>
+          <td>$a \rightarrow b \rightarrow d$</td>
+      </tr>
+  </tbody>
+</table></div>
 <h4 id="路径测试法">路径测试法
 </h4><p>路径测试就是设计足够的测试用例，覆盖程序中每一条可能的程序执行路径至少测试一次，如果程序中含有循环（在程序图中表现为环），则每个循环至少执行一次。</p>
+<p><img alt="路径测试示例" class="gallery-image" data-flex-basis="359px" data-flex-grow="149" height="679" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/software/engineering/test/images/%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B.png" srcset="/passage/software/engineering/test/images/%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B_hu_97f173f59c6d13a5.png 800w, /passage/software/engineering/test/images/%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B.png 1016w" width="1016"></p>
+<p>路径测试可选取的测试用例：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>测试用例</th>
+          <th>通过路径</th>
+          <th>条件取值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>(2,0,4) -&gt; (2,0,3)</code></td>
+          <td>$a \rightarrow c \rightarrow e$</td>
+          <td>$T_1, T_2, T_3, T_4$</td>
+      </tr>
+      <tr>
+          <td><code>(1,1,1) -&gt; (1,1,1)</code></td>
+          <td>$a \rightarrow b \rightarrow d$</td>
+          <td>$\overline{T}_1, \overline{T}_2, \overline{T}_3, \overline{T}_4$</td>
+      </tr>
+      <tr>
+          <td><code>(1,1,2) -&gt; (1,1,3)</code></td>
+          <td>$a \rightarrow b \rightarrow e$</td>
+          <td>$\overline{T}_1, \overline{T}_2, \overline{T}_3, T_4$</td>
+      </tr>
+      <tr>
+          <td><code>(3,0,3) -&gt; (3,0,1)</code></td>
+          <td>$a \rightarrow c \rightarrow d$</td>
+          <td>$T_1, T_2, \overline{T}_3, \overline{T}_4$</td>
+      </tr>
+  </tbody>
+</table></div>
 <h3 id="黑盒测试">黑盒测试
 </h3><p>根据已知的程序功能和性能（而非内部细节），依据程序的功能和性能描述，设计测试用例并通过测试检验程序的每个功能和性能是否正常。</p>
 <p>特点</p>
@@ -962,14 +1293,40 @@
         </div>
     </blockquote>
 <p>确定等价类的基本原则：</p>
-<ul>
-<li>如果输入条件规定了取值范围，或者是值的个数，则可以确立一个有效等价类和两个无效等价类。</li>
-<li>如果输入条件规定了输入值的集合，或者是规定了“必须如何”的条件，这时 可确立一个有效等价类和一个无效等价类。</li>
-<li>如果输入条件是一个布尔量，则可以确定一个有效等价类和一个无效等价类。</li>
-<li>如果规定了输入数据是一组值，而且程序要对每个输入值分别进行处理。这时可为每一个输入值确立一个有效等价类。此外再针对这组确立一个无效等价类，它应是所有不允许输入值的集合。</li>
-<li>如果规定了输入数据必须遵守的规则，则可以确定一个有效等价类（符合规则），和若干个无效等价类（从不同角度违反规则）。</li>
-<li>如果确知，已划分的等价类中各元素在程序中的处理方式不同， 则应将此等价类进一步划分成更小的等价类。</li>
-</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>原则</th>
+          <th>举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>如果输入条件规定了取值范围，或者是值的个数，则可以确立一个有效等价类和两个无效等价类</td>
+          <td>序号值 $x$ 可以从1到999，则有效等价类：$1 \leqslant x \leqslant 999$；无效等价类：$x &lt; 1$，$x &gt; 999$</td>
+      </tr>
+      <tr>
+          <td>如果输入条件规定了输入值的集合，或者是规定了“必须如何”的条件，这时 可确立一个有效等价类和一个无效等价类</td>
+          <td>在C语言中对变量标识符规定为“以字母打头的串”。所有以字母打头的构成为有效等价类；而不在此集合内（不以字母打头）归于无效等价类</td>
+      </tr>
+      <tr>
+          <td>如果输入条件是一个布尔量，则可以确定一个有效等价类和一个无效等价类。</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>如果规定了输入数据是一组值，而且程序要对每个输入值分别进行处理。这时可为每一个输入值确立一个有效等价类。此外再针对这组确立一个无效等价类，它应是所有不允许输入值的集合</td>
+          <td>在教师评价中规定对教授、副教授、讲师和助教分别处理。因此可以确定4个有效等价类为教授、 副教授、讲师和助教，以及1个无效等价类：所有不符合以上身份的人员的输入值的集合</td>
+      </tr>
+      <tr>
+          <td>如果规定了输入数据必须遵守的规则，则可以确定一个有效等价类（符合规则），和若干个无效等价类（从不同角度违反规则）</td>
+          <td>在C语言中规定了“一个语句必须以分号<code>:</code>结束”，则可以确定一个有效等价类：以<code>:</code>结束，若干个无效等价类：以<code>: , .</code>结束</td>
+      </tr>
+      <tr>
+          <td>如果确知，已划分的等价类中各元素在程序中的处理方式不同， 则应将此等价类进一步划分成更小的等价类。</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div>
 <blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
