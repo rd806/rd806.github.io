@@ -367,7 +367,13 @@
         <li><a href="#块迭代法">块迭代法</a></li>
       </ol>
     </li>
-    <li><a href="#共轭梯度法">共轭梯度法</a></li>
+    <li><a href="#共轭梯度法">共轭梯度法</a>
+      <ol>
+        <li><a href="#变分问题">变分问题</a></li>
+        <li><a href="#最速下降法">最速下降法</a></li>
+        <li><a href="#共轭梯度法-1">共轭梯度法</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -576,7 +582,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 6 分钟
+                        阅读时长: 9 分钟
                     </time>
                 
             </div>
@@ -630,7 +636,13 @@
         <li><a href="#块迭代法">块迭代法</a></li>
       </ol>
     </li>
-    <li><a href="#共轭梯度法">共轭梯度法</a></li>
+    <li><a href="#共轭梯度法">共轭梯度法</a>
+      <ol>
+        <li><a href="#变分问题">变分问题</a></li>
+        <li><a href="#最速下降法">最速下降法</a></li>
+        <li><a href="#共轭梯度法-1">共轭梯度法</a></li>
+      </ol>
+    </li>
   </ol>
 
             </nav>
@@ -794,7 +806,57 @@ $$\begin{align*} x_i^{(k+1)} &= (1-\omega)x_i^{(k)} + \omega \widetilde{x}_i^{(k
 <h3 id="块迭代法">块迭代法
 </h3><p>块迭代法用于大型稀疏线性方程组求解，核心就是将矩阵分块，每次迭代都解多个小型的线性方程组。</p>
 <h2 id="共轭梯度法">共轭梯度法
-</h2>
+</h2><h3 id="变分问题">变分问题
+</h3><p>设 $\bm{A} = (a_{ij}) \in \mathbb{R}^{n \times n}$ 是对称正定矩阵，$\bm{b} = (b_1, b_2, \cdots, b_n)^T$，求解线性方程组 $\bm{Ax} = \bm{b}$。</p>
+<p>定义二次函数 $\varphi$：$\mathbb{R}^n \rightarrow \mathbb{R}$ </p>
+$$\varphi(x) = \frac{1}{2}(\bm{Ax}, \bm{x}) - (\bm{b}, \bm{x}) = \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j - \sum_{j=1}^n b_j x_j$$
+    <blockquote>
+        <p>几何意义：一族超椭球面 $\varphi(\bm{x}) = \varphi(\bm{x}^{(k)})$（$\varphi(\bm{x}^{(k)}) \geqslant \varphi(x^{(k+1)})$），$\bm{x}^*$ 为它的中心。（若 $n=2$ 就是二维空间的椭圆曲线）。</p>
+
+    </blockquote>
+<p>函数 $\varphi$ 有如下性质：</p>
+<ul>
+<li>$\forall x \in \mathbb{R}^n$，$\varphi(x)$ 的梯度 $\nabla \varphi(\bm{x}) = \bm{Ax} - \bm{b}$。</li>
+<li>$\forall x,y \in \mathbb{R}^n$ 及 $\alpha \in \mathbb{R}$：
+$$\begin{align*} \varphi(\bm{x} + \alpha \bm{y}) &= \frac{1}{2}(\bm{A}(\bm{x} + \alpha\bm{y}), \bm{x} + \alpha \bm{y}) - (\bm{b}, \bm{x} + \alpha \bm{y}) \\ &= \varphi(\bm{x}) + \alpha (\bm{Ax} - \bm{b}, \bm{y}) + \frac{\alpha^2}{2}(\bm{Ay}, \bm{y}) \end{align*}$$</li>
+<li>设 $\bm{x}^* = \bm{A}^{-1}\bm{b}$ 是线性方程组的解，则有
+$$\varphi(\bm{x}^*) = -\frac{1}{2}(\bm{b}, \bm{A}^{-1}\bm{b}) = -\frac{1}{2}(\bm{A}\bm{x}^*, \bm{x}^*)$$且对一切 $\bm{x} \in \mathbb{R}^n$，有
+$$\begin{align*} \varphi(\bm{x}) - \varphi(\bm{x}^*) &= \frac{1}{2}(\bm{Ax}, \bm{x}) - (\bm{A}\bm{x}^*, \bm{x}) + \frac{1}{2}(\bm{A}\bm{x}^*, x^*) \\ &= \frac{1}{2}(\bm{A}(\bm{x} - \bm{x}^*), \bm{x} - \bm{x}^*) \end{align*}$$</li>
+</ul>
+<p>设 $\bm{A}$ 对称正定，则 $\bm{x}^∗$ 为线性方程组 $\bm{Ax} = \bm{b}$ 的解的充分必要条件是 $\bm{x}^*$ 满足 </p>
+$$\varphi(\bm{x}^*) = \min_{\bm{x} \in \mathbb{R}^n} \varphi(\bm{x})$$<h3 id="最速下降法">最速下降法
+</h3><p>通常求 $\varphi(\bm{x})$ 的极小点 $\bm{x}^∗$ 可转化为求一维问题的极小，即从 $\bm{x}^{(0)}$ 出发，找一个方向 $\bm{p}^{(0)}$，令 $\bm{x}^{(1)} = \bm{x}^{(0)} + \alpha \bm{p}^{(0)}$，使得 </p>
+$$\varphi(\bm{x}^{(1)}) = \min_{\alpha \in \mathbb{R}} \varphi(\bm{x}^{(0)} + \alpha \bm{p}^{(0)})$$<p> 则求 $\varphi(\bm{x})$ 的极小点的方法称为下降算法。</p>
+<p>如果选一个方向 $\bm{p}^{(0)}$ 使 $\varphi(\bm{x})$ 在 $\bm{x}^{(k)}$ 沿 $\bm{p}^{(k)}$ 下降最快，则该方法为最速下降法。</p>
+<p>从 $\bm{x}^{(k)}$ 出发，先找一个函数值使 $\varphi(\bm{x})$ 减少最快的方向（正交于椭球面的函数 $\varphi(\bm{x})$ 的负梯度方向），则 </p>
+$$\begin{align*} \bm{p}^{(k)} &= - \nabla \varphi(\bm{x}^{(k)}) = -(\bm{A}\bm{x}^{(k)} - \bm{b}) = \bm{r}^{(k)} \\ \alpha_k &= \frac{(\bm{r}^{(k)}, \bm{r}^{(k)})}{(\bm{Ar}^{(k)}, \bm{r}^{(k)})} \\ \bm{x}^{(k+1)} &= \bm{x}^{(k)} + \alpha_k \bm{r}^{(k)}，k=0,1,\cdots,\end{align*}$$<p> 其中 $\bm{r}^{(k)} = \bm{b} - \bm{A}\bm{x}^{(k)}$ 称作剩余向量，也称作负梯度方向。</p>
+<p>最速下降法的一些性质：</p>
+<ul>
+<li>两个相邻的搜索方向是正交的。</li>
+<li>计算得到的 $\{\varphi(\bm{x}^{(𝑘)})\}$ 是单调下降且有下界的序列，存在极限 $\displaystyle \lim_{k \to \infty} \bm{x}^{(k)} = \bm{x}^* = \bm{A}^{-1}\bm{b}$，且
+$$||\bm{x}^{(k)} - \bm{x}^*|| \leqslant \left(\frac{\lambda_1 - \lambda_n}{\lambda_1 + \lambda_n}\right)^k ||\bm{x}^{(0)} - \bm{x}^*||_{\bm{A}}$$其中 $\lambda_1$，$\lambda_n$ 分别为对称正定矩阵 $\bm{A}$ 的最大与最小特征值。</li>
+</ul>
+<p>最速下降法分析：</p>
+<ul>
+<li>优点：工作量少，存储变量较少，初始点要求不高。</li>
+<li>缺点：当 $\lambda_1 \gg \lambda_n$ 时收敛很慢，而且当 $||\bm{r}^{(k)}||$ 很小时，由于舍入误差影响，计算不稳定。</li>
+</ul>
+<h3 id="共轭梯度法-1">共轭梯度法
+</h3><p>共轭梯度法简称CG法，又称共轭斜量法，它是一种变分方法，对应于求二次函数的极值。CG法是求解大型稀疏对称正定方程组十分有效的方法。</p>
+<p>设 $\bm{A}$ 对称正定，若 $\mathbb{R}^n$ 中的向量组 $\{\bm{p}^{(0)}, \bm{p}^{(1)}, \cdots, \bm{p}^{(k)}\}$ 满足 $(\bm{A}\bm{p}^{(i)}, \bm{p}^{(j)}) = 0$（$i \ne j$，$i,j = 0,1,\cdots, m$）则称它为 $\mathbb{R}^n$ 中一个 $\bm{A}$ −共轭向量组或 $\bm{A}$ −正交向量组。</p>
+<p>算法步骤：</p>
+<ol>
+<li>任取 $\bm{x}^{(0)} \in \mathbb{R}^n$，计算 $\bm{r}^{(0)} = \bm{b} - \bm{A}\bm{x}^{(0)}$，取 $\bm{p}^{(0)} = \bm{r}^{(0)}$。</li>
+<li>对 $k=0,1,\cdots,$ 计算
+$$\begin{align*} \alpha_k &= \frac{(\bm{r}^{(k)}, \bm{r}^{(k)})}{(\bm{p}^{(k)}, \bm{A}\bm{p}^{(k)})} \\  \bm{x}^{(k+1)} &= \bm{x}^{(k)} + \alpha_k \bm{p}^{(k)} \\ \bm{r}^{(k+1)} &= \bm{r}^{(k)} - \alpha_k(\bm{A}\bm{p}^{(k)}) \\ \beta_k &= \frac{(\bm{r}^{(k+1)}, \bm{r}^{(k+1)})}{(\bm{r}^{(k)}, \bm{r}^{(k)})} \\ \bm{p}^{(k+1)} &= \bm{r}^{(k+1)} + \beta_k\bm{p}^{(k)}\end{align*}$$</li>
+<li>若 $\bm{r}^{(k)} = 0$ 或 $(\bm{p}^{(k)}, \bm{A}\bm{p}^{(k)}) = 0$，计算停止，则 $\bm{x}^{(k)} = \bm{x}^*$。</li>
+</ol>
+<p>CG算法得到的序列 $\{\bm{r}^{(k)}\}$ 及 $\{\bm{p}^{(𝑘)}\}$ 有以下性质：</p>
+<ul>
+<li>$(\bm{r}^{(i)}, \bm{r}^{(j)}) = 0$ $(i \ne j)$，即 $\{\bm{r}^{(k)}\}$ 构成 $\mathbb{R}^n$ 中的正交向量组。</li>
+<li>$(\bm{A}\bm{p}^{(i)}, \bm{p}^{(j)}) = (\bm{p}^{(i)}, \bm{A}\bm{p}^{(j)}) = 0$ $(i \ne j)$，即 $\{\bm{p}^{(𝑘)}\}$ 为一个 $\bm{A}$ −共轭向量组。</li>
+</ul>
+
 </section>
 
 
