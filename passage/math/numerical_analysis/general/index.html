@@ -651,7 +651,7 @@
     
     <h2 id="引言">引言
 </h2><h3 id="数学科学与数值分析">数学科学与数值分析
-</h3><p>数值分析（ numerical analysis）也称计算科学，是数学的一个分支，研究用计算机求解各种数学问题的数值计算方法及其理论与软件实现。</p>
+</h3><p>数值分析（numerical analysis）也称计算科学，是数学的一个分支，研究用计算机求解各种数学问题的数值计算方法及其理论与软件实现。</p>
 <p>用计算机求解科学计算问题的基本流程：</p>
 <ol>
 <li>根据实际问题建立数学模型。</li>
@@ -699,24 +699,28 @@
 <h3 id="误差与有效数字">误差与有效数字
 </h3><h4 id="绝对误差">绝对误差
 </h4><p>设 $x$ 为准确值，$x^∗$ 为 $x$ 的一个近似值，称 $e^* = x^* − x$ 为近似值的<strong>绝对误差</strong>，简称误差。</p>
-<p>由于无法知道 $x^*$ 准确值，因此无法计算 $e^*$ 的准确值，只能根据测量工具或计算情况估计出误差的绝对值不超过某正数 $\varepsilon^*$，也就是误差绝对值的一个上界。</p>
-<p>$\varepsilon^*$ 叫做近似值的<strong>误差限</strong>。</p>
-$$|\varepsilon^∗ − x| \leqslant \varepsilon^*$$
+<p>近似值的<strong>误差限</strong>记作 $\varepsilon^*$：</p>
+$$|x^∗ − x| \leqslant \varepsilon^*$$
     <blockquote>
-        <p>误差限的大小并不能完全表示近似值的好坏。</p>
+        <p>由于无法知道 $x^*$ 准确值，因此无法计算 $e^*$ 的准确值，只能根据测量工具或计算情况估计出误差的绝对值不超过某正数 $\varepsilon^*$，也就是误差绝对值的一个上界。</p>
+<p>误差限的大小并不能完全表示近似值的好坏。</p>
 
     </blockquote>
 <h4 id="相对误差">相对误差
-</h4><p>近似值的误差 $e∗$ 与准确值 $x$ 的比值，</p>
-$$\frac{e^x}{x} = \frac{x^*-x}{x}$$<p> 称为近似值 $x^∗$ 的相对误差，记作 $e^{∗}_r$</p>
-<p>实际计算中，由于真值 $x$ 总是未知的，通常取 </p>
-$$e^*_r = \frac{e^*}{x^*} = \frac{x^*-x}{x^*}，|e^{*}_r| \leqslant \varepsilon^{*}_r$$<p>相对误差也可正可负，它的绝对值上界叫做相对误差限，记作 $𝜀^{∗}_r$，即 </p>
+</h4><p>近似值的误差 $e∗$ 与准确值 $x$ 的比值 </p>
+$$e^∗_r = \frac{e^x}{x} = \frac{x^*-x}{x}$$<p> 称为近似值 $x^∗$ 的<strong>相对误差</strong>。实际计算中，由于真值 $x$ 总是未知的，通常取 </p>
+$$e^*_r = \frac{e^*}{x^*} = \frac{x^*-x}{x^*}，|e^{*}_r| \leqslant \varepsilon^{*}_r$$<p>相对误差也可正可负，它的绝对值上界叫做<strong>相对误差限</strong>，记作 $𝜀^{∗}_r$：</p>
 $$\varepsilon^{∗}_r = \frac{\varepsilon^*}{|x^*|}$$<h4 id="有效数字">有效数字
 </h4><p>若近似值 $x^*$ 的误差限是某一位的半个单位，该位到 $x^∗$ 的第一位非零数字共有 $n$ 位，则 $x^∗$ 有 $n$ 位有效数字。</p>
 <p>若设近似数 $x^*$ 表示为 </p>
-$$x^* = \pm 10^m \times \left(a_1 + a_2 \times 10^{-1} + \cdots + a_l \times 10^{-(l-1)} \right)$$<p>其中 $a_i (i=1,2,\cdots,l)$ 为 $0$ 到 $9$ 中的一个数字，$a_1 \ne 0$ 且 $m$ 为整数，若 $x^*$ 具有 $n$ 位有效数字，则其相对误差限 </p>
+$$x^* = \pm 10^m \times \left(a_1 + a_2 \times 10^{-1} + \cdots + a_l \times 10^{-(l-1)} \right)$$<p> 其中 $a_i$（$i=1,2,\cdots,l$）为 $0$ 到 $9$ 中的一个数字，$a_1 \ne 0$ 且 $m$ 为整数。</p>
+<p>若 $x^*$ 具有 $n$ 位有效数字，则其相对误差限 </p>
 $$\varepsilon^{*}_r \leqslant \frac{1}{2a_1} \times 10^{-(n-1)}$$<p>反之，若 $x^*$ 的相对误差限 $\displaystyle \varepsilon^{*}_r \leqslant \frac{1}{2(a_1+1)} \times 10^{-(n-1)}$，则 $x^*$ 至少具有 $n$ 位有效数字。</p>
-<p>这说明，有效位数越多，相对误差限越小。</p>
+
+    <blockquote>
+        <p>这说明，有效位数越多，相对误差限越小。</p>
+
+    </blockquote>
 <h3 id="数值运算的误差估计">数值运算的误差估计
 </h3><p>设两个近似数 $x^∗_1$ 与 $x^∗_2$ 的误差限分别为 $\varepsilon(x^∗_1)$ 及 $\varepsilon(x^∗_2)$，则它们进行加、减、乘、除运算得到的误差限分别满足：</p>
 $$\varepsilon(x^*_1 \pm x^*_2) \approx \varepsilon(x^*_1) + \varepsilon(x^*_2)$$<p>
@@ -753,13 +757,15 @@ $$\left\{\begin{array}{c}\begin{align*} & b_0 = a_0 \\ & b_i = b_{i-1} x^* + a_i
 </h3><p>设 $a&gt;0$，求 $\sqrt{a}$ 等价于求方程 $x^2-a=0$。给定初始值 $x_0 \geqslant 0$。</p>
 
     <blockquote>
-        <p>令 $x = x_0+\Delta x$，于是有 $(x_0 + \Delta x)^2 = a$，略去高阶小量项 $(\Delta x)^2$，则有 $x^2_0 + 2x_0\Delta x \approx a$，即 $\displaystyle \Delta x \approx \frac{1}{2} \left(\frac{a}{x_0} -x_0\right)$，于是 $\displaystyle x=x_0+\Delta x \approx \frac{1}{2} \left(x_0+\frac{a}{x_0}\right) = x_1$</p>
-
+        <p>令 $x = x_0+\Delta x$，于是有 </p>
+$$(x_0 + \Delta x)^2 = a$$<p> 略去高阶小量项 $(\Delta x)^2$，则有 $x^2_0 + 2x_0\Delta x \approx a$，即 </p>
+$$\displaystyle \Delta x \approx \frac{1}{2} \left(\frac{a}{x_0} -x_0\right)$$<p> 于是 </p>
+$$x=x_0+\Delta x \approx \frac{1}{2} \left(x_0+\frac{a}{x_0}\right) = x_1$$
     </blockquote>
 <p>重复以上过程，得到迭代公式 </p>
-$$x_{k+1} = \frac{1}{2} \left(x_k + \frac{a}{x_k}\right)，k=0,1,2,\cdots$$<p> 若 $\displaystyle \lim_{k \to \infty} x_k = x^*$，则 $x^* = \sqrt{a}$。</p>
+$$x_{k+1} = \frac{1}{2} \left(x_k + \frac{a}{x_k}\right)，k=0,1,2,\cdots$$<p> 可以证明，若 $\displaystyle \lim_{k \to \infty} x_k = x^*$，则 $x^* = \sqrt{a}$。</p>
 <h3 id="以直代曲与化整为零">以直代曲与化整为“零”
-</h3><p>在微积分中计算定积分的 $\displaystyle I(f) = \int_{a}^{b} f(x) \mathrm{d}x$ 梯形公式 </p>
+</h3><p>在微积分中计算定积分 $\displaystyle I(f) = \int_{a}^{b} f(x) \mathrm{d}x$ 的梯形公式 </p>
 $$I(f) \approx \frac{b-a}{2} [f(a) + f(b)] = T_1$$<p> 是用通过曲线 $y = f(x)$ 上两点 $A(a, f(𝑎))$ 以及 $B(b, f(b))$ 的直线（弦）近似曲线的弧，用梯形面积近似曲边梯形的面积，也是以直代曲。</p>
 
 </section>

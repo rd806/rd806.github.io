@@ -681,11 +681,24 @@ $$\bm{A} = \left[\begin{matrix} 1 & x_0 & \cdots & x^n_0 \\ 1 & x_1 & \cdots & x
 </h4><p>对于 $n=1$ 的情形，给定区间 $[x_k,x_{k+1}]$ 及端点函数值 $y_k = f(x_k)$，$y_{k+1} = f(x_{k+1})$，求线性插值多项式 $L_1(x)$ 满足 </p>
 $$L_1(x_k) = y_k，L_1(x_{k+1}) = y_{k+1}$$<p> 其几何意义就是通过两点 $(x_k, y_k)$，$(x_{k+1}, y_{k+1})$ 的直线。</p>
 <p><img alt="拉格朗日线性插值" class="gallery-image" data-flex-basis="286px" data-flex-grow="119" height="442" loading="lazy" sizes="(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px" src="/passage/math/numerical_analysis/interpolation/images/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC.png" width="527"></p>
-<p>因此表达如下：</p>
-<ul>
-<li>点斜式：$\displaystyle L_1(x) = y_k + \frac{y_{k+1} - y_k}{x_{k+1} - x_k}(x - x_k)$</li>
-<li>两点式：$\displaystyle L_1(x) = \frac{x - x_{k+1}}{x_k - x_{k+1}} y_k + \frac{x - x_k}{x_{k+1} - x_k} y_{k+1}$</li>
-</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>形式</th>
+          <th>表达式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>点斜式</td>
+          <td>$\displaystyle L_1(x) = y_k + \frac{y_{k+1} - y_k}{x_{k+1} - x_k}(x - x_k)$</td>
+      </tr>
+      <tr>
+          <td>两点式</td>
+          <td>$\displaystyle L_1(x) = \frac{x - x_{k+1}}{x_k - x_{k+1}} y_k + \frac{x - x_k}{x_{k+1} - x_k} y_{k+1}$</td>
+      </tr>
+  </tbody>
+</table></div>
 <p>由两点式可以看出，$L_1(x)$ 是由两个线性函数 </p>
 $$l_k(x) = \frac{x - x_{k+1}}{x_k - x_{k+1}}，l_2(x) = \frac{x - x_k}{x_{k+1} - x_k}$$<p> 的线性组合得到，系数分别为 $y_k$ 和 $y_{k+1}$，即 </p>
 $$L_1(x) = y_k l_k(x) + y_{k+1} l_{k+1}(x)$$<p>显然，$l_k(x)$ 和 $l_{k+1}(x)$ 也是线性插值多项式，并且在节点 $x_k$ 及 $x_{k+1}$ 上满足：</p>
@@ -695,11 +708,7 @@ $$\begin{matrix} & l_k(x_k) = 1 & l_k(x_{k+1}) = 0 \\ & l_{k+1}(x_k) = 0 & l_{k+
 $$L_2(x_j) = y_j，(j = k-1, k, k+1)$$<p>几何上 $L_2(x)$ 是通过3点 $(x_{k−1}, y_{k−1}), (x_k, y_k), (x_{k+1}, y_{k+1})$ 的抛物线。可以用基函数的方法求 $L_2(x)$ 的表达式，此时基函数 $l_{k−1}(x)$，$l_k(x)$，$l_{k+1}(x)$ 是二次函数，且在节点上分别满足条件：</p>
 $$\left\{\begin{matrix} l_{k-1}(x_{k-1})=1 & l_{k-1}(x_j) = 0 & (j=k,k+1) \\ l_k(x_k) = 1 & l_k(x_j) = 0 & (j=k-1,k+1) \\ l_{k+1}(x_{k+1}) = 1 & l_{k+1}(x_j) = 0 & (j=k-1, k)\end{matrix}\right.$$<p>其中
 </p>
-$$l_{k-1}(x) = \frac{(x-x_k)(x-x_{k+1})}{(x_{k-1}-x_k)(x_{k-1}-x_{k+1})}$$<p>
-</p>
-$$l_k(x) = \frac{(x-x_{k-1})(x-x_{k+1})}{(x_k-x_{k-1})(x_k-x_{k+1})}$$<p>
-</p>
-$$l_{k+1}(x) = \frac{(x-x_{k-1})(x-x_k)}{(x_{k+1}-x_{k-1})(x_{k+1}-x_k)}$$<blockquote class="alert alert-note">
+$$\begin{align*} l_{k-1}(x) &= \frac{(x-x_k)(x-x_{k+1})}{(x_{k-1}-x_k)(x_{k-1}-x_{k+1})} \\ l_k(x) &= \frac{(x-x_{k-1})(x-x_{k+1})}{(x_k-x_{k-1})(x_k-x_{k+1})} \\ l_{k+1}(x) &= \frac{(x-x_{k-1})(x-x_k)}{(x_{k+1}-x_{k-1})(x_{k+1}-x_k)} \end{align*}$$<blockquote class="alert alert-note">
         <div class="alert-header">
             <span class="alert-icon">📝</span>
             <span class="alert-title">备注</span>
@@ -818,7 +827,7 @@ $$\begin{align*} p_2(x) &= p_1(x) + f[x_0,x_1,x_2](x-x_0)(x-x_1) \\ &= f(x_0) + 
 
     </blockquote>
 <p>形如 $p_n(x) = a_0 + a_1(x-x_0) + \cdots + a_n(x-x_0)\cdots(x-x_{n-1})$ 且系数为 </p>
-$$a_k = f[x_0,\cdots,x_n]$$<p> 的多项式称为<strong>牛顿均差插值多项式</strong>，此时原式可写为：</p>
+$$a_k = f[x_0,\cdots,x_k]$$<p> 的多项式称为<strong>牛顿均差插值多项式</strong>，此时原式可写为：</p>
 $$f(x) = p_n(x) + R_n(x)$$<p> 其中 </p>
 $$p_n(x) = f(x_0) + \sum_{i=1}^{n}f[x_0,\cdots,x_i] \prod_{j=0}^{i-1}(x-x_j)$$<p> </p>
 $$R_n(x) = f(x) - p_n(x) = f[x,x_0,\cdots,x_n]\omega_{n+1}(x)$$
@@ -844,13 +853,9 @@ $$f_{n+k} = \sum_{j=0}^{n} \mathrm{C}_n^j \Delta^j f_k$$
     </blockquote>
 <p>均差和差分的关系：
 </p>
-$$f[x_k,x_{k+1}] = \frac{f_{k+1}-f_k}{x_{k+1}-x_k} = \frac{\Delta f_k}{h}$$<p>
-</p>
-$$f[x_k,x_{k+1},x_{k+2}] = \frac{f[x_{k+1},x_{k+2}] - f[x_k,x_{k+1}]}{x_{k+2} - x_k} = \frac{1}{2h^2} \Delta^2 f_k$$<p>一般地，</p>
-$$f[x_k,\cdots,x_{k+m}] = \frac{1}{m!} \frac{1}{h^m} \Delta^m f_k，(m=1,2,\cdots,n)$$<p>
-</p>
-$$\Delta^n f_k = h^n f^{(n)}(\xi)，\xi \in (x_k, x_{k+n})$$<p>在牛顿插值公式中，用差分代替均差，并令 $x = x_0+th$，则可得<strong>牛顿前插公式</strong> </p>
-$$p_n(x_0+th) = f_0 + t \Delta f_0 + \frac{t(t-1)}{2!} \Delta^2 f_0 + \cdots + \frac{t(t-1)\cdots(t-n+1)}{n!} \Delta^n f_0$$<p>，其余项为 </p>
+$$\begin{align*} f[x_k,x_{k+1}] &= \frac{f_{k+1}-f_k}{x_{k+1}-x_k} = \frac{\Delta f_k}{h} \\ f[x_k,x_{k+1},x_{k+2}] &= \frac{f[x_{k+1},x_{k+2}] - f[x_k,x_{k+1}]}{x_{k+2} - x_k} = \frac{1}{2h^2} \Delta^2 f_k \\ f[x_k,\cdots,x_{k+m}] &= \frac{1}{m!} \frac{1}{h^m} \Delta^m f_k，(m=1,2,\cdots,n) \end{align*}$$<p> 其中 $\Delta^n f_k = h^n f^{(n)}(\xi)，\xi \in (x_k, x_{k+n})$</p>
+<p>在牛顿插值公式中，用差分代替均差，并令 $x = x_0+th$，则可得<strong>牛顿前插公式</strong> </p>
+$$p_n(x_0+th) = f_0 + t \Delta f_0 + \frac{t(t-1)}{2!} \Delta^2 f_0 + \cdots + \frac{t(t-1)\cdots(t-n+1)}{n!} \Delta^n f_0$$<p> 其余项为 </p>
 $$R_n(x) = \frac{t(t-1)\cdots(t-n)}{(n+1)!} h^{n+1}f^{(n+1)}(\xi)，\xi \in (x_0,x_n)$$<figure class="geogebra-figure">
     
     <div class="geogebra-card" style="max-width: 700px;">

@@ -350,7 +350,31 @@
         <li><a href="#收敛阶">收敛阶</a></li>
       </ol>
     </li>
-    <li><a href="#斯特芬森迭代法">斯特芬森迭代法</a></li>
+    <li><a href="#迭代收敛的加速">迭代收敛的加速</a>
+      <ol>
+        <li><a href="#埃特金加速法">埃特金加速法</a></li>
+        <li><a href="#斯特芬森迭代法">斯特芬森迭代法</a></li>
+      </ol>
+    </li>
+    <li><a href="#牛顿迭代法">牛顿迭代法</a>
+      <ol>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#收敛性">收敛性</a></li>
+        <li><a href="#改进">改进</a>
+          <ol>
+            <li><a href="#简化牛顿法">简化牛顿法</a></li>
+            <li><a href="#牛顿下山法">牛顿下山法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#弦截法">弦截法</a></li>
+    <li><a href="#非线性方程组的迭代解法">非线性方程组的迭代解法</a>
+      <ol>
+        <li><a href="#牛顿迭代法-1">牛顿迭代法</a></li>
+        <li><a href="#不动点迭代">不动点迭代</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -559,7 +583,7 @@
 
 
                     <time class="article-time--reading">
-                        阅读时长: 4 分钟
+                        阅读时长: 8 分钟
                     </time>
                 
             </div>
@@ -596,7 +620,31 @@
         <li><a href="#收敛阶">收敛阶</a></li>
       </ol>
     </li>
-    <li><a href="#斯特芬森迭代法">斯特芬森迭代法</a></li>
+    <li><a href="#迭代收敛的加速">迭代收敛的加速</a>
+      <ol>
+        <li><a href="#埃特金加速法">埃特金加速法</a></li>
+        <li><a href="#斯特芬森迭代法">斯特芬森迭代法</a></li>
+      </ol>
+    </li>
+    <li><a href="#牛顿迭代法">牛顿迭代法</a>
+      <ol>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#收敛性">收敛性</a></li>
+        <li><a href="#改进">改进</a>
+          <ol>
+            <li><a href="#简化牛顿法">简化牛顿法</a></li>
+            <li><a href="#牛顿下山法">牛顿下山法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#弦截法">弦截法</a></li>
+    <li><a href="#非线性方程组的迭代解法">非线性方程组的迭代解法</a>
+      <ol>
+        <li><a href="#牛顿迭代法-1">牛顿迭代法</a></li>
+        <li><a href="#不动点迭代">不动点迭代</a></li>
+      </ol>
+    </li>
   </ol>
 
             </nav>
@@ -674,8 +722,86 @@ $$|\varphi'(x)| < 1$$<h3 id="局部收敛">局部收敛
 $$\lim_{k \to \infty} \frac{e_{k+1}}{(e_k)^p} = c，c \ne 0$$<p> 则称该迭代过程是 $p$ 阶收敛的。特别地，当 $p=1$（$|c|&lt;1$）时，称为线性收敛，$p&gt;1$ 时，称为超线性收敛，$p=2$ 时，称为平方收敛。</p>
 <p>对于迭代过程 $x_{k+1} = \varphi(x_k)$ 即正整数 $p$，如果 $\varphi^{(p)}(x)$ 在所求根 $x^*$ 的邻近连续，并且 </p>
 $$\begin{align*} \varphi'(x^*) = \varphi''(x^*) = &\cdots = \varphi^{(p-1)}(x^*) = 0 \\ \varphi^{(p)}(x^*) &\ne 0 \end{align*}$$<p> 则该迭代过程在点 $x^*$ 邻近是 $p$ 阶收敛的。迭代过程的收敛速度依赖于迭代函数 $\varphi(x)$ 的选取，若当 $x \in [a,b]$ 时 $\varphi'(x) \ne 0$ 则该迭代法只可能是线性收敛。</p>
-<h2 id="斯特芬森迭代法">斯特芬森迭代法
-</h2>
+<h2 id="迭代收敛的加速">迭代收敛的加速
+</h2><h3 id="埃特金加速法">埃特金加速法
+</h3><p>若迭代格式是线性收敛的，即有 </p>
+$$\lim_{k \to \infty} \frac{x_{k+1} - x^*}{x_k - x^*} = C$$<p> 则当 $k$ 充分大时，有 </p>
+$$\frac{x_{k+2}-x^*}{x_{k+1}-x^*} \approx \frac{x_{k+1}-x^*}{x_k-x^*}$$<p> 因此 </p>
+$$x^* \approx x_k - \frac{(x_{k+1}-x_k)^2}{x_{k+2}-2x_{k+1}+x_k}$$<p>一般的，记 </p>
+$$\overline{x}_{k+1} \approx x_k - \frac{(x_{k+1}-x_k)^2}{x_{k+2}-2x_{k+1}+x_k} = x_k - \frac{(\Delta x_k)^2}{\Delta^2 x_k}，k=0,1,\cdots$$<p> 称为埃特金 $\Delta^2$ 加速方法。当 $\{x_k\}$ 线性收敛时，可以证明 </p>
+$$\lim_{k \to \infty} \frac{\overline{x}_{k+1} - x^*}{x_k - x^*} = 0$$<p> 它表明序列 $\{\overline{x}_k\}$ 的收敛速度比 $\{x_k\}$ 的更快。</p>
+<h3 id="斯特芬森迭代法">斯特芬森迭代法
+</h3><p>若存在迭代 $x_{k+1} = \varphi(x_k)$，则称 </p>
+$$\left\{\begin{align*} y_k &= \varphi(x_k), z_k = \varphi(y_k) \\ x_{k+1} &= x_k - \frac{(y_k - x_k)^2}{z_k - 2y_k + x_k}\end{align*} \quad k=0,1,2,\cdots\right.$$<p> 为斯特芬森迭代法。</p>
+<p>设 $x^* = \varphi(x^*)$，$\varphi(x)$ 在包含 $x^*$ 的某个开区间内具有连续的二阶导数且 $\varphi'(x^*) \ne 1$，则斯特芬森迭代法至少二阶收敛。</p>
+<h2 id="牛顿迭代法">牛顿迭代法
+</h2><h3 id="原理">原理
+</h3><p>基本思路：将非线性方程 $f(x) = 0$ 线性化。</p>
+
+    <blockquote>
+        <p>假设方程 $f(x) = 0$ 有根 $x_k$，将 $f(x)$ 在 $x_k$ 处展开，则有 </p>
+$$f(x) \approx f(x_k) + f'(x_k)(x-x_k)$$<p> 所以 $f(x) = 0$ 可近似表示为 $f(x_k) + f'(x_k)(x-x_k) = 0$，化简得到 </p>
+$$x = x_k - \frac{f(x_k)}{f'(x_k)}$$
+    </blockquote>
+<p>迭代公式为 </p>
+$$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}，k=0,1,\cdots$$<h3 id="收敛性">收敛性
+</h3><p>牛顿迭代法在 $x^*$ 附近至少平方收敛。</p>
+
+    <blockquote>
+        <p>对于牛顿迭代法，记 </p>
+$$\varphi(x) = x - \frac{f(x)}{f'(x)}$$<p> 则有 </p>
+$$\varphi'(x) = \frac{f(x)f''(x)}{(f'(x))^2}$$<p> 设 $f'(x^*) \ne 0$，由于 $f(x^*) = 0$，所以 $\varphi'(x^*) = 0$</p>
+
+    </blockquote>
+<h3 id="改进">改进
+</h3><p>牛顿迭代法存在的问题：</p>
+<ul>
+<li>每步计算都需要计算 $f'(x)$，计算量大，且当 $f'(x)$ 没有解析形式时，计算困难。</li>
+<li>对初始值 $x_0$ 的选择敏感。只有当 $x_0$ 很接近 $x^*$ 时，才能保证收敛。</li>
+</ul>
+<h4 id="简化牛顿法">简化牛顿法
+</h4><p>将牛顿迭代法 $\displaystyle \varphi(x) = x - \frac{f(x)}{f'(x)}$ 中的 $f'(x)$ 用常数 $C$ 代替。为了在 $x^*$ 附近有更好的收敛性，令 </p>
+$$|\varphi'(x^*)| = \left|1-\frac{f(x^*)}{C}\right| = 0$$<p> 得 $C = f'(x^*)$。实际取 $C = f'(x_0)$。</p>
+<p>称这种迭代法为平行弦法。不同于牛顿法，简化牛顿法为线性收敛。</p>
+<h4 id="牛顿下山法">牛顿下山法
+</h4>
+    <blockquote>
+        <p>为了防止迭代发散，对迭代过程再附加一项要求，即具有单调性：</p>
+$$|f(x_{k+1})| < |f(x_k)|$$<p> 满足这项要求的算法称下山法。</p>
+
+    </blockquote>
+<p>牛顿下山法在下山法保证函数值稳定下降的前提下，用牛顿法加快收敛速度：先用牛顿法计算 $\overline{x}_{k+1}$，再对 $x_k$ 和 $\overline{x}_{k+1}$ 加权平均得到新的 $x_{k+1}$。即 </p>
+$$\begin{align*} \overline{x}_{k+1} &= x_k - \frac{f(x_k)}{f'(x_k)} \\ x_{k+1} &= \lambda \overline{x}_{k+1} + (1-\lambda)x_k，0<\lambda \leqslant 1 \\ |f(x_{k+1})| &< |f(x_k)|\end{align*}$$<p>对于 $\lambda$，初始令 $\lambda=1$，之后逐次将 $\lambda$ 减半，直到 $|f(x_{k+1})| &lt; |f(x_k)|$ 成立。</p>
+<h2 id="弦截法">弦截法
+</h2><p>使用牛顿法计算 $f'(x_k)$ 需要用到导函数的解析形式，而且计算量大；使用简化牛顿法，收敛性为线性收敛。因此可以使用差分 </p>
+$$f[x_{k-1},x_k] = \frac{f(x_k) - f(x_{k-1})}{x_k - x_{k-1}}$$<p> 近似 $f'(x_k)$ 由此得到弦截法的迭代公式：</p>
+$$x_{k+1} = x_k - f(x_k) \cdot \frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}$$<p>相对于牛顿迭代，弦截法不需要导数的显示表达式，计算相对简单。但是弦截法需要2个初值才可以开始计算。</p>
+<p>弦截法在计算 $x_{k+1}$ 时，除了跟 $x_k$ 相关外，还跟前一步的值 $x_{k-1}$ 相关，称这种格式为多步格式。牛顿迭代中，计算 $x_{k+1}$ 只与 $x_k$ 相关，称为单步格式。</p>
+<h2 id="非线性方程组的迭代解法">非线性方程组的迭代解法
+</h2><p>设 $f_1, f_2, \cdots, f_n$ 均为 $(x_1,x_2,\cdots,x_n)$ 的多元函数。若 $f_1, f_2, \cdots, f_n$ 中至少有一个是自变量 $x_i$（$i=1,2,\cdots,n$）的非线性函数，则称该方程组 </p>
+$$\left\{\begin{array}{c} f_1(x_1,x_2,\cdots,x_n) = 0 \\ f_2(x_1,x_2,\cdots,x_n) = 0 \\ \vdots \\ f_n(x_1,x_2,\cdots,x_n) = 0 \end{array}\right.$$<p> 为线性方程组。</p>
+<p>记 $\bm{x} = [x_1,x_2,\cdots,x_n]^T \in \mathbb{R}^n$，$\bm{F} = [f_1,f_2,\cdots,f_n]^T$，则上述方程组可以写为 </p>
+$$\bm{F}(\bm{x}) = \bm{0}$$<h3 id="牛顿迭代法-1">牛顿迭代法
+</h3><p>将 $f_1, f_2, \cdots, f_n$ 在 $\bm{x}^{(k)} = [x_1^{(k)}, x_2^{(k)}, \cdots, x_n^{(k)}]^T$ 附近做一阶泰勒展开，有
+</p>
+$$\left\{\begin{align*} f_1(x^{(k)}) + \Delta x_i^{(k)} \cdot \frac{\partial f_1(\bm{x}^{(k)})}{\partial x_i} + &\cdots + \Delta x_n^{(k)} \cdot \frac{\partial f_1(\bm{x}^{(k)})}{\partial x_n} = 0 \\ f_2(x^{(k)}) + \Delta x_i^{(k)} \cdot \frac{\partial f_2(\bm{x}^{(k)})}{\partial x_i} + &\cdots + \Delta x_n^{(k)} \cdot \frac{\partial f_2(\bm{x}^{(k)})}{\partial x_n} = 0 \\ &\vdots \\ f_n(x^{(k)}) + \Delta x_i^{(k)} \cdot \frac{\partial f_n(\bm{x}^{(k)})}{\partial x_i} + &\cdots + \Delta x_n^{(k)} \cdot \frac{\partial f_n(\bm{x}^{(k)})}{\partial x_n} = 0\end{align*}\right.$$<p>
+其中 $\Delta x_i^{(k)} = x_i - x_i^{(k)}$，$i=1,2,\cdots,n$。</p>
+<p>令 $\Delta \bm{x}^{(k)} = \bm{x} - \bm{x}^{(k)} = [\Delta x_1, \Delta x_2, \cdots, \Delta x_n]^T$，则 $\bm{F}$ 的雅可比矩阵 </p>
+$$\bm{F}'(\bm{x}) = \left[\begin{matrix} \dfrac{\partial f_1(\bm{x})}{\partial x_1} & \dfrac{\partial f_1(\bm{x})}{\partial x_2} & \cdots & \dfrac{\partial f_1(\bm{x})}{\partial x_n} \\ \dfrac{\partial f_2(\bm{x})}{\partial x_1} & \dfrac{\partial f_2(\bm{x})}{\partial x_2} & \cdots & \dfrac{\partial f_2(\bm{x})}{\partial x_n} \\ \vdots & \vdots & & \vdots \\ \dfrac{\partial f_n(\bm{x})}{\partial x_1} & \dfrac{\partial f_n(\bm{x})}{\partial x_2} & \cdots & \dfrac{\partial f_n(\bm{x})}{\partial x_n}\end{matrix}\right]$$<p> 上述方程可化为：</p>
+$$\bm{F}(\bm{x}^{(k)}) + \bm{F}'(\bm{x}^{(k)})\Delta \bm{x}^{(k)} = \bm{0}$$<p>求解出 $\Delta \bm{x}^{(k)}$ 后，再令 </p>
+$$\bm{x}^{(k+1)} = \bm{x}^{(k)} + \Delta \bm{x}^{(k)}$$<p> 综合可得 </p>
+$$\bm{x}^{(k+1)} = \bm{x}^{(k)} - \bm{F}'(\bm{x}^{(k)})^{-1}\bm{F}(\bm{x}^{(k)})，k=0,1,\cdots$$<h3 id="不动点迭代">不动点迭代
+</h3><p>为求方程组 $\bm{F}(\bm{x}) = \bm{0}$，将它改为迭代形式 $\bm{x} = \Phi(\bm{x})$ 其中向量函数 $\Phi \in D \subset \mathbb{R}^n$，且在定义域 $D$ 连续，如果 $\bm{x}^* = \Phi(\bm{x}^*)$，则称 $\bm{x}^*$ 为 $\Phi$ 的不动点。根据 $\bm{x} = \Phi(\bm{x})$ 可构造迭代格式 $\bm{x}^{(k+1)} = \varphi(\bm{x}^{(k)})，k=0,1,\cdots$。</p>
+<p>关于其收敛性，类似于一元非线性函数的压缩映象原理，有如下定理：函数 $\Phi$ 定义在区域 $D \subset \mathbb{R}^n$，设：</p>
+<ul>
+<li>存在 $D_0 \subset D$，$\forall \bm{x} \in D_0$，有 $\Phi(\bm{x}) \in D_0$；</li>
+<li>存在常数 $0 &lt; L &lt; 1$，$\forall \bm{x},\bm{y} \in D_0$ 有
+$$||\Phi(\bm{x}) - \Phi(\bm{y})|| \leqslant L ||\bm{x} - \bm{y}||$$</li>
+</ul>
+<p>则 $\Phi(\bm{x})$ 在 $D_0$ 存在唯一不动点 $x^*$，且 $\forall \bm{x}^{(0)} \in D_0$，由 $\bm{x}^{(k+1)} = \Phi(\bm{x})^{(k)}$ 得到的序列 $\{\bm{x}^{(k)}\}$ 有 $\displaystyle \lim_{k \to \infty} \bm{x}^{(k)} = \bm{x}^*$，并有误差估计 </p>
+$$||\bm{x}^{(k)} - \bm{x}^*|| \leqslant \frac{L^k}{1-L}||\bm{x}^{(1)} - \bm{x}^{(0)}||$$<p>设 $\Phi$ 在定义域内有不动点 $x^*$，$\Phi$ 的分量函数有连续偏导且 </p>
+$$\rho(\Phi'(\bm{x}^*)) < 1$$<p> 则存在 $x^*$ 的一个邻域 $S$，对任意的 $\bm{x}^{(0)} \in S$，迭代法 $\bm{x}^{(k+1)} = \Phi(x)^{(k)}$ 产生的序列均收敛于 $\bm{x}^*$。</p>
+
 </section>
 
 
