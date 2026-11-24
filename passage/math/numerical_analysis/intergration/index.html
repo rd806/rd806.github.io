@@ -734,14 +734,14 @@ $$\int_a^b f(x) \mathrm{d}x \approx \sum_{k=0}^n A_k f(x_k)$$<p> 式中，$x_k$ 
 <li>适合在计算机上使用但是数值积分法是近似方法，为了保证精度，自然希望求积公式能对“尽可能多”函数准确成立。</li>
 </ul>
 <h3 id="代数精度">代数精度
-</h3><p>如果某个求积公式对于一切次数不超过 $m$ 的多项式 $f(x) = a_0 + a_1 x + a_2 x^ + \cdots + a_m x^m$ 能准确成立，而对于次数为 $m+1$ 的多项式不准确成立，则称该求积公式具有 $m$ 次代数精度（代数精确度）。</p>
+</h3><p>如果某个求积公式对于一切次数不超过 $m$ 的多项式 $f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_m x^m$ 能准确成立，而对于次数为 $m+1$ 的多项式不准确成立，则称该求积公式具有 $m$ 次代数精度（代数精确度）。</p>
 
     <blockquote>
         <p>梯形公式和矩形公式均具有一次代数精度。</p>
 
     </blockquote>
-<p>一般地，欲使机械求积公式具有 $m$ 次代数精度，只要令它对于 $f(x) = a_0 + a_1 x + a_2 x^ + \cdots + a_m x^m$ 都能准确地成立，这就要求 </p>
-$$\left\{ \begin{array}{c}\begin{align*} \displaystyle \sum_{k=0}^n A_k x_k^0 &= \sum_{k=0}^n A_k = b-a \\ \displaystyle \sum_{k=0}^n A_k x_k &= \frac{b^2 - a^2}{2} \\ \cdots \\ \displaystyle \sum_{k=0}^n A_k x_k^m &= \frac{b^{m+1}-a^{m+1}}{m+1} \end{align*}\end{array}\right.$$<p>如果事先选定求积节点 $x_k$，例如 以区间 $[a,b]$ 的等距分点作为节点，这时取 $m=n$ 求解上述方程组即可确定求积系数 $A_k$，而使求积公式至少具有 $n$ 次代数精度。</p>
+<p>一般地，欲使机械求积公式具有 $m$ 次代数精度，只要令它对于 $f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_m x^m$ 都能准确地成立，这就要求 </p>
+$$\left\{ \begin{array}{c}\begin{align*} \displaystyle \sum_{k=0}^n A_k x_k^0 &= \int_a^b 1 \mathrm{d}x = b-a \\ \displaystyle \sum_{k=0}^n A_k x_k &= \int_a^b x \mathrm{d}x = \frac{b^2 - a^2}{2} \\ & \cdots \\ \displaystyle \sum_{k=0}^n A_k x_k^m &= \int_a^b x^m \mathrm{d}x = \frac{b^{m+1}-a^{m+1}}{m+1} \end{align*}\end{array}\right.$$<p>如果事先选定求积节点 $x_k$，例如 以区间 $[a,b]$ 的等距分点作为节点，这时取 $m=n$ 求解上述方程组即可确定求积系数 $A_k$，而使求积公式至少具有 $n$ 次代数精度。</p>
 <p>为了构造出形如上述求积公式的问题，原则上是确定参数 $x_k$ 和 $A_k$ 的代数问题。</p>
 <h3 id="插值型的求积公式">插值型的求积公式
 </h3><h4 id="定义">定义
@@ -767,30 +767,79 @@ $$R[f] = \int_a^b f(x) \mathrm{d}x - \sum_{k=0}^n A_k f(x_k) = K f^{(m+1)}(\eta)
 $$K = \frac{1}{(m+1)!}\left[\int_a^b x^{m+1} \mathrm{d}x - \sum_{k=0}^n A_k x_k^{m+1}\right] = \frac{1}{(m+1)!}\left[\frac{1}{m+2}(b^{m+2} - a^{m+2}) - \sum_{k=0}^n A_k x_k^{m+1}\right]$$<h3 id="求积公式的收敛性与稳定性">求积公式的收敛性与稳定性
 </h3><p>在求积公式中，若 </p>
 $$\lim_{\substack{n \to \infty \\ h \to 0}} \sum_{k=0}^n A_k f(x_k) = \int_a^b f(x) \mathrm{d}x$$<p> 其中 $\displaystyle h=\max_{1 \leqslant i \leqslant n}\{x_i - x_{i-1}\}$，则称求积公式是收敛的。</p>
-<p>对 $\forall \varepsilon &gt; 0$，若 $\exist \delta &gt; 0$，只要 $|f(x_k) - \tilde{f_k}| \leqslant \delta (k=0,1,\cdots,n)$ 式成立，则称求积公式是稳定的 </p>
-$$|I_n(f) - I_n(\tilde{f})| = \left|\sum_{k=0}^n A_k[f(x_k) - \tilde{f_k}]\right| \leqslant \varepsilon$$<p>若求积公式中系数 $A_k &gt; 0 (k=0,1,\cdots,n)$，则此求积公式是稳定的。</p>
+<p>对 $\forall \varepsilon &gt; 0$，若 $\exist \delta &gt; 0$，只要 $|f(x_k) - \tilde{f}_k| \leqslant \delta (k=0,1,\cdots,n)$ 式成立，则称求积公式是稳定的 </p>
+$$|I_n(f) - I_n(\tilde{f})| = \left|\sum_{k=0}^n A_k[f(x_k) - \tilde{f}_k]\right| \leqslant \varepsilon$$<p>若求积公式中系数 $A_k &gt; 0 (k=0,1,\cdots,n)$，则此求积公式是稳定的。</p>
 <h2 id="牛顿-柯特斯公式">牛顿-柯特斯公式
 </h2><h3 id="柯特斯系数与辛普森公式">柯特斯系数与辛普森公式
 </h3><p>设将积分区间 $[a,b]$ 划分为 $n$ 等分，步长为 $\displaystyle h=\frac{b-a}{n}$，选取节点是等距时 $x_k = a + kh$ 构造出的插值型求积公式：</p>
 $$I_n = (b-a) \sum_{k=0}^n C_k^{(n)} f(x_k)$$<p> 该式为牛顿-柯特斯求积公式，$C_k^{(n)}$ 称为柯特斯系数。</p>
-<p>引进变换 $x=a+th$，则有 $\displaystyle n = \frac{b-a}{h}$ 且 </p>
-$$(b-a) C_k^{(n)} = \frac{h(-1)^{n-k}}{k!(n-k)!} \int_0^n \prod_{\substack{j=0 \\ j \ne k}}^n (t-j) \mathrm{d}t$$<p> </p>
-$$C_k^{(n)} =\frac{(-1)^{n-k}}{nk!(n-k)!} \int_0^n \prod_{\substack{j=0 \\ j \ne k}}^n (t-j) \mathrm{d}t $$<ul>
+<p>引进变换 $x=a+th$，则有 $\displaystyle n = \frac{b-a}{h}$，且
+</p>
+$$\begin{align*}(b-a) C_k^{(n)} &= \frac{h(-1)^{n-k}}{k!(n-k)!} \int_0^n \prod_{\substack{j=0 \\ j \ne k}}^n (t-j) \mathrm{d}t \\ \Rightarrow C_k^{(n)} &= \frac{(-1)^{n-k}}{nk!(n-k)!} \int_0^n \prod_{\substack{j=0 \\ j \ne k}}^n (t-j) \mathrm{d}t \end{align*}$$<ul>
 <li>当 $n=1$ 时，$\displaystyle C_0^{(1)} = C_1^{(1)} = \frac{1}{2}$，此时求积公式就是梯形公式。</li>
 <li>当 $n=2$ 时，这时的柯特斯系数为 $\displaystyle C_0^{(2)} = \frac{1}{6}$，$\displaystyle C_1^{(2)} = \frac{4}{6}$，$\displaystyle C_2^{(2)} = \frac{1}{6}$，求积公式就是下列辛普森公式：
 $$S = \frac{b-a}{6}\left[f(a) + 4f\left(\frac{a+b}{2}\right) + f(b)\right]$$</li>
-<li>当 $n=4$ 时，则特化为科特斯公式：
+<li>当 $n=4$ 时，则特化为柯特斯公式：
 $$C = \frac{b-a}{90}[7f(x_0) + 32f(x_1) + 12f(x_2) + 32f(x_3) + 7f(x_4)]$$其中 $x_k=a+kh$，$\displaystyle h=\frac{b-a}{4}$</li>
 </ul>
+<p>部分柯特斯公式的系数如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>$$n$$</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$$1$$</td>
+          <td>$$\frac{1}{2}$$</td>
+          <td>$$\frac{1}{2}$$</td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$2$$</td>
+          <td>$$\frac{1}{6}$$</td>
+          <td>$$\frac{2}{3}$$</td>
+          <td>$$\frac{1}{6}$$</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$3$$</td>
+          <td>$$\frac{1}{8}$$</td>
+          <td>$$\frac{3}{8}$$</td>
+          <td>$$\frac{3}{8}$$</td>
+          <td>$$\frac{1}{8}$$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$$4$$</td>
+          <td>$$\frac{7}{90}$$</td>
+          <td>$$\frac{16}{45}$$</td>
+          <td>$$\frac{2}{15}$$</td>
+          <td>$$\frac{16}{45}$$</td>
+          <td>$$\frac{7}{90}$$</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>当阶 $n$ 为偶数时，牛顿-柯特斯公式至少有 $n+1$ 次代数精度。</p>
 
     <blockquote>
-        <p>当阶 $n$ 为偶数时，牛顿-柯特斯公式至少有 $n+1$ 次代数精度。</p>
+        <p>当 $n \geqslant 8$ 时，柯特斯系数存在负值，此时牛顿-柯特斯公式不再适用。</p>
 
     </blockquote>
 <h3 id="辛普森公式的余项">辛普森公式的余项
-</h3><p>对牛顿-科斯特求积公式通常只用 $n = 1,2,4$ 时的三个公式。对 $n=2$ 即辛普森公式，其代数精度为 $3$，余项可表达为 </p>
+</h3><p>对牛顿-柯斯特求积公式通常只用 $n = 1,2,4$ 时的三个公式。</p>
+<p>对 $n=2$ 即辛普森公式，其代数精度为 $3$，余项可表达为 </p>
 $$R[f] = -\frac{b-a}{180}\left(\frac{b-a}{2}\right)^4 f^{(4)}(\eta)，\eta \in (a,b)$$<p>对 $n=4$ 的柯特斯公式，其代数精度为 $5$，可得它的的余项为 </p>
-$$r[f] = -\frac{2(b-a)}{945}\left(\frac{b-a}{4}\right)^6 f^{(4)}(\eta)，\eta \in (a,b)$$<figure class="geogebra-figure">
+$$R[f] = -\frac{2(b-a)}{945}\left(\frac{b-a}{4}\right)^6 f^{(6)}(\eta)，\eta \in (a,b)$$<figure class="geogebra-figure">
     
     <div class="geogebra-card" style="max-width: 700px;">
         <div class="geogebra-header">
@@ -853,7 +902,7 @@ $$R_n[f] = -\frac{h}{180} \left(\frac{h}{2}\right)^4 \sum_{k=0}^{n-1} f^{(4)} (\
 </ul>
 <p>在实际计算中通常采用变步长的方法，即把步长逐次分半，直至达到某种精度为止。</p>
 <h3 id="变步长梯形公式">变步长梯形公式
-</h3><p>变步长复合求积法的是在求积过程中，通过对计算结果精度的不断估计，逐步改变步长（逐次分半），直至满足精度要求为止。即按照给定的精度实现步长的自动选取。</p>
+</h3><p>变步长复合求积法：在求积过程中，通过对计算结果精度的不断估计，逐步改变步长（逐次分半），直至满足精度要求为止。即按照给定的精度实现步长的自动选取。</p>
 <p>将区间 $[a,b]$ 划分为 $n$ 等份（分为 $n$ 个子区间），共有 $n+1$ 个节点，即 $x=a_kh$，$k=0,1,\cdots,n$，步长 $\displaystyle h=\frac{b-a}{n}$</p>
 
     <blockquote>
@@ -907,27 +956,28 @@ $$T_{2n} = \frac{T_n}{2} + \frac{h}{2} \sum_{k=0}^{n-1} f(x_{k+\frac{1}{2}})，(
   <tbody>
       <tr>
           <td style="text-align: center">梯形加速公式</td>
-          <td style="text-align: center">$\displaystyle S_n = T_{2n} + \frac{T_{2n}-T_n}{3}$</td>
+          <td style="text-align: center">$$S_n = T_{2n} + \frac{T_{2n}-T_n}{3}$$</td>
       </tr>
       <tr>
           <td style="text-align: center">辛普森加速公式</td>
-          <td style="text-align: center">$\displaystyle C_n = S_{2n} + \frac{S_{2n}-S_n}{15}$</td>
+          <td style="text-align: center">$$C_n = S_{2n} + \frac{S_{2n}-S_n}{15}$$</td>
       </tr>
       <tr>
           <td style="text-align: center">龙贝格求积公式</td>
-          <td style="text-align: center">$\displaystyle R_n = C_{2n} + \frac{C_{2n}-C_n}{63}$</td>
+          <td style="text-align: center">$$R_n = C_{2n} + \frac{C_{2n}-C_n}{63}$$</td>
       </tr>
   </tbody>
 </table></div>
 <ol start="4">
-<li>精度控制，当相邻两次积分值
+<li>精度控制：当相邻两次积分值
 $$|R_{2n} - R_n| < \varepsilon$$（其中 $\varepsilon$ 为允许的误差限）则终止计算并取 $R_n$，否则继续计算。</li>
 </ol>
 <h4 id="方法二">方法二
 </h4><p>设 $T_{m}^{(k)}$ 表示序列 $\{T_0^{(k)}\}$ 第 $m$ 次加速值，则按照递推公式有 </p>
 $$T_{m}^{(k)} = \frac{4^m}{4^m-1}T_{m-1}^{(k+1)} - \frac{1}{4^m-1}T_{m-1}^{(k)}，k=1,2\cdots$$<ol>
 <li>取 $k=0$，$h=b-a$，求 $\displaystyle T_0^{(0)} = \frac{h}{2}[f(a) + f(b)]$，令 $1 \rightarrow k$（$k$ 为区间 $[a,b]$ 的二分次数）</li>
-<li>使用梯形公式计算积分近似值 $T_0^{(k)}$，即：$\displaystyle T_0 \left(\frac{b-a}{2^k} \right)$</li>
+<li>使用梯形公式计算积分近似值
+$$T_0^{(k)} = T_0 \left(\frac{b-a}{2^k} \right)$$</li>
 <li>按加速公式求出 $T$ 表的第 $k$ 行的下三角元素 $T_j^{k-j}$ $(j=1,2,\cdots,k)$</li>
 <li>若满足
 $$|T_k^{(0)} - T_{k-1}^{(0)}| \leqslant \varepsilon$$（$\varepsilon &gt; 0$ 为预先给定阈值）则终止计算，并取 $I \approx T_k^{(0)}$；否则继续计算。</li>
@@ -971,15 +1021,14 @@ $$|T_k^{(0)} - T_{k-1}^{(0)}| \leqslant \varepsilon$$（$\varepsilon &gt; 0$ 为
 </script>
 
 <h2 id="高斯求积公式">高斯求积公式
-</h2><p>在建立牛顿-柯特斯公式时，为了简化计算，对插值公式中的节点限定为等分的节点，然后再定求积系数这种方法虽然简单，但求积公式的精度受到限制。</p>
-<p>只要适当选择求积节点，可使插值型求积公式的代数精度达到最高。</p>
+</h2><p>在建立牛顿-柯特斯公式时，为了简化计算，对插值公式中的节点限定为等分的节点，然后再定求积系数。这种方法虽然简单，但求积公式的精度受到限制。只要适当选择求积节点，可使插值型求积公式的代数精度达到最高。</p>
 <p>对于一般的带权插值求积公式：</p>
 $$\int_a^b f(x) \rho(x) \mathrm{d}x \approx \sum_{k=0}^n A_k f(x_k)$$<p> 其中 $\rho(x)$ 为权函数，只要适当选取 $2n+2$ 个待定参数 $x_k$ 和 $A_k$（$k=0,1,\cdots,n$），就可以使它的代数精度达到 $2n+1$ 次。</p>
-<p>如果求积公式具有 $2n+1$ 次代数精度，则称其节点 $x_k (k=0,1,\cdots,n)$ 为高斯点，相应公式称为高斯型求积公式。</p>
+<p>如果求积公式具有 $2n+1$ 次代数精度，则称其节点 $x_k$ $(k=0,1,\cdots,n)$ 为高斯点，相应公式称为高斯型求积公式。</p>
 <p>插值型求积公式的节点 $a \leqslant x_0 &lt; x_1 &lt; \cdots &lt; x_n \leqslant b$ 是高斯点的充分必要条件是以这些节点为零点的多项式 </p>
 $$\omega_{n+1}(x) = (x-x_0)(x-x_1)\cdots(x-x_n)$$<p> 与任何次数不超过 $n$ 的多项式 $p(x)$ 带权 $\rho(x)$ 正交，即 </p>
 $$\int_a^b p(x)\omega_{n+1}(x) \rho(x) \mathrm{d}x = 0$$<p>该定理表明：在 $[a,b]$ 上带权 $\rho(x)$ 的 $n+1$ 次正交多项式的零点就是求积公式的高斯点。</p>
-<p>高斯求积公式是稳定和收敛的。</p>
+<p>高斯求积公式的求积系数 $A_k$ $(k=0,1,\cdots,n)$ 均为正数，它是稳定和收敛的。</p>
 
 </section>
 

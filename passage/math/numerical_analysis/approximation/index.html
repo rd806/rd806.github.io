@@ -694,11 +694,32 @@ $$\varphi(x) \in \Phi = \text{span}\{\varphi_0, \varphi_1, \cdots, \varphi_n\}$$
 <p>则称 $||\cdot||$ 为线性空间 $S$ 上的范数，$S$ 与 $||\cdot||$ 一起称为赋范线性空间，记为 $\text{X}$。</p>
 <p>对 $\mathbb{R}^n$ 上的向量 $\bm{X} = (x_1, x_2, \cdots, x_n)^T$，$n$ 范数定义如下：</p>
 $$||x||_n = \left( \sum_{i=0}^n |x_i|^n \right)^{\frac{1}{n}}$$<p> 有三种常用范数：</p>
-<ul>
-<li>$\infty-$ 范数（最大范数）：$\displaystyle ||x||_{\infty} = \max_{1 \leqslant i \leqslant n} |x_i|$</li>
-<li>$1-$ 范数：$\displaystyle ||x||_1 = \sum_{i=1}^n |x_i|$</li>
-<li>$2-$ 范数：$\displaystyle ||x||_2 = \left(\sum_{i=1}^n x_i^2\right)^{\frac{1}{2}}$</li>
-</ul>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>范数</th>
+          <th>定义</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\infty-$ 范数（最大范数）</td>
+          <td>$\displaystyle \lvert\lvert x \lvert\lvert_{\infty} = \max_{1 \leqslant i \leqslant n} \lvert x_i \lvert$</td>
+          <td>向量分量的绝对值最大值</td>
+      </tr>
+      <tr>
+          <td>$1-$ 范数</td>
+          <td>$\displaystyle \lvert\lvert x \lvert\lvert_1 = \sum_{i=1}^n \lvert x_i \lvert$</td>
+          <td>向量分量的绝对值之和</td>
+      </tr>
+      <tr>
+          <td>$2-$ 范数</td>
+          <td>$\displaystyle \lvert\lvert x \lvert\lvert_2 = \left(\sum_{i=1}^n x_i^2\right)^{\frac{1}{2}}$</td>
+          <td>向量分量的绝对值平方和的算术平方根</td>
+      </tr>
+  </tbody>
+</table></div>
 <p>对 $C[a,b]$ 上的 $f(x)$，可定义 $n$ 范数：</p>
 $$||x||_n = \left( \int_a^b f^n(x) \mathrm{d}x \right)^{\frac{1}{n}}$$<h3 id="内积与内积空间">内积与内积空间
 </h3><h4 id="向量的内积">向量的内积

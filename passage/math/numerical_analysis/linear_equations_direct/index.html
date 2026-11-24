@@ -349,6 +349,7 @@
             <li><a href="#数值解法">数值解法</a></li>
           </ol>
         </li>
+        <li><a href="#矩阵范数">矩阵范数</a></li>
       </ol>
     </li>
     <li><a href="#高斯消元法">高斯消元法</a>
@@ -619,6 +620,7 @@
             <li><a href="#数值解法">数值解法</a></li>
           </ol>
         </li>
+        <li><a href="#矩阵范数">矩阵范数</a></li>
       </ol>
     </li>
     <li><a href="#高斯消元法">高斯消元法</a>
@@ -727,6 +729,32 @@ $$x_k = \frac{\left| \begin{matrix} a_1 & \cdots & b_1 & \cdots & a_{1n} \\ a_2 
 </ul>
 </li>
 </ul>
+<h3 id="矩阵范数">矩阵范数
+</h3><p>设 $||\cdot||_v$ 是 $\mathbb{R}^n$ 上的一个<a class="link" href="/passage/math/numerical_analysis/approximation#%e8%8c%83%e6%95%b0%e4%b8%8e%e8%b5%8b%e8%8c%83%e7%ba%bf%e6%80%a7%e7%a9%ba%e9%97%b4" >向量范数</a>，则由 </p>
+$$||\bm{A}||_v = \max_{\bm{x} \ne \bm{0}} \frac{||\bm{Ax}||_v}{||\bm{x}||_v} = \max_{||\bm{x}||_v = 1} ||\bm{Ax}||_v$$<p> 定义的量称为 $\bm{A}$ 的与向量范数 $||\cdot||_v$ 相容的矩阵范数，简称从属范数。</p>
+<p>设 $\bm{x} \in \mathbb{R}^n$，$\bm{A} \in \mathbb{R}^{n \times n}$，则：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>范数</th>
+          <th>定义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>行范数（$\infty-$ 范数）</td>
+          <td>$\displaystyle \lvert\lvert\bm{A}\lvert\lvert_{\infty} = \max_{1 \leqslant i \leqslant n} \sum_{j=1}^n \lvert a_{ij} \lvert$</td>
+      </tr>
+      <tr>
+          <td>列范数（$1-$ 范数）</td>
+          <td>$\displaystyle \lvert\lvert\bm{A}\lvert\lvert_1 = \max_{1 \leqslant j \leqslant n} \sum_{i=1}^n \lvert a_{ij} \lvert$</td>
+      </tr>
+      <tr>
+          <td>$2-$ 范数</td>
+          <td>$\displaystyle \lvert\lvert \bm{A} \lvert\lvert_2 = \sqrt{\lambda_{\max}(\bm{A}^T\bm{A})}$，其中 $\lambda_{\max}(\bm{A}^T\bm{A})$ 表示 $\bm{A}^T\bm{A}$ 的最大特征值</td>
+      </tr>
+  </tbody>
+</table></div>
 <h2 id="高斯消元法">高斯消元法
 </h2><p>高斯消元法适用于低阶稠密方程组，主要特点：将一般矩阵变为三角矩阵后再代入求解。</p>
 <h3 id="基本思想">基本思想
